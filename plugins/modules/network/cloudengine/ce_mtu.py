@@ -139,7 +139,7 @@ changed:
 import re
 import copy
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import ce_argument_spec, load_config
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import ce_argument_spec, load_config
 from ansible.module_utils.connection import exec_command
 
 

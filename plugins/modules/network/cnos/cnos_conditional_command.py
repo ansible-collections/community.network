@@ -51,7 +51,7 @@ description:
     more devices, it is recommended to use this module. This module uses SSH to
     manage network device configuration.
 extends_documentation_fragment:
-- community.general.cnos
+- community.network.cnos
 
 options:
     clicommand:
@@ -108,7 +108,7 @@ import time
 import re
 import os
 try:
-    from ansible_collections.community.general.plugins.module_utils.network.cnos import cnos
+    from ansible_collections.community.network.plugins.module_utils.network.cnos import cnos
     HAS_LIB = True
 except Exception:
     HAS_LIB = False

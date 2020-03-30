@@ -14,7 +14,7 @@ DOCUMENTATION = '''
 ---
 module: onyx_command
 extends_documentation_fragment:
-- community.general.onyx
+- community.network.onyx
 
 author: "Samer Deeb (@samerd)"
 short_description: Run commands on remote devices running Mellanox ONYX
@@ -121,7 +121,7 @@ from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.p
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import ComplexList
 from ansible.module_utils.six import string_types
 
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import run_commands
 
 
 def to_lines(stdout):

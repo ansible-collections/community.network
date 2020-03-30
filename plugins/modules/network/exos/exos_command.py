@@ -118,7 +118,7 @@ failed_conditions:
 import re
 import time
 
-from ansible_collections.community.general.plugins.module_utils.network.exos.exos import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.exos.exos import run_commands
 from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import ComplexList
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.parsing import Conditional

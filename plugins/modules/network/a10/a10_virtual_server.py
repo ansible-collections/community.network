@@ -27,7 +27,7 @@ author:
 notes:
     - Requires A10 Networks aXAPI 2.1.
 extends_documentation_fragment:
-- community.general.a10
+- community.network.a10
 - url
 
 options:
@@ -101,7 +101,7 @@ content:
 '''
 import json
 
-from ansible_collections.community.general.plugins.module_utils.network.a10.a10 import (axapi_call, a10_argument_spec, axapi_authenticate, axapi_failure,
+from ansible_collections.community.network.plugins.module_utils.network.a10.a10 import (axapi_call, a10_argument_spec, axapi_authenticate, axapi_failure,
                                                                                         axapi_enabled_disabled, axapi_get_vport_protocol,
                                                                                         AXAPI_VPORT_PROTOCOLS)
 from ansible.module_utils.basic import AnsibleModule

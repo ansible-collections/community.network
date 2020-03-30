@@ -66,7 +66,7 @@ options:
             - Verification token sent back with the callback asquery parameters.
             - Field introduced in 17.1.1.
 extends_documentation_fragment:
-- community.general.avi
+- community.network.avi
 
 '''
 
@@ -89,7 +89,7 @@ obj:
 
 from ansible.module_utils.basic import AnsibleModule
 try:
-    from ansible_collections.community.general.plugins.module_utils.network.avi.avi import (
+    from ansible_collections.community.network.plugins.module_utils.network.avi.avi import (
         avi_common_argument_spec, avi_ansible_api, HAS_AVI)
 except ImportError:
     HAS_AVI = False

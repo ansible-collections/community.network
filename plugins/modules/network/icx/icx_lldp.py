@@ -85,7 +85,7 @@ commands:
 """
 
 from ansible.module_utils.basic import AnsibleModule, env_fallback
-from ansible_collections.community.general.plugins.module_utils.network.icx.icx import load_config, run_commands
+from ansible_collections.community.network.plugins.module_utils.network.icx.icx import load_config, run_commands
 
 
 def has_lldp(module):

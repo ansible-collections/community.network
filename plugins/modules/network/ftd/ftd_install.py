@@ -201,9 +201,9 @@ from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
 from ansible.module_utils.six import iteritems
 
-from ansible_collections.community.general.plugins.module_utils.network.ftd.configuration import BaseConfigurationResource, ParamName
-from ansible_collections.community.general.plugins.module_utils.network.ftd.device import assert_kick_is_installed, FtdPlatformFactory, FtdModel
-from ansible_collections.community.general.plugins.module_utils.network.ftd.operation import FtdOperations, get_system_info
+from ansible_collections.community.network.plugins.module_utils.network.ftd.configuration import BaseConfigurationResource, ParamName
+from ansible_collections.community.network.plugins.module_utils.network.ftd.device import assert_kick_is_installed, FtdPlatformFactory, FtdModel
+from ansible_collections.community.network.plugins.module_utils.network.ftd.operation import FtdOperations, get_system_info
 
 REQUIRED_PARAMS_FOR_LOCAL_CONNECTION = ['device_ip', 'device_netmask', 'device_gateway', 'device_model', 'dns_server']
 

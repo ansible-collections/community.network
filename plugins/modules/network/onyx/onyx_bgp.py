@@ -125,8 +125,8 @@ import re
 from ansible.module_utils.six import iteritems
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import get_bgp_summary
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import BaseOnyxModule
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import get_bgp_summary
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import BaseOnyxModule
 
 
 class OnyxBgpModule(BaseOnyxModule):

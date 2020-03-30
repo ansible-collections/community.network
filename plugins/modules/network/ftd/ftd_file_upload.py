@@ -66,8 +66,8 @@ msg:
 """
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.community.general.plugins.module_utils.network.ftd.common import construct_ansible_facts, FtdServerError, HTTPMethod
-from ansible_collections.community.general.plugins.module_utils.network.ftd.fdm_swagger_client import OperationField
+from ansible_collections.community.network.plugins.module_utils.network.ftd.common import construct_ansible_facts, FtdServerError, HTTPMethod
+from ansible_collections.community.network.plugins.module_utils.network.ftd.fdm_swagger_client import OperationField
 
 
 def is_upload_operation(op_spec):

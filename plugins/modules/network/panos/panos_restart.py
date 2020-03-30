@@ -33,7 +33,7 @@ deprecated:
     removed_in: "2.12"
     why: Consolidating code base.
 extends_documentation_fragment:
-- community.general.panos
+- community.network.panos
 
 '''
 

@@ -126,8 +126,8 @@ from ansible.module_utils.six import iteritems
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import conditional
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
 
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import BaseOnyxModule
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import get_interfaces_config
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import BaseOnyxModule
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import get_interfaces_config
 
 
 class OnyxInterfaceModule(BaseOnyxModule):

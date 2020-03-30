@@ -32,11 +32,11 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAZ_RC
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAZBaseException
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAZCommon
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import scrub_dict
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAZMethods
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAZ_RC
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAZBaseException
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAZCommon
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import scrub_dict
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAZMethods
 
 
 # ACTIVE BUG WITH OUR DEBUG IMPORT CALL - BECAUSE IT'S UNDER MODULE_UTILITIES

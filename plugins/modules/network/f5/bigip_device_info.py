@@ -7014,7 +7014,7 @@ except ImportError:
     from ansible_collections.f5networks.f5_modules.plugins.module_utils.ipaddress import is_valid_ip
     from ansible_collections.f5networks.f5_modules.plugins.module_utils.icontrol import modules_provisioned
     from ansible_collections.f5networks.f5_modules.plugins.module_utils.icontrol import tmos_version
-    from ansible_collections.community.general.plugins.module_utils.network.f5.urls import parseStats
+    from ansible_collections.community.network.plugins.module_utils.network.f5.urls import parseStats
 
 
 class BaseManager(object):

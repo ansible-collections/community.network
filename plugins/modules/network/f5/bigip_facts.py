@@ -103,7 +103,7 @@ try:
     from library.module_utils.network.f5.common import f5_argument_spec
     from library.module_utils.network.f5.common import F5BaseClient
 except ImportError:
-    from ansible_collections.community.general.plugins.module_utils.network.f5.legacy import bigip_api, bigsuds_found
+    from ansible_collections.community.network.plugins.module_utils.network.f5.legacy import bigip_api, bigsuds_found
     from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import f5_argument_spec
     from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import F5BaseClient
 

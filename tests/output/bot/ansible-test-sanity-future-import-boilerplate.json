@@ -1,0 +1,10 @@
+{
+    "docs": "https://docs.ansible.com/ansible/devel/dev_guide/testing/sanity/future-import-boilerplate.html", 
+    "results": [
+        {
+            "message": "The test `ansible-test sanity --test future-import-boilerplate` [[explain](https://docs.ansible.com/ansible/devel/dev_guide/testing/sanity/future-import-boilerplate.html)] failed with 2 errors:", 
+            "output": "tests/unit/mock/path.py:0:0: missing: from __future__ import (absolute_import, division, print_function)\ntests/unit/mock/yaml_helper.py:0:0: missing: from __future__ import (absolute_import, division, print_function)"
+        }
+    ], 
+    "verified": false
+}

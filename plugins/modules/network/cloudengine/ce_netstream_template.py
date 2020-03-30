@@ -143,9 +143,9 @@ updates:
 
 import re
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import load_config
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import get_connection, rm_config_prefix
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import ce_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import load_config
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import get_connection, rm_config_prefix
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import ce_argument_spec
 
 
 def get_config(module, flags):

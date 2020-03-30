@@ -32,7 +32,7 @@ DOCUMENTATION = '''
 ---
 module: nso_action
 extends_documentation_fragment:
-- community.general.nso
+- community.network.nso
 
 short_description: Executes Cisco NSO actions and verifies output.
 description:
@@ -81,9 +81,9 @@ output:
     result: true
 '''
 
-from ansible_collections.community.general.plugins.module_utils.network.nso.nso import connect, verify_version, nso_argument_spec
-from ansible_collections.community.general.plugins.module_utils.network.nso.nso import normalize_value
-from ansible_collections.community.general.plugins.module_utils.network.nso.nso import ModuleFailException, NsoException
+from ansible_collections.community.network.plugins.module_utils.network.nso.nso import connect, verify_version, nso_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.nso.nso import normalize_value
+from ansible_collections.community.network.plugins.module_utils.network.nso.nso import ModuleFailException, NsoException
 from ansible.module_utils.basic import AnsibleModule
 
 

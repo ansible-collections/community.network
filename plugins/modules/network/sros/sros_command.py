@@ -24,7 +24,7 @@ description:
   - This module does not support running commands in configuration mode.
     Please use M(sros_config) to configure SR OS devices.
 extends_documentation_fragment:
-- community.general.sros
+- community.network.sros
 
 options:
   commands:
@@ -135,7 +135,7 @@ from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.parsing import Conditional
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import ComplexList
 from ansible.module_utils.six import string_types
-from ansible_collections.community.general.plugins.module_utils.network.sros.sros import run_commands, sros_argument_spec, check_args
+from ansible_collections.community.network.plugins.module_utils.network.sros.sros import run_commands, sros_argument_spec, check_args
 
 
 def to_lines(stdout):

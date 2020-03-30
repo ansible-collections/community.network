@@ -55,7 +55,7 @@ options:
         default: yes
         type: bool
 extends_documentation_fragment:
-- community.general.panos
+- community.network.panos
 
 '''
 

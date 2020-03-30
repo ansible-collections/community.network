@@ -52,8 +52,8 @@ from ansible import __version__ as ansible_version
 
 from ansible.module_utils.basic import to_text
 from ansible.errors import AnsibleConnectionFailure
-from ansible_collections.community.general.plugins.module_utils.network.ftd.fdm_swagger_client import FdmSwaggerParser, SpecProp, FdmSwaggerValidator
-from ansible_collections.community.general.plugins.module_utils.network.ftd.common import HTTPMethod, ResponseParams
+from ansible_collections.community.network.plugins.module_utils.network.ftd.fdm_swagger_client import FdmSwaggerParser, SpecProp, FdmSwaggerValidator
+from ansible_collections.community.network.plugins.module_utils.network.ftd.common import HTTPMethod, ResponseParams
 from ansible.module_utils.six.moves.urllib.error import HTTPError
 from ansible.module_utils.six.moves.urllib.parse import urlencode
 from ansible.plugins.httpapi import HttpApiBase

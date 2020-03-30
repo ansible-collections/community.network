@@ -13,7 +13,7 @@ from copy import deepcopy
 from ansible.module_utils.basic import env_fallback
 
 try:
-    from ansible_collections.community.general.plugins.module_utils.network.avi.avi_api import (
+    from ansible_collections.community.network.plugins.module_utils.network.avi.avi_api import (
         ApiSession, ObjectNotFound, avi_sdk_syslog_logger, AviCredentials, HAS_AVI)
 except ImportError:
     HAS_AVI = False

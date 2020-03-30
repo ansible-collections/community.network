@@ -188,8 +188,8 @@ backup_path:
   sample: /playbooks/ansible/backup/cnos01.2016-07-16@22:28:34
 """
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cnos.cnos import load_config, get_config
-from ansible_collections.community.general.plugins.module_utils.network.cnos.cnos import check_args
+from ansible_collections.community.network.plugins.module_utils.network.cnos.cnos import load_config, get_config
+from ansible_collections.community.network.plugins.module_utils.network.cnos.cnos import check_args
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig, dumps
 
 

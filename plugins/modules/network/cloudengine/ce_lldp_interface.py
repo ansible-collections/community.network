@@ -281,7 +281,7 @@ import copy
 import re
 from xml.etree import ElementTree
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import set_nc_config, get_nc_config
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import set_nc_config, get_nc_config
 
 CE_NC_GET_GLOBAL_LLDPENABLE_CONFIG = """
 <filter type="subtree">

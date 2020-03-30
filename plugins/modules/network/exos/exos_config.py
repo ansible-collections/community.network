@@ -221,7 +221,7 @@ backup_path:
 """
 import re
 
-from ansible_collections.community.general.plugins.module_utils.network.exos.exos import run_commands, get_config, load_config, get_diff
+from ansible_collections.community.network.plugins.module_utils.network.exos.exos import run_commands, get_config, load_config, get_diff
 from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig, dumps
 from ansible.module_utils._text import to_text

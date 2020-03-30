@@ -23,7 +23,7 @@ description:
     implementation for managing the configuration of the rollback
     feature
 extends_documentation_fragment:
-- community.general.sros
+- community.network.sros
 
 options:
   rollback_location:
@@ -92,7 +92,7 @@ updates:
 """
 from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig, dumps
-from ansible_collections.community.general.plugins.module_utils.network.sros.sros import load_config, get_config, sros_argument_spec, check_args
+from ansible_collections.community.network.plugins.module_utils.network.sros.sros import load_config, get_config, sros_argument_spec, check_args
 
 
 def invoke(name, *args, **kwargs):

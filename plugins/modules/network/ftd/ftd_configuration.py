@@ -93,10 +93,10 @@ response:
 """
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.community.general.plugins.module_utils.network.ftd.configuration import BaseConfigurationResource, CheckModeException, \
+from ansible_collections.community.network.plugins.module_utils.network.ftd.configuration import BaseConfigurationResource, CheckModeException, \
     FtdInvalidOperationNameError
-from ansible_collections.community.general.plugins.module_utils.network.ftd.fdm_swagger_client import ValidationError
-from ansible_collections.community.general.plugins.module_utils.network.ftd.common import construct_ansible_facts, FtdConfigurationError, \
+from ansible_collections.community.network.plugins.module_utils.network.ftd.fdm_swagger_client import ValidationError
+from ansible_collections.community.network.plugins.module_utils.network.ftd.common import construct_ansible_facts, FtdConfigurationError, \
     FtdServerError, FtdUnexpectedResponse
 
 

@@ -45,7 +45,7 @@ options:
         required: false
         default: 0
 extends_documentation_fragment:
-- community.general.panos
+- community.network.panos
 
 '''
 

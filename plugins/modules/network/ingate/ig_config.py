@@ -33,7 +33,7 @@ short_description: Manage the configuration database on an Ingate SBC.
 description:
   - Manage the configuration database on an Ingate SBC.
 extends_documentation_fragment:
-- community.general.ingate
+- community.network.ingate
 
 options:
   add:
@@ -408,7 +408,7 @@ download:
 '''
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.ingate.common import (ingate_argument_spec,
+from ansible_collections.community.network.plugins.module_utils.network.ingate.common import (ingate_argument_spec,
                                                                                               ingate_create_client)
 
 try:

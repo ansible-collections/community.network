@@ -24,7 +24,7 @@ description:
   - This module does not support running commands in configuration mode.
     Please use M(aruba_config) to configure Aruba devices.
 extends_documentation_fragment:
-- community.general.aruba
+- community.network.aruba
 
 options:
   commands:
@@ -115,8 +115,8 @@ failed_conditions:
 """
 import time
 
-from ansible_collections.community.general.plugins.module_utils.network.aruba.aruba import run_commands
-from ansible_collections.community.general.plugins.module_utils.network.aruba.aruba import aruba_argument_spec, check_args
+from ansible_collections.community.network.plugins.module_utils.network.aruba.aruba import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.aruba.aruba import aruba_argument_spec, check_args
 from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import ComplexList
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.parsing import Conditional

@@ -16,7 +16,7 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from ansible_collections.community.general.plugins.module_utils.network.ftd.configuration import ParamName, PATH_PARAMS_FOR_DEFAULT_OBJ
+from ansible_collections.community.network.plugins.module_utils.network.ftd.configuration import ParamName, PATH_PARAMS_FOR_DEFAULT_OBJ
 
 
 class FtdOperations:

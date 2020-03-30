@@ -32,7 +32,7 @@ DOCUMENTATION = '''
 ---
 module: nso_query
 extends_documentation_fragment:
-- community.general.nso
+- community.network.nso
 
 short_description: Query data from Cisco NSO.
 description:
@@ -69,8 +69,8 @@ output:
   type: list
 '''
 
-from ansible_collections.community.general.plugins.module_utils.network.nso.nso import connect, verify_version, nso_argument_spec
-from ansible_collections.community.general.plugins.module_utils.network.nso.nso import ModuleFailException, NsoException
+from ansible_collections.community.network.plugins.module_utils.network.nso.nso import connect, verify_version, nso_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.nso.nso import ModuleFailException, NsoException
 from ansible.module_utils.basic import AnsibleModule
 
 

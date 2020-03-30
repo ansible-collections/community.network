@@ -114,8 +114,8 @@ changed:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.netvisor.pn_nvos import pn_cli, run_cli
-from ansible_collections.community.general.plugins.module_utils.network.netvisor.netvisor import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.netvisor.pn_nvos import pn_cli, run_cli
+from ansible_collections.community.network.plugins.module_utils.network.netvisor.netvisor import run_commands
 
 
 def check_cli(module, cli):

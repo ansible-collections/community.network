@@ -139,7 +139,7 @@ failed_conditions:
 import time
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cnos.cnos import run_commands, check_args
+from ansible_collections.community.network.plugins.module_utils.network.cnos.cnos import run_commands, check_args
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.parsing import Conditional
 from ansible.module_utils.six import string_types
 

@@ -36,7 +36,7 @@ description:
     module will always collect a base set of facts from the device
     and can enable or disable collection of additional facts.
 extends_documentation_fragment:
-- community.general.enos
+- community.network.enos
 
 notes:
   - Tested against ENOS 8.4.1
@@ -148,7 +148,7 @@ RETURN = '''
 
 import re
 
-from ansible_collections.community.general.plugins.module_utils.network.enos.enos import run_commands, enos_argument_spec, check_args
+from ansible_collections.community.network.plugins.module_utils.network.enos.enos import run_commands, enos_argument_spec, check_args
 from ansible.module_utils._text import to_text
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.six import iteritems

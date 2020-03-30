@@ -120,7 +120,7 @@ end_state:
 
 import re
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import ce_argument_spec, exec_command, run_commands
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import ce_argument_spec, exec_command, run_commands
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import ComplexList
 
 

@@ -36,7 +36,7 @@ description:
     an implementation for working with ENOS configuration sections in
     a deterministic way.
 extends_documentation_fragment:
-- community.general.enos
+- community.network.enos
 
 notes:
   - Tested against ENOS 8.4.1
@@ -189,9 +189,9 @@ backup_path:
   sample: /playbooks/ansible/backup/enos01.2016-07-16@22:28:34
 """
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.enos.enos import load_config, get_config
-from ansible_collections.community.general.plugins.module_utils.network.enos.enos import enos_argument_spec
-from ansible_collections.community.general.plugins.module_utils.network.enos.enos import check_args
+from ansible_collections.community.network.plugins.module_utils.network.enos.enos import load_config, get_config
+from ansible_collections.community.network.plugins.module_utils.network.enos.enos import enos_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.enos.enos import check_args
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig, dumps
 
 

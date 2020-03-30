@@ -35,10 +35,10 @@ description:
 import json
 from ansible.plugins.httpapi import HttpApiBase
 from ansible.module_utils.basic import to_text
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import BASE_HEADERS
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAZBaseException
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAZCommon
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAZMethods
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import BASE_HEADERS
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAZBaseException
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAZCommon
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAZMethods
 
 
 class HttpApi(HttpApiBase):

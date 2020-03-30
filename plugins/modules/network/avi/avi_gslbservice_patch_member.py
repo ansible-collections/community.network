@@ -44,7 +44,7 @@ options:
         default: present
         choices: ["absent","present"]
 extends_documentation_fragment:
-- community.general.avi
+- community.network.avi
 
 '''
 
@@ -111,10 +111,10 @@ from ansible.module_utils.basic import AnsibleModule
 from copy import deepcopy
 
 try:
-    from ansible_collections.community.general.plugins.module_utils.network.avi.avi import (
+    from ansible_collections.community.network.plugins.module_utils.network.avi.avi import (
         avi_common_argument_spec, avi_obj_cmp, cleanup_absent_fields,
         ansible_return, AviCheckModeResponse, HAS_AVI)
-    from ansible_collections.community.general.plugins.module_utils.network.avi.avi_api import (
+    from ansible_collections.community.network.plugins.module_utils.network.avi.avi_api import (
         ApiSession, AviCredentials)
 except ImportError:
     HAS_AVI = False

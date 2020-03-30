@@ -1,0 +1,10 @@
+{
+    "docs": "https://docs.ansible.com/ansible/devel/dev_guide/testing/sanity/action-plugin-docs.html", 
+    "results": [
+        {
+            "message": "The test `ansible-test sanity --test action-plugin-docs` [[explain](https://docs.ansible.com/ansible/devel/dev_guide/testing/sanity/action-plugin-docs.html)] failed with 5 errors:", 
+            "output": "plugins/action/edgeos_config.py:0:0: action plugin has no matching module to provide documentation\nplugins/action/exos.py:0:0: action plugin has no matching module to provide documentation\nplugins/action/nos_config.py:0:0: action plugin has no matching module to provide documentation\nplugins/action/slxos.py:0:0: action plugin has no matching module to provide documentation\nplugins/action/voss.py:0:0: action plugin has no matching module to provide documentation"
+        }
+    ], 
+    "verified": false
+}

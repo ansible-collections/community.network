@@ -174,7 +174,7 @@ import copy
 import re
 from xml.etree import ElementTree
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import ce_argument_spec, set_nc_config, get_nc_config, execute_nc_action
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import ce_argument_spec, set_nc_config, get_nc_config, execute_nc_action
 
 
 CE_NC_ACTION_RESET_INTF_DLDP = """

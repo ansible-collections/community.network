@@ -334,7 +334,7 @@ options:
 
 
 extends_documentation_fragment:
-- community.general.netscaler
+- community.network.netscaler
 
 requirements:
     - nitro python sdk
@@ -398,7 +398,7 @@ diff:
 from ansible.module_utils.basic import AnsibleModule
 import copy
 
-from ansible_collections.community.general.plugins.module_utils.network.netscaler.netscaler import (ConfigProxy, get_nitro_client, netscaler_common_arguments,
+from ansible_collections.community.network.plugins.module_utils.network.netscaler.netscaler import (ConfigProxy, get_nitro_client, netscaler_common_arguments,
                                                                                                     log, loglines, get_immutables_intersection)
 try:
     from nssrc.com.citrix.netscaler.nitro.resource.config.basic.servicegroup import servicegroup

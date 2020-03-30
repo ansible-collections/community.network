@@ -36,8 +36,8 @@ import socket
 import re
 import json
 try:
-    from ansible_collections.community.general.plugins.module_utils.network.cnos import cnos_errorcodes
-    from ansible_collections.community.general.plugins.module_utils.network.cnos import cnos_devicerules
+    from ansible_collections.community.network.plugins.module_utils.network.cnos import cnos_errorcodes
+    from ansible_collections.community.network.plugins.module_utils.network.cnos import cnos_devicerules
     HAS_LIB = True
 except Exception:
     HAS_LIB = False

@@ -162,8 +162,8 @@ ansible_net_neighbors:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.exos.argspec.facts.facts import FactsArgs
-from ansible_collections.community.general.plugins.module_utils.network.exos.facts.facts import Facts
+from ansible_collections.community.network.plugins.module_utils.network.exos.argspec.facts.facts import FactsArgs
+from ansible_collections.community.network.plugins.module_utils.network.exos.facts.facts import Facts
 
 
 def main():

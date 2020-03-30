@@ -102,7 +102,7 @@ options:
 
 
 extends_documentation_fragment:
-- community.general.avi
+- community.network.avi
 
 '''
 
@@ -154,9 +154,9 @@ obj:
 from ansible.module_utils.basic import AnsibleModule
 
 try:
-    from ansible_collections.community.general.plugins.module_utils.network.avi.avi import (
+    from ansible_collections.community.network.plugins.module_utils.network.avi.avi import (
         avi_common_argument_spec, ansible_return, HAS_AVI)
-    from ansible_collections.community.general.plugins.module_utils.network.avi.ansible_utils import (
+    from ansible_collections.community.network.plugins.module_utils.network.avi.ansible_utils import (
         avi_ansible_api)
 except ImportError:
     HAS_AVI = False

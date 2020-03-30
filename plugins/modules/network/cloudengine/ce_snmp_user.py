@@ -157,8 +157,8 @@ updates:
 
 from xml.etree import ElementTree
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import get_nc_config, set_nc_config
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import ce_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import get_nc_config, set_nc_config
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import ce_argument_spec
 
 # get snmp v3 USM user
 CE_GET_SNMP_V3_USM_USER_HEADER = """

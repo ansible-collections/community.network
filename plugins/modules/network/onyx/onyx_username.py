@@ -121,7 +121,7 @@ commands:
 import re
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import BaseOnyxModule, show_cmd
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import BaseOnyxModule, show_cmd
 
 
 class OnyxUsernameModule(BaseOnyxModule):

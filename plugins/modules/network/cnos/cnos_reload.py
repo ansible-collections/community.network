@@ -41,7 +41,7 @@ description:
      This module uses SSH to manage network device configuration.
      The results of the operation can be viewed in results directory.
 extends_documentation_fragment:
-- community.general.cnos
+- community.network.cnos
 
 options: {}
 
@@ -71,7 +71,7 @@ import json
 import time
 import re
 try:
-    from ansible_collections.community.general.plugins.module_utils.network.cnos import cnos
+    from ansible_collections.community.network.plugins.module_utils.network.cnos import cnos
     HAS_LIB = True
 except Exception:
     HAS_LIB = False

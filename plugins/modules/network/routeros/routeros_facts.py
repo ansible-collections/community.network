@@ -118,8 +118,8 @@ ansible_net_neighbors:
 """
 import re
 
-from ansible_collections.community.general.plugins.module_utils.network.routeros.routeros import run_commands
-from ansible_collections.community.general.plugins.module_utils.network.routeros.routeros import routeros_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.routeros.routeros import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.routeros.routeros import routeros_argument_spec
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.six import iteritems
 

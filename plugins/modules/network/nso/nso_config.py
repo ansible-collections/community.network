@@ -32,7 +32,7 @@ DOCUMENTATION = '''
 ---
 module: nso_config
 extends_documentation_fragment:
-- community.general.nso
+- community.network.nso
 
 short_description: Manage Cisco NSO configuration and service synchronization.
 description:
@@ -139,9 +139,9 @@ diffs:
             type: str
 '''
 
-from ansible_collections.community.general.plugins.module_utils.network.nso.nso import connect, verify_version, nso_argument_spec
-from ansible_collections.community.general.plugins.module_utils.network.nso.nso import State, ValueBuilder
-from ansible_collections.community.general.plugins.module_utils.network.nso.nso import ModuleFailException, NsoException
+from ansible_collections.community.network.plugins.module_utils.network.nso.nso import connect, verify_version, nso_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.nso.nso import State, ValueBuilder
+from ansible_collections.community.network.plugins.module_utils.network.nso.nso import ModuleFailException, NsoException
 from ansible.module_utils.basic import AnsibleModule
 
 

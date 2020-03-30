@@ -192,12 +192,12 @@ api_result:
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.fortianalyzer import FortiAnalyzerHandler
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAZBaseException
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAZCommon
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAZMethods
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import DEFAULT_RESULT_OBJ
-from ansible_collections.community.general.plugins.module_utils.network.fortianalyzer.common import FAIL_SOCKET_MSG
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.fortianalyzer import FortiAnalyzerHandler
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAZBaseException
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAZCommon
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAZMethods
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import DEFAULT_RESULT_OBJ
+from ansible_collections.community.network.plugins.module_utils.network.fortianalyzer.common import FAIL_SOCKET_MSG
 
 
 def faz_add_device(faz, paramgram):

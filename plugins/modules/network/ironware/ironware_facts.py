@@ -24,7 +24,7 @@ description:
     module will always collect a base set of facts from the device
     and can enable or disable collection of additional facts.
 extends_documentation_fragment:
-- community.general.ironware
+- community.network.ironware
 
 notes:
   - Tested against Ironware 5.8e
@@ -135,8 +135,8 @@ ansible_net_neighbors:
 """
 import re
 
-from ansible_collections.community.general.plugins.module_utils.network.ironware.ironware import run_commands
-from ansible_collections.community.general.plugins.module_utils.network.ironware.ironware import ironware_argument_spec, check_args
+from ansible_collections.community.network.plugins.module_utils.network.ironware.ironware import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.ironware.ironware import ironware_argument_spec, check_args
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.six import iteritems
 

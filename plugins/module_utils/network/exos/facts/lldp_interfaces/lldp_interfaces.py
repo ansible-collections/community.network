@@ -16,8 +16,8 @@ import re
 from copy import deepcopy
 
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common import utils
-from ansible_collections.community.general.plugins.module_utils.network.exos.argspec.lldp_interfaces.lldp_interfaces import Lldp_interfacesArgs
-from ansible_collections.community.general.plugins.module_utils.network.exos.exos import send_requests
+from ansible_collections.community.network.plugins.module_utils.network.exos.argspec.lldp_interfaces.lldp_interfaces import Lldp_interfacesArgs
+from ansible_collections.community.network.plugins.module_utils.network.exos.exos import send_requests
 
 
 class Lldp_interfacesFacts(object):

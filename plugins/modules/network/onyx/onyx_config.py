@@ -14,7 +14,7 @@ DOCUMENTATION = '''
 ---
 module: onyx_config
 extends_documentation_fragment:
-- community.general.onyx
+- community.network.onyx
 
 author: "Alex Tabachnik (@atabachnik), Samer Deeb (@samerd)"
 short_description: Manage Mellanox ONYX configuration sections
@@ -149,9 +149,9 @@ backup_path:
 from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig, dumps
 
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import get_config
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import load_config
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import get_config
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import load_config
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import run_commands
 
 
 def get_candidate(module):

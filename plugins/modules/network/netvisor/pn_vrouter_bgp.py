@@ -230,8 +230,8 @@ changed:
 """
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.netvisor.pn_nvos import pn_cli, run_cli, booleanArgs
-from ansible_collections.community.general.plugins.module_utils.network.netvisor.netvisor import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.netvisor.pn_nvos import pn_cli, run_cli, booleanArgs
+from ansible_collections.community.network.plugins.module_utils.network.netvisor.netvisor import run_commands
 
 
 def is_valid(module, param_name, param_val, min_val, max_val):

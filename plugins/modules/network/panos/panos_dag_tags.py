@@ -67,7 +67,7 @@ options:
         description:
             - IP that will be registered with the given tag names.
 extends_documentation_fragment:
-- community.general.panos
+- community.network.panos
 
 '''
 

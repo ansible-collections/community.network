@@ -36,7 +36,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
 extends_documentation_fragment:
-- community.general.enos
+- community.network.enos
 
 options:
   commands:
@@ -156,8 +156,8 @@ failed_conditions:
 import time
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.enos.enos import run_commands, check_args
-from ansible_collections.community.general.plugins.module_utils.network.enos.enos import enos_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.enos.enos import run_commands, check_args
+from ansible_collections.community.network.plugins.module_utils.network.enos.enos import enos_argument_spec
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.parsing import Conditional
 from ansible.module_utils.six import string_types
 

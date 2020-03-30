@@ -23,7 +23,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
 extends_documentation_fragment:
-- community.general.ironware
+- community.network.ironware
 
 options:
   commands:
@@ -99,8 +99,8 @@ failed_conditions:
 import time
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.ironware.ironware import ironware_argument_spec, check_args
-from ansible_collections.community.general.plugins.module_utils.network.ironware.ironware import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.ironware.ironware import ironware_argument_spec, check_args
+from ansible_collections.community.network.plugins.module_utils.network.ironware.ironware import run_commands
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.parsing import Conditional
 from ansible.module_utils.six import string_types
 

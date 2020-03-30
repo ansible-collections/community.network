@@ -21,7 +21,7 @@ short_description: Get unit information from an Ingate SBC.
 description:
   - Get unit information from an Ingate SBC.
 extends_documentation_fragment:
-- community.general.ingate
+- community.network.ingate
 
 author:
   - Ingate Systems AB (@ingatesystems)
@@ -123,7 +123,7 @@ unit-information:
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils._text import to_native
-from ansible_collections.community.general.plugins.module_utils.network.ingate.common import (ingate_argument_spec,
+from ansible_collections.community.network.plugins.module_utils.network.ingate.common import (ingate_argument_spec,
                                                                                               ingate_create_client,
                                                                                               is_ingatesdk_installed)
 

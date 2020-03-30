@@ -194,8 +194,8 @@ changed:
 
 import re
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import exec_command, load_config
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import ce_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import exec_command, load_config
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import ce_argument_spec
 
 
 def is_ipv4_addr(ip_addr):

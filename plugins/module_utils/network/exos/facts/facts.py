@@ -11,13 +11,13 @@ calls the appropriate facts gathering function
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-from ansible_collections.community.general.plugins.module_utils.network.exos.argspec.facts.facts import FactsArgs
+from ansible_collections.community.network.plugins.module_utils.network.exos.argspec.facts.facts import FactsArgs
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.facts.facts import FactsBase
-from ansible_collections.community.general.plugins.module_utils.network.exos.facts.lldp_global.lldp_global import Lldp_globalFacts
-from ansible_collections.community.general.plugins.module_utils.network.exos.facts.vlans.vlans import VlansFacts
-from ansible_collections.community.general.plugins.module_utils.network.exos.facts.legacy.base import Default, Hardware, Interfaces, Config
-from ansible_collections.community.general.plugins.module_utils.network.exos.facts.lldp_interfaces.lldp_interfaces import Lldp_interfacesFacts
-from ansible_collections.community.general.plugins.module_utils.network.exos.facts.l2_interfaces.l2_interfaces import L2_interfacesFacts
+from ansible_collections.community.network.plugins.module_utils.network.exos.facts.lldp_global.lldp_global import Lldp_globalFacts
+from ansible_collections.community.network.plugins.module_utils.network.exos.facts.vlans.vlans import VlansFacts
+from ansible_collections.community.network.plugins.module_utils.network.exos.facts.legacy.base import Default, Hardware, Interfaces, Config
+from ansible_collections.community.network.plugins.module_utils.network.exos.facts.lldp_interfaces.lldp_interfaces import Lldp_interfacesFacts
+from ansible_collections.community.network.plugins.module_utils.network.exos.facts.l2_interfaces.l2_interfaces import L2_interfacesFacts
 
 FACT_LEGACY_SUBSETS = dict(
     default=Default,

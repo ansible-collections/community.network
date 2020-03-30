@@ -23,7 +23,7 @@ description:
     an implementation for working with SR OS configuration sections in
     a deterministic way.
 extends_documentation_fragment:
-- community.general.sros
+- community.network.sros
 
 options:
   lines:
@@ -228,8 +228,8 @@ backup_path:
 """
 from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig, dumps
-from ansible_collections.community.general.plugins.module_utils.network.sros.sros import sros_argument_spec, check_args
-from ansible_collections.community.general.plugins.module_utils.network.sros.sros import load_config, run_commands, get_config
+from ansible_collections.community.network.plugins.module_utils.network.sros.sros import sros_argument_spec, check_args
+from ansible_collections.community.network.plugins.module_utils.network.sros.sros import load_config, run_commands, get_config
 
 
 def get_active_config(module):

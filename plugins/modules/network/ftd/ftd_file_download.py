@@ -71,8 +71,8 @@ msg:
 """
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.community.general.plugins.module_utils.network.ftd.common import FtdServerError, HTTPMethod
-from ansible_collections.community.general.plugins.module_utils.network.ftd.fdm_swagger_client import OperationField, ValidationError, FILE_MODEL_NAME
+from ansible_collections.community.network.plugins.module_utils.network.ftd.common import FtdServerError, HTTPMethod
+from ansible_collections.community.network.plugins.module_utils.network.ftd.fdm_swagger_client import OperationField, ValidationError, FILE_MODEL_NAME
 
 
 def is_download_operation(op_spec):

@@ -92,7 +92,7 @@ import os
 import traceback
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.bigswitch.bigswitch import Rest
+from ansible_collections.community.network.plugins.module_utils.network.bigswitch.bigswitch import Rest
 from ansible.module_utils._text import to_native
 
 

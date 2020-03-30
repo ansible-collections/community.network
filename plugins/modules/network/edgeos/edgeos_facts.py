@@ -93,7 +93,7 @@ import re
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.six import iteritems
-from ansible_collections.community.general.plugins.module_utils.network.edgeos.edgeos import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.edgeos.edgeos import run_commands
 
 
 class FactsBase(object):

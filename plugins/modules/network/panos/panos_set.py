@@ -78,7 +78,7 @@ options:
     description:
       - The 'element' for the 'xpath' if required
 extends_documentation_fragment:
-- community.general.panos
+- community.network.panos
 
 '''
 

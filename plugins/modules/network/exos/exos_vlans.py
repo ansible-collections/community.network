@@ -735,8 +735,8 @@ requests:
 
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.exos.argspec.vlans.vlans import VlansArgs
-from ansible_collections.community.general.plugins.module_utils.network.exos.config.vlans.vlans import Vlans
+from ansible_collections.community.network.plugins.module_utils.network.exos.argspec.vlans.vlans import VlansArgs
+from ansible_collections.community.network.plugins.module_utils.network.exos.config.vlans.vlans import Vlans
 
 
 def main():

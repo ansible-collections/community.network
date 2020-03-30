@@ -18,9 +18,9 @@
 import copy
 from functools import partial
 
-from ansible_collections.community.general.plugins.module_utils.network.ftd.common import HTTPMethod, equal_objects, FtdConfigurationError, \
+from ansible_collections.community.network.plugins.module_utils.network.ftd.common import HTTPMethod, equal_objects, FtdConfigurationError, \
     FtdServerError, ResponseParams, copy_identity_properties, FtdUnexpectedResponse
-from ansible_collections.community.general.plugins.module_utils.network.ftd.fdm_swagger_client import OperationField, ValidationError
+from ansible_collections.community.network.plugins.module_utils.network.ftd.fdm_swagger_client import OperationField, ValidationError
 from ansible.module_utils.six import iteritems
 
 DEFAULT_PAGE_SIZE = 10

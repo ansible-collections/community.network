@@ -24,7 +24,7 @@ import copy
 
 from ansible_collections.ansible.netcommon.plugins.action.network import ActionModule as ActionNetworkModule
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import load_provider
-from ansible_collections.community.general.plugins.module_utils.network.ironware.ironware import ironware_provider_spec
+from ansible_collections.community.network.plugins.module_utils.network.ironware.ironware import ironware_provider_spec
 from ansible.utils.display import Display
 
 display = Display()

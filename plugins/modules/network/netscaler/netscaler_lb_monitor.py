@@ -782,7 +782,7 @@ options:
                 monitors.
 
 extends_documentation_fragment:
-- community.general.netscaler
+- community.network.netscaler
 
 requirements:
     - nitro python sdk
@@ -828,7 +828,7 @@ diff:
 
 from ansible.module_utils.basic import AnsibleModule
 
-from ansible_collections.community.general.plugins.module_utils.network.netscaler.netscaler import (
+from ansible_collections.community.network.plugins.module_utils.network.netscaler.netscaler import (
     ConfigProxy,
     get_nitro_client,
     netscaler_common_arguments,

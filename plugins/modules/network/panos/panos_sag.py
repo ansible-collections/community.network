@@ -70,7 +70,7 @@ options:
             - list
             - delete
 extends_documentation_fragment:
-- community.general.panos
+- community.network.panos
 
 '''
 

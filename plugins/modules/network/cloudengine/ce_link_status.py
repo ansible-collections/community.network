@@ -133,7 +133,7 @@ result:
 
 from xml.etree import ElementTree
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import ce_argument_spec, get_nc_config, get_nc_next
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import ce_argument_spec, get_nc_config, get_nc_next
 
 CE_NC_GET_PORT_SPEED = """
 <filter type="subtree">

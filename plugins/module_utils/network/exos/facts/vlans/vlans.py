@@ -16,8 +16,8 @@ import re
 from copy import deepcopy
 
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common import utils
-from ansible_collections.community.general.plugins.module_utils.network.exos.argspec.vlans.vlans import VlansArgs
-from ansible_collections.community.general.plugins.module_utils.network.exos.exos import send_requests
+from ansible_collections.community.network.plugins.module_utils.network.exos.argspec.vlans.vlans import VlansArgs
+from ansible_collections.community.network.plugins.module_utils.network.exos.exos import send_requests
 
 
 class VlansFacts(object):

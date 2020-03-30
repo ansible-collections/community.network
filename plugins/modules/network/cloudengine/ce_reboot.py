@@ -80,7 +80,7 @@ rebooted:
 
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.cloudengine.ce import execute_nc_action, ce_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import execute_nc_action, ce_argument_spec
 
 try:
     from ncclient.operations.errors import TimeoutExpiredError

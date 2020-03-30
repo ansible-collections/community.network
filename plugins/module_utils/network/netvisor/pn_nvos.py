@@ -6,7 +6,7 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-from ansible_collections.community.general.plugins.module_utils.network.netvisor.netvisor import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.netvisor.netvisor import run_commands
 
 
 def pn_cli(module, switch=None, username=None, password=None, switch_local=None):

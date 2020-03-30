@@ -88,7 +88,7 @@ ansible_net_interfaces:
 """
 import re
 
-from ansible_collections.community.general.plugins.module_utils.network.edgeswitch.edgeswitch import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.edgeswitch.edgeswitch import run_commands
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.six import iteritems
 

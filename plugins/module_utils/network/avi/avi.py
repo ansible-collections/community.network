@@ -33,6 +33,6 @@
 
 from __future__ import absolute_import
 
-from ansible_collections.community.general.plugins.module_utils.network.avi.ansible_utils import (
+from ansible_collections.community.network.plugins.module_utils.network.avi.ansible_utils import (
     avi_ansible_api, avi_common_argument_spec, ansible_return,
     avi_obj_cmp, cleanup_absent_fields, AviCheckModeResponse, HAS_AVI)

@@ -406,8 +406,8 @@ requests:
 
 
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.general.plugins.module_utils.network.exos.argspec.lldp_global.lldp_global import Lldp_globalArgs
-from ansible_collections.community.general.plugins.module_utils.network.exos.config.lldp_global.lldp_global import Lldp_global
+from ansible_collections.community.network.plugins.module_utils.network.exos.argspec.lldp_global.lldp_global import Lldp_globalArgs
+from ansible_collections.community.network.plugins.module_utils.network.exos.config.lldp_global.lldp_global import Lldp_global
 
 
 def main():

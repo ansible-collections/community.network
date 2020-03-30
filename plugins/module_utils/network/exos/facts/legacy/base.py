@@ -17,7 +17,7 @@ __metaclass__ = type
 import re
 import json
 
-from ansible_collections.community.general.plugins.module_utils.network.exos.exos import run_commands
+from ansible_collections.community.network.plugins.module_utils.network.exos.exos import run_commands
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.six import iteritems
 

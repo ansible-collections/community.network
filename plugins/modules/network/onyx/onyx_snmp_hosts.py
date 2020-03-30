@@ -134,8 +134,8 @@ import re
 
 from ansible.module_utils.basic import AnsibleModule
 
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import show_cmd
-from ansible_collections.community.general.plugins.module_utils.network.onyx.onyx import BaseOnyxModule
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import show_cmd
+from ansible_collections.community.network.plugins.module_utils.network.onyx.onyx import BaseOnyxModule
 
 
 class OnyxSNMPHostsModule(BaseOnyxModule):

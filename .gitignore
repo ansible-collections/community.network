@@ -235,10 +235,10 @@ coverage.xml
 .pytest_cache
 results.xml
 coverage.xml
-/test/units/cover-html
-/test/integration/targets/*/backup/
-/test/cache/*
-
+/tests/units/cover-html
+/tests/integration/targets/*/backup/
+/tests/cache/*
+/tests/output/
 
 # Translations
 *.mo

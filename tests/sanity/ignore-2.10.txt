@@ -3,9 +3,12 @@ plugins/action/aruba.py action-plugin-docs # base class for deprecated network p
 plugins/action/ce.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
 plugins/action/cnos.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
 plugins/action/enos.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
+plugins/action/exos.py action-plugin-docs # undocumented action plugin to fix
 plugins/action/ironware.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
 plugins/action/onyx_config.py action-plugin-docs # undocumented action plugin to fix
+plugins/action/slxos.py action-plugin-docs # undocumented action plugin to fix
 plugins/action/sros.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
+plugins/action/voss.py action-plugin-docs # undocumented action plugin to fix
 plugins/doc_fragments/a10.py future-import-boilerplate
 plugins/doc_fragments/a10.py metaclass-boilerplate
 plugins/doc_fragments/aireos.py future-import-boilerplate
@@ -20,8 +23,12 @@ plugins/doc_fragments/cnos.py future-import-boilerplate
 plugins/doc_fragments/cnos.py metaclass-boilerplate
 plugins/doc_fragments/enos.py future-import-boilerplate
 plugins/doc_fragments/enos.py metaclass-boilerplate
+plugins/doc_fragments/ingate.py future-import-boilerplate
+plugins/doc_fragments/ingate.py metaclass-boilerplate
 plugins/doc_fragments/ironware.py future-import-boilerplate
 plugins/doc_fragments/ironware.py metaclass-boilerplate
+plugins/doc_fragments/netscaler.py future-import-boilerplate
+plugins/doc_fragments/netscaler.py metaclass-boilerplate
 plugins/doc_fragments/nso.py future-import-boilerplate
 plugins/doc_fragments/nso.py metaclass-boilerplate
 plugins/doc_fragments/onyx.py future-import-boilerplate

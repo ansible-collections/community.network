@@ -1,1 +1,1 @@
-bigip_device_traffic_group.py
+./network/f5/bigip_traffic_group.py

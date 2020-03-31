@@ -1,1 +1,1 @@
-bigip_device_info.py
+./network/f5/bigip_device_facts.py

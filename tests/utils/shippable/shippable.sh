@@ -55,8 +55,6 @@ cp -aT "${SHIPPABLE_BUILD_DIR}" "${TEST_DIR}"
 cd "${TEST_DIR}"
 
 # STAR: HACK install dependencies
-retry ansible-galaxy -vvv collection install ansible.posix
-retry ansible-galaxy -vvv collection install community.crypto
 retry ansible-galaxy -vvv collection install ansible.netcommon
 retry ansible-galaxy -vvv collection install cisco.mso
 retry ansible-galaxy -vvv collection install cisco.intersight

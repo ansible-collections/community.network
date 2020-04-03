@@ -21,8 +21,8 @@ __metaclass__ = type
 
 from mock import MagicMock
 
-from ansible_collections.community.general.tests.unit.compat import unittest
-from ansible_collections.community.general.plugins.terminal import slxos
+from ansible_collections.community.network.tests.unit.compat import unittest
+from ansible_collections.community.network.plugins.terminal import slxos
 from ansible.errors import AnsibleConnectionFailure
 
 

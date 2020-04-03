@@ -24,7 +24,7 @@ options:
         description:
             - UUID of the object to query
 extends_documentation_fragment:
-- community.general.avi
+- community.network.avi
 
 '''
 
@@ -52,7 +52,7 @@ from ansible.module_utils._text import to_native
 from ansible.errors import AnsibleError, AnsibleParserError
 from ansible.plugins.lookup import LookupBase
 from ansible.utils.display import Display
-from ansible_collections.community.general.plugins.module_utils.network.avi.avi_api import (ApiSession,
+from ansible_collections.community.network.plugins.module_utils.network.avi.avi_api import (ApiSession,
                                                                                             AviCredentials,
                                                                                             AviServerError,
                                                                                             ObjectNotFound,

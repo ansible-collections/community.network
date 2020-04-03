@@ -25,7 +25,7 @@ import glob
 from ansible.module_utils.six.moves.urllib.parse import urlsplit
 
 from ansible.module_utils._text import to_text
-from ansible_collections.community.general.plugins.action.ce import ActionModule as _ActionModule
+from ansible_collections.community.network.plugins.action.ce import ActionModule as _ActionModule
 
 
 class ActionModule(_ActionModule):

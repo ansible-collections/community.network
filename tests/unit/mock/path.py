@@ -1,4 +1,4 @@
-from ansible_collections.community.general.tests.unit.compat.mock import MagicMock
+from ansible_collections.community.network.tests.unit.compat.mock import MagicMock
 from ansible.utils.path import unfrackpath
 
 

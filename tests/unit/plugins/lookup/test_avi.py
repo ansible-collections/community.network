@@ -24,11 +24,11 @@ import os
 import pytest
 import json
 
-from ansible_collections.community.general.tests.unit.compat.mock import patch, MagicMock
+from ansible_collections.community.network.tests.unit.compat.mock import patch, MagicMock
 
 from ansible.errors import AnsibleError
 from ansible.plugins.loader import lookup_loader
-from ansible_collections.community.general.plugins.lookup import avi
+from ansible_collections.community.network.plugins.lookup import avi
 
 
 try:
@@ -65,7 +65,7 @@ def super_switcher(scope="function", autouse=True):
 
 
 def test_lookup_multiple_obj(dummy_credentials):
-    avi_lookup = lookup_loader.get('community.general.avi')
+    avi_lookup = lookup_loader.get('community.network.avi')
     avi_mock = MagicMock()
     avi_mock.return_value.get.return_value.json.return_value = data["mock_multiple_obj"]
     with patch.object(avi, 'ApiSession', avi_mock):
@@ -75,7 +75,7 @@ def test_lookup_multiple_obj(dummy_credentials):
 
 
 def test_lookup_single_obj(dummy_credentials):
-    avi_lookup = lookup_loader.get('community.general.avi')
+    avi_lookup = lookup_loader.get('community.network.avi')
     avi_mock = MagicMock()
     avi_mock.return_value.get_object_by_name.return_value = data["mock_single_obj"]
     with patch.object(avi, 'ApiSession', avi_mock):
@@ -85,7 +85,7 @@ def test_lookup_single_obj(dummy_credentials):
 
 
 def test_invalid_lookup(dummy_credentials):
-    avi_lookup = lookup_loader.get('community.general.avi')
+    avi_lookup = lookup_loader.get('community.network.avi')
     avi_mock = MagicMock()
     with pytest.raises(AnsibleError):
         with patch.object(avi, 'ApiSession', avi_mock):

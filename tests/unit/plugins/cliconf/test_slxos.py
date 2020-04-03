@@ -24,8 +24,8 @@ import json
 
 from mock import MagicMock, call
 
-from ansible_collections.community.general.tests.unit.compat import unittest
-from ansible_collections.community.general.plugins.cliconf import slxos
+from ansible_collections.community.network.tests.unit.compat import unittest
+from ansible_collections.community.network.plugins.cliconf import slxos
 
 FIXTURE_DIR = b'%s/fixtures/slxos' % (
     path.dirname(path.abspath(__file__)).encode('utf-8')

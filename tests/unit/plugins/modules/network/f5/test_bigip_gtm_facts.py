@@ -38,6 +38,9 @@ except ImportError:
         from ansible_collections.f5networks.f5_modules.plugins.modules.network.f5.bigip_gtm_pool import PoolFactManager
         from ansible_collections.f5networks.f5_modules.plugins.modules.network.f5.bigip_gtm_pool import TypedPoolFactManager
         from ansible_collections.f5networks.f5_modules.plugins.modules.network.f5.bigip_gtm_pool import ArgumentSpec
+    except ImportError:
+        pytestmark.append(pytest.mark.skip("F5 bigip_gtm_facts test requires bigip_gtm_pool module from f5networks.f5_modules"))
+    try:
         from f5.bigip.tm.gtm.pool import A
         from f5.utils.responses.handlers import Stats
         from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args

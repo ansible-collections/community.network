@@ -63,9 +63,6 @@ retry ansible-galaxy -vvv collection install f5networks.f5_modules
 retry ansible-galaxy -vvv collection install fortinet.fortios
 retry ansible-galaxy -vvv collection install cisco.aci
 
-# unit tests
-retry ansible-galaxy -vvv collection install junipernetworks.junos
-
 # END: HACK
 
 export PYTHONIOENCODING='utf-8'

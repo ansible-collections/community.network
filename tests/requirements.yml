@@ -1,0 +1,11 @@
+integration_tests_dependencies:
+- ansible.netcommon
+unit_tests_dependencies:
+- netbox.netbox
+- ansible.netcommon
+- cisco.meraki
+- fortinet.fortios
+- junipernetworks.junos
+- cisco.aci
+- google.cloud
+- f5networks.f5_modules

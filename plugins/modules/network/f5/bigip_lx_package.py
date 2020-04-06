@@ -105,12 +105,12 @@ try:
     from library.module_utils.network.f5.icontrol import tmos_version
     from library.module_utils.network.f5.icontrol import upload_file
 except ImportError:
-    from ansible_collections.community.network.plugins.module_utils.f5._bigip import F5RestClient
-    from ansible_collections.community.network.plugins.module_utils.f5._common import F5ModuleError
-    from ansible_collections.community.network.plugins.module_utils.f5._common import AnsibleF5Parameters
-    from ansible_collections.community.network.plugins.module_utils.f5._common import f5_argument_spec
-    from ansible_collections.community.network.plugins.module_utils.f5._icontrol import tmos_version
-    from ansible_collections.community.network.plugins.module_utils.f5._icontrol import upload_file
+    from ansible_collections.community.network.plugins.module_utils.network.f5._bigip import F5RestClient
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import F5ModuleError
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import AnsibleF5Parameters
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import f5_argument_spec
+    from ansible_collections.community.network.plugins.module_utils.network.f5._icontrol import tmos_version
+    from ansible_collections.community.network.plugins.module_utils.network.f5._icontrol import upload_file
 
 
 class Parameters(AnsibleF5Parameters):

@@ -31,7 +31,7 @@ except ImportError:
 try:
     from library.module_utils.network.f5.common import F5ModuleError
 except ImportError:
-    from ansible_collections.community.network.plugins.module_utils.f5._common import F5ModuleError
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import F5ModuleError
 
 
 """An F5 REST API URI handler.
@@ -420,7 +420,7 @@ def upload_file(client, url, src, dest=None):
         file. BIG-IP has many different URLs that can be used to handle different
         types of files. This is why a full URL is required.
 
-        >>> from ansible_collections.community.network.plugins.module_utils.f5._icontrol import upload_client
+        >>> from ansible_collections.community.network.plugins.module_utils.network.f5._icontrol import upload_client
         >>> url = 'https://{0}:{1}/mgmt/cm/autodeploy/software-image-uploads'.format(
         ...   self.client.provider['server'],
         ...   self.client.provider['server_port']

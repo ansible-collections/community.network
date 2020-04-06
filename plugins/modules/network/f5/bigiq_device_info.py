@@ -836,14 +836,14 @@ try:
     from library.module_utils.network.f5.ipaddress import is_valid_ip
     from library.module_utils.network.f5.common import transform_name
 except ImportError:
-    from ansible_collections.community.network.plugins.module_utils.f5._bigiq import F5RestClient
-    from ansible_collections.community.network.plugins.module_utils.f5._common import F5ModuleError
-    from ansible_collections.community.network.plugins.module_utils.f5._common import AnsibleF5Parameters
-    from ansible_collections.community.network.plugins.module_utils.f5._common import f5_argument_spec
-    from ansible_collections.community.network.plugins.module_utils.f5._common import fq_name
-    from ansible_collections.community.network.plugins.module_utils.f5._common import flatten_boolean
-    from ansible_collections.community.network.plugins.module_utils.f5._ipaddress import is_valid_ip
-    from ansible_collections.community.network.plugins.module_utils.f5._common import transform_name
+    from ansible_collections.community.network.plugins.module_utils.network.f5._bigiq import F5RestClient
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import F5ModuleError
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import AnsibleF5Parameters
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import f5_argument_spec
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import fq_name
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import flatten_boolean
+    from ansible_collections.community.network.plugins.module_utils.network.f5._ipaddress import is_valid_ip
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import transform_name
 
 
 def parseStats(entry):

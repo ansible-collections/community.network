@@ -16,10 +16,10 @@ try:
     from library.module_utils.network.f5.common import is_ansible_debug
     from library.module_utils.network.f5.icontrol import iControlRestSession
 except ImportError:
-    from ansible_collections.community.network.plugins.module_utils.f5._common import F5BaseClient
-    from ansible_collections.community.network.plugins.module_utils.f5._common import F5ModuleError
-    from ansible_collections.community.network.plugins.module_utils.f5._common import is_ansible_debug
-    from ansible_collections.community.network.plugins.module_utils.f5._icontrol import iControlRestSession
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import F5BaseClient
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import F5ModuleError
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import is_ansible_debug
+    from ansible_collections.community.network.plugins.module_utils.network.f5._icontrol import iControlRestSession
 
 
 class F5RestClient(F5BaseClient):

@@ -4,7 +4,6 @@ plugins/action/ce.py action-plugin-docs # base class for deprecated network plat
 plugins/action/ce_template.py action-plugin-docs # undocumented action plugin to fix, existed before sanity test was added
 plugins/action/cnos.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
 plugins/action/edgeos_config.py action-plugin-docs # undocumented action plugin to fix
-plugins/action/ce_template.py action-plugin-docs # undocumented action plugin
 plugins/action/enos.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
 plugins/action/exos.py action-plugin-docs # undocumented action plugin to fix
 plugins/action/ironware.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`

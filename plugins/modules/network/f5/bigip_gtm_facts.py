@@ -40,7 +40,7 @@ deprecated:
     in the bigip_device_info module. Additionally, the M(bigip_device_info)
     module is easier to maintain and use.
 extends_documentation_fragment:
-- f5networks.f5_modules.f5
+- community.network._f5
 
 notes:
   - This module is deprecated. Use the C(bigip_device_info) module instead.
@@ -194,16 +194,16 @@ except ImportError:
 try:
     from library.module_utils.network.f5.common import F5BaseClient
 except ImportError:
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import F5BaseClient
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import F5BaseClient
 
 try:
     from library.module_utils.network.f5.common import F5ModuleError
     from library.module_utils.network.f5.common import AnsibleF5Parameters
     from library.module_utils.network.f5.common import f5_argument_spec
 except ImportError:
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import F5ModuleError
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import AnsibleF5Parameters
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import f5_argument_spec
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import F5ModuleError
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import AnsibleF5Parameters
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import f5_argument_spec
 
 
 class F5Client(F5BaseClient):

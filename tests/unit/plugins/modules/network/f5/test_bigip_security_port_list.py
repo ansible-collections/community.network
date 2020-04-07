@@ -17,7 +17,7 @@ if sys.version_info < (2, 7):
     pytestmark.append(pytest.mark.skip("F5 Ansible modules require Python >= 2.7"))
 
 from ansible_collections.community.network.tests.unit.compat import unittest
-from ansible_collections.community.network.tests.unit.compat.mock import Mock
+from ansible_collections.community.network.tests.unit.compat.mock import Mock, patch
 from ansible.module_utils.basic import AnsibleModule
 
 try:
@@ -93,6 +93,18 @@ class TestManager(unittest.TestCase):
     def setUp(self):
         self.spec = ArgumentSpec()
 
+        try:
+            self.p1 = patch('library.modules.bigip_firewall_port_list.module_provisioned')
+            self.m1 = self.p1.start()
+            self.m1.return_value = True
+        except Exception:
+            self.p1 = patch('ansible_collections.community.network.plugins.modules.network.f5.bigip_security_port_list.module_provisioned')
+            self.m1 = self.p1.start()
+            self.m1.return_value = True
+
+    def tearDown(self):
+        self.p1.stop()
+
     def test_create(self, *args):
         set_module_args(dict(
             name='foo',
@@ -100,9 +112,11 @@ class TestManager(unittest.TestCase):
             ports=[1, 2, 3, 4],
             port_ranges=['10-20', '30-40', '50-60'],
             port_lists=['/Common/foo', 'foo'],
-            password='password',
-            server='localhost',
-            user='admin'
+            provider=dict(
+                server='localhost',
+                password='password',
+                user='admin'
+            )
         ))
 
         module = AnsibleModule(

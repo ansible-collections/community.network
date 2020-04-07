@@ -104,7 +104,7 @@ options:
       - Device partition to manage resources on.
     default: Common
 extends_documentation_fragment:
-- f5networks.f5_modules.f5
+- community.network._f5
 
 author:
   - Wojciech Wypior (@wojtek0806)
@@ -248,14 +248,14 @@ try:
     from library.module_utils.network.f5.icontrol import tmos_version
     from library.module_utils.network.f5.icontrol import module_provisioned
 except ImportError:
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.bigip import F5RestClient
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import F5ModuleError
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import AnsibleF5Parameters
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import fq_name
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import f5_argument_spec
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.icontrol import upload_file
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.icontrol import tmos_version
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.icontrol import module_provisioned
+    from ansible_collections.community.network.plugins.module_utils.network.f5._bigip import F5RestClient
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import F5ModuleError
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import AnsibleF5Parameters
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import fq_name
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import f5_argument_spec
+    from ansible_collections.community.network.plugins.module_utils.network.f5._icontrol import upload_file
+    from ansible_collections.community.network.plugins.module_utils.network.f5._icontrol import tmos_version
+    from ansible_collections.community.network.plugins.module_utils.network.f5._icontrol import module_provisioned
 
 
 class Parameters(AnsibleF5Parameters):

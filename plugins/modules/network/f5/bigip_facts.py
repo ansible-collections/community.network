@@ -74,7 +74,7 @@ options:
       - Shell-style glob matching string used to filter fact keys. Not
         applicable for software, provision, and system_info fact categories.
 extends_documentation_fragment:
-- f5networks.f5_modules.f5
+- community.network._f5
 
 '''
 
@@ -104,8 +104,8 @@ try:
     from library.module_utils.network.f5.common import F5BaseClient
 except ImportError:
     from ansible_collections.community.network.plugins.module_utils.network.f5.legacy import bigip_api, bigsuds_found
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import f5_argument_spec
-    from ansible_collections.f5networks.f5_modules.plugins.module_utils.common import F5BaseClient
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import f5_argument_spec
+    from ansible_collections.community.network.plugins.module_utils.network.f5._common import F5BaseClient
 
 try:
     from suds import MethodNotFound, WebFault

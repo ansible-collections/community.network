@@ -4,7 +4,6 @@ unit_tests_dependencies:
 - netbox.netbox
 - ansible.netcommon
 - fortinet.fortios
-- junipernetworks.junos
 - cisco.aci
 - google.cloud
 - f5networks.f5_modules

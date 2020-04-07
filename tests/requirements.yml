@@ -3,7 +3,6 @@ integration_tests_dependencies:
 unit_tests_dependencies:
 - netbox.netbox
 - ansible.netcommon
-- cisco.meraki
 - fortinet.fortios
 - junipernetworks.junos
 - cisco.aci

@@ -1067,12 +1067,27 @@ plugins/modules/network/exos/exos_l2_interfaces.py validate-modules:parameter-li
 plugins/modules/network/f5/bigip_asm_policy.py validate-modules:doc-missing-type
 plugins/modules/network/f5/bigip_asm_policy.py validate-modules:doc-required-mismatch
 plugins/modules/network/f5/bigip_asm_policy.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/f5/bigip_device_info.py validate-modules:doc-required-mismatch
+plugins/modules/network/f5/bigip_device_info.py validate-modules:parameter-list-no-elements
+plugins/modules/network/f5/bigip_device_info.py validate-modules:return-syntax-error
+plugins/modules/network/f5/bigip_device_traffic_group.py validate-modules:doc-required-mismatch
+plugins/modules/network/f5/bigip_device_traffic_group.py validate-modules:parameter-list-no-elements
 plugins/modules/network/f5/bigip_facts.py validate-modules:doc-required-mismatch
 plugins/modules/network/f5/bigip_facts.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/f5/bigip_firewall_address_list.py validate-modules:doc-choices-do-not-match-spec
+plugins/modules/network/f5/bigip_firewall_address_list.py validate-modules:doc-elements-mismatch
+plugins/modules/network/f5/bigip_firewall_address_list.py validate-modules:doc-required-mismatch
+plugins/modules/network/f5/bigip_firewall_address_list.py validate-modules:parameter-list-no-elements
+plugins/modules/network/f5/bigip_firewall_port_list.py validate-modules:doc-required-mismatch
+plugins/modules/network/f5/bigip_firewall_port_list.py validate-modules:parameter-list-no-elements
 plugins/modules/network/f5/bigip_gtm_facts.py validate-modules:doc-missing-type
 plugins/modules/network/f5/bigip_gtm_facts.py validate-modules:doc-required-mismatch
 plugins/modules/network/f5/bigip_gtm_facts.py validate-modules:parameter-list-no-elements
 plugins/modules/network/f5/bigip_gtm_facts.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/f5/bigip_lx_package.py validate-modules:doc-required-mismatch
+plugins/modules/network/f5/bigiq_device_info.py validate-modules:doc-required-mismatch
+plugins/modules/network/f5/bigiq_device_info.py validate-modules:parameter-list-no-elements
+plugins/modules/network/f5/bigiq_device_info.py validate-modules:return-syntax-error
 plugins/modules/network/fortianalyzer/faz_device.py validate-modules:doc-required-mismatch
 plugins/modules/network/fortimanager/fmgr_device.py validate-modules:doc-required-mismatch
 plugins/modules/network/fortimanager/fmgr_device.py validate-modules:parameter-type-not-in-doc
@@ -1742,6 +1757,12 @@ tests/unit/plugins/modules/network/radware/test_vdirect_runnable.py future-impor
 tests/unit/plugins/modules/network/radware/test_vdirect_runnable.py metaclass-boilerplate
 tests/unit/plugins/modules/utils.py future-import-boilerplate
 tests/unit/plugins/modules/utils.py metaclass-boilerplate
+plugins/modules/network/f5/bigip_asm_policy.py validate-modules:deprecation-mismatch  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged
+plugins/modules/network/f5/bigip_asm_policy.py validate-modules:invalid-documentation  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged
+plugins/modules/network/f5/bigip_facts.py validate-modules:deprecation-mismatch  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged
+plugins/modules/network/f5/bigip_facts.py validate-modules:invalid-documentation  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged
+plugins/modules/network/f5/bigip_gtm_facts.py validate-modules:deprecation-mismatch  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged
+plugins/modules/network/f5/bigip_gtm_facts.py validate-modules:invalid-documentation  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged
 plugins/modules/network/netvisor/pn_cluster.py validate-modules:deprecation-mismatch  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged
 plugins/modules/network/netvisor/pn_cluster.py validate-modules:invalid-documentation  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged
 plugins/modules/network/netvisor/pn_ospf.py validate-modules:deprecation-mismatch  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged

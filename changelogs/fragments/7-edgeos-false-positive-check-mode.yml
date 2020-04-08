@@ -1,0 +1,2 @@
+bugfixes:
+- "edgeos - Fix false-positive change reports in check mode"

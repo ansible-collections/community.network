@@ -14,7 +14,6 @@ options:
     description:
       - A dict object containing connection details.
     type: dict
-    version_added: '2.5'
     suboptions:
       password:
         description:

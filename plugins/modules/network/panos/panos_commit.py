@@ -94,7 +94,6 @@ panos_commit:
     description: Information about commit job.
     returned: always
     type: complex
-    version_added: 2.8
     contains:
         job_id:
             description: Palo Alto job ID for the commit operation. Only returned if commit job is launched on device.

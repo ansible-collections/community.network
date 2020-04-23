@@ -16252,7 +16252,7 @@ def main():
         argument_spec=spec.argument_spec,
         supports_check_mode=spec.supports_check_mode
     )
-    if module._name == 'bigip_device_facts':
+    if module._name in ('bigip_device_facts', 'community.network.bigip_device_facts'):
         module.deprecate("The 'bigip_device_facts' module has been renamed to 'bigip_device_info'", version='2.13')
 
     try:

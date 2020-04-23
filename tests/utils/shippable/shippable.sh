@@ -57,7 +57,8 @@ cd "${TEST_DIR}"
 # STAR: HACK install dependencies
 retry ansible-galaxy -vvv collection install ansible.netcommon
 retry ansible-galaxy -vvv collection install cisco.mso
-retry ansible-galaxy -vvv collection install cisco.intersight
+# https://github.com/CiscoDevNet/ansible-intersight/issues/9
+retry ansible-galaxy -vvv collection install cisco.intersight:1.0.4
 retry ansible-galaxy -vvv collection install check_point.mgmt
 retry ansible-galaxy -vvv collection install f5networks.f5_modules
 retry ansible-galaxy -vvv collection install fortinet.fortios

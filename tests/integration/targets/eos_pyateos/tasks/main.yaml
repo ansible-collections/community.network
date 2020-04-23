@@ -1,0 +1,4 @@
+---
+- include: eapi.yaml
+  tags:
+    - eapi

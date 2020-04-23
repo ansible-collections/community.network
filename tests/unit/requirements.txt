@@ -2,5 +2,6 @@
 f5-sdk ; python_version >= '2.7'
 f5-icontrol-rest ; python_version >= '2.7'
 deepdiff
+# requirements for eos_pyateos modules
 jsondiff
 jmespath

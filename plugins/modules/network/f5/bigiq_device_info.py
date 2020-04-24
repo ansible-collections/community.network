@@ -2299,7 +2299,7 @@ def main():
         argument_spec=spec.argument_spec,
         supports_check_mode=spec.supports_check_mode
     )
-    if module._name == 'bigiq_device_facts':
+    if module._name in ('bigiq_device_facts', 'community.network.bigiq_device_facts'):
         module.deprecate("The 'bigiq_device_facts' module has been renamed to 'bigiq_device_info'", version='2.13')
 
     try:

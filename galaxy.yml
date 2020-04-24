@@ -13,7 +13,6 @@ dependencies:
   ansible.netcommon: '>=0.1.0'
   cisco.mso: '>=0.1.0'
   cisco.aci: '>=0.1.0'
-  cisco.intersight: '>=0.1.0'
   check_point.mgmt: '>=0.1.0'
   fortinet.fortios: '>=0.1.0'
 #  f5networks.f5_modules: '>=0.1.0'

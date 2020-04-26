@@ -8,6 +8,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 module: onyx_syslog_remote
+version_added: '1.0.0'
 author: "Anas Shami (@anass)"
 short_description: Configure remote syslog module
 description:

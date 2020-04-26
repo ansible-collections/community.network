@@ -9,6 +9,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: onyx_bfd
+version_added: '1.0.0'
 author: "Sara Touqan (@sarato)"
 short_description: Configures BFD parameters
 description:

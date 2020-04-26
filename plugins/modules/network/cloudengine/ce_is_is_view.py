@@ -11,6 +11,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_is_is_view
+version_added: '1.0.0'
 author: xuxiaowei0512 (@CloudEngine-Ansible)
 short_description: Manages isis view configuration on HUAWEI CloudEngine devices.
 description:

@@ -9,6 +9,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: onyx_username
+version_added: '1.0.0'
 author: "Anas Shami (@anass)"
 short_description: Configure username module
 description:

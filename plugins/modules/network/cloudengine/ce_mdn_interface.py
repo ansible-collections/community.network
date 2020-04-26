@@ -12,6 +12,7 @@ DOCUMENTATION = '''
 ---
 
 module: ce_mdn_interface
+version_added: '1.0.0'
 short_description: Manages MDN configuration on HUAWEI CloudEngine switches.
 description:
     - Manages MDN configuration on HUAWEI CloudEngine switches.

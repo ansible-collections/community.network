@@ -31,6 +31,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: exos_l2_interfaces
+version_added: '1.0.0'
 short_description:  Manage L2 interfaces on Extreme Networks EXOS devices.
 description: This module provides declarative management of L2 interfaces on Extreme Networks EXOS network devices.
 author: Jayalakshmi Viswanathan (@jayalakshmiV)

@@ -7,7 +7,7 @@ authors:
 description: null
 license: GPL-3.0-or-later
 license_file: COPYING
-tags: null
+tags: [community, network]
 # NOTE: No more dependencies can be added to this list
 dependencies:
   ansible.netcommon: '>=0.1.0'

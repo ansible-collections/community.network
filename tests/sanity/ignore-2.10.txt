@@ -1757,6 +1757,8 @@ tests/unit/plugins/modules/network/radware/test_vdirect_runnable.py future-impor
 tests/unit/plugins/modules/network/radware/test_vdirect_runnable.py metaclass-boilerplate
 tests/unit/plugins/modules/utils.py future-import-boilerplate
 tests/unit/plugins/modules/utils.py metaclass-boilerplate
+tests/utils/shippable/check_matrix.py replace-urlopen
+tests/utils/shippable/timing.py shebang
 plugins/modules/network/f5/bigip_asm_policy.py validate-modules:deprecation-mismatch  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged
 plugins/modules/network/f5/bigip_asm_policy.py validate-modules:invalid-documentation  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged
 plugins/modules/network/f5/bigip_facts.py validate-modules:deprecation-mismatch  # needs to be removed and adjusted once https://github.com/ansible/ansible/pull/67684 has been merged

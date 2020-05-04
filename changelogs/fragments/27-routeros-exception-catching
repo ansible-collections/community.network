@@ -1,0 +1,2 @@
+bugfixes:
+  - Created a try/except block on the function get_capabilities of routeros.py

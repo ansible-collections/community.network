@@ -74,7 +74,6 @@ def get_capabilities(module):
         module.fail_json(msg=to_text(exc))
 
 
-
 def get_defaults_flag(module):
     connection = get_connection(module)
 

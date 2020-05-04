@@ -66,9 +66,13 @@ def get_capabilities(module):
     if hasattr(module, '_routeros_capabilities'):
         return module._routeros_capabilities
 
-    capabilities = Connection(module._socket_path).get_capabilities()
-    module._routeros_capabilities = json.loads(capabilities)
-    return module._routeros_capabilities
+    try:
+        capabilities = Connection(module._socket_path).get_capabilities()
+        module._routeros_capabilities = json.loads(capabilities)
+        return module._routeros_capabilities
+    except ConnectionError as exc:
+        module.fail_json(msg=to_text(exc))
+
 
 
 def get_defaults_flag(module):

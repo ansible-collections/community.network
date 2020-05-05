@@ -1,2 +1,2 @@
 bugfixes:
-  - Created a try/except block on the function get_capabilities of routeros.py
+  - routeros module_utils - created a ``try``/``except`` block on the function ``get_capabilities`` (https://github.com/ansible-collections/community.network/pull/27).

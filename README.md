@@ -7,7 +7,7 @@ The Community Network collection includes community maintained content to help a
 
 
 ### Supported connections
-The community network collection supports ``network_cli``  and ``httpapi`` connections.
+The community network collection supports `network_cli`  and `httpapi` connections.
 
 ## Included content
 

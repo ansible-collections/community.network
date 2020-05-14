@@ -1,0 +1,2 @@
+minor_changes:
+  - Prevent timeout connection failure by adding "no logging terminal" after log in, in terminal plugin for cnos.

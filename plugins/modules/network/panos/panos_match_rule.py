@@ -20,10 +20,6 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #  limitations under the License.
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: panos_match_rule

@@ -23,10 +23,6 @@ __metaclass__ = type
 # Module to work on management of local users on Lenovo CNOS Switches
 # Lenovo Networking
 #
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: cnos_user

@@ -154,10 +154,6 @@ RETURN = '''
 # Default return values
 '''
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
 # import pydevd
 # pydevd.settrace('localhost', port=60374, stdoutToServer=True, stderrToServer=True)
 from ansible.module_utils.basic import AnsibleModule

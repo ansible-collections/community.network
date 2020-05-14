@@ -84,11 +84,6 @@ RETURN = '''
 # Default return values
 '''
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
-
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils._text import to_native
 

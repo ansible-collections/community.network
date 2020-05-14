@@ -117,11 +117,6 @@ panos_commit:
             sample: success
 '''
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
-
 from ansible.module_utils.basic import AnsibleModule, env_fallback
 import xml.etree.ElementTree as etree
 

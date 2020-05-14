@@ -24,11 +24,6 @@ __metaclass__ = type
 # Lenovo Networking
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: cnos_showrun

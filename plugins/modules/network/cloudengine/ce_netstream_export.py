@@ -71,7 +71,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: netstream export module test
+- name: Netstream export module test
   hosts: cloudengine
   connection: local
   gather_facts: no

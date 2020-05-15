@@ -51,14 +51,14 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 # single check on 192.168.1.1 with credentials admin/admin
-- name: check if ready
+- name: Check if ready
   panos_check:
     ip_address: "192.168.1.1"
     password: "admin"
 
 # check for 10 times, every 30 seconds, if device 192.168.1.1
 # is ready, using credentials admin/admin
-- name: wait for reboot
+- name: Wait for reboot
   panos_check:
     ip_address: "192.168.1.1"
     password: "admin"

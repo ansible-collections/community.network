@@ -150,7 +150,8 @@ options:
 '''
 
 EXAMPLES = """
-- ironware_config:
+- name: Run commands that should be configured in the section
+  ironware_config:
     lines:
       - port-name test
       - enable

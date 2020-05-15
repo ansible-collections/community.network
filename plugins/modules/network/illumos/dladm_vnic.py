@@ -54,21 +54,21 @@ options:
 '''
 
 EXAMPLES = '''
-# Create 'vnic0' VNIC over 'bnx0' link
-- dladm_vnic:
+- name: Create 'vnic0' VNIC over 'bnx0' link
+  dladm_vnic:
     name: vnic0
     link: bnx0
     state: present
 
-# Create VNIC with specified MAC and VLAN tag over 'aggr0'
-- dladm_vnic:
+- name: Create VNIC with specified MAC and VLAN tag over 'aggr0'
+  dladm_vnic:
     name: vnic1
     link: aggr0
     mac: '00:00:5E:00:53:23'
     vlan: 4
 
-# Remove 'vnic0' VNIC
-- dladm_vnic:
+- name: Remove 'vnic0' VNIC
+  dladm_vnic:
     name: vnic0
     link: bnx0
     state: absent

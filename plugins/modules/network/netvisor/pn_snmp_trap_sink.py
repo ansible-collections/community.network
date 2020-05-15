@@ -48,7 +48,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: snmp trap sink functionality
+- name: Snmp trap sink functionality
   pn_snmp_trap_sink:
     pn_cliswitch: "sw01"
     state: "present"
@@ -56,7 +56,7 @@ EXAMPLES = """
     pn_type: "TRAP_TYPE_V2_INFORM"
     pn_dest_host: "192.168.67.8"
 
-- name: snmp trap sink functionality
+- name: Snmp trap sink functionality
   pn_snmp_trap_sink:
     pn_cliswitch: "sw01"
     state: "absent"

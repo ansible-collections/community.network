@@ -138,7 +138,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: ospf vrf module test
+- name: Ospf vrf module test
   hosts: cloudengine
   connection: local
   gather_facts: no

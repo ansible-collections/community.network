@@ -110,7 +110,7 @@ requirements:
 '''
 
 EXAMPLES = '''
-- name: vdirect_commit
+- name: Commit
   vdirect_commit:
       vdirect_ip: 10.10.10.10
       vdirect_user: vDirect

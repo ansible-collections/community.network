@@ -36,15 +36,15 @@ options:
 '''
 
 EXAMPLES = """
-- name: collect all facts from the device
+- name: Collect all facts from the device
   edgeos_facts:
     gather_subset: all
 
-- name: collect only the config and default facts
+- name: Collect only the config and default facts
   edgeos_facts:
     gather_subset: config
 
-- name: collect everything exception the config
+- name: Collect everything exception the config
   edgeos_facts:
     gather_subset: "!config"
 """

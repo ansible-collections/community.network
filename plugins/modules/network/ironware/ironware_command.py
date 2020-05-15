@@ -62,11 +62,13 @@ options:
 '''
 
 EXAMPLES = """
-- ironware_command:
+- name: Run a command
+  ironware_command:
     commands:
       - show version
 
-- ironware_command:
+- name: Run several commands
+  ironware_command:
     commands:
       - show interfaces brief wide
       - show mpls vll

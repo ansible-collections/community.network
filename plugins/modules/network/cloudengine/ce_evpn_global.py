@@ -39,7 +39,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: evpn global module test
+- name: Evpn global module test
   hosts: cloudengine
   connection: local
   gather_facts: no

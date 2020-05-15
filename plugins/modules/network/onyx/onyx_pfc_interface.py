@@ -35,7 +35,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure PFC
+- name: Configure PFC
   onyx_pfc_interface:
     name: Eth1/1
     state: enabled

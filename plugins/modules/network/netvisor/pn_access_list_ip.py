@@ -39,14 +39,14 @@ options:
 '''
 
 EXAMPLES = """
-- name: access list ip functionality
+- name: Access list ip functionality
   pn_access_list_ip:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_ip: "172.16.3.1"
     state: "present"
 
-- name: access list ip functionality
+- name: Access list ip functionality
   pn_access_list_ip:
     pn_cliswitch: "sw01"
     pn_name: "foo"

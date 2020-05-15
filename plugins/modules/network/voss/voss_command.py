@@ -81,22 +81,22 @@ options:
 
 EXAMPLES = r"""
 tasks:
-  - name: run show sys software on remote devices
+  - name: Run show sys software on remote devices
     voss_command:
       commands: show sys software
 
-  - name: run show sys software and check to see if output contains VOSS
+  - name: Run show sys software and check to see if output contains VOSS
     voss_command:
       commands: show sys software
       wait_for: result[0] contains VOSS
 
-  - name: run multiple commands on remote nodes
+  - name: Run multiple commands on remote nodes
     voss_command:
       commands:
         - show sys software
         - show interfaces vlan
 
-  - name: run multiple commands and evaluate the output
+  - name: Run multiple commands and evaluate the output
     voss_command:
       commands:
         - show sys software
@@ -105,7 +105,7 @@ tasks:
         - result[0] contains Version
         - result[1] contains Basic
 
-  - name: run command that requires answering a prompt
+  - name: Run command that requires answering a prompt
     voss_command:
       commands:
         - command: 'reset'

@@ -118,17 +118,17 @@ options:
 '''
 
 EXAMPLES = """
-- name: create link aggregation group
+- name: Create link aggregation group
   cnos_linkagg:
     group: 10
     state: present
 
-- name: delete link aggregation group
+- name: Delete link aggregation group
   cnos_linkagg:
     group: 10
     state: absent
 
-- name: set link aggregation group to members
+- name: Set link aggregation group to members
   cnos_linkagg:
     group: 200
     mode: active
@@ -136,7 +136,7 @@ EXAMPLES = """
       - Ethernet1/33
       - Ethernet1/44
 
-- name: remove link aggregation group from GigabitEthernet0/0
+- name: Remove link aggregation group from GigabitEthernet0/0
   cnos_linkagg:
     group: 200
     mode: active

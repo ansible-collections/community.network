@@ -73,7 +73,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: vxlan global module test
+- name: Vxlan global module test
   hosts: ce128
   connection: local
   gather_facts: no

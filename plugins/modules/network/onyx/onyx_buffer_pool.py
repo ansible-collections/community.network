@@ -35,7 +35,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure buffer pool
+- name: Configure buffer pool
   onyx_buffer_pool:
     name: roce
     pool_type: lossless

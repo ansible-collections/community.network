@@ -136,13 +136,13 @@ options:
 '''
 
 EXAMPLES = """
-- name: create trunk
+- name: Create trunk
   pn_trunk:
     state: 'present'
     pn_name: 'spine-to-leaf'
     pn_ports: '11,12,13,14'
 
-- name: delete trunk
+- name: Delete trunk
   pn_trunk:
     state: 'absent'
     pn_name: 'spine-to-leaf'

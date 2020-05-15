@@ -61,7 +61,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: static route module test
+- name: Static route module test
   hosts: cloudengine
   connection: local
   gather_facts: no

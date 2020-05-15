@@ -37,17 +37,17 @@ options:
 '''
 
 EXAMPLES = """
-# Collect all facts from the device
-- ironware_facts:
+- name: Collect all facts from the device
+  ironware_facts:
     gather_subset: all
 
-# Collect only the config and default facts
-- ironware_facts:
+- name: Collect only the config and default facts
+  ironware_facts:
     gather_subset:
       - config
 
-# Do not collect hardware facts
-- ironware_facts:
+- name: Do not collect hardware facts
+  ironware_facts:
     gather_subset:
       - "!hardware"
 """

@@ -39,7 +39,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure QoS
+- name: Configure QoS
   onyx_QoS:
     interfaces:
       - Mpo7
@@ -48,7 +48,7 @@ EXAMPLES = """
     rewrite_pcp: disabled
     rewrite_dscp: enabled
 
-- name: configure QoS
+- name: Configure QoS
   onyx_QoS:
     interfaces:
       - Eth1/1

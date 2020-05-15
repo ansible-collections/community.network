@@ -155,7 +155,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: add an SSH inbound rule to devicegroup
+- name: Add an SSH inbound rule to devicegroup
   panos_security_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
@@ -176,7 +176,7 @@ EXAMPLES = '''
     action: 'allow'
     devicegroup: 'Cloud Edge'
 
-- name: add a rule to allow HTTP multimedia only from CDNs
+- name: Add a rule to allow HTTP multimedia only from CDNs
   panos_security_rule:
     ip_address: '10.5.172.91'
     username: 'admin'
@@ -195,7 +195,7 @@ EXAMPLES = '''
     hip_profiles: ['any']
     action: 'allow'
 
-- name: add a more complex rule that uses security profiles
+- name: Add a more complex rule that uses security profiles
   panos_security_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
@@ -211,7 +211,7 @@ EXAMPLES = '''
     url_filtering: 'default'
     wildfire_analysis: 'default'
 
-- name: delete a devicegroup security rule
+- name: Delete a devicegroup security rule
   panos_security_rule:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
@@ -219,7 +219,7 @@ EXAMPLES = '''
     rule_name: 'Allow telnet'
     devicegroup: 'DC Firewalls'
 
-- name: find a specific security rule
+- name: Find a specific security rule
   panos_security_rule:
     ip_address: '{{ ip_address }}'
     password: '{{ password }}'

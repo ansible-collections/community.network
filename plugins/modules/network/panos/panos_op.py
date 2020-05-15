@@ -59,14 +59,14 @@ options:
 '''
 
 EXAMPLES = '''
-- name: show list of all interfaces
+- name: Show list of all interfaces
   panos_op:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
     cmd: 'show interfaces all'
 
-- name: show system info
+- name: Show system info
   panos_op:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'

@@ -138,7 +138,7 @@ options:
 EXAMPLES = '''
 ---
 
-- name: sflow module test
+- name: Sflow module test
   hosts: ce128
   connection: local
   gather_facts: no

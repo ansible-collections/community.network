@@ -67,13 +67,13 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure static route
+- name: Configure static route
   cnos_static_route:
     prefix: 10.241.107.0
     mask: 255.255.255.0
     next_hop: 10.241.106.1
 
-- name: configure ultimate route with name and tag
+- name: Configure ultimate route with name and tag
   cnos_static_route:
     prefix: 10.241.107.0
     mask: 255.255.255.0
@@ -81,7 +81,7 @@ EXAMPLES = """
     description: hello world
     tag: 100
 
-- name: remove configuration
+- name: Remove configuration
   cnos_static_route:
     prefix: 10.241.107.0
     mask: 255.255.255.0

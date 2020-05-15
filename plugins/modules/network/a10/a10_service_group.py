@@ -79,8 +79,8 @@ options:
 '''
 
 EXAMPLES = '''
-# Create a new service-group
-- a10_service_group:
+- name: Create a new service-group
+  a10_service_group:
     host: a10.mydomain.com
     username: myadmin
     password: mypassword
@@ -96,7 +96,6 @@ EXAMPLES = '''
       - server: foo4.mydomain.com
         port: 8080
         status: disabled
-
 '''
 
 RETURN = '''

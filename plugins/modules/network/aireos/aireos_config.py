@@ -151,16 +151,16 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure configuration
+- name: Configure configuration
   aireos_config:
     lines: sysname testDevice
 
-- name: diff the running-config against a provided config
+- name: Diff the running-config against a provided config
   aireos_config:
     diff_against: intended
     intended: "{{ lookup('file', 'master.cfg') }}"
 
-- name: load new acl into device
+- name: Load new acl into device
   aireos_config:
     lines:
       - acl create testACL
@@ -168,7 +168,7 @@ EXAMPLES = """
       - acl rule direction testACL 3 in
     before: acl delete testACL
 
-- name: configurable backup path
+- name: Configurable backup path
   aireos_config:
     backup: yes
     lines: sysname testDevice

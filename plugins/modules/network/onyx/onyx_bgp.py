@@ -73,7 +73,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure bgp
+- name: Configure bgp
   onyx_bgp:
     as_number: 320
     router_id: 10.3.3.3

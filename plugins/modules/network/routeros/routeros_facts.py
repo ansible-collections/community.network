@@ -30,17 +30,17 @@ options:
 '''
 
 EXAMPLES = """
-# Collect all facts from the device
-- routeros_facts:
+- name: Collect all facts from the device
+  routeros_facts:
     gather_subset: all
 
-# Collect only the config and default facts
-- routeros_facts:
+- name: Collect only the config and default facts
+  routeros_facts:
     gather_subset:
       - config
 
-# Do not collect hardware facts
-- routeros_facts:
+- name: Do not collect hardware facts
+  routeros_facts:
     gather_subset:
       - "!hardware"
 """

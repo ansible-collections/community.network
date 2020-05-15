@@ -84,24 +84,24 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure interface
+- name: Configure interface
   slxos_interface:
       name: Ethernet 0/2
       description: test-interface
       speed: 1000
       mtu: 9216
 
-- name: remove interface
+- name: Remove interface
   slxos_interface:
     name: Loopback 9
     state: absent
 
-- name: make interface up
+- name: Make interface up
   slxos_interface:
     name: Ethernet 0/2
     enabled: True
 
-- name: make interface down
+- name: Make interface down
   slxos_interface:
     name: Ethernet 0/2
     enabled: False

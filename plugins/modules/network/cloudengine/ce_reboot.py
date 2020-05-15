@@ -46,7 +46,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: reboot module test
+- name: Reboot module test
   hosts: cloudengine
   connection: local
   gather_facts: no

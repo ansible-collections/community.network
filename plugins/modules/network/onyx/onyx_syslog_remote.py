@@ -68,30 +68,30 @@ options:
 '''
 
 EXAMPLES = """
-- name: remote logging port 8080
+- name: Remote logging port 8080
 - onyx_syslog_remote:
     host: 10.10.10.10
     port: 8080
 
-- name: remote logging trap override
+- name: Remote logging trap override
 - onyx_syslog_remote:
     host: 10.10.10.10
     trap_override:
         - override_class: events
           override_priority: emerg
 
-- name: remote logging trap emerg
+- name: Remote logging trap emerg
 - onyx_syslog_remote:
     host: 10.10.10.10
     trap: emerg
 
-- name: remote logging filter include 'ERR'
+- name: Remote logging filter include 'ERR'
 - onyx_syslog_remote:
     host: 10.10.10.10
     filter: include
     filter_str: /ERR/
 
-- name: disable remote logging with class events
+- name: Disable remote logging with class events
 - onyx_syslog_remote:
     enabled: False
     host: 10.10.10.10

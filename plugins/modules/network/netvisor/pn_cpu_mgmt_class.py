@@ -44,7 +44,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: cpu mgmt class modify ingress policers
+- name: Cpu mgmt class modify ingress policers
   pn_cpu_mgmt_class:
     pn_cliswitch: "sw01"
     state: "update"
@@ -52,7 +52,7 @@ EXAMPLES = """
     pn_rate_limit: "10000"
     pn_burst_size: "14000"
 
-- name: cpu mgmt class modify ingress policers
+- name: Cpu mgmt class modify ingress policers
   pn_cpu_mgmt_class:
     pn_cliswitch: "sw01"
     state: "update"
@@ -60,7 +60,7 @@ EXAMPLES = """
     pn_burst_size: "8000"
     pn_rate_limit: "100000"
 
-- name: cpu mgmt class modify ingress policers
+- name: Cpu mgmt class modify ingress policers
   pn_cpu_mgmt_class:
     pn_cliswitch: "sw01"
     state: "update"

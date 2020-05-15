@@ -68,7 +68,7 @@ options:
 
 EXAMPLES = '''
 # Generates a new self-signed certificate using ssh
-- name: generate self signed certificate
+- name: Generate self signed certificate
   panos_cert_gen_ssh:
     ip_address: "192.168.1.1"
     password: "paloalto"

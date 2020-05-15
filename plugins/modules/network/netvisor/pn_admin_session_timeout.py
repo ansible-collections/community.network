@@ -35,19 +35,19 @@ options:
 '''
 
 EXAMPLES = """
-- name: admin session timeout functionality
+- name: Admin session timeout functionality
   pn_admin_session_timeout:
     pn_cliswitch: "sw01"
     state: "update"
     pn_timeout: "61s"
 
-- name: admin session timeout functionality
+- name: Admin session timeout functionality
   pn_admin_session_timeout:
     pn_cliswitch: "sw01"
     state: "update"
     pn_timeout: "1d"
 
-- name: admin session timeout functionality
+- name: Admin session timeout functionality
   pn_admin_session_timeout:
     pn_cliswitch: "sw01"
     state: "update"

@@ -65,14 +65,14 @@ options:
 '''
 
 EXAMPLES = """
-- name: admin-syslog functionality
+- name: Admin-syslog functionality
   pn_admin_syslog:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_name: "foo"
     pn_scope: "local"
 
-- name: admin-syslog functionality
+- name: Admin-syslog functionality
   pn_admin_syslog:
     pn_cliswitch: "sw01"
     state: "present"
@@ -81,7 +81,7 @@ EXAMPLES = """
     pn_host: "166.68.224.46"
     pn_message_format: "structured"
 
-- name: admin-syslog functionality
+- name: Admin-syslog functionality
   pn_admin_syslog:
     pn_cliswitch: "sw01"
     state: "update"

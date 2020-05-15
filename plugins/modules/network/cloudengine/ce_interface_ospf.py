@@ -90,7 +90,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: eth_trunk module test
+- name: Eth_trunk module test
   hosts: cloudengine
   connection: local
   gather_facts: no

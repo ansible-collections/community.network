@@ -169,18 +169,18 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure top level configuration
+- name: Configure top level configuration
   icx_config:
     lines: hostname {{ inventory_hostname }}
 
-- name: configure interface settings
+- name: Configure interface settings
   icx_config:
     lines:
       - port-name test string
       - ip address 172.31.1.1 255.255.255.0
     parents: interface ethernet 1/1/2
 
-- name: configure ip helpers on multiple interfaces
+- name: Configure ip helpers on multiple interfaces
   icx_config:
     lines:
       - ip helper-address 172.26.1.10
@@ -190,7 +190,7 @@ EXAMPLES = """
     - interface ethernet 1/1/2
     - interface ethernet 1/1/3
 
-- name: load new acl into device
+- name: Load new acl into device
   icx_config:
     lines:
       - permit ip host 192.0.2.1 any log
@@ -201,18 +201,18 @@ EXAMPLES = """
     before: no ip access-list extended test
     match: exact
 
-- name: check the running-config against master config
+- name: Check the running-config against master config
   icx_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
-- name: check the configuration against the running-config
+- name: Check the configuration against the running-config
   icx_config:
     diff_against: startup
     diff_ignore_lines:
       - ntp clock .*
 
-- name: for idempotency, use full-form commands
+- name: For idempotency, use full-form commands
   icx_config:
     lines:
       # - en
@@ -230,7 +230,7 @@ EXAMPLES = """
     host: "{{ inventory_hostname }}"
   when: ansible_net_version != version
 
-- name: render template onto an ICX device
+- name: Render template onto an ICX device
   icx_config:
     backup: yes
     src: "{{ lookup('file', 'config.j2') }}"

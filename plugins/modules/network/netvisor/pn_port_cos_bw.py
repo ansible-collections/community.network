@@ -54,7 +54,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: port cos bw modify
+- name: Port cos bw modify
   pn_port_cos_bw:
     pn_cliswitch: "sw01"
     state: "update"
@@ -62,7 +62,7 @@ EXAMPLES = """
     pn_cos: "0"
     pn_min_bw_guarantee: "60"
 
-- name: port cos bw modify
+- name: Port cos bw modify
   pn_port_cos_bw:
     pn_cliswitch: "sw01"
     state: "update"

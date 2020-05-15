@@ -60,7 +60,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- name: enable DHCP client on ethernet1/1 in zone public
+- name: Enable DHCP client on ethernet1/1 in zone public
   interface:
     password: "admin"
     ip_address: "192.168.1.1"

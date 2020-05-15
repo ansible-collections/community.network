@@ -88,7 +88,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- name: bfd view module test
+- name: Bfd view module test
   hosts: cloudengine
   connection: local
   gather_facts: no

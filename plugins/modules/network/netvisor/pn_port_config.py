@@ -166,14 +166,14 @@ options:
 '''
 
 EXAMPLES = """
-- name: port config modify
+- name: Port config modify
   pn_port_config:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "all"
     pn_dscp_map: "foo"
 
-- name: port config modify
+- name: Port config modify
   pn_port_config:
     pn_cliswitch: "sw01"
     state: "update"

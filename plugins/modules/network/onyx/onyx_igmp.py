@@ -51,7 +51,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure igmp
+- name: Configure igmp
   onyx_igmp:
     state: enabled
     unregistered_multicast: flood

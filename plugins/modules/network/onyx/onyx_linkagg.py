@@ -47,14 +47,14 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure link aggregation group
+- name: Configure link aggregation group
   onyx_linkagg:
     name: Po1
     members:
       - Eth1/1
       - Eth1/2
 
-- name: remove configuration
+- name: Remove configuration
   onyx_linkagg:
     name: Po1
     state: absent

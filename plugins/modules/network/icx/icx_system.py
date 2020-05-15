@@ -102,7 +102,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure hostname and domain name
+- name: Configure hostname and domain name
   icx_system:
     hostname: icx
     domain_search:
@@ -110,7 +110,7 @@ EXAMPLES = """
       - redhat.com
       - ruckus.com
 
-- name: configure radius server of type auth-port
+- name: Configure radius server of type auth-port
   icx_system:
     aaa_servers:
       - type: radius
@@ -124,7 +124,7 @@ EXAMPLES = """
           - dot1x
           - mac-auth
 
-- name: configure tacacs server
+- name: Configure tacacs server
   icx_system:
     aaa_servers:
       - type: tacacs
@@ -135,7 +135,7 @@ EXAMPLES = """
         acct_type: accounting-only
         auth_key: xyz
 
-- name: configure name servers
+- name: Configure name servers
   icx_system:
     name_servers:
       - 8.8.8.8

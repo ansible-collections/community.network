@@ -86,7 +86,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: ospf module test
+- name: Ospf module test
   hosts: cloudengine
   connection: local
   gather_facts: no

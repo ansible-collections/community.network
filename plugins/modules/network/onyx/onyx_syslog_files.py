@@ -62,14 +62,14 @@ options:
 '''
 
 EXAMPLES = """
-- name: syslog delete old files
+- name: Syslog delete old files
 - onyx_syslog_files:
     delete_group: oldest
-- name: syslog upload file
+- name: Syslog upload file
 - onyx_syslog_files:
     upload_url: scp://username:password@hostnamepath/filename
     upload_file: current
-- name: syslog rotation force, frequency and max number
+- name: Syslog rotation force, frequency and max number
 - onyx_syslog_files:
     rotation:
         force: true

@@ -58,7 +58,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure NTP
+- name: Configure NTP
   onyx_ntp:
     state: enabled
     authenticate_state: enabled

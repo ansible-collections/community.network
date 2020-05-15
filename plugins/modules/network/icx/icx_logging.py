@@ -117,7 +117,7 @@ EXAMPLES = """
   icx_logging:
     dest : on
     state: present
-- name: configure buffer level.
+- name: Configure buffer level
   icx_logging:
     dest: buffered
     level: critical
@@ -125,7 +125,7 @@ EXAMPLES = """
   icx_logging:
     aggregate:
       - { dest: buffered, level: ['notifications','errors'] }
-- name: remove logging using aggregate
+- name: Remove logging using aggregate
   icx_logging:
     aggregate:
       - { dest: console }

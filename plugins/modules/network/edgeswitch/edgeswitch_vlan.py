@@ -88,7 +88,7 @@ EXAMPLES = """
       - 0/1
       - 0/4-0/6
 
-- name: setup three vlans and delete the rest
+- name: Setup three vlans and delete the rest
   edgeswitch_vlan:
     purge: true
     aggregate:

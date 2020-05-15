@@ -128,7 +128,7 @@ options:
         choices: ['present','absent']
 '''
 EXAMPLES = '''
-- name: info center global module test
+- name: Info center global module test
   hosts: cloudengine
   connection: local
   gather_facts: no

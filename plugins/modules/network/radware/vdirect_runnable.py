@@ -103,7 +103,7 @@ requirements:
 '''
 
 EXAMPLES = '''
-- name: vdirect_runnable
+- name: Run the module from Ansible playbook
   vdirect_runnable:
       vdirect_ip: 10.10.10.10
       vdirect_user: vDirect

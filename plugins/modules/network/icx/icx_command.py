@@ -73,22 +73,22 @@ options:
 
 EXAMPLES = """
 tasks:
-  - name: run show version on remote devices
+  - name: Run show version on remote devices
     icx_command:
       commands: show version
 
-  - name: run show version and check to see if output contains ICX
+  - name: Run show version and check to see if output contains ICX
     icx_command:
       commands: show version
       wait_for: result[0] contains ICX
 
-  - name: run multiple commands on remote nodes
+  - name: Run multiple commands on remote nodes
     icx_command:
       commands:
         - show version
         - show interfaces
 
-  - name: run multiple commands and evaluate the output
+  - name: Run multiple commands and evaluate the output
     icx_command:
       commands:
         - show version
@@ -96,13 +96,13 @@ tasks:
       wait_for:
         - result[0] contains ICX
         - result[1] contains GigabitEthernet1/1/1
-  - name: run commands that require answering a prompt
+  - name: Run commands that require answering a prompt
     icx_command:
       commands:
         - command: 'service password-encryption sha1'
           prompt: 'Warning: Moving to higher password-encryption type,.*'
           answer: 'y'
-  - name: run commands that require answering multiple prompt
+  - name: Run commands that require answering multiple prompt
     icx_command:
       commands:
         - command: 'username qqq password qqq'

@@ -67,22 +67,22 @@ options:
 
 EXAMPLES = """
 tasks:
-  - name: run show version on remote devices
+  - name: Run show version on remote devices
     onyx_command:
       commands: show version
 
-  - name: run show version and check to see if output contains MLNXOS
+  - name: Run show version and check to see if output contains MLNXOS
     onyx_command:
       commands: show version
       wait_for: result[0] contains MLNXOS
 
-  - name: run multiple commands on remote nodes
+  - name: Run multiple commands on remote nodes
     onyx_command:
       commands:
         - show version
         - show interfaces
 
-  - name: run multiple commands and evaluate the output
+  - name: Run multiple commands and evaluate the output
     onyx_command:
       commands:
         - show version

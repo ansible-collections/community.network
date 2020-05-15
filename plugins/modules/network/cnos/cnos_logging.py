@@ -66,26 +66,26 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure server logging
+- name: Configure server logging
   cnos_logging:
     dest: server
     name: 10.241.107.224
     facility: local7
     state: present
 
-- name: remove server logging configuration
+- name: Remove server logging configuration
   cnos_logging:
     dest: server
     name: 10.241.107.224
     state: absent
 
-- name: configure console logging level and facility
+- name: Configure console logging level and facility
   cnos_logging:
     dest: console
     level: 7
     state: present
 
-- name: configure buffer size
+- name: Configure buffer size
   cnos_logging:
     dest: logfile
     level: 5
@@ -98,7 +98,7 @@ EXAMPLES = """
       - { dest: console, level: 6 }
       - { dest: logfile, size: 9000 }
 
-- name: remove logging using aggregate
+- name: Remove logging using aggregate
   cnos_logging:
     aggregate:
       - { dest: console, level: 6 }

@@ -48,7 +48,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: pim config modify
+- name: Pim config modify
   pn_vrouter_pim_config:
     pn_cliswitch: '192.168.1.1'
     pn_query_interval: '10'

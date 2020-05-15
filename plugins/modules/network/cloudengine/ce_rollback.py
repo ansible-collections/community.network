@@ -61,7 +61,7 @@ options:
         choices: ['rollback','clear','set','display','commit']
 '''
 EXAMPLES = '''
-- name: rollback module test
+- name: Rollback module test
   hosts: cloudengine
   connection: local
   gather_facts: no

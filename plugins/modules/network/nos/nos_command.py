@@ -64,22 +64,22 @@ options:
 
 EXAMPLES = """
 tasks:
-  - name: run show version on remote devices
+  - name: Run show version on remote devices
     nos_command:
       commands: show version
 
-  - name: run show version and check to see if output contains NOS
+  - name: Run show version and check to see if output contains NOS
     nos_command:
       commands: show version
       wait_for: result[0] contains NOS
 
-  - name: run multiple commands on remote nodes
+  - name: Run multiple commands on remote nodes
     nos_command:
       commands:
         - show version
         - show interfaces
 
-  - name: run multiple commands and evaluate the output
+  - name: Run multiple commands and evaluate the output
     nos_command:
       commands:
         - show version
@@ -87,7 +87,7 @@ tasks:
       wait_for:
         - result[0] contains NOS
         - result[1] contains Te
-  - name: run command that requires answering a prompt
+  - name: Run command that requires answering a prompt
     nos_command:
       commands:
         - command: 'clear sessions'

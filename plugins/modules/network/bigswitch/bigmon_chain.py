@@ -45,7 +45,7 @@ options:
 
 
 EXAMPLES = '''
-- name: bigmon inline service chain
+- name: Bigmon inline service chain
   bigmon_chain:
     name: MyChain
     controller: '{{ inventory_hostname }}'

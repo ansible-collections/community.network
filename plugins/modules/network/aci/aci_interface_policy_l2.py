@@ -64,7 +64,8 @@ author:
 '''
 
 EXAMPLES = r'''
-- aci_interface_policy_l2:
+- name: Add a Layer 2 interface policy
+  aci_interface_policy_l2:
     host: '{{ hostname }}'
     username: '{{ username }}'
     password: '{{ password }}'

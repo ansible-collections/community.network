@@ -39,7 +39,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure PTP
+- name: Configure PTP
   onyx_ptp_global:
     ntp_state: enabled
     ptp_state: disabled

@@ -70,7 +70,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: policy to aggregate filter and deliver data center (DC) 1 traffic
+- name: Policy to aggregate filter and deliver data center (DC) 1 traffic
   bigmon_policy:
     name: policy1
     policy_description: DC 1 traffic policy

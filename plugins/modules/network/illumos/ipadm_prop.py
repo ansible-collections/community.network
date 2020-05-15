@@ -44,11 +44,17 @@ options:
 '''
 
 EXAMPLES = '''
-# Set TCP receive buffer size
-- ipadm_prop: protocol=tcp property=recv_buf value=65536
+- name: Set TCP receive buffer size
+  ipadm_prop:
+    protocol: tcp
+    property: recv_buf
+    value: 65536
 
-# Reset UDP send buffer size to the default value
-- ipadm_prop: protocol=udp property=send_buf state=reset
+- name: Reset UDP send buffer size to the default value
+  ipadm_prop:
+    protocol: udp
+    property: send_buf
+    state: reset
 '''
 
 RETURN = '''

@@ -74,7 +74,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: create spine cluster
+- name: Create spine cluster
   pn_cluster:
     state: 'present'
     pn_name: 'spine-cluster'
@@ -83,7 +83,7 @@ EXAMPLES = """
     pn_validate: True
     pn_quiet: True
 
-- name: delete spine cluster
+- name: Delete spine cluster
   pn_cluster:
     state: 'absent'
     pn_name: 'spine-cluster'

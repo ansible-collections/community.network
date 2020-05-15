@@ -44,7 +44,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: add ospf router to interface
+- name: Add ospf router to interface
   onyx_ospf:
     ospf: 2
     router_id: 192.168.8.2

@@ -55,7 +55,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: startup module test
+- name: Startup module test
   hosts: cloudengine
   connection: local
   gather_facts: no

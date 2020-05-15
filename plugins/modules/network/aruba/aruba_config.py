@@ -171,23 +171,23 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure top level configuration
+- name: Configure top level configuration
   aruba_config:
     lines: hostname {{ inventory_hostname }}
 
-- name: diff the running-config against a provided config
+- name: Diff the running-config against a provided config
   aruba_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
-- name: configure interface settings
+- name: Configure interface settings
   aruba_config:
     lines:
       - description test interface
       - ip access-group 1 in
     parents: interface gigabitethernet 0/0/0
 
-- name: load new acl into device
+- name: Load new acl into device
   aruba_config:
     lines:
       - permit host 10.10.10.10
@@ -196,7 +196,7 @@ EXAMPLES = """
     before: no ip access-list standard 1
     match: exact
 
-- name: configurable backup path
+- name: Configurable backup path
   aruba_config:
     backup: yes
     lines: hostname {{ inventory_hostname }}

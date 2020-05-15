@@ -152,18 +152,18 @@ vars:
     transport: cli
 
 ---
-- name: enable rollback location
+- name: Enable rollback location
   sros_config:
     lines: configure system rollback rollback-location "cf3:/ansible"
     provider: "{{ cli }}"
 
-- name: set system name to {{ inventory_hostname }} using one line
+- name: Set system name to {{ inventory_hostname }} using one line
   sros_config:
     lines:
         - configure system name "{{ inventory_hostname }}"
     provider: "{{ cli }}"
 
-- name: set system name to {{ inventory_hostname }} using parents
+- name: Set system name to {{ inventory_hostname }} using parents
   sros_config:
     lines:
         - 'name "{{ inventory_hostname }}"'
@@ -173,13 +173,13 @@ vars:
     provider: "{{ cli }}"
     backup: yes
 
-- name: load config from file
+- name: Load config from file
   sros_config:
       src: "{{ inventory_hostname }}.cfg"
       provider: "{{ cli }}"
       save: yes
 
-- name: invalid use of lines
+- name: Invalid use of lines
   sros_config:
     lines:
       - service
@@ -187,7 +187,7 @@ vars:
       -         description "invalid lines example"
     provider: "{{ cli }}"
 
-- name: valid use of lines
+- name: Valid use of lines
   sros_config:
     lines:
       - description "invalid lines example"
@@ -196,7 +196,7 @@ vars:
       - vpls 1000 customer foo 1 create
     provider: "{{ cli }}"
 
-- name: configurable backup path
+- name: Configurable backup path
   sros_config:
     backup: yes
     backup_options:

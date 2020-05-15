@@ -36,7 +36,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configures aaa
+- name: Configures aaa
   onyx_aaa:
     tacacs_accounting_enabled: yes
     auth_default_user: monitor

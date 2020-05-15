@@ -75,7 +75,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- name: sag
+- name: Sag
   panos_sag:
     ip_address: "192.168.1.1"
     password: "admin"

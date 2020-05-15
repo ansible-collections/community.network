@@ -90,7 +90,7 @@ requirements:
 '''
 
 EXAMPLES = '''
-- name: vdirect_file
+- name: Upload a new or updates an existing runnable file
   vdirect_file:
       vdirect_ip: 10.10.10.10
       vdirect_user: vDirect

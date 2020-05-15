@@ -53,7 +53,8 @@ author:
 '''
 
 EXAMPLES = r'''
-- aci_interface_policy_fc:
+- name: Add Fibre Channel interface policy
+  aci_interface_policy_fc:
     host: '{{ hostname }}'
     username: '{{ username }}'
     password: '{{ password }}'

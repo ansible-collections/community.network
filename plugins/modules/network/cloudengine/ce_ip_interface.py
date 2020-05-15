@@ -67,7 +67,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: ip_interface module test
+- name: Ip_interface module test
   hosts: cloudengine
   connection: local
   gather_facts: no

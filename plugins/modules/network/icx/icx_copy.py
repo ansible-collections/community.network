@@ -64,7 +64,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: upload running-config to the remote scp server
+- name: Upload running-config to the remote scp server
   icx_copy:
     upload: running-config
     protocol: scp
@@ -73,7 +73,7 @@ EXAMPLES = """
     remote_user: user1
     remote_pass: pass123
 
-- name: download running-config from the remote scp server
+- name: Download running-config from the remote scp server
   icx_copy:
     download: running-config
     protocol: scp
@@ -82,7 +82,7 @@ EXAMPLES = """
     remote_user: user1
     remote_pass: pass123
 
-- name: download running-config from the remote scp server using rsa public key
+- name: Download running-config from the remote scp server using rsa public key
   icx_copy:
     download: running-config
     protocol: scp
@@ -92,7 +92,7 @@ EXAMPLES = """
     remote_pass: pass123
     public_key: rsa
 
-- name: upload startup-config to the remote https server
+- name: Upload startup-config to the remote https server
   icx_copy:
     upload: startup-config
     protocol: https
@@ -101,7 +101,7 @@ EXAMPLES = """
     remote_user: user1
     remote_pass: pass123
 
-- name: upload startup-config to the remote https server
+- name: Upload startup-config to the remote https server
   icx_copy:
     upload: startup-config
     protocol: https

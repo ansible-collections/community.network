@@ -90,19 +90,19 @@ options:
 '''
 
 EXAMPLES = """
-- name: create static link aggregation group
+- name: Create static link aggregation group
   icx_linkagg:
     group: 10
     mode: static
     name: LAG1
 
-- name: create link aggregation group with auto id
+- name: Create link aggregation group with auto id
   icx_linkagg:
     group: auto
     mode: dynamic
     name: LAG2
 
-- name: delete link aggregation group
+- name: Delete link aggregation group
   icx_linkagg:
     group: 10
     state: absent

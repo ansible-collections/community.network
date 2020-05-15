@@ -36,13 +36,13 @@ options:
 '''
 
 EXAMPLES = '''
-# Create 'stub0' etherstub
-- dladm_etherstub:
+- name: Create 'stub0' etherstub
+  dladm_etherstub:
     name: stub0
     state: present
 
-# Remove 'stub0 etherstub
-- dladm_etherstub:
+- name: Remove 'stub0 etherstub
+  dladm_etherstub:
     name: stub0
     state: absent
 '''

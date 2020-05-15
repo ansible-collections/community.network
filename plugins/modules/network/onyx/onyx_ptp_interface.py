@@ -45,7 +45,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure PTP interface
+- name: Configure PTP interface
   onyx_ptp_interface:
     state: enabled
     name: Eth1/1

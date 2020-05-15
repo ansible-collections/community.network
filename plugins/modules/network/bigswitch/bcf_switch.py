@@ -55,7 +55,7 @@ options:
 
 
 EXAMPLES = '''
-- name: bcf leaf switch
+- name: Bcf leaf switch
   bcf_switch:
     name: Rack1Leaf1
     fabric_role: leaf

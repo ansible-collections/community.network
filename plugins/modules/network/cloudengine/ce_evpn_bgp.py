@@ -69,7 +69,7 @@ options:
         choices: ['present','absent']
 '''
 EXAMPLES = '''
-- name: evpn bgp module test
+- name: Evpn bgp module test
   hosts: cloudengine
   connection: local
   gather_facts: no

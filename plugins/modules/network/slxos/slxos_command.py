@@ -64,22 +64,22 @@ options:
 
 EXAMPLES = """
 tasks:
-  - name: run show version on remote devices
+  - name: Run show version on remote devices
     slxos_command:
       commands: show version
 
-  - name: run show version and check to see if output contains SLX
+  - name: Run show version and check to see if output contains SLX
     slxos_command:
       commands: show version
       wait_for: result[0] contains SLX
 
-  - name: run multiple commands on remote nodes
+  - name: Run multiple commands on remote nodes
     slxos_command:
       commands:
         - show version
         - show interfaces
 
-  - name: run multiple commands and evaluate the output
+  - name: Run multiple commands and evaluate the output
     slxos_command:
       commands:
         - show version
@@ -87,7 +87,7 @@ tasks:
       wait_for:
         - result[0] contains SLX
         - result[1] contains Eth
-  - name: run command that requires answering a prompt
+  - name: Run command that requires answering a prompt
     slxos_command:
       commands:
         - command: 'clear sessions'

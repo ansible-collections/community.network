@@ -84,7 +84,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: admin service functionality
+- name: Admin service functionality
   pn_admin_service:
     pn_cliswitch: "sw01"
     state: "update"
@@ -92,7 +92,7 @@ EXAMPLES = """
     pn_web: False
     pn_icmp: True
 
-- name: admin service functionality
+- name: Admin service functionality
   pn_admin_service:
     pn_cliswitch: "sw01"
     state: "update"

@@ -430,7 +430,7 @@ def get_interface_type(interface):
     elif interface.upper().startswith('STACK-PORT'):
         return 'stack-port'
     elif interface.upper().startswith('NULL'):
-        return'null'
+        return 'null'
     else:
         return None
 

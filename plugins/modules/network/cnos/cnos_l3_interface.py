@@ -23,10 +23,6 @@ __metaclass__ = type
 # Module to work on Link Aggregation with Lenovo Switches
 # Lenovo Networking
 #
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: cnos_l3_interface

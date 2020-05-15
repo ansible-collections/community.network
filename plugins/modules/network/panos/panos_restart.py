@@ -52,11 +52,6 @@ status:
     sample: "okey dokey"
 '''
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
-
 import sys
 import traceback
 

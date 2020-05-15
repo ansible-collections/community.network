@@ -1,0 +1,2 @@
+bugfixes:
+- "ce_is_is_interface - fix compile error for Python 3.9 (https://github.com/ansible-collections/community.network/pull/36)."

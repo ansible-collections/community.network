@@ -434,7 +434,7 @@ def validateValueAgainstRule(ruleString, variableValue):
                 (checkInteger(valHigher) is not True)):
             # debugOutput("Error-114")
             return "Error-114"
-        result = (int(valLower) in r) and (int(valHigher)in r) \
+        result = (int(valLower) in r) and (int(valHigher) in r) \
             and (int(valLower) < int(valHigher))
         if(result is True):
             return "ok"

@@ -1,0 +1,2 @@
+breaking_changes:
+- "routeros_facts - allow multiple addresses and neighbors per interface. This makes ``ansible_net_neighbors`` a list instead of a dict (https://github.com/ansible-collections/community.network/pull/6)."

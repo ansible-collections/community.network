@@ -67,7 +67,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: vxlan vap module test
+- name: Vxlan vap module test
   hosts: ce128
   connection: local
   gather_facts: no

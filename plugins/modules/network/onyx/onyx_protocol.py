@@ -59,7 +59,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: enable protocols for MLAG
+- name: Enable protocols for MLAG
   onyx_protocol:
     lacp: enabled
     spanning_tree: disabled

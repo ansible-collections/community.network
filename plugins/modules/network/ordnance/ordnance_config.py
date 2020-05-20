@@ -125,12 +125,12 @@ vars:
     transport: cli
 
 ---
-- name: configure top level configuration
+- name: Configure top level configuration
   ordnance_config:
     lines: hostname {{ inventory_hostname }}
     provider: "{{ cli }}"
 
-- name: configure interface settings
+- name: Configure interface settings
   ordnance_config:
     lines:
       - description test interface
@@ -138,7 +138,7 @@ vars:
     parents: interface Ethernet1
     provider: "{{ cli }}"
 
-- name: configure bgp router
+- name: Configure bgp router
   ordnance_config:
     lines:
       - neighbor 1.1.1.1 remote-as 1234

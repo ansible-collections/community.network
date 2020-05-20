@@ -78,7 +78,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: vxlan arp module test
+- name: Vxlan arp module test
   hosts: ce128
   connection: local
   gather_facts: no

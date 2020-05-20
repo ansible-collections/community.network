@@ -146,23 +146,23 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure top level configuration
+- name: Configure top level configuration
   enos_config:
     "lines: hostname {{ inventory_hostname }}"
 
-- name: configure interface settings
+- name: Configure interface settings
   enos_config:
     lines:
       - enable
       - ip ospf enable
     parents: interface ip 13
 
-- name: load a config from disk and replace the current config
+- name: Load a config from disk and replace the current config
   enos_config:
     src: config.cfg
     backup: yes
 
-- name: configurable backup path
+- name: Configurable backup path
   enos_config:
     src: config.cfg
     backup: yes

@@ -336,6 +336,7 @@ requirements:
 '''
 
 EXAMPLES = '''
+# FIXME: Add examples
 '''
 
 RETURN = '''

@@ -51,21 +51,21 @@ options:
 '''
 
 EXAMPLES = """
-- name: create snmp vacm
+- name: Create snmp vacm
   pn_snmp_vacm:
     pn_cliswitch: "sw01"
     state: "present"
     pn_user_name: "foo"
     pn_user_type: "rouser"
 
-- name: update snmp vacm
+- name: Update snmp vacm
   pn_snmp_vacm:
     pn_cliswitch: "sw01"
     state: "update"
     pn_user_name: "foo"
     pn_user_type: "rwuser"
 
-- name: delete snmp vacm
+- name: Delete snmp vacm
   pn_snmp_vacm:
     pn_cliswitch: "sw01"
     state: "absent"

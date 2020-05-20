@@ -103,7 +103,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-  - name: user creation
+  - name: User creation
     avi_user:
       controller: ""
       username: ""
@@ -121,7 +121,7 @@ EXAMPLES = '''
       is_superuser: true
       default_tenant_ref: "/api/tenant?name=admin"
 
-  - name: user creation
+  - name: User creation
     avi_user:
       controller: ""
       username: ""

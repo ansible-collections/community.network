@@ -111,7 +111,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure SNMP
+- name: Configure SNMP
   onyx_snmp:
     state_enabled: yes
     contact_name: sara

@@ -34,17 +34,17 @@ options:
 '''
 
 EXAMPLES = """
-# Collect all facts from the device
-- icx_facts:
+- name: Collect all facts from the device
+  icx_facts:
     gather_subset: all
 
-# Collect only the config and default facts
-- icx_facts:
+- name: Collect only the config and default facts
+  icx_facts:
     gather_subset:
       - config
 
-# Do not collect hardware facts
-- icx_facts:
+- name: Do not collect hardware facts
+  icx_facts:
     gather_subset:
       - "!hardware"
 """

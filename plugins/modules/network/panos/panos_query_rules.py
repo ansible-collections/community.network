@@ -92,7 +92,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: search for rules with tcp/3306
+- name: Search for rules with tcp/3306
   panos_query_rules:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
@@ -102,7 +102,7 @@ EXAMPLES = '''
     destination_port: '3306'
     protocol: 'tcp'
 
-- name: search devicegroup for inbound rules to dmz host
+- name: Search devicegroup for inbound rules to dmz host
   panos_query_rules:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
@@ -110,7 +110,7 @@ EXAMPLES = '''
     destination_ip: '10.100.42.18'
     address: 'DeviceGroupA'
 
-- name: search for rules containing a specified rule tag
+- name: Search for rules containing a specified rule tag
   panos_query_rules:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'

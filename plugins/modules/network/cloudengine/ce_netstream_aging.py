@@ -54,7 +54,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: netstream aging module test
+- name: Netstream aging module test
   hosts: cloudengine
   connection: local
   gather_facts: no

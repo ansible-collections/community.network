@@ -54,31 +54,31 @@ options:
 '''
 
 EXAMPLES = """
-- name: enables snmp user
+- name: Enables snmp user
   onyx_snmp_users:
     users:
        - name: sara
          enabled: true
 
-- name: enables snmp set requests
+- name: Enables snmp set requests
   onyx_snmp_users:
     users:
        - name: sara
          set_access_enabled: yes
 
-- name: enables user require privacy
+- name: Enables user require privacy
   onyx_snmp_users:
     users:
        - name: sara
          require_privacy: true
 
-- name: configures user hash type
+- name: Configures user hash type
   onyx_snmp_users:
     users:
        - auth_type: md5
          auth_password: 1297sara1234sara
 
-- name: configures user capability_level
+- name: Configures user capability_level
   onyx_snmp_users:
     users:
         - name: sara

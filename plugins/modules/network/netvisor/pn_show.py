@@ -58,19 +58,19 @@ options:
 '''
 
 EXAMPLES = """
-- name: run the vlan-show command
+- name: Run the vlan-show command
   pn_show:
     pn_command: 'vlan-show'
     pn_parameters: id,scope,ports
     pn_options: 'layout vertical'
 
-- name: run the vlag-show command
+- name: Run the vlag-show command
   pn_show:
     pn_command: 'vlag-show'
     pn_parameters: 'id,name,cluster,mode'
     pn_options: 'no-show-headers'
 
-- name: run the cluster-show command
+- name: Run the cluster-show command
   pn_show:
     pn_command: 'cluster-show'
 """

@@ -66,8 +66,8 @@ options:
 '''
 
 EXAMPLES = '''
-# Create a new server
-- a10_server:
+- name: Create a new server
+  a10_server:
     host: a10.mydomain.com
     username: myadmin
     password: mypassword
@@ -79,7 +79,6 @@ EXAMPLES = '''
         protocol: tcp
       - port_num: 8443
         protocol: TCP
-
 '''
 
 RETURN = '''

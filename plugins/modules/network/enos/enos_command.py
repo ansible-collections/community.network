@@ -88,7 +88,7 @@ vars:
     timeout: 30
 
 ---
-- name: test contains operator
+- name: Test contains operator
   enos_command:
     commands:
       - show version
@@ -104,7 +104,7 @@ vars:
       - "result.changed == false"
       - "result.stdout is defined"
 
-- name: get output for single command
+- name: Get output for single command
   enos_command:
     commands: ['show version']
     provider: "{{ cli }}"
@@ -115,7 +115,7 @@ vars:
       - "result.changed == false"
       - "result.stdout is defined"
 
-- name: get output for multiple commands
+- name: Get output for multiple commands
   enos_command:
     commands:
       - show version

@@ -69,7 +69,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- name: setup security profile group
+- name: Setup security profile group
   panos_pg:
     ip_address: "192.168.1.1"
     password: "admin"

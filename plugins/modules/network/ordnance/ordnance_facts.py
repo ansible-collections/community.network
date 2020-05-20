@@ -43,19 +43,19 @@ vars:
     transport: cli
 
 ---
-# Collect all facts from the device
-- ordnance_facts:
+- name: Collect all facts from the device
+  ordnance_facts:
     gather_subset: all
     provider: "{{ cli }}"
 
-# Collect only the config and default facts
-- ordnance_facts:
+- name: Collect only the config and default facts
+  ordnance_facts:
     gather_subset:
       - config
     provider: "{{ cli }}"
 
-# Do not collect hardware facts
-- ordnance_facts:
+- name: Do not collect hardware facts
+  ordnance_facts:
     gather_subset:
       - "!hardware"
     provider: "{{ cli }}"

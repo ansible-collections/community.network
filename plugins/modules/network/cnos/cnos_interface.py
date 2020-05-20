@@ -158,7 +158,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure interface
+- name: Configure interface
   cnos_interface:
       name: Ethernet1/33
       description: test-interface
@@ -166,17 +166,17 @@ EXAMPLES = """
       duplex: half
       mtu: 999
 
-- name: remove interface
+- name: Remove interface
   cnos_interface:
     name: loopback3
     state: absent
 
-- name: make interface up
+- name: Make interface up
   cnos_interface:
     name: Ethernet1/33
     enabled: True
 
-- name: make interface down
+- name: Make interface down
   cnos_interface:
     name: Ethernet1/33
     enabled: False

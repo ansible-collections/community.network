@@ -61,7 +61,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 # import software image PanOS_vm-6.1.1 on 192.168.1.1
-- name: import software image into PAN-OS
+- name: Import software image into PAN-OS
   panos_import:
     ip_address: 192.168.1.1
     username: admin

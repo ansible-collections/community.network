@@ -34,15 +34,14 @@ options:
 '''
 
 EXAMPLES = """
-# Collect all facts from the device
-- edgeswitch_facts:
+- name: Collect all facts from the device
+  edgeswitch_facts:
     gather_subset: all
 
-# Collect only the config and default facts
-- edgeswitch_facts:
+- name: Collect only the config and default facts
+  edgeswitch_facts:
     gather_subset:
       - config
-
 """
 
 RETURN = """

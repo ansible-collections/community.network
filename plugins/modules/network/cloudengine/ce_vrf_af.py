@@ -70,7 +70,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: vrf af module test
+- name: Vrf af module test
   hosts: cloudengine
   connection: local
   gather_facts: no

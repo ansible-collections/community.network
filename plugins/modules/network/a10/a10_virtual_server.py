@@ -66,8 +66,8 @@ options:
 
 
 EXAMPLES = '''
-# Create a new virtual server
-- a10_virtual_server:
+- name: Create a new virtual server
+  a10_virtual_server:
     host: a10.mydomain.com
     username: myadmin
     password: mypassword
@@ -84,7 +84,6 @@ EXAMPLES = '''
       - port: 8080
         protocol: http
         status: disabled
-
 '''
 
 RETURN = '''

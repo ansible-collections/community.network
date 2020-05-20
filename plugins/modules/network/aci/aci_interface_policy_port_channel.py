@@ -101,7 +101,8 @@ author:
 '''
 
 EXAMPLES = r'''
-- aci_interface_policy_port_channel:
+- name: Add aport channel interface policy
+  aci_interface_policy_port_channel:
     host: '{{ inventory_hostname }}'
     username: '{{ username }}'
     password: '{{ password }}'

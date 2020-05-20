@@ -84,7 +84,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: bfd session module test
+- name: Bfd session module test
   hosts: cloudengine
   connection: local
   gather_facts: no

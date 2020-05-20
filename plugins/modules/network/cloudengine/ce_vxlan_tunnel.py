@@ -64,7 +64,7 @@ options:
         choices: ['present','absent']
 '''
 EXAMPLES = '''
-- name: vxlan tunnel module test
+- name: Vxlan tunnel module test
   hosts: ce128
   connection: local
   gather_facts: no

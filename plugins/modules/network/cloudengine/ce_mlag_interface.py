@@ -67,7 +67,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: mlag interface module test
+- name: Mlag interface module test
   hosts: cloudengine
   connection: local
   gather_facts: no

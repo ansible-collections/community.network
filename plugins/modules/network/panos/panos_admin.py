@@ -58,7 +58,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 # Set the password of user admin to "badpassword"
 # Doesn't commit the candidate config
-  - name: set admin password
+  - name: Set admin password
     panos_admin:
       ip_address: "192.168.1.1"
       password: "admin"

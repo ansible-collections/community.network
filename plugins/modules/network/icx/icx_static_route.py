@@ -84,12 +84,12 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure static route
+- name: Configure static route
   icx_static_route:
     prefix: 192.168.2.0/24
     next_hop: 10.0.0.1
 
-- name: remove configuration
+- name: Remove configuration
   icx_static_route:
     prefix: 192.168.2.0
     mask: 255.255.255.0
@@ -102,7 +102,7 @@ EXAMPLES = """
       - { prefix: 172.16.32.0, mask: 255.255.255.0, next_hop: 10.0.0.8 }
       - { prefix: 172.16.33.0, mask: 255.255.255.0, next_hop: 10.0.0.8 }
 
-- name: remove static route aggregates
+- name: Remove static route aggregates
   icx_static_route:
     aggregate:
       - { prefix: 172.16.32.0, mask: 255.255.255.0, next_hop: 10.0.0.8 }

@@ -39,19 +39,19 @@ options:
 '''
 
 EXAMPLES = """
-- name: ipv6 security raguard vlan add
+- name: Ipv6 security raguard vlan add
   pn_ipv6security_raguard_vlan:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_vlans: "100-105"
 
-- name: ipv6 security raguard vlan add
+- name: Ipv6 security raguard vlan add
   pn_ipv6security_raguard_vlan:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_vlans: "100"
 
-- name: ipv6 security raguard vlan remove
+- name: Ipv6 security raguard vlan remove
   pn_ipv6security_raguard_vlan:
     pn_cliswitch: "sw01"
     pn_name: "foo"

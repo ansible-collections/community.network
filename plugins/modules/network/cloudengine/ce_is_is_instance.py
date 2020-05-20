@@ -47,7 +47,7 @@ EXAMPLES = r'''
       instance_id: 3
       state: absent
 
-  - name: check isis process
+  - name: Check isis process
     ce_is_is_instance:
       instance_id: 4294967296
       state: present
@@ -58,7 +58,7 @@ EXAMPLES = r'''
       vpn_name: vpn1
       state: present
 
-  - name: check vpn name
+  - name: Check vpn name
     ce_is_is_instance:
       instance_id: 22
       vpn_name: vpn1234567896321452212221556asdasdasdasdsadvdv

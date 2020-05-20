@@ -38,7 +38,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure mlag-vip
+- name: Configure mlag-vip
   onyx_mlag_vip:
     ipaddress: 50.3.3.1/24
     group_name: ansible-test-group

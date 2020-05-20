@@ -74,7 +74,7 @@ options:
 
 EXAMPLES = """
 ---
-- name: test contains operator
+- name: Test contains operator
   cnos_command:
     commands:
       - show version
@@ -89,7 +89,7 @@ EXAMPLES = """
       - "result.changed == false"
       - "result.stdout is defined"
 
-- name: get output for single command
+- name: Get output for single command
   cnos_command:
     commands: ['show version']
   register: result
@@ -99,7 +99,7 @@ EXAMPLES = """
       - "result.changed == false"
       - "result.stdout is defined"
 
-- name: get output for multiple commands
+- name: Get output for multiple commands
   cnos_command:
     commands:
       - show version

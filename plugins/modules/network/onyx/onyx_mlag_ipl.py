@@ -35,14 +35,14 @@ options:
 '''
 
 EXAMPLES = """
-- name: run configure ipl
+- name: Run configure ipl
   onyx_mlag_ipl:
     name: Po1
     vlan_interface: Vlan 322
     state: present
     peer_address: 192.168.7.1
 
-- name: run remove ipl
+- name: Run remove ipl
   onyx_mlag_ipl:
     name: Po1
     state: absent

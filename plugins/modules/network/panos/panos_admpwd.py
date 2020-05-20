@@ -56,7 +56,7 @@ options:
 EXAMPLES = '''
 # Tries for 10 times to set the admin password of 192.168.1.1 to "badpassword"
 # via SSH, authenticating using key /tmp/ssh.key
-- name: set admin password
+- name: Set admin password
   panos_admpwd:
     ip_address: "192.168.1.1"
     username: "admin"

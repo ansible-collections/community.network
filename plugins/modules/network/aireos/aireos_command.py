@@ -67,22 +67,22 @@ options:
 
 EXAMPLES = """
 tasks:
-  - name: run show sysinfo on remote devices
+  - name: Run show sysinfo on remote devices
     aireos_command:
       commands: show sysinfo
 
-  - name: run show sysinfo and check to see if output contains Cisco Controller
+  - name: Run show sysinfo and check to see if output contains Cisco Controller
     aireos_command:
       commands: show sysinfo
       wait_for: result[0] contains 'Cisco Controller'
 
-  - name: run multiple commands on remote nodes
+  - name: Run multiple commands on remote nodes
     aireos_command:
       commands:
         - show sysinfo
         - show interface summary
 
-  - name: run multiple commands and evaluate the output
+  - name: Run multiple commands and evaluate the output
     aireos_command:
       commands:
         - show sysinfo

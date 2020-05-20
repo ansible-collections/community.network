@@ -47,17 +47,17 @@ options:
 '''
 
 EXAMPLES = """
-# Collect all facts from the device
-- voss_facts:
+- name: Collect all facts from the device
+  voss_facts:
     gather_subset: all
 
-# Collect only the config and default facts
-- voss_facts:
+- name: Collect only the config and default facts
+  voss_facts:
     gather_subset:
       - config
 
-# Do not collect hardware facts
-- voss_facts:
+- name: Do not collect hardware facts
+  voss_facts:
     gather_subset:
       - "!hardware"
 """

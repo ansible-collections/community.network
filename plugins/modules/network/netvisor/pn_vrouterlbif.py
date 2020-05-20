@@ -67,13 +67,13 @@ options:
 '''
 
 EXAMPLES = """
-- name: add vrouter-loopback-interface
+- name: Add vrouter-loopback-interface
   pn_vrouterlbif:
     state: 'present'
     pn_vrouter_name: 'ansible-vrouter'
     pn_interface_ip: '104.104.104.1'
 
-- name: remove vrouter-loopback-interface
+- name: Remove vrouter-loopback-interface
   pn_vrouterlbif:
     state: 'absent'
     pn_vrouter_name: 'ansible-vrouter'

@@ -39,21 +39,21 @@ options:
 '''
 
 EXAMPLES = """
-- name: dhcp filter create
+- name: Dhcp filter create
   pn_dhcp_filter:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "present"
     pn_trusted_ports: "1"
 
-- name: dhcp filter delete
+- name: Dhcp filter delete
   pn_dhcp_filter:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "absent"
     pn_trusted_ports: "1"
 
-- name: dhcp filter modify
+- name: Dhcp filter modify
   pn_dhcp_filter:
     pn_cliswitch: "sw01"
     pn_name: "foo"

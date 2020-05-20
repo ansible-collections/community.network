@@ -40,7 +40,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = """
-- name: publish
+- name: Publish
   cp_publish:
 """
 

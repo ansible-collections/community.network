@@ -73,13 +73,13 @@ options:
 '''
 
 EXAMPLES = """
-- name: enables snmp host
+- name: Enables snmp host
   onyx_snmp_hosts:
       hosts:
        - name: 1.1.1.1
          enabled: true
 
-- name: configures snmp host with version 2c
+- name: Configures snmp host with version 2c
   onyx_snmp_hosts:
       hosts:
          - name: 2.3.2.4
@@ -88,7 +88,7 @@ EXAMPLES = """
            port: 66
            version: 2c
 
-- name: configures snmp host with version 3 and configures it with user as sara
+- name: Configures snmp host with version 3 and configures it with user as sara
   onyx_snmp_hosts:
        hosts:
          - name: 2.3.2.4
@@ -102,7 +102,7 @@ EXAMPLES = """
            privacy_type: 3des
            privacy_password: nojfd8uherwiugfh
 
-- name: deletes the snmp host
+- name: Deletes the snmp host
   onyx_snmp_hosts:
         hosts:
           - name: 2.3.2.4

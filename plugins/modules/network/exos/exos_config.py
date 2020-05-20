@@ -161,32 +161,32 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure SNMP system name
+- name: Configure SNMP system name
   exos_config:
     lines: configure snmp sysName "{{ inventory_hostname }}"
 
-- name: configure interface settings
+- name: Configure interface settings
   exos_config:
     lines:
       - configure ports 2 description-string "Master Uplink"
     backup: yes
 
-- name: check the running-config against master config
+- name: Check the running-config against master config
   exos_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
-- name: check the startup-config against the running-config
+- name: Check the startup-config against the running-config
   exos_config:
     diff_against: startup
     diff_ignore_lines:
       - ntp clock .*
 
-- name: save running to startup when modified
+- name: Save running to startup when modified
   exos_config:
     save_when: modified
 
-- name: configurable backup path
+- name: Configurable backup path
   exos_config:
     lines:
       - configure ports 2 description-string "Master Uplink"

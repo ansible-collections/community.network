@@ -52,7 +52,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- name: dag
+- name: Dag
   panos_dag:
     ip_address: "192.168.1.1"
     password: "admin"

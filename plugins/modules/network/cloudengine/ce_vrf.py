@@ -47,7 +47,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: vrf module test
+- name: Vrf module test
   hosts: cloudengine
   connection: local
   gather_facts: no

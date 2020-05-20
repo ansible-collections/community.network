@@ -38,7 +38,8 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- panos_restart:
+- name: Restart a device
+  panos_restart:
     ip_address: "192.168.1.1"
     username: "admin"
     password: "admin"

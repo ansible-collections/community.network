@@ -44,7 +44,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: dscp map pri map modify
+- name: Dscp map pri map modify
   pn_dscp_map_pri_map:
     pn_cliswitch: 'sw01'
     state: 'update'
@@ -52,7 +52,7 @@ EXAMPLES = """
     pn_pri: '0'
     pn_dsmap: '40'
 
-- name: dscp map pri map modify
+- name: Dscp map pri map modify
   pn_dscp_map_pri_map:
     pn_cliswitch: 'sw01'
     state: 'update'

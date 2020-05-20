@@ -98,7 +98,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: create a VLAG
+- name: Create a VLAG
   pn_vlag:
     state: 'present'
     pn_name: spine-to-leaf
@@ -107,7 +107,7 @@ EXAMPLES = """
     pn_peer_switch: spine02
     pn_mode: 'active-active'
 
-- name: delete VLAGs
+- name: Delete VLAGs
   pn_vlag:
     state: 'absent'
     pn_name: spine-to-leaf

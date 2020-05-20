@@ -141,7 +141,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: search for shared address object
+- name: Search for shared address object
   panos_object:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
@@ -149,7 +149,7 @@ EXAMPLES = '''
     operation: 'find'
     address: 'DevNet'
 
-- name: create an address group in devicegroup using API key
+- name: Create an address group in devicegroup using API key
   panos_object:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
@@ -160,7 +160,7 @@ EXAMPLES = '''
     tag_name: 'DMZ'
     devicegroup: 'DMZ Firewalls'
 
-- name: create a global service for TCP 3306
+- name: Create a global service for TCP 3306
   panos_object:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
@@ -170,7 +170,7 @@ EXAMPLES = '''
     protocol: 'tcp'
     description: 'MySQL on tcp/3306'
 
-- name: create a global tag
+- name: Create a global tag
   panos_object:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
@@ -180,7 +180,7 @@ EXAMPLES = '''
     color: 'yellow'
     description: 'Associated with Project X'
 
-- name: delete an address object from a devicegroup using API key
+- name: Delete an address object from a devicegroup using API key
   panos_object:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'

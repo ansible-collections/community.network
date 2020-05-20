@@ -107,7 +107,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: vxlan gateway module test
+- name: Vxlan gateway module test
   hosts: ce128
   connection: local
   gather_facts: no

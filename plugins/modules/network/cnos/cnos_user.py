@@ -93,20 +93,20 @@ options:
 '''
 
 EXAMPLES = """
-- name: create a new user
+- name: Create a new user
   cnos_user:
     name: ansible
     sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
     state: present
 
-- name: remove all users except admin
+- name: Remove all users except admin
   cnos_user:
     purge: yes
 
-- name: set multiple users role
+- name: Set multiple users role
   aggregate:
-    - name: netop
-    - name: netend
+    - name: Netop
+    - name: Netend
   role: network-operator
   state: present
 """

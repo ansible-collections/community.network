@@ -69,7 +69,7 @@ EXAMPLES = """
     exos_facts:
       gather_subset: config
 
-  - name: do not gather hardware facts
+  - name: Do not gather hardware facts
     exos_facts:
       gather_subset: "!hardware"
 

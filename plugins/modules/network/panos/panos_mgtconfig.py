@@ -56,7 +56,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- name: set dns and panorama
+- name: Set dns and panorama
   panos_mgtconfig:
     ip_address: "192.168.1.1"
     password: "admin"

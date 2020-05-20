@@ -74,7 +74,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure igmp vlan
+- name: Configure igmp vlan
   onyx_igmp_vlan:
     state: enabled
     vlan_id: 10

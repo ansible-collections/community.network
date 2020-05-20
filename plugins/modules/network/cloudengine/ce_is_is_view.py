@@ -266,13 +266,13 @@ EXAMPLES = '''
       stdlevel1cost: 63
       state: present
 
-  - name: set isis stdlevel2cost
+  - name: Set isis stdlevel2cost
     ce_is_is_view:
       instance_id: 3
       stdlevel2cost: 63
       state: present
 
-  - name: set isis stdbandwidth
+  - name: Set isis stdbandwidth
     ce_is_is_view:
       instance_id: 3
       stdbandwidth: 1

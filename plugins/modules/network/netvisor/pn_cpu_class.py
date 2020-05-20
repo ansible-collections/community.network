@@ -50,7 +50,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: create cpu class
+- name: Create cpu class
   pn_cpu_class:
     pn_cliswitch: 'sw01'
     state: 'present'
@@ -58,14 +58,14 @@ EXAMPLES = """
     pn_rate_limit: '1000'
     pn_scope: 'local'
 
-- name: delete cpu class
+- name: Delete cpu class
   pn_cpu_class:
     pn_cliswitch: 'sw01'
     state: 'absent'
     pn_name: 'icmp'
 
 
-- name: modify cpu class
+- name: Modify cpu class
   pn_cpu_class:
     pn_cliswitch: 'sw01'
     state: 'update'

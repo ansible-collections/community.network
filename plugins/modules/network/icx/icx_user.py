@@ -136,22 +136,22 @@ options:
 '''
 
 EXAMPLES = """
-- name: create a new user without password
+- name: Create a new user without password
   icx_user:
     name: user1
     nopassword: true
 
-- name: create a new user with password
+- name: Create a new user with password
   icx_user:
     name: user1
     configured_password: 'newpassword'
 
-- name: remove users
+- name: Remove users
   icx_user:
     name: user1
     state: absent
 
-- name: set user privilege level to 5
+- name: Set user privilege level to 5
   icx_user:
     name: user1
     privilege: 5

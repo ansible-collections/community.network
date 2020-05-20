@@ -48,17 +48,17 @@ options:
 '''
 
 EXAMPLES = """
-# Collect all facts from the device
-- slxos_facts:
+- name: Collect all facts from the device
+  slxos_facts:
     gather_subset: all
 
-# Collect only the config and default facts
-- slxos_facts:
+- name: Collect only the config and default facts
+  slxos_facts:
     gather_subset:
       - config
 
-# Do not collect hardware facts
-- slxos_facts:
+- name: Do not collect hardware facts
+  slxos_facts:
     gather_subset:
       - "!hardware"
 """

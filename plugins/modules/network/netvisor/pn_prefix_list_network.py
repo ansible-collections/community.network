@@ -44,7 +44,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: prefix list network add
+- name: Prefix list network add
   pn_prefix_list_network:
     pn_cliswitch: "sw01"
     pn_name: "foo"
@@ -52,7 +52,7 @@ EXAMPLES = """
     pn_netmask: "24"
     state: "present"
 
-- name: prefix list network remove
+- name: Prefix list network remove
   pn_prefix_list_network:
     pn_cliswitch: "sw01"
     state: "absent"

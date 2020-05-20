@@ -44,7 +44,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure Vxlan
+- name: Configure Vxlan
   onyx_vxlan:
     nve_id: 1
     loopback_id: 1

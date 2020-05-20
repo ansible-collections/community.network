@@ -56,17 +56,17 @@ options:
 '''
 
 EXAMPLES = """
-- name: create link aggregation group
+- name: Create link aggregation group
   slxos_linkagg:
     group: 10
     state: present
 
-- name: delete link aggregation group
+- name: Delete link aggregation group
   slxos_linkagg:
     group: 10
     state: absent
 
-- name: set link aggregation group to members
+- name: Set link aggregation group to members
   slxos_linkagg:
     group: 200
     mode: active
@@ -74,7 +74,7 @@ EXAMPLES = """
       - Ethernet 0/1
       - Ethernet 0/2
 
-- name: remove link aggregation group from Ethernet 0/1
+- name: Remove link aggregation group from Ethernet 0/1
   slxos_linkagg:
     group: 200
     mode: active

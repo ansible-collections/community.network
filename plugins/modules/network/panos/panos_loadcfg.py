@@ -48,14 +48,14 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 # Import and load config file from URL
-  - name: import configuration
+  - name: Import configuration
     panos_import:
       ip_address: "192.168.1.1"
       password: "admin"
       url: "{{ConfigURL}}"
       category: "configuration"
     register: result
-  - name: load configuration
+  - name: Load configuration
     panos_loadcfg:
       ip_address: "192.168.1.1"
       password: "admin"

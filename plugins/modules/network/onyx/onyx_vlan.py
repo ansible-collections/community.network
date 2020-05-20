@@ -36,12 +36,12 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure VLAN ID and name
+- name: Configure VLAN ID and name
   onyx_vlan:
     vlan_id: 20
     name: test-vlan
 
-- name: remove configuration
+- name: Remove configuration
   onyx_vlan:
     state: absent
 """

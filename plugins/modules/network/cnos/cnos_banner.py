@@ -124,7 +124,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure the login banner
+- name: Configure the login banner
   cnos_banner:
     banner: login
     text: |
@@ -133,7 +133,7 @@ EXAMPLES = """
       string
     state: present
 
-- name: remove the motd banner
+- name: Remove the motd banner
   cnos_banner:
     banner: motd
     state: absent

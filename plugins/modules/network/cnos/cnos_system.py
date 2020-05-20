@@ -81,27 +81,27 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure hostname and domain-name
+- name: Configure hostname and domain-name
   cnos_system:
     hostname: cnos01
     domain_name: test.example.com
 
-- name: remove configuration
+- name: Remove configuration
   cnos_system:
     state: absent
 
-- name: configure name servers
+- name: Configure name servers
   cnos_system:
     name_servers:
       - 8.8.8.8
       - 8.8.4.4
 
-- name: configure DNS Lookup sources
+- name: Configure DNS Lookup sources
   cnos_system:
     lookup_source: MgmtEth0/0/CPU0/0
     lookup_enabled: yes
 
-- name: configure name servers with VRF support
+- name: Configure name servers with VRF support
   nxos_system:
     name_servers:
       - { server: 8.8.8.8, vrf: mgmt }

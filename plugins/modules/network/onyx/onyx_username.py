@@ -68,32 +68,32 @@ options:
 '''
 
 EXAMPLES = """
-- name: create new user
+- name: Create new user
   onyx_username:
       username: anass
 
-- name: set the user full-name
+- name: Set the user full-name
   onyx_username:
       username: anass
       full_name: anasshami
 
-- name: set the user encrypted password
+- name: Set the user encrypted password
   onyx_username:
       username: anass
       password: 12345
       encrypted_password: True
 
-- name: set the user capability
+- name: Set the user capability
   onyx_username:
       username: anass
       capability: monitor
 
-- name: reset the user capability
+- name: Reset the user capability
   onyx_username:
       username: anass
       reset_capability: True
 
-- name: remove the user configuration
+- name: Remove the user configuration
   onyx_username:
       username: anass
       state: absent

@@ -77,7 +77,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: bfd global module test
+- name: Bfd global module test
   hosts: cloudengine
   connection: local
   gather_facts: no

@@ -70,7 +70,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: switchport module test
+- name: Switchport module test
   hosts: cloudengine
   connection: local
   gather_facts: no

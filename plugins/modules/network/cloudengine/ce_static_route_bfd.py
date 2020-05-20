@@ -125,7 +125,7 @@ EXAMPLES = '''
       state: present
 
   #undo ip route-static bfd [ interface-type interface-number | vpn-instance vpn-instance-name ] nexthop-address
-  - name: undo ip route-static bfd 10GE1/0/1 3.3.3.4
+  - name: Undo ip route-static bfd 10GE1/0/1 3.3.3.4
     ce_static_route_bfd:
       function_flag: 'singleBFD'
       nhp_interface: 10GE1/0/1
@@ -143,7 +143,7 @@ EXAMPLES = '''
       aftype: v4
       state: present
 
-  - name: undo ip route-static default-bfd
+  - name: Undo ip route-static default-bfd
     ce_static_route_bfd:
       function_flag: 'globalBFD'
       aftype: v4

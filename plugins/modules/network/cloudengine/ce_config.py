@@ -197,7 +197,7 @@ EXAMPLES = """
       replace: block
       provider: "{{ cli }}"
 
-  - name: configurable backup path
+  - name: Configurable backup path
     ce_config:
       lines: sysname {{ inventory_hostname }}
       provider: "{{ cli }}"

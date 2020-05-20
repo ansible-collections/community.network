@@ -70,7 +70,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: interface module test
+- name: Interface module test
   hosts: cloudengine
   connection: local
   gather_facts: no

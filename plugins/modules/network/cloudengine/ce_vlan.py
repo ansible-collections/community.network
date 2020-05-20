@@ -51,7 +51,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: vlan module test
+- name: Vlan module test
   hosts: cloudengine
   connection: local
   gather_facts: no

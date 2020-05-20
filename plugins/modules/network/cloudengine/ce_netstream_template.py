@@ -64,7 +64,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: netstream template module test
+- name: Netstream template module test
   hosts: cloudengine
   connection: local
   gather_facts: no

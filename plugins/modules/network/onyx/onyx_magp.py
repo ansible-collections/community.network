@@ -39,7 +39,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: run add vlan interface with magp
+- name: Run add vlan interface with magp
   onyx_magp:
     magp_id: 103
     router_ip: 192.168.8.2

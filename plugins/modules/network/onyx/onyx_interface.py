@@ -72,19 +72,19 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure interface
+- name: Configure interface
   onyx_interface:
       name: Eth1/2
       description: test-interface
       speed: 100G
       mtu: 512
 
-- name: make interface up
+- name: Make interface up
   onyx_interface:
     name: Eth1/2
     enabled: True
 
-- name: make interface down
+- name: Make interface down
   onyx_interface:
     name: Eth1/2
     enabled: False

@@ -65,7 +65,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: netstream global module test
+- name: Netstream global module test
   hosts: cloudengine
   connection: local
   gather_facts: no

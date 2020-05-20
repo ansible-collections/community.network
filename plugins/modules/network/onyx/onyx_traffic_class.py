@@ -65,7 +65,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure traffic class
+- name: Configure traffic class
   onyx_traffic_class:
     interfaces:
       - Eth1/1

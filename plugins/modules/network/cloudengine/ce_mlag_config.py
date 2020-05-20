@@ -71,7 +71,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: mlag config module test
+- name: Mlag config module test
   hosts: cloudengine
   connection: local
   gather_facts: no

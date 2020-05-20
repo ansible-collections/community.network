@@ -50,7 +50,7 @@ options:
 '''
 
 EXAMPLES = """
-- name: configures bfd
+- name: Configures bfd
   onyx_bfd:
     shutdown: yes
     vrf: 5

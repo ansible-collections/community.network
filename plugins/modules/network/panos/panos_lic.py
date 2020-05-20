@@ -54,7 +54,7 @@ EXAMPLES = '''
     - hosts: localhost
       connection: local
       tasks:
-        - name: fetch license
+        - name: Fetch license
           panos_lic:
             ip_address: "192.168.1.1"
             password: "paloalto"

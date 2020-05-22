@@ -9,7 +9,7 @@ license_file: COPYING
 tags: [community, network]
 # NOTE: No more dependencies can be added to this list
 dependencies:
-  ansible.netcommon: '>=0.1.0'
+  ansible.netcommon: '>=0.0.1'
   cisco.mso: '>=0.1.0'
   cisco.aci: '>=0.1.0'
   check_point.mgmt: '>=0.1.0'

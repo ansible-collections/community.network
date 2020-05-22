@@ -10,8 +10,8 @@ tags: [community, network]
 # NOTE: No more dependencies can be added to this list
 dependencies:
   ansible.netcommon: '>=0.0.1'
-  cisco.mso: '>=0.1.0'
-  cisco.aci: '>=0.1.0'
+  cisco.mso: '>=0.0.1'
+  cisco.aci: '>=0.0.1'
   check_point.mgmt: '>=0.1.0'
   fortinet.fortios: '>=0.1.0'
 #  f5networks.f5_modules: '>=0.1.0'

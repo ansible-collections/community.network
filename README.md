@@ -1,39 +1,81 @@
-# collection_template
-You can build a new repository for an Ansible Collection using this template by following [Creating a repository from a template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template). This README.md contains recommended headings for your collection README.md, with comments describing what each section should contain. Once you have created your collection repository, delete this paragraph and the title above it from your README.md.
 
-# Foo Collection
-<!-- Add CI and code coverage badges here. Samples included below. -->
-[![CI](https://github.com/ansible-collections/REPONAMEHERE/workflows/CI/badge.svg?event=push)](https://github.com/ansible-collections/REPONAMEHERE/actions) [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/REPONAMEHERE)](https://codecov.io/gh/ansible-collections/REPONAMEHERE)
 
-<!-- Describe the collection and why a user would want to use it. What does the collection do? -->
+# Community Network Collection
+[![Run Status](https://api.shippable.com/projects/5e7c598d1c7dc1000762800c/badge?branch=master)](https://app.shippable.com/github/ansible-collections/community.network/dashboard) [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/community.network)](https://codecov.io/gh/ansible-collections/community.network)
 
-## Tested with Ansible
+The Community Network collection includes community maintained content to help automate network appliances.
 
-<!-- List the versions of Ansible the collection has been tested with. Must match what is in galaxy.yml. -->
-
-## External requirements
-
-<!-- List any external resources the collection depends on, for example minimum versions of an OS, libraries, or utilities. Do not list other Ansible collections here. -->
 
 ### Supported connections
-<!-- Optional. If your collection supports only specific connection types (such as HTTPAPI, netconf, or others), list them here. -->
+The community network collection supports `network_cli`  and `httpapi` connections.
 
 ## Included content
 
-<!-- Galaxy will eventually list the module docs within the UI, but until that is ready, you may need to either describe your plugins etc here, or point to an external docsite to cover that information. -->
+Click the `Content` button to see the list of content included in this collection.
 
+## Installing this collection
+
+You can install the community network collection with the Ansible Galaxy CLI:
+
+    ansible-galaxy collection install community.network
+
+You can also include it in a `requirements.yml` file and install it with `ansible-galaxy collection install -r requirements.yml`, using the format:
+
+```yaml
+---
+collections:
+  - name: community.network
+    # If you need a specific version of the collection, you can specify like this:
+    # version: ...
+```
 ## Using this collection
 
-<!--Include some quick examples that cover the most common use cases for your collection content. -->
+You can call modules by their Fully Qualified Collection Namespace (FQCN), such as `community.network.routeros_command`.
+The following example task replaces configuration changes in the existing configuration on a network device, using the FQCN:
 
-See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
+```yaml
+---
+  - name: run command on remote devices
+    community.network.routeros_command:
+      commands: /system routerboard print
+
+```
+
+Alternately, you can call modules by their short name if you list the `community.network` collection in the playbook's `collections`, as follows:
+
+```yaml
+---
+- hosts: routeros01
+  gather_facts: false
+  connection: network_cli
+
+  collections:
+    - community.network
+
+  tasks:
+    - name: Gather facts from the device.
+      routeros_facts:
+         gather_subset: all
+```
+
+
+### See Also:
+
+* [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
 
 ## Contributing to this collection
 
-<!--Describe how the community can contribute to your collection. At a minimum, include how and where users can create issues to report problems or request features for this collection.  List contribution requirements, including preferred workflows and necessary testing, so you can benefit from community PRs. If you are following general Ansible contributor guidelines, you can link to - [Ansible Community Guide](https://docs.ansible.com/ansible/latest/community/index.html). -->
+We welcome community contributions to this collection. If you find problems, please open an issue or create a PR against the [Community Network collection repository](https://github.com/ansible-collections/community.network).
+
+You can also join us on:
+
+- Freenode IRC - ``#ansible-network`` Freenode channel
+- Slack - https://ansiblenetwork.slack.com
+
+See the [Ansible Community Guide](https://docs.ansible.com/ansible/latest/community/index.html) for details on contributing to Ansible.
 
 
-## Release notes
+## Changelogs
 <!--Add a link to a changelog.md file or an external docsite to cover this information. -->
 
 ## Roadmap
@@ -42,8 +84,7 @@ See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_gui
 
 ## More information
 
-<!-- List out where the user can find additional information, such as working group meeting times, slack/IRC channels, or documentation for the product this collection automates. At a minimum, link to: -->
-
+- [Ansible network resources](https://docs.ansible.com/ansible/latest/network/getting_started/network_resources.html)
 - [Ansible Collection overview](https://github.com/ansible-collections/overview)
 - [Ansible User guide](https://docs.ansible.com/ansible/latest/user_guide/index.html)
 - [Ansible Developer guide](https://docs.ansible.com/ansible/latest/dev_guide/index.html)
@@ -51,8 +92,6 @@ See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_gui
 
 ## Licensing
 
-<!-- Include the appropriate license information here and a pointer to the full licensing details. If the collection contains modules migrated from the ansible/ansible repo, you must use the same license that existed in the ansible/ansible repo. See the GNU license example below. -->
-
 GNU General Public License v3.0 or later.
 
-See [LICENCE](https://www.gnu.org/licenses/gpl-3.0.txt) to see the full text.
+See [COPYING](https://www.gnu.org/licenses/gpl-3.0.txt) to see the full text.

@@ -25,7 +25,8 @@ You can also include it in a `requirements.yml` file and install it with `ansibl
 ---
 collections:
   - name: community.network
-    version: 0.1.0
+    # If you need a specific version of the collection, you can specify like this:
+    # version: ...
 ```
 ## Using this collection
 

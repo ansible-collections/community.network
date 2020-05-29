@@ -1163,10 +1163,6 @@ plugins/modules/network/f5/bigip_gtm_facts.py validate-modules:doc-required-mism
 plugins/modules/network/f5/bigip_gtm_facts.py validate-modules:parameter-list-no-elements
 plugins/modules/network/f5/bigip_gtm_facts.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/f5/bigip_lx_package.py validate-modules:doc-required-mismatch
-plugins/modules/network/f5/bigiq_device_info.py pylint:invalid-tagged-version
-plugins/modules/network/f5/bigiq_device_info.py validate-modules:doc-required-mismatch
-plugins/modules/network/f5/bigiq_device_info.py validate-modules:parameter-list-no-elements
-plugins/modules/network/f5/bigiq_device_info.py validate-modules:return-syntax-error
 plugins/modules/network/fortianalyzer/faz_device.py validate-modules:doc-required-mismatch
 plugins/modules/network/fortimanager/fmgr_device.py validate-modules:doc-required-mismatch
 plugins/modules/network/fortimanager/fmgr_device.py validate-modules:parameter-type-not-in-doc

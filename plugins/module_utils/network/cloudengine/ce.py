@@ -342,10 +342,17 @@ def set_nc_config(module, xml_str):
     try:
         out = conn.edit_config(target='running', config=xml_str, default_operation='merge',
                                error_option='rollback-on-error')
-    finally:
+    except Exception as e:
+        message = re.findall(r'<error-message xml:lang=\"en\">(.*)</error-message>', str(e))
+        if message:
+            module.fail_json(msg='Error: %s' % message[0])
+        else:
+            module.fail_json(msg='Error: %s' % str(e))
+    else:
+        return to_string(to_xml(out))
+    # finally:
         # conn.unlock(target = 'candidate')
-        pass
-    return to_string(to_xml(out))
+        # pass
 
 
 def get_nc_next(module, xml_str):
@@ -376,11 +383,18 @@ def get_nc_config(module, xml_str):
 
     conn = get_nc_connection(module)
     if xml_str is not None:
-        response = conn.get(xml_str)
+        try:
+            response = conn.get(xml_str)
+        except Exception as e:
+            message = re.findall(r'<error-message xml:lang=\"en\">(.*)</error-message>', str(e))
+            if message:
+                module.fail_json(msg='Error: %s' % message[0])
+            else:
+                module.fail_json(msg='Error: %s' % str(e))
+        else:
+            return to_string(to_xml(response))
     else:
         return None
-
-    return to_string(to_xml(response))
 
 
 def execute_nc_action(module, xml_str):

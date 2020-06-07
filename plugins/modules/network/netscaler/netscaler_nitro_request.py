@@ -642,10 +642,7 @@ class NitroAPICaller(object):
         if self._module.params['filter'] is None:
             self.fail_module(msg='NITRO filter is undefined.')
 
-        keys = list(self._module.params['filter'].keys())
-        filter_key = keys[0]
-        filter_value = self._module.params['filter'][filter_key]
-        filter_str = '%s:%s' % (filter_key, filter_value)
+        filter_str = ','.join('%s:%s' % (k, v) for k, v in self._module.params['filter'].items())
 
         url = '%s://%s/nitro/v1/config/%s?filter=%s' % (
             self._module.params['nitro_protocol'],

@@ -1,0 +1,3 @@
+---
+bugfixes:
+  - netscaler_nitro_request - use all filters for get_filtered instead of only the first one (https://github.com/ansible-collections/community.network/issues/48).

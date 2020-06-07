@@ -392,7 +392,7 @@ def get_nc_config(module, xml_str):
             else:
                 module.fail_json(msg='Error: %s' % str(e))
         else:
-            return to_string(to_xml(response)) 
+            return to_string(to_xml(response))
     else:
         return None
 

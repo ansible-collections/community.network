@@ -1,3 +1,5 @@
+unittest2 ; python_version <= '2.6'
+
 # requirements for F5 specific modules
 f5-sdk ; python_version >= '2.7'
 f5-icontrol-rest ; python_version >= '2.7'

@@ -1140,6 +1140,7 @@ plugins/modules/network/cnos/cnos_vlan.py validate-modules:doc-choices-do-not-ma
 plugins/modules/network/cnos/cnos_vlan.py validate-modules:doc-default-does-not-match-spec
 plugins/modules/network/cnos/cnos_vlan.py validate-modules:doc-elements-mismatch
 plugins/modules/network/cnos/cnos_vlan.py validate-modules:doc-missing-type
+plugins/modules/network/cnos/cnos_vlan.py validate-modules:doc-required-mismatch
 plugins/modules/network/cnos/cnos_vlan.py validate-modules:missing-suboption-docs
 plugins/modules/network/cnos/cnos_vlan.py validate-modules:parameter-list-no-elements
 plugins/modules/network/cnos/cnos_vlan.py validate-modules:parameter-type-not-in-doc
@@ -1210,7 +1211,6 @@ plugins/modules/network/f5/bigip_asm_policy.py validate-modules:doc-required-mis
 plugins/modules/network/f5/bigip_asm_policy.py validate-modules:invalid-module-deprecation-version
 plugins/modules/network/f5/bigip_asm_policy.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/f5/bigip_device_info.py pylint:ansible-deprecated-no-collection-name
-plugins/modules/network/f5/bigip_device_info.py pylint:invalid-tagged-version
 plugins/modules/network/f5/bigip_device_info.py validate-modules:doc-required-mismatch
 plugins/modules/network/f5/bigip_device_info.py validate-modules:parameter-list-no-elements
 plugins/modules/network/f5/bigip_device_info.py validate-modules:return-syntax-error

@@ -285,7 +285,7 @@ files:
     maintainers: $team_extreme rdvencioneck
   $modules/network/f5/:
     authors: caphrim007 wojtek0806
-    ignore: JoeReifel Qalthos ganeshrn mhite perzizzle srvg
+    ignore: JoeReifel Qalthos ganeshrn mhite perzizzle srgvg
   $modules/network/f5/bigip_facts.py:
     authors: caphrim007 mhite
     maintainers: wojtek0806

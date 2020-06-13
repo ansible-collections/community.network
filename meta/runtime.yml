@@ -40,42 +40,6 @@ plugin_routing:
       deprecation:
         removal_date: TBD
         warning_text: see plugin documentation for details
-    bigip_asm_policy:
-      deprecation:
-        removal_date: TBD
-        warning_text: see plugin documentation for details
-    bigip_device_facts:
-      deprecation:
-        removal_date: TBD
-        warning_text: see plugin documentation for details
-    bigip_facts:
-      deprecation:
-        removal_date: TBD
-        warning_text: see plugin documentation for details
-    bigip_gtm_facts:
-      deprecation:
-        removal_date: TBD
-        warning_text: see plugin documentation for details
-    bigip_iapplx_package:
-      deprecation:
-        removal_date: TBD
-        warning_text: see plugin documentation for details
-    bigip_security_address_list:
-      deprecation:
-        removal_date: TBD
-        warning_text: see plugin documentation for details
-    bigip_security_port_list:
-      deprecation:
-        removal_date: TBD
-        warning_text: see plugin documentation for details
-    bigip_traffic_group:
-      deprecation:
-        removal_date: TBD
-        warning_text: see plugin documentation for details
-    bigiq_device_facts:
-      deprecation:
-        removal_date: TBD
-        warning_text: see plugin documentation for details
     pn_cluster:
       deprecation:
         removal_date: TBD

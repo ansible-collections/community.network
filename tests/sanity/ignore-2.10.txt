@@ -1976,3 +1976,4 @@ tests/unit/plugins/modules/utils.py future-import-boilerplate
 tests/unit/plugins/modules/utils.py metaclass-boilerplate
 tests/utils/shippable/check_matrix.py replace-urlopen
 tests/utils/shippable/timing.py shebang
+meta/runtime.yml runtime-metadata  # TODO needs to be cleaned up before a first proper release!

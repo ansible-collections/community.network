@@ -1,29 +1,5 @@
 plugin_routing:
   modules:
-    # aci_intf_policy_fc:
-    #   deprecation:
-    #     removal_date: TBD
-    #     warning_text: see plugin documentation for details
-    # aci_intf_policy_l2:
-    #   deprecation:
-    #     removal_date: TBD
-    #     warning_text: see plugin documentation for details
-    # aci_intf_policy_lldp:
-    #   deprecation:
-    #     removal_date: TBD
-    #     warning_text: see plugin documentation for details
-    # aci_intf_policy_mcp:
-    #   deprecation:
-    #     removal_date: TBD
-    #     warning_text: see plugin documentation for details
-    # aci_intf_policy_port_channel:
-    #   deprecation:
-    #     removal_date: TBD
-    #     warning_text: see plugin documentation for details
-    # aci_intf_policy_port_security:
-    #   deprecation:
-    #     removal_date: TBD
-    #     warning_text: see plugin documentation for details
     pn_cluster:
       deprecation:
         removal_version: 2.0.0

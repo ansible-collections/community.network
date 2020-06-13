@@ -23,6 +23,7 @@ __metaclass__ = type
 DOCUMENTATION = r'''
 ---
 module: ce_lldp_interface
+version_added: '0.2.0'
 short_description: Manages INTERFACE LLDP configuration on HUAWEI CloudEngine switches.
 description:
     - Manages INTERFACE LLDP configuration on HUAWEI CloudEngine switches.

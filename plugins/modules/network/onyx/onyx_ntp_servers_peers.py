@@ -9,6 +9,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: onyx_ntp_servers_peers
+version_added: '0.2.0'
 author: "Sara-Touqan (@sarato)"
 short_description: Configures NTP peers and servers parameters
 description:

@@ -21,6 +21,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_static_route_bfd
+version_added: '0.2.0'
 short_description: Manages static route configuration on HUAWEI CloudEngine switches.
 description:
     - Manages the static routes on HUAWEI CloudEngine switches.

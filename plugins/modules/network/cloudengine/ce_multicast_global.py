@@ -11,6 +11,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_multicast_global
+version_added: '0.2.0'
 author:  xuxiaowei0512 (@xuxiaowei0512)
 short_description: Manages multicast global configuration on HUAWEI CloudEngine switches.
 description:

@@ -11,6 +11,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_multicast_igmp_enable
+version_added: '0.2.0'
 author: xuxiaowei0512 (@CloudEngine-Ansible)
 short_description: Manages multicast igmp enable configuration on HUAWEI CloudEngine switches.
 description:

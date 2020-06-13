@@ -14,6 +14,7 @@ description:
 - Manage External EPG subnets in schema templates on Cisco ACI Multi-Site.
 author:
 - Devarshi Shah (@devarshishah3)
+version_added: '0.2.0'
 options:
   schema:
     description:

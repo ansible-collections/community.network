@@ -32,6 +32,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: exos_vlans
+version_added: '0.2.0'
 short_description:  Manage VLANs on Extreme Networks EXOS devices.
 description: This module provides declarative management of VLANs on Extreme Networks EXOS network devices.
 author: Jayalakshmi Viswanathan (@jayalakshmiV)

@@ -31,6 +31,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: exos_lldp_interfaces
+version_added: '0.2.0'
 short_description: Manage link layer discovery protocol (LLDP) attributes of interfaces on EXOS platforms.
 description:
   - This module manages link layer discovery protocol (LLDP) attributes of interfaces on Extreme Networks EXOS platforms.

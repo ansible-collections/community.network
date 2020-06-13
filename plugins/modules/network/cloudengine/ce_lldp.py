@@ -13,6 +13,7 @@ DOCUMENTATION = '''
 ---
 
 module: ce_lldp
+version_added: '0.2.0'
 short_description: Manages LLDP configuration on HUAWEI CloudEngine switches.
 description:
     - Manages LLDP configuration on HUAWEI CloudEngine switches.

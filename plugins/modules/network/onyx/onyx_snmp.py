@@ -9,6 +9,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: onyx_snmp
+version_added: '0.2.0'
 author: "Sara-Touqan (@sarato)"
 short_description: Manages SNMP general configurations on Mellanox ONYX network devices
 description:

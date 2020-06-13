@@ -9,6 +9,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: onyx_snmp_hosts
+version_added: '0.2.0'
 author: "Sara Touqan (@sarato)"
 short_description: Configures SNMP host parameters
 description:

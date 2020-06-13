@@ -111,6 +111,7 @@ options:
             - Specifies the rate of sFlow packets sent from a card to the control plane.
               The value is an integer that ranges from 100 to 1500, in pps.
         type: str
+        version_added: '0.2.0'
     rate_limit_slot:
         description:
             - Specifies the slot where the rate of output sFlow packets is limited.
@@ -118,6 +119,7 @@ options:
               all cards to the control plane is limited.
               The value is an integer or a string of characters.
         type: str
+        version_added: '0.2.0'
     forward_enp_slot:
         description:
             - Enable the Embedded Network Processor (ENP) chip function.
@@ -127,6 +129,7 @@ options:
               the switch automatically restores it to 65535.
               The value is an integer or 'all'.
         type: str
+        version_added: '0.2.0'
     state:
         description:
             - Determines whether the config should be present or not

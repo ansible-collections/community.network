@@ -9,6 +9,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: onyx_ntp
+version_added: '0.2.0'
 author: "Sara-Touqan (@sarato)"
 short_description: Manage NTP general configurations and ntp keys configurations on Mellanox ONYX network devices
 description:

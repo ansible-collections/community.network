@@ -20,6 +20,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: apconos_command
+version_added: '0.2.0'
 author: "David Lee (@davidlee-ap)"
 short_description: Run arbitrary commands on APCON devices
 description:

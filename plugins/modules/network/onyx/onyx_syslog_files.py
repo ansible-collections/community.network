@@ -8,6 +8,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 module: onyx_syslog_files
+version_added: '0.2.0'
 author: "Anas Shami (@anass)"
 short_description: Configure file management syslog module
 description:

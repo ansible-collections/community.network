@@ -22,7 +22,7 @@ __metaclass__ = type
 DOCUMENTATION = r'''
 ---
 module: ce_lacp
-version_added: '1.0.0'
+version_added: '0.2.0'
 short_description: Manages Eth-Trunk interfaces on HUAWEI CloudEngine switches
 description:
     - Manages Eth-Trunk specific configuration parameters on HUAWEI CloudEngine switches.

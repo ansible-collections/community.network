@@ -25,7 +25,7 @@ netconf: sros
 short_description: Use Nokia SROS netconf plugin to run netconf commands on Nokia SROS platform
 deprecated:
     why: This plugin moved in 'nokia.sros' collection
-    removed_in: '2.13'
+    removed_in: '3.0.0'  # was Ansible 2.13
     alternative: "Use the netconf plugin in 'nokia.sros' collection within Ansible galaxy"
 description:
   - This sros plugin provides low level abstraction apis for

@@ -254,8 +254,9 @@ def main():
         backup=dict(type='bool', default=False),
         backup_options=dict(type='dict', options=backup_spec),
 
-        # save is deprecated as of 2.7, use save_when instead
-        save=dict(type='bool', default=False, removed_in_version='2.11'),
+        # save is deprecated as of Ansible 2.7, use save_when instead
+        save=dict(type='bool', default=False, removed_in_version='2.0.0',
+                  removed_from_collection='community.network'),  # was Ansible 2.11
         save_when=dict(choices=['always', 'never', 'changed'], default='never'),
 
         diff_against=dict(choices=['running', 'intended']),

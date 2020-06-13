@@ -1134,9 +1134,12 @@ def main():
         source_ip=dict(required=False, type='str'),
         export_route=dict(required=False, type='str',
                           choices=['enable', 'disable']),
-        rate_limit=dict(required=False, removed_in_version=2.13, type='str'),
-        rate_limit_slot=dict(required=False, removed_in_version=2.13, type='str'),
-        forward_enp_slot=dict(required=False, removed_in_version=2.13, type='str'),
+        rate_limit=dict(required=False, removed_in_version='3.0.0',  # was Ansible 2.13
+                        removed_from_collection='community.network', type='str'),
+        rate_limit_slot=dict(required=False, removed_in_version='3.0.0',  # was Ansible 2.13
+                             removed_from_collection='community.network', type='str'),
+        forward_enp_slot=dict(required=False, removed_in_version='3.0.0',  # was Ansible 2.13
+                              removed_from_collection='community.network', type='str'),
         collector_id=dict(required=False, type='str', choices=['1', '2']),
         collector_ip=dict(required=False, type='str'),
         collector_ip_vpn=dict(required=False, type='str'),

@@ -750,6 +750,8 @@ plugins/modules/network/cloudengine/ce_rollback.py validate-modules:undocumented
 plugins/modules/network/cloudengine/ce_sflow.py validate-modules:doc-choices-do-not-match-spec
 plugins/modules/network/cloudengine/ce_sflow.py validate-modules:doc-default-does-not-match-spec
 plugins/modules/network/cloudengine/ce_sflow.py validate-modules:doc-missing-type
+plugins/modules/network/cloudengine/ce_sflow.py validate-modules:invalid-ansiblemodule-schema
+plugins/modules/network/cloudengine/ce_sflow.py validate-modules:invalid-deprecated-version
 plugins/modules/network/cloudengine/ce_sflow.py validate-modules:missing-suboption-docs
 plugins/modules/network/cloudengine/ce_sflow.py validate-modules:parameter-list-no-elements
 plugins/modules/network/cloudengine/ce_sflow.py validate-modules:parameter-type-not-in-doc

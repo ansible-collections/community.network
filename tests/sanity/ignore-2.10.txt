@@ -507,7 +507,6 @@ plugins/modules/network/cloudengine/ce_bfd_session.py validate-modules:doc-missi
 plugins/modules/network/cloudengine/ce_bfd_session.py validate-modules:missing-suboption-docs
 plugins/modules/network/cloudengine/ce_bfd_session.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/cloudengine/ce_bfd_session.py validate-modules:undocumented-parameter
-plugins/modules/network/cloudengine/ce_bfd_view.py validate-modules:doc-choices-do-not-match-spec
 plugins/modules/network/cloudengine/ce_bfd_view.py validate-modules:doc-default-incompatible-type
 plugins/modules/network/cloudengine/ce_bfd_view.py validate-modules:doc-missing-type
 plugins/modules/network/cloudengine/ce_bfd_view.py validate-modules:doc-required-mismatch

@@ -49,12 +49,18 @@ sros_argument_spec = {
     'provider': dict(type='dict', options=sros_provider_spec),
 }
 sros_top_spec = {
-    'host': dict(removed_in_version=2.9),
-    'port': dict(removed_in_version=2.9, type='int'),
-    'username': dict(removed_in_version=2.9),
-    'password': dict(removed_in_version=2.9, no_log=True),
-    'ssh_keyfile': dict(removed_in_version=2.9, type='path'),
-    'timeout': dict(removed_in_version=2.9, type='int'),
+    'host': dict(removed_in_version='0.2.0',
+                 removed_from_collection='community.network'),  # was Ansible 2.9
+    'port': dict(removed_in_version='0.2.0',
+                 removed_from_collection='community.network', type='int'),  # was Ansible 2.9
+    'username': dict(removed_in_version='0.2.0',
+                     removed_from_collection='community.network'),  # was Ansible 2.9
+    'password': dict(removed_in_version='0.2.0',
+                     removed_from_collection='community.network', no_log=True),  # was Ansible 2.9
+    'ssh_keyfile': dict(removed_in_version='0.2.0',
+                        removed_from_collection='community.network', type='path'),  # was Ansible 2.9
+    'timeout': dict(removed_in_version='0.2.0',
+                    removed_from_collection='community.network', type='int'),  # was Ansible 2.9
 }
 sros_argument_spec.update(sros_top_spec)
 

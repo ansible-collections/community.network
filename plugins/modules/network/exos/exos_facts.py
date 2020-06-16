@@ -170,7 +170,7 @@ def main():
                            supports_check_mode=True)
 
     warnings = ['default value for `gather_subset` '
-                'will be changed to `min` from `!config` v2.11 onwards']
+                'will be changed to `min` from `!config` in community.network 2.0.0 onwards']
 
     result = Facts(module).get_facts()
 

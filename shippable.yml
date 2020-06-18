@@ -8,36 +8,58 @@ matrix:
   exclude:
     - env: T=none
   include:
-    - env: T=sanity/1
-    - env: T=sanity/2
-    - env: T=sanity/3
-    - env: T=sanity/4
-    - env: T=sanity/5
-    - env: T=sanity/extra
+    - env: T=devel/sanity/1
+    - env: T=devel/sanity/2
+    - env: T=devel/sanity/3
+    - env: T=devel/sanity/4
+    - env: T=devel/sanity/5
+    - env: T=devel/sanity/extra
 
-    - env: T=units/2.6/1
-    - env: T=units/2.7/1
-    - env: T=units/3.5/1
-    - env: T=units/3.6/1
-    - env: T=units/3.7/1
-    - env: T=units/3.8/1
-    - env: T=units/3.9/1
+    - env: T=2.10/sanity/1
+    - env: T=2.10/sanity/2
+    - env: T=2.10/sanity/3
+    - env: T=2.10/sanity/4
+    - env: T=2.10/sanity/5
+    - env: T=2.10/sanity/extra
 
-#    - env: T=aix/7.2/1
-#    - env: T=osx/10.11/1
-#    - env: T=rhel/7.8/1
-    - env: T=rhel/8.2/1
-    - env: T=freebsd/11.1/1
-    - env: T=freebsd/12.1/1
-    - env: T=linux/centos6/1
-    - env: T=linux/centos7/1
-    - env: T=linux/centos8/1
-    - env: T=linux/fedora31/1
-    - env: T=linux/fedora32/1
-    - env: T=linux/opensuse15py2/1
-    - env: T=linux/opensuse15/1
-    - env: T=linux/ubuntu1604/1
-    - env: T=linux/ubuntu1804/1
+    - env: T=devel/units/2.6/1
+    - env: T=devel/units/2.7/1
+    - env: T=devel/units/3.5/1
+    - env: T=devel/units/3.6/1
+    - env: T=devel/units/3.7/1
+    - env: T=devel/units/3.8/1
+    - env: T=devel/units/3.9/1
+
+    - env: T=2.10/units/2.6/1
+    - env: T=2.10/units/2.7/1
+    - env: T=2.10/units/3.5/1
+    - env: T=2.10/units/3.6/1
+    - env: T=2.10/units/3.7/1
+    - env: T=2.10/units/3.8/1
+    - env: T=2.10/units/3.9/1
+
+#    - env: T=devel/aix/7.2/1
+#    - env: T=devel/osx/10.11/1
+#    - env: T=devel/rhel/7.8/1
+    - env: T=devel/rhel/8.2/1
+    - env: T=devel/freebsd/11.1/1
+    - env: T=devel/freebsd/12.1/1
+    - env: T=devel/linux/centos6/1
+    - env: T=devel/linux/centos7/1
+    - env: T=devel/linux/centos8/1
+    - env: T=devel/linux/fedora31/1
+    - env: T=devel/linux/fedora32/1
+    - env: T=devel/linux/opensuse15py2/1
+    - env: T=devel/linux/opensuse15/1
+    - env: T=devel/linux/ubuntu1604/1
+    - env: T=devel/linux/ubuntu1804/1
+
+    - env: T=2.10/rhel/8.2/1
+    - env: T=2.10/freebsd/12.1/1
+    - env: T=2.10/linux/centos8/1
+    - env: T=2.10/linux/fedora32/1
+    - env: T=2.10/linux/opensuse15/1
+    - env: T=2.10/linux/ubuntu1804/1
 
 branches:
   except:

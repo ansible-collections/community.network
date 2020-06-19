@@ -10,9 +10,6 @@ files:
     labels: ironware networking
   $actions/nos_config.py:
     labels: nos
-  $actions/onyx_config.py:
-    maintainers: $team_onyx
-    labels: networking onyx_config
   $actions/sros.py:
     maintainers: $team_networking
     labels: networking sros
@@ -39,9 +36,6 @@ files:
   $cliconfs/nos.py:
     maintainers: $team_extreme
     labels: networking nos
-  $cliconfs/onyx.py:
-    maintainers: $team_onyx
-    labels: networking onyx
   $cliconfs/routeros.py:
     maintainers: heuels
     labels: networking routeros
@@ -125,9 +119,6 @@ files:
   $module_utils/network/nso/nso.py:
     maintainers: $team_nso
     labels: cisco networking
-  $module_utils/network/onyx/onyx.py:
-    maintainers: $team_onyx
-    labels: networking
   $module_utils/network/ordnance/ordnance.py:
     maintainers: alexanderturner djh00t
     labels: networking
@@ -344,38 +335,6 @@ files:
     labels: cisco networking
   $modules/network/nuage/nuage_vspk.py:
     authors: pdellaert
-  $modules/network/onyx/:
-    authors: anass
-    maintainers: $team_onyx
-  $modules/network/onyx/onyx_bgp.py:
-    authors: anasb samerd
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_buffer_pool.py:
-    authors: anasb
-  $modules/network/onyx/onyx_command.py:
-    authors: samerd
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_config.py:
-    authors: atabachnik samerd
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_facts.py:
-    authors: samerd waleedym
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_igmp.py:
-    authors: samerd
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_igmp_interface.py:
-    authors: anasb
-  $modules/network/onyx/onyx_igmp_vlan.py:
-    authors: anasbadaha
-    maintainers: samerd
-  $modules/network/onyx/onyx_traffic_class.py:
-    authors: anasb
-  $modules/network/onyx/onyx_vlan.py:
-    authors: atabachnik samerd
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_vxlan.py:
-    authors: anasb
   $modules/network/opx/opx_cps.py:
     authors: skg-net
   $modules/network/ordnance/:
@@ -452,9 +411,6 @@ files:
   $terminals/nos.py:
     maintainers: $team_extreme
     labels: networking nos
-  $terminals/onyx.py:
-    maintainers: $team_onyx
-    labels: networking onyx
   $terminals/routeros.py:
     maintainers: heuels
     labels: networking routeros
@@ -492,5 +448,4 @@ macros:
   team_netvisor: Qalthos amitsi csharpe-pn pdam preetiparasar
   team_networking: NilashishC Qalthos danielmellado ganeshrn justjais trishnaguha
   team_nso: cmoberg cnasten tbjurman
-  team_onyx: anasbadaha samerd
   team_scaleway: DenBeke QuentinBrosse abarbare jerome-quere kindermoumoute remyleo

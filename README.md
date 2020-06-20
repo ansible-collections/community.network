@@ -76,7 +76,8 @@ See the [Ansible Community Guide](https://docs.ansible.com/ansible/latest/commun
 
 
 ## Changelogs
-<!--Add a link to a changelog.md file or an external docsite to cover this information. -->
+
+See [here](https://github.com/ansible-collections/community.network/tree/master/CHANGELOG.rst).
 
 ## Roadmap
 

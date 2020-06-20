@@ -1,3 +1,0 @@
-bugfixes:
-  - Some cloudengine modules have options which should have been removed for Ansible 2.9.
-    see https://github.com/ansible/ansible/issues/67020 and https://github.com/ansible-collections/community.network/pull/68

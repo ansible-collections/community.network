@@ -1,2 +1,0 @@
-bugfixes:
-  - edgeos_config - fixed issue where any change in check mode would cause all subsequent tasks to be treated as changes

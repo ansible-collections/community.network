@@ -40,8 +40,6 @@ plugins/doc_fragments/panos.py future-import-boilerplate
 plugins/doc_fragments/panos.py metaclass-boilerplate
 plugins/doc_fragments/sros.py future-import-boilerplate
 plugins/doc_fragments/sros.py metaclass-boilerplate
-plugins/module_utils/f5_utils.py future-import-boilerplate
-plugins/module_utils/f5_utils.py metaclass-boilerplate
 plugins/module_utils/network/a10/a10.py future-import-boilerplate
 plugins/module_utils/network/a10/a10.py metaclass-boilerplate
 plugins/module_utils/network/aireos/aireos.py future-import-boilerplate

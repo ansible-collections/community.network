@@ -14,7 +14,6 @@ dependencies:
   cisco.aci: '>=0.0.1'
   check_point.mgmt: '>=0.1.0'
   fortinet.fortios: '>=0.1.0'
-#  f5networks.f5_modules: '>=0.1.0'
 repository: https://github.com/ansible-collections/community.network
 documentation: https://github.com/ansible-collection-migration/community.network/tree/master/docs
 homepage: https://github.com/ansible-collections/community.network

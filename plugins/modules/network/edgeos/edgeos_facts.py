@@ -140,7 +140,7 @@ class Default(FactsBase):
 class Config(FactsBase):
 
     COMMANDS = [
-        'show configuration commands',
+        'show configuration commands|cat',
         'show system commit',
     ]
 

@@ -18,7 +18,7 @@ description:
     cause the module to wait for a specific condition before returning
     or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(sros_config) to configure SR OS devices.
+    Please use M(community.network.sros_config) to configure SR OS devices.
 extends_documentation_fragment:
 - community.network.sros
 

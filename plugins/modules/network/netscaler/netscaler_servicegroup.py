@@ -308,7 +308,7 @@ options:
     monitorbindings:
         description:
             - A list of monitornames to bind to this service
-            - Note that the monitors must have already been setup possibly using the M(netscaler_lb_monitor) module or some other method
+            - Note that the monitors must have already been setup possibly using the M(community.network.netscaler_lb_monitor) module or some other method
         suboptions:
             monitorname:
                 description:

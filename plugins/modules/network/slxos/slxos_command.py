@@ -15,7 +15,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(slxos_config) to configure SLX-OS devices.
+    Please use M(community.network.slxos_config) to configure SLX-OS devices.
 notes:
   - Tested against SLX-OS 17s.1.02
   - If a command sent to the device requires answering a prompt, it is possible

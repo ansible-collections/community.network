@@ -18,7 +18,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(aruba_config) to configure Aruba devices.
+    Please use M(community.network.aruba_config) to configure Aruba devices.
 extends_documentation_fragment:
 - community.network.aruba
 

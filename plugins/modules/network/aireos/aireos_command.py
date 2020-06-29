@@ -18,7 +18,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - Commands run in configuration mode with this module are not
-    idempotent. Please use M(aireos_config) to configure WLC devices.
+    idempotent. Please use M(community.network.aireos_config) to configure WLC devices.
 extends_documentation_fragment:
 - community.network.aireos
 

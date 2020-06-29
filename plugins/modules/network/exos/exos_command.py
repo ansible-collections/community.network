@@ -17,7 +17,7 @@ description:
     module to wait for a specific condition before returning or timing out if
     the condition is not met.
   - This module does not support running configuration commands.
-    Please use M(exos_config) to configure EXOS devices.
+    Please use M(community.network.exos_config) to configure EXOS devices.
 notes:
   - If a command sent to the device requires answering a prompt, it is possible
     to pass a dict containing I(command), I(answer) and I(prompt). See examples.

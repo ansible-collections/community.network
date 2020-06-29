@@ -15,7 +15,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(nos_config) to configure NOS devices.
+    Please use M(community.network.nos_config) to configure NOS devices.
 notes:
   - Tested against NOS 7.2.0
   - If a command sent to the device requires answering a prompt, it is possible

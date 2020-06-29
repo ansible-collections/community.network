@@ -30,7 +30,7 @@ options:
         to a given subset.  Possible values for this argument include
         all, hardware, config, mpls and interfaces.  Can specify a list of
         values to include a larger subset.  Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     required: false
     default: ['!config','!mpls']

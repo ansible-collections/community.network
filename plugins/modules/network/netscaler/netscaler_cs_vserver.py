@@ -503,7 +503,7 @@ options:
         description:
             - The name of the ssl certificate that is bound to this service.
             - The ssl certificate must already exist.
-            - Creating the certificate can be done with the M(netscaler_ssl_certkey) module.
+            - Creating the certificate can be done with the M(community.network.netscaler_ssl_certkey) module.
             - This option is only applicable only when C(servicetype) is C(SSL).
 
     disabled:

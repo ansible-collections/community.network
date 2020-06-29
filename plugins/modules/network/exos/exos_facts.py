@@ -43,7 +43,7 @@ options:
         to a given subset.  Possible values for this argument include
         all, hardware, config, and interfaces.  Can specify a list of
         values to include a larger subset.  Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     required: false
     type: list
@@ -54,7 +54,7 @@ options:
         to a given subset. Possible values for this argument include
         all and the resources like interfaces, vlans etc.
         Can specify a list of values to include a larger subset.
-        Values can also be used with an initial C(M(!)) to specify that
+        Values can also be used with an initial C(!) to specify that
         a specific subset should not be collected.
         Valid subsets are 'all', 'lldp_global'.
     type: list

@@ -20,7 +20,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(onyx_config) to configure Mellanox ONYX devices.
+    Please use M(community.network.onyx_config) to configure Mellanox ONYX devices.
 notes:
   - Tested on ONYX 3.6.4000
 options:

@@ -318,3 +318,19 @@ plugin_routing:
         removal_version: 2.0.0
         warning_text: The onyx_wjh module has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx_wjh
+  cliconf:
+    onyx:
+      redirect: mellanox.onyx.onyx
+  terminal:
+    onyx:
+      redirect: mellanox.onyx.onyx
+  module_utils:
+    onyx:
+      redirect: mellanox.onyx.onyx
+  action:
+    onyx_config:
+      redirect: mellanox.onyx.onyx_config
+  doc_fragments:
+    onyx:
+      redirect: mellanox.onyx.onyx
+  

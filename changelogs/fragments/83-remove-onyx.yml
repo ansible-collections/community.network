@@ -1,0 +1,2 @@
+removed_features:
+- "onyx - remove support for all onyx plugins because of migration to mellanox.onyx collection."

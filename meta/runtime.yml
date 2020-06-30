@@ -320,17 +320,32 @@ plugin_routing:
       redirect: mellanox.onyx.onyx_wjh
   cliconf:
     onyx:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx cliconf plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx
   terminal:
     onyx:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx terminal plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx
   module_utils:
     onyx:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx module_utils plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx
   action:
     onyx_config:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_config action plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx_config
   doc_fragments:
     onyx:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx doc_fragments plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx
   

@@ -1,7 +1,7 @@
 
 
 # Community Network Collection
-[![Run Status](https://api.shippable.com/projects/5e7c598d1c7dc1000762800c/badge?branch=master)](https://app.shippable.com/github/ansible-collections/community.network/dashboard) [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/community.network)](https://codecov.io/gh/ansible-collections/community.network)
+[![Run Status](https://api.shippable.com/projects/5e7c598d1c7dc1000762800c/badge?branch=main)](https://app.shippable.com/github/ansible-collections/community.network/dashboard) [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/community.network)](https://codecov.io/gh/ansible-collections/community.network)
 
 The Community Network collection includes community maintained content to help automate network appliances.
 
@@ -77,7 +77,7 @@ See the [Ansible Community Guide](https://docs.ansible.com/ansible/latest/commun
 
 ## Changelogs
 
-See [here](https://github.com/ansible-collections/community.network/tree/master/CHANGELOG.rst).
+See [here](https://github.com/ansible-collections/community.network/tree/main/CHANGELOG.rst).
 
 ## Roadmap
 

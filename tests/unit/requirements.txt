@@ -1,7 +1,7 @@
 unittest2 ; python_version <= '2.6'
 
 # requirements for ftd module_utils
-firepower-kickstart ; python_version >= '3.5' and python_version < '3.9'  # Python 3 only; dependency does not work with 3.9 yet
+firepower-kickstart ; python_version >= '3.6' and python_version < '3.9'  # Python 3.6+ only; dependency does not work with 3.9 yet
 
 # requirements for FortiManager modules
 pyFMG

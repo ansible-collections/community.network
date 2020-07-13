@@ -146,23 +146,23 @@ EXAMPLES = """
 Tasks: The following are examples of using the module cnos_config.
 ---
 - name: Configure top level configuration
-  cnos_config:
+  community.network.cnos_config:
     "lines: hostname {{ inventory_hostname }}"
 
 - name: Configure interface settings
-  cnos_config:
+  community.network.cnos_config:
     lines:
       - enable
       - ip ospf enable
     parents: interface ip 13
 
 - name: Load a config from disk and replace the current config
-  cnos_config:
+  community.network.cnos_config:
     src: config.cfg
     backup: yes
 
 - name: Configurable backup path
-  cnos_config:
+  community.network.cnos_config:
     src: config.cfg
     backup: yes
     backup_options:

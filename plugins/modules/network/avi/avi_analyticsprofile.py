@@ -433,7 +433,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create a custom Analytics profile object
-    avi_analyticsprofile:
+    community.network.avi_analyticsprofile:
       controller: '{{ controller }}'
       username: '{{ username }}'
       password: '{{ password }}'

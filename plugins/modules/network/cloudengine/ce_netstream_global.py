@@ -80,7 +80,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Configure a netstream sampler at interface 10ge1/0/2, direction is outbound,interval is 30.
-    ce_netstream_global:
+    community.network.ce_netstream_global:
       interface: 10ge1/0/2
       type: ip
       sampler_interval: 30
@@ -88,13 +88,13 @@ EXAMPLES = '''
       state: present
       provider: "{{ cli }}"
   - name: Configure a netstream flexible statistic at interface 10ge1/0/2, record is test1, type is ip.
-    ce_netstream_global:
+    community.network.ce_netstream_global:
       type: ip
       interface: 10ge1/0/2
       statistics_record: test1
       provider: "{{ cli }}"
   - name: Set the vxlan index-switch to 32.
-    ce_netstream_global:
+    community.network.ce_netstream_global:
       type: vxlan
       interface: all
       index_switch: 32

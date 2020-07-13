@@ -99,7 +99,7 @@ options:
 
 EXAMPLES = """
 - name: Create a VLAG
-  pn_vlag:
+  community.network.pn_vlag:
     state: 'present'
     pn_name: spine-to-leaf
     pn_port: 'spine01-to-leaf'
@@ -108,7 +108,7 @@ EXAMPLES = """
     pn_mode: 'active-active'
 
 - name: Delete VLAGs
-  pn_vlag:
+  community.network.pn_vlag:
     state: 'absent'
     pn_name: spine-to-leaf
 """

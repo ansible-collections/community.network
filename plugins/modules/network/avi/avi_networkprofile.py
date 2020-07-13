@@ -69,7 +69,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create a network profile for an UDP application
-    avi_networkprofile:
+    community.network.avi_networkprofile:
       controller: '{{ controller }}'
       username: '{{ username }}'
       password: '{{ password }}'

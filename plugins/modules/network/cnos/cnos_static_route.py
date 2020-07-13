@@ -68,13 +68,13 @@ options:
 
 EXAMPLES = """
 - name: Configure static route
-  cnos_static_route:
+  community.network.cnos_static_route:
     prefix: 10.241.107.0
     mask: 255.255.255.0
     next_hop: 10.241.106.1
 
 - name: Configure ultimate route with name and tag
-  cnos_static_route:
+  community.network.cnos_static_route:
     prefix: 10.241.107.0
     mask: 255.255.255.0
     interface: Ethernet1/13
@@ -82,20 +82,20 @@ EXAMPLES = """
     tag: 100
 
 - name: Remove configuration
-  cnos_static_route:
+  community.network.cnos_static_route:
     prefix: 10.241.107.0
     mask: 255.255.255.0
     next_hop: 10.241.106.0
     state: absent
 
 - name: Add static route aggregates
-  cnos_static_route:
+  community.network.cnos_static_route:
     aggregate:
       - { prefix: 10.241.107.0, mask: 255.255.255.0, next_hop: 10.241.105.0 }
       - { prefix: 10.241.106.0, mask: 255.255.255.0, next_hop: 10.241.104.0 }
 
 - name: Remove static route aggregates
-  cnos_static_route:
+  community.network.cnos_static_route:
     aggregate:
       - { prefix: 10.241.107.0, mask: 255.255.255.0, next_hop: 10.241.105.0 }
       - { prefix: 10.241.106.0, mask: 255.255.255.0, next_hop: 10.241.104.0 }

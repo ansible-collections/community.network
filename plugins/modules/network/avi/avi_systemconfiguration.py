@@ -113,7 +113,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create SystemConfiguration object
-  avi_systemconfiguration:
+  community.network.avi_systemconfiguration:
     controller: 10.10.25.42
     username: admin
     password: something

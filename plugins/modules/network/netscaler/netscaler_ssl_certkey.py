@@ -104,7 +104,7 @@ EXAMPLES = '''
 
 - name: Setup ssl certkey
   delegate_to: localhost
-  netscaler_ssl_certkey:
+  community.network.netscaler_ssl_certkey:
     nitro_user: nsroot
     nitro_pass: nsroot
     nsip: 172.18.0.2

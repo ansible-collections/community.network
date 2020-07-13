@@ -49,7 +49,7 @@ options:
 
 EXAMPLES = """
 - name: Upload disk file
-  ftd_file_upload:
+  community.network.ftd_file_upload:
     operation: 'postuploaddiskfile'
     file_to_upload: /tmp/test1.txt
 """

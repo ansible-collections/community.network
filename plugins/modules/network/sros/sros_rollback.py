@@ -68,12 +68,12 @@ vars:
 
 ---
 - name: Configure rollback location
-  sros_rollback:
+  community.network.sros_rollback:
     rollback_location: "cb3:/ansible"
     provider: "{{ cli }}"
 
 - name: Remove all rollback configuration
-  sros_rollback:
+  community.network.sros_rollback:
     state: absent
     provider: "{{ cli }}"
 """

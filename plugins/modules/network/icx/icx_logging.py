@@ -99,34 +99,34 @@ options:
 
 EXAMPLES = """
 - name: Configure host logging.
-  icx_logging:
+  community.network.icx_logging:
     dest: host
     name: 172.16.0.1
     udp_port: 5555
 - name: Remove host logging configuration.
-  icx_logging:
+  community.network.icx_logging:
     dest: host
     name: 172.16.0.1
     udp_port: 5555
     state: absent
 - name: Disables the real-time display of syslog messages.
-  icx_logging:
+  community.network.icx_logging:
     dest: console
     state: absent
 - name: Enables local syslog logging.
-  icx_logging:
+  community.network.icx_logging:
     dest : on
     state: present
 - name: Configure buffer level
-  icx_logging:
+  community.network.icx_logging:
     dest: buffered
     level: critical
 - name: Configure logging using aggregate
-  icx_logging:
+  community.network.icx_logging:
     aggregate:
       - { dest: buffered, level: ['notifications','errors'] }
 - name: Remove logging using aggregate
-  icx_logging:
+  community.network.icx_logging:
     aggregate:
       - { dest: console }
       - { dest: host, name: 172.16.0.1, udp_port: 5555 }

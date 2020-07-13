@@ -57,13 +57,13 @@ options:
 
 EXAMPLES = """
 - name: Ipv6 security ragurad create
-  pn_ipv6security_raguard:
+  community.network.pn_ipv6security_raguard:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_device: "host"
 
 - name: Ipv6 security ragurad create
-  pn_ipv6security_raguard:
+  community.network.pn_ipv6security_raguard:
     pn_cliswitch: "sw01"
     pn_name: "foo1"
     pn_device: "host"
@@ -72,7 +72,7 @@ EXAMPLES = """
     pn_router_priority: "low"
 
 - name: Ipv6 security ragurad modify
-  pn_ipv6security_raguard:
+  community.network.pn_ipv6security_raguard:
     pn_cliswitch: "sw01"
     pn_name: "foo1"
     pn_device: "router"
@@ -80,7 +80,7 @@ EXAMPLES = """
     state: "update"
 
 - name: Ipv6 security ragurad delete
-  pn_ipv6security_raguard:
+  community.network.pn_ipv6security_raguard:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "absent"

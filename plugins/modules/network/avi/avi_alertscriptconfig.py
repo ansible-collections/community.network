@@ -58,7 +58,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create Alert Script to perform AWS server autoscaling
-    avi_alertscriptconfig:
+    community.network.avi_alertscriptconfig:
       username: '{{ username }}'
       controller: '{{ controller }}'
       password: '{{ password }}'

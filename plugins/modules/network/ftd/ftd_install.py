@@ -169,7 +169,7 @@ options:
 
 EXAMPLES = """
   - name: Install image v6.3.0 on FTD 5516
-    ftd_install:
+    community.network.ftd_install:
       device_hostname: firepower
       device_password: pass
       device_ip: 192.168.0.1

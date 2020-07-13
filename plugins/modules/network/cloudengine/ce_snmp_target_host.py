@@ -96,13 +96,13 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config SNMP version"
-    ce_snmp_target_host:
+    community.network.ce_snmp_target_host:
       state: present
       version: v2cv3
       provider: "{{ cli }}"
 
   - name: "Config SNMP target host"
-    ce_snmp_target_host:
+    community.network.ce_snmp_target_host:
       state: present
       host_name: test1
       address: 1.1.1.1

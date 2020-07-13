@@ -219,7 +219,7 @@ options:
 
 EXAMPLES = """
 - name: Add a single ethernet 1/1/48 as access(untagged) port to vlan 20
-  icx_vlan:
+  community.network.icx_vlan:
     name: test-vlan
     vlan_id: 20
     interfaces:
@@ -227,21 +227,21 @@ EXAMPLES = """
         - ethernet 1/1/48
 
 - name: Add a single LAG 10 as access(untagged) port to vlan 20
-  icx_vlan:
+  community.network.icx_vlan:
     vlan_id: 20
     interfaces:
       name:
         - lag 10
 
 - name: Add a range of ethernet ports as trunk(tagged) ports to vlan 20 by port
-  icx_vlan:
+  community.network.icx_vlan:
     vlan_id: 20
     tagged:
       name:
         - ethernet 1/1/40 to 1/1/48
 
 - name: Add discontinuous lags, ethernet ports as access(untagged) and trunk(tagged) port to vlan 20.
-  icx_vlan:
+  community.network.icx_vlan:
     vlan_id: 20
     interfaces:
       name:
@@ -255,7 +255,7 @@ EXAMPLES = """
         - lag 1 to 3
 
 - name: Remove an access and range of trunk ports from vlan
-  icx_vlan:
+  community.network.icx_vlan:
     vlan_id: 20
     interfaces:
       name:
@@ -265,19 +265,19 @@ EXAMPLES = """
         - ethernet 1/1/39 to 1/1/70
 
 - name: Enable dhcp snooping, disable arp inspection in vlan
-  icx_vlan:
+  community.network.icx_vlan:
     vlan_id: 20
     ip_dhcp_snooping: present
     ip_arp_inspection: absent
 
 - name: Create vlan 20.  Enable  arp inspection in vlan. Purge all other vlans.
-  icx_vlan:
+  community.network.icx_vlan:
     vlan_id: 20
     ip_arp_inspection: present
     purge: present
 
 - name: Remove vlan 20.
-  icx_vlan:
+  community.network.icx_vlan:
     vlan_id: 20
     state: absent
 """

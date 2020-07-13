@@ -175,18 +175,18 @@ options:
 
 EXAMPLES = """
 - name: Configure top level configuration
-  slxos_config:
+  community.network.slxos_config:
     lines: hostname {{ inventory_hostname }}
 
 - name: Configure interface settings
-  slxos_config:
+  community.network.slxos_config:
     lines:
       - description test interface
       - ip address 172.31.1.1/24
     parents: interface Ethernet 0/1
 
 - name: Configure multiple interfaces
-  slxos_config:
+  community.network.slxos_config:
     lines:
       - lacp timeout long
     parents: "{{ item }}"
@@ -195,7 +195,7 @@ EXAMPLES = """
     - interface Ethernet 0/2
 
 - name: Load new acl into device
-  slxos_config:
+  community.network.slxos_config:
     lines:
       - seq 10 permit ip host 1.1.1.1 any log
       - seq 20 permit ip host 2.2.2.2 any log
@@ -207,22 +207,22 @@ EXAMPLES = """
     match: exact
 
 - name: Check the running-config against master config
-  slxos_config:
+  community.network.slxos_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
 - name: Check the startup-config against the running-config
-  slxos_config:
+  community.network.slxos_config:
     diff_against: startup
     diff_ignore_lines:
       - ntp clock .*
 
 - name: Save running to startup when modified
-  slxos_config:
+  community.network.slxos_config:
     save_when: modified
 
 - name: Configurable backup path
-  slxos_config:
+  community.network.slxos_config:
     lines: hostname {{ inventory_hostname }}
     backup: yes
     backup_options:

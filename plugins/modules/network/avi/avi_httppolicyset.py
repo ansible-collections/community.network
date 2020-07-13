@@ -79,7 +79,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Create a HTTP Policy set two switch between testpool1 and testpool2
-  avi_httppolicyset:
+  community.network.avi_httppolicyset:
     controller: 10.10.27.90
     username: admin
     password: AviNetworks123!

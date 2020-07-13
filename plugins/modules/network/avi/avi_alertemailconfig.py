@@ -64,7 +64,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create AlertEmailConfig object
-  avi_alertemailconfig:
+  community.network.avi_alertemailconfig:
     controller: 10.10.25.42
     username: admin
     password: something

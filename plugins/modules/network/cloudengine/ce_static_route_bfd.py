@@ -115,7 +115,7 @@ EXAMPLES = '''
   #ip route-static bfd interface-type interface-number nexthop-address [ local-address address ]
   #[ min-rx-interval min-rx-interval | min-tx-interval min-tx-interval | detect-multiplier multiplier ]
   - name: Config an ip route-static bfd 10GE1/0/1 3.3.3.3 min-rx-interval 50 min-tx-interval 50 detect-multiplier 5
-    ce_static_route_bfd:
+    community.network.ce_static_route_bfd:
       function_flag: 'singleBFD'
       nhp_interface: 10GE1/0/1
       next_hop: 3.3.3.3
@@ -127,7 +127,7 @@ EXAMPLES = '''
 
   #undo ip route-static bfd [ interface-type interface-number | vpn-instance vpn-instance-name ] nexthop-address
   - name: Undo ip route-static bfd 10GE1/0/1 3.3.3.4
-    ce_static_route_bfd:
+    community.network.ce_static_route_bfd:
       function_flag: 'singleBFD'
       nhp_interface: 10GE1/0/1
       next_hop: 3.3.3.4
@@ -136,7 +136,7 @@ EXAMPLES = '''
 
   #ip route-static default-bfd { min-rx-interval {min-rx-interval} | min-tx-interval {min-tx-interval} | detect-multiplier {multiplier}}
   - name: Config an ip route-static default-bfd min-rx-interval 50 min-tx-interval 50 detect-multiplier 6
-    ce_static_route_bfd:
+    community.network.ce_static_route_bfd:
       function_flag: 'globalBFD'
       min_tx_interval: 50
       min_rx_interval: 50
@@ -145,14 +145,14 @@ EXAMPLES = '''
       state: present
 
   - name: Undo ip route-static default-bfd
-    ce_static_route_bfd:
+    community.network.ce_static_route_bfd:
       function_flag: 'globalBFD'
       aftype: v4
       state: absent
       commands: 'sys,undo ip route-static default-bfd,commit'
 
   - name: Config an ipv4 static route 2.2.2.0/24 2.2.2.1 preference 1 tag 2 description test for staticBFD
-    ce_static_route_bfd:
+    community.network.ce_static_route_bfd:
       function_flag: 'staticBFD'
       prefix: 2.2.2.2
       mask: 24

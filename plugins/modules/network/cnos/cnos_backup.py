@@ -98,7 +98,7 @@ Tasks : The following are examples of using the module cnos_backup.
  These are written in the main.yml file of the tasks directory.
 ---
 - name: Test Running Config Backup
-  cnos_backup:
+  community.network.cnos_backup:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_backup_{{ inventory_hostname }}_output.txt"
       configType: running-config
@@ -109,7 +109,7 @@ Tasks : The following are examples of using the module cnos_backup.
       serverpassword: "root123"
 
 - name: Test Startup Config Backup
-  cnos_backup:
+  community.network.cnos_backup:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_backup_{{ inventory_hostname }}_output.txt"
       configType: startup-config
@@ -120,7 +120,7 @@ Tasks : The following are examples of using the module cnos_backup.
       serverpassword: "root123"
 
 - name: Test Running Config Backup -TFTP
-  cnos_backup:
+  community.network.cnos_backup:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_backup_{{ inventory_hostname }}_output.txt"
       configType: running-config
@@ -131,7 +131,7 @@ Tasks : The following are examples of using the module cnos_backup.
       serverpassword: "root123"
 
 - name: Test Startup Config Backup - TFTP
-  cnos_backup:
+  community.network.cnos_backup:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_backup_{{ inventory_hostname }}_output.txt"
       configType: startup-config

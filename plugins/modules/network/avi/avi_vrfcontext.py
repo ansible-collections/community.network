@@ -83,7 +83,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create VrfContext object
-  avi_vrfcontext:
+  community.network.avi_vrfcontext:
     controller: 10.10.25.42
     username: admin
     password: something

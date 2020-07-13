@@ -46,7 +46,7 @@ options:
 
 EXAMPLES = '''
 - name: Select device name and description
-  nso_query:
+  community.network.nso_query:
     url: http://localhost:8080/jsonrpc
     username: username
     password: password

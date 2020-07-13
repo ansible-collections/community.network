@@ -188,7 +188,7 @@ options:
 
 EXAMPLES = """
 - name: Modify switch
-  pn_switch_setup:
+  community.network.pn_switch_setup:
     pn_cliswitch: "sw01"
     state: "update"
     pn_timezone: "America/New_York"
@@ -196,7 +196,7 @@ EXAMPLES = """
     pn_in_band_netmask: "24"
 
 - name: Modify switch
-  pn_switch_setup:
+  community.network.pn_switch_setup:
     pn_cliswitch: "sw01"
     state: "update"
     pn_in_band_ip6: "2001:0db8:85a3::8a2e:0370:7334"

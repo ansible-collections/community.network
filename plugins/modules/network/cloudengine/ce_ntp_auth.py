@@ -87,14 +87,14 @@ EXAMPLES = '''
   tasks:
 
   - name: "Configure ntp authentication key-id"
-    ce_ntp_auth:
+    community.network.ce_ntp_auth:
       key_id: 32
       auth_mode: md5
       auth_pwd: 11111111111111111111111
       provider: "{{ cli }}"
 
   - name: "Configure ntp authentication key-id and trusted authentication keyid"
-    ce_ntp_auth:
+    community.network.ce_ntp_auth:
       key_id: 32
       auth_mode: md5
       auth_pwd: 11111111111111111111111
@@ -102,7 +102,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Configure ntp authentication key-id and authentication enable"
-    ce_ntp_auth:
+    community.network.ce_ntp_auth:
       key_id: 32
       auth_mode: md5
       auth_pwd: 11111111111111111111111
@@ -110,13 +110,13 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Unconfigure ntp authentication key-id and trusted authentication keyid"
-    ce_ntp_auth:
+    community.network.ce_ntp_auth:
       key_id: 32
       state: absent
       provider: "{{ cli }}"
 
   - name: "Unconfigure ntp authentication key-id and authentication enable"
-    ce_ntp_auth:
+    community.network.ce_ntp_auth:
       key_id: 32
       authentication: enable
       state: absent

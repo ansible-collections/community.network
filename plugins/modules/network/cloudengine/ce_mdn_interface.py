@@ -46,11 +46,11 @@ notes:
 
 EXAMPLES = '''
   - name: "Configure global LLDP enable state"
-    ce_mdn_interface:
+    community.network.ce_mdn_interface:
       lldpenable: enabled
 
   - name: "Configure interface MDN enable state"
-    ce_mdn_interface:
+    community.network.ce_mdn_interface:
       ifname: 10GE1/0/1
       mdnstatus: rxOnly
 '''

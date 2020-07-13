@@ -91,24 +91,24 @@ options:
 
 EXAMPLES = """
 - name: Create static link aggregation group
-  icx_linkagg:
+  community.network.icx_linkagg:
     group: 10
     mode: static
     name: LAG1
 
 - name: Create link aggregation group with auto id
-  icx_linkagg:
+  community.network.icx_linkagg:
     group: auto
     mode: dynamic
     name: LAG2
 
 - name: Delete link aggregation group
-  icx_linkagg:
+  community.network.icx_linkagg:
     group: 10
     state: absent
 
 - name: Set members to LAG
-  icx_linkagg:
+  community.network.icx_linkagg:
     group: 200
     mode: static
     members:
@@ -116,7 +116,7 @@ EXAMPLES = """
       - ethernet 1/1/10
 
 - name: Remove links other then LAG id 100 and 3 using purge
-  icx_linkagg:
+  community.network.icx_linkagg:
     aggregate:
       - { group: 3}
       - { group: 100}

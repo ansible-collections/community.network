@@ -68,7 +68,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create Webhook object
-  avi_webhook:
+  community.network.avi_webhook:
     controller: 10.10.25.42
     username: admin
     password: something

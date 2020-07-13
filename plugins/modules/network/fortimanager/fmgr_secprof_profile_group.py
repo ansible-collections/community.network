@@ -142,12 +142,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_profile_group:
+    community.network.fmgr_secprof_profile_group:
       name: "Ansible_TEST_Profile_Group"
       mode: "delete"
 
   - name: CREATE Profile
-    fmgr_secprof_profile_group:
+    community.network.fmgr_secprof_profile_group:
       name: "Ansible_TEST_Profile_Group"
       mode: "set"
       av_profile: "Ansible_AV_Profile"

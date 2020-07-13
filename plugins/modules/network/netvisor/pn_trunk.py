@@ -137,13 +137,13 @@ options:
 
 EXAMPLES = """
 - name: Create trunk
-  pn_trunk:
+  community.network.pn_trunk:
     state: 'present'
     pn_name: 'spine-to-leaf'
     pn_ports: '11,12,13,14'
 
 - name: Delete trunk
-  pn_trunk:
+  community.network.pn_trunk:
     state: 'absent'
     pn_name: 'spine-to-leaf'
 """

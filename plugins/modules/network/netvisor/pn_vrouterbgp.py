@@ -135,14 +135,14 @@ options:
 
 EXAMPLES = """
 - name: Add vrouter-bgp
-  pn_vrouterbgp:
+  community.network.pn_vrouterbgp:
     state: 'present'
     pn_vrouter_name: 'ansible-vrouter'
     pn_neighbor: 104.104.104.1
     pn_remote_as: 1800
 
 - name: Remove vrouter-bgp
-  pn_vrouterbgp:
+  community.network.pn_vrouterbgp:
     state: 'absent'
     pn_name: 'ansible-vrouter'
 """

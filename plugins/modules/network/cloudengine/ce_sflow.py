@@ -155,12 +155,12 @@ EXAMPLES = '''
 
   tasks:
   - name: Configuring sFlow Agent
-    ce_sflow:
+    community.network.ce_sflow:
       agent_ip: 6.6.6.6
       provider: '{{ cli }}'
 
   - name: Configuring sFlow Collector
-    ce_sflow:
+    community.network.ce_sflow:
       collector_id: 1
       collector_ip: 7.7.7.7
       collector_ip_vpn: vpn1
@@ -168,14 +168,14 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Configure flow sampling.
-    ce_sflow:
+    community.network.ce_sflow:
       sflow_interface: 10GE2/0/2
       sample_collector: 1
       sample_direction: inbound
       provider: '{{ cli }}'
 
   - name: Configure counter sampling.
-    ce_sflow:
+    community.network.ce_sflow:
       sflow_interface: 10GE2/0/2
       counter_collector: 1
       counter_interval: 1000

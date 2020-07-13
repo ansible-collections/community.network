@@ -60,14 +60,14 @@ options:
 
 EXAMPLES = '''
 - name: Show list of all interfaces
-  panos_op:
+  community.network.panos_op:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
     cmd: 'show interfaces all'
 
 - name: Show system info
-  panos_op:
+  community.network.panos_op:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'

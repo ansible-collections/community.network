@@ -61,7 +61,7 @@ options:
 
 EXAMPLES = """
 - name: Create vtep
-  pn_vtep:
+  community.network.pn_vtep:
     pn_cliswitch: 'sw01'
     pn_name: 'foo'
     pn_vrouter_name: 'foo-vrouter'
@@ -70,7 +70,7 @@ EXAMPLES = """
     pn_virtual_ip: "22.22.22.1"
 
 - name: Delete vtep
-  pn_vtep:
+  community.network.pn_vtep:
     pn_cliswitch: 'sw01'
     state: 'absent'
     pn_name: 'foo'

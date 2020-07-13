@@ -109,7 +109,7 @@ EXAMPLES = """
 # }
 
 - name: Merge provided configuration with device configuration
-  exos_lldp_interfaces:
+  community.network.exos_lldp_interfaces:
     config:
       - name: '2'
         enabled: false
@@ -259,7 +259,7 @@ EXAMPLES = """
 # }
 
 - name: Replaces device configuration of listed lldp_interfaces with provided configuration
-  exos_lldp_interfaces:
+  community.network.exos_lldp_interfaces:
     config:
       - name: '1'
         enabled: false
@@ -397,7 +397,7 @@ EXAMPLES = """
 # }
 
 - name: Delete lldp interface configuration (this will not delete other lldp configuration)
-  exos_lldp_interfaces:
+  community.network.exos_lldp_interfaces:
     config:
       - name: '1'
       - name: '3'
@@ -524,7 +524,7 @@ EXAMPLES = """
 # }
 
 - name: Override device configuration of all lldp_interfaces with provided configuration
-  exos_lldp_interfaces:
+  community.network.exos_lldp_interfaces:
     config:
       - name: '3'
         enabled: true

@@ -116,7 +116,7 @@ options:
 
 EXAMPLES = '''
 - name: DISCOVER AND ADD DEVICE A PHYSICAL FORTIGATE
-  faz_device:
+  community.network.faz_device:
     adom: "root"
     device_username: "admin"
     device_password: "admin"
@@ -131,7 +131,7 @@ EXAMPLES = '''
 
 
 - name: DISCOVER AND ADD DEVICE A VIRTUAL FORTIGATE
-  faz_device:
+  community.network.faz_device:
     adom: "root"
     device_username: "admin"
     device_password: "admin"
@@ -145,19 +145,19 @@ EXAMPLES = '''
     platform_str: "FortiGate-VM64"
 
 - name: DELETE DEVICE FGT01
-  faz_device:
+  community.network.faz_device:
     adom: "root"
     device_unique_name: "ansible-fgt01"
     mode: "delete"
 
 - name: DELETE DEVICE FGT02
-  faz_device:
+  community.network.faz_device:
     adom: "root"
     device_unique_name: "ansible-fgt02"
     mode: "delete"
 
 - name: PROMOTE FGT01 IN FAZ BY IP
-  faz_device:
+  community.network.faz_device:
     adom: "root"
     device_password: "fortinet"
     device_ip: "10.7.220.151"
@@ -167,7 +167,7 @@ EXAMPLES = '''
 
 
 - name: PROMOTE FGT02 IN FAZ
-  faz_device:
+  community.network.faz_device:
     adom: "root"
     device_password: "fortinet"
     device_unique_name: "ansible-fgt02"

@@ -42,14 +42,14 @@ options:
 
 EXAMPLES = """
 - name: Create prefix list
-  pn_prefix_list:
+  community.network.pn_prefix_list:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_scope: "local"
     state: "present"
 
 - name: Delete prefix list
-  pn_prefix_list:
+  community.network.pn_prefix_list:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "absent"

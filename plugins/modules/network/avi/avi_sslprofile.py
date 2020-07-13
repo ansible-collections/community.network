@@ -108,7 +108,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create SSL profile with list of allowed ciphers
-    avi_sslprofile:
+    community.network.avi_sslprofile:
       controller: '{{ controller }}'
       username: '{{ username }}'
       password: '{{ password }}'

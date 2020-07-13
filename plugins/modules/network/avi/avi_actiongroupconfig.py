@@ -90,7 +90,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create ActionGroupConfig object
-  avi_actiongroupconfig:
+  community.network.avi_actiongroupconfig:
     controller: 10.10.25.42
     username: admin
     password: something

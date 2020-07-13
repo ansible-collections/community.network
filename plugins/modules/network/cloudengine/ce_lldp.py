@@ -94,54 +94,54 @@ options:
 
 EXAMPLES = '''
   - name: "Configure global LLDP enable state"
-    ce_lldp:
+    community.network.ce_lldp:
       lldpenable: enabled
 
   - name: "Configure global MDN enable state"
-    ce_lldp:
+    community.network.ce_lldp:
       mdnstatus: rxOnly
 
   - name: "Configure LLDP transmit interval and ensure global LLDP state is already enabled"
-    ce_lldp:
+    community.network.ce_lldp:
       enable: enable
       interval: 32
 
   - name: "Configure LLDP transmit multiplier hold and ensure global LLDP state is already enabled"
-    ce_lldp:
+    community.network.ce_lldp:
       enable: enable
       hold_multiplier: 5
 
   - name: "Configure the delay time of the interface LLDP module from disabled state to re enable"
-    ce_lldp:
+    community.network.ce_lldp:
       enable: enable
       restart_delay: 3
 
   - name: "Reset the delay time for sending LLDP messages"
-    ce_lldp:
+    community.network.ce_lldp:
       enable: enable
       transmit_delay: 4
 
   - name: "Configure device to send neighbor device information change alarm delay time"
-    ce_lldp:
+    community.network.ce_lldp:
       lldpenable: enabled
       notification_interval: 6
 
   - name: "Configure the number of LLDP messages sent to the neighbor nodes by the specified device"
-    ce_lldp:
+    community.network.ce_lldp:
       enable: enable
       fast_count: 5
 
   - name: "Configure the delay time for sending MDN neighbor information change alarm"
-    ce_lldp:
+    community.network.ce_lldp:
       enable: enable
       mdn_notification_interval: 6
   - name: "Configuring the management IP address of LLDP"
-    ce_lldp:
+    community.network.ce_lldp:
       enable: enable
       management_address: 10.1.0.1
 
   - name: "Configuring LLDP to manage the binding relationship between IP addresses and interfaces"
-    ce_lldp:
+    community.network.ce_lldp:
       enable: enable
       bind_name: LoopBack2
 '''

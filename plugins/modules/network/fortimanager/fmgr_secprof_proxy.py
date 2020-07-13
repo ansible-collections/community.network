@@ -174,12 +174,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_proxy:
+    community.network.fmgr_secprof_proxy:
       name: "Ansible_Web_Proxy_Profile"
       mode: "delete"
 
   - name: CREATE Profile
-    fmgr_secprof_proxy:
+    community.network.fmgr_secprof_proxy:
       name: "Ansible_Web_Proxy_Profile"
       mode: "set"
       header_client_ip: "pass"

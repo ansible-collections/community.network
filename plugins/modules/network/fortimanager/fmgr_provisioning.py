@@ -95,7 +95,7 @@ options:
 
 EXAMPLES = '''
 - name: Create FGT1 Model Device
-  fmgr_provisioning:
+  community.network.fmgr_provisioning:
     host: "{{ inventory_hostname }}"
     username: "{{ username }}"
     password: "{{ password }}"
@@ -114,7 +114,7 @@ EXAMPLES = '''
 
 
 - name: Create FGT2 Model Device
-  fmgr_provisioning:
+  community.network.fmgr_provisioning:
     host: "{{ inventory_hostname }}"
     username: "{{ username }}"
     password: "{{ password }}"

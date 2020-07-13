@@ -54,12 +54,12 @@ EXAMPLES = '''
   tasks:
 
   - name: Configure EVPN as the VXLAN control plan
-    ce_evpn_global:
+    community.network.ce_evpn_global:
       evpn_overlay_enable: enable
       provider: "{{ cli }}"
 
   - name: Undo EVPN as the VXLAN control plan
-    ce_evpn_global:
+    community.network.ce_evpn_global:
       evpn_overlay_enable: disable
       provider: "{{ cli }}"
 '''

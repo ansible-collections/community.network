@@ -72,7 +72,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create Backup object
-  avi_backup:
+  community.network.avi_backup:
     controller: 10.10.25.42
     username: admin
     password: something

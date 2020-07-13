@@ -55,7 +55,7 @@ EXAMPLES = '''
       connection: local
       tasks:
         - name: Fetch license
-          panos_lic:
+          community.network.panos_lic:
             ip_address: "192.168.1.1"
             password: "paloalto"
             auth_code: "IBADCODE"

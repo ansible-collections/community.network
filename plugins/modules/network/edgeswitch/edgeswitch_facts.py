@@ -35,11 +35,11 @@ options:
 
 EXAMPLES = """
 - name: Collect all facts from the device
-  edgeswitch_facts:
+  community.network.edgeswitch_facts:
     gather_subset: all
 
 - name: Collect only the config and default facts
-  edgeswitch_facts:
+  community.network.edgeswitch_facts:
     gather_subset:
       - config
 """

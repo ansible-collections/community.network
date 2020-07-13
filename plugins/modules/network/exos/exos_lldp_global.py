@@ -111,7 +111,7 @@ EXAMPLES = """
 # }
 
 - name: Merge provided LLDP configuration with device configuration
-  exos_lldp_global:
+  community.network.exos_lldp_global:
     config:
       interval: 10000
       tlv_select:
@@ -206,7 +206,7 @@ EXAMPLES = """
 # }
 
 - name: Replace device configuration with provided LLDP configuration
-  exos_lldp_global:
+  community.network.exos_lldp_global:
     config:
       interval: 10000
       tlv_select:
@@ -304,7 +304,7 @@ EXAMPLES = """
 # }
 
 - name: Delete attributes of given LLDP service (This won't delete the LLDP service itself)
-  exos_lldp_global:
+  community.network.exos_lldp_global:
     config:
     state: deleted
 

@@ -56,7 +56,7 @@ EXAMPLES = '''
       category: "configuration"
     register: result
   - name: Load configuration
-    panos_loadcfg:
+    community.network.panos_loadcfg:
       ip_address: "192.168.1.1"
       password: "admin"
       file: "{{result.filename}}"

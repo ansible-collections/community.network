@@ -66,7 +66,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create Tenant using Service Engines in provider mode
-    avi_tenant:
+    community.network.avi_tenant:
       controller: '{{ controller }}'
       password: '{{ password }}'
       username: '{{ username }}'

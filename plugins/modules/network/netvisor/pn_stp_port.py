@@ -63,7 +63,7 @@ options:
 
 EXAMPLES = """
 - name: Modify stp port
-  pn_stp_port:
+  community.network.pn_stp_port:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "1"
@@ -71,14 +71,14 @@ EXAMPLES = """
     pn_priority: '144'
 
 - name: Modify stp port
-  pn_stp_port:
+  community.network.pn_stp_port:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "1"
     pn_cost: "200"
 
 - name: Modify stp port
-  pn_stp_port:
+  community.network.pn_stp_port:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "1"

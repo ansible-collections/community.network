@@ -909,7 +909,7 @@ EXAMPLES = '''
 
 - name: Create a load balancing vserver bound to services
   delegate_to: localhost
-  netscaler_lb_vserver:
+  community.network.netscaler_lb_vserver:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot
@@ -932,7 +932,7 @@ EXAMPLES = '''
 
 - name: Create load balancing vserver bound to servicegroup
   delegate_to: localhost
-  netscaler_lb_vserver:
+  community.network.netscaler_lb_vserver:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

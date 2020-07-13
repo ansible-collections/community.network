@@ -139,7 +139,7 @@ EXAMPLES = """
 # }
 
 - name: Delete L2 interface configuration for the given arguments
-  exos_l2_interfaces:
+  community.network.exos_l2_interfaces:
     config:
       - name: '3'
     state: deleted
@@ -324,7 +324,7 @@ EXAMPLES = """
 # }
 
 - name: Delete L2 interface configuration for the given arguments
-  exos_l2_interfaces:
+  community.network.exos_l2_interfaces:
     state: deleted
 
 # Module Execution Results:
@@ -513,7 +513,7 @@ EXAMPLES = """
 # }
 
 - name: Merge provided configuration with device configuration
-  exos_l2_interfaces:
+  community.network.exos_l2_interfaces:
     config:
       - access:
           vlan: 10
@@ -726,7 +726,7 @@ EXAMPLES = """
 # }
 
 - name: Overrride device configuration of all L2 interfaces with provided configuration
-  exos_l2_interfaces:
+  community.network.exos_l2_interfaces:
     config:
       - access:
           vlan: 10
@@ -922,7 +922,7 @@ EXAMPLES = """
 # }
 
 - name: Replace device configuration of listed L2 interfaces with provided configuration
-  exos_l2_interfaces:
+  community.network.exos_l2_interfaces:
     config:
       - access:
           vlan: 20

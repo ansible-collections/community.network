@@ -62,7 +62,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create CertificateManagementProfile object
-  avi_certificatemanagementprofile:
+  community.network.avi_certificatemanagementprofile:
     controller: 10.10.25.42
     username: admin
     password: something

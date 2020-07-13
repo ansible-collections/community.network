@@ -88,73 +88,73 @@ Tasks : The following are examples of using the module cnos_vlag. These are
         written in the main.yml file of the tasks directory.
 ---
 - name: Test Vlag  - enable
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "enable"
 
 - name: Test Vlag - autorecovery
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "auto-recovery"
       vlagArg2: 266
 
 - name: Test Vlag - config-consistency
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "config-consistency"
       vlagArg2: "strict"
 
 - name: Test Vlag - isl
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "isl"
       vlagArg2: 23
 
 - name: Test Vlag  - mac-address-table
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "mac-address-table"
 
 - name: Test Vlag - peer-gateway
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "peer-gateway"
 
 - name: Test Vlag - priority
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "priority"
       vlagArg2: 1313
 
 - name: Test Vlag - startup-delay
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "startup-delay"
       vlagArg2: 323
 
 - name: Test Vlag  - tier-id
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "tier-id"
       vlagArg2: 313
 
 - name: Test Vlag - vrrp
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "vrrp"
 
 - name: Test Vlag - instance
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "instance"
@@ -162,14 +162,14 @@ Tasks : The following are examples of using the module cnos_vlag. These are
       vlagArg3: 333
 
 - name: Test Vlag - instance2
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "instance"
       vlagArg2: "33"
 
 - name: Test Vlag  - keepalive-attempts
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "hlthchk"
@@ -177,7 +177,7 @@ Tasks : The following are examples of using the module cnos_vlag. These are
       vlagArg3: 13
 
 - name: Test Vlag - keepalive-interval
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "hlthchk"
@@ -185,7 +185,7 @@ Tasks : The following are examples of using the module cnos_vlag. These are
       vlagArg3: 131
 
 - name: Test Vlag - retry-interval
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "hlthchk"
@@ -193,7 +193,7 @@ Tasks : The following are examples of using the module cnos_vlag. These are
       vlagArg3: 133
 
 - name: Test Vlag - peer ip
-  cnos_vlag:
+  community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"
       outputfile: "./results/cnos_vlag_{{ inventory_hostname }}_output.txt"
       vlagArg1: "hlthchk"

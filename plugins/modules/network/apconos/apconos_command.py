@@ -79,14 +79,14 @@ options:
 
 EXAMPLES = """
 - name: Basic Configuration
-  apconos_command:
+  community.network.apconos_command:
     commands:
     - show version
     - enable ssh
   register: result
 
 - name: Get output from single command
-  apconos_command:
+  community.network.apconos_command:
     commands: ['show version']
   register: result
 """

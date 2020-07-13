@@ -342,7 +342,7 @@ EXAMPLES = '''
 
 - name: Setup http service with ip members
   delegate_to: localhost
-  netscaler_servicegroup:
+  community.network.netscaler_servicegroup:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

@@ -101,7 +101,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Configure ospf
-    ce_ospf:
+    community.network.ce_ospf:
       process_id: 1
       area: 100
       state: present

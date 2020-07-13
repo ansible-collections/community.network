@@ -114,7 +114,7 @@ options:
 
 EXAMPLES = """
 - name: Add vrouter-interface
-  pn_vrouterif:
+  community.network.pn_vrouterif:
     pn_cliusername: admin
     pn_clipassword: admin
     state: 'present'
@@ -123,7 +123,7 @@ EXAMPLES = """
     pn_vlan: 101
 
 - name: Add VRRP..
-  pn_vrouterif:
+  community.network.pn_vrouterif:
     pn_cliusername: admin
     pn_clipassword: admin
     state: 'present'
@@ -134,7 +134,7 @@ EXAMPLES = """
     pn_vlan: 101
 
 - name: Remove vrouter-interface
-  pn_vrouterif:
+  community.network.pn_vrouterif:
     pn_cliusername: admin
     pn_clipassword: admin
     state: 'absent'

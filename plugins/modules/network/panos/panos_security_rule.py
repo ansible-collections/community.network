@@ -156,7 +156,7 @@ options:
 
 EXAMPLES = '''
 - name: Add an SSH inbound rule to devicegroup
-  panos_security_rule:
+  community.network.panos_security_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -177,7 +177,7 @@ EXAMPLES = '''
     devicegroup: 'Cloud Edge'
 
 - name: Add a rule to allow HTTP multimedia only from CDNs
-  panos_security_rule:
+  community.network.panos_security_rule:
     ip_address: '10.5.172.91'
     username: 'admin'
     password: 'paloalto'
@@ -196,7 +196,7 @@ EXAMPLES = '''
     action: 'allow'
 
 - name: Add a more complex rule that uses security profiles
-  panos_security_rule:
+  community.network.panos_security_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -212,7 +212,7 @@ EXAMPLES = '''
     wildfire_analysis: 'default'
 
 - name: Delete a devicegroup security rule
-  panos_security_rule:
+  community.network.panos_security_rule:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
     operation: 'delete'
@@ -220,7 +220,7 @@ EXAMPLES = '''
     devicegroup: 'DC Firewalls'
 
 - name: Find a specific security rule
-  panos_security_rule:
+  community.network.panos_security_rule:
     ip_address: '{{ ip_address }}'
     password: '{{ password }}'
     operation: 'find'

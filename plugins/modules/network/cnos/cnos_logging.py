@@ -67,39 +67,39 @@ options:
 
 EXAMPLES = """
 - name: Configure server logging
-  cnos_logging:
+  community.network.cnos_logging:
     dest: server
     name: 10.241.107.224
     facility: local7
     state: present
 
 - name: Remove server logging configuration
-  cnos_logging:
+  community.network.cnos_logging:
     dest: server
     name: 10.241.107.224
     state: absent
 
 - name: Configure console logging level and facility
-  cnos_logging:
+  community.network.cnos_logging:
     dest: console
     level: 7
     state: present
 
 - name: Configure buffer size
-  cnos_logging:
+  community.network.cnos_logging:
     dest: logfile
     level: 5
     name: testfile
     size: 5000
 
 - name: Configure logging using aggregate
-  cnos_logging:
+  community.network.cnos_logging:
     aggregate:
       - { dest: console, level: 6 }
       - { dest: logfile, size: 9000 }
 
 - name: Remove logging using aggregate
-  cnos_logging:
+  community.network.cnos_logging:
     aggregate:
       - { dest: console, level: 6 }
       - { dest: logfile, name: anil, size: 9000 }

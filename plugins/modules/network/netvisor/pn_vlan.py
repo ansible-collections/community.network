@@ -83,13 +83,13 @@ options:
 
 EXAMPLES = """
 - name: Create a VLAN
-  pn_vlan:
+  community.network.pn_vlan:
     state: 'present'
     pn_vlanid: 1854
     pn_scope: fabric
 
 - name: Delete VLANs
-  pn_vlan:
+  community.network.pn_vlan:
     state: 'absent'
     pn_vlanid: 1854
 """

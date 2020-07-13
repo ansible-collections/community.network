@@ -71,7 +71,7 @@ options:
 
 EXAMPLES = '''
 - name: Policy to aggregate filter and deliver data center (DC) 1 traffic
-  bigmon_policy:
+  community.network.bigmon_policy:
     name: policy1
     policy_description: DC 1 traffic policy
     action: drop

@@ -491,7 +491,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Create SSL Virtual Service using Pool testpool2
-  avi_virtualservice:
+  community.network.avi_virtualservice:
     controller: 10.10.27.90
     username: admin
     password: AviNetworks123!

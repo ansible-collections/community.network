@@ -44,11 +44,11 @@ options:
 
 EXAMPLES = """
 - name: Enable LLDP service
-  cnos_lldp:
+  community.network.cnos_lldp:
     state: present
 
 - name: Disable LLDP service
-  cnos_lldp:
+  community.network.cnos_lldp:
     state: absent
 """
 

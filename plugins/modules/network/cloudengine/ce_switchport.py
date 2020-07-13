@@ -84,20 +84,20 @@ EXAMPLES = '''
 
   tasks:
   - name: Ensure 10GE1/0/22 is in its default switchport state
-    ce_switchport:
+    community.network.ce_switchport:
       interface: 10GE1/0/22
       state: unconfigured
       provider: '{{ cli }}'
 
   - name: Ensure 10GE1/0/22 is configured for access vlan 20
-    ce_switchport:
+    community.network.ce_switchport:
       interface: 10GE1/0/22
       mode: access
       default_vlan: 20
       provider: '{{ cli }}'
 
   - name: Ensure 10GE1/0/22 only has vlans 5-10 as trunk vlans
-    ce_switchport:
+    community.network.ce_switchport:
       interface: 10GE1/0/22
       mode: trunk
       pvid_vlan: 10
@@ -105,7 +105,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Ensure 10GE1/0/22 is a trunk port and ensure 2-50 are being tagged (doesn't mean others aren't also being tagged)
-    ce_switchport:
+    community.network.ce_switchport:
       interface: 10GE1/0/22
       mode: trunk
       pvid_vlan: 10
@@ -113,7 +113,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Ensure these VLANs are not being tagged on the trunk
-    ce_switchport:
+    community.network.ce_switchport:
       interface: 10GE1/0/22
       mode: trunk
       trunk_vlans: 51-4000

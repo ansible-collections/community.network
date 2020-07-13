@@ -152,16 +152,16 @@ options:
 
 EXAMPLES = """
 - name: Configure configuration
-  aireos_config:
+  community.network.aireos_config:
     lines: sysname testDevice
 
 - name: Diff the running-config against a provided config
-  aireos_config:
+  community.network.aireos_config:
     diff_against: intended
     intended: "{{ lookup('file', 'master.cfg') }}"
 
 - name: Load new acl into device
-  aireos_config:
+  community.network.aireos_config:
     lines:
       - acl create testACL
       - acl rule protocol testACL 1 any
@@ -169,7 +169,7 @@ EXAMPLES = """
     before: acl delete testACL
 
 - name: Configurable backup path
-  aireos_config:
+  community.network.aireos_config:
     backup: yes
     lines: sysname testDevice
     backup_options:

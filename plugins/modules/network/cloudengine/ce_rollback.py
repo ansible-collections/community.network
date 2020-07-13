@@ -77,7 +77,7 @@ EXAMPLES = '''
 
 - name: Ensure commit_id is exist, and specifies the label of the configuration rollback point to
         which system configurations are expected to roll back.
-  ce_rollback:
+  community.network.ce_rollback:
     commit_id: 1000000748
     action: rollback
     provider: "{{ cli }}"

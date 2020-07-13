@@ -862,12 +862,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_voip:
+    community.network.fmgr_secprof_voip:
       name: "Ansible_VOIP_Profile"
       mode: "delete"
 
   - name: Create FMGR_VOIP_PROFILE
-    fmgr_secprof_voip:
+    community.network.fmgr_secprof_voip:
       mode: "set"
       adom: "root"
       name: "Ansible_VOIP_Profile"

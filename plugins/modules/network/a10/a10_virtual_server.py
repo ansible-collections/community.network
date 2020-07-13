@@ -67,7 +67,7 @@ options:
 
 EXAMPLES = '''
 - name: Create a new virtual server
-  a10_virtual_server:
+  community.network.a10_virtual_server:
     host: a10.mydomain.com
     username: myadmin
     password: mypassword

@@ -70,7 +70,7 @@ requirements:
 
 EXAMPLES = """
 - name: Create VLAN
-  opx_cps:
+  community.network.opx_cps:
     module_name: "dell-base-if-cmn/if/interfaces/interface"
     attr_data: {
          "base-if-vlan/if/interfaces/interface/id": 230,
@@ -79,14 +79,14 @@ EXAMPLES = """
     }
     operation: "create"
 - name: Get VLAN
-  opx_cps:
+  community.network.opx_cps:
     module_name: "dell-base-if-cmn/if/interfaces/interface"
     attr_data: {
          "if/interfaces/interface/name": "br230",
     }
     operation: "get"
 - name: Modify some attributes in VLAN
-  opx_cps:
+  community.network.opx_cps:
     module_name: "dell-base-if-cmn/if/interfaces/interface"
     attr_data: {
          "cps/key_data":
@@ -95,7 +95,7 @@ EXAMPLES = """
     }
     operation: "set"
 - name: Delete VLAN
-  opx_cps:
+  community.network.opx_cps:
     module_name: "dell-base-if-cmn/if/interfaces/interface"
     attr_data: {
          "if/interfaces/interface/name": "br230",

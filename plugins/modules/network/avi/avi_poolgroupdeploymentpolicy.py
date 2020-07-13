@@ -92,7 +92,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create PoolGroupDeploymentPolicy object
-  avi_poolgroupdeploymentpolicy:
+  community.network.avi_poolgroupdeploymentpolicy:
     controller: 10.10.25.42
     username: admin
     password: something

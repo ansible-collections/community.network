@@ -93,7 +93,7 @@ options:
 
 EXAMPLES = '''
 - name: Search for rules with tcp/3306
-  panos_query_rules:
+  community.network.panos_query_rules:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -103,7 +103,7 @@ EXAMPLES = '''
     protocol: 'tcp'
 
 - name: Search devicegroup for inbound rules to dmz host
-  panos_query_rules:
+  community.network.panos_query_rules:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
     destination_zone: 'DMZ'
@@ -111,7 +111,7 @@ EXAMPLES = '''
     address: 'DeviceGroupA'
 
 - name: Search for rules containing a specified rule tag
-  panos_query_rules:
+  community.network.panos_query_rules:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'

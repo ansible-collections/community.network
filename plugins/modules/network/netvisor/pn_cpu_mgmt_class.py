@@ -45,7 +45,7 @@ options:
 
 EXAMPLES = """
 - name: Cpu mgmt class modify ingress policers
-  pn_cpu_mgmt_class:
+  community.network.pn_cpu_mgmt_class:
     pn_cliswitch: "sw01"
     state: "update"
     pn_name: "icmp"
@@ -53,7 +53,7 @@ EXAMPLES = """
     pn_burst_size: "14000"
 
 - name: Cpu mgmt class modify ingress policers
-  pn_cpu_mgmt_class:
+  community.network.pn_cpu_mgmt_class:
     pn_cliswitch: "sw01"
     state: "update"
     pn_name: "snmp"
@@ -61,7 +61,7 @@ EXAMPLES = """
     pn_rate_limit: "100000"
 
 - name: Cpu mgmt class modify ingress policers
-  pn_cpu_mgmt_class:
+  community.network.pn_cpu_mgmt_class:
     pn_cliswitch: "sw01"
     state: "update"
     pn_name: "web"

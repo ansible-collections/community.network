@@ -30,7 +30,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
   - name: Get AVI API version
-    avi_api_version:
+    community.network.avi_api_version:
       controller: ""
       username: ""
       password: ""

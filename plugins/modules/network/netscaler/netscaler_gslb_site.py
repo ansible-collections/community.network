@@ -139,7 +139,7 @@ requirements:
 EXAMPLES = '''
 - name: Setup gslb site
   delegate_to: localhost
-  netscaler_gslb_site:
+  community.network.netscaler_gslb_site:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

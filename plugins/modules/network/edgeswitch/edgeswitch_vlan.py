@@ -76,20 +76,20 @@ options:
 
 EXAMPLES = """
 - name: Create vlan
-  edgeswitch_vlan:
+  community.network.edgeswitch_vlan:
     vlan_id: 100
     name: voice
     action: present
 
 - name: Add interfaces to VLAN
-  edgeswitch_vlan:
+  community.network.edgeswitch_vlan:
     vlan_id: 100
     tagged_interfaces:
       - 0/1
       - 0/4-0/6
 
 - name: Setup three vlans and delete the rest
-  edgeswitch_vlan:
+  community.network.edgeswitch_vlan:
     purge: true
     aggregate:
       - { vlan_id: 1, name: default, auto_untag: true, excluded_interfaces: 0/45-0/48 }
@@ -97,7 +97,7 @@ EXAMPLES = """
       - { vlan_id: 200, name: video, auto_exclude: true, untagged_interfaces: 0/45-0/48, tagged_interfaces: 0/49 }
 
 - name: Delete vlan
-  edgeswitch_vlan:
+  community.network.edgeswitch_vlan:
     vlan_id: 100
     state: absent
 """

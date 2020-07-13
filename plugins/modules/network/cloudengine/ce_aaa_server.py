@@ -110,7 +110,7 @@ EXAMPLES = r'''
   tasks:
 
   - name: "Radius authentication Server Basic settings"
-    ce_aaa_server:
+    community.network.ce_aaa_server:
       state: present
       authen_scheme_name: test1
       first_authen_mode: radius
@@ -118,7 +118,7 @@ EXAMPLES = r'''
       provider: "{{ cli }}"
 
   - name: "Undo radius authentication Server Basic settings"
-    ce_aaa_server:
+    community.network.ce_aaa_server:
       state: absent
       authen_scheme_name: test1
       first_authen_mode: radius
@@ -126,7 +126,7 @@ EXAMPLES = r'''
       provider: "{{ cli }}"
 
   - name: "Hwtacacs accounting Server Basic settings"
-    ce_aaa_server:
+    community.network.ce_aaa_server:
       state: present
       acct_scheme_name: test1
       accounting_mode: hwtacacs
@@ -134,7 +134,7 @@ EXAMPLES = r'''
       provider: "{{ cli }}"
 
   - name: "Undo hwtacacs accounting Server Basic settings"
-    ce_aaa_server:
+    community.network.ce_aaa_server:
       state: absent
       acct_scheme_name: test1
       accounting_mode: hwtacacs

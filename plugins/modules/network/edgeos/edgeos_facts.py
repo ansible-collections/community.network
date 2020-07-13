@@ -37,15 +37,15 @@ options:
 
 EXAMPLES = """
 - name: Collect all facts from the device
-  edgeos_facts:
+  community.network.edgeos_facts:
     gather_subset: all
 
 - name: Collect only the config and default facts
-  edgeos_facts:
+  community.network.edgeos_facts:
     gather_subset: config
 
 - name: Collect everything exception the config
-  edgeos_facts:
+  community.network.edgeos_facts:
     gather_subset: "!config"
 """
 

@@ -77,7 +77,7 @@ Tasks : The following are examples of using the module
  directory.
 ---
 - name: Applying CLI template on VLAG Tier1 Leaf Switch1
-  cnos_conditional_command:
+  community.network.cnos_conditional_command:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_conditional_command_
                   {{ inventory_hostname }}_output.txt"

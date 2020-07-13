@@ -91,7 +91,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create Scheduler object
-  avi_scheduler:
+  community.network.avi_scheduler:
     controller: 10.10.25.42
     username: admin
     password: something

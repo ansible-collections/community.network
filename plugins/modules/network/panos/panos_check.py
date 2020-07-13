@@ -52,14 +52,14 @@ extends_documentation_fragment:
 EXAMPLES = '''
 # single check on 192.168.1.1 with credentials admin/admin
 - name: Check if ready
-  panos_check:
+  community.network.panos_check:
     ip_address: "192.168.1.1"
     password: "admin"
 
 # check for 10 times, every 30 seconds, if device 192.168.1.1
 # is ready, using credentials admin/admin
 - name: Wait for reboot
-  panos_check:
+  community.network.panos_check:
     ip_address: "192.168.1.1"
     password: "admin"
   register: result

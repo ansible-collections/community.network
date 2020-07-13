@@ -57,7 +57,7 @@ EXAMPLES = '''
 
 - name: Configure netscaler content switching action
   delegate_to: localhost
-  netscaler_cs_action:
+  community.network.netscaler_cs_action:
       nsip: 172.18.0.2
       nitro_user: nsroot
       nitro_pass: nsroot

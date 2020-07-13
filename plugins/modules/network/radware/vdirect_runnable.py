@@ -104,7 +104,7 @@ requirements:
 
 EXAMPLES = '''
 - name: Run the module from Ansible playbook
-  vdirect_runnable:
+  community.network.vdirect_runnable:
       vdirect_ip: 10.10.10.10
       vdirect_user: vDirect
       vdirect_password: radware

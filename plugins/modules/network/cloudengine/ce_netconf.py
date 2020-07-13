@@ -60,7 +60,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Netconf get operation"
-    ce_netconf:
+    community.network.ce_netconf:
       rpc: get
       cfg_xml: '<filter type=\"subtree\">
                   <vlan xmlns=\"http://www.huawei.com/netconf/vrp\" content-version=\"1.0\" format-version=\"1.0\">
@@ -79,7 +79,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Netconf edit-config operation"
-    ce_netconf:
+    community.network.ce_netconf:
       rpc: edit-config
       cfg_xml: '<config>
                     <aaa xmlns=\"http://www.huawei.com/netconf/vrp\" content-version=\"1.0\" format-version=\"1.0\">
@@ -95,7 +95,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Netconf execute-action operation"
-    ce_netconf:
+    community.network.ce_netconf:
       rpc: execute-action
       cfg_xml: '<action>
                      <l2mc xmlns=\"http://www.huawei.com/netconf/vrp\" content-version=\"1.0\" format-version=\"1.0\">

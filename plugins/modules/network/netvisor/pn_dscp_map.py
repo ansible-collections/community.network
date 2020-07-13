@@ -40,14 +40,14 @@ options:
 
 EXAMPLES = """
 - name: Dscp map create
-  pn_dscp_map:
+  community.network.pn_dscp_map:
     pn_cliswitch: "sw01"
     state: "present"
     pn_name: "foo"
     pn_scope: "local"
 
 - name: Dscp map delete
-  pn_dscp_map:
+  community.network.pn_dscp_map:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_name: "foo"

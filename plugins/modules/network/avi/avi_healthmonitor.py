@@ -126,7 +126,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Create a HTTPS health monitor
-  avi_healthmonitor:
+  community.network.avi_healthmonitor:
     controller: 10.10.27.90
     username: admin
     password: AviNetworks123!

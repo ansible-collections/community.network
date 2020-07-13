@@ -62,24 +62,24 @@ options:
 
 EXAMPLES = """
   - name:  Gather all legacy facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset: all
 
   - name: Gather only the config and default facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset: config
 
   - name: Do not gather hardware facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset: "!hardware"
 
   - name: Gather legacy and resource facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset: all
       gather_network_resources: all
 
   - name: Gather only the lldp global resource facts and no legacy facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset:
         - '!all'
         - '!min'
@@ -87,7 +87,7 @@ EXAMPLES = """
         - lldp_global
 
   - name: Gather lldp global resource and minimal legacy facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset: min
       gather_network_resource: lldp_global
 """

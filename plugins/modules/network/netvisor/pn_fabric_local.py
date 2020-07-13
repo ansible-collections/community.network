@@ -51,12 +51,12 @@ options:
 
 EXAMPLES = """
 - name: Fabric local module
-  pn_fabric_local:
+  community.network.pn_fabric_local:
     pn_cliswitch: "sw01"
     pn_vlan: "500"
 
 - name: Fabric local module
-  pn_fabric_local:
+  community.network.pn_fabric_local:
     pn_cliswitch: "sw01"
     pn_fabric_advertisement_network: "mgmt-only"
 """

@@ -134,27 +134,27 @@ options:
 
 EXAMPLES = """
 - name: Create vlan
-  cnos_vlan:
+  community.network.cnos_vlan:
     vlan_id: 100
     name: test-vlan
     state: present
 
 - name: Add interfaces to VLAN
-  cnos_vlan:
+  community.network.cnos_vlan:
     vlan_id: 100
     interfaces:
       - Ethernet1/33
       - Ethernet1/44
 
 - name: Check if interfaces is assigned to VLAN
-  cnos_vlan:
+  community.network.cnos_vlan:
     vlan_id: 100
     associated_interfaces:
       - Ethernet1/33
       - Ethernet1/44
 
 - name: Delete vlan
-  cnos_vlan:
+  community.network.cnos_vlan:
     vlan_id: 100
     state: absent
 """

@@ -79,13 +79,13 @@ EXAMPLES = '''
   tasks:
 
   - name: "Configure interface DLDP enable state and ensure global dldp enable is turned on"
-    ce_dldp_interface:
+    community.network.ce_dldp_interface:
       interface: 40GE2/0/1
       enable: enable
       provider: "{{ cli }}"
 
   - name: "Configuire interface DLDP compatible-mode enable state  and ensure interface DLDP state is already enabled"
-    ce_dldp_interface:
+    community.network.ce_dldp_interface:
       interface: 40GE2/0/1
       enable: enable
       mode_enable: enable
@@ -93,7 +93,7 @@ EXAMPLES = '''
 
   - name: "Configuire the source MAC address for DLDP packets sent in the DLDP-compatible mode  and
            ensure interface DLDP state and compatible-mode enable state  is already enabled"
-    ce_dldp_interface:
+    community.network.ce_dldp_interface:
       interface: 40GE2/0/1
       enable: enable
       mode_enable: enable
@@ -101,14 +101,14 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Reset DLDP state of specified interface and ensure interface DLDP state is already enabled"
-    ce_dldp_interface:
+    community.network.ce_dldp_interface:
       interface: 40GE2/0/1
       enable: enable
       reset: enable
       provider: "{{ cli }}"
 
   - name: "Unconfigure interface DLDP local mac address when C(state=absent)"
-    ce_dldp_interface:
+    community.network.ce_dldp_interface:
       interface: 40GE2/0/1
       state: absent
       local_mac: aa-aa-aa

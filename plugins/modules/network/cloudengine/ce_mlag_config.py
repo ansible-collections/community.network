@@ -86,30 +86,30 @@ EXAMPLES = '''
   tasks:
 
   - name: Create DFS Group id
-    ce_mlag_config:
+    community.network.ce_mlag_config:
       dfs_group_id: 1
       provider: "{{ cli }}"
   - name: Set dfs-group priority
-    ce_mlag_config:
+    community.network.ce_mlag_config:
       dfs_group_id: 1
       priority_id: 3
       state: present
       provider: "{{ cli }}"
   - name: Set pseudo nickname
-    ce_mlag_config:
+    community.network.ce_mlag_config:
       dfs_group_id: 1
       pseudo_nickname: 3
       pseudo_priority: 130
       state: present
       provider: "{{ cli }}"
   - name: Set ip
-    ce_mlag_config:
+    community.network.ce_mlag_config:
       dfs_group_id: 1
       ip_address: 11.1.1.2
       vpn_instance_name: 6
       provider: "{{ cli }}"
   - name: Set peer link
-    ce_mlag_config:
+    community.network.ce_mlag_config:
       eth_trunk_id: 3
       peer_link_id: 2
       state: present

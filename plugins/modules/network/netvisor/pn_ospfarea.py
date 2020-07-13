@@ -78,7 +78,7 @@ options:
 
 EXAMPLES = """
 - name: "Add OSPF area to vrouter"
-  pn_ospfarea:
+  community.network.pn_ospfarea:
     state: present
     pn_cliusername: admin
     pn_clipassword: admin

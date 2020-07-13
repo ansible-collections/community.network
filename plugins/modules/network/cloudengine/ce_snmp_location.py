@@ -59,13 +59,13 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config SNMP location"
-    ce_snmp_location:
+    community.network.ce_snmp_location:
       state: present
       location: nanjing China
       provider: "{{ cli }}"
 
   - name: "Remove SNMP location"
-    ce_snmp_location:
+    community.network.ce_snmp_location:
       state: absent
       location: nanjing China
       provider: "{{ cli }}"

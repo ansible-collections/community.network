@@ -104,7 +104,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
   - name: User creation
-    avi_user:
+    community.network.avi_user:
       controller: ""
       username: ""
       password: ""
@@ -122,7 +122,7 @@ EXAMPLES = '''
       default_tenant_ref: "/api/tenant?name=admin"
 
   - name: User creation
-    avi_user:
+    community.network.avi_user:
       controller: ""
       username: ""
       password: ""

@@ -42,11 +42,11 @@ options:
 
 EXAMPLES = """
 - name: Enable LLDP service
-  slxos_lldp:
+  community.network.slxos_lldp:
     state: present
 
 - name: Disable LLDP service
-  slxos_lldp:
+  community.network.slxos_lldp:
     state: absent
 """
 

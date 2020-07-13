@@ -90,7 +90,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create an Application Persistence setting using http cookie.
-    avi_applicationpersistenceprofile:
+    community.network.avi_applicationpersistenceprofile:
       controller: '{{ controller }}'
       username: '{{ username }}'
       password: '{{ password }}'

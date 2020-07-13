@@ -52,7 +52,7 @@ EXAMPLES = '''
 Tasks: The following are examples of using the module enos_facts.
 ---
 - name: Test Enos Facts
-  enos_facts:
+  community.network.enos_facts:
     provider={{ cli }}
 
   vars:
@@ -68,18 +68,18 @@ Tasks: The following are examples of using the module enos_facts.
 
 ---
 # Collect all facts from the device
-- enos_facts:
+- community.network.enos_facts:
     gather_subset: all
     provider: "{{ cli }}"
 
 # Collect only the config and default facts
-- enos_facts:
+- community.network.enos_facts:
     gather_subset:
       - config
     provider: "{{ cli }}"
 
 # Do not collect hardware facts
-- enos_facts:
+- community.network.enos_facts:
     gather_subset:
       - "!hardware"
     provider: "{{ cli }}"

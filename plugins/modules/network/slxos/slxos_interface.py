@@ -85,49 +85,49 @@ options:
 
 EXAMPLES = """
 - name: Configure interface
-  slxos_interface:
+  community.network.slxos_interface:
       name: Ethernet 0/2
       description: test-interface
       speed: 1000
       mtu: 9216
 
 - name: Remove interface
-  slxos_interface:
+  community.network.slxos_interface:
     name: Loopback 9
     state: absent
 
 - name: Make interface up
-  slxos_interface:
+  community.network.slxos_interface:
     name: Ethernet 0/2
     enabled: True
 
 - name: Make interface down
-  slxos_interface:
+  community.network.slxos_interface:
     name: Ethernet 0/2
     enabled: False
 
 - name: Check intent arguments
-  slxos_interface:
+  community.network.slxos_interface:
     name: Ethernet 0/2
     state: up
     tx_rate: ge(0)
     rx_rate: le(0)
 
 - name: Check neighbors intent arguments
-  slxos_interface:
+  community.network.slxos_interface:
     name: Ethernet 0/41
     neighbors:
     - port: Ethernet 0/41
       host: SLX
 
 - name: Config + intent
-  slxos_interface:
+  community.network.slxos_interface:
     name: Ethernet 0/2
     enabled: False
     state: down
 
 - name: Add interface using aggregate
-  slxos_interface:
+  community.network.slxos_interface:
     aggregate:
     - { name: Ethernet 0/1, mtu: 1548, description: test-interface-1 }
     - { name: Ethernet 0/2, mtu: 1548, description: test-interface-2 }
@@ -135,7 +135,7 @@ EXAMPLES = """
     state: present
 
 - name: Delete interface using aggregate
-  slxos_interface:
+  community.network.slxos_interface:
     aggregate:
     - name: Loopback 9
     - name: Loopback 10

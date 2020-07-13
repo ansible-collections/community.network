@@ -66,19 +66,19 @@ options:
 EXAMPLES = """
 tasks:
   - name: Run show version on remote devices
-    exos_command:
+    community.network.exos_command:
       commands: show version
   - name: Run show version and check to see if output contains ExtremeXOS
-    exos_command:
+    community.network.exos_command:
       commands: show version
       wait_for: result[0] contains ExtremeXOS
   - name: Run multiple commands on remote nodes
-    exos_command:
+    community.network.exos_command:
       commands:
         - show version
         - show ports no-refresh
   - name: Run multiple commands and evaluate the output
-    exos_command:
+    community.network.exos_command:
       commands:
         - show version
         - show ports no-refresh
@@ -86,7 +86,7 @@ tasks:
         - result[0] contains ExtremeXOS
         - result[1] contains 20
   - name: Run command that requires answering a prompt
-    exos_command:
+    community.network.exos_command:
       commands:
         - command: 'clear license-info'
           prompt: 'Are you sure.*'

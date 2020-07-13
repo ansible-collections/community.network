@@ -111,14 +111,14 @@ options:
 
 EXAMPLES = """
 - name: "Modify connection stats settings"
-  pn_connection_stats_settings:
+  community.network.pn_connection_stats_settings:
     pn_cliswitch: "sw01"
     state: "update"
     pn_enable: False
     pn_fabric_connection_max_memory: "1000"
 
 - name: "Modify connection stats settings"
-  pn_connection_stats_settings:
+  community.network.pn_connection_stats_settings:
     pn_cliswitch: "sw01"
     state: "update"
     pn_enable: True

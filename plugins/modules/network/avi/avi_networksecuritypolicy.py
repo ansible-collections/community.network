@@ -67,7 +67,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create a network security policy to block clients represented by ip group known_attackers
-    avi_networksecuritypolicy:
+    community.network.avi_networksecuritypolicy:
       controller: '{{ controller }}'
       username: '{{ username }}'
       password: '{{ password }}'

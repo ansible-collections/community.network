@@ -144,81 +144,81 @@ EXAMPLES = '''
       lldpenable: enabled
 
   - name: "Configure interface lldp enable state"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: disableINTERFACE
       ifname: 10GE1/0/1
       lldpadminstatus: rxOnly
   - name: "Configure LLDP transmit interval and ensure global LLDP state is already enabled"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: intervalINTERFACE
       ifname: 10GE1/0/1
       txinterval: 4
 
   - name: "Configure basic-tlv: management-address TLV"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: tlvdisableINTERFACE
       type_tlv_disable: basic_tlv
       ifname: 10GE1/0/1
       manaddrtxenable: true
 
   - name: "Configure basic-tlv: prot description TLV"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: tlvdisableINTERFACE
       type_tlv_disable: basic_tlv
       ifname: 10GE1/0/1
       portdesctxenable: true
 
   - name: "Configure basic-tlv: system capabilities TLV"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: tlvdisableINTERFACE
       type_tlv_disable: basic_tlv
       ifname: 10GE1/0/1
       syscaptxenable: true
 
   - name: "Configure basic-tlv: system description TLV"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: tlvdisableINTERFACE
       type_tlv_disable: basic_tlv
       ifname: 10GE1/0/1
       sysdesctxenable: true
 
   - name: "Configure basic-tlv: system name TLV"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: tlvdisableINTERFACE
       type_tlv_disable: basic_tlv
       ifname: 10GE1/0/1
       sysnametxenable: true
 
   - name: "TLV types that are forbidden to be published on the configuration interface, link aggregation TLV"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: tlvdisableINTERFACE
       type_tlv_disable: dot3_tlv
       ifname: 10GE1/0/1
       linkAggreTxEnable: true
 
   - name: "TLV types that are forbidden to be published on the configuration interface, MAC/PHY configuration/status TLV"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: tlvdisableINTERFACE
       type_tlv_disable: dot3_tlv
       ifname: 10GE1/0/1
       macPhyTxEnable: true
 
   - name: "TLV types that are forbidden to be published on the configuration interface, maximum frame size TLV"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: tlvdisableINTERFACE
       type_tlv_disable: dot3_tlv
       ifname: 10GE1/0/1
       maxFrameTxEnable: true
 
   - name: "TLV types that are forbidden to be published on the configuration interface, EEE TLV"
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: tlvdisableINTERFACE
       type_tlv_disable: dot3_tlv
       ifname: 10GE1/0/1
       eee: true
 
   - name: "Configure the interface to publish an optional DCBX TLV type "
-    ce_lldp_interface:
+    community.network.ce_lldp_interface:
       function_lldp_interface_flag: tlvenableINTERFACE
       ifname: 10GE1/0/1
       type_tlv_enable: dcbx

@@ -49,7 +49,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 
   - name: Get Pool Information using avi_api_session
-    avi_api_session:
+    community.network.avi_api_session:
       controller: "{{ controller }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -61,7 +61,7 @@ EXAMPLES = '''
     register: pool_results
 
   - name: Patch Pool with list of servers
-    avi_api_session:
+    community.network.avi_api_session:
       controller: "{{ controller }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -80,7 +80,7 @@ EXAMPLES = '''
     register: updated_pool
 
   - name: Fetch Pool metrics bandwidth and connections rate
-    avi_api_session:
+    community.network.avi_api_session:
       controller: "{{ controller }}"
       username: "{{ username }}"
       password: "{{ password }}"

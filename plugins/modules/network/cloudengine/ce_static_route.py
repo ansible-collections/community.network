@@ -76,7 +76,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Config a ipv4 static route, next hop is an address and that it has the proper description
-    ce_static_route:
+    community.network.ce_static_route:
       prefix: 2.1.1.2
       mask: 24
       next_hop: 3.1.1.2
@@ -84,7 +84,7 @@ EXAMPLES = '''
       aftype: v4
       provider: "{{ cli }}"
   - name: Config a ipv4 static route ,next hop is an interface and that it has the proper description
-    ce_static_route:
+    community.network.ce_static_route:
       prefix: 2.1.1.2
       mask: 24
       next_hop: 10GE1/0/1
@@ -92,7 +92,7 @@ EXAMPLES = '''
       aftype: v4
       provider: "{{ cli }}"
   - name: Config a ipv6 static route, next hop is an address and that it has the proper description
-    ce_static_route:
+    community.network.ce_static_route:
       prefix: fc00:0:0:2001::1
       mask: 64
       next_hop: fc00:0:0:2004::1
@@ -100,7 +100,7 @@ EXAMPLES = '''
       aftype: v6
       provider: "{{ cli }}"
   - name: Config a ipv4 static route, next hop is an interface and that it has the proper description
-    ce_static_route:
+    community.network.ce_static_route:
       prefix: fc00:0:0:2001::1
       mask: 64
       next_hop: 10GE1/0/1
@@ -108,7 +108,7 @@ EXAMPLES = '''
       aftype: v6
       provider: "{{ cli }}"
   - name: Config a VRF and set ipv4 static route, next hop is an address and that it has the proper description
-    ce_static_route:
+    community.network.ce_static_route:
       vrf: vpna
       prefix: 2.1.1.2
       mask: 24

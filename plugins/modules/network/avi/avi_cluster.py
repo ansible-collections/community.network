@@ -66,7 +66,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create Cluster object
-  avi_cluster:
+  community.network.avi_cluster:
     controller: 10.10.25.42
     username: admin
     password: something

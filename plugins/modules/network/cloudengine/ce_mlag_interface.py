@@ -82,23 +82,23 @@ EXAMPLES = '''
   tasks:
 
   - name: Set interface mlag error down
-    ce_mlag_interface:
+    community.network.ce_mlag_interface:
       interface: 10GE2/0/1
       mlag_error_down: enable
       provider: "{{ cli }}"
   - name: Create mlag
-    ce_mlag_interface:
+    community.network.ce_mlag_interface:
       eth_trunk_id: 1
       dfs_group_id: 1
       mlag_id: 4
       provider: "{{ cli }}"
   - name: Set mlag global attribute
-    ce_mlag_interface:
+    community.network.ce_mlag_interface:
       mlag_system_id: 0020-1409-0407
       mlag_priority_id: 5
       provider: "{{ cli }}"
   - name: Set mlag interface attribute
-    ce_mlag_interface:
+    community.network.ce_mlag_interface:
       eth_trunk_id: 1
       mlag_system_id: 0020-1409-0400
       mlag_priority_id: 3

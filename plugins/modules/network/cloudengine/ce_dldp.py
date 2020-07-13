@@ -84,31 +84,31 @@ EXAMPLES = '''
   tasks:
 
   - name: "Configure global DLDP enable state"
-    ce_dldp:
+    community.network.ce_dldp:
       enable: enable
       provider: "{{ cli }}"
 
   - name: "Configure DLDP work-mode and ensure global DLDP state is already enabled"
-    ce_dldp:
+    community.network.ce_dldp:
       enable: enable
       work_mode: normal
       provider: "{{ cli }}"
 
   - name: "Configure advertisement message time interval in seconds and ensure global DLDP state is already enabled"
-    ce_dldp:
+    community.network.ce_dldp:
       enable: enable
       time_interval: 6
       provider: "{{ cli }}"
 
   - name: "Configure a DLDP authentication mode and ensure global DLDP state is already enabled"
-    ce_dldp:
+    community.network.ce_dldp:
       enable: enable
       auth_mode: md5
       auth_pwd: abc
       provider: "{{ cli }}"
 
   - name: "Reset DLDP state of disabled interfaces and ensure global DLDP state is already enabled"
-    ce_dldp:
+    community.network.ce_dldp:
       enable: enable
       reset: enable
       provider: "{{ cli }}"

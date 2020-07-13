@@ -72,7 +72,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create GslbGeoDbProfile object
-  avi_gslbgeodbprofile:
+  community.network.avi_gslbgeodbprofile:
     controller: 10.10.25.42
     username: admin
     password: something

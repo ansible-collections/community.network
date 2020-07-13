@@ -63,7 +63,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create PriorityLabels object
-  avi_prioritylabels:
+  community.network.avi_prioritylabels:
     controller: 10.10.25.42
     username: admin
     password: something

@@ -40,13 +40,13 @@ options:
 
 EXAMPLES = """
 - name: Ipv6 security raguard port add
-  pn_ipv6security_raguard_port:
+  community.network.pn_ipv6security_raguard_port:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_ports: "1"
 
 - name: Ipv6 security raguard port remove
-  pn_ipv6security_raguard_port:
+  community.network.pn_ipv6security_raguard_port:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "absent"

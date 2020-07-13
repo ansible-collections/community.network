@@ -665,12 +665,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_ssl_ssh:
+    community.network.fmgr_secprof_ssl_ssh:
       name: Ansible_SSL_SSH_Profile
       mode: delete
 
   - name: CREATE Profile
-    fmgr_secprof_ssl_ssh:
+    community.network.fmgr_secprof_ssl_ssh:
       name: Ansible_SSL_SSH_Profile
       comment: "Created by Ansible Module TEST"
       mode: set

@@ -103,7 +103,7 @@ options:
 
 EXAMPLES = '''
 - name: Check security rules for Google DNS
-  panos_match_rule:
+  community.network.panos_match_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -117,7 +117,7 @@ EXAMPLES = '''
 - debug: msg='{{result.stdout_lines}}'
 
 - name: Check security rules inbound SSH with user match
-  panos_match_rule:
+  community.network.panos_match_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -131,7 +131,7 @@ EXAMPLES = '''
 - debug: msg='{{result.stdout_lines}}'
 
 - name: Check NAT rules for source NAT
-  panos_match_rule:
+  community.network.panos_match_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -146,7 +146,7 @@ EXAMPLES = '''
 - debug: msg='{{result.stdout_lines}}'
 
 - name: Check NAT rules for inbound web
-  panos_match_rule:
+  community.network.panos_match_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -162,7 +162,7 @@ EXAMPLES = '''
 - debug: msg='{{result.stdout_lines}}'
 
 - name: Check security rules for outbound POP3 in vsys4
-  panos_match_rule:
+  community.network.panos_match_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'

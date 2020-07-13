@@ -66,14 +66,14 @@ EXAMPLES = '''
   tasks:
 
   - name: "Configure a VPN instance for the interface"
-    ce_vrf_interface:
+    community.network.ce_vrf_interface:
       vpn_interface: 40GE1/0/2
       vrf: test
       state: present
       provider: "{{ cli }}"
 
   - name: "Disable the association between a VPN instance and an interface"
-    ce_vrf_interface:
+    community.network.ce_vrf_interface:
       vpn_interface: 40GE1/0/2
       vrf: test
       state: absent

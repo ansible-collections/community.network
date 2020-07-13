@@ -151,7 +151,7 @@ options:
 
 EXAMPLES = """
 - name: Run commands that should be configured in the section
-  ironware_config:
+  community.network.ironware_config:
     lines:
       - port-name test
       - enable

@@ -182,7 +182,7 @@ options:
 
 EXAMPLES = """
 - name: "Add BGP to vRouter"
-  pn_vrouter_bgp:
+  community.network.pn_vrouter_bgp:
     state: 'present'
     pn_vrouter_name: 'sw01-vrouter'
     pn_neighbor: '105.104.104.1'
@@ -190,13 +190,13 @@ EXAMPLES = """
     pn_bfd: true
 
 - name: "Remove BGP to vRouter"
-  pn_vrouter_bgp:
+  community.network.pn_vrouter_bgp:
     state: 'absent'
     pn_vrouter_name: 'sw01-vrouter'
     pn_neighbor: '105.104.104.1'
 
 - name: "Modify BGP to vRouter"
-  pn_vrouter_bgp:
+  community.network.pn_vrouter_bgp:
     state: 'update'
     pn_vrouter_name: 'sw01-vrouter'
     pn_neighbor: '105.104.104.1'

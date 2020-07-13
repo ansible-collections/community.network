@@ -48,7 +48,7 @@ Tasks : The following are examples of using the module cnos_reload. These are
  written in the main.yml file of the tasks directory.
 ---
 - name: Test Reset to factory
-  cnos_factory:
+  community.network.cnos_factory:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_factory_{{ inventory_hostname }}_output.txt"
 

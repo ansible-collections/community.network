@@ -60,7 +60,7 @@ EXAMPLES = '''
 
   tasks:
   - name: Reboot the device
-    ce_reboot:
+    community.network.ce_reboot:
       confirm: true
       save_config: true
       provider: "{{ cli }}"

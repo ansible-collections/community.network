@@ -151,7 +151,7 @@ options:
 
 EXAMPLES = '''
 - name: ADD IPv4 IP ADDRESS OBJECT
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv4: "ipmask"
     ipv4addr: "10.7.220.30/32"
     name: "ansible_v4Obj"
@@ -159,7 +159,7 @@ EXAMPLES = '''
     color: "6"
 
 - name: ADD IPv4 IP ADDRESS OBJECT MORE OPTIONS
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv4: "ipmask"
     ipv4addr: "10.7.220.34/32"
     name: "ansible_v4Obj_MORE"
@@ -171,7 +171,7 @@ EXAMPLES = '''
     obj_id: "123"
 
 - name: ADD IPv4 IP ADDRESS SUBNET OBJECT
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv4: "ipmask"
     ipv4addr: "10.7.220.0/255.255.255.128"
     name: "ansible_subnet"
@@ -179,7 +179,7 @@ EXAMPLES = '''
     mode: "set"
 
 - name: ADD IPv4 IP ADDRESS RANGE OBJECT
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv4: "iprange"
     start_ip: "10.7.220.1"
     end_ip: "10.7.220.125"
@@ -187,42 +187,42 @@ EXAMPLES = '''
     comment: "Created by Ansible"
 
 - name: ADD IPv4 IP ADDRESS WILDCARD OBJECT
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv4: "wildcard"
     wildcard: "10.7.220.30/255.255.255.255"
     name: "ansible_wildcard"
     comment: "Created by Ansible"
 
 - name: ADD IPv4 IP ADDRESS WILDCARD FQDN OBJECT
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv4: "wildcard-fqdn"
     wildcard_fqdn: "*.myds.com"
     name: "Synology myds DDNS service"
     comment: "Created by Ansible"
 
 - name: ADD IPv4 IP ADDRESS FQDN OBJECT
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv4: "fqdn"
     fqdn: "ansible.com"
     name: "ansible_fqdn"
     comment: "Created by Ansible"
 
 - name: ADD IPv4 IP ADDRESS GEO OBJECT
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv4: "geography"
     country: "usa"
     name: "ansible_geo"
     comment: "Created by Ansible"
 
 - name: ADD IPv6 ADDRESS
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv6: "ip"
     ipv6addr: "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
     name: "ansible_v6Obj"
     comment: "Created by Ansible"
 
 - name: ADD IPv6 ADDRESS RANGE
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv6: "iprange"
     start_ip: "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
     end_ip: "2001:0db8:85a3:0000:0000:8a2e:0370:7446"
@@ -230,19 +230,19 @@ EXAMPLES = '''
     comment: "Created by Ansible"
 
 - name: ADD IPv4 IP ADDRESS GROUP
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv4: "group"
     group_name: "ansibleIPv4Group"
     group_members: "ansible_fqdn, ansible_wildcard, ansible_range"
 
 - name: ADD IPv6 IP ADDRESS GROUP
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     ipv6: "group"
     group_name: "ansibleIPv6Group"
     group_members: "ansible_v6Obj, ansible_v6range"
 
 - name: ADD MULTICAST RANGE
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     multicast: "multicastrange"
     start_ip: "224.0.0.251"
     end_ip: "224.0.0.251"
@@ -250,7 +250,7 @@ EXAMPLES = '''
     comment: "Created by Ansible"
 
 - name: ADD BROADCAST SUBNET
-  fmgr_fwobj_address:
+  community.network.fmgr_fwobj_address:
     multicast: "broadcastmask"
     ipv4addr: "10.7.220.0/24"
     name: "ansible_broadcastSubnet"

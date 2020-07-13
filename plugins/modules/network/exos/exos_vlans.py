@@ -123,7 +123,7 @@ EXAMPLES = """
 # }
 
 - name: Delete attributes of given VLANs
-  exos_vlans:
+  community.network.exos_vlans:
     config:
       - vlan_id: 10
       - vlan_id: 20
@@ -228,7 +228,7 @@ EXAMPLES = """
 # }
 
 - name: Merge provided configuration with device configuration
-  exos_vlans:
+  community.network.exos_vlans:
     config:
       - name: vlan_10
         vlan_id: 10
@@ -420,7 +420,7 @@ EXAMPLES = """
 # }
 
 - name: Override device configuration of all VLANs with provided configuration
-  exos_vlans:
+  community.network.exos_vlans:
     config:
       - name: TEST_VLAN10
         vlan_id: 10
@@ -576,7 +576,7 @@ EXAMPLES = """
 # }
 
 - name: Replaces device configuration of listed VLANs with provided configuration
-  exos_vlans:
+  community.network.exos_vlans:
     config:
       - name: Test_VLAN20
         vlan_id: 20

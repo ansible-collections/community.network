@@ -150,11 +150,11 @@ options:
 
 EXAMPLES = """
 - name: Configure top level configuration
-  nos_config:
+  community.network.nos_config:
     lines: logging raslog console INFO
 
 - name: Configure interface settings
-  nos_config:
+  community.network.nos_config:
     lines:
       - description test interface
       - ip address 172.31.1.1/24
@@ -162,7 +162,7 @@ EXAMPLES = """
       - interface TenGigabitEthernet 104/0/1
 
 - name: Configure multiple interfaces
-  nos_config:
+  community.network.nos_config:
     lines:
       - lacp timeout long
     parents: "{{ item }}"
@@ -171,7 +171,7 @@ EXAMPLES = """
     - interface TenGigabitEthernet 104/0/2
 
 - name: Load new acl into device
-  nos_config:
+  community.network.nos_config:
     lines:
       - seq 10 permit ip host 1.1.1.1 any log
       - seq 20 permit ip host 2.2.2.2 any log
@@ -183,12 +183,12 @@ EXAMPLES = """
     match: exact
 
 - name: Check the running-config against master config
-  nos_config:
+  community.network.nos_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
 - name: Configurable backup path
-  nos_config:
+  community.network.nos_config:
     lines: logging raslog console INFO
     backup: yes
     backup_options:

@@ -57,7 +57,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Set dns and panorama
-  panos_mgtconfig:
+  community.network.panos_mgtconfig:
     ip_address: "192.168.1.1"
     password: "admin"
     dns_server_primary: "1.1.1.1"

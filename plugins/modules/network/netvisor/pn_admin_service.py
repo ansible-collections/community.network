@@ -85,7 +85,7 @@ options:
 
 EXAMPLES = """
 - name: Admin service functionality
-  pn_admin_service:
+  community.network.pn_admin_service:
     pn_cliswitch: "sw01"
     state: "update"
     pn__if: "mgmt"
@@ -93,7 +93,7 @@ EXAMPLES = """
     pn_icmp: True
 
 - name: Admin service functionality
-  pn_admin_service:
+  community.network.pn_admin_service:
     pn_cliswitch: "sw01"
     state: "update"
     pn_web: False

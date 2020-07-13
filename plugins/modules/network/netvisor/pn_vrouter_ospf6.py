@@ -46,7 +46,7 @@ options:
 
 EXAMPLES = """
 - name: Add vrouter interface nic to ospf6
-  pn_vrouter_ospf6:
+  community.network.pn_vrouter_ospf6:
     pn_cliswitch: "sw01"
     state: "present"
     pn_vrouter_name: "foo-vrouter"
@@ -54,7 +54,7 @@ EXAMPLES = """
     pn_ospf6_area: "0.0.0.0"
 
 - name: Remove vrouter interface nic to ospf6
-  pn_vrouter_ospf6:
+  community.network.pn_vrouter_ospf6:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_vrouter_name: "foo-vrouter"

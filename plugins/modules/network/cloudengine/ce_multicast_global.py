@@ -43,17 +43,17 @@ options:
 EXAMPLES = '''
 ---
   - name: Multicast routing-enable
-    ce_multicast_global:
+    community.network.ce_multicast_global:
       aftype: v4
       state: absent
       provider: "{{ cli }}"
   - name: Multicast routing-enable
-    ce_multicast_global:
+    community.network.ce_multicast_global:
       aftype: v4
       state: present
       provider: "{{ cli }}"
   - name: Multicast routing-enable
-    ce_multicast_global:
+    community.network.ce_multicast_global:
       aftype: v4
       vrf: vrf1
       provider: "{{ cli }}"

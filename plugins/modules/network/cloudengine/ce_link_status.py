@@ -80,17 +80,17 @@ EXAMPLES = '''
   tasks:
 
   - name: Get specified interface link status information
-    ce_link_status:
+    community.network.ce_link_status:
       interface: 40GE1/0/1
       provider: "{{ cli }}"
 
   - name: Get specified interface type link status information
-    ce_link_status:
+    community.network.ce_link_status:
       interface: 40GE
       provider: "{{ cli }}"
 
   - name: Get all interfaces link status information
-    ce_link_status:
+    community.network.ce_link_status:
       interface: all
       provider: "{{ cli }}"
 '''

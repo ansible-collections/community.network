@@ -40,21 +40,21 @@ options:
 
 EXAMPLES = """
 - name: Dhcp filter create
-  pn_dhcp_filter:
+  community.network.pn_dhcp_filter:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "present"
     pn_trusted_ports: "1"
 
 - name: Dhcp filter delete
-  pn_dhcp_filter:
+  community.network.pn_dhcp_filter:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "absent"
     pn_trusted_ports: "1"
 
 - name: Dhcp filter modify
-  pn_dhcp_filter:
+  community.network.pn_dhcp_filter:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "update"

@@ -125,7 +125,7 @@ options:
 
 EXAMPLES = """
 - name: Configure the login banner
-  cnos_banner:
+  community.network.cnos_banner:
     banner: login
     text: |
       this is my login banner
@@ -134,12 +134,12 @@ EXAMPLES = """
     state: present
 
 - name: Remove the motd banner
-  cnos_banner:
+  community.network.cnos_banner:
     banner: motd
     state: absent
 
 - name: Configure banner from file
-  cnos_banner:
+  community.network.cnos_banner:
     banner:  motd
     text: "{{ lookup('file', './config_partial/raw_banner.cfg') }}"
     state: present

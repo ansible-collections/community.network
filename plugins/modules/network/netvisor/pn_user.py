@@ -47,7 +47,7 @@ options:
 
 EXAMPLES = """
 - name: Create user
-  pn_user:
+  community.network.pn_user:
     pn_cliswitch: "sw01"
     state: "present"
     pn_scope: "fabric"
@@ -55,13 +55,13 @@ EXAMPLES = """
     pn_name: "foo"
 
 - name: Delete user
-  pn_user:
+  community.network.pn_user:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_name: "foo"
 
 - name: Modify user
-  pn_user:
+  community.network.pn_user:
     pn_cliswitch: "sw01"
     state: "update"
     pn_password: "test1234"

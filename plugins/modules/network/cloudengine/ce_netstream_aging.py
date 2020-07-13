@@ -69,7 +69,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Configure netstream ip timeout active interval , the interval is 40 minutes.
-    ce_netstream_aging:
+    community.network.ce_netstream_aging:
       timeout_interval: 40
       type: ip
       timeout_type: active
@@ -77,7 +77,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: Configure netstream vxlan timeout active interval , the interval is 40 minutes.
-    ce_netstream_aging:
+    community.network.ce_netstream_aging:
       timeout_interval: 40
       type: vxlan
       timeout_type: active
@@ -85,42 +85,42 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: Delete netstream ip timeout active interval , set the ip timeout interval to 30 minutes.
-    ce_netstream_aging:
+    community.network.ce_netstream_aging:
       type: ip
       timeout_type: active
       state: absent
       provider: "{{ cli }}"
 
   - name: Delete netstream vxlan timeout active interval , set the vxlan timeout interval to 30 minutes.
-    ce_netstream_aging:
+    community.network.ce_netstream_aging:
       type: vxlan
       timeout_type: active
       state: absent
       provider: "{{ cli }}"
 
   - name: Enable netstream ip tcp session timeout.
-    ce_netstream_aging:
+    community.network.ce_netstream_aging:
       type: ip
       timeout_type: tcp-session
       state: present
       provider: "{{ cli }}"
 
   - name: Enable netstream vxlan tcp session timeout.
-    ce_netstream_aging:
+    community.network.ce_netstream_aging:
       type: vxlan
       timeout_type: tcp-session
       state: present
       provider: "{{ cli }}"
 
   - name: Disable netstream ip tcp session timeout.
-    ce_netstream_aging:
+    community.network.ce_netstream_aging:
       type: ip
       timeout_type: tcp-session
       state: absent
       provider: "{{ cli }}"
 
   - name: Disable netstream vxlan tcp session timeout.
-    ce_netstream_aging:
+    community.network.ce_netstream_aging:
       type: vxlan
       timeout_type: tcp-session
       state: absent

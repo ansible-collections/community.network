@@ -140,50 +140,50 @@ EXAMPLES = '''
       transport: cli
   tasks:
   - name: Set vrrp version
-    ce_vrrp:
+    community.network.ce_vrrp:
       version: v3
       provider: "{{ cli }}"
   - name: Set vrrp gratuitous-arp interval
-    ce_vrrp:
+    community.network.ce_vrrp:
       gratuitous_arp_interval: 40
       mlag_id: 4
       provider: "{{ cli }}"
   - name: Set vrrp recover-delay
-    ce_vrrp:
+    community.network.ce_vrrp:
       recover_delay: 10
       provider: "{{ cli }}"
   - name: Set vrrp vrid virtual-ip
-    ce_vrrp:
+    community.network.ce_vrrp:
       interface: 40GE2/0/8
       vrid: 1
       virtual_ip: 10.14.2.7
       provider: "{{ cli }}"
   - name: Set vrrp vrid admin
-    ce_vrrp:
+    community.network.ce_vrrp:
       interface: 40GE2/0/8
       vrid: 1
       vrrp_type: admin
       provider: "{{ cli }}"
   - name: Set vrrp vrid fast_resume
-    ce_vrrp:
+    community.network.ce_vrrp:
       interface: 40GE2/0/8
       vrid: 1
       fast_resume: enable
       provider: "{{ cli }}"
   - name: Set vrrp vrid holding-multiplier
-    ce_vrrp:
+    community.network.ce_vrrp:
       interface: 40GE2/0/8
       vrid: 1
       holding_multiplier: 4
       provider: "{{ cli }}"
   - name: Set vrrp vrid preempt timer delay
-    ce_vrrp:
+    community.network.ce_vrrp:
       interface: 40GE2/0/8
       vrid: 1
       preempt_timer_delay: 10
       provider: "{{ cli }}"
   - name: Set vrrp vrid admin-vrrp
-    ce_vrrp:
+    community.network.ce_vrrp:
       interface: 40GE2/0/8
       vrid: 1
       admin_interface: 40GE2/0/9
@@ -191,7 +191,7 @@ EXAMPLES = '''
       vrrp_type: member
       provider: "{{ cli }}"
   - name: Set vrrp vrid authentication-mode
-    ce_vrrp:
+    community.network.ce_vrrp:
       interface: 40GE2/0/8
       vrid: 1
       is_plain: true

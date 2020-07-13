@@ -79,7 +79,7 @@ options:
 
 EXAMPLES = """
 - name: 'Modify IGMP Snooping'
-  pn_igmp_snooping:
+  community.network.pn_igmp_snooping:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_vxlan: True
@@ -88,7 +88,7 @@ EXAMPLES = """
     pn_igmpv3_vlans: '1-399,401-4092'
 
 - name: 'Modify IGMP Snooping'
-  pn_igmp_snooping:
+  community.network.pn_igmp_snooping:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_vxlan: False

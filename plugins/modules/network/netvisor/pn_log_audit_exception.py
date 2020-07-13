@@ -54,7 +54,7 @@ options:
 
 EXAMPLES = """
 - name: Create a log-audit-exception
-  pn_log_audit_exception:
+  community.network.pn_log_audit_exception:
     pn_audit_type: "cli"
     pn_pattern: "test"
     state: "present"
@@ -62,7 +62,7 @@ EXAMPLES = """
     pn_scope: "local"
 
 - name: Delete a log-audit-exception
-  pn_log_audit_exception:
+  community.network.pn_log_audit_exception:
     pn_audit_type: "shell"
     pn_pattern: "test"
     state: "absent"

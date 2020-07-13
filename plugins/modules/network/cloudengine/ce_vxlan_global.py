@@ -88,7 +88,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Create bridge domain and set tunnel mode to VXLAN
-    ce_vxlan_global:
+    community.network.ce_vxlan_global:
       bridge_domain_id: 100
       nvo3_acl_extend: enable
       provider: "{{ cli }}"

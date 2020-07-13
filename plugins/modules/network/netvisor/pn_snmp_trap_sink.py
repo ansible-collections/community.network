@@ -49,7 +49,7 @@ options:
 
 EXAMPLES = """
 - name: Snmp trap sink functionality
-  pn_snmp_trap_sink:
+  community.network.pn_snmp_trap_sink:
     pn_cliswitch: "sw01"
     state: "present"
     pn_community: "foo"
@@ -57,7 +57,7 @@ EXAMPLES = """
     pn_dest_host: "192.168.67.8"
 
 - name: Snmp trap sink functionality
-  pn_snmp_trap_sink:
+  community.network.pn_snmp_trap_sink:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_community: "foo"

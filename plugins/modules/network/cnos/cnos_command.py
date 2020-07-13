@@ -75,7 +75,7 @@ options:
 EXAMPLES = """
 ---
 - name: Test contains operator
-  cnos_command:
+  community.network.cnos_command:
     commands:
       - show version
       - show system memory
@@ -90,7 +90,7 @@ EXAMPLES = """
       - "result.stdout is defined"
 
 - name: Get output for single command
-  cnos_command:
+  community.network.cnos_command:
     commands: ['show version']
   register: result
 
@@ -100,7 +100,7 @@ EXAMPLES = """
       - "result.stdout is defined"
 
 - name: Get output for multiple commands
-  cnos_command:
+  community.network.cnos_command:
     commands:
       - show version
       - show interface information

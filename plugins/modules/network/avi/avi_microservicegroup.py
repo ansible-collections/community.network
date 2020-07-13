@@ -64,7 +64,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create a Microservice Group that can be used for setting up Network security policy
-    avi_microservicegroup:
+    community.network.avi_microservicegroup:
       controller: '{{ controller }}'
       username: '{{ username }}'
       password: '{{ password }}'

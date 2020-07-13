@@ -79,7 +79,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Make sure nve_name is exist, ensure vni_id and protocol_type is configured on Nve1 interface.
-    ce_vxlan_tunnel:
+    community.network.ce_vxlan_tunnel:
       nve_name: Nve1
       vni_id: 100
       protocol_type: bgp

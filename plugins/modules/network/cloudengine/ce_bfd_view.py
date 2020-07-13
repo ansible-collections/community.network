@@ -102,7 +102,7 @@ EXAMPLES = '''
 
   tasks:
   - name: Set the local discriminator of a BFD session to 80 and the remote discriminator to 800
-    ce_bfd_view:
+    community.network.ce_bfd_view:
       session_name: atob
       local_discr: 80
       remote_discr: 800
@@ -110,7 +110,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Set the minimum interval for receiving BFD packets to 500 ms
-    ce_bfd_view:
+    community.network.ce_bfd_view:
       session_name: atob
       min_rx_interval: 500
       state: present

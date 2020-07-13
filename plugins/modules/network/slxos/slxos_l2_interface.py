@@ -72,32 +72,32 @@ options:
 
 EXAMPLES = """
 - name: Ensure Ethernet 0/5 is in its default l2 interface state
-  slxos_l2_interface:
+  community.network.slxos_l2_interface:
     name: Ethernet 0/5
     state: unconfigured
 
 - name: Ensure Ethernet 0/5 is configured for access vlan 20
-  slxos_l2_interface:
+  community.network.slxos_l2_interface:
     name: Ethernet 0/5
     mode: access
     access_vlan: 20
 
 - name: Ensure Ethernet 0/5 only has vlans 5-10 as trunk vlans
-  slxos_l2_interface:
+  community.network.slxos_l2_interface:
     name: Ethernet 0/5
     mode: trunk
     native_vlan: 10
     trunk_vlans: 5-10
 
 - name: Ensure Ethernet 0/5 is a trunk port and ensure 2-50 are being tagged (doesn't mean others aren't also being tagged)
-  slxos_l2_interface:
+  community.network.slxos_l2_interface:
     name: Ethernet 0/5
     mode: trunk
     native_vlan: 10
     trunk_vlans: 2-50
 
 - name: Ensure these VLANs are not being tagged on the trunk
-  slxos_l2_interface:
+  community.network.slxos_l2_interface:
     name: Ethernet 0/5
     mode: trunk
     trunk_vlans: 51-4094

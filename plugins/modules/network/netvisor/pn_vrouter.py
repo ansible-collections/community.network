@@ -118,14 +118,14 @@ options:
 
 EXAMPLES = """
 - name: Create vrouter
-  pn_vrouter:
+  community.network.pn_vrouter:
     state: 'present'
     pn_name: 'ansible-vrouter'
     pn_vnet: 'ansible-fab-global'
     pn_router_id: 208.74.182.1
 
 - name: Delete vrouter
-  pn_vrouter:
+  community.network.pn_vrouter:
     state: 'absent'
     pn_name: 'ansible-vrouter'
 """

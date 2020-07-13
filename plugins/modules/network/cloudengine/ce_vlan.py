@@ -66,20 +66,20 @@ EXAMPLES = '''
   tasks:
 
   - name: Ensure a range of VLANs are not present on the switch
-    ce_vlan:
+    community.network.ce_vlan:
       vlan_range: "2-10,20,50,55-60,100-150"
       state: absent
       provider: "{{ cli }}"
 
   - name: Ensure VLAN 50 exists with the name WEB
-    ce_vlan:
+    community.network.ce_vlan:
       vlan_id: 50
       name: WEB
       state: absent
       provider: "{{ cli }}"
 
   - name: Ensure VLAN is NOT on the device
-    ce_vlan:
+    community.network.ce_vlan:
       vlan_id: 50
       state: absent
       provider: "{{ cli }}"

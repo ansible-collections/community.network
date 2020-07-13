@@ -437,20 +437,20 @@ options:
 
 EXAMPLES = '''
 - name: SET SNMP SYSTEM INFO
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "default"
     snmp_status: "enable"
     mode: "set"
 
 - name: SET SNMP SYSTEM INFO ANSIBLE ADOM
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "default"
     snmp_status: "enable"
     mode: "set"
     adom: "ansible"
 
 - name: SET SNMP SYSTEM INFO different template (SNMPv2)
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "ansibleTest"
     snmp_status: "enable"
     mode: "set"
@@ -467,7 +467,7 @@ EXAMPLES = '''
     snmp_v2c_query_hosts_ipv4: "10.7.220.59 255.255.255.255, 10.7.220.0 255.255.255.0"
 
 - name: SET SNMP SYSTEM INFO different template (SNMPv3)
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "ansibleTest"
     snmp_status: "enable"
     mode: "set"
@@ -487,7 +487,7 @@ EXAMPLES = '''
     snmpv3_trap_status: "enable"
 
 - name: SET SYSLOG INFO
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "ansibleTest"
     mode: "set"
     adom: "ansible"
@@ -498,7 +498,7 @@ EXAMPLES = '''
     syslog_filter: "information"
 
 - name: SET NTP TO FORTIGUARD
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "ansibleTest"
     mode: "set"
     adom: "ansible"
@@ -507,7 +507,7 @@ EXAMPLES = '''
     type: "fortiguard"
 
 - name: SET NTP TO CUSTOM SERVER
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "ansibleTest"
     mode: "set"
     adom: "ansible"
@@ -520,7 +520,7 @@ EXAMPLES = '''
     ntp_v3: "disable"
 
 - name: SET ADMIN GLOBAL SETTINGS
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "ansibleTest"
     mode: "set"
     adom: "ansible"
@@ -536,7 +536,7 @@ EXAMPLES = '''
     admin_fortianalyzer_target: "10.7.220.61"
 
 - name: SET CUSTOM SMTP SERVER
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "ansibleTest"
     mode: "set"
     adom: "ansible"
@@ -550,7 +550,7 @@ EXAMPLES = '''
     smtp_validate_cert: "disable"
 
 - name: SET DNS SERVERS
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "ansibleTest"
     mode: "set"
     adom: "ansible"
@@ -559,14 +559,14 @@ EXAMPLES = '''
     dns_secondary_ipv4: "4.4.4.4"
 
 - name: SET PROVISIONING TEMPLATE DEVICE TARGETS IN FORTIMANAGER
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     provisioning_template: "ansibleTest"
     mode: "set"
     adom: "ansible"
     provision_targets: "FGT1, FGT2"
 
 - name: DELETE ENTIRE PROVISIONING TEMPLATE
-  fmgr_device_provision_template:
+  community.network.fmgr_device_provision_template:
     delete_provisioning_template: "ansibleTest"
     mode: "delete"
     adom: "ansible"

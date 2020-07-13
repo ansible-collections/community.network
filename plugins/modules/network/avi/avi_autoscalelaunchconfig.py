@@ -73,7 +73,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create an Autoscale Launch configuration.
-    avi_autoscalelaunchconfig:
+    community.network.avi_autoscalelaunchconfig:
       controller: '{{ controller }}'
       username: '{{ username }}'
       password: '{{ password }}'

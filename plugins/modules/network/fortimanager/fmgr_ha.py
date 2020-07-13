@@ -92,29 +92,29 @@ options:
 
 EXAMPLES = '''
 - name: SET FORTIMANAGER HA NODE TO MASTER
-  fmgr_ha:
+  community.network.fmgr_ha:
     fmgr_ha_mode: "master"
     fmgr_ha_cluster_pw: "fortinet"
     fmgr_ha_cluster_id: "1"
 
 - name: SET FORTIMANAGER HA NODE TO SLAVE
-  fmgr_ha:
+  community.network.fmgr_ha:
     fmgr_ha_mode: "slave"
     fmgr_ha_cluster_pw: "fortinet"
     fmgr_ha_cluster_id: "1"
 
 - name: SET FORTIMANAGER HA NODE TO STANDALONE
-  fmgr_ha:
+  community.network.fmgr_ha:
     fmgr_ha_mode: "standalone"
 
 - name: ADD FORTIMANAGER HA PEER
-  fmgr_ha:
+  community.network.fmgr_ha:
     fmgr_ha_peer_ipv4: "192.168.1.254"
     fmgr_ha_peer_sn: "FMG-VM1234567890"
     fmgr_ha_peer_status: "enable"
 
 - name: CREATE CLUSTER ON MASTER
-  fmgr_ha:
+  community.network.fmgr_ha:
     fmgr_ha_mode: "master"
     fmgr_ha_cluster_pw: "fortinet"
     fmgr_ha_cluster_id: "1"

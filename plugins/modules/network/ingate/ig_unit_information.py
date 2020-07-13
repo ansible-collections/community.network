@@ -23,7 +23,7 @@ author:
 
 EXAMPLES = '''
 - name: Get unit information
-  ig_unit_information:
+  community.network.ig_unit_information:
     client:
       version: v1
       scheme: http

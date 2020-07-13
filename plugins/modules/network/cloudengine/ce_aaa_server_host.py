@@ -143,21 +143,21 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config local user when use local scheme"
-    ce_aaa_server_host:
+    community.network.ce_aaa_server_host:
       state: present
       local_user_name: user1
       local_password: 123456
       provider: "{{ cli }}"
 
   - name: "Undo local user when use local scheme"
-    ce_aaa_server_host:
+    community.network.ce_aaa_server_host:
       state: absent
       local_user_name: user1
       local_password: 123456
       provider: "{{ cli }}"
 
   - name: "Config radius server ip"
-    ce_aaa_server_host:
+    community.network.ce_aaa_server_host:
       state: present
       radius_group_name: group1
       radius_server_type: Authentication
@@ -168,7 +168,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Undo radius server ip"
-    ce_aaa_server_host:
+    community.network.ce_aaa_server_host:
       state: absent
       radius_group_name: group1
       radius_server_type: Authentication
@@ -179,7 +179,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Config hwtacacs server ip"
-    ce_aaa_server_host:
+    community.network.ce_aaa_server_host:
       state: present
       hwtacacs_template: template
       hwtacacs_server_ip: 10.10.10.10
@@ -188,7 +188,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Undo hwtacacs server ip"
-    ce_aaa_server_host:
+    community.network.ce_aaa_server_host:
       state: absent
       hwtacacs_template: template
       hwtacacs_server_ip: 10.10.10.10

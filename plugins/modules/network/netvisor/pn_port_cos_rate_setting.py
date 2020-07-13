@@ -76,7 +76,7 @@ options:
 
 EXAMPLES = """
 - name: Port cos rate modify
-  pn_port_cos_rate_setting:
+  community.network.pn_port_cos_rate_setting:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "control-port"
@@ -86,7 +86,7 @@ EXAMPLES = """
     pn_cos0_rate: "1000"
 
 - name: Port cos rate modify
-  pn_port_cos_rate_setting:
+  community.network.pn_port_cos_rate_setting:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "data-port"

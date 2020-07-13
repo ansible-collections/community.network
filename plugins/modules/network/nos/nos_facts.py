@@ -49,16 +49,16 @@ options:
 
 EXAMPLES = """
 # Collect all facts from the device
-- nos_facts:
+- community.network.nos_facts:
     gather_subset: all
 
 # Collect only the config and default facts
-- nos_facts:
+- community.network.nos_facts:
     gather_subset:
       - config
 
 # Do not collect hardware facts
-- nos_facts:
+- community.network.nos_facts:
     gather_subset:
       - "!hardware"
 """

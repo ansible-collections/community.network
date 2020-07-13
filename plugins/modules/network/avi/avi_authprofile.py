@@ -81,7 +81,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create user authorization profile based on the LDAP
-    avi_authprofile:
+    community.network.avi_authprofile:
       controller: '{{ controller }}'
       password: '{{ password }}'
       username: '{{ username }}'

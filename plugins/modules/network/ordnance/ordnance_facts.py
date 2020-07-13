@@ -44,18 +44,18 @@ vars:
 
 ---
 - name: Collect all facts from the device
-  ordnance_facts:
+  community.network.ordnance_facts:
     gather_subset: all
     provider: "{{ cli }}"
 
 - name: Collect only the config and default facts
-  ordnance_facts:
+  community.network.ordnance_facts:
     gather_subset:
       - config
     provider: "{{ cli }}"
 
 - name: Do not collect hardware facts
-  ordnance_facts:
+  community.network.ordnance_facts:
     gather_subset:
       - "!hardware"
     provider: "{{ cli }}"

@@ -89,7 +89,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create PKIProfile object
-  avi_pkiprofile:
+  community.network.avi_pkiprofile:
     controller: 10.10.25.42
     username: admin
     password: something

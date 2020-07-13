@@ -60,7 +60,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create Alert Syslog object to forward all events to external syslog server
-    avi_alertsyslogconfig:
+    community.network.avi_alertsyslogconfig:
       controller: '{{ controller }}'
       name: Roberts-syslog
       password: '{{ password }}'

@@ -1722,7 +1722,7 @@ def main():
 
     ce_aaa_server = AaaServer()
 
-    if not community.network.ce_aaa_server:
+    if not ce_aaa_server:
         module.fail_json(msg='Error: init module failed.')
 
     # get proposed

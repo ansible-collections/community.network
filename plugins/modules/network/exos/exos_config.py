@@ -162,32 +162,32 @@ options:
 
 EXAMPLES = """
 - name: Configure SNMP system name
-  exos_config:
+  community.network.exos_config:
     lines: configure snmp sysName "{{ inventory_hostname }}"
 
 - name: Configure interface settings
-  exos_config:
+  community.network.exos_config:
     lines:
       - configure ports 2 description-string "Master Uplink"
     backup: yes
 
 - name: Check the running-config against master config
-  exos_config:
+  community.network.exos_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
 - name: Check the startup-config against the running-config
-  exos_config:
+  community.network.exos_config:
     diff_against: startup
     diff_ignore_lines:
       - ntp clock .*
 
 - name: Save running to startup when modified
-  exos_config:
+  community.network.exos_config:
     save_when: modified
 
 - name: Configurable backup path
-  exos_config:
+  community.network.exos_config:
     lines:
       - configure ports 2 description-string "Master Uplink"
     backup: yes

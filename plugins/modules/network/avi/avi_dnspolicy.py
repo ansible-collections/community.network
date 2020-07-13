@@ -69,7 +69,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create DnsPolicy object
-  avi_dnspolicy:
+  community.network.avi_dnspolicy:
     controller: 10.10.25.42
     username: admin
     password: something

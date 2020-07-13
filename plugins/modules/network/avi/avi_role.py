@@ -58,7 +58,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create Role object
-  avi_role:
+  community.network.avi_role:
     controller: 10.10.25.42
     username: admin
     password: something

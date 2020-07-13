@@ -39,21 +39,21 @@ options:
 
 EXAMPLES = """
 - name: Access list functionality
-  pn_access_list:
+  community.network.pn_access_list:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_scope: "local"
     state: "present"
 
 - name: Access list functionality
-  pn_access_list:
+  community.network.pn_access_list:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_scope: "local"
     state: "absent"
 
 - name: Access list functionality
-  pn_access_list:
+  community.network.pn_access_list:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_scope: "fabric"

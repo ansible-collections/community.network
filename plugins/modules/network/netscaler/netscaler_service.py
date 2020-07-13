@@ -380,7 +380,7 @@ EXAMPLES = '''
 - name: Setup http service
   gather_facts: False
   delegate_to: localhost
-  netscaler_service:
+  community.network.netscaler_service:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

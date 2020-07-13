@@ -85,7 +85,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 
 - name: Set timezone on PA NVA
-  panos_set:
+  community.network.panos_set:
     ip_address: "192.168.1.1"
     username: "my-random-admin"
     password: "admin1234"

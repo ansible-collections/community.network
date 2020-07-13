@@ -53,14 +53,14 @@ options:
 
 EXAMPLES = """
 - name: VRouter packet relay add
-  pn_vrouter_packet_relay:
+  community.network.pn_vrouter_packet_relay:
     pn_cliswitch: "sw01"
     pn_forward_ip: "192.168.10.1"
     pn_nic: "eth0.4092"
     pn_vrouter_name: "sw01-vrouter"
 
 - name: VRouter packet relay remove
-  pn_vrouter_packet_relay:
+  community.network.pn_vrouter_packet_relay:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_forward_ip: "192.168.10.1"

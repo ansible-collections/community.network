@@ -57,7 +57,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create SnmpTrapProfile object
-  avi_snmptrapprofile:
+  community.network.avi_snmptrapprofile:
     controller: 10.10.25.42
     username: admin
     password: something

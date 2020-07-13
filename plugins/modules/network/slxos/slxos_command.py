@@ -65,22 +65,22 @@ options:
 EXAMPLES = """
 tasks:
   - name: Run show version on remote devices
-    slxos_command:
+    community.network.slxos_command:
       commands: show version
 
   - name: Run show version and check to see if output contains SLX
-    slxos_command:
+    community.network.slxos_command:
       commands: show version
       wait_for: result[0] contains SLX
 
   - name: Run multiple commands on remote nodes
-    slxos_command:
+    community.network.slxos_command:
       commands:
         - show version
         - show interfaces
 
   - name: Run multiple commands and evaluate the output
-    slxos_command:
+    community.network.slxos_command:
       commands:
         - show version
         - show interface status
@@ -88,7 +88,7 @@ tasks:
         - result[0] contains SLX
         - result[1] contains Eth
   - name: Run command that requires answering a prompt
-    slxos_command:
+    community.network.slxos_command:
       commands:
         - command: 'clear sessions'
           prompt: 'This operation will logout all the user sessions. Do you want to continue (yes/no)?:'

@@ -127,40 +127,40 @@ options:
 
 EXAMPLES = """
 - name: Remove Ethernet1/33 IPv4 and IPv6 address
-  cnos_l3_interface:
+  community.network.cnos_l3_interface:
     name: Ethernet1/33
     state: absent
 
 - name: Set Ethernet1/33 IPv4 address
-  cnos_l3_interface:
+  community.network.cnos_l3_interface:
     name: Ethernet1/33
     ipv4: 10.241.107.1/24
 
 - name: Set Ethernet1/33 IPv6 address
-  cnos_l3_interface:
+  community.network.cnos_l3_interface:
     name: Ethernet1/33
     ipv6: "fd5d:12c9:2201:1::1/64"
 
 - name: Set Ethernet1/33 in dhcp
-  cnos_l3_interface:
+  community.network.cnos_l3_interface:
     name: Ethernet1/33
     ipv4: dhcp
     ipv6: dhcp
 
 - name: Set interface Vlan1 (SVI) IPv4 address
-  cnos_l3_interface:
+  community.network.cnos_l3_interface:
     name: Vlan1
     ipv4: 192.168.0.5/24
 
 - name: Set IP addresses on aggregate
-  cnos_l3_interface:
+  community.network.cnos_l3_interface:
     aggregate:
       - { name: Ethernet1/33, ipv4: 10.241.107.1/24 }
       - { name: Ethernet1/44, ipv4: 10.240.106.1/24,
           ipv6: "fd5d:12c9:2201:1::1/64" }
 
 - name: Remove IP addresses on aggregate
-  cnos_l3_interface:
+  community.network.cnos_l3_interface:
     aggregate:
       - { name: Ethernet1/33, ipv4: 10.241.107.1/24 }
       - { name: Ethernet1/44, ipv4: 10.240.106.1/24,

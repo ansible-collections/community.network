@@ -85,19 +85,19 @@ EXAMPLES = '''
   tasks:
 
   - name: Config vpna, set address family is ipv4
-    ce_vrf_af:
+    community.network.ce_vrf_af:
       vrf: vpna
       vrf_aftype: v4
       state: present
       provider: "{{ cli }}"
   - name: Config vpna, delete address family is ipv4
-    ce_vrf_af:
+    community.network.ce_vrf_af:
       vrf: vpna
       vrf_aftype: v4
       state: absent
       provider: "{{ cli }}"
   - name: Config vpna, set address family is ipv4,rd=1:1,set vpn_target_type=export_extcommunity,vpn_target_value=2:2
-    ce_vrf_af:
+    community.network.ce_vrf_af:
       vrf: vpna
       vrf_aftype: v4
       route_distinguisher: 1:1
@@ -107,7 +107,7 @@ EXAMPLES = '''
       state: present
       provider: "{{ cli }}"
   - name: Config vpna, set address family is ipv4,rd=1:1,delete vpn_target_type=export_extcommunity,vpn_target_value=2:2
-    ce_vrf_af:
+    community.network.ce_vrf_af:
       vrf: vpna
       vrf_aftype: v4
       route_distinguisher: 1:1

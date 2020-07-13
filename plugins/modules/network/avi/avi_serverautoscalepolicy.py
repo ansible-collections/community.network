@@ -113,7 +113,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create ServerAutoScalePolicy object
-  avi_serverautoscalepolicy:
+  community.network.avi_serverautoscalepolicy:
     controller: 10.10.25.42
     username: admin
     password: something

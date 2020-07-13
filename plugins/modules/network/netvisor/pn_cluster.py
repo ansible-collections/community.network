@@ -75,7 +75,7 @@ options:
 
 EXAMPLES = """
 - name: Create spine cluster
-  pn_cluster:
+  community.network.pn_cluster:
     state: 'present'
     pn_name: 'spine-cluster'
     pn_cluster_node1: 'spine01'
@@ -84,7 +84,7 @@ EXAMPLES = """
     pn_quiet: True
 
 - name: Delete spine cluster
-  pn_cluster:
+  community.network.pn_cluster:
     state: 'absent'
     pn_name: 'spine-cluster'
     pn_quiet: True

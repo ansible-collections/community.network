@@ -49,7 +49,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
   - name: Update user password
-    avi_useraccount:
+    community.network.avi_useraccount:
       controller: ""
       username: ""
       password: new_password
@@ -58,7 +58,7 @@ EXAMPLES = '''
       force_change: false
 
   - name: Update user password using avi_credentials
-    avi_useraccount:
+    community.network.avi_useraccount:
       avi_credentials: ""
       old_password: ""
       force_change: false

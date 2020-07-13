@@ -63,20 +63,20 @@ EXAMPLES = '''
 Tasks: The following are examples of using the module cnos_facts.
 ---
 - name: Test cnos Facts
-  cnos_facts:
+  community.network.cnos_facts:
 
 ---
 # Collect all facts from the device
-- cnos_facts:
+- community.network.cnos_facts:
     gather_subset: all
 
 # Collect only the config and default facts
-- cnos_facts:
+- community.network.cnos_facts:
     gather_subset:
       - config
 
 # Do not collect hardware facts
-- cnos_facts:
+- community.network.cnos_facts:
     gather_subset:
       - "!hardware"
 '''

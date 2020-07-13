@@ -80,22 +80,22 @@ notes:
 EXAMPLES = r"""
 tasks:
   - name: Run show version on remote devices
-    eric_eccli_command:
+    community.network.eric_eccli_command:
       commands: show version
 
   - name: Run show version and check to see if output contains IPOS
-    eric_eccli_command:
+    community.network.eric_eccli_command:
       commands: show version
       wait_for: result[0] contains IPOS
 
   - name: Run multiple commands on remote nodes
-    eric_eccli_command:
+    community.network.eric_eccli_command:
       commands:
         - show version
         - show running-config interfaces
 
   - name: Run multiple commands and evaluate the output
-    eric_eccli_command:
+    community.network.eric_eccli_command:
       commands:
         - show version
         - show running-config interfaces

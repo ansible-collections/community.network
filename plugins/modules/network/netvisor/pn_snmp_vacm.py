@@ -52,21 +52,21 @@ options:
 
 EXAMPLES = """
 - name: Create snmp vacm
-  pn_snmp_vacm:
+  community.network.pn_snmp_vacm:
     pn_cliswitch: "sw01"
     state: "present"
     pn_user_name: "foo"
     pn_user_type: "rouser"
 
 - name: Update snmp vacm
-  pn_snmp_vacm:
+  community.network.pn_snmp_vacm:
     pn_cliswitch: "sw01"
     state: "update"
     pn_user_name: "foo"
     pn_user_type: "rwuser"
 
 - name: Delete snmp vacm
-  pn_snmp_vacm:
+  community.network.pn_snmp_vacm:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_user_name: "foo"

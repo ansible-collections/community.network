@@ -157,7 +157,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create GslbService object
-  avi_gslbservice:
+  community.network.avi_gslbservice:
     controller: 10.10.25.42
     username: admin
     password: something

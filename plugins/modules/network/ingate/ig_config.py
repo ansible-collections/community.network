@@ -118,7 +118,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Load factory defaults
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       factory: true
     register: result
@@ -126,7 +126,7 @@ EXAMPLES = '''
       var: result
 
   - name: Revert to last known applied configuration
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       revert: true
     register: result
@@ -134,7 +134,7 @@ EXAMPLES = '''
       var: result
 
   - name: Change the unit name
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       modify: true
       table: misc.unitname
@@ -145,7 +145,7 @@ EXAMPLES = '''
       var: result
 
   - name: Add a DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       add: true
       table: misc.dns_servers
@@ -156,7 +156,7 @@ EXAMPLES = '''
       var: result
 
   - name: Add a DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       add: true
       table: misc.dns_servers
@@ -167,7 +167,7 @@ EXAMPLES = '''
       var: result
 
   - name: Add a DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       add: true
       table: misc.dns_servers
@@ -178,7 +178,7 @@ EXAMPLES = '''
       var: last_dns
 
   - name: Modify the last added DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       modify: true
       table: misc.dns_servers
@@ -190,7 +190,7 @@ EXAMPLES = '''
       var: result
 
   - name: Return the last added DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       get: true
       table: misc.dns_servers
@@ -200,7 +200,7 @@ EXAMPLES = '''
       var: result
 
   - name: Remove last added DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       delete: true
       table: misc.dns_servers
@@ -210,7 +210,7 @@ EXAMPLES = '''
       var: result
 
   - name: Return the all rows from table misc.dns_servers
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       get: true
       table: misc.dns_servers
@@ -219,7 +219,7 @@ EXAMPLES = '''
       var: result
 
   - name: Remove remaining DNS servers
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       delete: true
       table: misc.dns_servers
@@ -228,7 +228,7 @@ EXAMPLES = '''
       var: result
 
   - name: Get rowid for interface eth0
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       return_rowid: true
       table: network.local_nets
@@ -239,7 +239,7 @@ EXAMPLES = '''
       var: result
 
   - name: Store the preliminary configuration
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       store: true
     register: result
@@ -247,7 +247,7 @@ EXAMPLES = '''
       var: result
 
   - name: Do backup of the configuration database
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       download: true
       store_download: true

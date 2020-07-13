@@ -105,19 +105,19 @@ options:
 
 EXAMPLES = """
 - name: Configure the remote device
-  edgeos_config:
+  community.network.edgeos_config:
     lines:
       - set system host-name {{ inventory_hostname }}
       - set service lldp
       - delete service dhcp-server
 
 - name: Backup and load from file
-  edgeos_config:
+  community.network.edgeos_config:
     src: edgeos.cfg
     backup: yes
 
 - name: Configurable backup path
-  edgeos_config:
+  community.network.edgeos_config:
     src: edgeos.cfg
     backup: yes
     backup_options:

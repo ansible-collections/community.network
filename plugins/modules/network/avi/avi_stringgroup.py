@@ -67,7 +67,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create a string group configuration
-    avi_stringgroup:
+    community.network.avi_stringgroup:
       controller: '{{ controller }}'
       password: '{{ password }}'
       username: '{{ username }}'

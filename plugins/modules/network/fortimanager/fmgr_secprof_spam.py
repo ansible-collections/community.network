@@ -380,12 +380,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_spam:
+    community.network.fmgr_secprof_spam:
       name: "Ansible_Spam_Filter_Profile"
       mode: "delete"
 
   - name: Create FMGR_SPAMFILTER_PROFILE
-    fmgr_secprof_spam:
+    community.network.fmgr_secprof_spam:
       host: "{{ inventory_hostname }}"
       username: "{{ username }}"
       password: "{{ password }}"

@@ -65,26 +65,26 @@ options:
 EXAMPLES = '''
 
   - name: Configure global igmp enable
-    ce_multicast_igmp_enable:
+    community.network.ce_multicast_igmp_enable:
       aftype: v4
       features: 'global'
       state: present
 
   - name: Configure global igmp disable
-    ce_multicast_igmp_enable:
+    community.network.ce_multicast_igmp_enable:
       features: 'global'
       aftype: v4
       state: absent
 
   - name: Configure vlan igmp enable
-    ce_multicast_igmp_enable:
+    community.network.ce_multicast_igmp_enable:
       features: 'vlan'
       aftype: v4
       vlan_id: 1
       igmp: true
 
   - name: New proxy,igmp,version
-    ce_multicast_igmp_enable:
+    community.network.ce_multicast_igmp_enable:
       features: 'vlan'
       aftype: v4
       vlan_id: 1
@@ -93,14 +93,14 @@ EXAMPLES = '''
       version: 1
 
   - name: Modify proxy,igmp,version
-    ce_multicast_igmp_enable:
+    community.network.ce_multicast_igmp_enable:
       features: 'vlan'
       aftype: v4
       vlan_id: 1
       version: 2
 
   - name: Delete proxy,igmp,version
-    ce_multicast_igmp_enable:
+    community.network.ce_multicast_igmp_enable:
       features: 'vlan'
       aftype: v4
       vlan_id: 1

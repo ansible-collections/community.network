@@ -69,7 +69,7 @@ options:
 EXAMPLES = '''
 # Generates a new self-signed certificate using ssh
 - name: Generate self signed certificate
-  panos_cert_gen_ssh:
+  community.network.panos_cert_gen_ssh:
     ip_address: "192.168.1.1"
     password: "paloalto"
     cert_cn: "1.1.1.1"

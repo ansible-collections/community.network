@@ -89,7 +89,7 @@ vars:
 
 ---
 - name: Test contains operator
-  enos_command:
+  community.network.enos_command:
     commands:
       - show version
       - show system memory
@@ -105,7 +105,7 @@ vars:
       - "result.stdout is defined"
 
 - name: Get output for single command
-  enos_command:
+  community.network.enos_command:
     commands: ['show version']
     provider: "{{ cli }}"
   register: result
@@ -116,7 +116,7 @@ vars:
       - "result.stdout is defined"
 
 - name: Get output for multiple commands
-  enos_command:
+  community.network.enos_command:
     commands:
       - show version
       - show interface information

@@ -65,7 +65,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create CustomIpamDnsProfile object
-  avi_customipamdnsprofile:
+  community.network.avi_customipamdnsprofile:
     controller: 10.10.25.42
     username: admin
     password: something

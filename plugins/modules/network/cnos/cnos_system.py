@@ -82,22 +82,22 @@ options:
 
 EXAMPLES = """
 - name: Configure hostname and domain-name
-  cnos_system:
+  community.network.cnos_system:
     hostname: cnos01
     domain_name: test.example.com
 
 - name: Remove configuration
-  cnos_system:
+  community.network.cnos_system:
     state: absent
 
 - name: Configure name servers
-  cnos_system:
+  community.network.cnos_system:
     name_servers:
       - 8.8.8.8
       - 8.8.4.4
 
 - name: Configure DNS Lookup sources
-  cnos_system:
+  community.network.cnos_system:
     lookup_source: MgmtEth0/0/CPU0/0
     lookup_enabled: yes
 

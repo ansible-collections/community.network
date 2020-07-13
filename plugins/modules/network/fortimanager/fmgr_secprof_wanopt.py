@@ -451,12 +451,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_wanopt:
+    community.network.fmgr_secprof_wanopt:
       name: "Ansible_WanOpt_Profile"
       mode: "delete"
 
   - name: Create FMGR_WANOPT_PROFILE
-    fmgr_secprof_wanopt:
+    community.network.fmgr_secprof_wanopt:
       mode: "set"
       adom: "root"
       transparent: "enable"

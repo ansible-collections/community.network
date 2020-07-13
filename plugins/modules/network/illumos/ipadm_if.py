@@ -38,12 +38,12 @@ options:
 
 EXAMPLES = '''
 - name: Create vnic0 interface
-  ipadm_if:
+  community.network.ipadm_if:
     name: vnic0
     state: enabled
 
 - name: Disable vnic0 interface
-  ipadm_if:
+  community.network.ipadm_if:
     name: vnic0
     state: disabled
 '''

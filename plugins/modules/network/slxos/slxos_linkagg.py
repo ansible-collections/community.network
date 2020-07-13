@@ -57,17 +57,17 @@ options:
 
 EXAMPLES = """
 - name: Create link aggregation group
-  slxos_linkagg:
+  community.network.slxos_linkagg:
     group: 10
     state: present
 
 - name: Delete link aggregation group
-  slxos_linkagg:
+  community.network.slxos_linkagg:
     group: 10
     state: absent
 
 - name: Set link aggregation group to members
-  slxos_linkagg:
+  community.network.slxos_linkagg:
     group: 200
     mode: active
     members:
@@ -75,14 +75,14 @@ EXAMPLES = """
       - Ethernet 0/2
 
 - name: Remove link aggregation group from Ethernet 0/1
-  slxos_linkagg:
+  community.network.slxos_linkagg:
     group: 200
     mode: active
     members:
       - Ethernet 0/1
 
 - name: Create aggregate of linkagg definitions
-  slxos_linkagg:
+  community.network.slxos_linkagg:
     aggregate:
       - { group: 3, mode: on, members: [Ethernet 0/1] }
       - { group: 100, mode: passive, members: [Ethernet 0/2] }

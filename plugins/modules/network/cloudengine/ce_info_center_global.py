@@ -143,45 +143,45 @@ EXAMPLES = '''
   tasks:
 
   - name: Config info-center enable
-    ce_info_center_global:
+    community.network.ce_info_center_global:
       info_center_enable: true
       state: present
       provider: "{{ cli }}"
 
   - name: Config statistic-suppress enable
-    ce_info_center_global:
+    community.network.ce_info_center_global:
       suppress_enable: true
       state: present
       provider: "{{ cli }}"
 
   - name: Config info-center syslog packet-priority 1
-    ce_info_center_global:
+    community.network.ce_info_center_global:
       packet_priority: 2
       state: present
       provider: "{{ cli }}"
 
   - name: Config info-center channel 1 name aaa
-    ce_info_center_global:
+    community.network.ce_info_center_global:
       channel_id: 1
       channel_cfg_name: aaa
       state: present
       provider: "{{ cli }}"
 
   - name: Config info-center logfile size 10
-    ce_info_center_global:
+    community.network.ce_info_center_global:
       logfile_max_num: 10
       state: present
       provider: "{{ cli }}"
 
   - name: Config info-center console channel 1
-    ce_info_center_global:
+    community.network.ce_info_center_global:
       channel_out_direct: console
       channel_id: 1
       state: present
       provider: "{{ cli }}"
 
   - name: Config info-center filter-id bymodule-alias snmp snmp_ipunlock
-    ce_info_center_global:
+    community.network.ce_info_center_global:
       filter_feature_name: SNMP
       filter_log_name: SNMP_IPLOCK
       state: present
@@ -189,13 +189,13 @@ EXAMPLES = '''
 
 
   - name: Config info-center max-logfile-number 16
-    ce_info_center_global:
+    community.network.ce_info_center_global:
       logfile_max_size: 16
       state: present
       provider: "{{ cli }}"
 
   - name: Config syslog loghost domain.
-    ce_info_center_global:
+    community.network.ce_info_center_global:
       server_domain: aaa
       vrf_name: aaa
       channel_id: 1

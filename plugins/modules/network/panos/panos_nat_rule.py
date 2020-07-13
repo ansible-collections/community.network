@@ -134,7 +134,7 @@ options:
 EXAMPLES = '''
 # Create a source and destination nat rule
   - name: Create NAT SSH rule for 10.0.1.101
-    panos_nat_rule:
+    community.network.panos_nat_rule:
       ip_address: '{{ ip_address }}'
       username: '{{ username }}'
       password: '{{ password }}'

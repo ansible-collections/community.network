@@ -80,7 +80,7 @@ options:
 
 EXAMPLES = """
 - name: Modify stp
-  pn_stp:
+  community.network.pn_stp:
     pn_cliswitch: "sw01"
     state: "update"
     pn_hello_time: "3"

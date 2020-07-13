@@ -39,28 +39,28 @@ options:
 
 EXAMPLES = r'''
   - name: Set isis process
-    ce_is_is_instance:
+    community.network.ce_is_is_instance:
       instance_id: 3
       state: present
 
   - name: Unset isis process
-    ce_is_is_instance:
+    community.network.ce_is_is_instance:
       instance_id: 3
       state: absent
 
   - name: Check isis process
-    ce_is_is_instance:
+    community.network.ce_is_is_instance:
       instance_id: 4294967296
       state: present
 
   - name: Set vpn name
-    ce_is_is_instance:
+    community.network.ce_is_is_instance:
       instance_id: 22
       vpn_name: vpn1
       state: present
 
   - name: Check vpn name
-    ce_is_is_instance:
+    community.network.ce_is_is_instance:
       instance_id: 22
       vpn_name: vpn1234567896321452212221556asdasdasdasdsadvdv
       state: present

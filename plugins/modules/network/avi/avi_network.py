@@ -93,7 +93,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create Network object
-  avi_network:
+  community.network.avi_network:
     controller: 10.10.25.42
     username: admin
     password: something

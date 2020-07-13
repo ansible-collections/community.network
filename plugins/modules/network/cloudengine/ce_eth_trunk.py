@@ -90,7 +90,7 @@ EXAMPLES = '''
 
   tasks:
   - name: Ensure Eth-Trunk100 is created, add two members, and set to mode lacp-static
-    ce_eth_trunk:
+    community.network.ce_eth_trunk:
       trunk_id: 100
       members: ['10GE1/0/24','10GE1/0/25']
       mode: 'lacp-static'

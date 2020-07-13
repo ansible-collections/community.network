@@ -56,7 +56,7 @@ options:
 
 EXAMPLES = '''
 - name: Bcf leaf switch
-  bcf_switch:
+  community.network.bcf_switch:
     name: Rack1Leaf1
     fabric_role: leaf
     leaf_group: R1

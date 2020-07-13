@@ -942,12 +942,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_av:
+    community.network.fmgr_secprof_av:
       name: "Ansible_AV_Profile"
       mode: "delete"
 
   - name: CREATE Profile
-    fmgr_secprof_av:
+    community.network.fmgr_secprof_av:
       name: "Ansible_AV_Profile"
       comment: "Created by Ansible Module TEST"
       mode: "set"

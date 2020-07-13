@@ -167,13 +167,13 @@ EXAMPLES = """
 
   tasks:
   - name: "Configure top level configuration and save it"
-    ce_config:
+    community.network.ce_config:
       lines: sysname {{ inventory_hostname }}
       save: yes
       provider: "{{ cli }}"
 
   - name: "Configure acl configuration and save it"
-    ce_config:
+    community.network.ce_config:
       lines:
         - rule 10 permit source 1.1.1.1 32
         - rule 20 permit source 2.2.2.2 32
@@ -186,7 +186,7 @@ EXAMPLES = """
       provider: "{{ cli }}"
 
   - name: "Configure acl configuration and save it"
-    ce_config:
+    community.network.ce_config:
       lines:
         - rule 10 permit source 1.1.1.1 32
         - rule 20 permit source 2.2.2.2 32
@@ -198,7 +198,7 @@ EXAMPLES = """
       provider: "{{ cli }}"
 
   - name: Configurable backup path
-    ce_config:
+    community.network.ce_config:
       lines: sysname {{ inventory_hostname }}
       provider: "{{ cli }}"
       backup: yes

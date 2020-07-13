@@ -104,7 +104,7 @@ EXAMPLES = '''
 
   tasks:
   - name: Enables OSPF and sets the cost on an interface
-    ce_interface_ospf:
+    community.network.ce_interface_ospf:
       interface: 10GE1/0/30
       process_id: 1
       area: 100
@@ -112,7 +112,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Sets the dead interval of the OSPF neighbor
-    ce_interface_ospf:
+    community.network.ce_interface_ospf:
       interface: 10GE1/0/30
       process_id: 1
       area: 100
@@ -120,7 +120,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Sets the interval for sending Hello packets on an interface
-    ce_interface_ospf:
+    community.network.ce_interface_ospf:
       interface: 10GE1/0/30
       process_id: 1
       area: 100
@@ -128,7 +128,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Disables an interface from receiving and sending OSPF packets
-    ce_interface_ospf:
+    community.network.ce_interface_ospf:
       interface: 10GE1/0/30
       process_id: 1
       area: 100

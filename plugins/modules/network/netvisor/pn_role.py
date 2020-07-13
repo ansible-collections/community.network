@@ -67,7 +67,7 @@ options:
 
 EXAMPLES = """
 - name: Role create
-  pn_role:
+  community.network.pn_role:
     pn_cliswitch: 'sw01'
     state: 'present'
     pn_name: 'foo'
@@ -75,13 +75,13 @@ EXAMPLES = """
     pn_access: 'read-only'
 
 - name: Role delete
-  pn_role:
+  community.network.pn_role:
     pn_cliswitch: 'sw01'
     state: 'absent'
     pn_name: 'foo'
 
 - name: Role modify
-  pn_role:
+  community.network.pn_role:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_name: 'foo'

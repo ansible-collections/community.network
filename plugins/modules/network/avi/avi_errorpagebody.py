@@ -65,7 +65,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create ErrorPageBody object
-  avi_errorpagebody:
+  community.network.avi_errorpagebody:
     controller: 10.10.25.42
     username: admin
     password: something

@@ -63,12 +63,12 @@ options:
 
 EXAMPLES = """
 - name: Run a command
-  ironware_command:
+  community.network.ironware_command:
     commands:
       - show version
 
 - name: Run several commands
-  ironware_command:
+  community.network.ironware_command:
     commands:
       - show interfaces brief wide
       - show mpls vll

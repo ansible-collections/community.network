@@ -79,25 +79,25 @@ vars:
 ---
 tasks:
   - name: Run show version on remote devices
-    sros_command:
+    community.network.sros_command:
       commands: show version
       provider: "{{ cli }}"
 
   - name: Run show version and check to see if output contains sros
-    sros_command:
+    community.network.sros_command:
       commands: show version
       wait_for: result[0] contains sros
       provider: "{{ cli }}"
 
   - name: Run multiple commands on remote nodes
-    sros_command:
+    community.network.sros_command:
       commands:
         - show version
         - show port detail
       provider: "{{ cli }}"
 
   - name: Run multiple commands and evaluate the output
-    sros_command:
+    community.network.sros_command:
       commands:
         - show version
         - show port detail

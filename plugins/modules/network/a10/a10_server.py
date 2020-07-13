@@ -67,7 +67,7 @@ options:
 
 EXAMPLES = '''
 - name: Create a new server
-  a10_server:
+  community.network.a10_server:
     host: a10.mydomain.com
     username: myadmin
     password: mypassword

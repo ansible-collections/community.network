@@ -103,7 +103,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create ServiceEngine object
-  avi_serviceengine:
+  community.network.avi_serviceengine:
     controller: 10.10.25.42
     username: admin
     password: something

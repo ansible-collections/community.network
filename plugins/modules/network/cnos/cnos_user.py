@@ -94,13 +94,13 @@ options:
 
 EXAMPLES = """
 - name: Create a new user
-  cnos_user:
+  community.network.cnos_user:
     name: ansible
     sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
     state: present
 
 - name: Remove all users except admin
-  cnos_user:
+  community.network.cnos_user:
     purge: yes
 
 - name: Set multiple users role

@@ -124,14 +124,14 @@ options:
 
 EXAMPLES = '''
 - name: CREATE BASIC POLICY PACKAGE
-  fmgr_fwpol_package:
+  community.network.fmgr_fwpol_package:
     adom: "ansible"
     mode: "add"
     name: "testPackage"
     object_type: "pkg"
 
 - name: ADD PACKAGE WITH TARGETS
-  fmgr_fwpol_package:
+  community.network.fmgr_fwpol_package:
     mode: "add"
     adom: "ansible"
     name: "ansibleTestPackage1"
@@ -141,14 +141,14 @@ EXAMPLES = '''
     scope_members: "seattle-fgt02, seattle-fgt03"
 
 - name: ADD FOLDER
-  fmgr_fwpol_package:
+  community.network.fmgr_fwpol_package:
     mode: "add"
     adom: "ansible"
     name: "ansibleTestFolder1"
     object_type: "folder"
 
 - name: ADD PACKAGE INTO PARENT FOLDER
-  fmgr_fwpol_package:
+  community.network.fmgr_fwpol_package:
     mode: "set"
     adom: "ansible"
     name: "ansibleTestPackage2"
@@ -156,7 +156,7 @@ EXAMPLES = '''
     parent_folder: "ansibleTestFolder1"
 
 - name: ADD FOLDER INTO PARENT FOLDER
-  fmgr_fwpol_package:
+  community.network.fmgr_fwpol_package:
     mode: "set"
     adom: "ansible"
     name: "ansibleTestFolder2"
@@ -164,7 +164,7 @@ EXAMPLES = '''
     parent_folder: "ansibleTestFolder1"
 
 - name: INSTALL PACKAGE
-  fmgr_fwpol_package:
+  community.network.fmgr_fwpol_package:
     mode: "set"
     adom: "ansible"
     name: "ansibleTestPackage1"
@@ -172,14 +172,14 @@ EXAMPLES = '''
     scope_members: "seattle-fgt03, seattle-fgt02"
 
 - name: REMOVE PACKAGE
-  fmgr_fwpol_package:
+  community.network.fmgr_fwpol_package:
     mode: "delete"
     adom: "ansible"
     name: "ansibleTestPackage1"
     object_type: "pkg"
 
 - name: REMOVE NESTED PACKAGE
-  fmgr_fwpol_package:
+  community.network.fmgr_fwpol_package:
     mode: "delete"
     adom: "ansible"
     name: "ansibleTestPackage2"
@@ -187,7 +187,7 @@ EXAMPLES = '''
     parent_folder: "ansibleTestFolder1"
 
 - name: REMOVE NESTED FOLDER
-  fmgr_fwpol_package:
+  community.network.fmgr_fwpol_package:
     mode: "delete"
     adom: "ansible"
     name: "ansibleTestFolder2"
@@ -195,7 +195,7 @@ EXAMPLES = '''
     parent_folder: "ansibleTestFolder1"
 
 - name: REMOVE FOLDER
-  fmgr_fwpol_package:
+  community.network.fmgr_fwpol_package:
     mode: "delete"
     adom: "ansible"
     name: "ansibleTestFolder1"

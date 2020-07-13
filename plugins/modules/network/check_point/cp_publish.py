@@ -41,7 +41,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Publish
-  cp_publish:
+  community.network.cp_publish:
 """
 
 RETURN = """

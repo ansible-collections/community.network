@@ -58,7 +58,7 @@ options:
 
 EXAMPLES = '''
 - name: Sync NSO device
-  nso_action:
+  community.network.nso_action:
     url: http://localhost:8080/jsonrpc
     username: username
     password: password

@@ -85,21 +85,21 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config SNMP community"
-    ce_snmp_community:
+    community.network.ce_snmp_community:
       state: present
       community_name: Wdz123456789
       access_right: write
       provider: "{{ cli }}"
 
   - name: "Undo SNMP community"
-    ce_snmp_community:
+    community.network.ce_snmp_community:
       state: absent
       community_name: Wdz123456789
       access_right: write
       provider: "{{ cli }}"
 
   - name: "Config SNMP group"
-    ce_snmp_community:
+    community.network.ce_snmp_community:
       state: present
       group_name: wdz_group
       security_level: noAuthNoPriv
@@ -107,7 +107,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Undo SNMP group"
-    ce_snmp_community:
+    community.network.ce_snmp_community:
       state: absent
       group_name: wdz_group
       security_level: noAuthNoPriv

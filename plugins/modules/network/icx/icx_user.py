@@ -137,22 +137,22 @@ options:
 
 EXAMPLES = """
 - name: Create a new user without password
-  icx_user:
+  community.network.icx_user:
     name: user1
     nopassword: true
 
 - name: Create a new user with password
-  icx_user:
+  community.network.icx_user:
     name: user1
     configured_password: 'newpassword'
 
 - name: Remove users
-  icx_user:
+  community.network.icx_user:
     name: user1
     state: absent
 
 - name: Set user privilege level to 5
-  icx_user:
+  community.network.icx_user:
     name: user1
     privilege: 5
 """

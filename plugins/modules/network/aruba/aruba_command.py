@@ -68,22 +68,22 @@ options:
 EXAMPLES = """
 tasks:
   - name: Run show version on remote devices
-    aruba_command:
+    community.network.aruba_command:
       commands: show version
 
   - name: Run show version and check to see if output contains Aruba
-    aruba_command:
+    community.network.aruba_command:
       commands: show version
       wait_for: result[0] contains Aruba
 
   - name: Run multiple commands on remote nodes
-    aruba_command:
+    community.network.aruba_command:
       commands:
         - show version
         - show interfaces
 
   - name: Run multiple commands and evaluate the output
-    aruba_command:
+    community.network.aruba_command:
       commands:
         - show version
         - show interfaces

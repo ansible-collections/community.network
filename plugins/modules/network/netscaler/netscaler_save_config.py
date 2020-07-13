@@ -63,7 +63,7 @@ EXAMPLES = '''
 ---
 - name: Save netscaler configuration
   delegate_to: localhost
-  netscaler_save_config:
+  community.network.netscaler_save_config:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot
@@ -85,7 +85,7 @@ EXAMPLES = '''
 
 - name: Save configuration
   delegate_to: localhost
-  netscaler_save_config:
+  community.network.netscaler_save_config:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

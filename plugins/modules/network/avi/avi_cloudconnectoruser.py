@@ -79,7 +79,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create a Cloud connector user that is used for integration into cloud platforms
-    avi_cloudconnectoruser:
+    community.network.avi_cloudconnectoruser:
       controller: '{{ controller }}'
       name: root
       password: '{{ password }}'

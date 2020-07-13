@@ -73,7 +73,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create L4PolicySet object
-  avi_l4policyset:
+  community.network.avi_l4policyset:
     controller: 10.10.25.42
     username: admin
     password: something

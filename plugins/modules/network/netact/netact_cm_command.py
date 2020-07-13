@@ -139,14 +139,14 @@ author:
 EXAMPLES = '''
 # Pass in a message
 - name: Upload
-  netact_cm_command:
+  community.network.netact_cm_command:
     operation: "Upload"
     opsname: 'Uploading_test'
     dn: "PLMN-PLMN/MRBTS-746"
     extra_opts: '-btsContentInUse true'
 
 - name: Provision
-  netact_cm_command:
+  community.network.netact_cm_command:
     operation: "Provision"
     opsname: 'Provision_test'
     dn: "PLMN-PLMN/MRBTS-746"
@@ -156,7 +156,7 @@ EXAMPLES = '''
     backupPlanName: 'myBackupPlanName'
 
 - name: Export and fetching data from target
-  netact_cm_command:
+  community.network.netact_cm_command:
     operation: "Export"
     opsname: 'Export_test'
     planName: 'mySiteTemplate'
@@ -167,7 +167,7 @@ EXAMPLES = '''
     dest: fetched
 
 - name: Import
-  netact_cm_command:
+  community.network.netact_cm_command:
     operation: "Import"
     opsname: 'Import_test'
     fileFormat: 'CSV'
@@ -178,7 +178,7 @@ EXAMPLES = '''
 
 # fail the module
 - name: Test failure of the module
-  netact_cm_command:
+  community.network.netact_cm_command:
     name: fail me
 '''
 

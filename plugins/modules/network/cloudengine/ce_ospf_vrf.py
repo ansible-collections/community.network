@@ -153,7 +153,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Configure ospf route id
-    ce_ospf_vrf:
+    community.network.ce_ospf_vrf:
       ospf: 2
       route_id: 2.2.2.2
       lsaointervalflag: False

@@ -70,7 +70,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create TrafficCloneProfile object
-  avi_trafficcloneprofile:
+  community.network.avi_trafficcloneprofile:
     controller: 10.10.25.42
     username: admin
     password: something

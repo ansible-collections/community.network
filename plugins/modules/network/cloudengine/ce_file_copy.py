@@ -64,7 +64,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Copy a local file to remote device"
-    ce_file_copy:
+    community.network.ce_file_copy:
       local_file: /usr/vrpcfg.cfg
       remote_file: /vrpcfg.cfg
       file_system: 'flash:'

@@ -103,7 +103,7 @@ options:
 
 EXAMPLES = """
 - name: Configure hostname and domain name
-  icx_system:
+  community.network.icx_system:
     hostname: icx
     domain_search:
       - ansible.com
@@ -111,7 +111,7 @@ EXAMPLES = """
       - ruckus.com
 
 - name: Configure radius server of type auth-port
-  icx_system:
+  community.network.icx_system:
     aaa_servers:
       - type: radius
         hostname: radius-server
@@ -125,7 +125,7 @@ EXAMPLES = """
           - mac-auth
 
 - name: Configure tacacs server
-  icx_system:
+  community.network.icx_system:
     aaa_servers:
       - type: tacacs
         hostname: tacacs-server
@@ -136,7 +136,7 @@ EXAMPLES = """
         auth_key: xyz
 
 - name: Configure name servers
-  icx_system:
+  community.network.icx_system:
     name_servers:
       - 8.8.8.8
       - 8.8.4.4

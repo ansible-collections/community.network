@@ -172,23 +172,23 @@ options:
 
 EXAMPLES = """
 - name: Configure top level configuration
-  aruba_config:
+  community.network.aruba_config:
     lines: hostname {{ inventory_hostname }}
 
 - name: Diff the running-config against a provided config
-  aruba_config:
+  community.network.aruba_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
 - name: Configure interface settings
-  aruba_config:
+  community.network.aruba_config:
     lines:
       - description test interface
       - ip access-group 1 in
     parents: interface gigabitethernet 0/0/0
 
 - name: Load new acl into device
-  aruba_config:
+  community.network.aruba_config:
     lines:
       - permit host 10.10.10.10
       - ipv6 permit host fda9:97d6:32a3:3e59::3333
@@ -197,7 +197,7 @@ EXAMPLES = """
     match: exact
 
 - name: Configurable backup path
-  aruba_config:
+  community.network.aruba_config:
     backup: yes
     lines: hostname {{ inventory_hostname }}
     backup_options:

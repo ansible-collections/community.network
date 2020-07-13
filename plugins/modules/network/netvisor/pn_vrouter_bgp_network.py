@@ -46,7 +46,7 @@ options:
 
 EXAMPLES = """
 - name:  Add network to bgp
-  pn_vrouter_bgp_network:
+  community.network.pn_vrouter_bgp_network:
     pn_cliswitch: "sw01"
     state: "present"
     pn_vrouter_name: "foo-vrouter"
@@ -54,7 +54,7 @@ EXAMPLES = """
     pn_netmask: '31'
 
 - name:  Remove network from bgp
-  pn_vrouter_bgp_network:
+  community.network.pn_vrouter_bgp_network:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_vrouter_name: "foo-vrouter"

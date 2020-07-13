@@ -84,7 +84,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create an IP Address Group configuration
-    avi_ipaddrgroup:
+    community.network.avi_ipaddrgroup:
       controller: '{{ controller }}'
       username: '{{ username }}'
       password: '{{ password }}'

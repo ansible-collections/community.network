@@ -77,7 +77,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create ErrorPageProfile object
-  avi_errorpageprofile:
+  community.network.avi_errorpageprofile:
     controller: 10.10.25.42
     username: admin
     password: something

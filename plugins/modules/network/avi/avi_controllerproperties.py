@@ -311,7 +311,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create ControllerProperties object
-  avi_controllerproperties:
+  community.network.avi_controllerproperties:
     controller: 10.10.25.42
     username: admin
     password: something

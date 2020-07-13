@@ -81,7 +81,7 @@ EXAMPLES = '''
 
   tasks:
   - name: Ensure ipv4 address is configured on 10GE1/0/22
-    ce_ip_interface:
+    community.network.ce_ip_interface:
       interface: 10GE1/0/22
       version: v4
       state: present
@@ -90,7 +90,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Ensure ipv4 secondary address is configured on 10GE1/0/22
-    ce_ip_interface:
+    community.network.ce_ip_interface:
       interface: 10GE1/0/22
       version: v4
       state: present
@@ -100,14 +100,14 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Ensure ipv6 is enabled on 10GE1/0/22
-    ce_ip_interface:
+    community.network.ce_ip_interface:
       interface: 10GE1/0/22
       version: v6
       state: present
       provider: '{{ cli }}'
 
   - name: Ensure ipv6 address is configured on 10GE1/0/22
-    ce_ip_interface:
+    community.network.ce_ip_interface:
       interface: 10GE1/0/22
       version: v6
       state: present

@@ -70,24 +70,24 @@ EXAMPLES = '''
   tasks:
 
   - name: Display startup information
-    ce_startup:
+    community.network.ce_startup:
       action: display
       provider: "{{ cli }}"
 
   - name: Set startup patch file
-    ce_startup:
+    community.network.ce_startup:
       patch_file: 2.PAT
       slot: all
       provider: "{{ cli }}"
 
   - name: Set startup software file
-    ce_startup:
+    community.network.ce_startup:
       software_file: aa.cc
       slot: 1
       provider: "{{ cli }}"
 
   - name: Set startup cfg file
-    ce_startup:
+    community.network.ce_startup:
       cfg_file: 2.cfg
       slot: 1
       provider: "{{ cli }}"

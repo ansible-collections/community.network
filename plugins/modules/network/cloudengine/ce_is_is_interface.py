@@ -127,28 +127,28 @@ EXAMPLES = '''
       match: none
 
   - name: Set isis circuit-level
-    ce_is_is_interface:
+    community.network.ce_is_is_interface:
       instance_id: 3
       ifname: Eth-Trunk10
       leveltype: level_1_2
       state: present
 
   - name: Set isis level1dispriority
-    ce_is_is_interface:
+    community.network.ce_is_is_interface:
       instance_id: 3
       ifname: Eth-Trunk10
       level1dispriority: 0
       state: present
 
   - name: Set isis level2dispriority
-    ce_is_is_interface:
+    community.network.ce_is_is_interface:
       instance_id: 3
       ifname: Eth-Trunk10
       level2dispriority: 0
       state: present
 
   - name: Set isis silentenable
-    ce_is_is_interface:
+    community.network.ce_is_is_interface:
       instance_id: 3
       ifname: Eth-Trunk10
       silentenable: true

@@ -46,7 +46,7 @@ options:
 
 EXAMPLES = '''
 - name: Bigmon inline service chain
-  bigmon_chain:
+  community.network.bigmon_chain:
     name: MyChain
     controller: '{{ inventory_hostname }}'
     state: present

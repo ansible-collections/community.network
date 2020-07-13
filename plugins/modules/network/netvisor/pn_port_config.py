@@ -167,14 +167,14 @@ options:
 
 EXAMPLES = """
 - name: Port config modify
-  pn_port_config:
+  community.network.pn_port_config:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "all"
     pn_dscp_map: "foo"
 
 - name: Port config modify
-  pn_port_config:
+  community.network.pn_port_config:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "all"

@@ -52,7 +52,7 @@ options:
 
 EXAMPLES = """
 - name: Download pending changes
-  ftd_file_download:
+  community.network.ftd_file_download:
     operation: 'getdownload'
     path_params:
       objId: 'default'

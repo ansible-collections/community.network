@@ -57,19 +57,19 @@ options:
 EXAMPLES = '''
 
 - name: Add two interfaces without committing any changes
-  nclu:
+  community.network.nclu:
     commands:
         - add int swp1
         - add int swp2
 
 - name: Modify hostname to Cumulus-1 and commit the change
-  nclu:
+  community.network.nclu:
     commands:
         - add hostname Cumulus-1
     commit: true
 
 - name: Add 48 interfaces and commit the change.
-  nclu:
+  community.network.nclu:
     template: |
         {% for iface in range(1,49) %}
         add int swp{{iface}}
@@ -78,7 +78,7 @@ EXAMPLES = '''
     description: "Ansible - add swps1-48"
 
 - name: Fetch Status Of Interface
-  nclu:
+  community.network.nclu:
     commands:
         - show interface swp1
   register: output
@@ -88,7 +88,7 @@ EXAMPLES = '''
     var: output
 
 - name: Fetch Details From All Interfaces In JSON Format
-  nclu:
+  community.network.nclu:
     commands:
         - show interface json
   register: output
@@ -98,19 +98,19 @@ EXAMPLES = '''
     var: output["msg"]
 
 - name: Atomically add an interface
-  nclu:
+  community.network.nclu:
     commands:
         - add int swp1
     atomic: true
     description: "Ansible - add swp1"
 
 - name: Remove IP address from interface swp1
-  nclu:
+  community.network.nclu:
     commands:
         - del int swp1 ip address 1.1.1.1/24
 
 - name: Configure BGP AS and add 2 EBGP neighbors using BGP Unnumbered
-  nclu:
+  community.network.nclu:
     commands:
         - add bgp autonomous-system 65000
         - add bgp neighbor swp51 interface remote-as external
@@ -118,7 +118,7 @@ EXAMPLES = '''
     commit: true
 
 - name: Configure BGP AS and Add 2 EBGP neighbors Using BGP Unnumbered via Template
-  nclu:
+  community.network.nclu:
     template: |
       {% for neighbor in range(51,53) %}
       add bgp neighbor swp{{neighbor}} interface remote-as external
@@ -127,7 +127,7 @@ EXAMPLES = '''
     atomic: true
 
 - name: Check BGP Status
-  nclu:
+  community.network.nclu:
     commands:
         - show bgp summary json
   register: output

@@ -124,7 +124,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create Gslb object
-  avi_gslb:
+  community.network.avi_gslb:
     name: "test-gslb"
     avi_credentials:
       username: '{{ username }}'
@@ -157,7 +157,7 @@ EXAMPLES = """
     leader_cluster_uuid: "cluster-d4ee5fcc-3e0a-4d4f-9ae6-4182bc605829"
 
 - name: Update Gslb site's configurations (Patch Add Operation)
-  avi_gslb:
+  community.network.avi_gslb:
     avi_credentials:
       username: '{{ username }}'
       password: '{{ password }}'
@@ -184,7 +184,7 @@ EXAMPLES = """
               - "temp2.com"
 
 - name: Update Gslb site's configurations (Patch Replace Operation)
-  avi_gslb:
+  community.network.avi_gslb:
     avi_credentials:
       username: "{{ username }}"
       password: "{{ password }}"
@@ -212,7 +212,7 @@ EXAMPLES = """
               - "temp3.com"
 
 - name: Update Gslb site's configurations (Patch Delete Operation)
-  avi_gslb:
+  community.network.avi_gslb:
     avi_credentials:
       username: "{{ username }}"
       password: "{{ password }}"

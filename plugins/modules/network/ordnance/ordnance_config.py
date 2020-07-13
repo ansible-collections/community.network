@@ -126,12 +126,12 @@ vars:
 
 ---
 - name: Configure top level configuration
-  ordnance_config:
+  community.network.ordnance_config:
     lines: hostname {{ inventory_hostname }}
     provider: "{{ cli }}"
 
 - name: Configure interface settings
-  ordnance_config:
+  community.network.ordnance_config:
     lines:
       - description test interface
       - ip address 172.31.1.1 255.255.255.0
@@ -139,7 +139,7 @@ vars:
     provider: "{{ cli }}"
 
 - name: Configure bgp router
-  ordnance_config:
+  community.network.ordnance_config:
     lines:
       - neighbor 1.1.1.1 remote-as 1234
       - network 10.0.0.0/24

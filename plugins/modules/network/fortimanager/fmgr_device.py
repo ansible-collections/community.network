@@ -83,7 +83,7 @@ options:
 
 EXAMPLES = '''
 - name: DISCOVER AND ADD DEVICE FGT1
-  fmgr_device:
+  community.network.fmgr_device:
     adom: "root"
     device_username: "admin"
     device_password: "admin"
@@ -94,7 +94,7 @@ EXAMPLES = '''
     blind_add: "enable"
 
 - name: DISCOVER AND ADD DEVICE FGT2
-  fmgr_device:
+  community.network.fmgr_device:
     adom: "root"
     device_username: "admin"
     device_password: "admin"

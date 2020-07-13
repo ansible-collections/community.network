@@ -188,7 +188,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create a VMware cloud with write access mode
-    avi_cloud:
+    community.network.avi_cloud:
       username: '{{ username }}'
       controller: '{{ controller }}'
       password: '{{ password }}'

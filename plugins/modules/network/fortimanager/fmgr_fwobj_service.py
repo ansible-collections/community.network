@@ -221,7 +221,7 @@ options:
 
 EXAMPLES = '''
 - name: ADD A CUSTOM SERVICE FOR TCP/UDP/SCP
-  fmgr_fwobj_service:
+  community.network.fmgr_fwobj_service:
     adom: "ansible"
     name: "ansible_custom_service"
     object_type: "custom"
@@ -231,7 +231,7 @@ EXAMPLES = '''
     sctp_portrange: "100"
 
 - name: ADD A CUSTOM SERVICE FOR TCP/UDP/SCP WITH SOURCE RANGES AND MULTIPLES
-  fmgr_fwobj_service:
+  community.network.fmgr_fwobj_service:
     adom: "ansible"
     name: "ansible_custom_serviceWithSource"
     object_type: "custom"
@@ -241,7 +241,7 @@ EXAMPLES = '''
     sctp_portrange: "100:2000-2500"
 
 - name: ADD A CUSTOM SERVICE FOR ICMP
-  fmgr_fwobj_service:
+  community.network.fmgr_fwobj_service:
     adom: "ansible"
     name: "ansible_custom_icmp"
     object_type: "custom"
@@ -250,7 +250,7 @@ EXAMPLES = '''
     icmp_code: "3"
 
 - name: ADD A CUSTOM SERVICE FOR ICMP6
-  fmgr_fwobj_service:
+  community.network.fmgr_fwobj_service:
     adom: "ansible"
     name: "ansible_custom_icmp6"
     object_type: "custom"
@@ -259,7 +259,7 @@ EXAMPLES = '''
     icmp_code: "1"
 
 - name: ADD A CUSTOM SERVICE FOR IP - GRE
-  fmgr_fwobj_service:
+  community.network.fmgr_fwobj_service:
     adom: "ansible"
     name: "ansible_custom_icmp6"
     object_type: "custom"
@@ -267,7 +267,7 @@ EXAMPLES = '''
     protocol_number: "47"
 
 - name: ADD A CUSTOM PROXY FOR ALL WITH SOURCE RANGES AND MULTIPLES
-  fmgr_fwobj_service:
+  community.network.fmgr_fwobj_service:
     adom: "ansible"
     name: "ansible_custom_proxy_all"
     object_type: "custom"

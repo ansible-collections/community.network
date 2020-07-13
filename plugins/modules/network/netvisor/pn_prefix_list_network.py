@@ -45,7 +45,7 @@ options:
 
 EXAMPLES = """
 - name: Prefix list network add
-  pn_prefix_list_network:
+  community.network.pn_prefix_list_network:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_network: "172.16.3.1"
@@ -53,7 +53,7 @@ EXAMPLES = """
     state: "present"
 
 - name: Prefix list network remove
-  pn_prefix_list_network:
+  community.network.pn_prefix_list_network:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_name: "foo"

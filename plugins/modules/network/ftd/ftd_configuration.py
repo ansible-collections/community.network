@@ -62,7 +62,7 @@ options:
 
 EXAMPLES = """
 - name: Create a network object
-  ftd_configuration:
+  community.network.ftd_configuration:
     operation: "addNetworkObject"
     data:
       name: "Ansible-network-host"
@@ -75,7 +75,7 @@ EXAMPLES = """
     register_as: "hostNetwork"
 
 - name: Delete the network object
-  ftd_configuration:
+  community.network.ftd_configuration:
     operation: "deleteNetworkObject"
     path_params:
       objId: "{{ hostNetwork['id'] }}"

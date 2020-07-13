@@ -123,7 +123,7 @@ options:
 EXAMPLES = '''
 - name: Add a server
   delegate_to: localhost
-  netscaler_nitro_request:
+  community.network.netscaler_nitro_request:
     nsip: "{{ nsip }}"
     nitro_user: "{{ nitro_user }}"
     nitro_pass: "{{ nitro_pass }}"
@@ -136,7 +136,7 @@ EXAMPLES = '''
 
 - name: Update server
   delegate_to: localhost
-  netscaler_nitro_request:
+  community.network.netscaler_nitro_request:
     nsip: "{{ nsip }}"
     nitro_user: "{{ nitro_user }}"
     nitro_pass: "{{ nitro_pass }}"
@@ -150,7 +150,7 @@ EXAMPLES = '''
 - name: Get server
   delegate_to: localhost
   register: result
-  netscaler_nitro_request:
+  community.network.netscaler_nitro_request:
     nsip: "{{ nsip }}"
     nitro_user: "{{ nitro_user }}"
     nitro_pass: "{{ nitro_pass }}"
@@ -161,7 +161,7 @@ EXAMPLES = '''
 - name: Delete server
   delegate_to: localhost
   register: result
-  netscaler_nitro_request:
+  community.network.netscaler_nitro_request:
     nsip: "{{ nsip }}"
     nitro_user: "{{ nitro_user }}"
     nitro_pass: "{{ nitro_pass }}"
@@ -171,7 +171,7 @@ EXAMPLES = '''
 
 - name: Rename server
   delegate_to: localhost
-  netscaler_nitro_request:
+  community.network.netscaler_nitro_request:
     nsip: "{{ nsip }}"
     nitro_user: "{{ nitro_user }}"
     nitro_pass: "{{ nitro_pass }}"
@@ -185,7 +185,7 @@ EXAMPLES = '''
 - name: Get server by args
   delegate_to: localhost
   register: result
-  netscaler_nitro_request:
+  community.network.netscaler_nitro_request:
     nsip: "{{ nsip }}"
     nitro_user: "{{ nitro_user }}"
     nitro_pass: "{{ nitro_pass }}"
@@ -197,7 +197,7 @@ EXAMPLES = '''
 - name: Get server by filter
   delegate_to: localhost
   register: result
-  netscaler_nitro_request:
+  community.network.netscaler_nitro_request:
     nsip: "{{ nsip }}"
     nitro_user: "{{ nitro_user }}"
     nitro_pass: "{{ nitro_pass }}"
@@ -214,7 +214,7 @@ EXAMPLES = '''
 - name: Do mas login
   delegate_to: localhost
   register: login_result
-  netscaler_nitro_request:
+  community.network.netscaler_nitro_request:
     nsip: "{{ mas_ip }}"
     nitro_user: "{{ nitro_user }}"
     nitro_pass: "{{ nitro_pass }}"
@@ -222,7 +222,7 @@ EXAMPLES = '''
 
 - name: Add resource through MAS proxy
   delegate_to: localhost
-  netscaler_nitro_request:
+  community.network.netscaler_nitro_request:
     nsip: "{{ mas_ip }}"
     nitro_auth_token: "{{ login_result.nitro_auth_token }}"
     instance_ip: "{{ nsip }}"

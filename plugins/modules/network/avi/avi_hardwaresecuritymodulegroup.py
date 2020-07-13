@@ -58,7 +58,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create HardwareSecurityModuleGroup object
-  avi_hardwaresecuritymodulegroup:
+  community.network.avi_hardwaresecuritymodulegroup:
     controller: 10.10.25.42
     username: admin
     password: something

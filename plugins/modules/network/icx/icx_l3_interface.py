@@ -118,51 +118,51 @@ options:
 
 EXAMPLES = """
 - name: Remove ethernet 1/1/1 IPv4 and IPv6 address
-  icx_l3_interface:
+  community.network.icx_l3_interface:
     name: ethernet 1/1/1
     ipv4: 192.168.0.1/24
     ipv6: "fd5d:12c9:2201:1::1/64"
     state: absent
 
 - name: Replace ethernet 1/1/1 primary IPv4 address
-  icx_l3_interface:
+  community.network.icx_l3_interface:
     name: ethernet 1/1/1
     ipv4: 192.168.0.1/24
     replace: yes
     state: absent
 
 - name: Replace ethernet 1/1/1 dynamic IPv4 address
-  icx_l3_interface:
+  community.network.icx_l3_interface:
     name: ethernet 1/1/1
     ipv4: 192.168.0.1/24
     mode: dynamic
     state: absent
 
 - name: Set ethernet 1/1/1 secondary IPv4 address
-  icx_l3_interface:
+  community.network.icx_l3_interface:
     name: ethernet 1/1/1
     ipv4: 192.168.0.1/24
     secondary: yes
     state: absent
 
 - name: Set ethernet 1/1/1 IPv4 address
-  icx_l3_interface:
+  community.network.icx_l3_interface:
     name: ethernet 1/1/1
     ipv4: 192.168.0.1/24
 
 - name: Set ethernet 1/1/1 IPv6 address
-  icx_l3_interface:
+  community.network.icx_l3_interface:
     name: ethernet 1/1/1
     ipv6: "fd5d:12c9:2201:1::1/64"
 
 - name: Set IP addresses on aggregate
-  icx_l3_interface:
+  community.network.icx_l3_interface:
     aggregate:
       - { name: GigabitEthernet0/3, ipv4: 192.168.2.10/24 }
       - { name: GigabitEthernet0/3, ipv4: 192.168.3.10/24, ipv6: "fd5d:12c9:2201:1::1/64" }
 
 - name: Remove IP addresses on aggregate
-  icx_l3_interface:
+  community.network.icx_l3_interface:
     aggregate:
       - { name: GigabitEthernet0/3, ipv4: 192.168.2.10/24 }
       - { name: GigabitEthernet0/3, ipv4: 192.168.3.10/24, ipv6: "fd5d:12c9:2201:1::1/64" }
@@ -170,7 +170,7 @@ EXAMPLES = """
 
 
 - name: Set the ipv4 and ipv6 of a virtual ethernet(ve)
-  icx_l3_interface:
+  community.network.icx_l3_interface:
     name: ve 100
     ipv4: 192.168.0.1
     ipv6: "2001:0db8:85a3:0000:0000:8a2e:0370:7334"

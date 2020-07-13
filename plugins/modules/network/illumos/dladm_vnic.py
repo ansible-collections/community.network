@@ -55,20 +55,20 @@ options:
 
 EXAMPLES = '''
 - name: Create 'vnic0' VNIC over 'bnx0' link
-  dladm_vnic:
+  community.network.dladm_vnic:
     name: vnic0
     link: bnx0
     state: present
 
 - name: Create VNIC with specified MAC and VLAN tag over 'aggr0'
-  dladm_vnic:
+  community.network.dladm_vnic:
     name: vnic1
     link: aggr0
     mac: '00:00:5E:00:53:23'
     vlan: 4
 
 - name: Remove 'vnic0' VNIC
-  dladm_vnic:
+  community.network.dladm_vnic:
     name: vnic0
     link: bnx0
     state: absent

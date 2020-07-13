@@ -48,7 +48,7 @@ options:
 
 EXAMPLES = '''
 - name: Show devices including operational data
-  nso_show:
+  community.network.nso_show:
     url: http://localhost:8080/jsonrpc
     username: username
     password: password

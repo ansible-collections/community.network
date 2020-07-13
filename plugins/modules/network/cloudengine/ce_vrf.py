@@ -62,13 +62,13 @@ EXAMPLES = '''
   tasks:
 
   - name: Config a vpn install named vpna, description is test
-    ce_vrf:
+    community.network.ce_vrf:
       vrf: vpna
       description: test
       state: present
       provider: "{{ cli }}"
   - name: Delete a vpn install named vpna
-    ce_vrf:
+    community.network.ce_vrf:
       vrf: vpna
       state: absent
       provider: "{{ cli }}"

@@ -79,7 +79,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Set NTP Server with parameters"
-    ce_ntp:
+    community.network.ce_ntp:
       server: 192.8.2.6
       vpn_name: js
       source_int: vlanif4001
@@ -88,7 +88,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Set NTP Peer with parameters"
-    ce_ntp:
+    community.network.ce_ntp:
       peer: 192.8.2.6
       vpn_name: js
       source_int: vlanif4001

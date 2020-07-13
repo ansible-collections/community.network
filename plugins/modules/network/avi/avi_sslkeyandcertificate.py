@@ -117,7 +117,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Create a SSL Key and Certificate
-  avi_sslkeyandcertificate:
+  community.network.avi_sslkeyandcertificate:
     controller: 10.10.27.90
     username: admin
     password: AviNetworks123!

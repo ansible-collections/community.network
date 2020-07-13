@@ -102,7 +102,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create IPAM DNS provider setting
-    avi_ipamdnsproviderprofile:
+    community.network.avi_ipamdnsproviderprofile:
       controller: '{{ controller }}'
       username: '{{ username }}'
       password: '{{ password }}'

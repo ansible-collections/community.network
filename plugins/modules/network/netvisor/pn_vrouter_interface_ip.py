@@ -61,7 +61,7 @@ options:
 
 EXAMPLES = """
 - name: Add vrouter interface to nic
-  pn_vrouter_interface_ip:
+  community.network.pn_vrouter_interface_ip:
     state: "present"
     pn_cliswitch: "sw01"
     pn_vrouter_name: "foo-vrouter"
@@ -70,7 +70,7 @@ EXAMPLES = """
     pn_nic: "eth0.4092"
 
 - name: Remove vrouter interface to nic
-  pn_vrouter_interface_ip:
+  community.network.pn_vrouter_interface_ip:
     state: "absent"
     pn_cliswitch: "sw01"
     pn_vrouter_name: "foo-vrouter"

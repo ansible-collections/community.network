@@ -83,7 +83,7 @@ options:
 
 EXAMPLES = '''
 - name: Commit candidate config on 192.168.1.1 in sync mode
-  panos_commit:
+  community.network.panos_commit:
     ip_address: "192.168.1.1"
     username: "admin"
     password: "admin"

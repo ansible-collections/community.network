@@ -67,11 +67,11 @@ notes:
 EXAMPLES = """
 tasks:
   - name: Reboot the device
-    edgeos_command:
+    community.network.edgeos_command:
       commands: reboot now
 
   - name: Show the configuration for eth0 and eth1
-    edgeos_command:
+    community.network.edgeos_command:
       commands: show interfaces ethernet {{ item }}
     loop:
       - eth0

@@ -170,33 +170,33 @@ options:
 
 EXAMPLES = """
 - name: Configure system name
-  voss_config:
+  community.network.voss_config:
     lines: prompt "{{ inventory_hostname }}"
 
 - name: Configure interface settings
-  voss_config:
+  community.network.voss_config:
     lines:
       - name "ServerA"
     backup: yes
     parents: interface GigabitEthernet 1/1
 
 - name: Check the running-config against master config
-  voss_config:
+  community.network.voss_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
 - name: Check the startup-config against the running-config
-  voss_config:
+  community.network.voss_config:
     diff_against: startup
     diff_ignore_lines:
       - qos queue-profile .*
 
 - name: Save running to startup when modified
-  voss_config:
+  community.network.voss_config:
     save_when: modified
 
 - name: Configurable backup path
-  voss_config:
+  community.network.voss_config:
     backup: yes
     backup_options:
       filename: backup.cfg

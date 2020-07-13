@@ -51,7 +51,7 @@ options:
 
 EXAMPLES = """
 - name: Create cpu class
-  pn_cpu_class:
+  community.network.pn_cpu_class:
     pn_cliswitch: 'sw01'
     state: 'present'
     pn_name: 'icmp'
@@ -59,14 +59,14 @@ EXAMPLES = """
     pn_scope: 'local'
 
 - name: Delete cpu class
-  pn_cpu_class:
+  community.network.pn_cpu_class:
     pn_cliswitch: 'sw01'
     state: 'absent'
     pn_name: 'icmp'
 
 
 - name: Modify cpu class
-  pn_cpu_class:
+  community.network.pn_cpu_class:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_name: 'icmp'

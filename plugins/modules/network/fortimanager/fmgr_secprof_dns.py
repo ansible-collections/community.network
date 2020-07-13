@@ -180,13 +180,13 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_dns:
+    community.network.fmgr_secprof_dns:
       name: "Ansible_DNS_Profile"
       comment: "Created by Ansible Module TEST"
       mode: "delete"
 
   - name: CREATE Profile
-    fmgr_secprof_dns:
+    community.network.fmgr_secprof_dns:
       name: "Ansible_DNS_Profile"
       comment: "Created by Ansible Module TEST"
       mode: "set"

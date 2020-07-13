@@ -37,12 +37,12 @@ options:
 
 EXAMPLES = '''
 - name: Create 'stub0' etherstub
-  dladm_etherstub:
+  community.network.dladm_etherstub:
     name: stub0
     state: present
 
 - name: Remove 'stub0 etherstub
-  dladm_etherstub:
+  community.network.dladm_etherstub:
     name: stub0
     state: absent
 '''

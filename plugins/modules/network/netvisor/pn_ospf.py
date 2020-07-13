@@ -67,14 +67,14 @@ options:
 
 EXAMPLES = """
 - name: "Add OSPF to vrouter"
-  pn_ospf:
+  community.network.pn_ospf:
     state: present
     pn_vrouter_name: name-string
     pn_network_ip: 192.168.11.2/24
     pn_ospf_area: 1.0.0.0
 
 - name: "Remove OSPF from vrouter"
-  pn_ospf:
+  community.network.pn_ospf:
     state: absent
     pn_vrouter_name: name-string
 """

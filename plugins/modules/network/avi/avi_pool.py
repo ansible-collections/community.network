@@ -358,7 +358,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Create a Pool with two servers and HTTP monitor
-  avi_pool:
+  community.network.avi_pool:
     controller: 10.10.1.20
     username: avi_user
     password: avi_password
@@ -376,7 +376,7 @@ EXAMPLES = """
             type: V4
 
 - name: Patch pool with a single server using patch op and avi_credentials
-  avi_pool:
+  community.network.avi_pool:
     avi_api_update_method: patch
     avi_api_patch_op: delete
     avi_credentials: "{{avi_credentials}}"

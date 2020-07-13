@@ -75,7 +75,7 @@ options:
 
 EXAMPLES = '''
 - name: Start a workflow in the Itential Automation Platform
-  iap_start_workflow:
+  community.network.iap_start_workflow:
     iap_port: 3000
     iap_fqdn: localhost
     token_key: "DFSFSFHFGFGF[DSFSFAADAFASD%3D"

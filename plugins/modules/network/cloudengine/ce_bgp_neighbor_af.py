@@ -334,7 +334,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config BGP peer Address_Family"
-    ce_bgp_neighbor_af:
+    community.network.ce_bgp_neighbor_af:
       state: present
       vrf_name: js
       af_type: ipv4uni
@@ -343,7 +343,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Undo BGP peer Address_Family"
-    ce_bgp_neighbor_af:
+    community.network.ce_bgp_neighbor_af:
       state: absent
       vrf_name: js
       af_type: ipv4uni

@@ -62,7 +62,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create CloudProperties object
-  avi_cloudproperties:
+  community.network.avi_cloudproperties:
     controller: 10.10.25.42
     username: admin
     password: something

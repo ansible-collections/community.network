@@ -36,19 +36,19 @@ options:
 
 EXAMPLES = """
 - name: Admin session timeout functionality
-  pn_admin_session_timeout:
+  community.network.pn_admin_session_timeout:
     pn_cliswitch: "sw01"
     state: "update"
     pn_timeout: "61s"
 
 - name: Admin session timeout functionality
-  pn_admin_session_timeout:
+  community.network.pn_admin_session_timeout:
     pn_cliswitch: "sw01"
     state: "update"
     pn_timeout: "1d"
 
 - name: Admin session timeout functionality
-  pn_admin_session_timeout:
+  community.network.pn_admin_session_timeout:
     pn_cliswitch: "sw01"
     state: "update"
     pn_timeout: "10d20m3h15s"

@@ -105,65 +105,65 @@ EXAMPLES = '''
   tasks:
 
   - name: "Configure an EVPN instance for a VXLAN in BD view"
-    ce_evpn_bd_vni:
+    community.network.ce_evpn_bd_vni:
       bridge_domain_id: 20
       evpn: enable
       provider: "{{ cli }}"
 
   - name: "Configure a route distinguisher (RD) for a BD EVPN instance"
-    ce_evpn_bd_vni:
+    community.network.ce_evpn_bd_vni:
       bridge_domain_id: 20
       route_distinguisher: '22:22'
       provider: "{{ cli }}"
 
   - name: "Configure VPN targets to both the import and export VPN target lists of a BD EVPN instance"
-    ce_evpn_bd_vni:
+    community.network.ce_evpn_bd_vni:
       bridge_domain_id: 20
       vpn_target_both: 22:100,22:101
       provider: "{{ cli }}"
 
   - name: "Configure VPN targets to the import VPN target list of a BD EVPN instance"
-    ce_evpn_bd_vni:
+    community.network.ce_evpn_bd_vni:
       bridge_domain_id: 20
       vpn_target_import: 22:22,22:23
       provider: "{{ cli }}"
 
   - name: "Configure VPN targets to the export VPN target list of a BD EVPN instance"
-    ce_evpn_bd_vni:
+    community.network.ce_evpn_bd_vni:
       bridge_domain_id: 20
       vpn_target_export: 22:38,22:39
       provider: "{{ cli }}"
 
   - name: "Unconfigure VPN targets to both the import and export VPN target lists of a BD EVPN instance"
-    ce_evpn_bd_vni:
+    community.network.ce_evpn_bd_vni:
       bridge_domain_id: 20
       vpn_target_both: '22:100'
       state: absent
       provider: "{{ cli }}"
 
   - name: "Unconfigure VPN targets to the import VPN target list of a BD EVPN instance"
-    ce_evpn_bd_vni:
+    community.network.ce_evpn_bd_vni:
       bridge_domain_id: 20
       vpn_target_import: '22:22'
       state: absent
       provider: "{{ cli }}"
 
   - name: "Unconfigure VPN targets to the export VPN target list of a BD EVPN instance"
-    ce_evpn_bd_vni:
+    community.network.ce_evpn_bd_vni:
       bridge_domain_id: 20
       vpn_target_export: '22:38'
       state: absent
       provider: "{{ cli }}"
 
   - name: "Unconfigure a route distinguisher (RD) of a BD EVPN instance"
-    ce_evpn_bd_vni:
+    community.network.ce_evpn_bd_vni:
       bridge_domain_id: 20
       route_distinguisher: '22:22'
       state: absent
       provider: "{{ cli }}"
 
   - name: "Unconfigure an EVPN instance for a VXLAN in BD view"
-    ce_evpn_bd_vni:
+    community.network.ce_evpn_bd_vni:
       bridge_domain_id: 20
       evpn: disable
       provider: "{{ cli }}"

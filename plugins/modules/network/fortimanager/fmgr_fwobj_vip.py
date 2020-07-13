@@ -1684,7 +1684,7 @@ options:
 EXAMPLES = '''
 # BASIC FULL STATIC NAT MAPPING
 - name: EDIT FMGR_FIREWALL_VIP SNAT
-  fmgr_fwobj_vip:
+  community.network.fmgr_fwobj_vip:
     name: "Basic StaticNAT Map"
     mode: "set"
     adom: "ansible"
@@ -1697,7 +1697,7 @@ EXAMPLES = '''
 
 # BASIC PORT PNAT MAPPING
 - name: EDIT FMGR_FIREWALL_VIP PNAT
-  fmgr_fwobj_vip:
+  community.network.fmgr_fwobj_vip:
     name: "Basic PNAT Map Port 10443"
     mode: "set"
     adom: "ansible"
@@ -1714,7 +1714,7 @@ EXAMPLES = '''
 
 # BASIC DNS TRANSLATION NAT
 - name: EDIT FMGR_FIREWALL_DNST
-  fmgr_fwobj_vip:
+  community.network.fmgr_fwobj_vip:
     name: "Basic DNS Translation"
     mode: "set"
     adom: "ansible"
@@ -1727,7 +1727,7 @@ EXAMPLES = '''
 
 # BASIC FQDN NAT
 - name: EDIT FMGR_FIREWALL_FQDN
-  fmgr_fwobj_vip:
+  community.network.fmgr_fwobj_vip:
     name: "Basic FQDN Translation"
     mode: "set"
     adom: "ansible"
@@ -1738,7 +1738,7 @@ EXAMPLES = '''
 
 # DELETE AN ENTRY
 - name: DELETE FMGR_FIREWALL_VIP PNAT
-  fmgr_fwobj_vip:
+  community.network.fmgr_fwobj_vip:
     name: "Basic PNAT Map Port 10443"
     mode: "delete"
     adom: "ansible"

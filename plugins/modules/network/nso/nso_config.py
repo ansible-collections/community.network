@@ -48,7 +48,7 @@ options:
 
 EXAMPLES = '''
 - name: Create L3VPN
-  nso_config:
+  community.network.nso_config:
     url: http://localhost:8080/jsonrpc
     username: username
     password: password

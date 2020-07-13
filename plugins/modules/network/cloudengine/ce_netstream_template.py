@@ -79,26 +79,26 @@ EXAMPLES = '''
   tasks:
 
   - name: Config ipv4 netstream record
-    ce_netstream_template:
+    community.network.ce_netstream_template:
       state: present
       type: ip
       record_name: test
       provider: "{{ cli }}"
   - name: Undo ipv4 netstream record
-    ce_netstream_template:
+    community.network.ce_netstream_template:
       state: absent
       type: ip
       record_name: test
       provider: "{{ cli }}"
   - name: Config ipv4 netstream record collect_counter
-    ce_netstream_template:
+    community.network.ce_netstream_template:
       state: present
       type: ip
       record_name: test
       collect_counter: bytes
       provider: "{{ cli }}"
   - name: Undo ipv4 netstream record collect_counter
-    ce_netstream_template:
+    community.network.ce_netstream_template:
       state: absent
       type: ip
       record_name: test

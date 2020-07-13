@@ -57,7 +57,7 @@ options:
 
 EXAMPLES = '''
 - name: Get token for the Itential Automation Platform
-  iap_token:
+  community.network.iap_token:
     iap_port: 3000
     iap_fqdn: localhost
     username: myusername

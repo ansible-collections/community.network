@@ -147,23 +147,23 @@ options:
 
 EXAMPLES = """
 - name: Configure top level configuration
-  enos_config:
+  community.network.enos_config:
     "lines: hostname {{ inventory_hostname }}"
 
 - name: Configure interface settings
-  enos_config:
+  community.network.enos_config:
     lines:
       - enable
       - ip ospf enable
     parents: interface ip 13
 
 - name: Load a config from disk and replace the current config
-  enos_config:
+  community.network.enos_config:
     src: config.cfg
     backup: yes
 
 - name: Configurable backup path
-  enos_config:
+  community.network.enos_config:
     src: config.cfg
     backup: yes
     backup_options:

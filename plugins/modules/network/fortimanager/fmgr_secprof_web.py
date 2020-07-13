@@ -734,12 +734,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_web:
+    community.network.fmgr_secprof_web:
       name: "Ansible_Web_Filter_Profile"
       mode: "delete"
 
   - name: CREATE Profile
-    fmgr_secprof_web:
+    community.network.fmgr_secprof_web:
       name: "Ansible_Web_Filter_Profile"
       comment: "Created by Ansible Module TEST"
       mode: "set"

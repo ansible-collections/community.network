@@ -48,7 +48,7 @@ Tasks : The following are examples of using the module cnos_showrun. These are
  written in the main.yml file of the tasks directory.
 ---
 - name: Run show running-config
-  cnos_showrun:
+  community.network.cnos_showrun:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_showrun_{{ inventory_hostname }}_output.txt"
 

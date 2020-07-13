@@ -93,25 +93,25 @@ EXAMPLES = """
 
   tasks:
   - name: "Run display version on remote devices"
-    ce_command:
+    community.network.ce_command:
       commands: display version
       provider: "{{ cli }}"
 
   - name: "Run display version and check to see if output contains HUAWEI"
-    ce_command:
+    community.network.ce_command:
       commands: display version
       wait_for: result[0] contains HUAWEI
       provider: "{{ cli }}"
 
   - name: "Run multiple commands on remote nodes"
-    ce_command:
+    community.network.ce_command:
       commands:
         - display version
         - display device
       provider: "{{ cli }}"
 
   - name: "Run multiple commands and evaluate the output"
-    ce_command:
+    community.network.ce_command:
       commands:
         - display version
         - display device

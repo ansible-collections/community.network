@@ -1026,13 +1026,13 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_waf:
+    community.network.fmgr_secprof_waf:
       name: "Ansible_WAF_Profile"
       comment: "Created by Ansible Module TEST"
       mode: "delete"
 
   - name: CREATE Profile
-    fmgr_secprof_waf:
+    community.network.fmgr_secprof_waf:
       name: "Ansible_WAF_Profile"
       comment: "Created by Ansible Module TEST"
       mode: "set"

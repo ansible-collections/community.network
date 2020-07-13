@@ -86,7 +86,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create VSDataScriptSet object
-  avi_vsdatascriptset:
+  community.network.avi_vsdatascriptset:
     controller: 10.10.25.42
     username: admin
     password: something

@@ -75,7 +75,7 @@ requirements:
 EXAMPLES = '''
 - name: Create url cs policy
   delegate_to: localhost
-  netscaler_cs_policy:
+  community.network.netscaler_cs_policy:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

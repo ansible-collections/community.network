@@ -94,7 +94,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create VsVip object
-  avi_vsvip:
+  community.network.avi_vsvip:
     controller: 10.10.25.42
     username: admin
     password: something

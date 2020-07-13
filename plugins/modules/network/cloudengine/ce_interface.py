@@ -84,26 +84,26 @@ EXAMPLES = '''
 
   tasks:
   - name: Ensure an interface is a Layer 3 port and that it has the proper description
-    ce_interface:
+    community.network.ce_interface:
       interface: 10GE1/0/22
       description: 'Configured by Ansible'
       mode: layer3
       provider: '{{ cli }}'
 
   - name: Admin down an interface
-    ce_interface:
+    community.network.ce_interface:
       interface: 10GE1/0/22
       admin_state: down
       provider: '{{ cli }}'
 
   - name: Remove all tunnel interfaces
-    ce_interface:
+    community.network.ce_interface:
       interface_type: tunnel
       state: absent
       provider: '{{ cli }}'
 
   - name: Remove all logical interfaces
-    ce_interface:
+    community.network.ce_interface:
       interface_type: '{{ item }}'
       state: absent
       provider: '{{ cli }}'
@@ -113,7 +113,7 @@ EXAMPLES = '''
       - nve
 
   - name: Admin up all 10GE interfaces
-    ce_interface:
+    community.network.ce_interface:
       interface_type: 10GE
       admin_state: up
       provider: '{{ cli }}'

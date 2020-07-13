@@ -232,7 +232,7 @@ EXAMPLES = '''
   register: result
   check_mode: "{{ check_mode }}"
 
-  netscaler_gslb_service:
+  community.network.netscaler_gslb_service:
     operation: present
 
     servicename: gslb-service-2

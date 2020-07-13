@@ -57,28 +57,28 @@ options:
 
 EXAMPLES = r'''
 - name: Test reachability to 10.10.10.10
-  icx_ping:
+  community.network.icx_ping:
     dest: 10.10.10.10
 
 - name: Test reachability to ipv6 address from source with timeout
-  icx_ping:
+  community.network.icx_ping:
     dest: ipv6 2001:cdba:0000:0000:0000:0000:3257:9652
     source: 10.1.1.1
     timeout: 100000
 
 - name: Test reachability to 10.1.1.1 through vrf using 5 packets
-  icx_ping:
+  community.network.icx_ping:
     dest: 10.1.1.1
     vrf: x.x.x.x
     count: 5
 
 - name: Test unreachability to 10.30.30.30
-  icx_ping:
+  community.network.icx_ping:
     dest: 10.40.40.40
     state: absent
 
 - name: Test reachability to ipv4 with ttl and packet size
-  icx_ping:
+  community.network.icx_ping:
     dest: 10.10.10.10
     ttl: 20
     size: 500

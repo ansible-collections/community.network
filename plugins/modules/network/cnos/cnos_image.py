@@ -86,7 +86,7 @@ Tasks : The following are examples of using the module cnos_image. These are
   written in the main.yml file of the tasks directory.
 ---
 - name: Test Image transfer
-  cnos_image:
+  community.network.cnos_image:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_image_{{ inventory_hostname }}_output.txt"
       protocol: "sftp"
@@ -97,7 +97,7 @@ Tasks : The following are examples of using the module cnos_image. These are
       serverpassword: "root123"
 
 - name: Test Image tftp
-  cnos_image:
+  community.network.cnos_image:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_image_{{ inventory_hostname }}_output.txt"
       protocol: "tftp"

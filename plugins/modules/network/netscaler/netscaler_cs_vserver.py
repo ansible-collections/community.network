@@ -529,7 +529,7 @@ EXAMPLES = '''
 
 - name: Setup content switching vserver
   delegate_to: localhost
-  netscaler_cs_vserver:
+  community.network.netscaler_cs_vserver:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

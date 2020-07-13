@@ -159,7 +159,7 @@ options:
 
 EXAMPLES = """
 - name: Configure interface
-  cnos_interface:
+  community.network.cnos_interface:
       name: Ethernet1/33
       description: test-interface
       speed: 100
@@ -167,42 +167,42 @@ EXAMPLES = """
       mtu: 999
 
 - name: Remove interface
-  cnos_interface:
+  community.network.cnos_interface:
     name: loopback3
     state: absent
 
 - name: Make interface up
-  cnos_interface:
+  community.network.cnos_interface:
     name: Ethernet1/33
     enabled: True
 
 - name: Make interface down
-  cnos_interface:
+  community.network.cnos_interface:
     name: Ethernet1/33
     enabled: False
 
 - name: Check intent arguments
-  cnos_interface:
+  community.network.cnos_interface:
     name: Ethernet1/33
     state: up
     tx_rate: ge(0)
     rx_rate: le(0)
 
 - name: Check neighbors intent arguments
-  cnos_interface:
+  community.network.cnos_interface:
     name: Ethernet1/33
     neighbors:
     - port: eth0
       host: netdev
 
 - name: Config + intent
-  cnos_interface:
+  community.network.cnos_interface:
     name: Ethernet1/33
     enabled: False
     state: down
 
 - name: Add interface using aggregate
-  cnos_interface:
+  community.network.cnos_interface:
     aggregate:
     - { name: Ethernet1/33, mtu: 256, description: test-interface-1 }
     - { name: Ethernet1/44, mtu: 516, description: test-interface-2 }
@@ -211,7 +211,7 @@ EXAMPLES = """
     state: present
 
 - name: Delete interface using aggregate
-  cnos_interface:
+  community.network.cnos_interface:
     aggregate:
     - name: loopback3
     - name: loopback6

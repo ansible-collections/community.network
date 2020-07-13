@@ -221,19 +221,19 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config ACL"
-    ce_acl_advance:
+    community.network.ce_acl_advance:
       state: present
       acl_name: 3200
       provider: "{{ cli }}"
 
   - name: "Undo ACL"
-    ce_acl_advance:
+    community.network.ce_acl_advance:
       state: delete_acl
       acl_name: 3200
       provider: "{{ cli }}"
 
   - name: "Config ACL advance rule"
-    ce_acl_advance:
+    community.network.ce_acl_advance:
       state: present
       acl_name: test
       rule_name: test_rule
@@ -246,7 +246,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Undo ACL advance rule"
-    ce_acl_advance:
+    community.network.ce_acl_advance:
       state: absent
       acl_name: test
       rule_name: test_rule

@@ -98,7 +98,7 @@ EXAMPLES = '''
 
   tasks:
   - name: Configuring Single-hop BFD for Detecting Faults on a Layer 2 Link
-    ce_bfd_session:
+    community.network.ce_bfd_session:
       session_name: bfd_l2link
       use_default_ip: true
       out_if_name: 10GE1/0/1
@@ -107,7 +107,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Configuring Single-Hop BFD on a VLANIF Interface
-    ce_bfd_session:
+    community.network.ce_bfd_session:
       session_name: bfd_vlanif
       dest_addr: 10.1.1.6
       out_if_name: Vlanif100
@@ -116,7 +116,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Configuring Multi-Hop BFD
-    ce_bfd_session:
+    community.network.ce_bfd_session:
       session_name: bfd_multi_hop
       dest_addr: 10.1.1.1
       local_discr: 163

@@ -66,17 +66,17 @@ EXAMPLES = """
   tasks:
 
   - name: "Gather_subset is all"
-    ce_facts:
+    community.network.ce_facts:
       gather_subset: all
       provider: "{{ cli }}"
 
   - name: "Collect only the config facts"
-    ce_facts:
+    community.network.ce_facts:
       gather_subset: config
       provider: "{{ cli }}"
 
   - name: "Do not collect hardware facts"
-    ce_facts:
+    community.network.ce_facts:
       gather_subset: "!hardware"
       provider: "{{ cli }}"
 """

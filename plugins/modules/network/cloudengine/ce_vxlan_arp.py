@@ -93,27 +93,27 @@ EXAMPLES = '''
   tasks:
 
   - name: Configure EVN BGP on Layer 2 and Layer 3 VXLAN gateways to establish EVN BGP peer relationships.
-    ce_vxlan_arp:
+    community.network.ce_vxlan_arp:
       evn_bgp: enable
       evn_source_ip: 6.6.6.6
       evn_peer_ip: 7.7.7.7
       provider: "{{ cli }}"
   - name: Configure a Layer 3 VXLAN gateway as a BGP RR.
-    ce_vxlan_arp:
+    community.network.ce_vxlan_arp:
       evn_bgp: enable
       evn_server: enable
       provider: "{{ cli }}"
   - name: Enable EVN BGP on a Layer 3 VXLAN gateway to collect host information.
-    ce_vxlan_arp:
+    community.network.ce_vxlan_arp:
       vbdif_name: Vbdif100
       arp_collect_host: enable
       provider: "{{ cli }}"
   - name: Enable Layer 2 and Layer 3 VXLAN gateways to use EVN BGP to advertise host information.
-    ce_vxlan_arp:
+    community.network.ce_vxlan_arp:
       host_collect_protocol: bgp
       provider: "{{ cli }}"
   - name: Enable ARP broadcast suppression on a Layer 2 VXLAN gateway.
-    ce_vxlan_arp:
+    community.network.ce_vxlan_arp:
       bridge_domain_id: 100
       arp_suppress: enable
       provider: "{{ cli }}"

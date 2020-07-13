@@ -101,7 +101,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
   - name: Create an Application Profile for HTTP application enabled for SSL traffic
-    avi_applicationprofile:
+    community.network.avi_applicationprofile:
       controller: '{{ controller }}'
       username: '{{ username }}'
       password: '{{ password }}'

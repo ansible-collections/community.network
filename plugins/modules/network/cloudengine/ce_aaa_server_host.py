@@ -2351,7 +2351,7 @@ def main():
 
     ce_aaa_server_host = AaaServerHost()
 
-    if not community.network.ce_aaa_server_host:
+    if not ce_aaa_server_host:
         module.fail_json(msg='Error: Construct ce_aaa_server failed.')
 
     # get proposed

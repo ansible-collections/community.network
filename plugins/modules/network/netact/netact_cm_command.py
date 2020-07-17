@@ -162,7 +162,7 @@ EXAMPLES = '''
     planName: 'mySiteTemplate'
     type: 'actual'
     fileName: 'exportTest.xml'
-- fetch:
+- ansible.builtin.fetch:
     src: /var/opt/nokia/oss/global/racops/export/exportTest.xml
     dest: fetched
 

@@ -122,7 +122,7 @@ EXAMPLES = '''
       client: "{{ client_rw }}"
       factory: true
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Revert to last known applied configuration
@@ -130,7 +130,7 @@ EXAMPLES = '''
       client: "{{ client_rw }}"
       revert: true
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Change the unit name
@@ -141,7 +141,7 @@ EXAMPLES = '''
       columns:
         unitname: "Test Ansible"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Add a DNS server
@@ -152,7 +152,7 @@ EXAMPLES = '''
       columns:
         server: 192.168.1.21
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Add a DNS server
@@ -163,7 +163,7 @@ EXAMPLES = '''
       columns:
         server: 192.168.1.22
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Add a DNS server
@@ -174,7 +174,7 @@ EXAMPLES = '''
       columns:
         server: 192.168.1.23
     register: last_dns
-  - debug:
+  - ansible.builtin.debug:
       var: last_dns
 
   - name: Modify the last added DNS server
@@ -186,7 +186,7 @@ EXAMPLES = '''
       columns:
         server: 192.168.1.24
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Return the last added DNS server
@@ -196,7 +196,7 @@ EXAMPLES = '''
       table: misc.dns_servers
       rowid: "{{ last_dns['add'][0]['id'] }}"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Remove last added DNS server
@@ -206,7 +206,7 @@ EXAMPLES = '''
       table: misc.dns_servers
       rowid: "{{ last_dns['add'][0]['id'] }}"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Return the all rows from table misc.dns_servers
@@ -215,7 +215,7 @@ EXAMPLES = '''
       get: true
       table: misc.dns_servers
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Remove remaining DNS servers
@@ -224,7 +224,7 @@ EXAMPLES = '''
       delete: true
       table: misc.dns_servers
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Get rowid for interface eth0
@@ -235,7 +235,7 @@ EXAMPLES = '''
       columns:
         interface: eth0
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Store the preliminary configuration
@@ -243,7 +243,7 @@ EXAMPLES = '''
       client: "{{ client_rw }}"
       store: true
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Do backup of the configuration database
@@ -252,7 +252,7 @@ EXAMPLES = '''
       download: true
       store_download: true
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 '''
 

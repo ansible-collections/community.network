@@ -114,7 +114,7 @@ EXAMPLES = '''
     destination_port: '53'
     protocol: '17'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
 - name: Check security rules inbound SSH with user match
   community.network.panos_match_rule:
@@ -128,7 +128,7 @@ EXAMPLES = '''
     destination_port: '22'
     protocol: '6'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
 - name: Check NAT rules for source NAT
   community.network.panos_match_rule:
@@ -143,7 +143,7 @@ EXAMPLES = '''
     destination_ip: '0.0.0.0'
     protocol: '6'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
 - name: Check NAT rules for inbound web
   community.network.panos_match_rule:
@@ -159,7 +159,7 @@ EXAMPLES = '''
     destination_port: '80'
     protocol: '6'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
 - name: Check security rules for outbound POP3 in vsys4
   community.network.panos_match_rule:
@@ -174,7 +174,7 @@ EXAMPLES = '''
     destination_port: '110'
     protocol: '6'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
 '''
 

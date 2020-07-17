@@ -64,7 +64,7 @@ EXAMPLES = '''
     password: mypass
   register: result
 
-- debug: var=result.token
+- ansible.builtin.debug: var=result.token
 '''
 
 RETURN = '''

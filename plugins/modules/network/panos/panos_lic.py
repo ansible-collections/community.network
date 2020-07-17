@@ -61,7 +61,7 @@ EXAMPLES = '''
             auth_code: "IBADCODE"
           register: result
     - name: Display serialnumber (if already registered)
-      debug:
+      ansible.builtin.debug:
         var: "{{result.serialnumber}}"
 '''
 

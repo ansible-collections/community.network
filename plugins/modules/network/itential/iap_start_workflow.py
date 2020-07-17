@@ -84,7 +84,7 @@ EXAMPLES = '''
     variables: {"deviceName":"ASR9K"}
   register: result
 
-- debug: var=result
+- ansible.builtin.debug: var=result
 '''
 
 RETURN = '''

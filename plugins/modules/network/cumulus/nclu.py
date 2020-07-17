@@ -84,7 +84,7 @@ EXAMPLES = '''
   register: output
 
 - name: Print Status Of Interface
-  debug:
+  ansible.builtin.debug:
     var: output
 
 - name: Fetch Details From All Interfaces In JSON Format
@@ -94,7 +94,7 @@ EXAMPLES = '''
   register: output
 
 - name: Print Interface Details
-  debug:
+  ansible.builtin.debug:
     var: output["msg"]
 
 - name: Atomically add an interface
@@ -133,7 +133,7 @@ EXAMPLES = '''
   register: output
 
 - name: Print BGP Status In JSON
-  debug:
+  ansible.builtin.debug:
     var: output["msg"]
 '''
 

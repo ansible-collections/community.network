@@ -226,7 +226,7 @@ EXAMPLES = '''
     operation: 'find'
     rule_name: 'Allow RDP to DCs'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
 '''
 

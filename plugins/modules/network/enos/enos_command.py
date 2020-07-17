@@ -99,7 +99,7 @@ vars:
     provider: "{{ cli }}"
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"
@@ -110,7 +110,7 @@ vars:
     provider: "{{ cli }}"
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"
@@ -123,7 +123,7 @@ vars:
     provider: "{{ cli }}"
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"

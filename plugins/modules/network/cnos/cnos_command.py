@@ -84,7 +84,7 @@ EXAMPLES = """
       - "result[1] contains 'MemFree'"
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"
@@ -94,7 +94,7 @@ EXAMPLES = """
     commands: ['show version']
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"
@@ -106,7 +106,7 @@ EXAMPLES = """
       - show interface information
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"

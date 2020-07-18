@@ -1,6 +1,30 @@
 requires_ansible: '>=2.9.10'
 plugin_routing:
   modules:
+    dellos6_command:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos6 modules.
+    dellos6_config:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos6 modules.
+    dellos6_facts:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos6 modules.
+    dellos9_command:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos9 modules.
+    dellos9_config:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos9 modules.
+    dellos9_facts:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos9 modules.
     pn_cluster:
       deprecation:
         removal_version: 2.0.0
@@ -318,6 +342,15 @@ plugin_routing:
         removal_version: 2.0.0
         warning_text: The onyx_wjh module has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx_wjh
+  action:
+    dellos6:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos6 modules.
+    dellos9:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos9 modules.
   cliconf:
     onyx:
       deprecation:
@@ -331,6 +364,14 @@ plugin_routing:
         warning_text: The onyx terminal plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx
   module_utils:
+    network.dellos6.dellos6:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos6 modules.
+    network.dellos9.dellos9:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos9 modules.
     network.onyx:
       deprecation:
         removal_version: 2.0.0
@@ -348,6 +389,14 @@ plugin_routing:
         warning_text: The onyx_config action plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx_config
   doc_fragments:
+    dellos6:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos6 modules.
+    dellos9:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos9 modules.
     onyx:
       deprecation:
         removal_version: 2.0.0

@@ -3,6 +3,8 @@ plugins/action/aruba.py action-plugin-docs # base class for deprecated network p
 plugins/action/ce.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
 plugins/action/ce_template.py action-plugin-docs # undocumented action plugin to fix, existed before sanity test was added
 plugins/action/cnos.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
+plugins/plugins/action/dellos6.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
+plugins/plugins/action/dellos9.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
 plugins/action/edgeos_config.py action-plugin-docs # undocumented action plugin to fix
 plugins/action/enos.py action-plugin-docs # base class for deprecated network platform modules using `connection: local`
 plugins/action/exos.py action-plugin-docs # undocumented action plugin to fix
@@ -23,6 +25,10 @@ plugins/doc_fragments/ce.py future-import-boilerplate
 plugins/doc_fragments/ce.py metaclass-boilerplate
 plugins/doc_fragments/cnos.py future-import-boilerplate
 plugins/doc_fragments/cnos.py metaclass-boilerplate
+plugins/doc_fragments/dellos6.py future-import-boilerplate
+plugins/doc_fragments/dellos6.py metaclass-boilerplate
+plugins/doc_fragments/dellos9.py future-import-boilerplate
+plugins/doc_fragments/dellos9.py metaclass-boilerplate
 plugins/doc_fragments/enos.py future-import-boilerplate
 plugins/doc_fragments/enos.py metaclass-boilerplate
 plugins/doc_fragments/ingate.py future-import-boilerplate
@@ -61,6 +67,10 @@ plugins/module_utils/network/cnos/cnos_devicerules.py future-import-boilerplate
 plugins/module_utils/network/cnos/cnos_devicerules.py metaclass-boilerplate
 plugins/module_utils/network/cnos/cnos_errorcodes.py future-import-boilerplate
 plugins/module_utils/network/cnos/cnos_errorcodes.py metaclass-boilerplate
+plugins/module_utils/network/dellos6/dellos6.py future-import-boilerplate
+plugins/module_utils/network/dellos6/dellos6.py metaclass-boilerplate
+plugins/module_utils/network/dellos9/dellos9.py future-import-boilerplate
+plugins/module_utils/network/dellos9/dellos9.py metaclass-boilerplate
 plugins/module_utils/network/edgeos/edgeos.py future-import-boilerplate
 plugins/module_utils/network/edgeos/edgeos.py metaclass-boilerplate
 plugins/module_utils/network/edgeswitch/edgeswitch.py future-import-boilerplate
@@ -996,6 +1006,30 @@ plugins/modules/network/cnos/cnos_vrf.py validate-modules:parameter-type-not-in-
 plugins/modules/network/cnos/cnos_vrf.py validate-modules:undocumented-parameter
 plugins/modules/network/cumulus/nclu.py validate-modules:parameter-list-no-elements
 plugins/modules/network/cumulus/nclu.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/dellos6/dellos6_command.py validate-modules:undocumented-parameter
+plugins/modules/network/dellos6/dellos6_command.py validate-modules:doc-default-does-not-match-spec
+plugins/modules/network/dellos6/dellos6_command.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/dellos6/dellos6_command.py validate-modules:doc-missing-type
+plugins/modules/network/dellos6/dellos6_config.py validate-modules:undocumented-parameter
+plugins/modules/network/dellos6/dellos6_config.py validate-modules:doc-default-does-not-match-spec
+plugins/modules/network/dellos6/dellos6_config.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/dellos6/dellos6_config.py validate-modules:doc-missing-type
+plugins/modules/network/dellos6/dellos6_facts.py validate-modules:undocumented-parameter
+plugins/modules/network/dellos6/dellos6_facts.py validate-modules:doc-default-does-not-match-spec
+plugins/modules/network/dellos6/dellos6_facts.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/dellos6/dellos6_facts.py validate-modules:doc-missing-type
+plugins/modules/network/dellos9/dellos9_command.py validate-modules:undocumented-parameter
+plugins/modules/network/dellos9/dellos9_command.py validate-modules:doc-default-does-not-match-spec
+plugins/modules/network/dellos9/dellos9_command.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/dellos9/dellos9_command.py validate-modules:doc-missing-type
+plugins/modules/network/dellos9/dellos9_config.py validate-modules:undocumented-parameter
+plugins/modules/network/dellos9/dellos9_config.py validate-modules:doc-default-does-not-match-spec
+plugins/modules/network/dellos9/dellos9_config.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/dellos9/dellos9_config.py validate-modules:doc-missing-type
+plugins/modules/network/dellos9/dellos9_facts.py validate-modules:undocumented-parameter
+plugins/modules/network/dellos9/dellos9_facts.py validate-modules:doc-default-does-not-match-spec
+plugins/modules/network/dellos9/dellos9_facts.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/dellos9/dellos9_facts.py validate-modules:doc-missing-type
 plugins/modules/network/edgeos/edgeos_command.py validate-modules:doc-missing-type
 plugins/modules/network/edgeos/edgeos_command.py validate-modules:parameter-list-no-elements
 plugins/modules/network/edgeos/edgeos_command.py validate-modules:parameter-type-not-in-doc

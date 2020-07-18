@@ -29,7 +29,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(dellos9_config) to configure Dell OS9 devices.
+    Please use M(community.network.dellos9_config) to configure Dell OS9 devices.
 extends_documentation_fragment: dellos9
 options:
   commands:
@@ -84,7 +84,7 @@ notes:
 
   - This module requires to increase the ssh connection rate limit.
     Use the following command I(ip ssh connection-rate-limit 60)
-    to configure the same. This can be done via M(dellos9_config) module
+    to configure the same. This can be done via M(community.network.dellos9_config) module
     as well.
 
 """
@@ -92,22 +92,22 @@ notes:
 EXAMPLES = """
 tasks:
   - name: run show version on remote devices
-    dellos9_command:
+    community.network.dellos9_command:
       commands: show version
 
   - name: run show version and check to see if output contains OS9
-    dellos9_command:
+    community.network.dellos9_command:
       commands: show version
       wait_for: result[0] contains OS9
 
   - name: run multiple commands on remote nodes
-    dellos9_command:
+    community.network.dellos9_command:
       commands:
         - show version
         - show interfaces
 
   - name: run multiple commands and evaluate the output
-    dellos9_command:
+    community.network.dellos9_command:
       commands:
         - show version
         - show interfaces

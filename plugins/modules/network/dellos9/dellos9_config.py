@@ -149,15 +149,15 @@ notes:
   - This module requires to increase the ssh connection rate limit.
     Use the following command I(ip ssh connection-rate-limit 60)
     to configure the same. This can also be done with the
-    M(dellos9_config) module.
+    M(community.network.dellos9_config) module.
 """
 
 EXAMPLES = """
-- dellos9_config:
+- community.network.dellos9_config:
     lines: ['hostname {{ inventory_hostname }}']
     provider: "{{ cli }}"
 
-- dellos9_config:
+- community.network.dellos9_config:
     lines:
       - 10 permit ip host 1.1.1.1 any log
       - 20 permit ip host 2.2.2.2 any log
@@ -168,7 +168,7 @@ EXAMPLES = """
     before: ['no ip access-list extended test']
     match: exact
 
-- dellos9_config:
+- community.network.dellos9_config:
     lines:
       - 10 permit ip host 1.1.1.1 any log
       - 20 permit ip host 2.2.2.2 any log
@@ -178,7 +178,7 @@ EXAMPLES = """
     before: ['no ip access-list extended test']
     replace: block
 
-- dellos9_config:
+- community.network.dellos9_config:
     lines: ['hostname {{ inventory_hostname }}']
     provider: "{{ cli }}"
     backup: yes

@@ -145,10 +145,10 @@ options:
 """
 
 EXAMPLES = """
-- dellos6_config:
+- community.network.dellos6_config:
     lines: ['hostname {{ inventory_hostname }}']
 
-- dellos6_config:
+- community.network.dellos6_config:
     lines:
       - 10 permit ip 1.1.1.1 any log
       - 20 permit ip 2.2.2.2 any log
@@ -159,7 +159,7 @@ EXAMPLES = """
     before: ['no ip access-list test']
     match: exact
 
-- dellos6_config:
+- community.network.dellos6_config:
     lines:
       - 10 permit ip 1.1.1.1 any log
       - 20 permit ip 2.2.2.2 any log
@@ -169,7 +169,7 @@ EXAMPLES = """
     before: ['no ip access-list test']
     replace: block
 
-- dellos6_config:
+- community.network.dellos6_config:
     lines: ['hostname {{ inventory_hostname }}']
     backup: yes
     backup_options:

@@ -36,7 +36,7 @@ options:
         to a given subset.  Possible values for this argument include
         all, hardware, config, and interfaces.  Can specify a list of
         values to include a larger subset.  Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     default: [ '!config' ]
 notes:
@@ -44,21 +44,21 @@ notes:
 
   - This module requires an increase of the SSH connection rate limit.
     Use the following command I(ip ssh connection-rate-limit 60)
-    to configure the same. This can be also be done with the M(dellos9_config) module.
+    to configure the same. This can be also be done with the M(community.network.dellos9_config) module.
 """
 
 EXAMPLES = """
 # Collect all facts from the device
-- dellos9_facts:
+- community.network.dellos9_facts:
     gather_subset: all
 
 # Collect only the config and default facts
-- dellos9_facts:
+- community.network.dellos9_facts:
     gather_subset:
       - config
 
 # Do not collect hardware facts
-- dellos9_facts:
+- community.network.dellos9_facts:
     gather_subset:
       - "!hardware"
 """

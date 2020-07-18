@@ -28,7 +28,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(dellos6_config) to configure Dell OS6 devices.
+    Please use M(community.network.dellos6_config) to configure Dell OS6 devices.
 extends_documentation_fragment: dellos6
 options:
   commands:
@@ -82,22 +82,22 @@ options:
 EXAMPLES = """
 tasks:
   - name: run show version on remote devices
-    dellos6_command:
+    community.network.dellos6_command:
       commands: show version
 
   - name: run show version and check to see if output contains Dell
-    dellos6_command:
+    community.network.dellos6_command:
       commands: show version
       wait_for: result[0] contains Dell
 
   - name: run multiple commands on remote nodes
-    dellos6_command:
+    community.network.dellos6_command:
       commands:
        - show version
        - show interfaces
 
   - name: run multiple commands and evaluate the output
-    dellos6_command:
+    community.network.dellos6_command:
       commands:
        - show version
        - show interfaces

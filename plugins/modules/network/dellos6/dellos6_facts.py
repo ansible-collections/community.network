@@ -36,23 +36,23 @@ options:
         to a given subset.  Possible values for this argument include
         all, hardware, config, and interfaces. Can specify a list of
         values to include a larger subset.  Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     default: [ '!config' ]
 """
 
 EXAMPLES = """
 # Collect all facts from the device
-- dellos6_facts:
+- community.network.dellos6_facts:
     gather_subset: all
 
 # Collect only the config and default facts
-- dellos6_facts:
+- community.network.dellos6_facts:
     gather_subset:
       - config
 
 # Do not collect hardware facts
-- dellos6_facts:
+- community.network.dellos6_facts:
     gather_subset:
       - "!interfaces"
 """

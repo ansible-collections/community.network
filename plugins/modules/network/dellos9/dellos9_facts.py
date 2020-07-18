@@ -28,7 +28,7 @@ description:
     base network fact keys with C(ansible_net_<fact>).  The facts
     module will always collect a base set of facts from the device
     and can enable or disable collection of additional facts.
-extends_documentation_fragment: dellos9
+extends_documentation_fragment: community.network.dellos9
 options:
   gather_subset:
     description:

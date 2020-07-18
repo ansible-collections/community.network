@@ -142,7 +142,6 @@ options:
             and backup configuration will be copied in C(filename) within I(backup) directory.
         type: path
     type: dict
-    version_added: "2.8"
 notes:
   - This module requires Dell OS9 version 9.10.0.1P13 or above.
 

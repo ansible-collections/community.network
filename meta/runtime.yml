@@ -342,15 +342,6 @@ plugin_routing:
         removal_version: 2.0.0
         warning_text: The onyx_wjh module has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx_wjh
-  action:
-    dellos6:
-      deprecation:
-        removal_version: 3.0.0
-        warning_text: community.network is only a temporary home for the dellos6 modules.
-    dellos9:
-      deprecation:
-        removal_version: 3.0.0
-        warning_text: community.network is only a temporary home for the dellos9 modules.
   cliconf:
     onyx:
       deprecation:
@@ -383,6 +374,14 @@ plugin_routing:
         warning_text: The onyx module_utils plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.network.onyx.onyx
   action:
+    dellos6:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos6 modules.
+    dellos9:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: community.network is only a temporary home for the dellos9 modules.
     onyx_config:
       deprecation:
         removal_version: 2.0.0

@@ -49,7 +49,6 @@ options:
         within the configured number of I(retries), the task fails.
         See examples.
     type: list
-    version_added: "2.2"
   match:
     description:
       - The I(match) argument is used in conjunction with the
@@ -61,7 +60,6 @@ options:
     type: str
     default: all
     choices: [ all, any ]
-    version_added: "2.5"
   retries:
     description:
       - Specifies the number of retries a command should be tried

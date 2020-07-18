@@ -141,7 +141,6 @@ options:
             and backup configuration will be copied in C(filename) within I(backup) directory.
         type: path
     type: dict
-    version_added: "2.8"
 """
 
 EXAMPLES = """

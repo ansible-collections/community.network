@@ -61,14 +61,14 @@ dellos6_argument_spec = {
     'provider': dict(type='dict', options=dellos6_provider_spec),
 }
 dellos6_top_spec = {
-    'host': dict(removed_in_version=2.9),
-    'port': dict(removed_in_version=2.9, type='int'),
-    'username': dict(removed_in_version=2.9),
-    'password': dict(removed_in_version=2.9, no_log=True),
-    'ssh_keyfile': dict(removed_in_version=2.9, type='path'),
-    'authorize': dict(removed_in_version=2.9, type='bool'),
-    'auth_pass': dict(removed_in_version=2.9, no_log=True),
-    'timeout': dict(removed_in_version=2.9, type='int'),
+    'host': dict(removed_in_version='0.2.0', removed_from_collection='community.network'),
+    'port': dict(removed_in_version='0.2.0', removed_from_collection='community.network', type='int'),
+    'username': dict(removed_in_version='0.2.0', removed_from_collection='community.network'),
+    'password': dict(removed_in_version='0.2.0', removed_from_collection='community.network', no_log=True),
+    'ssh_keyfile': dict(removed_in_version='0.2.0', removed_from_collection='community.network', type='path'),
+    'authorize': dict(removed_in_version='0.2.0', removed_from_collection='community.network', type='bool'),
+    'auth_pass': dict(removed_in_version='0.2.0', removed_from_collection='community.network', no_log=True),
+    'timeout': dict(removed_in_version='0.2.0', removed_from_collection='community.network', type='int'),
 }
 dellos6_argument_spec.update(dellos6_top_spec)
 

@@ -331,11 +331,16 @@ plugin_routing:
         warning_text: The onyx terminal plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx
   module_utils:
-    onyx:
+    network.onyx:
       deprecation:
         removal_version: 2.0.0
         warning_text: The onyx module_utils plugin has been moved to the mellanox.onyx collection
-      redirect: mellanox.onyx.onyx
+      redirect: mellanox.onyx.network.onyx
+    network.onyx.onyx:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx module_utils plugin has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.network.onyx.onyx
   action:
     onyx_config:
       deprecation:

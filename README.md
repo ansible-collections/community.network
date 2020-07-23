@@ -6,6 +6,10 @@
 The Community Network collection includes community maintained content to help automate network appliances.
 
 
+## Tested with Ansible
+
+Tested with the current Ansible 2.9 and 2.10 releases and the current development version of Ansible. Ansible versions before 2.9.10 are not supported.
+
 ### Supported connections
 The community network collection supports `network_cli`  and `httpapi` connections.
 

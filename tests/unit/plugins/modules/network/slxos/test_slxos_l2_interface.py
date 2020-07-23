@@ -166,6 +166,7 @@ class TestSlxosL2InterfaceModule(TestSlxosModule):
         self.assertTrue(re.match(
             r'Unsupported parameters for \((basic.py|basic.pyc)\) module: '
             'shawshank Supported parameters include: access_vlan, aggregate, '
-            'mode, name, native_vlan, state, trunk_allowed_vlans, trunk_vlans',
+            r'mode, name( \(interface\))?, native_vlan, state, '
+            'trunk_allowed_vlans, trunk_vlans',
             result['msg']
         ))

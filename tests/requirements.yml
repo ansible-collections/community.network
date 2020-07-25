@@ -1,9 +1,8 @@
 integration_tests_dependencies:
 - ansible.netcommon
 unit_tests_dependencies:
-- netbox.netbox
 - ansible.netcommon
-- fortinet.fortios
 - cisco.aci
-- google.cloud
-- f5networks.f5_modules
+- cisco.mso
+- check_point.mgmt
+- fortinet.fortios

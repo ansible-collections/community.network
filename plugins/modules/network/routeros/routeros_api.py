@@ -89,14 +89,14 @@ options:
          RouterOS aip and return '.id'
          WHERE is key word which extend query. WHERE format is
          key operator value - with spaces
-         WHERE valid operators are "==", "!=v, ">", "<"
-         example path "ip address", query ".id address" will return return
-         only ".id" and "address" config/values for all in selected path
-         example path "ip address",
+         WHERE valid operators are "==", "!=v, ">", "<".
+          Example path "ip address", query ".id address" will return return
+         only ".id" and "address" config/values for all in selected path.
+          Example path "ip address",
          query ".id address WHERE address == 1.1.1.3/32"
          will return only ".idv and "address" for items
-         where address is eq to 1.1.1.3/32
-         example path "interface" query "mtu name WHERE mut > 1400" will
+         where address is eq to 1.1.1.3/32.
+          Example path "interface" query "mtu name WHERE mut > 1400" will
          return only interfaces "mtu,name" where mtu is bigger than 1400
          Equivalent in RouterOS cli "/interface print where mtu > 1400"
     type: str

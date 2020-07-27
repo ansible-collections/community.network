@@ -113,27 +113,26 @@ options:
 EXAMPLES = '''
 ---
 # VARS
-hostname: ""
-username: "admin"
-password: ""
+vars:
+  hostname: "routeros.api.host"
+  username: "admin"
+  password: "admin_super_secret_password"
 
-path: "ip address"
+  path: "ip address"
 
-nic: "ether2"
-ip1: "1.1.1.1/32"
-ip2: "2.2.2.2/32"
-ip3: "3.3.3.3/32"
+  nic: "ether2"
+  ip1: "1.1.1.1/32"
+  ip2: "2.2.2.2/32"
+  ip3: "3.3.3.3/32"
 
-addips:
-  - "address={{ ip1 }} interface={{ nic }}"
-  - "address={{ ip2 }} interface={{ nic }}"
+  addips:
+    - "address={{ ip1 }} interface={{ nic }}"
+    - "address={{ ip2 }} interface={{ nic }}"
 
-rmips:
-  - "{{ ip2 }}"
-  - "{{ ip3 }}"
+  rmips:
+    - "{{ ip2 }}"
+    - "{{ ip3 }}"
 
-
----
 - name: get - "{{ path }} print"
   routeros_api:
     hostname: "{{ hostname }}"
@@ -146,7 +145,6 @@ rmips:
   debug:
     msg: '{{ print_path }}'
 
----
 - name: add - "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
   routeros_api:
     hostname: "{{ hostname }}"
@@ -161,7 +159,6 @@ rmips:
   debug:
     msg: '{{ addout }}'
 
----
 - name: query for '.id' in "{{ path }} WHERE address == {{ ip2 }}"
   routeros_api:
     hostname: "{{ hostname }}"
@@ -178,7 +175,6 @@ rmips:
 - set_fact:
     query_id : "{{ queryout['msg'][0]['.id'] }}"
 
----
 - name: update '.id = {{ query_id }}' taken with custom fact 'fquery_id'
   routeros_api:
     hostname: "{{ hostname }}"
@@ -192,7 +188,6 @@ rmips:
   debug:
     msg: '{{ updateout }}'
 
----
 - name: remove ips -  stage 1 - query for '.id' {{ rmips }}
   routeros_api:
     hostname: "{{ hostname }}"
@@ -227,7 +222,6 @@ rmips:
   debug:
     msg: '{{ remove }}'
 
----
 - name: arbitrary command example "/system identity print"
   routeros_api:
     hostname: "{{ hostname }}"

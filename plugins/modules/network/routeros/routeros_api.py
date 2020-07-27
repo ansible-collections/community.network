@@ -132,7 +132,7 @@ vars:
     - "{{ ip2 }}"
     - "{{ ip3 }}"
 
-- name: get - "{{ path }} print"
+- name: get "{{ path }} print"
   routeros_api:
     hostname: "{{ hostname }}"
     password: "{{ password }}"
@@ -140,11 +140,11 @@ vars:
     path: "{{ path }}"
   register: print_path
 
-- name: result - "{{ path }} print"
+- name: result "{{ path }} print"
   debug:
     msg: '{{ print_path }}'
 
-- name: add - "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
+- name: add "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
   routeros_api:
     hostname: "{{ hostname }}"
     password: "{{ password }}"
@@ -154,7 +154,7 @@ vars:
   loop: "{{ addips }}"
   register: addout
 
-- name: result - routeros '.id' for new added items
+- name: result routeros '.id' for new added items
   debug:
     msg: '{{ addout }}'
 
@@ -167,7 +167,7 @@ vars:
     query: ".id address WHERE address == {{ ip2 }}"
   register: queryout
 
-- name: result - query result and set fact with '.id' for {{ ip2 }}
+- name: result query result and set fact with '.id' for {{ ip2 }}
   debug:
     msg: '{{ queryout }}'
 
@@ -183,7 +183,7 @@ vars:
     update: ".id={{ query_id }} address={{ ip3 }}"
   register: updateout
 
-- name: result - prunt update status
+- name: result prunt update status
   debug:
     msg: '{{ updateout }}'
 
@@ -202,7 +202,7 @@ vars:
     to_be_remove: "{{ to_be_remove |default([]) + [item['msg'][0]['.id']] }}"
   loop: "{{ id_to_remove.results }}"
 
-- name: remove ips - stage 1 - dump '.id'
+- name: remove ips stage 1 - dump '.id'
   debug:
     msg: '{{ to_be_remove }}'
 
@@ -217,7 +217,7 @@ vars:
   register: remove
   loop: "{{ to_be_remove }}"
 
-- name: remove ips - stage 2 - dump result
+- name: remove ips stage 2 dump result
   debug:
     msg: '{{ remove }}'
 

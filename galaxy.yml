@@ -9,11 +9,9 @@ license_file: COPYING
 tags: [community, network]
 # NOTE: No more dependencies can be added to this list
 dependencies:
-  ansible.netcommon: '>=0.0.1'
-  cisco.mso: '>=0.0.1'
-  cisco.aci: '>=0.0.1'
-  check_point.mgmt: '>=0.1.0'
-  fortinet.fortios: '>=0.1.0'
+  ansible.netcommon: '>=1.0.0'
+  check_point.mgmt: '>=1.0.0'
+  fortinet.fortios: '>=1.0.0'
 repository: https://github.com/ansible-collections/community.network
 #documentation: https://github.com/ansible-collection-migration/community.network/tree/main/docs
 homepage: https://github.com/ansible-collections/community.network

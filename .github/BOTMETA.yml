@@ -142,16 +142,6 @@ files:
     maintainers: mischapeters
   $modules/network/a10/:
     authors: ericchou1 mischapeters
-  $modules/network/aci/:
-    authors: devarshishah3
-    maintainers: aciguru brunocalogero fadallar jmcgill298 koladiya mtorelli rsmeyers schunduri smnmtzgr
-    labels: cisco networking
-    keywords:
-    - aci
-    - cisco msc
-    - cisco mso
-    - multi-site
-    - multisite
   $modules/network/aireos/:
     authors: jmighion
     labels: cisco networking

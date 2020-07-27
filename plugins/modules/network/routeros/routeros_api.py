@@ -54,32 +54,31 @@ options:
     description:
       - Main path for all other arguments
         example "ip address"
-        If other arguments are not set, api will return
-         the eqvivalent of RouterOS print
-         cli "/ip address print"
+        If other arguments are not set, api will returin.
+          Eqvivalent in RouterOS cli "/ip address print"
     required: true
     type: str
   add:
     description:
       - Will add execute selected arguments in selected path.
-        example "address=1.1.1.1/32 interface=ether1"
-        equivalent in RouterOS cli
+        example "address=1.1.1.1/32 interface=ether1".
+          Equivalent in RouterOS cli
          "/ip address add address=1.1.1.1/32 interface=ether1"
     type: str
   remove:
     description:
       - Remove config/value from RouterOS by '.id'
          example "*03" will remove config/value with "id=*03"
-         in selected path from RouterOS configuration
-         equivalent in RouterOS cli "/ip address remove numbers=1"
+         in selected path from RouterOS configuration.
+          Equivalent in RouterOS cli "/ip address remove numbers=1"
          ,note "number" in RouterOS cli is different from ".id"
     type: str
   update:
     description:
       - Update config/value in RouterOS by ".id" in selected
          example ".id=*03 address=1.1.1.3/32" and path "ip address"
-         will replace existing ip address with ".id=*03"
-         equivalent in RouterOS cli
+         will replace existing ip address with ".id=*03".
+          Equivalent in RouterOS cli
          "/ip address set address=1.1.1.3/32 numbers=1"
          ,note number in RouterOS cli is different from ".id"
     type: str
@@ -88,17 +87,17 @@ options:
       - Query given path and config/value for selected query attributes from
          RouterOS aip and return '.id'
          WHERE is key word which extend query. WHERE format is
-         key operator value - with spaces
-         WHERE valid operators are "==", "!=v, ">", "<"
-         example path "ip address", query ".id address" will return return
+         key operator value - with spaces.
+          WHERE valid operators are "==", "!=v, ">", "<"
+         ,example path "ip address", query ".id address" will return return
          only ".id" and "address" config/values for all in selected path
          example path "ip address",
-         query ".id address WHERE address == 1.1.1.3/32"
-         will return only ".idv and "address" for items
+          query ".id address WHERE address == 1.1.1.3/32"
+         will return only ".id" and "address" for items
          where address is eq to 1.1.1.3/32
          example path "interface" query "mtu name WHERE mut > 1400" will
-         return only interfaces "mtu,name" where mtu is bigger than 1400
-         Equivalent in RouterOS cli "/interface print where mtu > 1400"
+         return only interfaces "mtu,name" where mtu is bigger than 1400.
+          Equivalent in RouterOS cli "/interface print where mtu > 1400"
     type: str
   cmd:
     description:

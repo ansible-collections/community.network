@@ -2,7 +2,5 @@ integration_tests_dependencies:
 - ansible.netcommon
 unit_tests_dependencies:
 - ansible.netcommon
-- cisco.aci
-- cisco.mso
 - check_point.mgmt
 - fortinet.fortios

@@ -68,8 +68,6 @@ cd "${TEST_DIR}"
 
 # START: HACK install dependencies
 retry ansible-galaxy -vvv collection install ansible.netcommon
-retry ansible-galaxy -vvv collection install cisco.aci
-retry ansible-galaxy -vvv collection install cisco.mso
 retry ansible-galaxy -vvv collection install check_point.mgmt
 retry ansible-galaxy -vvv collection install fortinet.fortios
 

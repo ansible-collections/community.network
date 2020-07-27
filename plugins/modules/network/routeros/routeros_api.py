@@ -240,8 +240,8 @@ EXAMPLES = '''
 RETURN = '''
 ---
 message:
-    description: All outputs are in list with dicturnaty
-                  elements returned from RouterOS api
+    description: All outputs are in list with dictionary
+     elements returned from RouterOS api
     type: list
     returned: always
 '''

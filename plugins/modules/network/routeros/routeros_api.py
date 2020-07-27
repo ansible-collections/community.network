@@ -54,31 +54,32 @@ options:
     description:
       - Main path for all other arguments
         example "ip address"
-        If other arguments are not set, api will returin.
-          Eqvivalent in RouterOS cli "/ip address print"
+        If other arguments are not set, api will return
+         the eqvivalent of RouterOS print
+         cli "/ip address print"
     required: true
     type: str
   add:
     description:
       - Will add execute selected arguments in selected path.
-        example "address=1.1.1.1/32 interface=ether1".
-          Equivalent in RouterOS cli
+        example "address=1.1.1.1/32 interface=ether1"
+        equivalent in RouterOS cli
          "/ip address add address=1.1.1.1/32 interface=ether1"
     type: str
   remove:
     description:
       - Remove config/value from RouterOS by '.id'
          example "*03" will remove config/value with "id=*03"
-         in selected path from RouterOS configuration.
-          Equivalent in RouterOS cli "/ip address remove numbers=1"
+         in selected path from RouterOS configuration
+         equivalent in RouterOS cli "/ip address remove numbers=1"
          ,note "number" in RouterOS cli is different from ".id"
     type: str
   update:
     description:
       - Update config/value in RouterOS by ".id" in selected
          example ".id=*03 address=1.1.1.3/32" and path "ip address"
-         will replace existing ip address with ".id=*03".
-          Equivalent in RouterOS cli
+         will replace existing ip address with ".id=*03"
+         equivalent in RouterOS cli
          "/ip address set address=1.1.1.3/32 numbers=1"
          ,note number in RouterOS cli is different from ".id"
     type: str
@@ -87,17 +88,17 @@ options:
       - Query given path and config/value for selected query attributes from
          RouterOS aip and return '.id'
          WHERE is key word which extend query. WHERE format is
-         key operator value - with spaces.
-          WHERE valid operators are "==", "!=v, ">", "<"
-         ,example path "ip address", query ".id address" will return return
+         key operator value - with spaces
+         WHERE valid operators are "==", "!=v, ">", "<"
+         example path "ip address", query ".id address" will return return
          only ".id" and "address" config/values for all in selected path
          example path "ip address",
-          query ".id address WHERE address == 1.1.1.3/32"
-         will return only ".id" and "address" for items
+         query ".id address WHERE address == 1.1.1.3/32"
+         will return only ".idv and "address" for items
          where address is eq to 1.1.1.3/32
          example path "interface" query "mtu name WHERE mut > 1400" will
-         return only interfaces "mtu,name" where mtu is bigger than 1400.
-          Equivalent in RouterOS cli "/interface print where mtu > 1400"
+         return only interfaces "mtu,name" where mtu is bigger than 1400
+         Equivalent in RouterOS cli "/interface print where mtu > 1400"
     type: str
   cmd:
     description:
@@ -111,128 +112,129 @@ options:
 
 EXAMPLES = '''
 ---
-# VARS
-vars:
-  hostname: "routeros.api.host"
-  username: "admin"
-  password: "admin_super_secret_password"
+- name: routeros_api test
+  hosts: localhost
+  gather_facts: no
+  vars:
+    hostname: "ros_api_hostname/ip"
+    username: "admin"
+    password: "secret_password"
 
-  path: "ip address"
+    path: "ip address"
 
-  nic: "ether2"
-  ip1: "1.1.1.1/32"
-  ip2: "2.2.2.2/32"
-  ip3: "3.3.3.3/32"
+    nic: "ether2"
+    ip1: "1.1.1.1/32"
+    ip2: "2.2.2.2/32"
+    ip3: "3.3.3.3/32"
 
-  addips:
-    - "address={{ ip1 }} interface={{ nic }}"
-    - "address={{ ip2 }} interface={{ nic }}"
+    addips:
+      - "address={{ ip1 }} interface={{ nic }}"
+      - "address={{ ip2 }} interface={{ nic }}"
 
-  rmips:
-    - "{{ ip2 }}"
-    - "{{ ip3 }}"
+    rmips:
+      - "{{ ip2 }}"
+      - "{{ ip3 }}"
+  tasks:
+    - name: get "{{ path }} print"
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+      register: print_path
 
-- name: get "{{ path }} print"
-  routeros_api:
-    hostname: "{{ hostname }}"
-    password: "{{ password }}"
-    username: "{{ username }}"
-    path: "{{ path }}"
-  register: print_path
+    - name: result "{{ path }} print"
+      debug:
+        msg: '{{ print_path }}'
 
-- name: result "{{ path }} print"
-  debug:
-    msg: '{{ print_path }}'
+    - name: add "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+        add: "{{ item }}"
+      loop: "{{ addips }}"
+      register: addout
 
-- name: add "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
-  routeros_api:
-    hostname: "{{ hostname }}"
-    password: "{{ password }}"
-    username: "{{ username }}"
-    path: "{{ path }}"
-    add: "{{ item }}"
-  loop: "{{ addips }}"
-  register: addout
+    - name: result routeros '.id' for new added items
+      debug:
+        msg: '{{ addout }}'
+    - name: query for ".id" in "{{ path }} WHERE address == {{ ip2 }}"
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+        query: ".id address WHERE address == {{ ip2 }}"
+      register: queryout
 
-- name: result routeros '.id' for new added items
-  debug:
-    msg: '{{ addout }}'
+    - name: result query result and set fact with '.id' for {{ ip2 }}
+      debug:
+        msg: '{{ queryout }}'
 
-- name: query for '.id' in "{{ path }} WHERE address == {{ ip2 }}"
-  routeros_api:
-    hostname: "{{ hostname }}"
-    password: "{{ password }}"
-    username: "{{ username }}"
-    path: "{{ path }}"
-    query: ".id address WHERE address == {{ ip2 }}"
-  register: queryout
+    - set_fact:
+        query_id : "{{ queryout['msg'][0]['.id'] }}"
 
-- name: result query result and set fact with '.id' for {{ ip2 }}
-  debug:
-    msg: '{{ queryout }}'
+    - name: update ".id = {{ query_id }}" taken with custom fact "fquery_id"
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+        update: ".id={{ query_id }} address={{ ip3 }}"
+      register: updateout
 
-- set_fact:
-    query_id : "{{ queryout['msg'][0]['.id'] }}"
+    - name: result prunt update status
+      debug:
+        msg: '{{ updateout }}'
 
-- name: update '.id = {{ query_id }}' taken with custom fact 'fquery_id'
-  routeros_api:
-    hostname: "{{ hostname }}"
-    password: "{{ password }}"
-    username: "{{ username }}"
-    path: "{{ path }}"
-    update: ".id={{ query_id }} address={{ ip3 }}"
-  register: updateout
+    - name: remove ips -  stage 1 - query for '.id' {{ rmips }}
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+        query: ".id address WHERE address == {{ item }}"
+      register: id_to_remove
+      loop: "{{ rmips }}"
 
-- name: result prunt update status
-  debug:
-    msg: '{{ updateout }}'
+    # set fact for '.id' from 'query for {{ path }}'
+    - set_fact:
+        to_be_remove: "{{ to_be_remove |default([]) + [item['msg'][0]['.id']] }}"
+      loop: "{{ id_to_remove.results }}"
 
-- name: remove ips -  stage 1 - query for '.id' {{ rmips }}
-  routeros_api:
-    hostname: "{{ hostname }}"
-    password: "{{ password }}"
-    username: "{{ username }}"
-    path: "{{ path }}"
-    query: ".id address WHERE address == {{ item }}"
-  register: id_to_remove
-  loop: "{{ rmips }}"
+    - name: remove ips stage 1 - dump '.id'
+      debug:
+        msg: '{{ to_be_remove }}'
 
-# set fact for '.id' from 'query for {{ path }}'
-- set_fact:
-    to_be_remove: "{{ to_be_remove |default([]) + [item['msg'][0]['.id']] }}"
-  loop: "{{ id_to_remove.results }}"
+    # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
+    - name: remove ips -  stage 2 - remove {{ rmips }} by '.id'
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "{{ path }}"
+        remove: "{{ item }}"
+      register: remove
+      loop: "{{ to_be_remove }}"
 
-- name: remove ips stage 1 - dump '.id'
-  debug:
-    msg: '{{ to_be_remove }}'
+    - name: remove ips stage 2 dump result
+      debug:
+        msg: '{{ remove }}'
 
-  # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
-- name: remove ips -  stage 2 - remove {{ rmips }} by '.id'
-  routeros_api:
-    hostname: "{{ hostname }}"
-    password: "{{ password }}"
-    username: "{{ username }}"
-    path: "{{ path }}"
-    remove: "{{ item }}"
-  register: remove
-  loop: "{{ to_be_remove }}"
+    - name: arbitrary command example "/system identity print"
+      routeros_api:
+        hostname: "{{ hostname }}"
+        password: "{{ password }}"
+        username: "{{ username }}"
+        path: "system identity"
+        cmd: "print"
+      register: cmdout
 
-- name: remove ips stage 2 dump result
-  debug:
-    msg: '{{ remove }}'
-
-- name: arbitrary command example "/system identity print"
-  routeros_api:
-    hostname: "{{ hostname }}"
-    password: "{{ password }}"
-    username: "{{ username }}"
-    path: "system identity"
-    cmd: "print"
-  register: cmdout
-
-- name: dump "/system identity print" output
-  debug:
-    msg: "{{ cmdout }}"
+    - name: dump "/system identity print" output
+      debug:
+        msg: "{{ cmdout }}"
 '''
 
 RETURN = '''

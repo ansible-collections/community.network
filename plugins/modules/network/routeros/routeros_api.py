@@ -358,7 +358,7 @@ class ROS_api_module:
             if '=' not in p:
                 self.errors("missing '=' after '%s'" % p)
             p = p.split('=')
-            if 'id' in p[0] and p[0] != ".id":
+            if  p[0] == 'id':
                 self.errors("'%s' must be '.id'" % p[0])
             dict[p[0]] = p[1]
         return dict
@@ -476,7 +476,7 @@ def main():
     # define available arguments/parameters a user can pass to the module
     ros = ROS_api_module(dict(
         username=dict(type='str', required=True),
-        password=dict(type='str', required=True, no_log=True),
+        password=dict(type='str', required=True),
         hostname=dict(type='str', required=True),
         port=dict(type='int', required=False),
         ssl=dict(type='bool', required=False, default=False),

@@ -53,7 +53,7 @@ options:
   path:
     description:
       - Main path for all other arguments.
-        If other arguments are not set, api will return all items in 
+        If other arguments are not set, api will return all items in
          selected path.
         Example "ip address".
          Eqvivalent of RouterOS cli "/ip address print"

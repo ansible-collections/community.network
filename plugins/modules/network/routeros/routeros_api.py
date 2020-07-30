@@ -8,7 +8,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 ANSIBLE_METADATA = {
-    'metadata_version': '1.0.0',
+    'metadata_version': '1.0.1',
     'status': ['preview'],
     'supported_by': 'community'
 }
@@ -16,7 +16,7 @@ ANSIBLE_METADATA = {
 DOCUMENTATION = '''
 ---
 module: routeros_api
-version_added: 1.0.0
+version_added: 1.0.1
 author: Nikolay Dachev (@nikolaydachev)
 short_description: Ansible module for RouterOS API
 description:

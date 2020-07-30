@@ -61,23 +61,23 @@ options:
     type: str
   add:
     description:
-      - Will add execute selected arguments in selected path.
+      - Will add selected arguments in selected path to RouterOS config.
         Example "address=1.1.1.1/32 interface=ether1".
          Equivalent in RouterOS cli
          "/ip address add address=1.1.1.1/32 interface=ether1"
     type: str
   remove:
     description:
-      - Remove config/value from RouterOS by '.id'
-         example "*03" will remove config/value with "id=*03"
+      - Remove config/value from RouterOS by '.id'.
+         Example "*03" will remove config/value with "id=*03"
          in selected path.
           Equivalent in RouterOS cli "/ip address remove numbers=1"
          ,note "number" in RouterOS cli is different from ".id"
     type: str
   update:
     description:
-      - Update config/value in RouterOS by ".id" in selected
-         example ".id=*03 address=1.1.1.3/32" and path "ip address"
+      - Update config/value in RouterOS by ".id" in selected path.
+         Example ".id=*03 address=1.1.1.3/32" and path "ip address"
          will replace existing ip address with ".id=*03".
          Equivalent in RouterOS cli
          "/ip address set address=1.1.1.3/32 numbers=1"
@@ -95,7 +95,7 @@ options:
           Example path "ip address" and
           query ".id address WHERE address == 1.1.1.3/32"
          will return only ".id" and "address" for items in "ip address"
-          pat, where address is eq to 1.1.1.3/32.
+          path, where address is eq to 1.1.1.3/32.
           Example path "interface" and query "mtu name WHERE mut > 1400" will
          return only interfaces "mtu,name" where mtu is bigger than 1400.
           Equivalent in RouterOS cli "/interface print where mtu > 1400"

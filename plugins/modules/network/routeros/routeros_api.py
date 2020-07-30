@@ -52,16 +52,17 @@ options:
     type: int
   path:
     description:
-      - Main path for all other arguments
-        example "ip address"
-        If other arguments are not set, api will return
-         the eqvivalent of RouterOS cli "/ip address print"
+      - Main path for all other arguments.
+        If other arguments are not set, api will return all items in 
+         selected path.
+        Example "ip address".
+         Eqvivalent of RouterOS cli "/ip address print"
     required: true
     type: str
   add:
     description:
       - Will add execute selected arguments in selected path.
-        example "address=1.1.1.1/32 interface=ether1".
+        Example "address=1.1.1.1/32 interface=ether1".
          Equivalent in RouterOS cli
          "/ip address add address=1.1.1.1/32 interface=ether1"
     type: str
@@ -88,13 +89,13 @@ options:
          RouterOS aip and return '.id'.
           WHERE is key word which extend query. WHERE format is
          key operator value - with spaces.
-          WHERE valid operators are "==", "!=v, ">", "<".
+          WHERE valid operators are "==", "!=", ">", "<".
           Example path "ip address" and query ".id address" will return
          only ".id" and "address" for all items in "ip address" path.
           Example path "ip address" and
           query ".id address WHERE address == 1.1.1.3/32"
          will return only ".id" and "address" for items in "ip address"
-          path where address is eq to 1.1.1.3/32.
+          pat, where address is eq to 1.1.1.3/32.
           Example path "interface" and query "mtu name WHERE mut > 1400" will
          return only interfaces "mtu,name" where mtu is bigger than 1400.
           Equivalent in RouterOS cli "/interface print where mtu > 1400"
@@ -102,10 +103,10 @@ options:
   cmd:
     description:
       - Execute any/arbitrary command in selected path,
-         after the command we should add ".id"
-         example path "system script" and cmd "run .id=*03"
-         is equivalent in RouterOS cli "/system script run number=0"
-         ,example path "ip address" and cmd "print"
+         after the command we can add ".id".
+         Example path "system script" and cmd "run .id=*03"
+         is equivalent in RouterOS cli "/system script run number=0",
+          example path "ip address" and cmd "print"
          equivalent in RouterOS cli "/ip address print"
     type: str
 '''

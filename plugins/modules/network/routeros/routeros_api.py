@@ -475,17 +475,17 @@ class ROS_api_module:
 def main():
     # define available arguments/parameters a user can pass to the module
     ros = ROS_api_module(dict(
-        username=dict(type='str', required=True),
-        password=dict(type='str', required=True),
-        hostname=dict(type='str', required=True),
-        port=dict(type='int', required=False),
-        ssl=dict(type='bool', required=False, default=False),
-        path=dict(type='str', required=True),
-        add=dict(type='str', required=False),
-        remove=dict(type='str', required=False),
-        update=dict(type='str', required=False),
-        cmd=dict(type='str', required=False),
-        query=dict(type='str', required=False)))
+        username=dict(type='str', required=True, no_log=False),
+        password=dict(type='str', required=True, no_log=True),
+        hostname=dict(type='str', required=True, no_log=False),
+        port=dict(type='int', required=False, no_log=False),
+        ssl=dict(type='bool', required=False, default=False, no_log=False),
+        path=dict(type='str', required=True, no_log=False),
+        add=dict(type='str', required=False, no_log=False),
+        remove=dict(type='str', required=False, no_log=False),
+        update=dict(type='str', required=False, no_log=False),
+        cmd=dict(type='str', required=False, no_log=False),
+        query=dict(type='str', required=False, no_log=False)))
 
 
 if __name__ == '__main__':

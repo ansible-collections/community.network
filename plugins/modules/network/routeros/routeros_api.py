@@ -46,7 +46,7 @@ options:
     type: bool
   port:
     description:
-      - RouterOS api port. If ssl is used port will apply to ssl connection.
+      - RouterOS api port. If ssl is set, port will apply to ssl connection.
         http api - 8728
         https api - 8729
     type: int
@@ -55,58 +55,58 @@ options:
       - Main path for all other arguments
         example "ip address"
         If other arguments are not set, api will return
-         the eqvivalent of RouterOS print
-         cli "/ip address print"
+         the eqvivalent of RouterOS cli "/ip address print"
     required: true
     type: str
   add:
     description:
       - Will add execute selected arguments in selected path.
-        example "address=1.1.1.1/32 interface=ether1"
-        equivalent in RouterOS cli
+        example "address=1.1.1.1/32 interface=ether1".
+         Equivalent in RouterOS cli
          "/ip address add address=1.1.1.1/32 interface=ether1"
     type: str
   remove:
     description:
       - Remove config/value from RouterOS by '.id'
          example "*03" will remove config/value with "id=*03"
-         in selected path from RouterOS configuration
-         equivalent in RouterOS cli "/ip address remove numbers=1"
+         in selected path.
+          Equivalent in RouterOS cli "/ip address remove numbers=1"
          ,note "number" in RouterOS cli is different from ".id"
     type: str
   update:
     description:
       - Update config/value in RouterOS by ".id" in selected
          example ".id=*03 address=1.1.1.3/32" and path "ip address"
-         will replace existing ip address with ".id=*03"
-         equivalent in RouterOS cli
+         will replace existing ip address with ".id=*03".
+         Equivalent in RouterOS cli
          "/ip address set address=1.1.1.3/32 numbers=1"
          ,note number in RouterOS cli is different from ".id"
     type: str
   query:
     description:
-      - Query given path and config/value for selected query attributes from
-         RouterOS aip and return '.id'
-         WHERE is key word which extend query. WHERE format is
-         key operator value - with spaces
-         WHERE valid operators are "==", "!=v, ">", "<".
-          Example path "ip address", query ".id address" will return return
-         only ".id" and "address" config/values for all in selected path.
-          Example path "ip address",
-         query ".id address WHERE address == 1.1.1.3/32"
-         will return only ".idv and "address" for items
-         where address is eq to 1.1.1.3/32.
-          Example path "interface" query "mtu name WHERE mut > 1400" will
-         return only interfaces "mtu,name" where mtu is bigger than 1400
-         Equivalent in RouterOS cli "/interface print where mtu > 1400"
+      - Query given path for selected query attributes from
+         RouterOS aip and return '.id'.
+          WHERE is key word which extend query. WHERE format is
+         key operator value - with spaces.
+          WHERE valid operators are "==", "!=v, ">", "<".
+          Example path "ip address" and query ".id address" will return
+         only ".id" and "address" for all items in "ip address" path.
+          Example path "ip address" and
+          query ".id address WHERE address == 1.1.1.3/32"
+         will return only ".id" and "address" for items in "ip address"
+          path where address is eq to 1.1.1.3/32.
+          Example path "interface" and query "mtu name WHERE mut > 1400" will
+         return only interfaces "mtu,name" where mtu is bigger than 1400.
+          Equivalent in RouterOS cli "/interface print where mtu > 1400"
     type: str
   cmd:
     description:
       - Execute any/arbitrary command in selected path,
          after the command we should add ".id"
-         example path "system script" cmd "run .id=*03"
-         ,example path "ip address" cmd "print"
-         equivalent in RouterOS cli "/system script run number=0"
+         example path "system script" and cmd "run .id=*03"
+         is equivalent in RouterOS cli "/system script run number=0"
+         ,example path "ip address" and cmd "print"
+         equivalent in RouterOS cli "/ip address print"
     type: str
 '''
 
@@ -160,6 +160,7 @@ EXAMPLES = '''
     - name: result routeros '.id' for new added items
       debug:
         msg: '{{ addout }}'
+
     - name: query for ".id" in "{{ path }} WHERE address == {{ ip2 }}"
       routeros_api:
         hostname: "{{ hostname }}"

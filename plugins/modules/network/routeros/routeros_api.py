@@ -10,7 +10,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: routeros_api
-version_added: 1.0.1
+version_added: 1.1.0
 author: Nikolay Dachev (@nikolaydachev)
 short_description: Ansible module for RouterOS API
 description:

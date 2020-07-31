@@ -356,7 +356,8 @@ class ROS_api_module:
             p = p.split('=')
             if p[0] == 'id':
                 self.errors("'%s' must be '.id'" % p[0])
-            dict[p[0]] = p[1]
+            if p[1]:
+                dict[p[0]] = p[1]
         return dict
 
     def api_add_path(self):

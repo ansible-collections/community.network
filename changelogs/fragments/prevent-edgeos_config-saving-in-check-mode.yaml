@@ -1,3 +1,0 @@
----
-bugfixes:
-  - edgeos_config - fixed issue where config could be saved while in check mode (https://github.com/ansible-collections/community.network/pull/78)

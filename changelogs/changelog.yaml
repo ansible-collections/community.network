@@ -153,3 +153,26 @@ releases:
       name: onyx_username
       namespace: network.onyx
     release_date: '2020-06-20'
+  1.0.0:
+    changes:
+      bugfixes:
+      - edgeos_config - Added `cat` command to allow display of large files without
+        `less`. Led to a timeout error. (https://github.com/ansible-collections/community.network/issues/79)
+      - edgeos_config - fixed issue where config could be saved while in check mode
+        (https://github.com/ansible-collections/community.network/pull/78)
+      - edgeos_facts - Added `cat` command to allow display of large files without
+        `less`. Led to a timeout error. (https://github.com/ansible-collections/community.network/issues/79)
+      release_summary: 'This is release 1.0.0 of ``community.network``, released on
+        2020-07-31.
+
+        '
+      removed_features:
+      - onyx - all onyx modules and plugins have been moved to the mellanox.onyx collection.
+        Redirects have been added that will be removed in community.network 2.0.0
+        (https://github.com/ansible-collections/community.network/pull/83).
+    fragments:
+    - 1.0.0.yml
+    - 83-remove-onyx.yml
+    - fix_edgeos_facts_and_edgeos_cli.yml
+    - prevent-edgeos_config-saving-in-check-mode.yaml
+    release_date: '2020-07-31'

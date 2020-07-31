@@ -5,6 +5,27 @@ Community Network Release Notes
 .. contents:: Topics
 
 
+v1.0.0
+======
+
+Release Summary
+---------------
+
+This is release 1.0.0 of ``community.network``, released on 2020-07-31.
+
+
+Removed Features (previously deprecated)
+----------------------------------------
+
+- onyx - all onyx modules and plugins have been moved to the mellanox.onyx collection. Redirects have been added that will be removed in community.network 2.0.0 (https://github.com/ansible-collections/community.network/pull/83).
+
+Bugfixes
+--------
+
+- edgeos_config - Added `cat` command to allow display of large files without `less`. Led to a timeout error. (https://github.com/ansible-collections/community.network/issues/79)
+- edgeos_config - fixed issue where config could be saved while in check mode (https://github.com/ansible-collections/community.network/pull/78)
+- edgeos_facts - Added `cat` command to allow display of large files without `less`. Led to a timeout error. (https://github.com/ansible-collections/community.network/issues/79)
+
 v0.2.0
 ======
 

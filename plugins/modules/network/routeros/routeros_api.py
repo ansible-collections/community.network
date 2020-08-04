@@ -102,7 +102,7 @@ options:
 
 EXAMPLES = '''
 ---
-- name: routeros_api test
+- name: Test routeros_api
   hosts: localhost
   gather_facts: no
   vars:
@@ -125,20 +125,20 @@ EXAMPLES = '''
       - "{{ ip2 }}"
       - "{{ ip3 }}"
   tasks:
-    - name: get "{{ path }} print"
-      routeros_api:
+    - name: Get "{{ path }} print"
+      community.network.routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
         path: "{{ path }}"
       register: print_path
 
-    - name: result "{{ path }} print"
+    - name: Result "{{ path }} print"
       ansible.builtin.debug:
         msg: '{{ print_path }}'
 
-    - name: add "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
-      routeros_api:
+    - name: Add "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
+      community.network.routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -151,8 +151,8 @@ EXAMPLES = '''
       ansible.builtin.debug:
         msg: '{{ addout }}'
 
-    - name: query for ".id" in "{{ path }} WHERE address == {{ ip2 }}"
-      routeros_api:
+    - name: Query for ".id" in "{{ path }} WHERE address == {{ ip2 }}"
+      community.network.routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
@@ -160,7 +160,7 @@ EXAMPLES = '''
         query: ".id address WHERE address == {{ ip2 }}"
       register: queryout
 
-    - name: result query result and set fact with '.id' for {{ ip2 }}
+    - name: Result query result and set fact with '.id' for {{ ip2 }}
       ansible.builtin.debug:
         msg: '{{ queryout }}'
 

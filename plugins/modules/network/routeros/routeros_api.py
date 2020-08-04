@@ -16,11 +16,11 @@ short_description: Ansible module for RouterOS API
 description:
   - Ansible module for RouterOS API with python librouteros.
     This module can add, remove, update, query and execute arbitrary command
-    in routeros via api.
+    in routeros via API.
 options:
   hostname:
     description:
-      - RouterOS hostname api.
+      - RouterOS hostname API.
     required: true
     type: str
   username:
@@ -35,13 +35,13 @@ options:
     type: str
   ssl:
     description:
-      - If is set ssl will be used for RouterOS api connection.
+      - If is set TLS will be used for RouterOS API connection.
     required: false
     type: bool
   port:
     description:
       - RouterOS api port. If ssl is set, port will apply to ssl connection.
-        Defaults are http api - C(8728), https api - C(8729).
+        Defaults are C(8728) for the HTTP API,  and C(8729) for the HTTPS API.
     type: int
   path:
     description:

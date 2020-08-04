@@ -80,7 +80,7 @@ options:
          key operator value - with spaces.
           WHERE valid operators are C(==), C(!=), C(>), C(<).
           Example path C(ip address) and query C(.id address) will return
-         only C(.id) and (address) for all items in C(ip address) path.
+         only C(.id) and C(address) for all items in C(ip address) path.
           Example path C(ip address) and
           query C(.id address WHERE address == 1.1.1.3/32)
          will return only C(.id) and C(address) for items in C(ip address)

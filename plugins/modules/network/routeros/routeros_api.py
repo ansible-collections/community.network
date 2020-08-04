@@ -147,7 +147,7 @@ EXAMPLES = '''
       loop: "{{ addips }}"
       register: addout
 
-    - name: result routeros '.id' for new added items
+    - name: Result routeros '.id' for new added items
       ansible.builtin.debug:
         msg: '{{ addout }}'
 
@@ -167,7 +167,7 @@ EXAMPLES = '''
     - ansible.builtin.set_fact:
         query_id : "{{ queryout['msg'][0]['.id'] }}"
 
-    - name: update ".id = {{ query_id }}" taken with custom fact "fquery_id"
+    - name: Update ".id = {{ query_id }}" taken with custom fact "fquery_id"
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -176,11 +176,11 @@ EXAMPLES = '''
         update: ".id={{ query_id }} address={{ ip3 }}"
       register: updateout
 
-    - name: result prunt update status
+    - name: Result prunt update status
       ansible.builtin.debug:
         msg: '{{ updateout }}'
 
-    - name: remove ips -  stage 1 - query for '.id' {{ rmips }}
+    - name: Remove ips -  stage 1 - query for '.id' {{ rmips }}
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -195,12 +195,12 @@ EXAMPLES = '''
         to_be_remove: "{{ to_be_remove |default([]) + [item['msg'][0]['.id']] }}"
       loop: "{{ id_to_remove.results }}"
 
-    - name: remove ips stage 1 - dump '.id'
+    - name: Remove ips stage 1 - dump '.id'
       ansible.builtin.debug:
         msg: '{{ to_be_remove }}'
 
     # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
-    - name: remove ips -  stage 2 - remove {{ rmips }} by '.id'
+    - name: Remove ips -  stage 2 - remove {{ rmips }} by '.id'
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -210,11 +210,11 @@ EXAMPLES = '''
       register: remove
       loop: "{{ to_be_remove }}"
 
-    - name: remove ips stage 2 dump result
+    - name: Remove ips stage 2 dump result
       ansible.builtin.debug:
         msg: '{{ remove }}'
 
-    - name: arbitrary command example "/system identity print"
+    - name: Arbitrary command example "/system identity print"
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -223,7 +223,7 @@ EXAMPLES = '''
         cmd: "print"
       register: cmdout
 
-    - name: dump "/system identity print" output
+    - name: Dump "/system identity print" output
       ansible.builtin.debug:
         msg: "{{ cmdout }}"
 '''

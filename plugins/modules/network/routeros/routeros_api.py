@@ -20,53 +20,48 @@ description:
 options:
   hostname:
     description:
-      - RouterOS hostname api
+      - RouterOS hostname api.
     required: true
     type: str
   username:
     description:
-      - RouterOS login user
+      - RouterOS login user.
     required: true
     type: str
   password:
     description:
-      - RouterOS user password
+      - RouterOS user password.
     required: true
     type: str
   ssl:
     description:
-      - If is set ssl will be used for RouterOS api connection
+      - If is set ssl will be used for RouterOS api connection.
     required: false
     type: bool
   port:
     description:
       - RouterOS api port. If ssl is set, port will apply to ssl connection.
-        http api - 8728
-        https api - 8729
+        Defaults are http api - C(8728), https api - C(8729).
     type: int
   path:
     description:
       - Main path for all other arguments.
-        If other arguments are not set, api will return all items in
-         selected path.
-        Example "ip address".
-         Eqvivalent of RouterOS cli "/ip address print"
+        If other arguments are not set, api will return all items in selected path.
+        Example "ip address". Eqvivalent of RouterOS cli "/ip address print".
     required: true
     type: str
   add:
     description:
       - Will add selected arguments in selected path to RouterOS config.
         Example "address=1.1.1.1/32 interface=ether1".
-         Equivalent in RouterOS cli
-         "/ip address add address=1.1.1.1/32 interface=ether1"
+        Equivalent in RouterOS cli "/ip address add address=1.1.1.1/32 interface=ether1".
     type: str
   remove:
     description:
       - Remove config/value from RouterOS by '.id'.
-         Example "*03" will remove config/value with "id=*03"
-         in selected path.
-          Equivalent in RouterOS cli "/ip address remove numbers=1"
-         ,note "number" in RouterOS cli is different from ".id"
+         Example "*03" will remove config/value with "id=*03" in selected path.
+          Equivalent in RouterOS cli "/ip address remove numbers=1".
+          Note "number" in RouterOS cli is different from ".id".
     type: str
   update:
     description:
@@ -74,8 +69,8 @@ options:
          Example ".id=*03 address=1.1.1.3/32" and path "ip address"
          will replace existing ip address with ".id=*03".
          Equivalent in RouterOS cli
-         "/ip address set address=1.1.1.3/32 numbers=1"
-         ,note number in RouterOS cli is different from ".id"
+         "/ip address set address=1.1.1.3/32 numbers=1".
+         Note number in RouterOS cli is different from ".id".
     type: str
   query:
     description:
@@ -92,7 +87,7 @@ options:
           path, where address is eq to 1.1.1.3/32.
           Example path "interface" and query "mtu name WHERE mut > 1400" will
          return only interfaces "mtu,name" where mtu is bigger than 1400.
-          Equivalent in RouterOS cli "/interface print where mtu > 1400"
+          Equivalent in RouterOS cli "/interface print where mtu > 1400".
     type: str
   cmd:
     description:
@@ -101,7 +96,7 @@ options:
          Example path "system script" and cmd "run .id=*03"
          is equivalent in RouterOS cli "/system script run number=0",
           example path "ip address" and cmd "print"
-         equivalent in RouterOS cli "/ip address print"
+         equivalent in RouterOS cli "/ip address print".
     type: str
 '''
 
@@ -139,7 +134,7 @@ EXAMPLES = '''
       register: print_path
 
     - name: result "{{ path }} print"
-      debug:
+      ansible.builtin.debug:
         msg: '{{ print_path }}'
 
     - name: add "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
@@ -153,7 +148,7 @@ EXAMPLES = '''
       register: addout
 
     - name: result routeros '.id' for new added items
-      debug:
+      ansible.builtin.debug:
         msg: '{{ addout }}'
 
     - name: query for ".id" in "{{ path }} WHERE address == {{ ip2 }}"
@@ -166,10 +161,10 @@ EXAMPLES = '''
       register: queryout
 
     - name: result query result and set fact with '.id' for {{ ip2 }}
-      debug:
+      ansible.builtin.debug:
         msg: '{{ queryout }}'
 
-    - set_fact:
+    - ansible.builtin.set_fact:
         query_id : "{{ queryout['msg'][0]['.id'] }}"
 
     - name: update ".id = {{ query_id }}" taken with custom fact "fquery_id"
@@ -182,7 +177,7 @@ EXAMPLES = '''
       register: updateout
 
     - name: result prunt update status
-      debug:
+      ansible.builtin.debug:
         msg: '{{ updateout }}'
 
     - name: remove ips -  stage 1 - query for '.id' {{ rmips }}
@@ -196,12 +191,12 @@ EXAMPLES = '''
       loop: "{{ rmips }}"
 
     # set fact for '.id' from 'query for {{ path }}'
-    - set_fact:
+    - ansible.builtin.set_fact:
         to_be_remove: "{{ to_be_remove |default([]) + [item['msg'][0]['.id']] }}"
       loop: "{{ id_to_remove.results }}"
 
     - name: remove ips stage 1 - dump '.id'
-      debug:
+      ansible.builtin.debug:
         msg: '{{ to_be_remove }}'
 
     # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
@@ -216,7 +211,7 @@ EXAMPLES = '''
       loop: "{{ to_be_remove }}"
 
     - name: remove ips stage 2 dump result
-      debug:
+      ansible.builtin.debug:
         msg: '{{ remove }}'
 
     - name: arbitrary command example "/system identity print"
@@ -229,20 +224,21 @@ EXAMPLES = '''
       register: cmdout
 
     - name: dump "/system identity print" output
-      debug:
+      ansible.builtin.debug:
         msg: "{{ cmdout }}"
 '''
 
 RETURN = '''
 ---
 message:
-    description: All outputs are in list with dictionary
-     elements returned from RouterOS api
+    description: All outputs are in list with dictionary elements returned from RouterOS api.
     type: list
     returned: always
 '''
 
 from ansible.module_utils.basic import AnsibleModule
+from ansible.module_utils._text import to_native
+
 import ssl
 try:
     from librouteros import connect
@@ -258,8 +254,7 @@ class ROS_api_module:
                                     supports_check_mode=False)
 
         if not HAS_LIB:
-            self.module.fail_json(msg='librouteros for Python is \
-                                       required for this module')
+            self.module.fail_json(msg=to_native('librouteros for Python is required for this module'))
 
         # ros api config
         self.user = self.module.params['username']
@@ -456,7 +451,7 @@ class ROS_api_module:
 
     def return_result(self, ch_status=False, status=True):
         if not status:
-            self.module.fail_json(msg=self.result['message'])
+            self.module.fail_json(msg=to_native(self.result['message']))
         else:
             self.module.exit_json(changed=ch_status,
                                   msg=self.result['message'])

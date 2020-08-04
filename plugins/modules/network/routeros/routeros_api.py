@@ -15,8 +15,8 @@ author: Nikolay Dachev (@nikolaydachev)
 short_description: Ansible module for RouterOS API
 description:
   - Ansible module for RouterOS API with python librouteros.
-     This module can add, remove, update, query and execute arbitrary command
-     in routeros via api
+    This module can add, remove, update, query and execute arbitrary command
+    in routeros via api.
 options:
   hostname:
     description:

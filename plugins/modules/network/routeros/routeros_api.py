@@ -117,13 +117,6 @@ EXAMPLES = '''
     ip2: "2.2.2.2/32"
     ip3: "3.3.3.3/32"
 
-    addips:
-      - "address={{ ip1 }} interface={{ nic }}"
-      - "address={{ ip2 }} interface={{ nic }}"
-
-    rmips:
-      - "{{ ip2 }}"
-      - "{{ ip3 }}"
   tasks:
     - name: Get "{{ path }} print"
       community.network.routeros_api:
@@ -137,14 +130,16 @@ EXAMPLES = '''
       ansible.builtin.debug:
         msg: '{{ print_path }}'
 
-    - name: Add "ip address add {{ addips[0] }}" "ip address add {{ addips[1] }}"
+    - name: add ip address "{{ ip1 }}" and "{{ ip2 }}"
       community.network.routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
         username: "{{ username }}"
         path: "{{ path }}"
         add: "{{ item }}"
-      loop: "{{ addips }}"
+      loop:
+        - "address={{ ip1 }} interface={{ nic }}"
+        - "address={{ ip2 }} interface={{ nic }}"
       register: addout
 
     - name: Result routeros '.id' for new added items
@@ -180,7 +175,7 @@ EXAMPLES = '''
       ansible.builtin.debug:
         msg: '{{ updateout }}'
 
-    - name: Remove ips -  stage 1 - query for '.id' {{ rmips }}
+    - name: remove ips -  stage 1 - query for '.id' "{{ ip2 }}" and "{{ ip3 }}"
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -188,7 +183,9 @@ EXAMPLES = '''
         path: "{{ path }}"
         query: ".id address WHERE address == {{ item }}"
       register: id_to_remove
-      loop: "{{ rmips }}"
+      loop:
+        - "{{ ip2 }}"
+        - "{{ ip3 }}"
 
     # set fact for '.id' from 'query for {{ path }}'
     - ansible.builtin.set_fact:
@@ -200,7 +197,7 @@ EXAMPLES = '''
         msg: '{{ to_be_remove }}'
 
     # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
-    - name: Remove ips -  stage 2 - remove {{ rmips }} by '.id'
+    - name: remove ips -  stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"

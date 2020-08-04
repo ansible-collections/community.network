@@ -130,7 +130,7 @@ EXAMPLES = '''
       ansible.builtin.debug:
         msg: '{{ print_path }}'
 
-    - name: add ip address "{{ ip1 }}" and "{{ ip2 }}"
+    - name: Add ip address "{{ ip1 }}" and "{{ ip2 }}"
       community.network.routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -175,7 +175,7 @@ EXAMPLES = '''
       ansible.builtin.debug:
         msg: '{{ updateout }}'
 
-    - name: remove ips -  stage 1 - query for '.id' "{{ ip2 }}" and "{{ ip3 }}"
+    - name: Remove ips -  stage 1 - query for '.id' "{{ ip2 }}" and "{{ ip3 }}"
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -197,7 +197,7 @@ EXAMPLES = '''
         msg: '{{ to_be_remove }}'
 
     # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
-    - name: remove ips -  stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
+    - name: Remove ips -  stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"

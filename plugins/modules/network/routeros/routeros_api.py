@@ -463,7 +463,7 @@ def main():
         query=dict(type='str')))
 
     if not HAS_LIB:
-        self.module.fail_json(msg=to_native('librouteros for Python is required for this module'))
+        module.fail_json(msg=to_native('librouteros for Python is required for this module'))
 
     module = AnsibleModule(argument_spec=module_args,
                            supports_check_mode=False)

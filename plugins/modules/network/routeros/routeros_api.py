@@ -462,11 +462,11 @@ def main():
         cmd=dict(type='str'),
         query=dict(type='str')))
 
-    if not HAS_LIB:
-        module.fail_json(msg=to_native('librouteros for Python is required for this module'))
-
     module = AnsibleModule(argument_spec=module_args,
                            supports_check_mode=False)
+
+    if not HAS_LIB:
+        module.fail_json(msg=to_native('librouteros for Python is required for this module'))
 
     api = ros_api_connect(module.params['username'],
                           module.params['password'],

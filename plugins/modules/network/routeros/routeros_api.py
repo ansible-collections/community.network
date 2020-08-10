@@ -246,22 +246,11 @@ except Exception as e:
 
 
 class ROS_api_module:
-    def __init__(self, module_args):
-        self.module = AnsibleModule(argument_spec=module_args,
-                                    supports_check_mode=False)
-
-        if not HAS_LIB:
-            self.module.fail_json(msg=to_native('librouteros for Python is required for this module'))
-
-        # ros api config
-        self.user = self.module.params['username']
-        self.password = self.module.params['password']
-        self.host = self.module.params['hostname']
-        self.port = self.module.params['port']
-        self.ssl = self.module.params['ssl']
+    def __init__(self, module, api):
+        self.module = module
+        self.api = api
 
         self.path = self.list_remove_empty(self.module.params['path'].split(' '))
-
         self.add = self.module.params['add']
         self.remove = self.module.params['remove']
         self.update = self.module.params['update']
@@ -280,28 +269,6 @@ class ROS_api_module:
         self.result = dict(
             message=[])
 
-        # connect to routeros api
-        try:
-            conn_status = {"connection": {"username": self.user,
-                                          "hostname": self.host,
-                                          "port": self.port,
-                                          "ssl": self.ssl,
-                                          "status": "Connected"}}
-            if self.ssl is True:
-                if not self.port:
-                    self.port = 8729
-                    conn_status["connection"]["port"] = self.port
-                self.conn_ssl()
-            else:
-                if not self.port:
-                    self.port = 8728
-                    conn_status["connection"]["port"] = self.port
-                self.conn()
-        except Exception as e:
-            conn_status["connection"]["status"] = "error: %s" % e
-            self.result['message'].append(conn_status)
-            self.return_result(False, False)
-
         # create api base path
         self.api_add_path()
 
@@ -318,22 +285,6 @@ class ROS_api_module:
             self.api_arbitrary()
         else:
             self.api_get_all()
-
-    def conn(self):
-        self.api = connect(username=self.user,
-                           password=self.password,
-                           host=self.host,
-                           port=self.port)
-
-    def conn_ssl(self):
-        ctx = ssl.create_default_context()
-        ctx.check_hostname = False
-        ctx.set_ciphers('ADH:@SECLEVEL=0')
-        self.api = connect(username=self.user,
-                           password=self.password,
-                           host=self.host,
-                           ssl_wrapper=ctx.wrap_socket,
-                           port=self.port)
 
     def list_remove_empty(self, check_list):
         while("" in check_list):
@@ -461,9 +412,43 @@ class ROS_api_module:
         self.return_result(False, False)
 
 
+def ros_api_connect(username, password, host, port, ssl, module):
+    # connect to routeros api
+    conn_status = {"connection": {"username": username,
+                                  "hostname": host,
+                                  "port": port,
+                                  "ssl": ssl,
+                                  "status": "Connected"}}
+    try:
+        if ssl is True:
+            if not port:
+                port = 8729
+                conn_status["connection"]["port"] = port
+            ctx = ssl.create_default_context()
+            ctx.check_hostname = False
+            ctx.set_ciphers('ADH:@SECLEVEL=0')
+            api = connect(username=username,
+                          password=password,
+                          host=host,
+                          ssl_wrapper=ctx.wrap_socket,
+                          port=port)
+        else:
+            if not port:
+                port = 8728
+                conn_status["connection"]["port"] = port
+            api = connect(username=username,
+                          password=password,
+                          host=host,
+                          port=port)
+    except Exception as e:
+        conn_status["connection"]["status"] = "error: %s" % e
+        module.fail_json(msg=to_native([conn_status]))
+
+    return api
+
 def main():
     # define available arguments/parameters a user can pass to the module
-    ros = ROS_api_module(dict(
+    module_args=(dict(
         username=dict(type='str', required=True),
         password=dict(type='str', required=True, no_log=True),
         hostname=dict(type='str', required=True),
@@ -475,6 +460,20 @@ def main():
         update=dict(type='str'),
         cmd=dict(type='str'),
         query=dict(type='str')))
+
+    if not HAS_LIB:
+        self.module.fail_json(msg=to_native('librouteros for Python is required for this module'))
+
+    module = AnsibleModule(argument_spec=module_args,
+                           supports_check_mode=False)
+
+    api = ros_api_connect(module.params['username'],
+                          module.params['password'],
+                          module.params['hostname'],
+                          module.params['port'],
+                          module.params['ssl'], module)
+
+    ros = ROS_api_module(module, api)
 
 
 if __name__ == '__main__':

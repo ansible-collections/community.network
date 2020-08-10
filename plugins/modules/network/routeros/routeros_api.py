@@ -446,9 +446,10 @@ def ros_api_connect(username, password, host, port, ssl, module):
 
     return api
 
+
 def main():
     # define available arguments/parameters a user can pass to the module
-    module_args=(dict(
+    module_args = (dict(
         username=dict(type='str', required=True),
         password=dict(type='str', required=True, no_log=True),
         hostname=dict(type='str', required=True),

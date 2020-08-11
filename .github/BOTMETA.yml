@@ -78,7 +78,8 @@ files:
     maintainers: $team_huawei
     labels: huawei networking
   $module_utils/network/cnos/:
-    maintainers: amuraleedhar dkasberg
+    ignore: amuraleedhar dkasberg
+    maintainers: $team_lenovo
     labels: networking
   $module_utils/network/edgeos/edgeos.py:
     labels: networking
@@ -225,11 +226,8 @@ files:
   $modules/network/cloudvision/cv_server_provision.py:
     authors: mharista
   $modules/network/cnos/:
-    authors: amuraleedhar
-    maintainers: dkasberg
-  $modules/network/cnos/cnos_linkagg.py:
-    authors: auraleedhar
-    maintainers: amuraleedhar dkasberg
+    ignore: amuraleedhar dkasberg
+    maintainers: $team_lenovo
   $modules/network/cumulus/nclu.py:
     authors: isharacomix
     maintainers: jrrivers
@@ -434,6 +432,7 @@ macros:
   team_e_spirit: MatrixCrawler getjack
   team_extreme: LindsayHill bigmstone ujwalkomarla
   team_huawei: QijunPan TommyLike edisonxiang freesky-edward hwDCN niuzhenguo xuxiaowei0512 yanzhangi zengchen1024 zhongjun2
+  team_lenovo: istaicu
   team_netscaler: chiradeep giorgos-nikolopoulos
   team_netvisor: Qalthos amitsi csharpe-pn pdam preetiparasar
   team_networking: NilashishC Qalthos danielmellado ganeshrn justjais trishnaguha

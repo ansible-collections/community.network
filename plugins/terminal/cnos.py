@@ -44,7 +44,8 @@ class TerminalModule(TerminalBase):
 
     def on_open_shell(self):
         try:
-            for cmd in (b'\n', b'terminal length 0\n'):
+            for cmd in (b'\n', b'terminal length 0\n',
+                        b'no logging terminal\n'):
                 self._exec_cli_command(cmd)
         except AnsibleConnectionFailure:
             raise AnsibleConnectionFailure('unable to set terminal parameters')

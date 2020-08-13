@@ -1,0 +1,10 @@
+{
+  "module_args":{ "username": "admin",
+                  "password": "CHANGE_ME_ROUTEROS_API_USER_PWD",
+                  "hostname": "CHANGE_ME_ROUTEROS_API_HOSTNAME",
+                  "path":     "interface bridge"
+                },
+  "settings":{ "bridge_name": "routeros_api_unit_test",
+               "bridge_new_name": "routeros_api_unit_test_renamed"
+             }
+}

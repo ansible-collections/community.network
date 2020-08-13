@@ -471,8 +471,8 @@ def main():
                            supports_check_mode=False)
 
     if not HAS_LIB:
-         module.fail_json(msg=missing_required_lib("librouteros"),
-                     exception=LIB_IMP_ERR)
+        module.fail_json(msg=missing_required_lib("librouteros"),
+                         exception=LIB_IMP_ERR)
 
     api = ros_api_connect(module.params['username'],
                           module.params['password'],

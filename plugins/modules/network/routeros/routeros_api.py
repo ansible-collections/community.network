@@ -234,15 +234,20 @@ message:
 '''
 
 from ansible.module_utils.basic import AnsibleModule
+from ansible.module_utils.basic import missing_required_lib
 from ansible.module_utils._text import to_native
 
 import ssl
+import traceback
+
+LIB_IMP_ERR = None
 try:
     from librouteros import connect
     from librouteros.query import Key
     HAS_LIB = True
-except Exception as e:
+except:
     HAS_LIB = False
+    LIB_IMP_ERR = traceback.format_exc()
 
 
 class ROS_api_module:
@@ -398,7 +403,7 @@ class ROS_api_module:
             self.errors(e)
 
     def return_result(self, ch_status=False, status=True):
-        if not status:
+        if status == "False":
             self.module.fail_json(msg=to_native(self.result['message']))
         else:
             self.module.exit_json(changed=ch_status,
@@ -466,7 +471,8 @@ def main():
                            supports_check_mode=False)
 
     if not HAS_LIB:
-        module.fail_json(msg=to_native('librouteros for Python is required for this module'))
+         module.fail_json(msg=missing_required_lib("librouteros"),
+                     exception=LIB_IMP_ERR)
 
     api = ros_api_connect(module.params['username'],
                           module.params['password'],

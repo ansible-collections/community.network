@@ -245,7 +245,7 @@ try:
     from librouteros import connect
     from librouteros.query import Key
     HAS_LIB = True
-except:
+except Exception as e:
     HAS_LIB = False
     LIB_IMP_ERR = traceback.format_exc()
 

@@ -129,7 +129,7 @@ ansible_net_neighbors:
    returned: peer information
    type: dict
  ansible_net_bgp_vpnv4_route:
-   description: The dict bgp vpnv4 route
+   description: A dictionary that contains BGP VPNv4 data
    returned: vpnv4 route information
    type: dict
  ansible_net_bgp_instance:

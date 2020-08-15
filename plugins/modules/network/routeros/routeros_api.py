@@ -273,10 +273,10 @@ class ROS_api_module:
                              exception=LIB_IMP_ERR)
 
         self.api = self.ros_api_connect(self.module.params['username'],
-                                   self.module.params['password'],
-                                   self.module.params['hostname'],
-                                   self.module.params['port'],
-                                   self.module.params['ssl'])
+                                        self.module.params['password'],
+                                        self.module.params['hostname'],
+                                        self.module.params['port'],
+                                        self.module.params['ssl'])
 
         self.path = self.list_remove_empty(self.module.params['path'].split(' '))
         self.add = self.module.params['add']
@@ -440,7 +440,6 @@ class ROS_api_module:
         self.result['message'].append("%s" % e)
         self.return_result(False, False)
 
-
     def ros_api_connect(self, username, password, host, port, ssl):
         # connect to routeros api
         conn_status = {"connection": {"username": username,
@@ -471,10 +470,9 @@ class ROS_api_module:
                               port=port)
         except Exception as e:
             conn_status["connection"]["status"] = "error: %s" % e
-            self.module.fail_json(msg=to_native([conn_status]))
-    
+            self.module.fail_json(msg=to_native([conn_status]))    
         return api
-    
+
 
 def main():
 

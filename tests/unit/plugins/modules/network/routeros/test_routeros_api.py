@@ -1,5 +1,3 @@
-# (c) 2016 Red Hat Inc.
-#
 # This file is part of Ansible
 #
 # Ansible is free software: you can redistribute it and/or modify
@@ -31,20 +29,20 @@ from librouteros.query import Query
 class AnsibleExitJson(Exception):
     """Exception class to be raised by module.exit_json and caught by the test case"""
     pass
-    
-    
+
+
 class AnsibleFailJson(Exception):
     """Exception class to be raised by module.fail_json and caught by the test case"""
     pass
-    
-    
+
+
 def exit_json(*args, **kwargs):
     """function to patch over exit_json; package return data into an exception"""
     if 'changed' not in kwargs:
         kwargs['changed'] = False
     raise AnsibleExitJson(kwargs)
-    
-    
+
+
 def fail_json(*args, **kwargs):
     """function to patch over fail_json; package return data into an exception"""
     kwargs['failed'] = True
@@ -54,10 +52,10 @@ def fail_json(*args, **kwargs):
 class TestRouterosApiModule(ModuleTestCase):
 
     def setUp(self):
-        self.config_module_args = { "username": "admin",
-                                    "password": "pаss",
-                                    "hostname": "127.0.0.1",
-                                    "path":     "interface bridge"}
+        self.config_module_args = {"username": "admin",
+                                   "password": "pаss",
+                                   "hostname": "127.0.0.1",
+                                   "path": "interface bridge"}
 
         self.api = Api(protocol=MagicMock())
 
@@ -67,19 +65,17 @@ class TestRouterosApiModule(ModuleTestCase):
         self.mock_module_helper.start()
         self.addCleanup(self.mock_module_helper.stop)
 
-
     def test_module_fail_when_required_args_missing(self):
         with self.assertRaises(AnsibleFailJson):
             set_module_args({})
             ROS_api_module()
-
 
     def test_routeros_api_path(self):
         libros_path = self.api.path("interface", "bridge")
         r = ROS_api_module.api_add_path(self, self.api, ["interface", "bridge"])
         self.assertEqual(r.path, libros_path.path)
 
-    '''    
+    '''
     def test_routeros_api_add(self):
         pass
 

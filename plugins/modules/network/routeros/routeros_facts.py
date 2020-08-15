@@ -145,7 +145,7 @@ ansible_net_neighbors:
    returned: ospf instance information
    type: dict
  ansible_net_ospf_neighbor:
-   description: The dict ospf neighbor
+   description: A dictionary that contains OSPF neighbor data
    returned: ospf neighbor information
    type: dict
 

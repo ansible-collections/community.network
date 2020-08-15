@@ -133,7 +133,7 @@ ansible_net_neighbors:
    returned: vpnv4 route information
    type: dict
  ansible_net_bgp_instance:
-   description: The dict bgp instance
+   description: A dictionary that contains BGP instance data
    returned: bgp instance information
    type: dict
  ansible_net_route:

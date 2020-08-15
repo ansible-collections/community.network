@@ -269,8 +269,8 @@ class ROS_api_module:
                                     supports_check_mode=False)
 
         if not HAS_LIB:
-            module.fail_json(msg=missing_required_lib("librouteros"),
-                             exception=LIB_IMP_ERR)
+            self.module.fail_json(msg=missing_required_lib("librouteros"),
+                                  exception=LIB_IMP_ERR)
 
         self.api = self.ros_api_connect(self.module.params['username'],
                                         self.module.params['password'],
@@ -470,7 +470,7 @@ class ROS_api_module:
                               port=port)
         except Exception as e:
             conn_status["connection"]["status"] = "error: %s" % e
-            self.module.fail_json(msg=to_native([conn_status]))    
+            self.module.fail_json(msg=to_native([conn_status]))
         return api
 
 

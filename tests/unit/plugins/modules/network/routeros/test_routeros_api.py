@@ -15,174 +15,83 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
-Unit test require RouterOS API. 
-
-Can be used agains hardware with routeros or Mikrotik CHR.
-For more information.
-    https://wiki.mikrotik.com/wiki/Manual:CHR
-    https://wiki.mikrotik.com/wiki/Manual:CHR#How_to_Install_CHR
-
-EVE-NG setup.
-    https://www.eve-ng.net
-    https://www.eve-ng.net/index.php/documentation/installation/
-    https://www.eve-ng.net/index.php/documentation/howtos/howto-add-mikrotik-cloud-router/
-    https://github.com/NikolayDachev/chr-eve-ng
-
-Any other virtual setup probably will work without issue. 
-
-Unit test use "fixtures/routeros_api_config.json" config file which contain needed module args and unit test settings.
--  test_routeros_api_path
-       Will check routeros "interface" path.
-       manual run: pytest test_routeros_api.py::TestRouterosApiModule:: test_routeros_api_path
-
-- test_routeros_api_add_bridge
-       Will add new bridge interface with name ["settings"]["bridge_name"].
-       manual run: pytest test_routeros_api.py::TestRouterosApiModule::test_routeros_api_add_bridge
-
-- test_routeros_api_query
-       Will query '.id' for ["settings"]["bridge_name"] bridge.
-       dependency: test_routeros_api_add_bridge
-       manual run: pytest test_routeros_api.py::TestRouterosApiModule::test_routeros_api_query
-
-- test_routeros_api_query_and_update.
-       Will rename ["settings"]["bridge_name"] bridge to ["settings"]["bridge_new_name"].
-       dependency: test_routeros_api_add_bridge
-       manual run: pytest test_routeros_api.py::TestRouterosApiModule::test_routeros_api_query_and_update
-
-- test_routeros_api_remove.
-       Will delete ["settings"]["bridge_new_name"] bridge.
-       dependency: test_routeros_api_add_bridge
-       manual run: pytest test_routeros_api.py::TestRouterosApiModule::test_routeros_api_remove
-
-- test_clear_test_artefacts.
-       This is help test to cleare any unit test artefacts from routeros
-       Delete ["settings"]["bridge_name"], ["settings"]["bridge_new_name"] bridges from routeros (if exist).
-       manual run: pytest test_routeros_api.py::TestRouterosApiModule::test_clear_test_artefacts
-'''
-
 # Make coding more python3-ish
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 import json
 
-from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.routeros import routeros_api
-from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
-from .routeros_module import TestRouterosModule
-from librouteros import connect
-from librouteros.query import Key
+from ansible_collections.community.network.tests.unit.compat.mock import patch, MagicMock
+from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args, basic, AnsibleExitJson, AnsibleFailJson, ModuleTestCase
+from ansible_collections.community.network.plugins.modules.network.routeros.routeros_api import ROS_api_module
+from librouteros.api import Api, Path
+from librouteros.query import Query
 
 
-class TestRouterosApiModule(TestRouterosModule):
-    module = routeros_api
+class AnsibleExitJson(Exception):
+    """Exception class to be raised by module.exit_json and caught by the test case"""
+    pass
+    
+    
+class AnsibleFailJson(Exception):
+    """Exception class to be raised by module.fail_json and caught by the test case"""
+    pass
+    
+    
+def exit_json(*args, **kwargs):
+    """function to patch over exit_json; package return data into an exception"""
+    if 'changed' not in kwargs:
+        kwargs['changed'] = False
+    raise AnsibleExitJson(kwargs)
+    
+    
+def fail_json(*args, **kwargs):
+    """function to patch over fail_json; package return data into an exception"""
+    kwargs['failed'] = True
+    raise AnsibleFailJson(kwargs)
 
 
-    def load_config_file(self):
-        config_file = "fixtures/routeros_api_config.json"
-        with open(config_file) as json_file:
-            self.config_data = json.load(json_file)
-        self.config = self.config_data["module_args"]
-        self.bridge_name =  self.config_data["settings"]["bridge_name"]
-        self.bridge_new_name = self.config_data["settings"]["bridge_new_name"]
-
+class TestRouterosApiModule(ModuleTestCase):
 
     def setUp(self):
-        super(TestRouterosApiModule, self).setUp()
+        self.config_module_args = { "username": "admin",
+                                    "password": "pаss",
+                                    "hostname": "127.0.0.1",
+                                    "path":     "interface bridge"}
 
-        self.load_config_file()
+        self.api = Api(protocol=MagicMock())
 
-        self.mock_run_api = patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api')
-        self.run_api = self.mock_run_api.start()
+        self.mock_module_helper = patch.multiple(basic.AnsibleModule,
+                                                 exit_json=exit_json,
+                                                 fail_json=fail_json)
+        self.mock_module_helper.start()
+        self.addCleanup(self.mock_module_helper.stop)
 
 
-    def tearDown(self):
-        super(TestRouterosApiModule, self).tearDown()
-        self.mock_run_api.stop()
+    def test_module_fail_when_required_args_missing(self):
+        with self.assertRaises(AnsibleFailJson):
+            set_module_args({})
+            ROS_api_module()
 
 
     def test_routeros_api_path(self):
-        config = self.config.copy()
-        config['path'] = "interface"
-        set_module_args(config)
+        libros_path = self.api.path("interface", "bridge")
+        r = ROS_api_module.api_add_path(self, self.api, ["interface", "bridge"])
+        self.assertEqual(r.path, libros_path.path)
 
-        result = self.execute_module()
-        for r in result['msg']:
-            self.assertIn('mac-address', r)
-            self.assertIn('name', r)
-
-
-    def test_routeros_api_add_bridge(self):
-        config = self.config.copy()
-        config['add'] = "name=%s" % self.bridge_name
-        set_module_args(config)
-
-        result = self.execute_module()
-        for r in result['msg']:
-            self.assertNotIn('already have', r)
-            self.assertIn('*', r)
-
+    '''    
+    def test_routeros_api_add(self):
+        pass
 
     def test_routeros_api_query(self):
-        config = self.config.copy()
-        config['query'] = ".id name WHERE name == %s" % self.bridge_name
-        set_module_args(config)
-
-        result = self.execute_module()
-        r = result['msg'][0]
-        id = r['.id']
-        self.assertIn('*', id)
-
+        pass
 
     def test_routeros_api_query_and_update(self):
-        # do query for '.id' self.bridge_name
-        config = self.config.copy()
-        config['query'] = ".id name WHERE name == %s" % self.bridge_name
-        set_module_args(config)
-
-        result = self.execute_module()
-        r = result['msg'][0]
-        id = r['.id']
-
-        # do update for 'id' with name self.bridge_new_name
-        config = self.config.copy()
-        config['update'] = ".id=%s name=%s" % (id, self.bridge_new_name)
-        set_module_args(config)
-
-        result = self.execute_module()
-        r = result['msg'][0]
-        self.assertIn('updated', r)
-
+        pass
 
     def test_routeros_api_remove(self):
-        # do query for '.id' self.bridge_new_name
-        config = self.config.copy()
-        config['query'] = ".id name WHERE name == %s" % self.bridge_new_name
-        set_module_args(config)
-
-        result = self.execute_module()
-        r = result['msg'][0]
-        id = r['.id']
-
-        # do remove 'id' for name  self.bridge_new_name
-        config = self.config.copy()
-        config['remove']="%s" % id
-        set_module_args(config)
-
-        result = self.execute_module()
-        r = result['msg'][0]
-        self.assertIn('removed', r)
-
+        pass
 
     def test_clear_test_artefacts(self):
-        api = connect(username=self.config['username'],
-                      password=self.config['password'],
-                      host=self.config['hostname'])
-        path = api.path('interface', 'bridge')
-        name = Key('name')
-        id = Key('.id')
-        for art in [self.bridge_name, self.bridge_new_name]:
-            for s in path.select(name, id).where(name == art):
-                if s['.id']:
-                    path.remove(s['.id'])
+        pass
+    '''

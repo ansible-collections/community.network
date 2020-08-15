@@ -73,7 +73,7 @@ ansible_net_arch:
   returned: always
   type: str
 ansible_net_uptime:
-  description: The uptime device
+  description: The uptime of the device
   returned: always
   type: str
 ansible_net_cpu_load:

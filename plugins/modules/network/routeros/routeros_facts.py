@@ -141,7 +141,7 @@ ansible_net_neighbors:
    returned: routes information in all routing table
    type: dict
  ansible_net_ospf_instance:
-   description: The dict ospf instance
+   description: A dictionary that contains OSPF instance data
    returned: ospf instance information
    type: dict
  ansible_net_ospf_neighbor:

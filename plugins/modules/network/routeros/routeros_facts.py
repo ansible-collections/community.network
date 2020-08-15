@@ -68,7 +68,7 @@ ansible_net_hostname:
   description: The configured hostname of the device
   returned: always
   type: str
-ansible_net_architec:
+ansible_net_arch:
   description: The arcitect device
   returned: always
   type: str

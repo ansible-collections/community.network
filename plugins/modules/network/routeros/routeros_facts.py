@@ -77,7 +77,7 @@ ansible_net_uptime:
   returned: always
   type: str
 ansible_net_cpu_load:
-  description: The cpu_load
+  description: Current CPU load
   returned: always
   type: str
 

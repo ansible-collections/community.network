@@ -69,7 +69,7 @@ ansible_net_hostname:
   returned: always
   type: str
 ansible_net_arch:
-  description: The arcitect device
+  description: The CPU architecture of the device
   returned: always
   type: str
 ansible_net_uptime:

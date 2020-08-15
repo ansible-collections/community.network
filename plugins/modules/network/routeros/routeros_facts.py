@@ -382,7 +382,6 @@ class Routing(FactsBase):
         '/ip route print detail without-paging',
         '/routing ospf instance print detail without-paging',
         '/routing ospf neighbor print detail without-paging'
-
     ]
 
     DETAIL_RE = re.compile(r'([\w\d\-]+)=\"?(\w{3}/\d{2}/\d{4}\s\d{2}:\d{2}:\d{2}|[\w\d\-\.:/]+)')

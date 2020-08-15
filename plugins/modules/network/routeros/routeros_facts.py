@@ -72,6 +72,7 @@ ansible_net_arch:
   description: The CPU architecture of the device
   returned: always
   type: str
+  version_added: 1.1.0
 ansible_net_uptime:
   description: The uptime of the device
   returned: always

@@ -137,7 +137,8 @@ ansible_net_neighbors:
    returned: bgp instance information
    type: dict
  ansible_net_route:
-   description: The dict routes in all routing table
+   description: A dictionary that contains all routes from the routing table
+
    returned: routes information in all routing table
    type: dict
  ansible_net_ospf_instance:

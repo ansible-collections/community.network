@@ -18,7 +18,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 import json
-import sys
+import pytest
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch, MagicMock
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args, basic, AnsibleExitJson, AnsibleFailJson, ModuleTestCase
@@ -77,6 +77,7 @@ class TrapError(Exception):
 class TestRouterosApiModule(ModuleTestCase):
 
     def setUp(self):
+        librouteros = pytest.importorskip("librouteros")
         self.module = routeros_api
         self.module.connect = MagicMock(new=fake_ros_api)
         self.config_module_args = {"username": "admin",
@@ -116,7 +117,6 @@ class TestRouterosApiModule(ModuleTestCase):
             module_args['add'] = "name=unit_test_brige_exist"
             set_module_args(module_args)
             self.module.main()
-
 
     '''
     def test_routeros_api_query(self):

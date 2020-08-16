@@ -62,6 +62,17 @@ class fake_ros_api:
                  "transmit-hold-count": 6, "vlan-filtering": "false",
                  "dhcp-snooping": "false", "running": "true", "disabled": "false"}]
 
+    def add(self, name):
+        if name == "unit_test_brige_exist":
+            raise TrapError
+        return '*A1'
+
+
+class TrapError(Exception):
+    def __init__(self, message="failure: already have interface with such name"):
+        self.message = message
+        super().__init__(self.message)
+
 
 class TestRouterosApiModule(ModuleTestCase):
 
@@ -90,10 +101,24 @@ class TestRouterosApiModule(ModuleTestCase):
             set_module_args(self.config_module_args)
             self.module.main()
 
-    '''
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
     def test_routeros_api_add(self):
-        pass
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['add'] = "name=unit_test_brige"
+            set_module_args(module_args)
+            self.module.main()
 
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
+    def test_routeros_api_add_already_exist(self):
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['add'] = "name=unit_test_brige_exist"
+            set_module_args(module_args)
+            self.module.main()
+
+
+    '''
     def test_routeros_api_query(self):
         pass
 

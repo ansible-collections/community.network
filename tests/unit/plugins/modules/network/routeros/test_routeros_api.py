@@ -66,7 +66,7 @@ class TestRouterosApiModule(ModuleTestCase):
 
     def setUp(self):
         self.module = routeros_api
-        self.module.connect = MagicMock()
+        self.module.connect = MagicMock(return_value=True)
 
         self.config_module_args = {"username": "admin",
                                    "password": "pаss",

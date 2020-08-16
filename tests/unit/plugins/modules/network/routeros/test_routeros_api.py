@@ -48,23 +48,39 @@ def fail_json(*args, **kwargs):
     raise AnsibleFailJson(kwargs)
 
 
+# fixtures
 class fake_ros_api:
     def __init__(self, api, path):
         pass
 
     def path(self, api, path):
-        return [{".id": "*DC", "name": "b2", "mtu": "auto", "actual-mtu": 1500,
-                 "l2mtu": 65535, "arp": "enabled", "arp-timeout": "auto",
-                 "mac-address": "3A:C1:90:D6:E8:44", "protocol-mode": "rstp",
-                 "fast-forward": "true", "igmp-snooping": "false",
-                 "auto-mac": "true", "ageing-time": "5m", "priority":
-                 "0x8000", "max-message-age": "20s", "forward-delay": "15s",
-                 "transmit-hold-count": 6, "vlan-filtering": "false",
-                 "dhcp-snooping": "false", "running": "true", "disabled": "false"}]
+        fake_bridge = [{".id": "*DC", "name": "b2", "mtu": "auto", "actual-mtu": 1500,
+                        "l2mtu": 65535, "arp": "enabled", "arp-timeout": "auto",
+                        "mac-address": "3A:C1:90:D6:E8:44", "protocol-mode": "rstp",
+                        "fast-forward": "true", "igmp-snooping": "false",
+                        "auto-mac": "true", "ageing-time": "5m", "priority":
+                        "0x8000", "max-message-age": "20s", "forward-delay": "15s",
+                        "transmit-hold-count": 6, "vlan-filtering": "false",
+                        "dhcp-snooping": "false", "running": "true", "disabled": "false"}]
+        return fake_bridge
+
+    def arbitrary(self, api, path):
+        def retr(self, *args, **kwargs):
+            if 'name' not in kwargs.keys():
+                raise TrapError(message="no such command")
+            dummy_test_string = '/interface/bridge add name=unit_test_brige_arbitrary'
+            result = "/%s/%s add name=%s" % (path[0], path[1], kwargs['name'])
+            return [result]
+        return retr
 
     def add(self, name):
         if name == "unit_test_brige_exist":
             raise TrapError
+        return '*A1'
+
+    def remove(self, id):
+        if id != "*A1":
+            raise TrapError(message="no such item (4)")
         return '*A1'
 
 
@@ -102,7 +118,7 @@ class TestRouterosApiModule(ModuleTestCase):
             set_module_args(self.config_module_args)
             self.module.main()
 
-    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api.arbitrary)
     def test_routeros_api_add(self):
         with self.assertRaises(AnsibleExitJson):
             module_args = self.config_module_args.copy()
@@ -118,6 +134,38 @@ class TestRouterosApiModule(ModuleTestCase):
             set_module_args(module_args)
             self.module.main()
 
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
+    def test_routeros_api_remove(self):
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['remove'] = "*A1"
+            set_module_args(module_args)
+            self.module.main()
+
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
+    def test_routeros_api_remove_no_id(self):
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['remove'] = "*A2"
+            set_module_args(module_args)
+            self.module.main()
+
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api.arbitrary)
+    def test_routeros_api_cmd(self):
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['cmd'] = "add name=unit_test_brige_arbitrary"
+            set_module_args(module_args)
+            self.module.main()
+
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api.arbitrary)
+    def test_routeros_api_cmd_none_existing_cmd(self):
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['cmd'] = "add NONE_EXIST=unit_test_brige_arbitrary"
+            set_module_args(module_args)
+            self.module.main()
+
     '''
     def test_routeros_api_query(self):
         pass
@@ -125,9 +173,4 @@ class TestRouterosApiModule(ModuleTestCase):
     def test_routeros_api_query_and_update(self):
         pass
 
-    def test_routeros_api_remove(self):
-        pass
-
-    def test_clear_test_artefacts(self):
-        pass
     '''

@@ -88,6 +88,27 @@ class fake_ros_api:
             raise TrapError(message="no such item (4)")
         return ["updated: {'.id': '%s' % kwargs['.id'], 'name': '%s' % kwargs['name']}"]
 
+    def select(self, *args):
+        dummy_bridge = [{".id": "*A1", "name": "dummy_bridge_A1"},
+                        {".id": "*A2", "name": "dummy_bridge_A2"},
+                        {".id": "*A3", "name": "dummy_bridge_A3"}]
+
+        result = []
+        for dummy in dummy_bridge:
+            found = {}
+            for search in args:
+                if search in dummy.keys():
+                    found[search] = dummy[search]
+                else:
+                    continue
+            if len(found.keys()) == 2:
+                result.append(found)
+
+        if result:
+            return result
+        else:
+            return ["no results for 'interface bridge 'query' %s" % ' '.join(args)]
+
 
 class TrapError(Exception):
     def __init__(self, message="failure: already have interface with such name"):
@@ -101,6 +122,7 @@ class TestRouterosApiModule(ModuleTestCase):
         librouteros = pytest.importorskip("librouteros")
         self.module = routeros_api
         self.module.connect = MagicMock(new=fake_ros_api)
+        self.module.Key = MagicMock(new=fake_ros_api)
         self.config_module_args = {"username": "admin",
                                    "password": "pаss",
                                    "hostname": "127.0.0.1",
@@ -187,11 +209,29 @@ class TestRouterosApiModule(ModuleTestCase):
             set_module_args(module_args)
             self.module.main()
 
-    '''
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
     def test_routeros_api_query(self):
-        pass
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['query'] = ".id name"
+            set_module_args(module_args)
+            self.module.main()
 
-    def test_routeros_api_query_and_update(self):
-        pass
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
+    def test_routeros_api_query_missing_key(self):
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['query'] = ".id other"
+            set_module_args(module_args)
+            self.module.main()
 
+    '''
+    #TO DO
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
+    def test_routeros_api_query_and_WHERE(self):
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['query'] = ".id name WHERE name == dummy_bridge_A2"
+            set_module_args(module_args)
+            self.module.main()
     '''

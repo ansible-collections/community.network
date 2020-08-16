@@ -17,6 +17,12 @@ description:
   - Ansible module for RouterOS API with python librouteros.
     This module can add, remove, update, query and execute arbitrary command
     in routeros via API.
+notes:
+  - I(add), I(remove), I(update), I(cmd) and I(query) are mutually exclusive.
+  - I(check_mode) is not supported
+requirements:
+  - librouteros
+  - Python >= 3.6 (for librouteros)
 options:
   hostname:
     description:
@@ -266,7 +272,9 @@ class ROS_api_module:
             query=dict(type='str')))
 
         self.module = AnsibleModule(argument_spec=module_args,
-                                    supports_check_mode=False)
+                                    supports_check_mode=False,
+                                    mutually_exclusive=(('add', 'remove', 'update',
+                                                         'cmd', 'query')))
 
         if not HAS_LIB:
             self.module.fail_json(msg=missing_required_lib("librouteros"),

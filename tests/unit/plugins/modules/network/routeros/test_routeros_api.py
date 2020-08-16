@@ -48,7 +48,7 @@ def fail_json(*args, **kwargs):
 
 
 class fake_ros_api:
-    def __init__(self):
+    def __init__(self, api, path):
         pass
 
     def path(self, api, path):
@@ -66,7 +66,7 @@ class TestRouterosApiModule(ModuleTestCase):
 
     def setUp(self):
         self.module = routeros_api
-        self.module.connect = MagicMock(return_value=True)
+        self.module.connect = MagicMock(return_value=fake_ros_api)
 
         self.config_module_args = {"username": "admin",
                                    "password": "pаss",

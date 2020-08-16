@@ -83,6 +83,11 @@ class fake_ros_api:
             raise TrapError(message="no such item (4)")
         return '*A1'
 
+    def update(self, **kwargs):
+        if kwargs['.id'] != "*A1" or 'name' not in kwargs.keys():
+            raise TrapError(message="no such item (4)")
+        return ["updated: {'.id': '%s' % kwargs['.id'], 'name': '%s' % kwargs['name']}"]
+
 
 class TrapError(Exception):
     def __init__(self, message="failure: already have interface with such name"):
@@ -163,6 +168,22 @@ class TestRouterosApiModule(ModuleTestCase):
         with self.assertRaises(AnsibleExitJson):
             module_args = self.config_module_args.copy()
             module_args['cmd'] = "add NONE_EXIST=unit_test_brige_arbitrary"
+            set_module_args(module_args)
+            self.module.main()
+
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
+    def test_routeros_api_update(self):
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['update'] = ".id=*A1 name=unit_test_brige"
+            set_module_args(module_args)
+            self.module.main()
+
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
+    def test_routeros_api_update_none_existing_id(self):
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['update'] = ".id=*A2 name=unit_test_brige"
             set_module_args(module_args)
             self.module.main()
 

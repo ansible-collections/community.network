@@ -19,7 +19,7 @@ __metaclass__ = type
 
 import json
 
-from ansible_collections.community.network.tests.unit.compat.mock import patch, Mock, MagicMock
+from ansible_collections.community.network.tests.unit.compat.mock import patch, MagicMock
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args, basic, AnsibleExitJson, AnsibleFailJson, ModuleTestCase
 from ansible_collections.community.network.plugins.modules.network.routeros import routeros_api
 
@@ -66,8 +66,7 @@ class TestRouterosApiModule(ModuleTestCase):
 
     def setUp(self):
         self.module = routeros_api
-        self.module.connect = Mock()
-
+        self.module.connect = MagicMock("username", "password", "hostname")
         self.config_module_args = {"username": "admin",
                                    "password": "pаss",
                                    "hostname": "127.0.0.1",

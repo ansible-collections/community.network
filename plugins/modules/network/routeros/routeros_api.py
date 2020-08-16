@@ -274,7 +274,7 @@ class ROS_api_module:
         self.module = AnsibleModule(argument_spec=module_args,
                                     supports_check_mode=False,
                                     mutually_exclusive=(('add', 'remove', 'update',
-                                                         'cmd', 'query')))
+                                                         'cmd', 'query'),),)
 
         if not HAS_LIB:
             self.module.fail_json(msg=missing_required_lib("librouteros"),

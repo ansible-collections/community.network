@@ -11,7 +11,7 @@ DOCUMENTATION = '''
 ---
 module: routeros_api
 version_added: 1.1.0
-author: Nikolay Dachev (@nikolaydachev)
+author: "Nikolay Dachev (@NikolayDachev)"
 short_description: Ansible module for RouterOS API
 description:
   - Ansible module for RouterOS API with python librouteros.

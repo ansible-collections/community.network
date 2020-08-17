@@ -134,21 +134,6 @@ class TrapError(Exception):
 class Key:
     def __init__(self, name: str):
         self.name = name
-
-    def __eq__(self, other):
-        yield '?={}={}'.format(self, cast_to_api(other))
-
-    def __ne__(self, other):
-        yield from self == other
-        yield '?#!'
-
-    def __lt__(self, other):
-        yield '?<{}={}'.format(self, cast_to_api(other))
-
-    def __gt__(self, other):
-        yield '?>{}={}'.format(self, cast_to_api(other))
-
-    def __str__(self) -> str:
         return str(self.name)
 
 

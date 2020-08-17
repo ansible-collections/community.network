@@ -15,8 +15,7 @@ author: Nikolay Dachev (@nikolaydachev)
 short_description: Ansible module for RouterOS API
 description:
   - Ansible module for RouterOS API with python librouteros.
-    This module can add, remove, update, query and execute arbitrary command
-    in routeros via API.
+  - This module can add, remove, update, query and execute arbitrary command in routeros via API.
 notes:
   - I(add), I(remove), I(update), I(cmd) and I(query) are mutually exclusive.
   - I(check_mode) is not supported.
@@ -47,36 +46,34 @@ options:
   port:
     description:
       - RouterOS api port. If ssl is set, port will apply to ssl connection.
-        Defaults are C(8728) for the HTTP API, and C(8729) for the HTTPS API.
+      - Defaults are C(8728) for the HTTP API, and C(8729) for the HTTPS API.
     type: int
   path:
     description:
       - Main path for all other arguments.
-        If other arguments are not set, api will return all items in selected path.
-        Example C(ip address). Equivalent of RouterOS CLI C(/ip address print).
+      - If other arguments are not set, api will return all items in selected path.
+      - Example C(ip address). Equivalent of RouterOS CLI C(/ip address print).
     required: true
     type: str
   add:
     description:
       - Will add selected arguments in selected path to RouterOS config.
-        Example C(address=1.1.1.1/32 interface=ether1).
-        Equivalent in RouterOS CLI C(/ip address add address=1.1.1.1/32 interface=ether1).
+      - Example C(address=1.1.1.1/32 interface=ether1).
+      - Equivalent in RouterOS CLI C(/ip address add address=1.1.1.1/32 interface=ether1).
     type: str
   remove:
     description:
       - Remove config/value from RouterOS by '.id'.
-         Example C(*03) will remove config/value with C(id=*03) in selected path.
-          Equivalent in RouterOS CLI C(/ip address remove numbers=1).
-          Note C(number) in RouterOS CLI is different from C(.id).
+      - Example C(*03) will remove config/value with C(id=*03) in selected path.
+      - Equivalent in RouterOS CLI C(/ip address remove numbers=1).
+      - Note C(number) in RouterOS CLI is different from C(.id).
     type: str
   update:
     description:
       - Update config/value in RouterOS by '.id' in selected path.
-         Example C(.id=*03 address=1.1.1.3/32) and path C(ip address)
-         will replace existing ip address with C(.id=*03).
-         Equivalent in RouterOS CLI
-         C(/ip address set address=1.1.1.3/32 numbers=1).
-         Note C(number) in RouterOS CLI is different from C(.id).
+      - Example C(.id=*03 address=1.1.1.3/32) and path C(ip address) will replace existing ip address with C(.id=*03).
+      - Equivalent in RouterOS CLI C(/ip address set address=1.1.1.3/32 numbers=1).
+      - Note C(number) in RouterOS CLI is different from C(.id).
     type: str
   query:
     description:
@@ -92,12 +89,9 @@ options:
     type: str
   cmd:
     description:
-      - Execute any/arbitrary command in selected path,
-         after the command we can add C(.id).
-         Example path C(system script) and cmd C(run .id=*03)
-         is equivalent in RouterOS CLI C(/system script run number=0),
-          example path C(ip address) and cmd C(print)
-         equivalent in RouterOS CLI C(/ip address print).
+      - Execute any/arbitrary command in selected path, after the command we can add C(.id).
+      - Example path C(system script) and cmd C(run .id=*03) is equivalent in RouterOS CLI C(/system script run number=0),
+      - Example path C(ip address) and cmd C(print) is equivalent in RouterOS CLI C(/ip address print).
     type: str
 '''
 
@@ -127,7 +121,7 @@ EXAMPLES = '''
         path: "{{ path }}"
       register: print_path
 
-    - name: Result "{{ path }} print"
+    - name: Dump "{{ path }} print" output
       ansible.builtin.debug:
         msg: '{{ print_path }}'
 
@@ -143,7 +137,7 @@ EXAMPLES = '''
         - "address={{ ip2 }} interface={{ nic }}"
       register: addout
 
-    - name: Result routeros '.id' for new added items
+    - name: Dump "Add ip address" output - ".id" for new added items
       ansible.builtin.debug:
         msg: '{{ addout }}'
 
@@ -156,7 +150,7 @@ EXAMPLES = '''
         query: ".id address WHERE address == {{ ip2 }}"
       register: queryout
 
-    - name: Result query result and set fact with '.id' for {{ ip2 }}
+    - name: Dump "Query for" output and set fact with ".id" for "{{ ip2 }}"
       ansible.builtin.debug:
         msg: '{{ queryout }}'
 
@@ -172,11 +166,11 @@ EXAMPLES = '''
         update: ".id={{ query_id }} address={{ ip3 }}"
       register: updateout
 
-    - name: Result print update status
+    - name: Dump "Update" output
       ansible.builtin.debug:
         msg: '{{ updateout }}'
 
-    - name: Remove ips -  stage 1 - query for '.id' "{{ ip2 }}" and "{{ ip3 }}"
+    - name: Remove ips - stage 1 - query ".id" for "{{ ip2 }}" and "{{ ip3 }}"
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -188,17 +182,17 @@ EXAMPLES = '''
         - "{{ ip2 }}"
         - "{{ ip3 }}"
 
-    # set fact for '.id' from 'query for {{ path }}'
-    - ansible.builtin.set_fact:
+    - name: set fact for ".id" from "Remove ips - stage 1 - query"
+      ansible.builtin.set_fact:
         to_be_remove: "{{ to_be_remove |default([]) + [item['msg'][0]['.id']] }}"
       loop: "{{ id_to_remove.results }}"
 
-    - name: Remove ips stage 1 - dump '.id'
+    - name: Dump "Remove ips - stage 1 - query" output
       ansible.builtin.debug:
         msg: '{{ to_be_remove }}'
 
-    # Remove {{ 'rmips' }} with '.id' by 'to_be_remove' from query
-    - name: Remove ips -  stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
+    # Remove "{{ rmips }}" with ".id" by "to_be_remove" from query
+    - name: Remove ips - stage 2 - remove "{{ ip2 }}" and "{{ ip3 }}" by '.id'
       routeros_api:
         hostname: "{{ hostname }}"
         password: "{{ password }}"
@@ -208,7 +202,7 @@ EXAMPLES = '''
       register: remove
       loop: "{{ to_be_remove }}"
 
-    - name: Remove ips stage 2 dump result
+    - name: Dump "Remove ips - stage 2 - remove" output
       ansible.builtin.debug:
         msg: '{{ remove }}'
 
@@ -221,7 +215,7 @@ EXAMPLES = '''
         cmd: "print"
       register: cmdout
 
-    - name: Dump "/system identity print" output
+    - name: Dump "Arbitrary command example" output
       ansible.builtin.debug:
         msg: "{{ cmdout }}"
 '''
@@ -230,6 +224,7 @@ RETURN = '''
 ---
 message:
     description: All outputs are in list with dictionary elements returned from RouterOS api.
+    sample: C([{...},{...}])
     type: list
     returned: always
 '''

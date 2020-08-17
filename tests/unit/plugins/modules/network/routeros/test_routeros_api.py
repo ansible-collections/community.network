@@ -134,6 +134,9 @@ class TrapError(Exception):
 class Key:
     def __init__(self, name: str):
         self.name = name
+        self.str_returni()
+ 
+    def str_return(self):
         return str(self.name)
 
 

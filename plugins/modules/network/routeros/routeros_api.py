@@ -19,7 +19,7 @@ description:
     in routeros via API.
 notes:
   - I(add), I(remove), I(update), I(cmd) and I(query) are mutually exclusive.
-  - I(check_mode) is not supported
+  - I(check_mode) is not supported.
 requirements:
   - librouteros
   - Python >= 3.6 (for librouteros)
@@ -47,13 +47,13 @@ options:
   port:
     description:
       - RouterOS api port. If ssl is set, port will apply to ssl connection.
-        Defaults are C(8728) for the HTTP API,  and C(8729) for the HTTPS API.
+        Defaults are C(8728) for the HTTP API, and C(8729) for the HTTPS API.
     type: int
   path:
     description:
       - Main path for all other arguments.
         If other arguments are not set, api will return all items in selected path.
-        Example C(ip address). Eqvivalent of RouterOS CLI C(/ip address print).
+        Example C(ip address). Equivalent of RouterOS CLI C(/ip address print).
     required: true
     type: str
   add:
@@ -177,7 +177,7 @@ EXAMPLES = '''
         update: ".id={{ query_id }} address={{ ip3 }}"
       register: updateout
 
-    - name: Result prunt update status
+    - name: Result print update status
       ansible.builtin.debug:
         msg: '{{ updateout }}'
 

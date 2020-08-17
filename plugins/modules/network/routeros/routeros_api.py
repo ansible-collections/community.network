@@ -81,16 +81,16 @@ options:
       - WHERE is key word which extend query. WHERE format is key operator value - with spaces.
       - WHERE valid operators are C(==), C(!=), C(>), C(<).
       - Example path C(ip address) and query C(.id address) will return only C(.id) and C(address) for all items in C(ip address) path.
-      - Example path C(ip address) and query C(.id address WHERE address == 1.1.1.3/32)
+      - Example path C(ip address) and query C(.id address WHERE address == 1.1.1.3/32).
         will return only C(.id) and C(address) for items in C(ip address) path, where address is eq to 1.1.1.3/32.
       - Example path C(interface) and query C(mtu name WHERE mut > 1400) will
         return only interfaces C(mtu,name) where mtu is bigger than 1400.
-        Equivalent in RouterOS CLI C(/interface print where mtu > 1400).
+      - Equivalent in RouterOS CLI C(/interface print where mtu > 1400).
     type: str
   cmd:
     description:
       - Execute any/arbitrary command in selected path, after the command we can add C(.id).
-      - Example path C(system script) and cmd C(run .id=*03) is equivalent in RouterOS CLI C(/system script run number=0),
+      - Example path C(system script) and cmd C(run .id=*03) is equivalent in RouterOS CLI C(/system script run number=0).
       - Example path C(ip address) and cmd C(print) is equivalent in RouterOS CLI C(/ip address print).
     type: str
 '''

@@ -109,11 +109,47 @@ class fake_ros_api:
         else:
             return ["no results for 'interface bridge 'query' %s" % ' '.join(args)]
 
+    def select_where(self, api, path):
+        api_path = Where()
+        return api_path
+
+
+class Where:
+    def __init__(self):
+        pass
+
+    def select(self, *args):
+        return self
+
+    def where(self, *args):
+        return ["*A1"]
+
 
 class TrapError(Exception):
     def __init__(self, message="failure: already have interface with such name"):
         self.message = message
         super().__init__(self.message)
+
+
+class Key:
+    def __init__(self, name: str):
+        self.name = name
+
+    def __eq__(self, other):
+        yield '?={}={}'.format(self, cast_to_api(other))
+
+    def __ne__(self, other):
+        yield from self == other
+        yield '?#!'
+
+    def __lt__(self, other):
+        yield '?<{}={}'.format(self, cast_to_api(other))
+
+    def __gt__(self, other):
+        yield '?>{}={}'.format(self, cast_to_api(other))
+
+    def __str__(self) -> str:
+        return str(self.name)
 
 
 class TestRouterosApiModule(ModuleTestCase):
@@ -122,7 +158,7 @@ class TestRouterosApiModule(ModuleTestCase):
         librouteros = pytest.importorskip("librouteros")
         self.module = routeros_api
         self.module.connect = MagicMock(new=fake_ros_api)
-        self.module.Key = MagicMock(new=fake_ros_api)
+        self.module.Key = MagicMock(new=Key)
         self.config_module_args = {"username": "admin",
                                    "password": "pаss",
                                    "hostname": "127.0.0.1",
@@ -225,13 +261,18 @@ class TestRouterosApiModule(ModuleTestCase):
             set_module_args(module_args)
             self.module.main()
 
-    '''
-    #TO DO
-    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api)
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api.select_where)
     def test_routeros_api_query_and_WHERE(self):
         with self.assertRaises(AnsibleExitJson):
             module_args = self.config_module_args.copy()
             module_args['query'] = ".id name WHERE name == dummy_bridge_A2"
             set_module_args(module_args)
             self.module.main()
-    '''
+
+    @patch('ansible_collections.community.network.plugins.modules.network.routeros.routeros_api.ROS_api_module.api_add_path', new=fake_ros_api.select_where)
+    def test_routeros_api_query_and_WHERE_no_cond(self):
+        with self.assertRaises(AnsibleExitJson):
+            module_args = self.config_module_args.copy()
+            module_args['query'] = ".id name WHERE name =! dummy_bridge_A2"
+            set_module_args(module_args)
+            self.module.main()

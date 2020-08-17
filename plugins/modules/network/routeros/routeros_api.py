@@ -80,20 +80,15 @@ options:
     type: str
   query:
     description:
-      - Query given path for selected query attributes from
-         RouterOS aip and return '.id'.
-          WHERE is key word which extend query. WHERE format is
-         key operator value - with spaces.
-          WHERE valid operators are C(==), C(!=), C(>), C(<).
-          Example path C(ip address) and query C(.id address) will return
-         only C(.id) and C(address) for all items in C(ip address) path.
-          Example path C(ip address) and
-          query C(.id address WHERE address == 1.1.1.3/32)
-         will return only C(.id) and C(address) for items in C(ip address)
-          path, where address is eq to 1.1.1.3/32.
-          Example path C(interface) and query C(mtu name WHERE mut > 1400) will
-         return only interfaces C(mtu,name) where mtu is bigger than 1400.
-          Equivalent in RouterOS CLI C(/interface print where mtu > 1400).
+      - Query given path for selected query attributes from RouterOS aip and return '.id'.
+      - WHERE is key word which extend query. WHERE format is key operator value - with spaces.
+      - WHERE valid operators are C(==), C(!=), C(>), C(<).
+      - Example path C(ip address) and query C(.id address) will return only C(.id) and C(address) for all items in C(ip address) path.
+      - Example path C(ip address) and query C(.id address WHERE address == 1.1.1.3/32)
+        will return only C(.id) and C(address) for items in C(ip address) path, where address is eq to 1.1.1.3/32.
+      - Example path C(interface) and query C(mtu name WHERE mut > 1400) will
+        return only interfaces C(mtu,name) where mtu is bigger than 1400.
+        Equivalent in RouterOS CLI C(/interface print where mtu > 1400).
     type: str
   cmd:
     description:

@@ -176,3 +176,19 @@ releases:
     - fix_edgeos_facts_and_edgeos_cli.yml
     - prevent-edgeos_config-saving-in-check-mode.yaml
     release_date: '2020-07-31'
+  1.1.0:
+    changes:
+      minor_changes:
+      - cnos terminal plugin - prevent timeout connection failure by adding "no logging
+        terminal" after log in (https://github.com/ansible-collections/community.network/pull/16).
+      release_summary: 'Release for Ansible 2.10.0.
+
+        '
+    fragments:
+    - 1.1.0.yml
+    - terminal_plugin_cnos_update.yml
+    modules:
+    - description: Ansible module for RouterOS API
+      name: routeros_api
+      namespace: network.routeros
+    release_date: '2020-08-18'

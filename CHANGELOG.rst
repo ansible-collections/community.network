@@ -5,6 +5,31 @@ Community Network Release Notes
 .. contents:: Topics
 
 
+v1.1.0
+======
+
+Release Summary
+---------------
+
+Release for Ansible 2.10.0.
+
+
+Minor Changes
+-------------
+
+- cnos terminal plugin - prevent timeout connection failure by adding "no logging terminal" after log in (https://github.com/ansible-collections/community.network/pull/16).
+
+New Modules
+-----------
+
+Network
+~~~~~~~
+
+routeros
+^^^^^^^^
+
+- routeros_api - Ansible module for RouterOS API
+
 v1.0.0
 ======
 

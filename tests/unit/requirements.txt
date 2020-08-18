@@ -9,3 +9,6 @@ pyFMG
 # requirements for Nuage modules  - CURRENTLY BROKEN!
 # vspk
 # bambou
+
+# requirements for routeros_api module
+librouteros ; python_version >= '3.6'

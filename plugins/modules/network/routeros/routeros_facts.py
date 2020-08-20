@@ -72,11 +72,12 @@ ansible_net_arch:
   description: The CPU architecture of the device
   returned: always
   type: str
-  version_added: 1.1.0
+  version_added: 1.2.0
 ansible_net_uptime:
   description: The uptime of the device
   returned: always
   type: str
+  version_added: 1.2.0
 ansible_net_cpu_load:
   description: Current CPU load
   returned: always
@@ -129,27 +130,32 @@ ansible_net_neighbors:
    description: The dict bgp peer
    returned: peer information
    type: dict
+   version_added: 1.2.0
  ansible_net_bgp_vpnv4_route:
    description: A dictionary that contains BGP VPNv4 data
    returned: vpnv4 route information
    type: dict
+   version_added: 1.2.0
  ansible_net_bgp_instance:
    description: A dictionary that contains BGP instance data
    returned: bgp instance information
    type: dict
+   version_added: 1.2.0
  ansible_net_route:
    description: A dictionary that contains all routes from the routing table
-
    returned: routes information in all routing table
    type: dict
+   version_added: 1.2.0
  ansible_net_ospf_instance:
    description: A dictionary that contains OSPF instance data
    returned: ospf instance information
    type: dict
+   version_added: 1.2.0
  ansible_net_ospf_neighbor:
    description: A dictionary that contains OSPF neighbor data
    returned: ospf neighbor information
    type: dict
+   version_added: 1.2.0
 
 """
 import re

@@ -233,7 +233,7 @@ class TestRouterosFactsModule(TestRouterosModule):
             result['ansible_facts']['ansible_net_bgp_instance']['default']['ignore-as-path-len'], ['no']
         )
         self.assertIn(
-            result['ansible_facts']['ansible_net_route']['altegro']['dst-address'], ['10.10.66.8/30']
+            result['ansible_facts']['ansible_net_route']['altegro']['dst-address'], ['10.10.66.0/30']
         )
         self.assertIn(
             result['ansible_facts']['ansible_net_route']['altegro']['pref-src'], ['10.10.66.1']

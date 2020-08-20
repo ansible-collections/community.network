@@ -5,12 +5,6 @@ B - blackhole, U - unreachable, P - prohibit
         gateway-status=bridge1 reachable distance=0 scope=10
         routing-mark=altegro
 
- 1 ADb  dst-address=10.10.66.8/30 gateway=10.10.100.1
-        gateway-status=10.10.100.1 recursive via 10.10.1.2 GRE_TYRMA
-        distance=200 scope=40 target-scope=30 routing-mark=altegro
-        bgp-local-pref=100 bgp-origin=incomplete
-        bgp-ext-communities="RT:64520:666"
-
  2 A S  dst-address=0.0.0.0/0 gateway=85.15.75.109
         gateway-status=85.15.75.109 reachable via  Internet-VTK distance=1
         scope=30 target-scope=10

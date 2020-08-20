@@ -64,6 +64,12 @@ class TestRouterosFactsModule(TestRouterosModule):
         self.assertEqual(
             result['ansible_facts']['ansible_net_serialnum'], '1234567890'
         )
+        self.assertEqual(
+            result['ansible_facts']['ansible_net_arch'], 'x86'
+        )
+        self.assertEqual(
+            result['ansible_facts']['ansible_net_uptime'], '3h28m52s'
+        )
 
     def test_routeros_facts_hardware(self):
         set_module_args(dict(gather_subset='hardware'))
@@ -117,3 +123,11 @@ class TestRouterosFactsModule(TestRouterosModule):
         result = interfaces.populate_addresses(data=addresses, family='ipv6')
 
         self.assertEqual(result, None)
+
+    def test_routeros_facts_routing(self):
+        set_module_args(dict(gather_subset='routing'))
+        result = self.execute_module()
+        self.assertIn(
+            result['ansible_facts']['ansible_net_bgp_peer']['ibgp_peer'],
+            result['ansible_facts']['ansible_net_bgp_peer']['ibgp_peer']['name'],
+        )

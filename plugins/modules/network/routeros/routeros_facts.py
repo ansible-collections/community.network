@@ -553,6 +553,7 @@ FACT_SUBSETS = dict(
     hardware=Hardware,
     interfaces=Interfaces,
     config=Config,
+    routing=Routing,
 )
 
 VALID_SUBSETS = frozenset(FACT_SUBSETS.keys())

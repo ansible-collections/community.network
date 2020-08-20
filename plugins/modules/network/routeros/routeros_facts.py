@@ -82,7 +82,8 @@ ansible_net_cpu_load:
   description: Current CPU load
   returned: always
   type: str
-
+  version_added: 1.2.0
+  
 # hardware
 ansible_net_spacefree_mb:
   description: The available disk space on the remote device in MiB

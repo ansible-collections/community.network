@@ -381,6 +381,7 @@ class Interfaces(FactsBase):
                 continue
             yield parsed
 
+
 class Routing(FactsBase):
 
     COMMANDS = [
@@ -454,7 +455,6 @@ class Routing(FactsBase):
         if match:
             return match.group(1)
 
-
     def parse_routing_mark(self, data):
         match = re.search(r'routing-mark=([\w\d\-]+)', data, re.M)
         if match:
@@ -522,7 +522,6 @@ class Routing(FactsBase):
             for (key, value) in re.findall(self.DETAIL_RE, line):
                 facts[name][key] = value
         return facts
-
 
     def populate_bgp_peer(self, data):
         for key, value in iteritems(data):

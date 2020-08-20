@@ -179,7 +179,7 @@ class TestRouterosFactsModule(TestRouterosModule):
             result['ansible_facts']['ansible_net_bgp_vpnv4_route']['GRE_TYRMA']['route-distinguisher'], ['64520:666']
         )
         self.assertIn(
-            result['ansible_facts']['ansible_net_bgp_vpnv4_route']['GRE_TYRMA']['dst-address'], ['10.10.66.8/30']
+            result['ansible_facts']['ansible_net_bgp_vpnv4_route']['GRE_TYRMA']['dst-address'], ['10.10.66.0/30']
         )
         self.assertIn(
             result['ansible_facts']['ansible_net_bgp_vpnv4_route']['GRE_TYRMA']['gateway'], ['10.10.100.1']

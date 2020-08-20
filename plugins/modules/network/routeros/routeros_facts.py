@@ -198,7 +198,7 @@ class Default(FactsBase):
         data = self.responses[1]
         if data:
             self.facts['version'] = self.parse_version(data)
-            self.facts['architec'] = self.parse_architec(data)
+            self.facts['arch'] = self.parse_arch(data)
             self.facts['uptime'] = self.parse_uptime(data)
             self.facts['cpu_load'] = self.parse_cpu_load(data)
         data = self.responses[2]
@@ -221,7 +221,7 @@ class Default(FactsBase):
         if match:
             return match.group(1)
 
-    def parse_architec(self, data):
+    def parse_arch(self, data):
         match = re.search(r'architecture-name:\s(.*)\s*$', data, re.M)
         if match:
             return match.group(1)

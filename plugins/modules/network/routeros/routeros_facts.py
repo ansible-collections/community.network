@@ -125,38 +125,37 @@ ansible_net_neighbors:
   returned: when interfaces is configured
   type: dict
 
- # routing
- ansible_net_bgp_peer:
-   description: The dict bgp peer
-   returned: peer information
-   type: dict
-   version_added: 1.2.0
- ansible_net_bgp_vpnv4_route:
-   description: A dictionary that contains BGP VPNv4 data
-   returned: vpnv4 route information
-   type: dict
-   version_added: 1.2.0
- ansible_net_bgp_instance:
-   description: A dictionary that contains BGP instance data
-   returned: bgp instance information
-   type: dict
-   version_added: 1.2.0
- ansible_net_route:
-   description: A dictionary that contains all routes from the routing table
-   returned: routes information in all routing table
-   type: dict
-   version_added: 1.2.0
- ansible_net_ospf_instance:
-   description: A dictionary that contains OSPF instance data
-   returned: ospf instance information
-   type: dict
-   version_added: 1.2.0
- ansible_net_ospf_neighbor:
-   description: A dictionary that contains OSPF neighbor data
-   returned: ospf neighbor information
-   type: dict
-   version_added: 1.2.0
-
+# routing
+ansible_net_bgp_peer:
+  description: The dict bgp peer
+  returned: peer information
+  type: dict
+  version_added: 1.2.0
+ansible_net_bgp_vpnv4_route:
+  description: The dict bgp vpnv4 route
+  returned: vpnv4 route information
+  type: dict
+  version_added: 1.2.0
+ansible_net_bgp_instance:
+  description: The dict bgp instance
+  returned: bgp instance information
+  type: dict
+  version_added: 1.2.0
+ansible_net_route:
+  description: The dict routes in all routing table
+  returned: routes information in all routing table
+  type: dict
+  version_added: 1.2.0
+ansible_net_ospf_instance:
+  description: The dict ospf instance
+  returned: ospf instance information
+  type: dict
+  version_added: 1.2.0
+ansible_net_ospf_neighbor:
+  description: The dict ospf neighbor
+  returned: ospf neighbor information
+  type: dict
+  version_added: 1.2.0
 """
 import re
 

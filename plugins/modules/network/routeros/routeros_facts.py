@@ -83,7 +83,7 @@ ansible_net_cpu_load:
   returned: always
   type: str
   version_added: 1.2.0
-  
+
 # hardware
 ansible_net_spacefree_mb:
   description: The available disk space on the remote device in MiB
@@ -395,7 +395,6 @@ class Routing(FactsBase):
     DETAIL_RE = re.compile(r'([\w\d\-]+)=\"?(\w{3}/\d{2}/\d{4}\s\d{2}:\d{2}:\d{2}|[\w\d\-\.:/]+)')
     WRAPPED_LINE_RE = re.compile(r'^\s+(?!\d)')
 
-
     def populate(self):
         super(Routing, self).populate()
         self.facts['bgp_peer'] = dict()
@@ -416,17 +415,14 @@ class Routing(FactsBase):
         if data:
             instance = self.parse_instance(data)
             self.populate_bgp_instance(instance)
-
         data = self.responses[3]
         if data:
             route = self.parse_route(data)
             self.populate_route(route)
-
         data = self.responses[4]
         if data:
             instance = self.parse_instance(data)
             self.populate_ospf_instance(instance)
-
         data = self.responses[5]
         if data:
             instance = self.parse_ospf_neighbor(data)

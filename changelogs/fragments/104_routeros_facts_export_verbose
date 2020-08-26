@@ -1,0 +1,2 @@
+minor_changes:
+ - set configuration export on routeros_facts to verbose, for full configuration export

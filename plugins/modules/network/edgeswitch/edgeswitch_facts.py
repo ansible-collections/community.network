@@ -38,10 +38,11 @@ EXAMPLES = """
   community.network.edgeswitch_facts:
     gather_subset: all
 
-- name: Collect only the config and default facts
+- name: Collect only the running config and default facts
   community.network.edgeswitch_facts:
     gather_subset:
-      - config
+      - runningconfig
+
 """
 
 RETURN = """
@@ -69,7 +70,12 @@ ansible_net_hostname:
   type: str
 
 # config
-ansible_net_config:
+ansible_net_startupconfig:
+  description: The startup config from the device
+  returned: when config is configured
+  type: str
+
+ansible_net_runningconfig:
   description: The current active config from the device
   returned: when config is configured
   type: str
@@ -137,15 +143,26 @@ class Default(FactsBase):
             return match.group(1)
 
 
-class Config(FactsBase):
+class RunningConfig(FactsBase):
 
     COMMANDS = ['show running-config']
 
     def populate(self):
-        super(Config, self).populate()
+        super(RunningConfig, self).populate()
         data = self.responses[0]
         if data:
-            self.facts['config'] = data
+            self.facts['runningconfig'] = data
+
+class StartupConfig(FactsBase):
+
+    COMMANDS = ['show startup-config']
+
+    def populate(self):
+        super(StartupConfig, self).populate()
+        data = self.responses[0]
+        if data:
+            self.facts['startupconfig'] = data
+
 
 
 class Interfaces(FactsBase):
@@ -191,7 +208,8 @@ class Interfaces(FactsBase):
 
 FACT_SUBSETS = dict(
     default=Default,
-    config=Config,
+    runningconfig=RunningConfig,
+    startupconfig=StartupConfig,
     interfaces=Interfaces,
 )
 
@@ -202,7 +220,7 @@ def main():
     """main entry point for module execution
     """
     argument_spec = dict(
-        gather_subset=dict(default=['!config'], type='list')
+        gather_subset=dict(default=['!runningconfig'], type='list')
     )
 
     module = AnsibleModule(argument_spec=argument_spec,

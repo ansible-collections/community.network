@@ -74,6 +74,7 @@ ansible_net_startupconfig:
   description: The startup config from the device
   returned: when config is configured
   type: str
+  version_added: 1.2.0
 
 ansible_net_config:
   description: The current active config from the device

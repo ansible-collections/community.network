@@ -153,6 +153,7 @@ class Config(FactsBase):
         if data:
             self.facts['config'] = data
 
+
 class StartupConfig(FactsBase):
 
     COMMANDS = ['show startup-config']
@@ -162,7 +163,6 @@ class StartupConfig(FactsBase):
         data = self.responses[0]
         if data:
             self.facts['startupconfig'] = data
-
 
 
 class Interfaces(FactsBase):

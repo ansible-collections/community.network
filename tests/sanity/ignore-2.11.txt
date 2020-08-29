@@ -1526,8 +1526,6 @@ tests/unit/plugins/module_utils/network/ftd/test_common.py future-import-boilerp
 tests/unit/plugins/module_utils/network/ftd/test_common.py metaclass-boilerplate
 tests/unit/plugins/module_utils/network/ftd/test_configuration.py future-import-boilerplate
 tests/unit/plugins/module_utils/network/ftd/test_configuration.py metaclass-boilerplate
-tests/unit/plugins/module_utils/network/ftd/test_device.py future-import-boilerplate
-tests/unit/plugins/module_utils/network/ftd/test_device.py metaclass-boilerplate
 tests/unit/plugins/module_utils/network/ftd/test_fdm_swagger_parser.py future-import-boilerplate
 tests/unit/plugins/module_utils/network/ftd/test_fdm_swagger_parser.py metaclass-boilerplate
 tests/unit/plugins/module_utils/network/ftd/test_fdm_swagger_validator.py future-import-boilerplate

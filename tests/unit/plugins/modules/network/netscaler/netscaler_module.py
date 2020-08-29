@@ -1,3 +1,6 @@
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
 import sys
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch, Mock

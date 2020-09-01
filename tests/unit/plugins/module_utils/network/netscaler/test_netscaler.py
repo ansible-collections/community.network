@@ -17,6 +17,9 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
 from ansible_collections.community.network.tests.unit.compat import unittest
 from ansible_collections.community.network.tests.unit.compat.mock import Mock
 

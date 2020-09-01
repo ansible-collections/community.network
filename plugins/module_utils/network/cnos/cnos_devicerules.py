@@ -30,6 +30,9 @@
 # Contains device rule and methods
 # Lenovo Networking
 
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
 
 def getRuleString(deviceType, variableId):
     retVal = variableId + ":"

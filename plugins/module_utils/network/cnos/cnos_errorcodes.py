@@ -31,6 +31,9 @@
 # Contains error codes and methods
 # Lenovo Networking
 
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
 errorDict = {0: 'Success',
              1: 'NOK',
              101: 'Device Response Timed out',

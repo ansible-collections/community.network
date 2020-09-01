@@ -16,6 +16,9 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
 from ansible_collections.community.network.plugins.module_utils.network.ftd.common import HTTPMethod
 from ansible.module_utils.six import integer_types, string_types, iteritems
 

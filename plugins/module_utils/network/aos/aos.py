@@ -36,6 +36,9 @@ from ansible.module_utils.network.aos.aos import (check_aos_version, get_aos_ses
                                       content_to_dict, do_load_resource)
 
 """
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
 import json
 
 from distutils.version import LooseVersion

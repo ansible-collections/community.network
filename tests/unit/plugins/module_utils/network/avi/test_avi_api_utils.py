@@ -3,6 +3,10 @@ Created on Aug 16, 2016
 
 @author: grastogi
 '''
+
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
 import unittest
 from ansible_collections.community.network.plugins.module_utils.network.avi.ansible_utils import \
     cleanup_absent_fields, avi_obj_cmp

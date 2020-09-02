@@ -1,2 +1,2 @@
-feature:
+minor_changes:
   - edgeswitch_facts - Added `startupconfig` to facts module - to allow the comparision between startup and running config.

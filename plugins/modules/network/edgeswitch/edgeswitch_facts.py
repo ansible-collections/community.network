@@ -38,10 +38,11 @@ EXAMPLES = """
   community.network.edgeswitch_facts:
     gather_subset: all
 
-- name: Collect only the config and default facts
+- name: Collect only the running config and default facts
   community.network.edgeswitch_facts:
     gather_subset:
       - config
+
 """
 
 RETURN = """
@@ -69,6 +70,12 @@ ansible_net_hostname:
   type: str
 
 # config
+ansible_net_startupconfig:
+  description: The startup config from the device
+  returned: when config is configured
+  type: str
+  version_added: 1.2.0
+
 ansible_net_config:
   description: The current active config from the device
   returned: when config is configured
@@ -148,6 +155,17 @@ class Config(FactsBase):
             self.facts['config'] = data
 
 
+class StartupConfig(FactsBase):
+
+    COMMANDS = ['show startup-config']
+
+    def populate(self):
+        super(StartupConfig, self).populate()
+        data = self.responses[0]
+        if data:
+            self.facts['startupconfig'] = data
+
+
 class Interfaces(FactsBase):
 
     COMMANDS = [
@@ -192,6 +210,7 @@ class Interfaces(FactsBase):
 FACT_SUBSETS = dict(
     default=Default,
     config=Config,
+    startupconfig=StartupConfig,
     interfaces=Interfaces,
 )
 

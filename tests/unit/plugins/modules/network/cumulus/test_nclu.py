@@ -95,6 +95,7 @@ class FakeModule(object):
         self.last_commit = ""
         self.check_mode = False
 
+
 def skipUnlessNcluInstalled(original_function):
     if os.path.isfile('/usr/bin/net'):
         return original_function

@@ -1,10 +1,12 @@
-# python 3 headers, required if submitting to Ansible
+# Copyright (c) Sandeep Bandi <sandeepb@avinetworks.com>
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 DOCUMENTATION = '''
 lookup: avi
-author: Sandeep Bandi <sandeepb@avinetworks.com>
+author: Sandeep Bandi (@sabandi) <sandeepb@avinetworks.com>
 short_description: Look up ``Avi`` objects.
 description:
     - Given an object_type, fetch all the objects of that type or fetch

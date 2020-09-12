@@ -22,7 +22,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 author: Ericsson IPOS OAM team
-cliconf: eccli
+cliconf: eric_eccli
 short_description: Use eccli cliconf to run command on Ericsson ECCLI platform
 description:
   - This eccli plugin provides low level abstraction APIs for

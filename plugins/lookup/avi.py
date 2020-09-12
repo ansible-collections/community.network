@@ -30,14 +30,14 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 # Lookup query for all the objects of a specific type.
-- ansible.builtin.debug: msg="{{ lookup('avi', avi_credentials=avi_credentials, obj_type='virtualservice') }}"
+- ansible.builtin.debug: msg="{{ lookup('community.network.avi', avi_credentials=avi_credentials, obj_type='virtualservice') }}"
 # Lookup query for an object with the given name and type.
-- ansible.builtin.debug: msg="{{ lookup('avi', avi_credentials=avi_credentials, obj_name='vs1', obj_type='virtualservice', wantlist=True) }}"
+- ansible.builtin.debug: msg="{{ lookup('community.network.avi', avi_credentials=avi_credentials, obj_name='vs1', obj_type='virtualservice', wantlist=True) }}"
 # Lookup query for an object with the given UUID and type.
-- ansible.builtin.debug: msg="{{ lookup('avi', obj_uuid='virtualservice-5c0e183a-690a-45d8-8d6f-88c30a52550d', obj_type='virtualservice') }}"
+- ansible.builtin.debug: msg="{{ lookup('community.network.avi', obj_uuid='virtualservice-5c0e183a-690a-45d8-8d6f-88c30a52550d', obj_type='virtualservice') }}"
 # We can replace lookup with query function to always the get the output as list.
 # This is helpful for looping.
-- ansible.builtin.debug: msg="{{ query('avi', obj_uuid='virtualservice-5c0e183a-690a-45d8-8d6f-88c30a52550d', obj_type='virtualservice') }}"
+- ansible.builtin.debug: msg="{{ query('community.network.avi', obj_uuid='virtualservice-5c0e183a-690a-45d8-8d6f-88c30a52550d', obj_type='virtualservice') }}"
 """
 
 RETURN = """

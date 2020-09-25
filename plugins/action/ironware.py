@@ -35,7 +35,7 @@ class ActionModule(ActionNetworkModule):
 
     def run(self, tmp=None, task_vars=None):
         del tmp  # tmp no longer has any effect
-        warnings = []
+
         module_name = self._task.action.split('.')[-1]
         self._config_module = True if module_name == 'ironware_config' else False
         persistent_connection = self._play_context.connection.split('.')[-1]

@@ -40,7 +40,6 @@ class ActionModule(ActionNetworkModule):
         module_name = self._task.action.split('.')[-1]
         self._config_module = True if module_name == 'aruba_config' else False
         persistent_connection = self._play_context.connection.split('.')[-1]
-        warnings = []
 
         if persistent_connection == 'network_cli':
             provider = self._task.args.get('provider', {})

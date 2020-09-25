@@ -36,7 +36,6 @@ class ActionModule(ActionNetworkModule):
         self._config_module = True if module_name == 'ce_config' else False
         socket_path = None
         persistent_connection = self._play_context.connection.split('.')[-1]
-        warnings = []
 
         if self._play_context.connection == 'local':
             provider = load_provider(ce_provider_spec, self._task.args)

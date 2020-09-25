@@ -76,5 +76,4 @@ class ActionModule(ActionNetworkModule):
             deprecate(msg, version='4.0.0', collection_name='community.network')
 
         result = super(ActionModule, self).run(task_vars=task_vars)
-
         return result

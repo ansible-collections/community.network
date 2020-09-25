@@ -58,10 +58,9 @@ class ActionModule(ActionNetworkModule):
             pc.become = provider['authorize'] or True
             pc.become_pass = provider['auth_pass']
             pc.become_method = 'enable'
-            connection = self._shared_loader_obj.connection_loader.get('persistent', pc, sys.stdin,
-                                                                       task_uuid=self._task._uuid)
 
             display.vvv('using connection plugin %s (was local)' % pc.connection, pc.remote_addr)
+            connection = self._shared_loader_obj.connection_loader.get('persistent', pc, sys.stdin, task_uuid=self._task._uuid)
             connection.set_options(direct={'persistent_command_timeout': command_timeout})
 
             socket_path = connection.run()
@@ -77,5 +76,4 @@ class ActionModule(ActionNetworkModule):
             deprecate(msg, version='4.0.0', collection_name='community.network')
 
         result = super(ActionModule, self).run(task_vars=task_vars)
-
         return result

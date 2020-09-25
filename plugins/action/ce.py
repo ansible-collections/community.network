@@ -35,6 +35,7 @@ class ActionModule(ActionNetworkModule):
         self._config_module = True if module_name == 'ce_config' else False
         socket_path = None
         persistent_connection = self._play_context.connection.split('.')[-1]
+        warnings = []
 
         if self._play_context.connection == 'local':
             provider = load_provider(ce_provider_spec, self._task.args)
@@ -59,8 +60,11 @@ class ActionModule(ActionNetworkModule):
                 )
                 if module_name in ['ce_netconf'] or module_name not in CLI_SUPPORTED_MODULES:
                     pc.connection = 'netconf'
+
+                connection = self._shared_loader_obj.connection_loader.get('persistent', pc, sys.stdin,
+                                                                           task_uuid=self._task._uuid)
+
                 display.vvv('using connection plugin %s (was local)' % pc.connection, pc.remote_addr)
-                connection = self._shared_loader_obj.connection_loader.get('persistent', pc, sys.stdin, task_uuid=self._task._uuid)
                 connection.set_options(direct={'persistent_command_timeout': command_timeout})
 
                 socket_path = connection.run()
@@ -74,6 +78,9 @@ class ActionModule(ActionNetworkModule):
                 # make sure a transport value is set in args
                 self._task.args['transport'] = transport
                 self._task.args['provider'] = provider
+                warnings.append(
+                    ['connection local support for this module is deprecated and will be removed after date 2022-09-25,'
+                     ' use connection %s' % pc.connection])
         elif persistent_connection in ('netconf', 'network_cli'):
             provider = self._task.args.get('provider', {})
             if any(provider.values()):
@@ -86,4 +93,9 @@ class ActionModule(ActionNetworkModule):
                         % (self._play_context.connection, self._task.action)}
 
         result = super(ActionModule, self).run(task_vars=task_vars)
+        if warnings:
+            if 'warnings' in result:
+                result['warnings'].extend(warnings)
+            else:
+                result['warnings'] = warnings
         return result

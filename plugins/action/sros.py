@@ -35,7 +35,7 @@ class ActionModule(ActionNetworkModule):
 
     def run(self, tmp=None, task_vars=None):
         del tmp  # tmp no longer has any effect
-
+        warnings = []
         module_name = self._task.action.split('.')[-1]
         persistent_connection = self._play_context.connection.split('.')[-1]
 
@@ -70,8 +70,16 @@ class ActionModule(ActionNetworkModule):
                         'https://docs.ansible.com/ansible/network_debug_troubleshooting.html#unable-to-open-shell'}
 
             task_vars['ansible_socket'] = socket_path
+            warnings.append(
+                ['connection local support for this module is deprecated and will be removed after date 2022-09-25,'
+                 ' use connection %s' % pc.connection])
         else:
             return {'failed': True, 'msg': 'Connection type %s is not valid for this module' % self._play_context.connection}
 
         result = super(ActionModule, self).run(task_vars=task_vars)
+        if warnings:
+            if 'warnings' in result:
+                result['warnings'].extend(warnings)
+            else:
+                result['warnings'] = warnings
         return result

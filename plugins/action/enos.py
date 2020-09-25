@@ -36,8 +36,15 @@ class ActionModule(ActionNetworkModule):
 
         module_name = self._task.action.split('.')[-1]
         self._config_module = True if module_name == 'enos_config' else False
+        persistent_connection = self._play_context.connection.split('.')[-1]
+        warnings = []
 
-        if self._play_context.connection == 'local':
+        if persistent_connection == 'network_cli':
+            provider = self._task.args.get('provider', {})
+            if any(provider.values()):
+                display.warning('provider is unnecessary when using network_cli and will be ignored')
+                del self._task.args['provider']
+        elif self._play_context.connection == 'local':
             provider = load_provider(enos_provider_spec, self._task.args)
             pc = copy.deepcopy(self._play_context)
             pc.connection = 'network_cli'
@@ -64,6 +71,13 @@ class ActionModule(ActionNetworkModule):
                                'https://docs.ansible.com/ansible/network_debug_troubleshooting.html#unable-to-open-shell'}
 
             task_vars['ansible_socket'] = socket_path
-
+            warnings.append(
+                ['connection local support for this module is deprecated and will be removed after date 2022-09-25,'
+                 ' use connection %s' % pc.connection])
         result = super(ActionModule, self).run(task_vars=task_vars)
+        if warnings:
+            if 'warnings' in result:
+                result['warnings'].extend(warnings)
+            else:
+                result['warnings'] = warnings
         return result

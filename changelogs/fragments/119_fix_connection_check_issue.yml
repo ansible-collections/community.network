@@ -1,0 +1,6 @@
+---
+bugfixes:
+- Add check for network_cli connection type in action plugins
+
+deprecated_features:
+- Deprecate connection=local support for network platforms using persistent framework

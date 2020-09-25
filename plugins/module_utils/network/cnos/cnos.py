@@ -73,7 +73,7 @@ cnos_provider_spec = {
 }
 
 cnos_argument_spec = {
-    'provider': dict(type='dict', options=cnos_provider_spec, removed_at_date="2022-09-25"),
+    'provider': dict(type='dict', options=cnos_provider_spec, removed_in_version='4.0.0'),
 }
 
 command_spec = {

@@ -12,6 +12,7 @@ import copy
 from ansible import constants as C
 from ansible_collections.ansible.netcommon.plugins.action.network import ActionModule as ActionNetworkModule
 from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import ce_provider_spec
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.warnings import deprecate
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import load_provider
 from ansible.utils.display import Display
 
@@ -78,9 +79,10 @@ class ActionModule(ActionNetworkModule):
                 # make sure a transport value is set in args
                 self._task.args['transport'] = transport
                 self._task.args['provider'] = provider
-                warnings.append(
-                    ['connection local support for this module is deprecated and will be removed after date 2022-09-25,'
-                     ' use connection %s' % pc.connection])
+                msg = "connection local support for this module is deprecated use either" \
+                      " 'network_cli' or 'ansible.netcommon.network_cli' connection"
+                deprecate(msg, version='4.0.0', collection_name='community.network')
+
         elif persistent_connection in ('netconf', 'network_cli'):
             provider = self._task.args.get('provider', {})
             if any(provider.values()):
@@ -93,9 +95,5 @@ class ActionModule(ActionNetworkModule):
                         % (self._play_context.connection, self._task.action)}
 
         result = super(ActionModule, self).run(task_vars=task_vars)
-        if warnings:
-            if 'warnings' in result:
-                result['warnings'].extend(warnings)
-            else:
-                result['warnings'] = warnings
+
         return result

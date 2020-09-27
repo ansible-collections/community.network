@@ -21,6 +21,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 ---
+author: Unknown (!UNKNOWN)
 cliconf: ce
 short_description: Use ce cliconf to run command on HUAWEI CloudEngine platform
 description:

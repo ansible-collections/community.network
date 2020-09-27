@@ -21,6 +21,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 ---
+author: Unknown (!UNKNOWN)
 cliconf: aruba
 short_description: Use aruba cliconf to run command on Aruba platform
 description:

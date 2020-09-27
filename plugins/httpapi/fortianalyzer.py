@@ -25,7 +25,7 @@ author:
     - Luke Weighall (@lweighall)
     - Andrew Welsh (@Ghilli3)
     - Jim Huber (@p4r4n0y1ng)
-httpapi : fortianalyzer
+name: fortianalyzer
 short_description: HttpApi Plugin for Fortinet FortiAnalyzer Appliance or VM.
 description:
   - This HttpApi plugin provides methods to connect to Fortinet FortiAnalyzer Appliance or VM via JSON RPC API.

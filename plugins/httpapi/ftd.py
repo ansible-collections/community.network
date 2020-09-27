@@ -23,7 +23,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 author: Ansible Networking Team (!UNKNOWN)
-httpapi : ftd
+name: ftd
 short_description: HttpApi Plugin for Cisco ASA Firepower device
 description:
   - This HttpApi plugin provides methods to connect to Cisco ASA firepower

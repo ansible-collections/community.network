@@ -19,7 +19,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 author: "David Li (@davidlee-ap)"
-cliconf: apconos
+name: apconos
 short_description: Use apconos cliconf to run command on APCON network devices
 description:
   - This apconos plugin provides low level abstraction apis for

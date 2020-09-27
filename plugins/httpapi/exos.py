@@ -23,7 +23,7 @@ DOCUMENTATION = '''
 ---
 author:
   - "Ujwal Komarla (@ujwalkomarla)"
-httpapi: exos
+name: exos
 short_description: Use EXOS REST APIs to communicate with EXOS platform
 description:
   - This plugin provides low level abstraction api's to send REST API

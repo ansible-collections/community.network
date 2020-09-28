@@ -21,6 +21,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 ---
+author: Unknown (!UNKNOWN)
 cliconf: edgeswitch
 short_description: Use edgeswitch cliconf to run command on EdgeSwitch platform
 description:

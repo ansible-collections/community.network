@@ -21,6 +21,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 ---
+author: Unknown (!UNKNOWN)
 cliconf: nos
 short_description: Use nos cliconf to run command on Extreme NOS platform
 description:

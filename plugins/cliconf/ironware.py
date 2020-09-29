@@ -21,6 +21,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 ---
+author: Unknown (!UNKNOWN)
 cliconf: ironware
 short_description: Use ironware cliconf to run command on Extreme Ironware platform
 description:

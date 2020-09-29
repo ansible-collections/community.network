@@ -21,6 +21,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 ---
+author: Unknown (!UNKNOWN)
 cliconf: voss
 short_description: Use voss cliconf to run command on Extreme VOSS platform
 description:

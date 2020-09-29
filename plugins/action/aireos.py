@@ -73,7 +73,7 @@ class ActionModule(ActionNetworkModule):
             task_vars['ansible_socket'] = socket_path
             msg = "connection local support for this module is deprecated use either" \
                   " 'network_cli' or 'ansible.netcommon.network_cli' connection"
-            deprecate(msg, version='4.0.0', collection_name='community.network')
+            display.deprecated(msg, version='4.0.0', collection_name='community.network')
 
         else:
             return dict(

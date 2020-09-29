@@ -78,7 +78,7 @@ class ActionModule(ActionNetworkModule):
                 self._task.args['provider'] = provider
                 msg = "connection local support for this module is deprecated use either" \
                       " 'network_cli' or 'ansible.netcommon.network_cli' connection"
-                deprecate(msg, version='4.0.0', collection_name='community.network')
+                display.deprecated(msg, version='4.0.0', collection_name='community.network')
 
         elif persistent_connection in ('netconf', 'network_cli'):
             provider = self._task.args.get('provider', {})

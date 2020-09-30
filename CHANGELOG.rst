@@ -5,6 +5,21 @@ Community Network Release Notes
 .. contents:: Topics
 
 
+v1.2.0
+======
+
+Release Summary
+---------------
+
+Regular bimonthly minor release.
+
+Minor Changes
+-------------
+
+- edgeswitch_facts - added ``startupconfig`` to facts module - to allow the comparision between startup and running config (https://github.com/ansible-collections/community.network/pull/105).
+- routeros_facts - now also collecting data about BGP and OSPF (https://github.com/ansible-collections/community.network/pull/101).
+- routeros_facts - set configuration export on to verbose, for full configuration export (https://github.com/ansible-collections/community.network/pull/104).
+
 v1.1.0
 ======
 

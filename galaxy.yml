@@ -13,6 +13,6 @@ dependencies:
   check_point.mgmt: '>=1.0.0'
   fortinet.fortios: '>=1.0.0'
 repository: https://github.com/ansible-collections/community.network
-#documentation: https://github.com/ansible-collection-migration/community.network/tree/main/docs
+documentation: https://docs.ansible.com/ansible/latest/collections/community/network/
 homepage: https://github.com/ansible-collections/community.network
 issues: https://github.com/ansible-collections/community.network/issues

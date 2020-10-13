@@ -1,0 +1,3 @@
+---
+bugfixes:
+  - dladm_vnic - fixed issue where setting vlan in python3 caused a type error (https://github.com/ansible-collections/community.network/issues/131)

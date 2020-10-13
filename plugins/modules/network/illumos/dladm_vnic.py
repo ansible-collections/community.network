@@ -21,10 +21,12 @@ options:
         description:
             - VNIC name.
         required: true
+        type: str
     link:
         description:
             - VNIC underlying link name.
         required: true
+        type: str
     temporary:
         description:
             - Specifies that the VNIC is temporary. Temporary VNICs
@@ -38,6 +40,7 @@ options:
         required: false
         default: false
         aliases: [ "macaddr" ]
+        type: str
     vlan:
         description:
             - Enable VLAN tagging for this VNIC. The VLAN tag will have id
@@ -45,12 +48,14 @@ options:
         required: false
         default: false
         aliases: [ "vlan_id" ]
+        type: int
     state:
         description:
             - Create or delete Solaris/illumos VNIC.
         required: false
         default: "present"
         choices: [ "present", "absent" ]
+        type: str
 '''
 
 EXAMPLES = '''

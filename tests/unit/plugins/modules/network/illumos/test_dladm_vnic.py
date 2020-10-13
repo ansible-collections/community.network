@@ -150,10 +150,10 @@ def test_vnic_create_vlan(mocked_vnic_create, capfd):
         else:
             arg_idx = 2
         assert args[arg_idx] == "-v"
-        assert args[arg_idx+1] == int(vnic_vlans[i])
-        assert args[arg_idx+2] == "-l"
-        assert args[arg_idx+3] == vnic_link
-        assert args[arg_idx+4] == vnic_name
+        assert args[arg_idx + 1] == int(vnic_vlans[i])
+        assert args[arg_idx + 2] == "-l"
+        assert args[arg_idx + 3] == vnic_link
+        assert args[arg_idx + 4] == vnic_name
 
 
 def test_vnic_create_vlan_invalid(mocked_vnic_create, capfd):
@@ -221,10 +221,10 @@ def test_vnic_create_mac(mocked_vnic_create, capfd):
         else:
             arg_idx = 2
         assert args[arg_idx] == "-m"
-        assert args[arg_idx+1] == vnic_macs[i]
-        assert args[arg_idx+2] == "-l"
-        assert args[arg_idx+3] == vnic_link
-        assert args[arg_idx+4] == vnic_name
+        assert args[arg_idx + 1] == vnic_macs[i]
+        assert args[arg_idx + 2] == "-l"
+        assert args[arg_idx + 3] == vnic_link
+        assert args[arg_idx + 4] == vnic_name
 
 
 def test_vnic_create_mac_invalid(mocked_vnic_create, capfd):

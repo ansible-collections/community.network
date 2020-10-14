@@ -117,7 +117,7 @@ def test_vnic_create_vlan(mocked_vnic_create, capfd):
     """
     vnic_name = "vnic0"
     vnic_link = "e1000g0"
-    vnic_vlans = (1, "23", 23, 4095)
+    vnic_vlans = (1, "23", 23, 4094)
     vnic_temp = (True, False, False, True)
 
     for vlan, temp in zip(vnic_vlans, vnic_temp):
@@ -162,7 +162,7 @@ def test_vnic_create_vlan_invalid(mocked_vnic_create, capfd):
     """
     vnic_name = "vnic1"
     vnic_link = "e1000g1"
-    vnic_vlans = ("foo", ["bar"], 0, 4097)
+    vnic_vlans = ("foo", ["bar"], 0, 4095)
 
     for vlan in vnic_vlans:
         set_module_args(

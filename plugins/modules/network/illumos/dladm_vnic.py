@@ -185,7 +185,7 @@ class VNIC(object):
 
     def is_valid_vlan_id(self):
 
-        return 0 < self.vlan <= 4095
+        return 0 < self.vlan < 4095
 
 
 def main():

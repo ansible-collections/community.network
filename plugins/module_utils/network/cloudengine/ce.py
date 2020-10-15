@@ -71,7 +71,8 @@ ce_provider_spec = {
     'transport': dict(default='cli', choices=['cli', 'netconf']),
 }
 ce_argument_spec = {
-    'provider': dict(type='dict', options=ce_provider_spec),
+    'provider': dict(type='dict', options=ce_provider_spec, removed_in_version='4.0.0',
+                     removed_from_collection='community.network'),
 }
 
 

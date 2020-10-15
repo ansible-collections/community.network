@@ -23,6 +23,7 @@ import copy
 from ansible import constants as C
 from ansible_collections.ansible.netcommon.plugins.action.network import ActionModule as ActionNetworkModule
 from ansible_collections.community.network.plugins.module_utils.network.enos.enos import enos_provider_spec
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.warnings import deprecate
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import load_provider
 from ansible.utils.display import Display
 
@@ -36,8 +37,14 @@ class ActionModule(ActionNetworkModule):
 
         module_name = self._task.action.split('.')[-1]
         self._config_module = True if module_name == 'enos_config' else False
+        persistent_connection = self._play_context.connection.split('.')[-1]
 
-        if self._play_context.connection == 'local':
+        if persistent_connection == 'network_cli':
+            provider = self._task.args.get('provider', {})
+            if any(provider.values()):
+                display.warning('provider is unnecessary when using network_cli and will be ignored')
+                del self._task.args['provider']
+        elif self._play_context.connection == 'local':
             provider = load_provider(enos_provider_spec, self._task.args)
             pc = copy.deepcopy(self._play_context)
             pc.connection = 'network_cli'
@@ -64,6 +71,9 @@ class ActionModule(ActionNetworkModule):
                                'https://docs.ansible.com/ansible/network_debug_troubleshooting.html#unable-to-open-shell'}
 
             task_vars['ansible_socket'] = socket_path
+            msg = "connection local support for this module is deprecated use either" \
+                  " 'network_cli' or 'ansible.netcommon.network_cli' connection"
+            display.deprecated(msg, version='4.0.0', collection_name='community.network')
 
         result = super(ActionModule, self).run(task_vars=task_vars)
         return result

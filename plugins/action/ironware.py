@@ -23,6 +23,7 @@ import sys
 import copy
 
 from ansible_collections.ansible.netcommon.plugins.action.network import ActionModule as ActionNetworkModule
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.warnings import deprecate
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import load_provider
 from ansible_collections.community.network.plugins.module_utils.network.ironware.ironware import ironware_provider_spec
 from ansible.utils.display import Display
@@ -73,6 +74,9 @@ class ActionModule(ActionNetworkModule):
                                'https://docs.ansible.com/ansible/network_debug_troubleshooting.html#unable-to-open-shell'}
 
             task_vars['ansible_socket'] = socket_path
+            msg = "connection local support for this module is deprecated use either" \
+                  " 'network_cli' or 'ansible.netcommon.network_cli' connection"
+            display.deprecated(msg, version='4.0.0', collection_name='community.network')
         else:
             return {'failed': True, 'msg': 'Connection type %s is not valid for this module' % self._play_context.connection}
 

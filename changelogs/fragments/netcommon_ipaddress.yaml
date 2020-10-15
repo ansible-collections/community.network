@@ -1,5 +1,5 @@
 ---
-minor_changes:
+breaking_changes:
   - cnos_static_route - move ipaddress import from ansible.netcommon to builtin
     or package before ipaddress is removed from ansible.netcommon. You need to
     make sure to have the ipaddress package installed if you are using this

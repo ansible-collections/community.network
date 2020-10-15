@@ -39,7 +39,8 @@ ironware_provider_spec = {
 }
 
 ironware_argument_spec = {
-    'provider': dict(type='dict', options=ironware_provider_spec)
+    'provider': dict(type='dict', options=ironware_provider_spec, removed_in_version='4.0.0',
+                     removed_from_collection='community.network')
 }
 
 command_spec = {

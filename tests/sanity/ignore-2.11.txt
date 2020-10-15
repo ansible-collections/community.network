@@ -920,7 +920,6 @@ plugins/modules/network/illumos/dladm_vlan.py validate-modules:doc-required-mism
 plugins/modules/network/illumos/dladm_vlan.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/illumos/dladm_vnic.py pylint:blacklisted-name
 plugins/modules/network/illumos/dladm_vnic.py validate-modules:doc-default-does-not-match-spec
-plugins/modules/network/illumos/dladm_vnic.py validate-modules:doc-missing-type
 plugins/modules/network/illumos/flowadm.py pylint:blacklisted-name
 plugins/modules/network/illumos/flowadm.py validate-modules:doc-choices-do-not-match-spec
 plugins/modules/network/illumos/flowadm.py validate-modules:doc-missing-type

@@ -21,10 +21,12 @@ options:
         description:
             - VNIC name.
         required: true
+        type: str
     link:
         description:
             - VNIC underlying link name.
         required: true
+        type: str
     temporary:
         description:
             - Specifies that the VNIC is temporary. Temporary VNICs
@@ -38,6 +40,7 @@ options:
         required: false
         default: false
         aliases: [ "macaddr" ]
+        type: str
     vlan:
         description:
             - Enable VLAN tagging for this VNIC. The VLAN tag will have id
@@ -45,12 +48,14 @@ options:
         required: false
         default: false
         aliases: [ "vlan_id" ]
+        type: int
     state:
         description:
             - Create or delete Solaris/illumos VNIC.
         required: false
         default: "present"
         choices: [ "present", "absent" ]
+        type: str
 '''
 
 EXAMPLES = '''
@@ -176,22 +181,22 @@ class VNIC(object):
 
         mac_re = re.match(self.UNICAST_MAC_REGEX, self.mac)
 
-        return mac_re is None
+        return mac_re is not None
 
     def is_valid_vlan_id(self):
 
-        return 0 <= self.vlan <= 4095
+        return 0 < self.vlan < 4095
 
 
 def main():
     module = AnsibleModule(
         argument_spec=dict(
-            name=dict(required=True),
-            link=dict(required=True),
-            mac=dict(default=None, aliases=['macaddr']),
-            vlan=dict(default=None, aliases=['vlan_id']),
-            temporary=dict(default=False, type='bool'),
-            state=dict(default='present', choices=['absent', 'present']),
+            name=dict(type='str', required=True),
+            link=dict(type='str', required=True),
+            mac=dict(type='str', aliases=['macaddr']),
+            vlan=dict(type='int', aliases=['vlan_id']),
+            temporary=dict(type='bool', default=False),
+            state=dict(type='str', default='present', choices=['absent', 'present']),
         ),
         supports_check_mode=True
     )
@@ -208,7 +213,7 @@ def main():
     result['temporary'] = vnic.temporary
 
     if vnic.mac is not None:
-        if vnic.is_valid_unicast_mac():
+        if not vnic.is_valid_unicast_mac():
             module.fail_json(msg='Invalid unicast MAC address',
                              mac=vnic.mac,
                              name=vnic.name,
@@ -218,7 +223,7 @@ def main():
         result['mac'] = vnic.mac
 
     if vnic.vlan is not None:
-        if vnic.is_valid_vlan_id():
+        if not vnic.is_valid_vlan_id():
             module.fail_json(msg='Invalid VLAN tag',
                              mac=vnic.mac,
                              name=vnic.name,

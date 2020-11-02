@@ -133,6 +133,31 @@ plugin_routing:
       deprecation:
         removal_version: 2.0.0
         warning_text: see plugin documentation for details
+    nso_config:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The nso_config module has been moved to the cisco.nso collection
+      redirect: cisco.nso
+    nso_action:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The nso_action module has been moved to the cisco.nso collection
+      redirect: cisco.nso
+    nso_query:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The nso_query module has been moved to the cisco.nso collection
+      redirect: cisco.nso
+    nso_verify:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The nso_verify module has been moved to the cisco.nso collection
+      redirect: cisco.nso
+    nso_show:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The nso_show module has been moved to the cisco.nso collection
+      redirect: cisco.nso        
     onyx_aaa:
       deprecation:
         removal_version: 2.0.0
@@ -331,6 +356,11 @@ plugin_routing:
         warning_text: The onyx terminal plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx
   module_utils:
+    network.nso:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The nso module_utils plugin has been moved to the cisco.nso collection
+      redirect: cisco.nso    
     network.onyx:
       deprecation:
         removal_version: 2.0.0
@@ -348,6 +378,11 @@ plugin_routing:
         warning_text: The onyx_config action plugin has been moved to the mellanox.onyx collection
       redirect: mellanox.onyx.onyx_config
   doc_fragments:
+    nso:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The nso doc_fragments plugin has been moved to the cisco.nso collection
+      redirect: cisco.nso.nso
     onyx:
       deprecation:
         removal_version: 2.0.0

@@ -51,15 +51,21 @@ import re
 from ansible import __version__ as ansible_version
 
 from ansible.module_utils.basic import to_text
-from ansible.errors import AnsibleConnectionFailure
+from ansible.errors import AnsibleConnectionFailure, AnsibleError
 from ansible_collections.community.network.plugins.module_utils.network.ftd.fdm_swagger_client import FdmSwaggerParser, SpecProp, FdmSwaggerValidator
 from ansible_collections.community.network.plugins.module_utils.network.ftd.common import HTTPMethod, ResponseParams
 from ansible.module_utils.six.moves.urllib.error import HTTPError
 from ansible.module_utils.six.moves.urllib.parse import urlencode
 from ansible.plugins.httpapi import HttpApiBase
-from urllib3 import encode_multipart_formdata
-from urllib3.fields import RequestField
 from ansible.module_utils.connection import ConnectionError
+
+try:
+    from urllib3 import encode_multipart_formdata
+    from urllib3.fields import RequestField
+    HAS_URLLIB3 = True
+except ImportError:
+    HAS_URLLIB3 = False
+
 
 BASE_HEADERS = {
     'Content-Type': 'application/json',
@@ -89,6 +95,9 @@ class HttpApi(HttpApiBase):
         self._api_spec = None
         self._api_validator = None
         self._ignore_http_errors = False
+        if not HAS_URLLIB3:
+            raise AnsibleError(
+                'The community.network.ftd httpapi plugin requires urllib3. Use `pip install urllib3` to install it')
 
     def login(self, username, password):
         def request_token_payload(username, password):

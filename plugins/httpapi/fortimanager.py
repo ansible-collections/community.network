@@ -33,12 +33,18 @@ description:
 '''
 
 import json
+from ansible.errors import AnsibleError
 from ansible.plugins.httpapi import HttpApiBase
 from ansible.module_utils.basic import to_text
-from ansible_collections.fortinet.fortios.plugins.module_utils.network.fortimanager.common import BASE_HEADERS
-from ansible_collections.fortinet.fortios.plugins.module_utils.network.fortimanager.common import FMGBaseException
-from ansible_collections.fortinet.fortios.plugins.module_utils.network.fortimanager.common import FMGRCommon
-from ansible_collections.fortinet.fortios.plugins.module_utils.network.fortimanager.common import FMGRMethods
+
+try:
+    from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import BASE_HEADERS
+    from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
+    from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
+    from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRMethods
+    HAS_FORTIMANAGER_COLLECTION = True
+except ImportError:
+    HAS_FORTIMANAGER_COLLECTION = False
 
 
 class HttpApi(HttpApiBase):
@@ -62,6 +68,8 @@ class HttpApi(HttpApiBase):
         self._uses_adoms = False
         self._adom_list = list()
         self._logged_in_user = None
+        if not HAS_FORTIMANAGER_COLLECTION:
+            raise AnsibleError("The community.network.fortimanager httpapi plugin requires the fortios.fortimanager collection.")
 
     def set_become(self, become_context):
         """

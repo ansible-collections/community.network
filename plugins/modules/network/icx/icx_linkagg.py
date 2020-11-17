@@ -300,7 +300,6 @@ def main():
 
     warnings = list()
     result = {'changed': False}
-    exec_command(module, 'skip')
     if warnings:
         result['warnings'] = warnings
 

@@ -341,7 +341,6 @@ def main():
     checkValidations(module)
     warnings = list()
     result = {'changed': False, 'warnings': warnings}
-    exec_command(module, 'skip')
 
     response = ''
     try:

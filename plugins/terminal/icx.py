@@ -15,7 +15,9 @@ import json
 class TerminalModule(TerminalBase):
 
     terminal_stdout_re = [
-        re.compile(br"[\r\n]?[\w\+\-\.:\/\[\]]+(?:\([^\)]+\)){0,3}(?:[>#]) ?$")
+        re.compile(br".*[\r\n]?[\w\+\-\.:\/\[\]]+(?:\([^\)]+\)){0,3}(?:[>#]) ?.*"),
+        # re.compile(br"[\r\n]?[\w\+\-\.:\/\[\]]+(?:\([^\)]+\)){0,3}(?:[>#]) ?$"),
+        re.compile(br"Finished downloading public key file!")
     ]
 
     terminal_stderr_re = [
@@ -37,6 +39,7 @@ class TerminalModule(TerminalBase):
         re.compile(br"Invalid input"),
         re.compile(br"Already a http operation is in progress"),
         re.compile(br"Flash access in progress. Please try later"),
+        re.compile(br"SSH tftp client public key failed!"),
         re.compile(br"Error: .*"),
         re.compile(br"^Error: .*", re.I),
         re.compile(br"^Ambiguous input"),
@@ -44,7 +47,18 @@ class TerminalModule(TerminalBase):
     ]
 
     def on_open_shell(self):
-        pass
+        try:
+            commands = ('{"command": "' + "en" + '", "prompt": "Password:", "answer": "' +
+                        self._connection._play_context.password + '"}',
+                        '{"command": "skip"}')
+            for cmd in commands:
+                self._exec_cli_command(cmd)
+        except AnsibleConnectionFailure:
+            try:
+                self._exec_cli_command(b'skip')
+            except AnsibleConnectionFailure:
+                raise AnsibleConnectionFailure('unable to set terminal parameters')
+    
 
     def __del__(self):
         try:

@@ -448,7 +448,6 @@ def main():
     warnings = list()
 
     result['warnings'] = warnings
-    exec_command(module, 'skip')
     want = map_params_to_obj(module)
     have = map_config_to_obj(module)
     commands = map_obj_to_commands(want, have, module)

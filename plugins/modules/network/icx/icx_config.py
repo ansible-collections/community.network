@@ -361,7 +361,6 @@ def main():
     warnings = list()
     check_args(module, warnings)
     result['warnings'] = warnings
-    run_commands(module, 'skip')
     diff_ignore_lines = module.params['diff_ignore_lines']
     config = None
     contents = None

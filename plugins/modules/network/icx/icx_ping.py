@@ -6,9 +6,15 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-DOCUMENTATION = '''
+ANSIBLE_METADATA = {'metadata_version': '1.1',
+                    'status': ['preview'],
+                    'supported_by': 'community'}
+
+
+DOCUMENTATION = """
 ---
 module: icx_ping
+version_added: "2.9"
 author: "Ruckus Wireless (@Commscope)"
 short_description: Tests reachability using ping from Ruckus ICX 7000 series switches
 description:
@@ -53,32 +59,32 @@ options:
       type: str
       choices: [ absent, present ]
       default: present
-'''
+"""
 
 EXAMPLES = r'''
 - name: Test reachability to 10.10.10.10
-  community.network.icx_ping:
+  icx_ping:
     dest: 10.10.10.10
 
 - name: Test reachability to ipv6 address from source with timeout
-  community.network.icx_ping:
+  icx_ping:
     dest: ipv6 2001:cdba:0000:0000:0000:0000:3257:9652
     source: 10.1.1.1
     timeout: 100000
 
 - name: Test reachability to 10.1.1.1 through vrf using 5 packets
-  community.network.icx_ping:
+  icx_ping:
     dest: 10.1.1.1
     vrf: x.x.x.x
     count: 5
 
 - name: Test unreachability to 10.30.30.30
-  community.network.icx_ping:
+  icx_ping:
     dest: 10.40.40.40
     state: absent
 
 - name: Test reachability to ipv4 with ttl and packet size
-  community.network.icx_ping:
+  icx_ping:
     dest: 10.10.10.10
     ttl: 20
     size: 500
@@ -113,7 +119,7 @@ rtt:
 '''
 
 from ansible.module_utils._text import to_text
-from ansible_collections.community.network.plugins.module_utils.network.icx.icx import run_commands
+from ansible.module_utils.network.icx.icx import run_commands
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection, ConnectionError
 import re
@@ -145,7 +151,12 @@ def build_ping(dest, count=None, source=None, timeout=None, ttl=None, size=None,
     if source is not None:
         cmd += " source {0}".format(source)
 
-    return cmd
+    return {
+            'command': cmd,
+            'prompt': ['Success', 'No Reply', 'Ping self done'],
+            'answer': '',
+            'newline': True
+    }
 
 
 def parse_ping(ping_stats):
@@ -154,7 +165,10 @@ def parse_ping(ping_stats):
     Example: "Success rate is 100 percent (5/5), round-trip min/avg/max=40/51/55 ms."
     Returns the percent of packet loss, received packets, transmitted packets, and RTT dict.
     """
-    if ping_stats.startswith('Success'):
+    if ping_stats.startswith("Ping self done"):
+        rtt = {'avg': 0, 'max': 0, 'min': 0}
+        return 100, 0, 0, rtt
+    elif ping_stats.startswith('Success'):
         rate_re = re.compile(r"^\w+\s+\w+\s+\w+\s+(?P<pct>\d+)\s+\w+\s+\((?P<rx>\d+)/(?P<tx>\d+)\)")
         rtt_re = re.compile(r".*,\s+\S+\s+\S+=(?P<min>\d+)/(?P<avg>\d+)/(?P<max>\d+)\s+\w+\.+\s*$|.*\s*$")
 
@@ -176,11 +190,11 @@ def validate_results(module, loss, results):
     if state == "present" and loss == 100:
         module.fail_json(msg="Ping failed unexpectedly", **results)
     elif state == "absent" and loss < 100:
-        module.fail_json(msg="Ping succeeded unexpectedly", **results)
+        module.fail_json(msg="Ping succeeded", **results)
 
 
 def validate_fail(module, responses):
-    if ("Success" in responses or "No reply" in responses) is False:
+    if ("Success" in responses or "No reply" in responses or "Ping self done" in responses) is False:
         module.fail_json(msg=responses)
 
 
@@ -241,6 +255,8 @@ def main():
             stats = line
         elif line.startswith('No reply'):
             stats = statserror
+        elif line.startswith('Ping self done'):
+            stats = "Ping self done"
 
     success, rx, tx, rtt = parse_ping(stats)
     loss = abs(100 - int(success))

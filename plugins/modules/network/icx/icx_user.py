@@ -361,7 +361,6 @@ def main():
                            supports_check_mode=True)
 
     result = {'changed': False}
-    exec_command(module, 'skip')
     want = map_params_to_obj(module)
     have = map_config_to_obj(module)
     commands = map_obj_to_commands(update_objects(want, have), module)

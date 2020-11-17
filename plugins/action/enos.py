@@ -23,7 +23,6 @@ import copy
 from ansible import constants as C
 from ansible_collections.ansible.netcommon.plugins.action.network import ActionModule as ActionNetworkModule
 from ansible_collections.community.network.plugins.module_utils.network.enos.enos import enos_provider_spec
-from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.warnings import deprecate
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import load_provider
 from ansible.utils.display import Display
 

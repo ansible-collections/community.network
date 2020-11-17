@@ -1,0 +1,2 @@
+bugfixes:
+- Fixed action plugins import non-existing module from ansible.netcommon issue (https://github.com/ansible-collections/community.network/issues/149)

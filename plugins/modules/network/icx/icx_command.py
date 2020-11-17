@@ -181,7 +181,6 @@ def main():
     result = {'changed': False}
 
     warnings = list()
-    run_commands(module, ['skip'])
     commands = parse_commands(module, warnings)
     result['warnings'] = warnings
 

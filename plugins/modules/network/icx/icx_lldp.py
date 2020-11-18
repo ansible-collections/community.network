@@ -84,7 +84,7 @@ from ansible_collections.community.network.plugins.module_utils.network.icx.icx 
 
 
 def has_lldp(module):
-    #run_commands(module, ['skip'])
+    # run_commands(module, ['skip'])
     output = run_commands(module, ['show lldp'])
     is_lldp_enable = False
     if len(output) > 0 and "LLDP is not running" not in output[0]:

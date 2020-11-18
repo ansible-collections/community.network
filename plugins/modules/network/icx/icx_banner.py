@@ -134,7 +134,7 @@ def map_obj_to_commands(updates, module):
 def map_config_to_obj(module):
     compare = module.params.get('check_running_config')
     obj = {'banner': module.params['banner'], 'state': 'absent', 'enterkey': False}
-    #exec_command(module, 'skip')
+    # exec_command(module, 'skip')
     output_text = ''
     output_re = ''
     out = get_config(module, flags=['| begin banner %s'

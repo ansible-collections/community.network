@@ -58,7 +58,6 @@ class TerminalModule(TerminalBase):
                 self._exec_cli_command(b'skip')
             except AnsibleConnectionFailure:
                 raise AnsibleConnectionFailure('unable to set terminal parameters')
-    
 
     def __del__(self):
         try:

@@ -5,15 +5,11 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 
 DOCUMENTATION = """
 ---
 module: icx_firmware_upgrade
-version_added: "2.10"
+version_added: "1.2.0"
 author: "Ruckus Wireless (@Commscope)"
 short_description: Upgrades firmware of ICX switches
 description:
@@ -70,7 +66,7 @@ options:
 
 EXAMPLES = """
 - name: upgrade firmware using scp
-  icx_firmware_upgrade:
+  community.network.icx_firmware_upgrade:
     server_type: scp
     server_address: 10.20.1.1
     partition: secondary
@@ -81,7 +77,7 @@ EXAMPLES = """
     scp_pass: alethea123
 
 - name: upgrade firmware using tftp
-  icx_firmware_upgrade:
+  community.network.icx_firmware_upgrade:
     server_type: tftp
     server_address: 2001:db8::1
     partition: fips-ufi-primary-sig
@@ -90,7 +86,7 @@ EXAMPLES = """
     save_running_config: False
 
 - name: upgrade firmware using https
-  icx_firmware_upgrade:
+  community.network.icx_firmware_upgrade:
     server_type: https
     server_address: 10.20.1.8
     partition: primary
@@ -99,7 +95,7 @@ EXAMPLES = """
     save_running_config: False
 
 - name: run only boot command
-  icx_firmware_upgrade:
+  community.network.icx_firmware_upgrade:
     boot_only: True
     save_running_config: True
 """
@@ -118,7 +114,7 @@ from ansible.module_utils._text import to_text
 from ansible_collections.community.network.plugins.module_utils.network.icx.icx import run_commands, exec_scp
 from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible.module_utils.connection import ConnectionError
-from ansible.module_utils.network.common.utils import remove_default_spec
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
 
 
 def map_params_to_obj(module):

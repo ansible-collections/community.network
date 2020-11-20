@@ -70,10 +70,11 @@ class TestICXBannerModule(TestICXModule):
         set_module_args(dict(banner='motd', enterkey=True))
 
         if not self.ENV_ICX_USE_DIFF:
+            self.execute_module(changed=False)
+        else:
             commands = ['banner motd require-enter-key']
             self.execute_module(changed=True, commands=commands)
-        else:
-            self.execute_module(changed=False)
+            
 
     def test_icx_banner_motd_enter_remove(self):
         set_module_args(dict(banner='motd', state='absent', enterkey=False))

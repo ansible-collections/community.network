@@ -9,7 +9,7 @@ __metaclass__ = type
 DOCUMENTATION = """
 ---
 module: icx_firmware_upgrade
-version_added: "1.2.0"
+version_added: "1.3.0"
 author: "Ruckus Wireless (@Commscope)"
 short_description: Upgrades firmware of ICX switches
 description:
@@ -20,13 +20,13 @@ notes:
 options:
   server_type:
     description:
-      - Data transfer protocol to be used
+      - Data transfer protocol to be used.
     type: str
     choices: ['scp', 'https', 'tftp']
     required: true
   server_address:
     description:
-      - IPV4/IPV6 address of the scp/https/tftp server
+      - IPV4/IPV6 address of the scp/https/tftp server.
     type: str
     required: true
   server_port:
@@ -52,6 +52,7 @@ options:
       - Boot the switch if True.
     default: no
     type: bool
+    required: true
   save_running_config:
     description:
       - execute Write memory Command.

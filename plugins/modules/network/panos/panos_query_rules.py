@@ -20,9 +20,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #  limitations under the License.
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -39,7 +38,7 @@ requirements:
     - xmltodict can be obtains from PyPI U(https://pypi.org/project/xmltodict/)
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 notes:
     - Checkmode is not supported.
@@ -96,8 +95,8 @@ options:
 '''
 
 EXAMPLES = '''
-- name: search for rules with tcp/3306
-  panos_query_rules:
+- name: Search for rules with tcp/3306
+  community.network.panos_query_rules:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -106,16 +105,16 @@ EXAMPLES = '''
     destination_port: '3306'
     protocol: 'tcp'
 
-- name: search devicegroup for inbound rules to dmz host
-  panos_query_rules:
+- name: Search devicegroup for inbound rules to dmz host
+  community.network.panos_query_rules:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
     destination_zone: 'DMZ'
     destination_ip: '10.100.42.18'
     address: 'DeviceGroupA'
 
-- name: search for rules containing a specified rule tag
-  panos_query_rules:
+- name: Search for rules containing a specified rule tag
+  community.network.panos_query_rules:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'

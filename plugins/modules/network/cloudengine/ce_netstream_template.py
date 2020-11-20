@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_netstream_template
@@ -68,7 +64,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: netstream template module test
+- name: Netstream template module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -83,26 +79,26 @@ EXAMPLES = '''
   tasks:
 
   - name: Config ipv4 netstream record
-    ce_netstream_template:
+    community.network.ce_netstream_template:
       state: present
       type: ip
       record_name: test
       provider: "{{ cli }}"
   - name: Undo ipv4 netstream record
-    ce_netstream_template:
+    community.network.ce_netstream_template:
       state: absent
       type: ip
       record_name: test
       provider: "{{ cli }}"
   - name: Config ipv4 netstream record collect_counter
-    ce_netstream_template:
+    community.network.ce_netstream_template:
       state: present
       type: ip
       record_name: test
       collect_counter: bytes
       provider: "{{ cli }}"
   - name: Undo ipv4 netstream record collect_counter
-    ce_netstream_template:
+    community.network.ce_netstream_template:
       state: absent
       type: ip
       record_name: test

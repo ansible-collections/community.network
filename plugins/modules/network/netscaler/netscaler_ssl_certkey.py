@@ -8,11 +8,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: netscaler_ssl_certkey
@@ -109,7 +104,7 @@ EXAMPLES = '''
 
 - name: Setup ssl certkey
   delegate_to: localhost
-  netscaler_ssl_certkey:
+  community.network.netscaler_ssl_certkey:
     nitro_user: nsroot
     nitro_pass: nsroot
     nsip: 172.18.0.2

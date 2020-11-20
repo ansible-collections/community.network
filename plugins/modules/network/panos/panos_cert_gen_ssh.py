@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 DOCUMENTATION = '''
 ---
 module: panos_cert_gen_ssh
@@ -31,7 +34,7 @@ requirements:
     - paramiko
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 notes:
     - Checkmode is not supported.
@@ -68,8 +71,8 @@ options:
 
 EXAMPLES = '''
 # Generates a new self-signed certificate using ssh
-- name: generate self signed certificate
-  panos_cert_gen_ssh:
+- name: Generate self signed certificate
+  community.network.panos_cert_gen_ssh:
     ip_address: "192.168.1.1"
     password: "paloalto"
     cert_cn: "1.1.1.1"
@@ -80,11 +83,6 @@ EXAMPLES = '''
 RETURN = '''
 # Default return values
 '''
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
 
 from ansible.module_utils._text import to_native
 from ansible.module_utils.basic import AnsibleModule

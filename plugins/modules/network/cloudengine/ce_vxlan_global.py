@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_vxlan_global
@@ -77,7 +73,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: vxlan global module test
+- name: Vxlan global module test
   hosts: ce128
   connection: local
   gather_facts: no
@@ -92,7 +88,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Create bridge domain and set tunnel mode to VXLAN
-    ce_vxlan_global:
+    community.network.ce_vxlan_global:
       bridge_domain_id: 100
       nvo3_acl_extend: enable
       provider: "{{ cli }}"

@@ -23,10 +23,6 @@ __metaclass__ = type
 # Module to work on Link Aggregation with Lenovo Switches
 # Lenovo Networking
 #
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: cnos_static_route
@@ -71,35 +67,35 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure static route
-  cnos_static_route:
+- name: Configure static route
+  community.network.cnos_static_route:
     prefix: 10.241.107.0
     mask: 255.255.255.0
     next_hop: 10.241.106.1
 
-- name: configure ultimate route with name and tag
-  cnos_static_route:
+- name: Configure ultimate route with name and tag
+  community.network.cnos_static_route:
     prefix: 10.241.107.0
     mask: 255.255.255.0
     interface: Ethernet1/13
     description: hello world
     tag: 100
 
-- name: remove configuration
-  cnos_static_route:
+- name: Remove configuration
+  community.network.cnos_static_route:
     prefix: 10.241.107.0
     mask: 255.255.255.0
     next_hop: 10.241.106.0
     state: absent
 
 - name: Add static route aggregates
-  cnos_static_route:
+  community.network.cnos_static_route:
     aggregate:
       - { prefix: 10.241.107.0, mask: 255.255.255.0, next_hop: 10.241.105.0 }
       - { prefix: 10.241.106.0, mask: 255.255.255.0, next_hop: 10.241.104.0 }
 
 - name: Remove static route aggregates
-  cnos_static_route:
+  community.network.cnos_static_route:
     aggregate:
       - { prefix: 10.241.107.0, mask: 255.255.255.0, next_hop: 10.241.105.0 }
       - { prefix: 10.241.106.0, mask: 255.255.255.0, next_hop: 10.241.104.0 }
@@ -116,13 +112,18 @@ commands:
 """
 from copy import deepcopy
 from re import findall
-from ansible_collections.ansible.netcommon.plugins.module_utils.compat import ipaddress
-from ansible.module_utils.basic import AnsibleModule
+from ansible.module_utils.basic import AnsibleModule, missing_required_lib
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import validate_ip_address
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
 from ansible_collections.community.network.plugins.module_utils.network.cnos.cnos import get_config, load_config
 from ansible_collections.community.network.plugins.module_utils.network.cnos.cnos import check_args
 from ansible_collections.community.network.plugins.module_utils.network.cnos.cnos import cnos_argument_spec
+
+try:
+    import ipaddress
+    HAS_IPADDRESS = True
+except ImportError:
+    HAS_IPADDRESS = False
 
 
 def map_obj_to_commands(want, have):
@@ -263,6 +264,8 @@ def main():
                            required_one_of=required_one_of,
                            mutually_exclusive=mutually_exclusive,
                            supports_check_mode=True)
+    if not HAS_IPADDRESS:
+        module.fail_json(msg=missing_required_lib("ipaddress"))
 
     warnings = list()
     check_args(module, warnings)

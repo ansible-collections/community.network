@@ -13,10 +13,8 @@
 """
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -35,7 +33,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
   - name: Get AVI API version
-    avi_api_version:
+    community.network.avi_api_version:
       controller: ""
       username: ""
       password: ""

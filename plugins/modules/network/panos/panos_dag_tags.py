@@ -20,9 +20,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #  limitations under the License.
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -36,7 +35,7 @@ requirements:
     - pandevice can be obtained from PyPI U(https://pypi.org/project/pandevice/)
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 notes:
     - Checkmode is not supported.
@@ -73,7 +72,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 - name: Create the tags to map IP addresses
-  panos_dag_tags:
+  community.network.panos_dag_tags:
     ip_address: "{{ ip_address }}"
     password: "{{ password }}"
     ip_to_register: "{{ ip_to_register }}"
@@ -83,7 +82,7 @@ EXAMPLES = '''
   tags: "adddagip"
 
 - name: List the IP address to tag mapping
-  panos_dag_tags:
+  community.network.panos_dag_tags:
     ip_address: "{{ ip_address }}"
     password: "{{ password }}"
     tag_names: "{{ tag_names }}"
@@ -92,7 +91,7 @@ EXAMPLES = '''
   tags: "listdagip"
 
 - name: Unregister an IP address from a tag mapping
-  panos_dag_tags:
+  community.network.panos_dag_tags:
     ip_address: "{{ ip_address }}"
     password: "{{ password }}"
     ip_to_register: "{{ ip_to_register }}"

@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_startup
@@ -59,7 +55,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: startup module test
+- name: Startup module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -74,24 +70,24 @@ EXAMPLES = '''
   tasks:
 
   - name: Display startup information
-    ce_startup:
+    community.network.ce_startup:
       action: display
       provider: "{{ cli }}"
 
   - name: Set startup patch file
-    ce_startup:
+    community.network.ce_startup:
       patch_file: 2.PAT
       slot: all
       provider: "{{ cli }}"
 
   - name: Set startup software file
-    ce_startup:
+    community.network.ce_startup:
       software_file: aa.cc
       slot: 1
       provider: "{{ cli }}"
 
   - name: Set startup cfg file
-    ce_startup:
+    community.network.ce_startup:
       cfg_file: 2.cfg
       slot: 1
       provider: "{{ cli }}"

@@ -25,6 +25,9 @@
 # LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
 # USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
 from ansible.module_utils._text import to_text
 from ansible.module_utils.basic import env_fallback
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import to_list, ComplexList
@@ -41,16 +44,23 @@ aireos_provider_spec = {
     'timeout': dict(type='int'),
 }
 aireos_argument_spec = {
-    'provider': dict(type='dict', options=aireos_provider_spec)
+    'provider': dict(type='dict', options=aireos_provider_spec, removed_in_version='4.0.0',
+                     removed_from_collection='community.network')
 }
 
 aireos_top_spec = {
-    'host': dict(removed_in_version=2.9),
-    'port': dict(removed_in_version=2.9, type='int'),
-    'username': dict(removed_in_version=2.9),
-    'password': dict(removed_in_version=2.9, no_log=True),
-    'ssh_keyfile': dict(removed_in_version=2.9, type='path'),
-    'timeout': dict(removed_in_version=2.9, type='int'),
+    'host': dict(removed_in_version='0.2.0',
+                 removed_from_collection='community.network'),  # was Ansible 2.9
+    'port': dict(removed_in_version='0.2.0',
+                 removed_from_collection='community.network', type='int'),  # was Ansible 2.9
+    'username': dict(removed_in_version='0.2.0',
+                     removed_from_collection='community.network'),  # was Ansible 2.9
+    'password': dict(removed_in_version='0.2.0',
+                     removed_from_collection='community.network', no_log=True),  # was Ansible 2.9
+    'ssh_keyfile': dict(removed_in_version='0.2.0',
+                        removed_from_collection='community.network', type='path'),  # was Ansible 2.9
+    'timeout': dict(removed_in_version='0.2.0',
+                    removed_from_collection='community.network', type='int'),  # was Ansible 2.9
 }
 aireos_argument_spec.update(aireos_top_spec)
 

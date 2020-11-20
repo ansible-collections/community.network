@@ -20,9 +20,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #  limitations under the License.
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -37,7 +36,7 @@ requirements:
     - pandevice can be obtained from PyPI U(https://pypi.org/project/pandevice/)
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 notes:
     - Checkmode is not supported.
@@ -145,16 +144,16 @@ options:
 '''
 
 EXAMPLES = '''
-- name: search for shared address object
-  panos_object:
+- name: Search for shared address object
+  community.network.panos_object:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
     operation: 'find'
     address: 'DevNet'
 
-- name: create an address group in devicegroup using API key
-  panos_object:
+- name: Create an address group in devicegroup using API key
+  community.network.panos_object:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
     operation: 'add'
@@ -164,8 +163,8 @@ EXAMPLES = '''
     tag_name: 'DMZ'
     devicegroup: 'DMZ Firewalls'
 
-- name: create a global service for TCP 3306
-  panos_object:
+- name: Create a global service for TCP 3306
+  community.network.panos_object:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
     operation: 'add'
@@ -174,8 +173,8 @@ EXAMPLES = '''
     protocol: 'tcp'
     description: 'MySQL on tcp/3306'
 
-- name: create a global tag
-  panos_object:
+- name: Create a global tag
+  community.network.panos_object:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -184,8 +183,8 @@ EXAMPLES = '''
     color: 'yellow'
     description: 'Associated with Project X'
 
-- name: delete an address object from a devicegroup using API key
-  panos_object:
+- name: Delete an address object from a devicegroup using API key
+  community.network.panos_object:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
     operation: 'delete'

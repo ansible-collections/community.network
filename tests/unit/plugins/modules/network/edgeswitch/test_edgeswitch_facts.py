@@ -51,7 +51,7 @@ class TestEdgeswitchFactsModule(TestEdgeswitchModule):
         self.run_commands.side_effect = load_from_file
 
     def test_edgeswitch_facts_default(self):
-        set_module_args(dict(gather_subset=['all', '!interfaces', '!config']))
+        set_module_args(dict(gather_subset=['all', '!interfaces', '!config', '!startupconfig']))
         result = self.execute_module()
         facts = result.get('ansible_facts')
         self.assertEqual(len(facts), 5)

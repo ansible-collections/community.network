@@ -10,11 +10,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: bigmon_policy
@@ -75,8 +70,8 @@ options:
 '''
 
 EXAMPLES = '''
-- name: policy to aggregate filter and deliver data center (DC) 1 traffic
-  bigmon_policy:
+- name: Policy to aggregate filter and deliver data center (DC) 1 traffic
+  community.network.bigmon_policy:
     name: policy1
     policy_description: DC 1 traffic policy
     action: drop

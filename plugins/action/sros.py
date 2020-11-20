@@ -38,8 +38,8 @@ class ActionModule(ActionNetworkModule):
 
         module_name = self._task.action.split('.')[-1]
         persistent_connection = self._play_context.connection.split('.')[-1]
-
         self._config_module = True if module_name == 'sros_config' else False
+
         if persistent_connection == 'network_cli':
             provider = self._task.args.get('provider', {})
             if any(provider.values()):
@@ -70,6 +70,9 @@ class ActionModule(ActionNetworkModule):
                         'https://docs.ansible.com/ansible/network_debug_troubleshooting.html#unable-to-open-shell'}
 
             task_vars['ansible_socket'] = socket_path
+            msg = "connection local support for this module is deprecated use either" \
+                  " 'network_cli' or 'ansible.netcommon.network_cli' connection"
+            display.deprecated(msg, version='4.0.0', collection_name='community.network')
         else:
             return {'failed': True, 'msg': 'Connection type %s is not valid for this module' % self._play_context.connection}
 

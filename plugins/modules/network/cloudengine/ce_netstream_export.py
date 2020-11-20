@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_netstream_export
@@ -75,7 +71,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: netstream export module test
+- name: Netstream export module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -90,19 +86,19 @@ EXAMPLES = '''
   tasks:
 
   - name: Configures the source address for the exported packets carrying IPv4 flow statistics.
-    ce_netstream_export:
+    community.network.ce_netstream_export:
       type: ip
       source_ip: 192.8.2.2
       provider: "{{ cli }}"
 
   - name: Configures the source IP address for the exported packets carrying VXLAN flexible flow statistics.
-    ce_netstream_export:
+    community.network.ce_netstream_export:
       type: vxlan
       source_ip: 192.8.2.3
       provider: "{{ cli }}"
 
   - name: Configures the destination IP address and destination UDP port number for the exported packets carrying IPv4 flow statistics.
-    ce_netstream_export:
+    community.network.ce_netstream_export:
       type: ip
       host_ip: 192.8.2.4
       host_port: 25
@@ -110,7 +106,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: Configures the destination IP address and destination UDP port number for the exported packets carrying VXLAN flexible flow statistics.
-    ce_netstream_export:
+    community.network.ce_netstream_export:
       type: vxlan
       host_ip: 192.8.2.5
       host_port: 26
@@ -118,7 +114,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: Configures the version number of the exported packets carrying IPv4 flow statistics.
-    ce_netstream_export:
+    community.network.ce_netstream_export:
       type: ip
       version: 9
       as_option: origin
@@ -126,7 +122,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: Configures the version for the exported packets carrying VXLAN flexible flow statistics.
-    ce_netstream_export:
+    community.network.ce_netstream_export:
       type: vxlan
       version: 9
       provider: "{{ cli }}"

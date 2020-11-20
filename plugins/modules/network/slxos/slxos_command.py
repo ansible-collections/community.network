@@ -4,11 +4,6 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 from __future__ import (absolute_import, division, print_function)
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: slxos_command
@@ -20,7 +15,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(slxos_config) to configure SLX-OS devices.
+    Please use M(community.network.slxos_config) to configure SLX-OS devices.
 notes:
   - Tested against SLX-OS 17s.1.02
   - If a command sent to the device requires answering a prompt, it is possible
@@ -69,31 +64,31 @@ options:
 
 EXAMPLES = """
 tasks:
-  - name: run show version on remote devices
-    slxos_command:
+  - name: Run show version on remote devices
+    community.network.slxos_command:
       commands: show version
 
-  - name: run show version and check to see if output contains SLX
-    slxos_command:
+  - name: Run show version and check to see if output contains SLX
+    community.network.slxos_command:
       commands: show version
       wait_for: result[0] contains SLX
 
-  - name: run multiple commands on remote nodes
-    slxos_command:
+  - name: Run multiple commands on remote nodes
+    community.network.slxos_command:
       commands:
         - show version
         - show interfaces
 
-  - name: run multiple commands and evaluate the output
-    slxos_command:
+  - name: Run multiple commands and evaluate the output
+    community.network.slxos_command:
       commands:
         - show version
         - show interface status
       wait_for:
         - result[0] contains SLX
         - result[1] contains Eth
-  - name: run command that requires answering a prompt
-    slxos_command:
+  - name: Run command that requires answering a prompt
+    community.network.slxos_command:
       commands:
         - command: 'clear sessions'
           prompt: 'This operation will logout all the user sessions. Do you want to continue (yes/no)?:'

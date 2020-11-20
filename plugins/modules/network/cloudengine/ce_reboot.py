@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_reboot
@@ -50,7 +46,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: reboot module test
+- name: Reboot module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -64,7 +60,7 @@ EXAMPLES = '''
 
   tasks:
   - name: Reboot the device
-    ce_reboot:
+    community.network.ce_reboot:
       confirm: true
       save_config: true
       provider: "{{ cli }}"

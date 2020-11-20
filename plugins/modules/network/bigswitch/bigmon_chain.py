@@ -10,11 +10,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: bigmon_chain
@@ -50,8 +45,8 @@ options:
 
 
 EXAMPLES = '''
-- name: bigmon inline service chain
-  bigmon_chain:
+- name: Bigmon inline service chain
+  community.network.bigmon_chain:
     name: MyChain
     controller: '{{ inventory_hostname }}'
     state: present

@@ -17,14 +17,10 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: apconos_command
+version_added: '0.2.0'
 author: "David Lee (@davidlee-ap)"
 short_description: Run arbitrary commands on APCON devices
 description:
@@ -83,14 +79,14 @@ options:
 
 EXAMPLES = """
 - name: Basic Configuration
-  apconos_command:
+  community.network.apconos_command:
     commands:
     - show version
     - enable ssh
   register: result
 
 - name: Get output from single command
-  apconos_command:
+  community.network.apconos_command:
     commands: ['show version']
   register: result
 """

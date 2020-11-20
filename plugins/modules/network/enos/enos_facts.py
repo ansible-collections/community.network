@@ -20,10 +20,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: enos_facts
@@ -47,7 +43,7 @@ options:
         to a given subset.  Possible values for this argument include
         all, hardware, config, and interfaces.  Can specify a list of
         values to include a larger subset.  Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     required: false
     default: '!config'
@@ -56,7 +52,7 @@ EXAMPLES = '''
 Tasks: The following are examples of using the module enos_facts.
 ---
 - name: Test Enos Facts
-  enos_facts:
+  community.network.enos_facts:
     provider={{ cli }}
 
   vars:
@@ -72,18 +68,18 @@ Tasks: The following are examples of using the module enos_facts.
 
 ---
 # Collect all facts from the device
-- enos_facts:
+- community.network.enos_facts:
     gather_subset: all
     provider: "{{ cli }}"
 
 # Collect only the config and default facts
-- enos_facts:
+- community.network.enos_facts:
     gather_subset:
       - config
     provider: "{{ cli }}"
 
 # Do not collect hardware facts
-- enos_facts:
+- community.network.enos_facts:
     gather_subset:
       - "!hardware"
     provider: "{{ cli }}"

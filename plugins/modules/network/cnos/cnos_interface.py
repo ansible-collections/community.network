@@ -26,11 +26,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: cnos_interface
@@ -163,51 +158,51 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure interface
-  cnos_interface:
+- name: Configure interface
+  community.network.cnos_interface:
       name: Ethernet1/33
       description: test-interface
       speed: 100
       duplex: half
       mtu: 999
 
-- name: remove interface
-  cnos_interface:
+- name: Remove interface
+  community.network.cnos_interface:
     name: loopback3
     state: absent
 
-- name: make interface up
-  cnos_interface:
+- name: Make interface up
+  community.network.cnos_interface:
     name: Ethernet1/33
     enabled: True
 
-- name: make interface down
-  cnos_interface:
+- name: Make interface down
+  community.network.cnos_interface:
     name: Ethernet1/33
     enabled: False
 
 - name: Check intent arguments
-  cnos_interface:
+  community.network.cnos_interface:
     name: Ethernet1/33
     state: up
     tx_rate: ge(0)
     rx_rate: le(0)
 
 - name: Check neighbors intent arguments
-  cnos_interface:
+  community.network.cnos_interface:
     name: Ethernet1/33
     neighbors:
     - port: eth0
       host: netdev
 
 - name: Config + intent
-  cnos_interface:
+  community.network.cnos_interface:
     name: Ethernet1/33
     enabled: False
     state: down
 
 - name: Add interface using aggregate
-  cnos_interface:
+  community.network.cnos_interface:
     aggregate:
     - { name: Ethernet1/33, mtu: 256, description: test-interface-1 }
     - { name: Ethernet1/44, mtu: 516, description: test-interface-2 }
@@ -216,7 +211,7 @@ EXAMPLES = """
     state: present
 
 - name: Delete interface using aggregate
-  cnos_interface:
+  community.network.cnos_interface:
     aggregate:
     - name: loopback3
     - name: loopback6

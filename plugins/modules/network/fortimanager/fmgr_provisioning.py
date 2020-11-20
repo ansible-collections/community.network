@@ -20,10 +20,6 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_provisioning
@@ -99,7 +95,7 @@ options:
 
 EXAMPLES = '''
 - name: Create FGT1 Model Device
-  fmgr_provisioning:
+  community.network.fmgr_provisioning:
     host: "{{ inventory_hostname }}"
     username: "{{ username }}"
     password: "{{ password }}"
@@ -118,7 +114,7 @@ EXAMPLES = '''
 
 
 - name: Create FGT2 Model Device
-  fmgr_provisioning:
+  community.network.fmgr_provisioning:
     host: "{{ inventory_hostname }}"
     username: "{{ username }}"
     password: "{{ password }}"

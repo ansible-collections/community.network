@@ -4,11 +4,6 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 from __future__ import (absolute_import, division, print_function)
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: exos_config
@@ -166,33 +161,33 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure SNMP system name
-  exos_config:
+- name: Configure SNMP system name
+  community.network.exos_config:
     lines: configure snmp sysName "{{ inventory_hostname }}"
 
-- name: configure interface settings
-  exos_config:
+- name: Configure interface settings
+  community.network.exos_config:
     lines:
       - configure ports 2 description-string "Master Uplink"
     backup: yes
 
-- name: check the running-config against master config
-  exos_config:
+- name: Check the running-config against master config
+  community.network.exos_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
-- name: check the startup-config against the running-config
-  exos_config:
+- name: Check the startup-config against the running-config
+  community.network.exos_config:
     diff_against: startup
     diff_ignore_lines:
       - ntp clock .*
 
-- name: save running to startup when modified
-  exos_config:
+- name: Save running to startup when modified
+  community.network.exos_config:
     save_when: modified
 
-- name: configurable backup path
-  exos_config:
+- name: Configurable backup path
+  community.network.exos_config:
     lines:
       - configure ports 2 description-string "Master Uplink"
     backup: yes

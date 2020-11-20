@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_vxlan_tunnel
@@ -68,7 +64,7 @@ options:
         choices: ['present','absent']
 '''
 EXAMPLES = '''
-- name: vxlan tunnel module test
+- name: Vxlan tunnel module test
   hosts: ce128
   connection: local
   gather_facts: no
@@ -83,7 +79,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Make sure nve_name is exist, ensure vni_id and protocol_type is configured on Nve1 interface.
-    ce_vxlan_tunnel:
+    community.network.ce_vxlan_tunnel:
       nve_name: Nve1
       vni_id: 100
       protocol_type: bgp

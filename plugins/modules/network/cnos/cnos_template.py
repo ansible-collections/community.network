@@ -24,11 +24,6 @@ __metaclass__ = type
 # Lenovo Networking
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: cnos_template
@@ -71,7 +66,7 @@ Tasks : The following are examples of using the module cnos_template. These are 
       portchannel_mode1: "active"
 
 - name: Applying CLI commands on Switches
-  cnos_template:
+  community.network.cnos_template:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       commandfile: "./commands/demo_template_{{ inventory_hostname }}_commands.txt"
       outputfile: "./results/demo_template_command_{{ inventory_hostname }}_output.txt"

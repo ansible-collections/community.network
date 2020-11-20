@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_cpu_class
@@ -55,23 +50,23 @@ options:
 '''
 
 EXAMPLES = """
-- name: create cpu class
-  pn_cpu_class:
+- name: Create cpu class
+  community.network.pn_cpu_class:
     pn_cliswitch: 'sw01'
     state: 'present'
     pn_name: 'icmp'
     pn_rate_limit: '1000'
     pn_scope: 'local'
 
-- name: delete cpu class
-  pn_cpu_class:
+- name: Delete cpu class
+  community.network.pn_cpu_class:
     pn_cliswitch: 'sw01'
     state: 'absent'
     pn_name: 'icmp'
 
 
-- name: modify cpu class
-  pn_cpu_class:
+- name: Modify cpu class
+  community.network.pn_cpu_class:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_name: 'icmp'

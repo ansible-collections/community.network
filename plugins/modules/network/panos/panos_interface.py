@@ -19,10 +19,8 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -35,7 +33,7 @@ requirements:
     - pan-python can be obtained from PyPI U(https://pypi.org/project/pan-python/)
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 notes:
     - Checkmode is not supported.
@@ -65,7 +63,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- name: enable DHCP client on ethernet1/1 in zone public
+- name: Enable DHCP client on ethernet1/1 in zone public
   interface:
     password: "admin"
     ip_address: "192.168.1.1"

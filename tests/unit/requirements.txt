@@ -1,7 +1,18 @@
-# requirements for F5 specific modules
-f5-sdk ; python_version >= '2.7'
-f5-icontrol-rest ; python_version >= '2.7'
-deepdiff
+unittest2 ; python_version <= '2.6'
+
+# requirements for ftd module_utils
+firepower-kickstart ; python_version >= '3.6' and python_version < '3.9'  # Python 3.6+ only; dependency does not work with 3.9 yet
+
+# requirements for FortiManager modules
+pyFMG
+
+# requirements for Nuage modules  - CURRENTLY BROKEN!
+# vspk
+# bambou
+
+# requirements for routeros_api module
+librouteros ; python_version >= '3.6'
+
 # requirements for eos_pyateos modules
 jsondiff
 jmespath

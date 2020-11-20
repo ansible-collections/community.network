@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 DOCUMENTATION = '''
 ---
 module: panos_lic
@@ -32,7 +35,7 @@ requirements:
     - pan-python
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 options:
     auth_code:
@@ -54,14 +57,14 @@ EXAMPLES = '''
     - hosts: localhost
       connection: local
       tasks:
-        - name: fetch license
-          panos_lic:
+        - name: Fetch license
+          community.network.panos_lic:
             ip_address: "192.168.1.1"
             password: "paloalto"
             auth_code: "IBADCODE"
           register: result
     - name: Display serialnumber (if already registered)
-      debug:
+      ansible.builtin.debug:
         var: "{{result.serialnumber}}"
 '''
 
@@ -72,11 +75,6 @@ serialnumber:
     type: str
     sample: 007200004214
 '''
-
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
 
 
 from ansible.module_utils.basic import AnsibleModule

@@ -20,10 +20,6 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_secprof_appctrl
@@ -316,13 +312,13 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_appctrl:
+    community.network.fmgr_secprof_appctrl:
       name: "Ansible_Application_Control_Profile"
       comment: "Created by Ansible Module TEST"
       mode: "delete"
 
   - name: CREATE Profile
-    fmgr_secprof_appctrl:
+    community.network.fmgr_secprof_appctrl:
       name: "Ansible_Application_Control_Profile"
       comment: "Created by Ansible Module TEST"
       mode: "set"

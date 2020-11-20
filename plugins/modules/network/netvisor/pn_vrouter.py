@@ -18,10 +18,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -29,7 +27,7 @@ module: pn_vrouter
 author: "Pluribus Networks (@amitsi)"
 short_description: CLI command to create/delete/modify a vrouter.
 deprecated:
-  removed_in: '2.12'
+  removed_in: 2.0.0  # was Ansible 2.12
   why: Doesn't support latest Pluribus Networks netvisor
   alternative: Latest modules will be pushed in Ansible future versions.
 description:
@@ -122,15 +120,15 @@ options:
 '''
 
 EXAMPLES = """
-- name: create vrouter
-  pn_vrouter:
+- name: Create vrouter
+  community.network.pn_vrouter:
     state: 'present'
     pn_name: 'ansible-vrouter'
     pn_vnet: 'ansible-fab-global'
     pn_router_id: 208.74.182.1
 
-- name: delete vrouter
-  pn_vrouter:
+- name: Delete vrouter
+  community.network.pn_vrouter:
     state: 'absent'
     pn_name: 'ansible-vrouter'
 """

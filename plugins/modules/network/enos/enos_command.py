@@ -20,11 +20,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: enos_command
@@ -93,8 +88,8 @@ vars:
     timeout: 30
 
 ---
-- name: test contains operator
-  enos_command:
+- name: Test contains operator
+  community.network.enos_command:
     commands:
       - show version
       - show system memory
@@ -104,31 +99,31 @@ vars:
     provider: "{{ cli }}"
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"
 
-- name: get output for single command
-  enos_command:
+- name: Get output for single command
+  community.network.enos_command:
     commands: ['show version']
     provider: "{{ cli }}"
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"
 
-- name: get output for multiple commands
-  enos_command:
+- name: Get output for multiple commands
+  community.network.enos_command:
     commands:
       - show version
       - show interface information
     provider: "{{ cli }}"
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"

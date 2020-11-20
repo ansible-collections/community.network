@@ -18,10 +18,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -29,7 +27,7 @@ module: pn_vlag
 author: "Pluribus Networks (@amitsi)"
 short_description: CLI command to create/delete/modify vlag.
 deprecated:
-  removed_in: '2.12'
+  removed_in: 2.0.0  # was Ansible 2.12
   why: Doesn't support latest Pluribus Networks netvisor
   alternative: Latest modules will be pushed in Ansible future versions.
 description:
@@ -103,8 +101,8 @@ options:
 '''
 
 EXAMPLES = """
-- name: create a VLAG
-  pn_vlag:
+- name: Create a VLAG
+  community.network.pn_vlag:
     state: 'present'
     pn_name: spine-to-leaf
     pn_port: 'spine01-to-leaf'
@@ -112,8 +110,8 @@ EXAMPLES = """
     pn_peer_switch: spine02
     pn_mode: 'active-active'
 
-- name: delete VLAGs
-  pn_vlag:
+- name: Delete VLAGs
+  community.network.pn_vlag:
     state: 'absent'
     pn_name: spine-to-leaf
 """

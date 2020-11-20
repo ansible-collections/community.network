@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_vrouter_packet_relay
@@ -57,15 +52,15 @@ options:
 '''
 
 EXAMPLES = """
-- name: vRouter packet relay add
-  pn_vrouter_packet_relay:
+- name: VRouter packet relay add
+  community.network.pn_vrouter_packet_relay:
     pn_cliswitch: "sw01"
     pn_forward_ip: "192.168.10.1"
     pn_nic: "eth0.4092"
     pn_vrouter_name: "sw01-vrouter"
 
-- name: vRouter packet relay remove
-  pn_vrouter_packet_relay:
+- name: VRouter packet relay remove
+  community.network.pn_vrouter_packet_relay:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_forward_ip: "192.168.10.1"

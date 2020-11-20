@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_port_config
@@ -171,15 +166,15 @@ options:
 '''
 
 EXAMPLES = """
-- name: port config modify
-  pn_port_config:
+- name: Port config modify
+  community.network.pn_port_config:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "all"
     pn_dscp_map: "foo"
 
-- name: port config modify
-  pn_port_config:
+- name: Port config modify
+  community.network.pn_port_config:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "all"

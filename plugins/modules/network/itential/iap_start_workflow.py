@@ -8,10 +8,6 @@ This module provides the ability to start a workflow from Itential Automation Pl
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: iap_start_workflow
@@ -79,7 +75,7 @@ options:
 
 EXAMPLES = '''
 - name: Start a workflow in the Itential Automation Platform
-  iap_start_workflow:
+  community.network.iap_start_workflow:
     iap_port: 3000
     iap_fqdn: localhost
     token_key: "DFSFSFHFGFGF[DSFSFAADAFASD%3D"
@@ -88,7 +84,7 @@ EXAMPLES = '''
     variables: {"deviceName":"ASR9K"}
   register: result
 
-- debug: var=result
+- ansible.builtin.debug: var=result
 '''
 
 RETURN = '''

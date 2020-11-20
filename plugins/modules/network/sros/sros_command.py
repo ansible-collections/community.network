@@ -7,10 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'certified'}
-
 DOCUMENTATION = '''
 ---
 module: sros_command
@@ -22,7 +18,7 @@ description:
     cause the module to wait for a specific condition before returning
     or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(sros_config) to configure SR OS devices.
+    Please use M(community.network.sros_config) to configure SR OS devices.
 extends_documentation_fragment:
 - community.network.sros
 
@@ -82,26 +78,26 @@ vars:
 
 ---
 tasks:
-  - name: run show version on remote devices
-    sros_command:
+  - name: Run show version on remote devices
+    community.network.sros_command:
       commands: show version
       provider: "{{ cli }}"
 
-  - name: run show version and check to see if output contains sros
-    sros_command:
+  - name: Run show version and check to see if output contains sros
+    community.network.sros_command:
       commands: show version
       wait_for: result[0] contains sros
       provider: "{{ cli }}"
 
-  - name: run multiple commands on remote nodes
-    sros_command:
+  - name: Run multiple commands on remote nodes
+    community.network.sros_command:
       commands:
         - show version
         - show port detail
       provider: "{{ cli }}"
 
-  - name: run multiple commands and evaluate the output
-    sros_command:
+  - name: Run multiple commands and evaluate the output
+    community.network.sros_command:
       commands:
         - show version
         - show port detail

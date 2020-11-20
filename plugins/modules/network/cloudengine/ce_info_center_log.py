@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_info_center_log
@@ -94,22 +90,22 @@ EXAMPLES = '''
   tasks:
 
   - name: "Setting the timestamp format of logs"
-    ce_info_center_log:
+    community.network.ce_info_center_log:
       log_time_stamp: date_tenthsecond
       provider: "{{ cli }}"
 
   - name: "Enabled to output information to the log buffer"
-    ce_info_center_log:
+    community.network.ce_info_center_log:
       log_buff_enable: true
       provider: "{{ cli }}"
 
   - name: "Set the maximum number of logs in the log buffer"
-    ce_info_center_log:
+    community.network.ce_info_center_log:
       log_buff_size: 100
       provider: "{{ cli }}"
 
   - name: "Set a rule for outputting logs to a channel"
-    ce_info_center_log:
+    community.network.ce_info_center_log:
       module_name: aaa
       channel_id: 1
       log_enable: true

@@ -20,9 +20,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #  limitations under the License.
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -36,7 +35,7 @@ requirements:
     - pandevice can be obtained from PyPI U(https://pypi.org/project/pandevice/)
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 notes:
     - Checkmode is not supported.
@@ -106,8 +105,8 @@ options:
 '''
 
 EXAMPLES = '''
-- name: check security rules for Google DNS
-  panos_match_rule:
+- name: Check security rules for Google DNS
+  community.network.panos_match_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -118,10 +117,10 @@ EXAMPLES = '''
     destination_port: '53'
     protocol: '17'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
-- name: check security rules inbound SSH with user match
-  panos_match_rule:
+- name: Check security rules inbound SSH with user match
+  community.network.panos_match_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -132,10 +131,10 @@ EXAMPLES = '''
     destination_port: '22'
     protocol: '6'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
-- name: check NAT rules for source NAT
-  panos_match_rule:
+- name: Check NAT rules for source NAT
+  community.network.panos_match_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -147,10 +146,10 @@ EXAMPLES = '''
     destination_ip: '0.0.0.0'
     protocol: '6'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
-- name: check NAT rules for inbound web
-  panos_match_rule:
+- name: Check NAT rules for inbound web
+  community.network.panos_match_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -163,10 +162,10 @@ EXAMPLES = '''
     destination_port: '80'
     protocol: '6'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
-- name: check security rules for outbound POP3 in vsys4
-  panos_match_rule:
+- name: Check security rules for outbound POP3 in vsys4
+  community.network.panos_match_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -178,7 +177,7 @@ EXAMPLES = '''
     destination_port: '110'
     protocol: '6'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
 '''
 

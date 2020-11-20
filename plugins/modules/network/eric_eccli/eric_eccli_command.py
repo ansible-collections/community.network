@@ -7,11 +7,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = """
 ---
 module: eric_eccli_command
@@ -84,23 +79,23 @@ notes:
 
 EXAMPLES = r"""
 tasks:
-  - name: run show version on remote devices
-    eric_eccli_command:
+  - name: Run show version on remote devices
+    community.network.eric_eccli_command:
       commands: show version
 
-  - name: run show version and check to see if output contains IPOS
-    eric_eccli_command:
+  - name: Run show version and check to see if output contains IPOS
+    community.network.eric_eccli_command:
       commands: show version
       wait_for: result[0] contains IPOS
 
-  - name: run multiple commands on remote nodes
-    eric_eccli_command:
+  - name: Run multiple commands on remote nodes
+    community.network.eric_eccli_command:
       commands:
         - show version
         - show running-config interfaces
 
-  - name: run multiple commands and evaluate the output
-    eric_eccli_command:
+  - name: Run multiple commands and evaluate the output
+    community.network.eric_eccli_command:
       commands:
         - show version
         - show running-config interfaces

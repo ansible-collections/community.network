@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_bgp_neighbor_af
@@ -338,7 +334,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config BGP peer Address_Family"
-    ce_bgp_neighbor_af:
+    community.network.ce_bgp_neighbor_af:
       state: present
       vrf_name: js
       af_type: ipv4uni
@@ -347,7 +343,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Undo BGP peer Address_Family"
-    ce_bgp_neighbor_af:
+    community.network.ce_bgp_neighbor_af:
       state: absent
       vrf_name: js
       af_type: ipv4uni

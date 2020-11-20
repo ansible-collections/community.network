@@ -21,10 +21,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: slxos_l3_interface
@@ -63,28 +59,28 @@ options:
 
 EXAMPLES = """
 - name: Remove Ethernet 0/3 IPv4 and IPv6 address
-  slxos_l3_interface:
+  community.network.slxos_l3_interface:
     name: Ethernet 0/3
     state: absent
 
 - name: Set Ethernet 0/3 IPv4 address
-  slxos_l3_interface:
+  community.network.slxos_l3_interface:
     name: Ethernet 0/3
     ipv4: 192.168.0.1/24
 
 - name: Set Ethernet 0/3 IPv6 address
-  slxos_l3_interface:
+  community.network.slxos_l3_interface:
     name: Ethernet 0/3
     ipv6: "fd5d:12c9:2201:1::1/64"
 
 - name: Set IP addresses on aggregate
-  slxos_l3_interface:
+  community.network.slxos_l3_interface:
     aggregate:
       - { name: Ethernet 0/3, ipv4: 192.168.2.10/24 }
       - { name: Ethernet 0/3, ipv4: 192.168.3.10/24, ipv6: "fd5d:12c9:2201:1::1/64" }
 
 - name: Remove IP addresses on aggregate
-  slxos_l3_interface:
+  community.network.slxos_l3_interface:
     aggregate:
       - { name: Ethernet 0/3, ipv4: 192.168.2.10/24 }
       - { name: Ethernet 0/3, ipv4: 192.168.3.10/24, ipv6: "fd5d:12c9:2201:1::1/64" }

@@ -7,6 +7,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 ---
+author: Unknown (!UNKNOWN)
 cliconf: edgeos
 short_description: Use edgeos cliconf to run command on EdgeOS platform
 description:
@@ -49,7 +50,7 @@ class Cliconf(CliconfBase):
         return device_info
 
     def get_config(self, source='running', format='text', flags=None):
-        return self.send_command('show configuration commands')
+        return self.send_command('show configuration commands|cat')
 
     def edit_config(self, candidate=None, commit=True, replace=False, comment=None):
         for cmd in chain(['configure'], to_list(candidate)):
@@ -66,7 +67,7 @@ class Cliconf(CliconfBase):
         self.send_command(command)
 
     def discard_changes(self, *args, **kwargs):
-        self.send_command('discard')
+        self.send_command('exit discard')
 
     def run_commands(self, commands=None, check_rc=True):
         if commands is None:

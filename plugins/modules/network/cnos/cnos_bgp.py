@@ -24,10 +24,6 @@ __metaclass__ = type
 # Lenovo Networking
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: cnos_bgp
@@ -138,7 +134,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
  written in the main.yml file of the tasks directory.
 ---
 - name: Test BGP  - neighbor
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -150,7 +146,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg6: "next-hop-self"
 
 - name: Test BGP  - BFD
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -160,7 +156,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg4: "bfd"
 
 - name: Test BGP  - address-family - dampening
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -174,7 +170,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg8: 33
 
 - name: Test BGP  - address-family - network
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -185,7 +181,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg5: "backdoor"
 
 - name: Test BGP - bestpath - always-compare-med
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -193,7 +189,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg2: "always-compare-med"
 
 - name: Test BGP - bestpath-compare-confed-aspat
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -201,7 +197,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg2: "compare-confed-aspath"
 
 - name: Test BGP - bgp
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -209,7 +205,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg2: 33
 
 - name: Test BGP  - cluster-id
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -217,7 +213,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg2: "1.2.3.4"
 
 - name: Test BGP - confederation-identifier
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -226,21 +222,21 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg3: 333
 
 - name: Test BGP - enforce-first-as
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
       bgpArg1: "enforce-first-as"
 
 - name: Test BGP - fast-external-failover
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
       bgpArg1: "fast-external-failover"
 
 - name: Test BGP  - graceful-restart
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -248,14 +244,14 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg2: 333
 
 - name: Test BGP - graceful-restart-helper
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
       bgpArg1: "graceful-restart-helper"
 
 - name: Test BGP - maxas-limit
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -263,7 +259,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg2: 333
 
 - name: Test BGP  - neighbor
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -275,7 +271,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg6: "next-hop-self"
 
 - name: Test BGP - router-id
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -283,14 +279,14 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg2: "1.2.3.4"
 
 - name: Test BGP - synchronization
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
       bgpArg1: "synchronization"
 
 - name: Test BGP - timers
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33
@@ -299,7 +295,7 @@ Tasks: The following are examples of using the module cnos_bgp. These are
       bgpArg3: 3333
 
 - name: Test BGP - vrf
-  cnos_bgp:
+  community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_bgp_{{ inventory_hostname }}_output.txt"
       asNum: 33

@@ -19,10 +19,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_secprof_proxy
@@ -178,12 +174,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_proxy:
+    community.network.fmgr_secprof_proxy:
       name: "Ansible_Web_Proxy_Profile"
       mode: "delete"
 
   - name: CREATE Profile
-    fmgr_secprof_proxy:
+    community.network.fmgr_secprof_proxy:
       name: "Ansible_Web_Proxy_Profile"
       mode: "set"
       header_client_ip: "pass"

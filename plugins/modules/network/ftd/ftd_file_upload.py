@@ -22,10 +22,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ftd_file_upload
@@ -53,7 +49,7 @@ options:
 
 EXAMPLES = """
 - name: Upload disk file
-  ftd_file_upload:
+  community.network.ftd_file_upload:
     operation: 'postuploaddiskfile'
     file_to_upload: /tmp/test1.txt
 """

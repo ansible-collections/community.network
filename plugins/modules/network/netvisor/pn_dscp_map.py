@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_dscp_map
@@ -44,15 +39,15 @@ options:
 '''
 
 EXAMPLES = """
-- name: dscp map create
-  pn_dscp_map:
+- name: Dscp map create
+  community.network.pn_dscp_map:
     pn_cliswitch: "sw01"
     state: "present"
     pn_name: "foo"
     pn_scope: "local"
 
-- name: dscp map delete
-  pn_dscp_map:
+- name: Dscp map delete
+  community.network.pn_dscp_map:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_name: "foo"

@@ -20,10 +20,6 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_script
@@ -88,7 +84,7 @@ options:
 
 EXAMPLES = '''
 - name: CREATE SCRIPT
-  fmgr_script:
+  community.network.fmgr_script:
     adom: "root"
     script_name: "TestScript"
     script_type: "cli"
@@ -97,14 +93,14 @@ EXAMPLES = '''
     script_content: "get system status"
 
 - name: EXECUTE SCRIPT
-  fmgr_script:
+  community.network.fmgr_script:
     adom: "root"
     script_name: "TestScript"
     mode: "execute"
     script_scope: "FGT1,FGT2"
 
 - name: DELETE SCRIPT
-  fmgr_script:
+  community.network.fmgr_script:
     adom: "root"
     script_name: "TestScript"
     mode: "delete"

@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_log_audit_exception
@@ -58,16 +53,16 @@ options:
 '''
 
 EXAMPLES = """
-- name: create a log-audit-exception
-  pn_log_audit_exception:
+- name: Create a log-audit-exception
+  community.network.pn_log_audit_exception:
     pn_audit_type: "cli"
     pn_pattern: "test"
     state: "present"
     pn_access: "any"
     pn_scope: "local"
 
-- name: delete a log-audit-exception
-  pn_log_audit_exception:
+- name: Delete a log-audit-exception
+  community.network.pn_log_audit_exception:
     pn_audit_type: "shell"
     pn_pattern: "test"
     state: "absent"

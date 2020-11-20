@@ -20,10 +20,6 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_fwpol_ipv4
@@ -906,7 +902,7 @@ options:
 
 EXAMPLES = '''
 - name: ADD VERY BASIC IPV4 POLICY WITH NO NAT (WIDE OPEN)
-  fmgr_fwpol_ipv4:
+  community.network.fmgr_fwpol_ipv4:
     mode: "set"
     adom: "ansible"
     package_name: "default"
@@ -922,7 +918,7 @@ EXAMPLES = '''
     schedule: "always"
 
 - name: ADD VERY BASIC IPV4 POLICY WITH NAT AND MULTIPLE ENTRIES
-  fmgr_fwpol_ipv4:
+  community.network.fmgr_fwpol_ipv4:
     mode: "set"
     adom: "ansible"
     package_name: "default"
@@ -940,7 +936,7 @@ EXAMPLES = '''
     users: "karen, kevin"
 
 - name: ADD VERY BASIC IPV4 POLICY WITH NAT AND MULTIPLE ENTRIES AND SEC PROFILES
-  fmgr_fwpol_ipv4:
+  community.network.fmgr_fwpol_ipv4:
     mode: "set"
     adom: "ansible"
     package_name: "default"

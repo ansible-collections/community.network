@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 DOCUMENTATION = '''
 ---
 module: panos_admpwd
@@ -31,7 +34,7 @@ requirements:
     - paramiko
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 options:
     ip_address:
@@ -56,8 +59,8 @@ options:
 EXAMPLES = '''
 # Tries for 10 times to set the admin password of 192.168.1.1 to "badpassword"
 # via SSH, authenticating using key /tmp/ssh.key
-- name: set admin password
-  panos_admpwd:
+- name: Set admin password
+  community.network.panos_admpwd:
     ip_address: "192.168.1.1"
     username: "admin"
     key_filename: "/tmp/ssh.key"
@@ -75,10 +78,6 @@ status:
     type: str
     sample: "Last login: Fri Sep 16 11:09:20 2016 from 10.35.34.56.....Configuration committed successfully"
 '''
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.compat.paramiko import paramiko

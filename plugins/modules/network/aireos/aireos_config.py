@@ -7,10 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: aireos_config
@@ -155,25 +151,25 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure configuration
-  aireos_config:
+- name: Configure configuration
+  community.network.aireos_config:
     lines: sysname testDevice
 
-- name: diff the running-config against a provided config
-  aireos_config:
+- name: Diff the running-config against a provided config
+  community.network.aireos_config:
     diff_against: intended
     intended: "{{ lookup('file', 'master.cfg') }}"
 
-- name: load new acl into device
-  aireos_config:
+- name: Load new acl into device
+  community.network.aireos_config:
     lines:
       - acl create testACL
       - acl rule protocol testACL 1 any
       - acl rule direction testACL 3 in
     before: acl delete testACL
 
-- name: configurable backup path
-  aireos_config:
+- name: Configurable backup path
+  community.network.aireos_config:
     backup: yes
     lines: sysname testDevice
     backup_options:
@@ -258,8 +254,9 @@ def main():
         backup=dict(type='bool', default=False),
         backup_options=dict(type='dict', options=backup_spec),
 
-        # save is deprecated as of 2.7, use save_when instead
-        save=dict(type='bool', default=False, removed_in_version='2.11'),
+        # save is deprecated as of Ansible 2.7, use save_when instead
+        save=dict(type='bool', default=False, removed_in_version='2.0.0',
+                  removed_from_collection='community.network'),  # was Ansible 2.11
         save_when=dict(choices=['always', 'never', 'changed'], default='never'),
 
         diff_against=dict(choices=['running', 'intended']),

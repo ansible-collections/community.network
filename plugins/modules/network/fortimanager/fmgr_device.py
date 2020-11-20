@@ -20,12 +20,6 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 
-ANSIBLE_METADATA = {
-    "metadata_version": "1.1",
-    "status": ["preview"],
-    "supported_by": "community"
-}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_device
@@ -89,7 +83,7 @@ options:
 
 EXAMPLES = '''
 - name: DISCOVER AND ADD DEVICE FGT1
-  fmgr_device:
+  community.network.fmgr_device:
     adom: "root"
     device_username: "admin"
     device_password: "admin"
@@ -100,7 +94,7 @@ EXAMPLES = '''
     blind_add: "enable"
 
 - name: DISCOVER AND ADD DEVICE FGT2
-  fmgr_device:
+  community.network.fmgr_device:
     adom: "root"
     device_username: "admin"
     device_password: "admin"

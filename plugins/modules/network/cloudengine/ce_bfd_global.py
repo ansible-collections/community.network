@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_bfd_global
@@ -81,7 +77,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: bfd global module test
+- name: Bfd global module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -95,19 +91,19 @@ EXAMPLES = '''
 
   tasks:
   - name: Enable the global BFD function
-    ce_bfd_global:
+    community.network.ce_bfd_global:
       bfd_enable: enable
       provider: '{{ cli }}'
 
   - name: Set the default multicast IP address to 224.0.0.150
-    ce_bfd_global:
+    community.network.ce_bfd_global:
       bfd_enable: enable
       default_ip: 224.0.0.150
       state: present
       provider: '{{ cli }}'
 
   - name: Set the priority of BFD control packets for dynamic and static BFD sessions
-    ce_bfd_global:
+    community.network.ce_bfd_global:
       bfd_enable: enable
       tos_exp_dynamic: 5
       tos_exp_static: 6
@@ -115,7 +111,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Disable the global BFD function
-    ce_bfd_global:
+    community.network.ce_bfd_global:
       bfd_enable: disable
       provider: '{{ cli }}'
 '''

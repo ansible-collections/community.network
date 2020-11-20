@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_vrouter_loopback_interface
@@ -52,14 +47,14 @@ options:
 
 EXAMPLES = """
 - name: Add vrouter loopback interface
-  pn_vrouter_loopback_interface:
+  community.network.pn_vrouter_loopback_interface:
     state: "present"
     pn_cliswitch: "sw01"
     pn_vrouter_name: "sw01-vrouter"
     pn_ip: "192.168.10.1"
 
 - name: Remove vrouter loopback interface
-  pn_vrouter_loopback_interface:
+  community.network.pn_vrouter_loopback_interface:
     state: "absent"
     pn_cliswitch: "sw01"
     pn_vrouter_name: "sw01-vrouter"

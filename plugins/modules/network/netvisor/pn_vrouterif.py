@@ -18,10 +18,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -29,7 +27,7 @@ module: pn_vrouterif
 author: "Pluribus Networks (@amitsi)"
 short_description: CLI command to add/remove/modify vrouter-interface.
 deprecated:
-  removed_in: '2.12'
+  removed_in: 2.0.0  # was Ansible 2.12
   why: Doesn't support latest Pluribus Networks netvisor
   alternative: Latest modules will be pushed in Ansible future versions.
 description:
@@ -119,7 +117,7 @@ options:
 
 EXAMPLES = """
 - name: Add vrouter-interface
-  pn_vrouterif:
+  community.network.pn_vrouterif:
     pn_cliusername: admin
     pn_clipassword: admin
     state: 'present'
@@ -128,7 +126,7 @@ EXAMPLES = """
     pn_vlan: 101
 
 - name: Add VRRP..
-  pn_vrouterif:
+  community.network.pn_vrouterif:
     pn_cliusername: admin
     pn_clipassword: admin
     state: 'present'
@@ -139,7 +137,7 @@ EXAMPLES = """
     pn_vlan: 101
 
 - name: Remove vrouter-interface
-  pn_vrouterif:
+  community.network.pn_vrouterif:
     pn_cliusername: admin
     pn_clipassword: admin
     state: 'absent'

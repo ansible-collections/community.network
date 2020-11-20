@@ -19,10 +19,8 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -36,7 +34,7 @@ requirements:
     - pan-python
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 options:
     admin_username:
@@ -63,8 +61,8 @@ extends_documentation_fragment:
 EXAMPLES = '''
 # Set the password of user admin to "badpassword"
 # Doesn't commit the candidate config
-  - name: set admin password
-    panos_admin:
+  - name: Set admin password
+    community.network.panos_admin:
       ip_address: "192.168.1.1"
       password: "admin"
       admin_username: admin

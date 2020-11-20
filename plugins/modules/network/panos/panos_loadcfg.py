@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 DOCUMENTATION = '''
 ---
 module: panos_loadcfg
@@ -30,7 +33,7 @@ requirements:
     - pan-python
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 options:
     file:
@@ -48,15 +51,15 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 # Import and load config file from URL
-  - name: import configuration
+  - name: Import configuration
     panos_import:
       ip_address: "192.168.1.1"
       password: "admin"
       url: "{{ConfigURL}}"
       category: "configuration"
     register: result
-  - name: load configuration
-    panos_loadcfg:
+  - name: Load configuration
+    community.network.panos_loadcfg:
       ip_address: "192.168.1.1"
       password: "admin"
       file: "{{result.filename}}"
@@ -65,11 +68,6 @@ EXAMPLES = '''
 RETURN = '''
 # Default return values
 '''
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
 
 from ansible.module_utils.basic import AnsibleModule
 

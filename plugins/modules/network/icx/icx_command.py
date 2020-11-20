@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = """
 ---
 module: icx_command
@@ -78,37 +73,37 @@ options:
 
 EXAMPLES = """
 tasks:
-  - name: run show version on remote devices
-    icx_command:
+  - name: Run show version on remote devices
+    community.network.icx_command:
       commands: show version
 
-  - name: run show version and check to see if output contains ICX
-    icx_command:
+  - name: Run show version and check to see if output contains ICX
+    community.network.icx_command:
       commands: show version
       wait_for: result[0] contains ICX
 
-  - name: run multiple commands on remote nodes
-    icx_command:
+  - name: Run multiple commands on remote nodes
+    community.network.icx_command:
       commands:
         - show version
         - show interfaces
 
-  - name: run multiple commands and evaluate the output
-    icx_command:
+  - name: Run multiple commands and evaluate the output
+    community.network.icx_command:
       commands:
         - show version
         - show interfaces
       wait_for:
         - result[0] contains ICX
         - result[1] contains GigabitEthernet1/1/1
-  - name: run commands that require answering a prompt
-    icx_command:
+  - name: Run commands that require answering a prompt
+    community.network.icx_command:
       commands:
         - command: 'service password-encryption sha1'
           prompt: 'Warning: Moving to higher password-encryption type,.*'
           answer: 'y'
-  - name: run commands that require answering multiple prompt
-    icx_command:
+  - name: Run commands that require answering multiple prompt
+    community.network.icx_command:
       commands:
         - command: 'username qqq password qqq'
           prompt:

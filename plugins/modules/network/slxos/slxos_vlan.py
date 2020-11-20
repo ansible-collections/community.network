@@ -21,10 +21,6 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: slxos_vlan
@@ -67,18 +63,18 @@ options:
 
 EXAMPLES = """
 - name: Create vlan
-  slxos_vlan:
+  community.network.slxos_vlan:
     vlan_id: 100
     name: test-vlan
     state: present
 - name: Add interfaces to VLAN
-  slxos_vlan:
+  community.network.slxos_vlan:
     vlan_id: 100
     interfaces:
       - Ethernet 0/1
       - Ethernet 0/2
 - name: Delete vlan
-  slxos_vlan:
+  community.network.slxos_vlan:
     vlan_id: 100
     state: absent
 """

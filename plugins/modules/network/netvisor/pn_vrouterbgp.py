@@ -18,10 +18,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -29,7 +27,7 @@ module: pn_vrouterbgp
 author: "Pluribus Networks (@amitsi)"
 short_description: CLI command to add/remove/modify vrouter-bgp.
 deprecated:
-  removed_in: '2.12'
+  removed_in: 2.0.0  # was Ansible 2.12
   why: Doesn't support latest Pluribus Networks netvisor
   alternative: Latest modules will be pushed in Ansible future versions.
 description:
@@ -139,15 +137,15 @@ options:
 '''
 
 EXAMPLES = """
-- name: add vrouter-bgp
-  pn_vrouterbgp:
+- name: Add vrouter-bgp
+  community.network.pn_vrouterbgp:
     state: 'present'
     pn_vrouter_name: 'ansible-vrouter'
     pn_neighbor: 104.104.104.1
     pn_remote_as: 1800
 
-- name: remove vrouter-bgp
-  pn_vrouterbgp:
+- name: Remove vrouter-bgp
+  community.network.pn_vrouterbgp:
     state: 'absent'
     pn_name: 'ansible-vrouter'
 """

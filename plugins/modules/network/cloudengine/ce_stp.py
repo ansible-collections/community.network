@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_stp
@@ -117,25 +113,25 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config stp mode"
-    ce_stp:
+    community.network.ce_stp:
       state: present
       stp_mode: stp
       provider: "{{ cli }}"
 
   - name: "Undo stp mode"
-    ce_stp:
+    community.network.ce_stp:
       state: absent
       stp_mode: stp
       provider: "{{ cli }}"
 
   - name: "Enable bpdu protection"
-    ce_stp:
+    community.network.ce_stp:
       state: present
       bpdu_protection: enable
       provider: "{{ cli }}"
 
   - name: "Disable bpdu protection"
-    ce_stp:
+    community.network.ce_stp:
       state: present
       bpdu_protection: disable
       provider: "{{ cli }}"

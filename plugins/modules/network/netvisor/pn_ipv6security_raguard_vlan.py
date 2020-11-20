@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_ipv6security_raguard_vlan
@@ -44,20 +39,20 @@ options:
 '''
 
 EXAMPLES = """
-- name: ipv6 security raguard vlan add
-  pn_ipv6security_raguard_vlan:
+- name: Ipv6 security raguard vlan add
+  community.network.pn_ipv6security_raguard_vlan:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_vlans: "100-105"
 
-- name: ipv6 security raguard vlan add
-  pn_ipv6security_raguard_vlan:
+- name: Ipv6 security raguard vlan add
+  community.network.pn_ipv6security_raguard_vlan:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_vlans: "100"
 
-- name: ipv6 security raguard vlan remove
-  pn_ipv6security_raguard_vlan:
+- name: Ipv6 security raguard vlan remove
+  community.network.pn_ipv6security_raguard_vlan:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_vlans: "100-105"

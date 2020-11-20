@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: icx_banner
@@ -59,8 +54,8 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure the motd banner
-  icx_banner:
+- name: Configure the motd banner
+  community.network.icx_banner:
     banner: motd
     text: |
         this is my motd banner
@@ -68,18 +63,18 @@ EXAMPLES = """
         string
     state: present
 
-- name: remove the motd banner
-  icx_banner:
+- name: Remove the motd banner
+  community.network.icx_banner:
     banner: motd
     state: absent
 
-- name: configure require-enter-key for motd
-  icx_banner:
+- name: Configure require-enter-key for motd
+  community.network.icx_banner:
     banner: motd
     enterkey: True
 
-- name: remove require-enter-key for motd
-  icx_banner:
+- name: Remove require-enter-key for motd
+  community.network.icx_banner:
     banner: motd
     enterkey: False
 """

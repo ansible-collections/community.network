@@ -19,13 +19,10 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = r'''
 ---
 module: ce_lacp
+version_added: '0.2.0'
 short_description: Manages Eth-Trunk interfaces on HUAWEI CloudEngine switches
 description:
     - Manages Eth-Trunk specific configuration parameters on HUAWEI CloudEngine switches.
@@ -121,17 +118,17 @@ options:
 '''
 EXAMPLES = r'''
   - name: Ensure Eth-Trunk100 is created, and set to mode lacp-static
-    ce_lacp:
+    community.network.ce_lacp:
       trunk_id: 100
       mode: 'lacp-static'
       state: present
   - name: Ensure Eth-Trunk100 is created, add two members, and set global priority to 1231
-    ce_lacp:
+    community.network.ce_lacp:
       trunk_id: 100
       global_priority: 1231
       state: present
   - name: Ensure Eth-Trunk100 is created, and set mode to Dynamic and configure other options
-    ce_lacp:
+    community.network.ce_lacp:
       trunk_id: 100
       mode: Dynamic
       preempt_enable: True,

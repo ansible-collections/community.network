@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 DOCUMENTATION = '''
 ---
 module: panos_restart
@@ -30,7 +33,7 @@ requirements:
     - pan-python
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 extends_documentation_fragment:
 - community.network.panos
@@ -38,7 +41,8 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- panos_restart:
+- name: Restart a device
+  community.network.panos_restart:
     ip_address: "192.168.1.1"
     username: "admin"
     password: "admin"
@@ -51,11 +55,6 @@ status:
     type: str
     sample: "okey dokey"
 '''
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
 
 import sys
 import traceback

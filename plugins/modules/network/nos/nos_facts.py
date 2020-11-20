@@ -21,11 +21,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: nos_facts
@@ -46,7 +41,7 @@ options:
         to a given subset. Possible values for this argument include
         all, hardware, config, and interfaces. Can specify a list of
         values to include a larger subset. Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     required: false
     default: '!config'
@@ -54,16 +49,16 @@ options:
 
 EXAMPLES = """
 # Collect all facts from the device
-- nos_facts:
+- community.network.nos_facts:
     gather_subset: all
 
 # Collect only the config and default facts
-- nos_facts:
+- community.network.nos_facts:
     gather_subset:
       - config
 
 # Do not collect hardware facts
-- nos_facts:
+- community.network.nos_facts:
     gather_subset:
       - "!hardware"
 """

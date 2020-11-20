@@ -18,10 +18,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -29,7 +27,7 @@ module: pn_show
 author: "Pluribus Networks (@amitsi)"
 short_description: Run show commands on nvOS device.
 deprecated:
-  removed_in: '2.12'
+  removed_in: 2.0.0  # was Ansible 2.12
   why: Doesn't support latest Pluribus Networks netvisor
   alternative: Latest modules will be pushed in Ansible future versions.
 description:
@@ -63,20 +61,20 @@ options:
 '''
 
 EXAMPLES = """
-- name: run the vlan-show command
-  pn_show:
+- name: Run the vlan-show command
+  community.network.pn_show:
     pn_command: 'vlan-show'
     pn_parameters: id,scope,ports
     pn_options: 'layout vertical'
 
-- name: run the vlag-show command
-  pn_show:
+- name: Run the vlag-show command
+  community.network.pn_show:
     pn_command: 'vlag-show'
     pn_parameters: 'id,name,cluster,mode'
     pn_options: 'no-show-headers'
 
-- name: run the cluster-show command
-  pn_show:
+- name: Run the cluster-show command
+  community.network.pn_show:
     pn_command: 'cluster-show'
 """
 

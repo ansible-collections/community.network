@@ -7,10 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: aireos_command
@@ -22,7 +18,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - Commands run in configuration mode with this module are not
-    idempotent. Please use M(aireos_config) to configure WLC devices.
+    idempotent. Please use M(community.network.aireos_config) to configure WLC devices.
 extends_documentation_fragment:
 - community.network.aireos
 
@@ -71,23 +67,23 @@ options:
 
 EXAMPLES = """
 tasks:
-  - name: run show sysinfo on remote devices
-    aireos_command:
+  - name: Run show sysinfo on remote devices
+    community.network.aireos_command:
       commands: show sysinfo
 
-  - name: run show sysinfo and check to see if output contains Cisco Controller
-    aireos_command:
+  - name: Run show sysinfo and check to see if output contains Cisco Controller
+    community.network.aireos_command:
       commands: show sysinfo
       wait_for: result[0] contains 'Cisco Controller'
 
-  - name: run multiple commands on remote nodes
-    aireos_command:
+  - name: Run multiple commands on remote nodes
+    community.network.aireos_command:
       commands:
         - show sysinfo
         - show interface summary
 
-  - name: run multiple commands and evaluate the output
-    aireos_command:
+  - name: Run multiple commands and evaluate the output
+    community.network.aireos_command:
       commands:
         - show sysinfo
         - show interface summary

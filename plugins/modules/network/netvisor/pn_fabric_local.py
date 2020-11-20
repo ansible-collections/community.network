@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_fabric_local
@@ -56,12 +51,12 @@ options:
 
 EXAMPLES = """
 - name: Fabric local module
-  pn_fabric_local:
+  community.network.pn_fabric_local:
     pn_cliswitch: "sw01"
     pn_vlan: "500"
 
 - name: Fabric local module
-  pn_fabric_local:
+  community.network.pn_fabric_local:
     pn_cliswitch: "sw01"
     pn_fabric_advertisement_network: "mgmt-only"
 """

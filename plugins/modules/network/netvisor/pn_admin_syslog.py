@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_admin_syslog
@@ -70,15 +65,15 @@ options:
 '''
 
 EXAMPLES = """
-- name: admin-syslog functionality
-  pn_admin_syslog:
+- name: Admin-syslog functionality
+  community.network.pn_admin_syslog:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_name: "foo"
     pn_scope: "local"
 
-- name: admin-syslog functionality
-  pn_admin_syslog:
+- name: Admin-syslog functionality
+  community.network.pn_admin_syslog:
     pn_cliswitch: "sw01"
     state: "present"
     pn_name: "foo"
@@ -86,8 +81,8 @@ EXAMPLES = """
     pn_host: "166.68.224.46"
     pn_message_format: "structured"
 
-- name: admin-syslog functionality
-  pn_admin_syslog:
+- name: Admin-syslog functionality
+  community.network.pn_admin_syslog:
     pn_cliswitch: "sw01"
     state: "update"
     pn_name: "foo"

@@ -23,10 +23,6 @@ __metaclass__ = type
 # Module to work on Link Aggregation with Lenovo Switches
 # Lenovo Networking
 #
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: cnos_logging
@@ -70,40 +66,40 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure server logging
-  cnos_logging:
+- name: Configure server logging
+  community.network.cnos_logging:
     dest: server
     name: 10.241.107.224
     facility: local7
     state: present
 
-- name: remove server logging configuration
-  cnos_logging:
+- name: Remove server logging configuration
+  community.network.cnos_logging:
     dest: server
     name: 10.241.107.224
     state: absent
 
-- name: configure console logging level and facility
-  cnos_logging:
+- name: Configure console logging level and facility
+  community.network.cnos_logging:
     dest: console
     level: 7
     state: present
 
-- name: configure buffer size
-  cnos_logging:
+- name: Configure buffer size
+  community.network.cnos_logging:
     dest: logfile
     level: 5
     name: testfile
     size: 5000
 
 - name: Configure logging using aggregate
-  cnos_logging:
+  community.network.cnos_logging:
     aggregate:
       - { dest: console, level: 6 }
       - { dest: logfile, size: 9000 }
 
-- name: remove logging using aggregate
-  cnos_logging:
+- name: Remove logging using aggregate
+  community.network.cnos_logging:
     aggregate:
       - { dest: console, level: 6 }
       - { dest: logfile, name: anil, size: 9000 }

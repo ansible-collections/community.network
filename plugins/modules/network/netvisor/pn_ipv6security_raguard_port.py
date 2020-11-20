@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_ipv6security_raguard_port
@@ -44,14 +39,14 @@ options:
 '''
 
 EXAMPLES = """
-- name: ipv6 security raguard port add
-  pn_ipv6security_raguard_port:
+- name: Ipv6 security raguard port add
+  community.network.pn_ipv6security_raguard_port:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_ports: "1"
 
-- name: ipv6 security raguard port remove
-  pn_ipv6security_raguard_port:
+- name: Ipv6 security raguard port remove
+  community.network.pn_ipv6security_raguard_port:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "absent"

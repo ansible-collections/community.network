@@ -20,11 +20,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: cnos_command
@@ -79,8 +74,8 @@ options:
 
 EXAMPLES = """
 ---
-- name: test contains operator
-  cnos_command:
+- name: Test contains operator
+  community.network.cnos_command:
     commands:
       - show version
       - show system memory
@@ -89,29 +84,29 @@ EXAMPLES = """
       - "result[1] contains 'MemFree'"
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"
 
-- name: get output for single command
-  cnos_command:
+- name: Get output for single command
+  community.network.cnos_command:
     commands: ['show version']
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"
 
-- name: get output for multiple commands
-  cnos_command:
+- name: Get output for multiple commands
+  community.network.cnos_command:
     commands:
       - show version
       - show interface information
   register: result
 
-- assert:
+- ansible.builtin.assert:
     that:
       - "result.changed == false"
       - "result.stdout is defined"

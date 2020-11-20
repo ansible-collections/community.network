@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_bgp_af
@@ -346,19 +342,19 @@ EXAMPLES = '''
       transport: cli
   tasks:
   - name: "Config BGP Address_Family"
-    ce_bgp_af:
+    community.network.ce_bgp_af:
       state: present
       vrf_name: js
       af_type: ipv4uni
       provider: "{{ cli }}"
   - name: "Undo BGP Address_Family"
-    ce_bgp_af:
+    community.network.ce_bgp_af:
       state: absent
       vrf_name: js
       af_type: ipv4uni
       provider: "{{ cli }}"
   - name: "Config import route"
-    ce_bgp_af:
+    community.network.ce_bgp_af:
       state: present
       vrf_name: js
       af_type: ipv4uni
@@ -366,7 +362,7 @@ EXAMPLES = '''
       import_process_id: 123
       provider: "{{ cli }}"
   - name: "Undo import route"
-    ce_bgp_af:
+    community.network.ce_bgp_af:
       state: absent
       vrf_name: js
       af_type: ipv4uni
@@ -374,7 +370,7 @@ EXAMPLES = '''
       import_process_id: 123
       provider: "{{ cli }}"
   - name: "Config network route"
-    ce_bgp_af:
+    community.network.ce_bgp_af:
       state: present
       vrf_name: js
       af_type: ipv4uni
@@ -382,7 +378,7 @@ EXAMPLES = '''
       mask_len: 24
       provider: "{{ cli }}"
   - name: "Undo network route"
-    ce_bgp_af:
+    community.network.ce_bgp_af:
       state: absent
       vrf_name: js
       af_type: ipv4uni

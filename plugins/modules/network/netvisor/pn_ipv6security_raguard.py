@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_ipv6security_raguard
@@ -61,14 +56,14 @@ options:
 '''
 
 EXAMPLES = """
-- name: ipv6 security ragurad create
-  pn_ipv6security_raguard:
+- name: Ipv6 security ragurad create
+  community.network.pn_ipv6security_raguard:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_device: "host"
 
-- name: ipv6 security ragurad create
-  pn_ipv6security_raguard:
+- name: Ipv6 security ragurad create
+  community.network.pn_ipv6security_raguard:
     pn_cliswitch: "sw01"
     pn_name: "foo1"
     pn_device: "host"
@@ -76,16 +71,16 @@ EXAMPLES = """
     pn_prefix_list: "sample"
     pn_router_priority: "low"
 
-- name: ipv6 security ragurad modify
-  pn_ipv6security_raguard:
+- name: Ipv6 security ragurad modify
+  community.network.pn_ipv6security_raguard:
     pn_cliswitch: "sw01"
     pn_name: "foo1"
     pn_device: "router"
     pn_router_priority: "medium"
     state: "update"
 
-- name: ipv6 security ragurad delete
-  pn_ipv6security_raguard:
+- name: Ipv6 security ragurad delete
+  community.network.pn_ipv6security_raguard:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "absent"

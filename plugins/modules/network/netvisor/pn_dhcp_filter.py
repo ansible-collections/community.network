@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_dhcp_filter
@@ -44,22 +39,22 @@ options:
 '''
 
 EXAMPLES = """
-- name: dhcp filter create
-  pn_dhcp_filter:
+- name: Dhcp filter create
+  community.network.pn_dhcp_filter:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "present"
     pn_trusted_ports: "1"
 
-- name: dhcp filter delete
-  pn_dhcp_filter:
+- name: Dhcp filter delete
+  community.network.pn_dhcp_filter:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "absent"
     pn_trusted_ports: "1"
 
-- name: dhcp filter modify
-  pn_dhcp_filter:
+- name: Dhcp filter modify
+  community.network.pn_dhcp_filter:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     state: "update"

@@ -5,11 +5,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_cpu_mgmt_class
@@ -49,24 +44,24 @@ options:
 '''
 
 EXAMPLES = """
-- name: cpu mgmt class modify ingress policers
-  pn_cpu_mgmt_class:
+- name: Cpu mgmt class modify ingress policers
+  community.network.pn_cpu_mgmt_class:
     pn_cliswitch: "sw01"
     state: "update"
     pn_name: "icmp"
     pn_rate_limit: "10000"
     pn_burst_size: "14000"
 
-- name: cpu mgmt class modify ingress policers
-  pn_cpu_mgmt_class:
+- name: Cpu mgmt class modify ingress policers
+  community.network.pn_cpu_mgmt_class:
     pn_cliswitch: "sw01"
     state: "update"
     pn_name: "snmp"
     pn_burst_size: "8000"
     pn_rate_limit: "100000"
 
-- name: cpu mgmt class modify ingress policers
-  pn_cpu_mgmt_class:
+- name: Cpu mgmt class modify ingress policers
+  community.network.pn_cpu_mgmt_class:
     pn_cliswitch: "sw01"
     state: "update"
     pn_name: "web"

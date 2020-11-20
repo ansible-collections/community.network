@@ -7,10 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: edgeos_config
@@ -108,20 +104,20 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure the remote device
-  edgeos_config:
+- name: Configure the remote device
+  community.network.edgeos_config:
     lines:
       - set system host-name {{ inventory_hostname }}
       - set service lldp
       - delete service dhcp-server
 
-- name: backup and load from file
-  edgeos_config:
+- name: Backup and load from file
+  community.network.edgeos_config:
     src: edgeos.cfg
     backup: yes
 
-- name: configurable backup path
-  edgeos_config:
+- name: Configurable backup path
+  community.network.edgeos_config:
     src: edgeos.cfg
     backup: yes
     backup_options:
@@ -306,7 +302,8 @@ def main():
     if module.params['save']:
         diff = run_commands(module, commands=['configure', 'compare saved'])[1]
         if diff != '[edit]':
-            run_commands(module, commands=['save'])
+            if not module.check_mode:
+                run_commands(module, commands=['save'])
             result['changed'] = True
         run_commands(module, commands=['exit'])
 

@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_vrouter_pim_config
@@ -53,8 +48,8 @@ options:
 '''
 
 EXAMPLES = """
-- name: pim config modify
-  pn_vrouter_pim_config:
+- name: Pim config modify
+  community.network.pn_vrouter_pim_config:
     pn_cliswitch: '192.168.1.1'
     pn_query_interval: '10'
     pn_querier_timeout: '30'

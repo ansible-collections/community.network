@@ -19,12 +19,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {
-    "metadata_version": "1.1",
-    "status": ["preview"],
-    "supported_by": "community"
-}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_device_config
@@ -79,12 +73,12 @@ options:
 
 EXAMPLES = '''
 - name: CHANGE HOSTNAME
-  fmgr_device_config:
+  community.network.fmgr_device_config:
     device_hostname: "ChangedbyAnsible"
     device_unique_name: "FGT1"
 
 - name: EDIT INTERFACE INFORMATION
-  fmgr_device_config:
+  community.network.fmgr_device_config:
     adom: "root"
     device_unique_name: "FGT2"
     interface: "port3"
@@ -92,7 +86,7 @@ EXAMPLES = '''
     interface_allow_access: "ping, telnet, https"
 
 - name: INSTALL CONFIG
-  fmgr_device_config:
+  community.network.fmgr_device_config:
     adom: "root"
     device_unique_name: "FGT1"
     install_config: "enable"

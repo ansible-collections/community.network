@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_bfd_view
@@ -92,7 +88,7 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- name: bfd view module test
+- name: Bfd view module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -106,7 +102,7 @@ EXAMPLES = '''
 
   tasks:
   - name: Set the local discriminator of a BFD session to 80 and the remote discriminator to 800
-    ce_bfd_view:
+    community.network.ce_bfd_view:
       session_name: atob
       local_discr: 80
       remote_discr: 800
@@ -114,7 +110,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Set the minimum interval for receiving BFD packets to 500 ms
-    ce_bfd_view:
+    community.network.ce_bfd_view:
       session_name: atob
       min_rx_interval: 500
       state: present

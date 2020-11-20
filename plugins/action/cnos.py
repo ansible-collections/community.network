@@ -36,8 +36,14 @@ class ActionModule(ActionNetworkModule):
 
         module_name = self._task.action.split('.')[-1]
         self._config_module = True if module_name == 'cnos_config' else False
+        persistent_connection = self._play_context.connection.split('.')[-1]
 
-        if self._play_context.connection == 'local':
+        if persistent_connection == 'network_cli':
+            provider = self._task.args.get('provider', {})
+            if any(provider.values()):
+                display.warning('provider is unnecessary when using network_cli and will be ignored')
+                del self._task.args['provider']
+        elif self._play_context.connection == 'local':
             provider = load_provider(cnos_provider_spec, self._task.args)
             pc = copy.deepcopy(self._play_context)
             pc.connection = 'network_cli'
@@ -64,6 +70,9 @@ class ActionModule(ActionNetworkModule):
                                'https://docs.ansible.com/ansible/network_debug_troubleshooting.html#unable-to-open-shell'}
 
             task_vars['ansible_socket'] = socket_path
+            msg = "connection local support for this module is deprecated use either" \
+                  " 'network_cli' or 'ansible.netcommon.network_cli' connection"
+            display.deprecated(msg, version='4.0.0', collection_name='community.network')
 
         result = super(ActionModule, self).run(task_vars=task_vars)
         return result

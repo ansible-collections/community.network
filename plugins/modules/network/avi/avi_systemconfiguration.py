@@ -9,9 +9,8 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -117,7 +116,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create SystemConfiguration object
-  avi_systemconfiguration:
+  community.network.avi_systemconfiguration:
     controller: 10.10.25.42
     username: admin
     password: something

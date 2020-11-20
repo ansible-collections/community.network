@@ -23,10 +23,6 @@ __metaclass__ = type
 # Module to work on System Configuration with Lenovo Switches
 # Lenovo Networking
 #
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: cnos_system
@@ -85,27 +81,27 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure hostname and domain-name
-  cnos_system:
+- name: Configure hostname and domain-name
+  community.network.cnos_system:
     hostname: cnos01
     domain_name: test.example.com
 
-- name: remove configuration
-  cnos_system:
+- name: Remove configuration
+  community.network.cnos_system:
     state: absent
 
-- name: configure name servers
-  cnos_system:
+- name: Configure name servers
+  community.network.cnos_system:
     name_servers:
       - 8.8.8.8
       - 8.8.4.4
 
-- name: configure DNS Lookup sources
-  cnos_system:
+- name: Configure DNS Lookup sources
+  community.network.cnos_system:
     lookup_source: MgmtEth0/0/CPU0/0
     lookup_enabled: yes
 
-- name: configure name servers with VRF support
+- name: Configure name servers with VRF support
   nxos_system:
     name_servers:
       - { server: 8.8.8.8, vrf: mgmt }

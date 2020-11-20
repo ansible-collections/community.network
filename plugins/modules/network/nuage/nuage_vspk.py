@@ -8,10 +8,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: nuage_vspk
@@ -136,7 +132,7 @@ EXAMPLES = '''
 # Creating a new enterprise
 - name: Create Enterprise
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: Enterprise
     state: present
@@ -147,7 +143,7 @@ EXAMPLES = '''
 # Checking if an Enterprise with the new name already exists
 - name: Check if an Enterprise exists with the new name
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: Enterprise
     command: find
@@ -159,7 +155,7 @@ EXAMPLES = '''
 # Updating an enterprise's name
 - name: Update Enterprise name
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: Enterprise
     id: "{{ nuage_enterprise.id }}"
@@ -171,7 +167,7 @@ EXAMPLES = '''
 # Creating a User in an Enterprise
 - name: Create admin user
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: User
     parent_id: "{{ nuage_enterprise.id }}"
@@ -189,7 +185,7 @@ EXAMPLES = '''
 # Updating password for User
 - name: Update admin password
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: User
     id: "{{ nuage_user.id }}"
@@ -201,7 +197,7 @@ EXAMPLES = '''
 # Finding a group in an enterprise
 - name: Find Administrators group in Enterprise
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: Group
     parent_id: "{{ nuage_enterprise.id }}"
@@ -214,7 +210,7 @@ EXAMPLES = '''
 # Assign the user to the group
 - name: Assign admin user to administrators
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: User
     id: "{{ nuage_user.id }}"
@@ -225,7 +221,7 @@ EXAMPLES = '''
 # Creating multiple DomainTemplates
 - name: Create multiple DomainTemplates
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: DomainTemplate
     parent_id: "{{ nuage_enterprise.id }}"
@@ -241,7 +237,7 @@ EXAMPLES = '''
 # Finding all DomainTemplates
 - name: Fetching all DomainTemplates
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: DomainTemplate
     parent_id: "{{ nuage_enterprise.id }}"
@@ -252,7 +248,7 @@ EXAMPLES = '''
 # Deleting all DomainTemplates
 - name: Deleting all found DomainTemplates
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: DomainTemplate
     state: absent
@@ -263,7 +259,7 @@ EXAMPLES = '''
 # Unassign user from group
 - name: Unassign admin user to administrators
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: User
     id: "{{ nuage_user.id }}"
@@ -274,7 +270,7 @@ EXAMPLES = '''
 # Deleting an enterprise
 - name: Delete Enterprise
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: Enterprise
     id: "{{ nuage_enterprise.id }}"
@@ -283,7 +279,7 @@ EXAMPLES = '''
 # Setup an enterprise with Children
 - name: Setup Enterprise and domain structure
   connection: local
-  nuage_vspk:
+  community.network.nuage_vspk:
     auth: "{{ nuage_auth }}"
     type: Enterprise
     state: present

@@ -24,11 +24,6 @@ __metaclass__ = type
 # Lenovo Networking
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: cnos_reload
@@ -51,7 +46,7 @@ Tasks : The following are examples of using the module cnos_reload. These are
  written in the main.yml file of the tasks directory.
 ---
 - name: Test Reload
-  cnos_reload:
+  community.network.cnos_reload:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
       outputfile: "./results/test_reload_{{ inventory_hostname }}_output.txt"
 '''

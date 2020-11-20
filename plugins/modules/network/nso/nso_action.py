@@ -22,12 +22,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {
-    'metadata_version': '1.1',
-    'status': ['preview'],
-    'supported_by': 'certified'
-}
-
 DOCUMENTATION = '''
 ---
 module: nso_action
@@ -64,7 +58,7 @@ options:
 
 EXAMPLES = '''
 - name: Sync NSO device
-  nso_action:
+  community.network.nso_action:
     url: http://localhost:8080/jsonrpc
     username: username
     password: password

@@ -21,11 +21,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: exos_facts
@@ -48,7 +43,7 @@ options:
         to a given subset.  Possible values for this argument include
         all, hardware, config, and interfaces.  Can specify a list of
         values to include a larger subset.  Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     required: false
     type: list
@@ -59,7 +54,7 @@ options:
         to a given subset. Possible values for this argument include
         all and the resources like interfaces, vlans etc.
         Can specify a list of values to include a larger subset.
-        Values can also be used with an initial C(M(!)) to specify that
+        Values can also be used with an initial C(!) to specify that
         a specific subset should not be collected.
         Valid subsets are 'all', 'lldp_global'.
     type: list
@@ -67,24 +62,24 @@ options:
 
 EXAMPLES = """
   - name:  Gather all legacy facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset: all
 
   - name: Gather only the config and default facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset: config
 
-  - name: do not gather hardware facts
-    exos_facts:
+  - name: Do not gather hardware facts
+    community.network.exos_facts:
       gather_subset: "!hardware"
 
   - name: Gather legacy and resource facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset: all
       gather_network_resources: all
 
   - name: Gather only the lldp global resource facts and no legacy facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset:
         - '!all'
         - '!min'
@@ -92,7 +87,7 @@ EXAMPLES = """
         - lldp_global
 
   - name: Gather lldp global resource and minimal legacy facts
-    exos_facts:
+    community.network.exos_facts:
       gather_subset: min
       gather_network_resource: lldp_global
 """
@@ -175,7 +170,7 @@ def main():
                            supports_check_mode=True)
 
     warnings = ['default value for `gather_subset` '
-                'will be changed to `min` from `!config` v2.11 onwards']
+                'will be changed to `min` from `!config` in community.network 2.0.0 onwards']
 
     result = Facts(module).get_facts()
 

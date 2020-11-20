@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_igmp_snooping
@@ -84,7 +79,7 @@ options:
 
 EXAMPLES = """
 - name: 'Modify IGMP Snooping'
-  pn_igmp_snooping:
+  community.network.pn_igmp_snooping:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_vxlan: True
@@ -93,7 +88,7 @@ EXAMPLES = """
     pn_igmpv3_vlans: '1-399,401-4092'
 
 - name: 'Modify IGMP Snooping'
-  pn_igmp_snooping:
+  community.network.pn_igmp_snooping:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_vxlan: False

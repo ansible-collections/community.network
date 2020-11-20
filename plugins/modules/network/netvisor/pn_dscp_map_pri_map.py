@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_dscp_map_pri_map
@@ -49,16 +44,16 @@ options:
 '''
 
 EXAMPLES = """
-- name: dscp map pri map modify
-  pn_dscp_map_pri_map:
+- name: Dscp map pri map modify
+  community.network.pn_dscp_map_pri_map:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_name: 'foo'
     pn_pri: '0'
     pn_dsmap: '40'
 
-- name: dscp map pri map modify
-  pn_dscp_map_pri_map:
+- name: Dscp map pri map modify
+  community.network.pn_dscp_map_pri_map:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_name: 'foo'

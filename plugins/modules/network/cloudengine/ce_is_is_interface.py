@@ -8,13 +8,10 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_is_is_interface
+version_added: '0.2.0'
 author: xuxiaowei0512 (@CloudEngine-Ansible)
 short_description: Manages isis interface configuration on HUAWEI CloudEngine devices.
 description:
@@ -130,28 +127,28 @@ EXAMPLES = '''
       match: none
 
   - name: Set isis circuit-level
-    ce_is_is_interface:
+    community.network.ce_is_is_interface:
       instance_id: 3
       ifname: Eth-Trunk10
       leveltype: level_1_2
       state: present
 
   - name: Set isis level1dispriority
-    ce_is_is_interface:
+    community.network.ce_is_is_interface:
       instance_id: 3
       ifname: Eth-Trunk10
       level1dispriority: 0
       state: present
 
   - name: Set isis level2dispriority
-    ce_is_is_interface:
+    community.network.ce_is_is_interface:
       instance_id: 3
       ifname: Eth-Trunk10
       level2dispriority: 0
       state: present
 
   - name: Set isis silentenable
-    ce_is_is_interface:
+    community.network.ce_is_is_interface:
       instance_id: 3
       ifname: Eth-Trunk10
       silentenable: true
@@ -434,7 +431,7 @@ def get_interface_type(interface):
     elif interface.upper().startswith('STACK-PORT'):
         return 'stack-port'
     elif interface.upper().startswith('NULL'):
-        return'null'
+        return 'null'
     else:
         return None
 

@@ -20,10 +20,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_secprof_av
@@ -946,12 +942,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_av:
+    community.network.fmgr_secprof_av:
       name: "Ansible_AV_Profile"
       mode: "delete"
 
   - name: CREATE Profile
-    fmgr_secprof_av:
+    community.network.fmgr_secprof_av:
       name: "Ansible_AV_Profile"
       comment: "Created by Ansible Module TEST"
       mode: "set"

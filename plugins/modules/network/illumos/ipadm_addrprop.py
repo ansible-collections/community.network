@@ -8,11 +8,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: ipadm_addrprop
@@ -52,10 +47,10 @@ options:
 
 EXAMPLES = '''
 - name: Mark address on addrobj as deprecated
-  ipadm_addrprop: property=deprecated value=on addrobj=e1000g0/v6
+  community.network.ipadm_addrprop: property=deprecated value=on addrobj=e1000g0/v6
 
 - name: Set network prefix length for addrobj
-  ipadm_addrprop: addrobj=bge0/v4 name=prefixlen value=26
+  community.network.ipadm_addrprop: addrobj=bge0/v4 name=prefixlen value=26
 '''
 
 RETURN = '''

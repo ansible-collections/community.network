@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_eth_trunk
@@ -80,7 +76,7 @@ options:
         choices: ['present','absent']
 '''
 EXAMPLES = '''
-- name: eth_trunk module test
+- name: Eth_trunk module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -94,7 +90,7 @@ EXAMPLES = '''
 
   tasks:
   - name: Ensure Eth-Trunk100 is created, add two members, and set to mode lacp-static
-    ce_eth_trunk:
+    community.network.ce_eth_trunk:
       trunk_id: 100
       members: ['10GE1/0/24','10GE1/0/25']
       mode: 'lacp-static'

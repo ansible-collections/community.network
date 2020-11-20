@@ -8,11 +8,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: netscaler_gslb_service
@@ -237,7 +232,7 @@ EXAMPLES = '''
   register: result
   check_mode: "{{ check_mode }}"
 
-  netscaler_gslb_service:
+  community.network.netscaler_gslb_service:
     operation: present
 
     servicename: gslb-service-2

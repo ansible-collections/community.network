@@ -7,10 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: aruba_config
@@ -175,24 +171,24 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure top level configuration
-  aruba_config:
+- name: Configure top level configuration
+  community.network.aruba_config:
     lines: hostname {{ inventory_hostname }}
 
-- name: diff the running-config against a provided config
-  aruba_config:
+- name: Diff the running-config against a provided config
+  community.network.aruba_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
-- name: configure interface settings
-  aruba_config:
+- name: Configure interface settings
+  community.network.aruba_config:
     lines:
       - description test interface
       - ip access-group 1 in
     parents: interface gigabitethernet 0/0/0
 
-- name: load new acl into device
-  aruba_config:
+- name: Load new acl into device
+  community.network.aruba_config:
     lines:
       - permit host 10.10.10.10
       - ipv6 permit host fda9:97d6:32a3:3e59::3333
@@ -200,8 +196,8 @@ EXAMPLES = """
     before: no ip access-list standard 1
     match: exact
 
-- name: configurable backup path
-  aruba_config:
+- name: Configurable backup path
+  community.network.aruba_config:
     backup: yes
     lines: hostname {{ inventory_hostname }}
     backup_options:

@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_snmp_traps
@@ -80,20 +76,20 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config SNMP trap all enable"
-    ce_snmp_traps:
+    community.network.ce_snmp_traps:
       state: present
       feature_name: all
       provider: "{{ cli }}"
 
   - name: "Config SNMP trap interface"
-    ce_snmp_traps:
+    community.network.ce_snmp_traps:
       state: present
       interface_type: 40GE
       interface_number: 2/0/1
       provider: "{{ cli }}"
 
   - name: "Config SNMP trap port"
-    ce_snmp_traps:
+    community.network.ce_snmp_traps:
       state: present
       port_number: 2222
       provider: "{{ cli }}"

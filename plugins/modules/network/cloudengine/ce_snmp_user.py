@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_snmp_user
@@ -84,7 +80,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config SNMP usm user"
-    ce_snmp_user:
+    community.network.ce_snmp_user:
       state: present
       usm_user_name: wdz_snmp
       remote_engine_id: 800007DB03389222111200
@@ -93,7 +89,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Undo SNMP usm user"
-    ce_snmp_user:
+    community.network.ce_snmp_user:
       state: absent
       usm_user_name: wdz_snmp
       remote_engine_id: 800007DB03389222111200
@@ -102,7 +98,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Config SNMP local user"
-    ce_snmp_user:
+    community.network.ce_snmp_user:
       state: present
       aaa_local_user: wdz_user
       auth_protocol: md5
@@ -112,7 +108,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Config SNMP local user"
-    ce_snmp_user:
+    community.network.ce_snmp_user:
       state: absent
       aaa_local_user: wdz_user
       auth_protocol: md5

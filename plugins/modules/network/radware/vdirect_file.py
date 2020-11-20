@@ -21,10 +21,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 module: vdirect_file
 author: Evgeny Fedoruk @ Radware LTD (@evgenyfedoruk)
@@ -94,8 +90,8 @@ requirements:
 '''
 
 EXAMPLES = '''
-- name: vdirect_file
-  vdirect_file:
+- name: Upload a new or updates an existing runnable file
+  community.network.vdirect_file:
       vdirect_ip: 10.10.10.10
       vdirect_user: vDirect
       vdirect_password: radware

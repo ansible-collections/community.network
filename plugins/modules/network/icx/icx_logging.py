@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: icx_logging
@@ -104,34 +99,34 @@ options:
 
 EXAMPLES = """
 - name: Configure host logging.
-  icx_logging:
+  community.network.icx_logging:
     dest: host
     name: 172.16.0.1
     udp_port: 5555
 - name: Remove host logging configuration.
-  icx_logging:
+  community.network.icx_logging:
     dest: host
     name: 172.16.0.1
     udp_port: 5555
     state: absent
 - name: Disables the real-time display of syslog messages.
-  icx_logging:
+  community.network.icx_logging:
     dest: console
     state: absent
 - name: Enables local syslog logging.
-  icx_logging:
+  community.network.icx_logging:
     dest : on
     state: present
-- name: configure buffer level.
-  icx_logging:
+- name: Configure buffer level
+  community.network.icx_logging:
     dest: buffered
     level: critical
 - name: Configure logging using aggregate
-  icx_logging:
+  community.network.icx_logging:
     aggregate:
       - { dest: buffered, level: ['notifications','errors'] }
-- name: remove logging using aggregate
-  icx_logging:
+- name: Remove logging using aggregate
+  community.network.icx_logging:
     aggregate:
       - { dest: console }
       - { dest: host, name: 172.16.0.1, udp_port: 5555 }

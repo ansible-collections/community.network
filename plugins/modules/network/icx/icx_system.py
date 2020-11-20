@@ -6,10 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: icx_system
@@ -106,16 +102,16 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure hostname and domain name
-  icx_system:
+- name: Configure hostname and domain name
+  community.network.icx_system:
     hostname: icx
     domain_search:
       - ansible.com
       - redhat.com
       - ruckus.com
 
-- name: configure radius server of type auth-port
-  icx_system:
+- name: Configure radius server of type auth-port
+  community.network.icx_system:
     aaa_servers:
       - type: radius
         hostname: radius-server
@@ -128,8 +124,8 @@ EXAMPLES = """
           - dot1x
           - mac-auth
 
-- name: configure tacacs server
-  icx_system:
+- name: Configure tacacs server
+  community.network.icx_system:
     aaa_servers:
       - type: tacacs
         hostname: tacacs-server
@@ -139,8 +135,8 @@ EXAMPLES = """
         acct_type: accounting-only
         auth_key: xyz
 
-- name: configure name servers
-  icx_system:
+- name: Configure name servers
+  community.network.icx_system:
     name_servers:
       - 8.8.8.8
       - 8.8.4.4

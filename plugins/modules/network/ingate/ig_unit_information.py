@@ -8,12 +8,6 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {
-    'status': ['preview'],
-    'supported_by': 'community',
-    'metadata_version': '1.1'
-}
-
 DOCUMENTATION = '''
 ---
 module: ig_unit_information
@@ -29,7 +23,7 @@ author:
 
 EXAMPLES = '''
 - name: Get unit information
-  ig_unit_information:
+  community.network.ig_unit_information:
     client:
       version: v1
       scheme: http

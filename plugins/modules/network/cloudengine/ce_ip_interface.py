@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_ip_interface
@@ -71,7 +67,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: ip_interface module test
+- name: Ip_interface module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -85,7 +81,7 @@ EXAMPLES = '''
 
   tasks:
   - name: Ensure ipv4 address is configured on 10GE1/0/22
-    ce_ip_interface:
+    community.network.ce_ip_interface:
       interface: 10GE1/0/22
       version: v4
       state: present
@@ -94,7 +90,7 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Ensure ipv4 secondary address is configured on 10GE1/0/22
-    ce_ip_interface:
+    community.network.ce_ip_interface:
       interface: 10GE1/0/22
       version: v4
       state: present
@@ -104,14 +100,14 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Ensure ipv6 is enabled on 10GE1/0/22
-    ce_ip_interface:
+    community.network.ce_ip_interface:
       interface: 10GE1/0/22
       version: v6
       state: present
       provider: '{{ cli }}'
 
   - name: Ensure ipv6 address is configured on 10GE1/0/22
-    ce_ip_interface:
+    community.network.ce_ip_interface:
       interface: 10GE1/0/22
       version: v6
       state: present

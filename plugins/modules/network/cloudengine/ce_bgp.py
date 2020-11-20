@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_bgp
@@ -169,21 +165,21 @@ EXAMPLES = '''
   tasks:
 
   - name: "Enable BGP"
-    ce_bgp:
+    community.network.ce_bgp:
       state: present
       as_number: 100
       confed_id_number: 250
       provider: "{{ cli }}"
 
   - name: "Disable BGP"
-    ce_bgp:
+    community.network.ce_bgp:
       state: absent
       as_number: 100
       confed_id_number: 250
       provider: "{{ cli }}"
 
   - name: "Create confederation peer AS num"
-    ce_bgp:
+    community.network.ce_bgp:
       state: present
       confed_peer_as_num: 260
       provider: "{{ cli }}"

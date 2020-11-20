@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_snmp_community
@@ -44,20 +39,20 @@ options:
 
 EXAMPLES = """
 - name: Create snmp community
-  pn_snmp_community:
+  community.network.pn_snmp_community:
     pn_cliswitch: "sw01"
     state: "present"
     pn_community_string: "foo"
     pn_community_type: "read-write"
 
 - name: Delete snmp community
-  pn_snmp_community:
+  community.network.pn_snmp_community:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_community_string: "foo"
 
 - name: Modify snmp community
-  pn_snmp_community:
+  community.network.pn_snmp_community:
     pn_cliswitch: "sw01"
     state: "update"
     pn_community_string: "foo"

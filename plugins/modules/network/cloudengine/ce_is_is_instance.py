@@ -8,13 +8,10 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = r'''
 ---
 module: ce_is_is_instance
+version_added: '0.2.0'
 author: xuxiaowei0512 (@CloudEngine-Ansible)
 short_description: Manages isis process id configuration on HUAWEI CloudEngine devices.
 description:
@@ -42,28 +39,28 @@ options:
 
 EXAMPLES = r'''
   - name: Set isis process
-    ce_is_is_instance:
+    community.network.ce_is_is_instance:
       instance_id: 3
       state: present
 
   - name: Unset isis process
-    ce_is_is_instance:
+    community.network.ce_is_is_instance:
       instance_id: 3
       state: absent
 
-  - name: check isis process
-    ce_is_is_instance:
+  - name: Check isis process
+    community.network.ce_is_is_instance:
       instance_id: 4294967296
       state: present
 
   - name: Set vpn name
-    ce_is_is_instance:
+    community.network.ce_is_is_instance:
       instance_id: 22
       vpn_name: vpn1
       state: present
 
-  - name: check vpn name
-    ce_is_is_instance:
+  - name: Check vpn name
+    community.network.ce_is_is_instance:
       instance_id: 22
       vpn_name: vpn1234567896321452212221556asdasdasdasdsadvdv
       state: present

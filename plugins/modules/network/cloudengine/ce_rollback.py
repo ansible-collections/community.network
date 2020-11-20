@@ -18,10 +18,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_rollback
@@ -65,7 +61,7 @@ options:
         choices: ['rollback','clear','set','display','commit']
 '''
 EXAMPLES = '''
-- name: rollback module test
+- name: Rollback module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -81,7 +77,7 @@ EXAMPLES = '''
 
 - name: Ensure commit_id is exist, and specifies the label of the configuration rollback point to
         which system configurations are expected to roll back.
-  ce_rollback:
+  community.network.ce_rollback:
     commit_id: 1000000748
     action: rollback
     provider: "{{ cli }}"

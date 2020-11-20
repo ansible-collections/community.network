@@ -7,11 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: ironware_command
@@ -67,11 +62,13 @@ options:
 '''
 
 EXAMPLES = """
-- ironware_command:
+- name: Run a command
+  community.network.ironware_command:
     commands:
       - show version
 
-- ironware_command:
+- name: Run several commands
+  community.network.ironware_command:
     commands:
       - show interfaces brief wide
       - show mpls vll

@@ -11,10 +11,8 @@
 #
 """
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -50,7 +48,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
   - name: Patch GSLB Service to add a new member and group
-    avi_gslbservice_patch_member:
+    community.network.avi_gslbservice_patch_member:
       controller: "{{ controller }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -67,7 +65,7 @@ EXAMPLES = '''
                 type: V4
               ratio: 3
   - name: Patch GSLB Service to delete an existing member
-    avi_gslbservice_patch_member:
+    community.network.avi_gslbservice_patch_member:
       controller: "{{ controller }}"
       username: "{{ username }}"
       password: "{{ password }}"
@@ -84,7 +82,7 @@ EXAMPLES = '''
                 type: V4
               ratio: 3
   - name: Update priority of GSLB Service Pool
-    avi_gslbservice_patch_member:
+    community.network.avi_gslbservice_patch_member:
       controller: ""
       username: ""
       password: ""

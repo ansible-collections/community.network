@@ -18,6 +18,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 ---
+author: Unknown (!UNKNOWN)
 cliconf: cnos
 short_description: Use cnos cliconf to run command on Lenovo CNOS platform
 description:

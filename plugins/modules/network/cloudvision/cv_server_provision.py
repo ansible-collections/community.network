@@ -19,10 +19,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: cv_server_provision
@@ -120,7 +116,7 @@ requirements: [Jinja2, cvprac >= 0.7.0]
 
 EXAMPLES = '''
 - name: Get current configuration for interface Ethernet2
-  cv_server_provision:
+  community.network.cv_server_provision:
     host: cvp_node
     username: cvp_user
     password: cvp_pass
@@ -132,7 +128,7 @@ EXAMPLES = '''
     action: show
 
 - name: Remove existing configuration from interface Ethernet2. Run task.
-  cv_server_provision:
+  community.network.cv_server_provision:
     host: cvp_node
     username: cvp_user
     password: cvp_pass
@@ -145,7 +141,7 @@ EXAMPLES = '''
     auto_run: True
 
 - name: Add template configuration to interface Ethernet2. No VLAN. Run task.
-  cv_server_provision:
+  community.network.cv_server_provision:
     host: cvp_node
     username: cvp_user
     password: cvp_pass
@@ -158,7 +154,7 @@ EXAMPLES = '''
     auto_run: True
 
 - name: Add template with VLAN configuration to interface Ethernet2. Run task.
-  cv_server_provision:
+  community.network.cv_server_provision:
     host: cvp_node
     username: cvp_user
     password: cvp_pass

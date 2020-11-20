@@ -18,10 +18,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -29,7 +27,7 @@ module: pn_ospf
 author: "Pluribus Networks (@amitsi)"
 short_description: CLI command to add/remove ospf protocol to a vRouter.
 deprecated:
-  removed_in: '2.12'
+  removed_in: 2.0.0  # was Ansible 2.12
   why: Doesn't support latest Pluribus Networks netvisor
   alternative: Latest modules will be pushed in Ansible future versions.
 description:
@@ -72,14 +70,14 @@ options:
 
 EXAMPLES = """
 - name: "Add OSPF to vrouter"
-  pn_ospf:
+  community.network.pn_ospf:
     state: present
     pn_vrouter_name: name-string
     pn_network_ip: 192.168.11.2/24
     pn_ospf_area: 1.0.0.0
 
 - name: "Remove OSPF from vrouter"
-  pn_ospf:
+  community.network.pn_ospf:
     state: absent
     pn_vrouter_name: name-string
 """

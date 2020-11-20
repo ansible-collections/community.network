@@ -20,6 +20,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 DOCUMENTATION = '''
 ---
 module: panos_commit
@@ -35,7 +38,7 @@ requirements:
     - pan-python
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 options:
     ip_address:
@@ -82,8 +85,8 @@ options:
 '''
 
 EXAMPLES = '''
-# Commit candidate config on 192.168.1.1 in sync mode
-- panos_commit:
+- name: Commit candidate config on 192.168.1.1 in sync mode
+  community.network.panos_commit:
     ip_address: "192.168.1.1"
     username: "admin"
     password: "admin"
@@ -116,11 +119,6 @@ panos_commit:
             type: str
             sample: success
 '''
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
 
 from ansible.module_utils.basic import AnsibleModule, env_fallback
 import xml.etree.ElementTree as etree

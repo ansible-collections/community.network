@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_snmp_trap_sink
@@ -53,16 +48,16 @@ options:
 '''
 
 EXAMPLES = """
-- name: snmp trap sink functionality
-  pn_snmp_trap_sink:
+- name: Snmp trap sink functionality
+  community.network.pn_snmp_trap_sink:
     pn_cliswitch: "sw01"
     state: "present"
     pn_community: "foo"
     pn_type: "TRAP_TYPE_V2_INFORM"
     pn_dest_host: "192.168.67.8"
 
-- name: snmp trap sink functionality
-  pn_snmp_trap_sink:
+- name: Snmp trap sink functionality
+  community.network.pn_snmp_trap_sink:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_community: "foo"

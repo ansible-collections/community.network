@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_vflow_table_profile
@@ -52,7 +47,7 @@ options:
 
 EXAMPLES = """
 - name: Modify vflow table profile
-  pn_vflow_table_profile:
+  community.network.pn_vflow_table_profile:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_profile: 'ipv6'
@@ -60,7 +55,7 @@ EXAMPLES = """
     pn_enable: true
 
 - name: Modify vflow table profile
-  pn_vflow_table_profile:
+  community.network.pn_vflow_table_profile:
     state: 'update'
     pn_profile: 'qos'
     pn_hw_tbl: 'switch-main'

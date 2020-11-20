@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_mtu
@@ -75,26 +71,26 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config jumboframe on 40GE1/0/22"
-    ce_mtu:
+    community.network.ce_mtu:
       interface: 40GE1/0/22
       jumbo_max: 9000
       jumbo_min: 8000
       provider: "{{ cli }}"
 
   - name: "Config mtu on 40GE1/0/22 (routed interface)"
-    ce_mtu:
+    community.network.ce_mtu:
       interface: 40GE1/0/22
       mtu: 1600
       provider: "{{ cli }}"
 
   - name: "Config mtu on 40GE1/0/23 (switched interface)"
-    ce_mtu:
+    community.network.ce_mtu:
       interface: 40GE1/0/22
       mtu: 9216
       provider: "{{ cli }}"
 
   - name: "Config mtu and jumboframe on 40GE1/0/22 (routed interface)"
-    ce_mtu:
+    community.network.ce_mtu:
       interface: 40GE1/0/22
       mtu: 1601
       jumbo_max: 9001
@@ -102,7 +98,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Unconfigure mtu and jumboframe on a given interface"
-    ce_mtu:
+    community.network.ce_mtu:
       state: absent
       interface: 40GE1/0/22
       provider: "{{ cli }}"

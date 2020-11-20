@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_snmp_vacm
@@ -56,22 +51,22 @@ options:
 '''
 
 EXAMPLES = """
-- name: create snmp vacm
-  pn_snmp_vacm:
+- name: Create snmp vacm
+  community.network.pn_snmp_vacm:
     pn_cliswitch: "sw01"
     state: "present"
     pn_user_name: "foo"
     pn_user_type: "rouser"
 
-- name: update snmp vacm
-  pn_snmp_vacm:
+- name: Update snmp vacm
+  community.network.pn_snmp_vacm:
     pn_cliswitch: "sw01"
     state: "update"
     pn_user_name: "foo"
     pn_user_type: "rwuser"
 
-- name: delete snmp vacm
-  pn_snmp_vacm:
+- name: Delete snmp vacm
+  community.network.pn_snmp_vacm:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_user_name: "foo"

@@ -6,10 +6,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_file_copy
@@ -68,7 +64,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Copy a local file to remote device"
-    ce_file_copy:
+    community.network.ce_file_copy:
       local_file: /usr/vrpcfg.cfg
       remote_file: /vrpcfg.cfg
       file_system: 'flash:'

@@ -5,11 +5,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_prefix_list_network
@@ -49,16 +44,16 @@ options:
 '''
 
 EXAMPLES = """
-- name: prefix list network add
-  pn_prefix_list_network:
+- name: Prefix list network add
+  community.network.pn_prefix_list_network:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_network: "172.16.3.1"
     pn_netmask: "24"
     state: "present"
 
-- name: prefix list network remove
-  pn_prefix_list_network:
+- name: Prefix list network remove
+  community.network.pn_prefix_list_network:
     pn_cliswitch: "sw01"
     state: "absent"
     pn_name: "foo"

@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_admin_service
@@ -89,16 +84,16 @@ options:
 '''
 
 EXAMPLES = """
-- name: admin service functionality
-  pn_admin_service:
+- name: Admin service functionality
+  community.network.pn_admin_service:
     pn_cliswitch: "sw01"
     state: "update"
     pn__if: "mgmt"
     pn_web: False
     pn_icmp: True
 
-- name: admin service functionality
-  pn_admin_service:
+- name: Admin service functionality
+  community.network.pn_admin_service:
     pn_cliswitch: "sw01"
     state: "update"
     pn_web: False

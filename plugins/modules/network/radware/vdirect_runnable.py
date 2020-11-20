@@ -22,10 +22,6 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 module: vdirect_runnable
 author: Evgeny Fedoruk @ Radware LTD (@evgenyfedoruk)
@@ -107,8 +103,8 @@ requirements:
 '''
 
 EXAMPLES = '''
-- name: vdirect_runnable
-  vdirect_runnable:
+- name: Run the module from Ansible playbook
+  community.network.vdirect_runnable:
       vdirect_ip: 10.10.10.10
       vdirect_user: vDirect
       vdirect_password: radware

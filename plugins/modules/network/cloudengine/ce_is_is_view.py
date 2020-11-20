@@ -8,13 +8,10 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_is_is_view
+version_added: '0.2.0'
 author: xuxiaowei0512 (@CloudEngine-Ansible)
 short_description: Manages isis view configuration on HUAWEI CloudEngine devices.
 description:
@@ -248,36 +245,36 @@ notes:
 
 EXAMPLES = '''
   - name: Set isis description
-    ce_is_is_view:
+    community.network.ce_is_is_view:
       instance_id: 3
       description: abcdeggfs
       state: present
 
   - name: Set isis islevel
-    ce_is_is_view:
+    community.network.ce_is_is_view:
       instance_id: 3
       islevel: level_1
       state: present
   - name: Set isis coststyle
-    ce_is_is_view:
+    community.network.ce_is_is_view:
       instance_id: 3
       coststyle: narrow
       state: present
 
   - name: Set isis stdlevel1cost
-    ce_is_is_view:
+    community.network.ce_is_is_view:
       instance_id: 3
       stdlevel1cost: 63
       state: present
 
-  - name: set isis stdlevel2cost
-    ce_is_is_view:
+  - name: Set isis stdlevel2cost
+    community.network.ce_is_is_view:
       instance_id: 3
       stdlevel2cost: 63
       state: present
 
-  - name: set isis stdbandwidth
-    ce_is_is_view:
+  - name: Set isis stdbandwidth
+    community.network.ce_is_is_view:
       instance_id: 3
       stdbandwidth: 1
       state: present

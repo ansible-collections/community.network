@@ -29,15 +29,10 @@ The module file for exos_vlans
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {
-    'metadata_version': '1.1',
-    'status': ['preview'],
-    'supported_by': 'community'
-}
-
 DOCUMENTATION = '''
 ---
 module: exos_vlans
+version_added: '0.2.0'
 short_description:  Manage VLANs on Extreme Networks EXOS devices.
 description: This module provides declarative management of VLANs on Extreme Networks EXOS network devices.
 author: Jayalakshmi Viswanathan (@jayalakshmiV)
@@ -128,7 +123,7 @@ EXAMPLES = """
 # }
 
 - name: Delete attributes of given VLANs
-  exos_vlans:
+  community.network.exos_vlans:
     config:
       - vlan_id: 10
       - vlan_id: 20
@@ -233,7 +228,7 @@ EXAMPLES = """
 # }
 
 - name: Merge provided configuration with device configuration
-  exos_vlans:
+  community.network.exos_vlans:
     config:
       - name: vlan_10
         vlan_id: 10
@@ -425,7 +420,7 @@ EXAMPLES = """
 # }
 
 - name: Override device configuration of all VLANs with provided configuration
-  exos_vlans:
+  community.network.exos_vlans:
     config:
       - name: TEST_VLAN10
         vlan_id: 10
@@ -581,7 +576,7 @@ EXAMPLES = """
 # }
 
 - name: Replaces device configuration of listed VLANs with provided configuration
-  exos_vlans:
+  community.network.exos_vlans:
     config:
       - name: Test_VLAN20
         vlan_id: 20

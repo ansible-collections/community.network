@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_stp_port
@@ -68,7 +63,7 @@ options:
 
 EXAMPLES = """
 - name: Modify stp port
-  pn_stp_port:
+  community.network.pn_stp_port:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "1"
@@ -76,14 +71,14 @@ EXAMPLES = """
     pn_priority: '144'
 
 - name: Modify stp port
-  pn_stp_port:
+  community.network.pn_stp_port:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "1"
     pn_cost: "200"
 
 - name: Modify stp port
-  pn_stp_port:
+  community.network.pn_stp_port:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "1"

@@ -20,11 +20,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: enos_config
@@ -151,24 +146,24 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure top level configuration
-  enos_config:
+- name: Configure top level configuration
+  community.network.enos_config:
     "lines: hostname {{ inventory_hostname }}"
 
-- name: configure interface settings
-  enos_config:
+- name: Configure interface settings
+  community.network.enos_config:
     lines:
       - enable
       - ip ospf enable
     parents: interface ip 13
 
-- name: load a config from disk and replace the current config
-  enos_config:
+- name: Load a config from disk and replace the current config
+  community.network.enos_config:
     src: config.cfg
     backup: yes
 
-- name: configurable backup path
-  enos_config:
+- name: Configurable backup path
+  community.network.enos_config:
     src: config.cfg
     backup: yes
     backup_options:

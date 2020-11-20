@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_ntp
@@ -83,7 +79,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Set NTP Server with parameters"
-    ce_ntp:
+    community.network.ce_ntp:
       server: 192.8.2.6
       vpn_name: js
       source_int: vlanif4001
@@ -92,7 +88,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Set NTP Peer with parameters"
-    ce_ntp:
+    community.network.ce_ntp:
       peer: 192.8.2.6
       vpn_name: js
       source_int: vlanif4001

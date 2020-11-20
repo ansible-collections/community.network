@@ -8,11 +8,6 @@ This module provides the token for Itential Automation Platform
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: iap_token
@@ -62,14 +57,14 @@ options:
 
 EXAMPLES = '''
 - name: Get token for the Itential Automation Platform
-  iap_token:
+  community.network.iap_token:
     iap_port: 3000
     iap_fqdn: localhost
     username: myusername
     password: mypass
   register: result
 
-- debug: var=result.token
+- ansible.builtin.debug: var=result.token
 '''
 
 RETURN = '''

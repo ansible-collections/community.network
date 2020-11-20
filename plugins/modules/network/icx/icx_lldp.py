@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: icx_lldp
@@ -51,15 +46,15 @@ options:
 
 EXAMPLES = """
 - name: Disable LLDP
-  icx_lldp:
+  community.network.icx_lldp:
     state: absent
 
 - name: Enable LLDP
-  icx_lldp:
+  community.network.icx_lldp:
     state: present
 
 - name: Disable LLDP on ports 1/1/1 - 1/1/10, 1/1/20
-  icx_lldp:
+  community.network.icx_lldp:
     interfaces:
      - name:
         - ethernet 1/1/1 to 1/1/10
@@ -68,7 +63,7 @@ EXAMPLES = """
     state: present
 
 - name: Enable LLDP on ports 1/1/5 - 1/1/10
-  icx_lldp:
+  community.network.icx_lldp:
     interfaces:
       - name:
         - ethernet 1/1/1 to 1/1/10

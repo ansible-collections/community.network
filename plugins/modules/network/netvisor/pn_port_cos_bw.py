@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_port_cos_bw
@@ -59,16 +54,16 @@ options:
 '''
 
 EXAMPLES = """
-- name: port cos bw modify
-  pn_port_cos_bw:
+- name: Port cos bw modify
+  community.network.pn_port_cos_bw:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "1"
     pn_cos: "0"
     pn_min_bw_guarantee: "60"
 
-- name: port cos bw modify
-  pn_port_cos_bw:
+- name: Port cos bw modify
+  community.network.pn_port_cos_bw:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "all"

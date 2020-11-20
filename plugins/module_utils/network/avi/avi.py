@@ -31,7 +31,8 @@
 # are imported. Added import of absolute_import to avoid import collisions for
 # avi.sdk.
 
-from __future__ import absolute_import
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
 
 from ansible_collections.community.network.plugins.module_utils.network.avi.ansible_utils import (
     avi_ansible_api, avi_common_argument_spec, ansible_return,

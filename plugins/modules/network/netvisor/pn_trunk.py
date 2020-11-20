@@ -18,10 +18,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -29,7 +27,7 @@ module: pn_trunk
 author: "Pluribus Networks (@amitsi)"
 short_description: CLI command to create/delete/modify a trunk.
 deprecated:
-  removed_in: '2.12'
+  removed_in: 2.0.0  # was Ansible 2.12
   why: Doesn't support latest Pluribus Networks netvisor
   alternative: Latest modules will be pushed in Ansible future versions.
 description:
@@ -141,14 +139,14 @@ options:
 '''
 
 EXAMPLES = """
-- name: create trunk
-  pn_trunk:
+- name: Create trunk
+  community.network.pn_trunk:
     state: 'present'
     pn_name: 'spine-to-leaf'
     pn_ports: '11,12,13,14'
 
-- name: delete trunk
-  pn_trunk:
+- name: Delete trunk
+  community.network.pn_trunk:
     state: 'absent'
     pn_name: 'spine-to-leaf'
 """

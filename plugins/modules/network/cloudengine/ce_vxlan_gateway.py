@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_vxlan_gateway
@@ -111,7 +107,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: vxlan gateway module test
+- name: Vxlan gateway module test
   hosts: ce128
   connection: local
   gather_facts: no
@@ -126,21 +122,21 @@ EXAMPLES = '''
   tasks:
 
   - name: Configuring Centralized All-Active Gateways for the VXLAN Network
-    ce_vxlan_gateway:
+    community.network.ce_vxlan_gateway:
       dfs_id: 1
       dfs_source_ip: 6.6.6.6
       dfs_all_active: enable
       dfs_peer_ip: 7.7.7.7
       provider: "{{ cli }}"
   - name: Bind the VPN instance to a Layer 3 gateway, enable distributed gateway, and configure host route advertisement.
-    ce_vxlan_gateway:
+    community.network.ce_vxlan_gateway:
       vbdif_name: Vbdif100
       vbdif_bind_vpn: vpn1
       arp_distribute_gateway: enable
       arp_direct_route: enable
       provider: "{{ cli }}"
   - name: Assign a VNI to a VPN instance.
-    ce_vxlan_gateway:
+    community.network.ce_vxlan_gateway:
       vpn_instance: vpn1
       vpn_vni: 100
       provider: "{{ cli }}"

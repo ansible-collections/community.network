@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_bgp_neighbor
@@ -209,7 +205,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config bgp peer"
-    ce_bgp_neighbor:
+    community.network.ce_bgp_neighbor:
       state: present
       vrf_name: js
       peer_addr: 192.168.10.10
@@ -217,7 +213,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Config bgp route id"
-    ce_bgp_neighbor:
+    community.network.ce_bgp_neighbor:
       state: absent
       vrf_name: js
       peer_addr: 192.168.10.10

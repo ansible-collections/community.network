@@ -5,11 +5,6 @@
 
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: voss_config
@@ -174,34 +169,34 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure system name
-  voss_config:
+- name: Configure system name
+  community.network.voss_config:
     lines: prompt "{{ inventory_hostname }}"
 
-- name: configure interface settings
-  voss_config:
+- name: Configure interface settings
+  community.network.voss_config:
     lines:
       - name "ServerA"
     backup: yes
     parents: interface GigabitEthernet 1/1
 
-- name: check the running-config against master config
-  voss_config:
+- name: Check the running-config against master config
+  community.network.voss_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
-- name: check the startup-config against the running-config
-  voss_config:
+- name: Check the startup-config against the running-config
+  community.network.voss_config:
     diff_against: startup
     diff_ignore_lines:
       - qos queue-profile .*
 
-- name: save running to startup when modified
-  voss_config:
+- name: Save running to startup when modified
+  community.network.voss_config:
     save_when: modified
 
-- name: configurable backup path
-  voss_config:
+- name: Configurable backup path
+  community.network.voss_config:
     backup: yes
     backup_options:
       filename: backup.cfg

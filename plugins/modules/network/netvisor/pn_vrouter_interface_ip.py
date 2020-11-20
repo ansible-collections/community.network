@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_vrouter_interface_ip
@@ -66,7 +61,7 @@ options:
 
 EXAMPLES = """
 - name: Add vrouter interface to nic
-  pn_vrouter_interface_ip:
+  community.network.pn_vrouter_interface_ip:
     state: "present"
     pn_cliswitch: "sw01"
     pn_vrouter_name: "foo-vrouter"
@@ -75,7 +70,7 @@ EXAMPLES = """
     pn_nic: "eth0.4092"
 
 - name: Remove vrouter interface to nic
-  pn_vrouter_interface_ip:
+  community.network.pn_vrouter_interface_ip:
     state: "absent"
     pn_cliswitch: "sw01"
     pn_vrouter_name: "foo-vrouter"

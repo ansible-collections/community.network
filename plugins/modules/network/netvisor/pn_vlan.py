@@ -18,10 +18,8 @@
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -29,7 +27,7 @@ module: pn_vlan
 author: "Pluribus Networks (@amitsi)"
 short_description: CLI command to create/delete a VLAN.
 deprecated:
-  removed_in: '2.12'
+  removed_in: 2.0.0  # was Ansible 2.12
   why: Doesn't support latest Pluribus Networks netvisor
   alternative: Latest modules will be pushed in Ansible future versions.
 description:
@@ -87,14 +85,14 @@ options:
 '''
 
 EXAMPLES = """
-- name: create a VLAN
-  pn_vlan:
+- name: Create a VLAN
+  community.network.pn_vlan:
     state: 'present'
     pn_vlanid: 1854
     pn_scope: fabric
 
-- name: delete VLANs
-  pn_vlan:
+- name: Delete VLANs
+  community.network.pn_vlan:
     state: 'absent'
     pn_vlanid: 1854
 """

@@ -28,15 +28,10 @@ The module file for exos_lldp_interfaces
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {
-    'metadata_version': '1.1',
-    'status': ['preview'],
-    'supported_by': 'community'
-}
-
 DOCUMENTATION = '''
 ---
 module: exos_lldp_interfaces
+version_added: '0.2.0'
 short_description: Manage link layer discovery protocol (LLDP) attributes of interfaces on EXOS platforms.
 description:
   - This module manages link layer discovery protocol (LLDP) attributes of interfaces on Extreme Networks EXOS platforms.
@@ -114,7 +109,7 @@ EXAMPLES = """
 # }
 
 - name: Merge provided configuration with device configuration
-  exos_lldp_interfaces:
+  community.network.exos_lldp_interfaces:
     config:
       - name: '2'
         enabled: false
@@ -264,7 +259,7 @@ EXAMPLES = """
 # }
 
 - name: Replaces device configuration of listed lldp_interfaces with provided configuration
-  exos_lldp_interfaces:
+  community.network.exos_lldp_interfaces:
     config:
       - name: '1'
         enabled: false
@@ -402,7 +397,7 @@ EXAMPLES = """
 # }
 
 - name: Delete lldp interface configuration (this will not delete other lldp configuration)
-  exos_lldp_interfaces:
+  community.network.exos_lldp_interfaces:
     config:
       - name: '1'
       - name: '3'
@@ -529,7 +524,7 @@ EXAMPLES = """
 # }
 
 - name: Override device configuration of all lldp_interfaces with provided configuration
-  exos_lldp_interfaces:
+  community.network.exos_lldp_interfaces:
     config:
       - name: '3'
         enabled: true

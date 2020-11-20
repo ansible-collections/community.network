@@ -13,6 +13,14 @@ else
     base_branch=""
 fi
 
+if [ "${group}" == "extra" ]; then
+    # we need git checkout until 0.2.0 has been released; then we can install from galaxy
+    git clone https://github.com/ansible-collections/community.internal_test_tools.git ../internal_test_tools
+
+    ../internal_test_tools/tools/run.py --color
+    exit
+fi
+
 case "${group}" in
     1) options=(--skip-test pylint --skip-test ansible-doc --skip-test validate-modules) ;;
     2) options=(                   --test      ansible-doc                             ) ;;
@@ -35,5 +43,4 @@ fi
 # shellcheck disable=SC2086
 ansible-test sanity --color -v --junit ${COVERAGE:+"$COVERAGE"} ${CHANGED:+"$CHANGED"} \
     --docker --base-branch "${base_branch}" \
-    --exclude shippable.yml --exclude tests/utils/ \
     "${options[@]}" --allow-disabled

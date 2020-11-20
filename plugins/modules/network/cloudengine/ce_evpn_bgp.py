@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_evpn_bgp
@@ -73,7 +69,7 @@ options:
         choices: ['present','absent']
 '''
 EXAMPLES = '''
-- name: evpn bgp module test
+- name: Evpn bgp module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -88,7 +84,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Enable peer address.
-    ce_evpn_bgp:
+    community.network.ce_evpn_bgp:
       bgp_instance: 100
       peer_address: 1.1.1.1
       as_number: 100
@@ -96,14 +92,14 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: Enable peer group arp.
-    ce_evpn_bgp:
+    community.network.ce_evpn_bgp:
       bgp_instance: 100
       peer_group_name: aaa
       advertise_router_type: arp
       provider: "{{ cli }}"
 
   - name: Enable advertise l2vpn evpn.
-    ce_evpn_bgp:
+    community.network.ce_evpn_bgp:
       bgp_instance: 100
       vpn_name: aaa
       advertise_l2vpn_evpn: enable

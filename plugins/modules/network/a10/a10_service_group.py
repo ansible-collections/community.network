@@ -10,11 +10,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: a10_service_group
@@ -84,8 +79,8 @@ options:
 '''
 
 EXAMPLES = '''
-# Create a new service-group
-- a10_service_group:
+- name: Create a new service-group
+  community.network.a10_service_group:
     host: a10.mydomain.com
     username: myadmin
     password: mypassword
@@ -101,7 +96,6 @@ EXAMPLES = '''
       - server: foo4.mydomain.com
         port: 8080
         status: disabled
-
 '''
 
 RETURN = '''

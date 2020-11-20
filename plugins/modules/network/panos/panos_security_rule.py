@@ -7,11 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: panos_security_rule
@@ -27,7 +22,7 @@ requirements:
     - xmltodict can be obtained from PyPI U(https://pypi.org/project/xmltodict/)
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 notes:
     - Checkmode is not supported.
@@ -160,8 +155,8 @@ options:
 '''
 
 EXAMPLES = '''
-- name: add an SSH inbound rule to devicegroup
-  panos_security_rule:
+- name: Add an SSH inbound rule to devicegroup
+  community.network.panos_security_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -181,8 +176,8 @@ EXAMPLES = '''
     action: 'allow'
     devicegroup: 'Cloud Edge'
 
-- name: add a rule to allow HTTP multimedia only from CDNs
-  panos_security_rule:
+- name: Add a rule to allow HTTP multimedia only from CDNs
+  community.network.panos_security_rule:
     ip_address: '10.5.172.91'
     username: 'admin'
     password: 'paloalto'
@@ -200,8 +195,8 @@ EXAMPLES = '''
     hip_profiles: ['any']
     action: 'allow'
 
-- name: add a more complex rule that uses security profiles
-  panos_security_rule:
+- name: Add a more complex rule that uses security profiles
+  community.network.panos_security_rule:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
@@ -216,22 +211,22 @@ EXAMPLES = '''
     url_filtering: 'default'
     wildfire_analysis: 'default'
 
-- name: delete a devicegroup security rule
-  panos_security_rule:
+- name: Delete a devicegroup security rule
+  community.network.panos_security_rule:
     ip_address: '{{ ip_address }}'
     api_key: '{{ api_key }}'
     operation: 'delete'
     rule_name: 'Allow telnet'
     devicegroup: 'DC Firewalls'
 
-- name: find a specific security rule
-  panos_security_rule:
+- name: Find a specific security rule
+  community.network.panos_security_rule:
     ip_address: '{{ ip_address }}'
     password: '{{ password }}'
     operation: 'find'
     rule_name: 'Allow RDP to DCs'
   register: result
-- debug: msg='{{result.stdout_lines}}'
+- ansible.builtin.debug: msg='{{result.stdout_lines}}'
 
 '''
 

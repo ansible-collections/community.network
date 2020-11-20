@@ -19,10 +19,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_secprof_ssl_ssh
@@ -669,12 +665,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_ssl_ssh:
+    community.network.fmgr_secprof_ssl_ssh:
       name: Ansible_SSL_SSH_Profile
       mode: delete
 
   - name: CREATE Profile
-    fmgr_secprof_ssl_ssh:
+    community.network.fmgr_secprof_ssl_ssh:
       name: Ansible_SSL_SSH_Profile
       comment: "Created by Ansible Module TEST"
       mode: set

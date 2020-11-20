@@ -19,9 +19,8 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -34,7 +33,7 @@ requirements:
     - pandevice can be obtained from PyPI U(https://pypi.org/project/pandevice/)
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 notes:
     - Checkmode is NOT supported.
@@ -63,15 +62,15 @@ options:
 '''
 
 EXAMPLES = '''
-- name: show list of all interfaces
-  panos_op:
+- name: Show list of all interfaces
+  community.network.panos_op:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'
     cmd: 'show interfaces all'
 
-- name: show system info
-  panos_op:
+- name: Show system info
+  community.network.panos_op:
     ip_address: '{{ ip_address }}'
     username: '{{ username }}'
     password: '{{ password }}'

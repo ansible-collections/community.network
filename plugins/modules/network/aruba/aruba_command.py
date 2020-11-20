@@ -7,10 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: aruba_command
@@ -22,7 +18,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(aruba_config) to configure Aruba devices.
+    Please use M(community.network.aruba_config) to configure Aruba devices.
 extends_documentation_fragment:
 - community.network.aruba
 
@@ -71,23 +67,23 @@ options:
 
 EXAMPLES = """
 tasks:
-  - name: run show version on remote devices
-    aruba_command:
+  - name: Run show version on remote devices
+    community.network.aruba_command:
       commands: show version
 
-  - name: run show version and check to see if output contains Aruba
-    aruba_command:
+  - name: Run show version and check to see if output contains Aruba
+    community.network.aruba_command:
       commands: show version
       wait_for: result[0] contains Aruba
 
-  - name: run multiple commands on remote nodes
-    aruba_command:
+  - name: Run multiple commands on remote nodes
+    community.network.aruba_command:
       commands:
         - show version
         - show interfaces
 
-  - name: run multiple commands and evaluate the output
-    aruba_command:
+  - name: Run multiple commands and evaluate the output
+    community.network.aruba_command:
       commands:
         - show version
         - show interfaces

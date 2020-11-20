@@ -7,11 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: edgeswitch_facts
@@ -32,19 +27,19 @@ options:
         to a given subset.  Possible values for this argument include
         all, config, and interfaces.  Can specify a list of
         values to include a larger subset.  Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     required: false
     default: '!config'
 '''
 
 EXAMPLES = """
-# Collect all facts from the device
-- edgeswitch_facts:
+- name: Collect all facts from the device
+  community.network.edgeswitch_facts:
     gather_subset: all
 
-# Collect only the config and default facts
-- edgeswitch_facts:
+- name: Collect only the running config and default facts
+  community.network.edgeswitch_facts:
     gather_subset:
       - config
 
@@ -75,6 +70,12 @@ ansible_net_hostname:
   type: str
 
 # config
+ansible_net_startupconfig:
+  description: The startup config from the device
+  returned: when config is configured
+  type: str
+  version_added: 1.2.0
+
 ansible_net_config:
   description: The current active config from the device
   returned: when config is configured
@@ -154,6 +155,17 @@ class Config(FactsBase):
             self.facts['config'] = data
 
 
+class StartupConfig(FactsBase):
+
+    COMMANDS = ['show startup-config']
+
+    def populate(self):
+        super(StartupConfig, self).populate()
+        data = self.responses[0]
+        if data:
+            self.facts['startupconfig'] = data
+
+
 class Interfaces(FactsBase):
 
     COMMANDS = [
@@ -198,6 +210,7 @@ class Interfaces(FactsBase):
 FACT_SUBSETS = dict(
     default=Default,
     config=Config,
+    startupconfig=StartupConfig,
     interfaces=Interfaces,
 )
 

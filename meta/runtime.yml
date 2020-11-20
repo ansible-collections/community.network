@@ -1,0 +1,360 @@
+requires_ansible: '>=2.9.10'
+plugin_routing:
+  modules:
+    pn_cluster:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_ospf:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_ospfarea:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_show:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_trunk:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vlag:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vlan:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vrouter:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vrouterbgp:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vrouterif:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vrouterlbif:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_admin:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_admpwd:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_cert_gen_ssh:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_check:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_commit:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_dag:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_dag_tags:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_import:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_interface:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_lic:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_loadcfg:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_match_rule:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_mgtconfig:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_nat_rule:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_object:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_op:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_pg:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_query_rules:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_restart:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_sag:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_security_rule:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_set:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    onyx_aaa:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_aaa module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_aaa
+    onyx_bfd:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_bfd module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_bfd
+    onyx_bgp:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_bgp module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_bgp
+    onyx_buffer_pool:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_buffer_pool module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_buffer_pool
+    onyx_command:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_command module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_command
+    onyx_config:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_config module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_config
+    onyx_facts:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_facts module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_facts
+    onyx_igmp:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_igmp module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_igmp
+    onyx_igmp_interface:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_igmp_interface module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_igmp_interface
+    onyx_igmp_vlan:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_igmp_vlan module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_igmp_vlan
+    onyx_interface:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_interface module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_interface
+    onyx_l2_interface:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_l2_interface module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_l2_interface
+    onyx_l3_interface:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_l3_interface module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_l3_interface
+    onyx_linkagg:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_linkagg module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_linkagg
+    onyx_lldp:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_lldp module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_lldp
+    onyx_lldp_interface:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_lldp_interface module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_lldp_interface
+    onyx_magp:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_magp module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_magp
+    onyx_mlag_ipl:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_mlag_ipl module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_mlag_ipl
+    onyx_mlag_vip:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_mlag_vip module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_mlag_vip
+    onyx_ntp:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_ntp module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_ntp
+    onyx_ntp_servers_peers:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_ntp_servers_peers module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_ntp_servers_peers
+    onyx_ospf:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_ospf module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_ospf
+    onyx_pfc_interface:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_pfc_interface module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_pfc_interface
+    onyx_protocol:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_protocol module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_protocol
+    onyx_ptp_global:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_ptp_global module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_ptp_global
+    onyx_ptp_interface:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_ptp_interface module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_ptp_interface
+    onyx_qos:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_qos module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_qos
+    onyx_snmp:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_snmp module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_snmp
+    onyx_snmp_hosts:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_snmp_hosts module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_snmp_hosts
+    onyx_snmp_users:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_snmp_users module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_snmp_users
+    onyx_syslog_files:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_syslog_files module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_syslog_files
+    onyx_syslog_remote:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_syslog_remote module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_syslog_remote
+    onyx_traffic_class:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_traffic_class module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_traffic_class
+    onyx_username:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_username module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_username
+    onyx_vlan:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_vlan module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_vlan
+    onyx_vxlan:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_vxlan module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_vxlan
+    onyx_wjh:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_wjh module has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_wjh
+  cliconf:
+    onyx:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx cliconf plugin has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx
+  terminal:
+    onyx:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx terminal plugin has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx
+  module_utils:
+    network.onyx:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx module_utils plugin has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.network.onyx
+    network.onyx.onyx:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx module_utils plugin has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.network.onyx.onyx
+  action:
+    onyx_config:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx_config action plugin has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx_config
+  doc_fragments:
+    onyx:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: The onyx doc_fragments plugin has been moved to the mellanox.onyx collection
+      redirect: mellanox.onyx.onyx
+  netconf:
+    sros:
+      deprecation:
+        removal_version: 3.0.0
+        warning_text: see plugin documentation for details

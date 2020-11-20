@@ -115,7 +115,7 @@ class ConnectionHelper(object):
                 module.params['port'],
             )
             msg = 'Classic provider params are deprecated; use "provider" instead'
-            module.deprecate(msg, '2.12')
+            module.deprecate(msg, version='2.0.0', collection_name='community.network')  # was Ansible 2.12
         else:
             module.fail_json(msg='Provider params are required.')
 

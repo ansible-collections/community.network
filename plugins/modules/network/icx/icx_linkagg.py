@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: icx_linkagg
@@ -95,25 +90,25 @@ options:
 '''
 
 EXAMPLES = """
-- name: create static link aggregation group
-  icx_linkagg:
+- name: Create static link aggregation group
+  community.network.icx_linkagg:
     group: 10
     mode: static
     name: LAG1
 
-- name: create link aggregation group with auto id
-  icx_linkagg:
+- name: Create link aggregation group with auto id
+  community.network.icx_linkagg:
     group: auto
     mode: dynamic
     name: LAG2
 
-- name: delete link aggregation group
-  icx_linkagg:
+- name: Delete link aggregation group
+  community.network.icx_linkagg:
     group: 10
     state: absent
 
 - name: Set members to LAG
-  icx_linkagg:
+  community.network.icx_linkagg:
     group: 200
     mode: static
     members:
@@ -121,7 +116,7 @@ EXAMPLES = """
       - ethernet 1/1/10
 
 - name: Remove links other then LAG id 100 and 3 using purge
-  icx_linkagg:
+  community.network.icx_linkagg:
     aggregate:
       - { group: 3}
       - { group: 100}

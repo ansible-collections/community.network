@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_vrouter_ospf
@@ -56,14 +51,14 @@ options:
 
 EXAMPLES = """
 - name: Add OSPF to vRouter
-  pn_vrouter_ospf:
+  community.network.pn_vrouter_ospf:
     state: 'present'
     pn_vrouter_name: 'sw01-vrouter'
     pn_network: '105.104.104.1'
     pn_netmask: '24'
     pn_ospf_area: '0'
 - name: "Remove OSPF to vRouter"
-  pn_vrouter_ospf:
+  community.network.pn_vrouter_ospf:
     state: 'absent'
     pn_vrouter_name: 'sw01-vrouter'
     pn_network: '105.104.104.1'

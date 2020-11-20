@@ -4,11 +4,6 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 from __future__ import (absolute_import, division, print_function)
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: slxos_config
@@ -179,19 +174,19 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure top level configuration
-  slxos_config:
+- name: Configure top level configuration
+  community.network.slxos_config:
     lines: hostname {{ inventory_hostname }}
 
-- name: configure interface settings
-  slxos_config:
+- name: Configure interface settings
+  community.network.slxos_config:
     lines:
       - description test interface
       - ip address 172.31.1.1/24
     parents: interface Ethernet 0/1
 
-- name: configure multiple interfaces
-  slxos_config:
+- name: Configure multiple interfaces
+  community.network.slxos_config:
     lines:
       - lacp timeout long
     parents: "{{ item }}"
@@ -199,8 +194,8 @@ EXAMPLES = """
     - interface Ethernet 0/1
     - interface Ethernet 0/2
 
-- name: load new acl into device
-  slxos_config:
+- name: Load new acl into device
+  community.network.slxos_config:
     lines:
       - seq 10 permit ip host 1.1.1.1 any log
       - seq 20 permit ip host 2.2.2.2 any log
@@ -211,23 +206,23 @@ EXAMPLES = """
     before: no ip access-list extended test
     match: exact
 
-- name: check the running-config against master config
-  slxos_config:
+- name: Check the running-config against master config
+  community.network.slxos_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
-- name: check the startup-config against the running-config
-  slxos_config:
+- name: Check the startup-config against the running-config
+  community.network.slxos_config:
     diff_against: startup
     diff_ignore_lines:
       - ntp clock .*
 
-- name: save running to startup when modified
-  slxos_config:
+- name: Save running to startup when modified
+  community.network.slxos_config:
     save_when: modified
 
-- name: configurable backup path
-  slxos_config:
+- name: Configurable backup path
+  community.network.slxos_config:
     lines: hostname {{ inventory_hostname }}
     backup: yes
     backup_options:

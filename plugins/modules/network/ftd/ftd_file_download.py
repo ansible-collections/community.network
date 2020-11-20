@@ -22,10 +22,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ftd_file_download
@@ -56,7 +52,7 @@ options:
 
 EXAMPLES = """
 - name: Download pending changes
-  ftd_file_download:
+  community.network.ftd_file_download:
     operation: 'getdownload'
     path_params:
       objId: 'default'

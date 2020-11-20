@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: icx_interface
@@ -221,65 +216,65 @@ options:
 '''
 
 EXAMPLES = """
-- name: enable ethernet port and set name
-  icx_interface:
+- name: Enable ethernet port and set name
+  community.network.icx_interface:
     name: ethernet 1/1/1
     description: interface-1
     stp: true
     enabled: true
 
-- name: disable ethernet port 1/1/1
-  icx_interface:
+- name: Disable ethernet port 1/1/1
+  community.network.icx_interface:
       name: ethernet 1/1/1
       enabled: false
 
-- name: enable ethernet port range, set name and speed.
-  icx_interface:
+- name: Enable ethernet port range, set name and speed
+  community.network.icx_interface:
       name: ethernet 1/1/1 to 1/1/10
       description: interface-1
       speed: 100-full
       enabled: true
 
-- name: enable poe. Set class.
-  icx_interface:
+- name: Enable poe. Set class
+  community.network.icx_interface:
       name: ethernet 1/1/1
       power:
        by_class: 2
 
-- name: configure poe limit of interface
-  icx_interface:
+- name: Configure poe limit of interface
+  community.network.icx_interface:
       name: ethernet 1/1/1
       power:
        limit: 10000
 
-- name: disable poe of interface
-  icx_interface:
+- name: Disable poe of interface
+  community.network.icx_interface:
       name: ethernet 1/1/1
       power:
        enabled: false
 
-- name: set lag name for a range of lags
-  icx_interface:
+- name: Set lag name for a range of lags
+  community.network.icx_interface:
       name: lag 1 to 10
       description: test lags
 
 - name: Disable lag
-  icx_interface:
+  community.network.icx_interface:
       name: lag 1
       enabled: false
 
-- name: enable management interface
-  icx_interface:
+- name: Enable management interface
+  community.network.icx_interface:
       name: management 1
       enabled: true
 
-- name: enable loopback interface
-  icx_interface:
+- name: Enable loopback interface
+  community.network.icx_interface:
       name: loopback 10
       enabled: true
 
 - name: Add interface using aggregate
-  icx_interface:
+  community.network.icx_interface:
       aggregate:
       - { name: ethernet 1/1/1, description: test-interface-1, power: { by_class: 2 } }
       - { name: ethernet 1/1/3, description: test-interface-3}
@@ -287,14 +282,14 @@ EXAMPLES = """
       enabled: true
 
 - name: Check tx_rate, rx_rate intent arguments
-  icx_interface:
+  community.network.icx_interface:
     name: ethernet 1/1/10
     state: up
     tx_rate: ge(0)
     rx_rate: le(0)
 
 - name: Check neighbors intent arguments
-  icx_interface:
+  community.network.icx_interface:
     name: ethernet 1/1/10
     neighbors:
     - port: 1/1/5

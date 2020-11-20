@@ -20,7 +20,7 @@ requirements:
     - pandevice can be obtained from PyPI U(https://pypi.org/project/pandevice/)
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 notes:
     - Checkmode is not supported.
@@ -134,7 +134,7 @@ options:
 EXAMPLES = '''
 # Create a source and destination nat rule
   - name: Create NAT SSH rule for 10.0.1.101
-    panos_nat_rule:
+    community.network.panos_nat_rule:
       ip_address: '{{ ip_address }}'
       username: '{{ username }}'
       password: '{{ password }}'
@@ -153,10 +153,6 @@ EXAMPLES = '''
 RETURN = '''
 # Default return values
 '''
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
 
 # import pydevd
 # pydevd.settrace('localhost', port=60374, stdoutToServer=True, stderrToServer=True)

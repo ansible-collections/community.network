@@ -22,10 +22,6 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 ---
 module: ig_config
@@ -122,67 +118,67 @@ EXAMPLES = '''
   tasks:
 
   - name: Load factory defaults
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       factory: true
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Revert to last known applied configuration
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       revert: true
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Change the unit name
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       modify: true
       table: misc.unitname
       columns:
         unitname: "Test Ansible"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Add a DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       add: true
       table: misc.dns_servers
       columns:
         server: 192.168.1.21
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Add a DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       add: true
       table: misc.dns_servers
       columns:
         server: 192.168.1.22
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Add a DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       add: true
       table: misc.dns_servers
       columns:
         server: 192.168.1.23
     register: last_dns
-  - debug:
+  - ansible.builtin.debug:
       var: last_dns
 
   - name: Modify the last added DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       modify: true
       table: misc.dns_servers
@@ -190,73 +186,73 @@ EXAMPLES = '''
       columns:
         server: 192.168.1.24
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Return the last added DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       get: true
       table: misc.dns_servers
       rowid: "{{ last_dns['add'][0]['id'] }}"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Remove last added DNS server
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       delete: true
       table: misc.dns_servers
       rowid: "{{ last_dns['add'][0]['id'] }}"
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Return the all rows from table misc.dns_servers
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       get: true
       table: misc.dns_servers
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Remove remaining DNS servers
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       delete: true
       table: misc.dns_servers
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Get rowid for interface eth0
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       return_rowid: true
       table: network.local_nets
       columns:
         interface: eth0
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Store the preliminary configuration
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       store: true
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 
   - name: Do backup of the configuration database
-    ig_config:
+    community.network.ig_config:
       client: "{{ client_rw }}"
       download: true
       store_download: true
     register: result
-  - debug:
+  - ansible.builtin.debug:
       var: result
 '''
 

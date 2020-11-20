@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_acl_interface
@@ -77,7 +73,7 @@ EXAMPLES = '''
   tasks:
 
   - name: "Apply acl to interface"
-    ce_acl_interface:
+    community.network.ce_acl_interface:
       state: present
       acl_name: 2000
       interface: 40GE1/0/1
@@ -85,7 +81,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Undo acl from interface"
-    ce_acl_interface:
+    community.network.ce_acl_interface:
       state: absent
       acl_name: 2000
       interface: 40GE1/0/1

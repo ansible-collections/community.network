@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_info_center_trap
@@ -94,21 +90,21 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config trap buffer"
-    ce_info_center_trap:
+    community.network.ce_info_center_trap:
       state: present
       trap_buff_enable: true
       trap_buff_size: 768
       provider: "{{ cli }}"
 
   - name: "Undo trap buffer"
-    ce_info_center_trap:
+    community.network.ce_info_center_trap:
       state: absent
       trap_buff_enable: true
       trap_buff_size: 768
       provider: "{{ cli }}"
 
   - name: "Config trap module log level"
-    ce_info_center_trap:
+    community.network.ce_info_center_trap:
       state: present
       module_name: aaa
       channel_id: 1
@@ -117,7 +113,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Undo trap module log level"
-    ce_info_center_trap:
+    community.network.ce_info_center_trap:
       state: absent
       module_name: aaa
       channel_id: 1

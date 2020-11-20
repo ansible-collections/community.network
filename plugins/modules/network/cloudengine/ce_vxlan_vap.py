@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_vxlan_vap
@@ -71,7 +67,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: vxlan vap module test
+- name: Vxlan vap module test
   hosts: ce128
   connection: local
   gather_facts: no
@@ -86,19 +82,19 @@ EXAMPLES = '''
   tasks:
 
   - name: Create a mapping between a VLAN and a BD
-    ce_vxlan_vap:
+    community.network.ce_vxlan_vap:
       bridge_domain_id: 100
       bind_vlan_id: 99
       provider: "{{ cli }}"
 
   - name: Bind a Layer 2 sub-interface to a BD
-    ce_vxlan_vap:
+    community.network.ce_vxlan_vap:
       bridge_domain_id: 100
       l2_sub_interface: 10GE2/0/20.1
       provider: "{{ cli }}"
 
   - name: Configure an encapsulation type on a Layer 2 sub-interface
-    ce_vxlan_vap:
+    community.network.ce_vxlan_vap:
       l2_sub_interface: 10GE2/0/20.1
       encapsulation: dot1q
       provider: "{{ cli }}"

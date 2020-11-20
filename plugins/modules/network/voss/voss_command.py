@@ -20,11 +20,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = """
 ---
 module: voss_command
@@ -36,7 +31,7 @@ description:
     argument that will cause the module to wait for a specific condition
     before returning or timing out if the condition is not met.
   - This module does not support running commands in configuration mode.
-    Please use M(voss_config) to configure VOSS devices.
+    Please use M(community.network.voss_config) to configure VOSS devices.
 notes:
   - Tested against VOSS 7.0.0
 options:
@@ -86,23 +81,23 @@ options:
 
 EXAMPLES = r"""
 tasks:
-  - name: run show sys software on remote devices
-    voss_command:
+  - name: Run show sys software on remote devices
+    community.network.voss_command:
       commands: show sys software
 
-  - name: run show sys software and check to see if output contains VOSS
-    voss_command:
+  - name: Run show sys software and check to see if output contains VOSS
+    community.network.voss_command:
       commands: show sys software
       wait_for: result[0] contains VOSS
 
-  - name: run multiple commands on remote nodes
-    voss_command:
+  - name: Run multiple commands on remote nodes
+    community.network.voss_command:
       commands:
         - show sys software
         - show interfaces vlan
 
-  - name: run multiple commands and evaluate the output
-    voss_command:
+  - name: Run multiple commands and evaluate the output
+    community.network.voss_command:
       commands:
         - show sys software
         - show interfaces vlan
@@ -110,8 +105,8 @@ tasks:
         - result[0] contains Version
         - result[1] contains Basic
 
-  - name: run command that requires answering a prompt
-    voss_command:
+  - name: Run command that requires answering a prompt
+    community.network.voss_command:
       commands:
         - command: 'reset'
           prompt: 'Are you sure you want to reset the switch? (y/n)'

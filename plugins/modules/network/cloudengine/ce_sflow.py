@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_sflow
@@ -115,6 +111,7 @@ options:
             - Specifies the rate of sFlow packets sent from a card to the control plane.
               The value is an integer that ranges from 100 to 1500, in pps.
         type: str
+        version_added: '0.2.0'
     rate_limit_slot:
         description:
             - Specifies the slot where the rate of output sFlow packets is limited.
@@ -122,6 +119,7 @@ options:
               all cards to the control plane is limited.
               The value is an integer or a string of characters.
         type: str
+        version_added: '0.2.0'
     forward_enp_slot:
         description:
             - Enable the Embedded Network Processor (ENP) chip function.
@@ -131,6 +129,7 @@ options:
               the switch automatically restores it to 65535.
               The value is an integer or 'all'.
         type: str
+        version_added: '0.2.0'
     state:
         description:
             - Determines whether the config should be present or not
@@ -142,7 +141,7 @@ options:
 EXAMPLES = '''
 ---
 
-- name: sflow module test
+- name: Sflow module test
   hosts: ce128
   connection: local
   gather_facts: no
@@ -156,12 +155,12 @@ EXAMPLES = '''
 
   tasks:
   - name: Configuring sFlow Agent
-    ce_sflow:
+    community.network.ce_sflow:
       agent_ip: 6.6.6.6
       provider: '{{ cli }}'
 
   - name: Configuring sFlow Collector
-    ce_sflow:
+    community.network.ce_sflow:
       collector_id: 1
       collector_ip: 7.7.7.7
       collector_ip_vpn: vpn1
@@ -169,14 +168,14 @@ EXAMPLES = '''
       provider: '{{ cli }}'
 
   - name: Configure flow sampling.
-    ce_sflow:
+    community.network.ce_sflow:
       sflow_interface: 10GE2/0/2
       sample_collector: 1
       sample_direction: inbound
       provider: '{{ cli }}'
 
   - name: Configure counter sampling.
-    ce_sflow:
+    community.network.ce_sflow:
       sflow_interface: 10GE2/0/2
       counter_collector: 1
       counter_interval: 1000
@@ -1135,9 +1134,12 @@ def main():
         source_ip=dict(required=False, type='str'),
         export_route=dict(required=False, type='str',
                           choices=['enable', 'disable']),
-        rate_limit=dict(required=False, removed_in_version=2.13, type='str'),
-        rate_limit_slot=dict(required=False, removed_in_version=2.13, type='str'),
-        forward_enp_slot=dict(required=False, removed_in_version=2.13, type='str'),
+        rate_limit=dict(required=False, removed_in_version='3.0.0',  # was Ansible 2.13
+                        removed_from_collection='community.network', type='str'),
+        rate_limit_slot=dict(required=False, removed_in_version='3.0.0',  # was Ansible 2.13
+                             removed_from_collection='community.network', type='str'),
+        forward_enp_slot=dict(required=False, removed_in_version='3.0.0',  # was Ansible 2.13
+                              removed_from_collection='community.network', type='str'),
         collector_id=dict(required=False, type='str', choices=['1', '2']),
         collector_ip=dict(required=False, type='str'),
         collector_ip_vpn=dict(required=False, type='str'),

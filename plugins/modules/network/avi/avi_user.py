@@ -26,10 +26,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: avi_user
@@ -107,8 +103,8 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-  - name: user creation
-    avi_user:
+  - name: User creation
+    community.network.avi_user:
       controller: ""
       username: ""
       password: ""
@@ -125,8 +121,8 @@ EXAMPLES = '''
       is_superuser: true
       default_tenant_ref: "/api/tenant?name=admin"
 
-  - name: user creation
-    avi_user:
+  - name: User creation
+    community.network.avi_user:
       controller: ""
       username: ""
       password: ""

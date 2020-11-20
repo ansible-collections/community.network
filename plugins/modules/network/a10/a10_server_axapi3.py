@@ -9,11 +9,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: a10_server_axapi3
@@ -68,8 +63,8 @@ RETURN = '''
 '''
 
 EXAMPLES = '''
-# Create a new server
-- a10_server:
+- name: Create a new server
+  a10_server:
     host: a10.mydomain.com
     username: myadmin
     password: mypassword
@@ -85,8 +80,8 @@ EXAMPLES = '''
         action: enable
       - port-number: 8443
         protocol: TCP
-
 '''
+
 import json
 
 from ansible_collections.community.network.plugins.module_utils.network.a10.a10 import axapi_call_v3, a10_argument_spec, axapi_authenticate_v3, axapi_failure

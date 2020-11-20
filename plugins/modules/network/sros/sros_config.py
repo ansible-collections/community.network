@@ -7,11 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'certified'}
-
-
 DOCUMENTATION = '''
 ---
 module: sros_config
@@ -157,19 +152,19 @@ vars:
     transport: cli
 
 ---
-- name: enable rollback location
-  sros_config:
+- name: Enable rollback location
+  community.network.sros_config:
     lines: configure system rollback rollback-location "cf3:/ansible"
     provider: "{{ cli }}"
 
-- name: set system name to {{ inventory_hostname }} using one line
-  sros_config:
+- name: Set system name to {{ inventory_hostname }} using one line
+  community.network.sros_config:
     lines:
         - configure system name "{{ inventory_hostname }}"
     provider: "{{ cli }}"
 
-- name: set system name to {{ inventory_hostname }} using parents
-  sros_config:
+- name: Set system name to {{ inventory_hostname }} using parents
+  community.network.sros_config:
     lines:
         - 'name "{{ inventory_hostname }}"'
     parents:
@@ -178,22 +173,22 @@ vars:
     provider: "{{ cli }}"
     backup: yes
 
-- name: load config from file
-  sros_config:
+- name: Load config from file
+  community.network.sros_config:
       src: "{{ inventory_hostname }}.cfg"
       provider: "{{ cli }}"
       save: yes
 
-- name: invalid use of lines
-  sros_config:
+- name: Invalid use of lines
+  community.network.sros_config:
     lines:
       - service
       -     vpls 1000 customer foo 1 create
       -         description "invalid lines example"
     provider: "{{ cli }}"
 
-- name: valid use of lines
-  sros_config:
+- name: Valid use of lines
+  community.network.sros_config:
     lines:
       - description "invalid lines example"
     parents:
@@ -201,8 +196,8 @@ vars:
       - vpls 1000 customer foo 1 create
     provider: "{{ cli }}"
 
-- name: configurable backup path
-  sros_config:
+- name: Configurable backup path
+  community.network.sros_config:
     backup: yes
     backup_options:
       filename: backup.cfg

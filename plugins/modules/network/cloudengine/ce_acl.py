@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_acl
@@ -124,19 +120,19 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config ACL"
-    ce_acl:
+    community.network.ce_acl:
       state: present
       acl_name: 2200
       provider: "{{ cli }}"
 
   - name: "Undo ACL"
-    ce_acl:
+    community.network.ce_acl:
       state: delete_acl
       acl_name: 2200
       provider: "{{ cli }}"
 
   - name: "Config ACL base rule"
-    ce_acl:
+    community.network.ce_acl:
       state: present
       acl_name: 2200
       rule_name: test_rule
@@ -149,7 +145,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "undo ACL base rule"
-    ce_acl:
+    community.network.ce_acl:
       state: absent
       acl_name: 2200
       rule_name: test_rule

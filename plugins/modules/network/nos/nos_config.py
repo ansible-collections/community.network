@@ -4,11 +4,6 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 from __future__ import (absolute_import, division, print_function)
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: nos_config
@@ -154,20 +149,20 @@ options:
 '''
 
 EXAMPLES = """
-- name: configure top level configuration
-  nos_config:
+- name: Configure top level configuration
+  community.network.nos_config:
     lines: logging raslog console INFO
 
-- name: configure interface settings
-  nos_config:
+- name: Configure interface settings
+  community.network.nos_config:
     lines:
       - description test interface
       - ip address 172.31.1.1/24
     parents:
       - interface TenGigabitEthernet 104/0/1
 
-- name: configure multiple interfaces
-  nos_config:
+- name: Configure multiple interfaces
+  community.network.nos_config:
     lines:
       - lacp timeout long
     parents: "{{ item }}"
@@ -175,8 +170,8 @@ EXAMPLES = """
     - interface TenGigabitEthernet 104/0/1
     - interface TenGigabitEthernet 104/0/2
 
-- name: load new acl into device
-  nos_config:
+- name: Load new acl into device
+  community.network.nos_config:
     lines:
       - seq 10 permit ip host 1.1.1.1 any log
       - seq 20 permit ip host 2.2.2.2 any log
@@ -187,13 +182,13 @@ EXAMPLES = """
     before: no ip access-list extended test
     match: exact
 
-- name: check the running-config against master config
-  nos_config:
+- name: Check the running-config against master config
+  community.network.nos_config:
     diff_against: intended
     intended_config: "{{ lookup('file', 'master.cfg') }}"
 
-- name: configurable backup path
-  nos_config:
+- name: Configurable backup path
+  community.network.nos_config:
     lines: logging raslog console INFO
     backup: yes
     backup_options:

@@ -23,10 +23,6 @@ __metaclass__ = type
 # Module to work on management of local users on Lenovo CNOS Switches
 # Lenovo Networking
 #
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: cnos_user
@@ -97,20 +93,20 @@ options:
 '''
 
 EXAMPLES = """
-- name: create a new user
-  cnos_user:
+- name: Create a new user
+  community.network.cnos_user:
     name: ansible
     sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
     state: present
 
-- name: remove all users except admin
-  cnos_user:
+- name: Remove all users except admin
+  community.network.cnos_user:
     purge: yes
 
-- name: set multiple users role
+- name: Set multiple users role
   aggregate:
-    - name: netop
-    - name: netend
+    - name: Netop
+    - name: Netend
   role: network-operator
   state: present
 """

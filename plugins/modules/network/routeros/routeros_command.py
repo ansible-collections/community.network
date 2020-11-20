@@ -5,11 +5,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: routeros_command
@@ -64,23 +59,23 @@ options:
 
 EXAMPLES = """
 tasks:
-  - name: run command on remote devices
-    routeros_command:
+  - name: Run command on remote devices
+    community.network.routeros_command:
       commands: /system routerboard print
 
-  - name: run command and check to see if output contains routeros
-    routeros_command:
+  - name: Run command and check to see if output contains routeros
+    community.network.routeros_command:
       commands: /system resource print
       wait_for: result[0] contains MikroTik
 
-  - name: run multiple commands on remote nodes
-    routeros_command:
+  - name: Run multiple commands on remote nodes
+    community.network.routeros_command:
       commands:
         - /system routerboard print
         - /system identity print
 
-  - name: run multiple commands and evaluate the output
-    routeros_command:
+  - name: Run multiple commands and evaluate the output
+    community.network.routeros_command:
       commands:
         - /system routerboard print
         - /interface ethernet print

@@ -19,10 +19,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_fwobj_ippool
@@ -218,7 +214,7 @@ options:
 
 EXAMPLES = '''
 - name: ADD FMGR_FIREWALL_IPPOOL Overload
-  fmgr_fwobj_ippool:
+  community.network.fmgr_fwobj_ippool:
     mode: "add"
     adom: "ansible"
     name: "Ansible_pool4_overload"
@@ -231,7 +227,7 @@ EXAMPLES = '''
     arp_reply: "enable"
 
 - name: ADD FMGR_FIREWALL_IPPOOL one-to-one
-  fmgr_fwobj_ippool:
+  community.network.fmgr_fwobj_ippool:
     mode: "add"
     adom: "ansible"
     name: "Ansible_pool4_121"
@@ -244,7 +240,7 @@ EXAMPLES = '''
     arp_reply: "enable"
 
 - name: ADD FMGR_FIREWALL_IPPOOL FIXED PORT RANGE
-  fmgr_fwobj_ippool:
+  community.network.fmgr_fwobj_ippool:
     mode: "add"
     adom: "ansible"
     name: "Ansible_pool4_fixed_port"
@@ -260,7 +256,7 @@ EXAMPLES = '''
     source_endip: "192.168.20.20"
 
 - name: ADD FMGR_FIREWALL_IPPOOL PORT BLOCK ALLOCATION
-  fmgr_fwobj_ippool:
+  community.network.fmgr_fwobj_ippool:
     mode: "add"
     adom: "ansible"
     name: "Ansible_pool4_port_block_allocation"

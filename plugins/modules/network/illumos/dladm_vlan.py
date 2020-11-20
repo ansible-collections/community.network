@@ -8,11 +8,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: dladm_vlan
@@ -52,10 +47,10 @@ options:
 
 EXAMPLES = '''
 - name: Create 'vlan42' VLAN over 'bnx0' link
-  dladm_vlan: name=vlan42 link=bnx0 vlan_id=42 state=present
+  community.network.dladm_vlan: name=vlan42 link=bnx0 vlan_id=42 state=present
 
 - name: Remove 'vlan1337' VLAN interface
-  dladm_vlan: name=vlan1337 state=absent
+  community.network.dladm_vlan: name=vlan1337 state=absent
 '''
 
 RETURN = '''

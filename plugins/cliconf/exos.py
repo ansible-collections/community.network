@@ -21,6 +21,7 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 ---
+author: Unknown (!UNKNOWN)
 cliconf: exos
 short_description: Use exos cliconf to run command on Extreme EXOS platform
 description:

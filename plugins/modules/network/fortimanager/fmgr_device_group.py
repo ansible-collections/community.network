@@ -19,12 +19,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {
-    "metadata_version": "1.1",
-    "status": ["preview"],
-    "supported_by": "community"
-}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_device_group
@@ -81,21 +75,21 @@ options:
 
 EXAMPLES = '''
 - name: CREATE DEVICE GROUP
-  fmgr_device_group:
+  community.network.fmgr_device_group:
     grp_name: "TestGroup"
     grp_desc: "CreatedbyAnsible"
     adom: "ansible"
     mode: "add"
 
 - name: CREATE DEVICE GROUP 2
-  fmgr_device_group:
+  community.network.fmgr_device_group:
     grp_name: "AnsibleGroup"
     grp_desc: "CreatedbyAnsible"
     adom: "ansible"
     mode: "add"
 
 - name: ADD DEVICES TO DEVICE GROUP
-  fmgr_device_group:
+  community.network.fmgr_device_group:
     mode: "add"
     grp_name: "TestGroup"
     grp_members: "FGT1,FGT2"
@@ -103,14 +97,14 @@ EXAMPLES = '''
     vdom: "root"
 
 - name: REMOVE DEVICES TO DEVICE GROUP
-  fmgr_device_group:
+  community.network.fmgr_device_group:
     mode: "delete"
     grp_name: "TestGroup"
     grp_members: "FGT1,FGT2"
     adom: "ansible"
 
 - name: DELETE DEVICE GROUP
-  fmgr_device_group:
+  community.network.fmgr_device_group:
     grp_name: "AnsibleGroup"
     grp_desc: "CreatedbyAnsible"
     mode: "delete"

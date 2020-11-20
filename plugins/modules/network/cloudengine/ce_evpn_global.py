@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_evpn_global
@@ -43,7 +39,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: evpn global module test
+- name: Evpn global module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -58,12 +54,12 @@ EXAMPLES = '''
   tasks:
 
   - name: Configure EVPN as the VXLAN control plan
-    ce_evpn_global:
+    community.network.ce_evpn_global:
       evpn_overlay_enable: enable
       provider: "{{ cli }}"
 
   - name: Undo EVPN as the VXLAN control plan
-    ce_evpn_global:
+    community.network.ce_evpn_global:
       evpn_overlay_enable: disable
       provider: "{{ cli }}"
 '''

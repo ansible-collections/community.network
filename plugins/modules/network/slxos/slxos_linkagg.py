@@ -20,10 +20,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: slxos_linkagg
@@ -60,33 +56,33 @@ options:
 '''
 
 EXAMPLES = """
-- name: create link aggregation group
-  slxos_linkagg:
+- name: Create link aggregation group
+  community.network.slxos_linkagg:
     group: 10
     state: present
 
-- name: delete link aggregation group
-  slxos_linkagg:
+- name: Delete link aggregation group
+  community.network.slxos_linkagg:
     group: 10
     state: absent
 
-- name: set link aggregation group to members
-  slxos_linkagg:
+- name: Set link aggregation group to members
+  community.network.slxos_linkagg:
     group: 200
     mode: active
     members:
       - Ethernet 0/1
       - Ethernet 0/2
 
-- name: remove link aggregation group from Ethernet 0/1
-  slxos_linkagg:
+- name: Remove link aggregation group from Ethernet 0/1
+  community.network.slxos_linkagg:
     group: 200
     mode: active
     members:
       - Ethernet 0/1
 
 - name: Create aggregate of linkagg definitions
-  slxos_linkagg:
+  community.network.slxos_linkagg:
     aggregate:
       - { group: 3, mode: on, members: [Ethernet 0/1] }
       - { group: 100, mode: passive, members: [Ethernet 0/2] }

@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_evpn_bgp_rr
@@ -83,13 +79,13 @@ EXAMPLES = '''
   tasks:
 
   - name: "Configure BGP-EVPN address family view and ensure that BGP view has existed."
-    ce_evpn_bgp_rr:
+    community.network.ce_evpn_bgp_rr:
       as_number: 20
       bgp_evpn_enable: enable
       provider: "{{ cli }}"
 
   - name: "Configure reflect client and ensure peer has existed."
-    ce_evpn_bgp_rr:
+    community.network.ce_evpn_bgp_rr:
       as_number: 20
       peer_type: ipv4_address
       peer: 192.8.3.3
@@ -97,13 +93,13 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Configure the VPN-Target filtering."
-    ce_evpn_bgp_rr:
+    community.network.ce_evpn_bgp_rr:
       as_number: 20
       policy_vpn_target: enable
       provider: "{{ cli }}"
 
   - name: "Configure an RR in BGP-EVPN address family view."
-    ce_evpn_bgp_rr:
+    community.network.ce_evpn_bgp_rr:
       as_number: 20
       bgp_evpn_enable: enable
       peer_type: ipv4_address

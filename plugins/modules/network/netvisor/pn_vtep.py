@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_vtep
@@ -65,8 +60,8 @@ options:
 '''
 
 EXAMPLES = """
-- name: create vtep
-  pn_vtep:
+- name: Create vtep
+  community.network.pn_vtep:
     pn_cliswitch: 'sw01'
     pn_name: 'foo'
     pn_vrouter_name: 'foo-vrouter'
@@ -74,8 +69,8 @@ EXAMPLES = """
     pn_location: 'sw01'
     pn_virtual_ip: "22.22.22.1"
 
-- name: delete vtep
-  pn_vtep:
+- name: Delete vtep
+  community.network.pn_vtep:
     pn_cliswitch: 'sw01'
     state: 'absent'
     pn_name: 'foo'

@@ -7,11 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: ordnance_config
@@ -130,21 +125,21 @@ vars:
     transport: cli
 
 ---
-- name: configure top level configuration
-  ordnance_config:
+- name: Configure top level configuration
+  community.network.ordnance_config:
     lines: hostname {{ inventory_hostname }}
     provider: "{{ cli }}"
 
-- name: configure interface settings
-  ordnance_config:
+- name: Configure interface settings
+  community.network.ordnance_config:
     lines:
       - description test interface
       - ip address 172.31.1.1 255.255.255.0
     parents: interface Ethernet1
     provider: "{{ cli }}"
 
-- name: configure bgp router
-  ordnance_config:
+- name: Configure bgp router
+  community.network.ordnance_config:
     lines:
       - neighbor 1.1.1.1 remote-as 1234
       - network 10.0.0.0/24

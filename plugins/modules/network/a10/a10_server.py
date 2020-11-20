@@ -10,11 +10,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: a10_server
@@ -71,8 +66,8 @@ options:
 '''
 
 EXAMPLES = '''
-# Create a new server
-- a10_server:
+- name: Create a new server
+  community.network.a10_server:
     host: a10.mydomain.com
     username: myadmin
     password: mypassword
@@ -84,7 +79,6 @@ EXAMPLES = '''
         protocol: tcp
       - port_num: 8443
         protocol: TCP
-
 '''
 
 RETURN = '''

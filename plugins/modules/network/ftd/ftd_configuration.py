@@ -22,10 +22,6 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ftd_configuration
@@ -66,7 +62,7 @@ options:
 
 EXAMPLES = """
 - name: Create a network object
-  ftd_configuration:
+  community.network.ftd_configuration:
     operation: "addNetworkObject"
     data:
       name: "Ansible-network-host"
@@ -79,7 +75,7 @@ EXAMPLES = """
     register_as: "hostNetwork"
 
 - name: Delete the network object
-  ftd_configuration:
+  community.network.ftd_configuration:
     operation: "deleteNetworkObject"
     path_params:
       objId: "{{ hostNetwork['id'] }}"

@@ -8,11 +8,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: netscaler_cs_policy
@@ -80,7 +75,7 @@ requirements:
 EXAMPLES = '''
 - name: Create url cs policy
   delegate_to: localhost
-  netscaler_cs_policy:
+  community.network.netscaler_cs_policy:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

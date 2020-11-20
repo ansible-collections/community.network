@@ -28,15 +28,10 @@ The module file for exos_l2_interfaces
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {
-    'metadata_version': '1.1',
-    'status': ['preview'],
-    'supported_by': 'community'
-}
-
 DOCUMENTATION = '''
 ---
 module: exos_l2_interfaces
+version_added: '0.2.0'
 short_description:  Manage L2 interfaces on Extreme Networks EXOS devices.
 description: This module provides declarative management of L2 interfaces on Extreme Networks EXOS network devices.
 author: Jayalakshmi Viswanathan (@jayalakshmiV)
@@ -144,7 +139,7 @@ EXAMPLES = """
 # }
 
 - name: Delete L2 interface configuration for the given arguments
-  exos_l2_interfaces:
+  community.network.exos_l2_interfaces:
     config:
       - name: '3'
     state: deleted
@@ -329,7 +324,7 @@ EXAMPLES = """
 # }
 
 - name: Delete L2 interface configuration for the given arguments
-  exos_l2_interfaces:
+  community.network.exos_l2_interfaces:
     state: deleted
 
 # Module Execution Results:
@@ -518,7 +513,7 @@ EXAMPLES = """
 # }
 
 - name: Merge provided configuration with device configuration
-  exos_l2_interfaces:
+  community.network.exos_l2_interfaces:
     config:
       - access:
           vlan: 10
@@ -731,7 +726,7 @@ EXAMPLES = """
 # }
 
 - name: Overrride device configuration of all L2 interfaces with provided configuration
-  exos_l2_interfaces:
+  community.network.exos_l2_interfaces:
     config:
       - access:
           vlan: 10
@@ -927,7 +922,7 @@ EXAMPLES = """
 # }
 
 - name: Replace device configuration of listed L2 interfaces with provided configuration
-  exos_l2_interfaces:
+  community.network.exos_l2_interfaces:
     config:
       - access:
           vlan: 20

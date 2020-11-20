@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 DOCUMENTATION = '''
 ---
 module: panos_check
@@ -31,7 +34,7 @@ requirements:
     - pan-python
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 options:
     timeout:
@@ -51,15 +54,15 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
 # single check on 192.168.1.1 with credentials admin/admin
-- name: check if ready
-  panos_check:
+- name: Check if ready
+  community.network.panos_check:
     ip_address: "192.168.1.1"
     password: "admin"
 
 # check for 10 times, every 30 seconds, if device 192.168.1.1
 # is ready, using credentials admin/admin
-- name: wait for reboot
-  panos_check:
+- name: Wait for reboot
+  community.network.panos_check:
     ip_address: "192.168.1.1"
     password: "admin"
   register: result
@@ -71,11 +74,6 @@ EXAMPLES = '''
 RETURN = '''
 # Default return values
 '''
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
-
 
 from ansible.module_utils.basic import AnsibleModule
 import time

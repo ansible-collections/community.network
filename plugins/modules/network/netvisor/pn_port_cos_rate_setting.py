@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_port_cos_rate_setting
@@ -80,8 +75,8 @@ options:
 '''
 
 EXAMPLES = """
-- name: port cos rate modify
-  pn_port_cos_rate_setting:
+- name: Port cos rate modify
+  community.network.pn_port_cos_rate_setting:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "control-port"
@@ -90,8 +85,8 @@ EXAMPLES = """
     pn_cos2_rate: "1000"
     pn_cos0_rate: "1000"
 
-- name: port cos rate modify
-  pn_port_cos_rate_setting:
+- name: Port cos rate modify
+  community.network.pn_port_cos_rate_setting:
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "data-port"

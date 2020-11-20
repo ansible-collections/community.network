@@ -5,9 +5,16 @@ set -o pipefail -eux
 declare -a args
 IFS='/:' read -ra args <<< "$1"
 
-script="${args[0]}"
+ansible_version="${args[0]}"
+script="${args[1]}"
 
-test="$1"
+function join {
+    local IFS="$1";
+    shift;
+    echo "$*";
+}
+
+test="$(join / "${args[@]:1}")"
 
 docker images ansible/ansible
 docker images quay.io/ansible/*
@@ -28,6 +35,7 @@ python -V
 
 function retry
 {
+    # shellcheck disable=SC2034
     for repetition in 1 2 3; do
         set +e
         "$@"
@@ -36,16 +44,20 @@ function retry
         if [ ${result} == 0 ]; then
             return ${result}
         fi
-        echo "$@ -> ${result}"
+        echo "@* -> ${result}"
     done
-    echo "Command '$@' failed 3 times!"
+    echo "Command '@*' failed 3 times!"
     exit -1
 }
 
 command -v pip
 pip --version
 pip list --disable-pip-version-check
-retry pip install https://github.com/ansible/ansible/archive/devel.tar.gz --disable-pip-version-check
+if [ "${ansible_version}" == "devel" ]; then
+    retry pip install https://github.com/ansible/ansible/archive/devel.tar.gz --disable-pip-version-check
+else
+    retry pip install "https://github.com/ansible/ansible/archive/stable-${ansible_version}.tar.gz" --disable-pip-version-check
+fi
 
 export ANSIBLE_COLLECTIONS_PATHS="${HOME}/.ansible"
 SHIPPABLE_RESULT_DIR="$(pwd)/shippable"
@@ -54,14 +66,10 @@ mkdir -p "${TEST_DIR}"
 cp -aT "${SHIPPABLE_BUILD_DIR}" "${TEST_DIR}"
 cd "${TEST_DIR}"
 
-# STAR: HACK install dependencies
+# START: HACK install dependencies
 retry ansible-galaxy -vvv collection install ansible.netcommon
-retry ansible-galaxy -vvv collection install cisco.mso
-retry ansible-galaxy -vvv collection install cisco.intersight
 retry ansible-galaxy -vvv collection install check_point.mgmt
-retry ansible-galaxy -vvv collection install f5networks.f5_modules
 retry ansible-galaxy -vvv collection install fortinet.fortios
-retry ansible-galaxy -vvv collection install cisco.aci
 
 # END: HACK
 
@@ -134,11 +142,13 @@ function cleanup
             set -ux
 
             # shellcheck disable=SC2086
-            ansible-test coverage xml --color --requirements --group-by command --group-by version ${stub:+"$stub"}
+            ansible-test coverage xml --color -v --requirements --group-by command --group-by version ${stub:+"$stub"}
             cp -a tests/output/reports/coverage=*.xml "$SHIPPABLE_RESULT_DIR/codecoverage/"
 
-            # analyze and capture code coverage aggregated by integration test target
-            ansible-test coverage analyze targets generate -v "$SHIPPABLE_RESULT_DIR/testresults/coverage-analyze-targets.json"
+            if [ "${ansible_version}" != "2.9" ]; then
+                # analyze and capture code coverage aggregated by integration test target
+                ansible-test coverage analyze targets generate -v "$SHIPPABLE_RESULT_DIR/testresults/coverage-analyze-targets.json"
+            fi
 
             # upload coverage report to codecov.io only when using complete on-demand coverage
             if [ "${COVERAGE}" == "--coverage" ] && [ "${CHANGED}" == "" ]; then
@@ -155,7 +165,7 @@ function cleanup
                         -f "${file}" \
                         -F "${flags}" \
                         -n "${test}" \
-                        -t 20636cf5-4d6a-4b9a-8d2d-6f22ebbaa752 \
+                        -t 1b3f34da-5ed0-420e-9b65-4c8b3b50905f \
                         -X coveragepy \
                         -X gcov \
                         -X fix \

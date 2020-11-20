@@ -24,9 +24,8 @@
 """
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -53,7 +52,7 @@ extends_documentation_fragment:
 
 EXAMPLES = '''
   - name: Update user password
-    avi_useraccount:
+    community.network.avi_useraccount:
       controller: ""
       username: ""
       password: new_password
@@ -62,7 +61,7 @@ EXAMPLES = '''
       force_change: false
 
   - name: Update user password using avi_credentials
-    avi_useraccount:
+    community.network.avi_useraccount:
       avi_credentials: ""
       old_password: ""
       force_change: false

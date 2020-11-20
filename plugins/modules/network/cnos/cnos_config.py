@@ -20,11 +20,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: cnos_config
@@ -150,24 +145,24 @@ options:
 EXAMPLES = """
 Tasks: The following are examples of using the module cnos_config.
 ---
-- name: configure top level configuration
-  cnos_config:
+- name: Configure top level configuration
+  community.network.cnos_config:
     "lines: hostname {{ inventory_hostname }}"
 
-- name: configure interface settings
-  cnos_config:
+- name: Configure interface settings
+  community.network.cnos_config:
     lines:
       - enable
       - ip ospf enable
     parents: interface ip 13
 
-- name: load a config from disk and replace the current config
-  cnos_config:
+- name: Load a config from disk and replace the current config
+  community.network.cnos_config:
     src: config.cfg
     backup: yes
 
-- name: configurable backup path
-  cnos_config:
+- name: Configurable backup path
+  community.network.cnos_config:
     src: config.cfg
     backup: yes
     backup_options:

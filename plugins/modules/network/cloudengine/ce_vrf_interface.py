@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_vrf_interface
@@ -70,14 +66,14 @@ EXAMPLES = '''
   tasks:
 
   - name: "Configure a VPN instance for the interface"
-    ce_vrf_interface:
+    community.network.ce_vrf_interface:
       vpn_interface: 40GE1/0/2
       vrf: test
       state: present
       provider: "{{ cli }}"
 
   - name: "Disable the association between a VPN instance and an interface"
-    ce_vrf_interface:
+    community.network.ce_vrf_interface:
       vpn_interface: 40GE1/0/2
       vrf: test
       state: absent

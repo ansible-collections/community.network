@@ -28,6 +28,9 @@
 # USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
+
 import re
 import socket
 import sys
@@ -68,20 +71,9 @@ ce_provider_spec = {
     'transport': dict(default='cli', choices=['cli', 'netconf']),
 }
 ce_argument_spec = {
-    'provider': dict(type='dict', options=ce_provider_spec),
+    'provider': dict(type='dict', options=ce_provider_spec, removed_in_version='4.0.0',
+                     removed_from_collection='community.network'),
 }
-ce_top_spec = {
-    'host': dict(removed_in_version=2.9),
-    'port': dict(removed_in_version=2.9, type='int'),
-    'username': dict(removed_in_version=2.9),
-    'password': dict(removed_in_version=2.9, no_log=True),
-    'ssh_keyfile': dict(removed_in_version=2.9, type='path'),
-    'use_ssl': dict(removed_in_version=2.9, type='bool'),
-    'validate_certs': dict(removed_in_version=2.9, type='bool'),
-    'timeout': dict(removed_in_version=2.9, type='int'),
-    'transport': dict(removed_in_version=2.9, choices=['cli', 'netconf']),
-}
-ce_argument_spec.update(ce_top_spec)
 
 
 def to_string(data):
@@ -342,10 +334,17 @@ def set_nc_config(module, xml_str):
     try:
         out = conn.edit_config(target='running', config=xml_str, default_operation='merge',
                                error_option='rollback-on-error')
-    finally:
+    except Exception as e:
+        message = re.findall(r'<error-message xml:lang=\"en\">(.*)</error-message>', str(e))
+        if message:
+            module.fail_json(msg='Error: %s' % message[0])
+        else:
+            module.fail_json(msg='Error: %s' % str(e))
+    else:
+        return to_string(to_xml(out))
+    # finally:
         # conn.unlock(target = 'candidate')
-        pass
-    return to_string(to_xml(out))
+        # pass
 
 
 def get_nc_next(module, xml_str):
@@ -367,7 +366,7 @@ def get_nc_next(module, xml_str):
             except ConnectionError:
                 break
     if result is not None:
-        return etree.tostring(result)
+        return to_string(to_xml(result))
     return result
 
 
@@ -376,11 +375,18 @@ def get_nc_config(module, xml_str):
 
     conn = get_nc_connection(module)
     if xml_str is not None:
-        response = conn.get(xml_str)
+        try:
+            response = conn.get(xml_str)
+        except Exception as e:
+            message = re.findall(r'<error-message xml:lang=\"en\">(.*)</error-message>', str(e))
+            if message:
+                module.fail_json(msg='Error: %s' % message[0])
+            else:
+                module.fail_json(msg='Error: %s' % str(e))
+        else:
+            return to_string(to_xml(response))
     else:
         return None
-
-    return to_string(to_xml(response))
 
 
 def execute_nc_action(module, xml_str):

@@ -10,9 +10,6 @@ files:
     labels: ironware networking
   $actions/nos_config.py:
     labels: nos
-  $actions/onyx_config.py:
-    maintainers: $team_onyx
-    labels: networking onyx_config
   $actions/sros.py:
     maintainers: $team_networking
     labels: networking sros
@@ -39,9 +36,6 @@ files:
   $cliconfs/nos.py:
     maintainers: $team_extreme
     labels: networking nos
-  $cliconfs/onyx.py:
-    maintainers: $team_onyx
-    labels: networking onyx
   $cliconfs/routeros.py:
     maintainers: heuels
     labels: networking routeros
@@ -84,7 +78,8 @@ files:
     maintainers: $team_huawei
     labels: huawei networking
   $module_utils/network/cnos/:
-    maintainers: amuraleedhar dkasberg
+    ignore: amuraleedhar dkasberg
+    maintainers: $team_lenovo
     labels: networking
   $module_utils/network/edgeos/edgeos.py:
     labels: networking
@@ -125,9 +120,6 @@ files:
   $module_utils/network/nso/nso.py:
     maintainers: $team_nso
     labels: cisco networking
-  $module_utils/network/onyx/onyx.py:
-    maintainers: $team_onyx
-    labels: networking
   $module_utils/network/ordnance/ordnance.py:
     maintainers: alexanderturner djh00t
     labels: networking
@@ -151,16 +143,6 @@ files:
     maintainers: mischapeters
   $modules/network/a10/:
     authors: ericchou1 mischapeters
-  $modules/network/aci/:
-    authors: devarshishah3
-    maintainers: aciguru brunocalogero fadallar jmcgill298 koladiya mtorelli rsmeyers schunduri smnmtzgr
-    labels: cisco networking
-    keywords:
-    - aci
-    - cisco msc
-    - cisco mso
-    - multi-site
-    - multisite
   $modules/network/aireos/:
     authors: jmighion
     labels: cisco networking
@@ -244,11 +226,8 @@ files:
   $modules/network/cloudvision/cv_server_provision.py:
     authors: mharista
   $modules/network/cnos/:
-    authors: amuraleedhar
-    maintainers: dkasberg
-  $modules/network/cnos/cnos_linkagg.py:
-    authors: auraleedhar
-    maintainers: amuraleedhar dkasberg
+    ignore: amuraleedhar dkasberg
+    maintainers: $team_lenovo
   $modules/network/cumulus/nclu.py:
     authors: isharacomix
     maintainers: jrrivers
@@ -285,7 +264,7 @@ files:
     maintainers: $team_extreme rdvencioneck
   $modules/network/f5/:
     authors: caphrim007 wojtek0806
-    ignore: JoeReifel Qalthos ganeshrn mhite perzizzle srvg
+    ignore: JoeReifel Qalthos ganeshrn mhite perzizzle srgvg
   $modules/network/f5/bigip_facts.py:
     authors: caphrim007 mhite
     maintainers: wojtek0806
@@ -344,38 +323,6 @@ files:
     labels: cisco networking
   $modules/network/nuage/nuage_vspk.py:
     authors: pdellaert
-  $modules/network/onyx/:
-    authors: anass
-    maintainers: $team_onyx
-  $modules/network/onyx/onyx_bgp.py:
-    authors: anasb samerd
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_buffer_pool.py:
-    authors: anasb
-  $modules/network/onyx/onyx_command.py:
-    authors: samerd
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_config.py:
-    authors: atabachnik samerd
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_facts.py:
-    authors: samerd waleedym
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_igmp.py:
-    authors: samerd
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_igmp_interface.py:
-    authors: anasb
-  $modules/network/onyx/onyx_igmp_vlan.py:
-    authors: anasbadaha
-    maintainers: samerd
-  $modules/network/onyx/onyx_traffic_class.py:
-    authors: anasb
-  $modules/network/onyx/onyx_vlan.py:
-    authors: atabachnik samerd
-    maintainers: anasbadaha
-  $modules/network/onyx/onyx_vxlan.py:
-    authors: anasb
   $modules/network/opx/opx_cps.py:
     authors: skg-net
   $modules/network/ordnance/:
@@ -452,9 +399,6 @@ files:
   $terminals/nos.py:
     maintainers: $team_extreme
     labels: networking nos
-  $terminals/onyx.py:
-    maintainers: $team_onyx
-    labels: networking onyx
   $terminals/routeros.py:
     maintainers: heuels
     labels: networking routeros
@@ -484,13 +428,15 @@ macros:
   modules: plugins/modules
   terminals: plugins/terminal
   team_aci: aciguru brunocalogero devarshishah3 fadallar jmcgill298 koladiya mtorelli rsmeyers schunduri smnmtzgr
+  team_aruba: karthikeyan-dhandapani
   team_avi: ericsysmin grastogi23 khaltore
   team_e_spirit: MatrixCrawler getjack
   team_extreme: LindsayHill bigmstone ujwalkomarla
+  team_ftd: annikulin
   team_huawei: QijunPan TommyLike edisonxiang freesky-edward hwDCN niuzhenguo xuxiaowei0512 yanzhangi zengchen1024 zhongjun2
+  team_lenovo: istaicu mihaibroc
   team_netscaler: chiradeep giorgos-nikolopoulos
   team_netvisor: Qalthos amitsi csharpe-pn pdam preetiparasar
   team_networking: NilashishC Qalthos danielmellado ganeshrn justjais trishnaguha
   team_nso: cmoberg cnasten tbjurman
-  team_onyx: anasbadaha samerd
   team_scaleway: DenBeke QuentinBrosse abarbare jerome-quere kindermoumoute remyleo

@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_ospf_vrf
@@ -142,7 +138,7 @@ options:
 '''
 
 EXAMPLES = '''
-- name: ospf vrf module test
+- name: Ospf vrf module test
   hosts: cloudengine
   connection: local
   gather_facts: no
@@ -157,7 +153,7 @@ EXAMPLES = '''
   tasks:
 
   - name: Configure ospf route id
-    ce_ospf_vrf:
+    community.network.ce_ospf_vrf:
       ospf: 2
       route_id: 2.2.2.2
       lsaointervalflag: False

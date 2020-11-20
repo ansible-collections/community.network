@@ -8,11 +8,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: netscaler_gslb_site
@@ -144,7 +139,7 @@ requirements:
 EXAMPLES = '''
 - name: Setup gslb site
   delegate_to: localhost
-  netscaler_gslb_site:
+  community.network.netscaler_gslb_site:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 DOCUMENTATION = '''
 ---
 module: panos_sag
@@ -32,7 +35,7 @@ requirements:
     - xmltodict can be obtained from PyPI U(https://pypi.org/project/xmltodict/)
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 options:
     api_key:
@@ -75,8 +78,8 @@ extends_documentation_fragment:
 '''
 
 EXAMPLES = '''
-- name: sag
-  panos_sag:
+- name: Sag
+  community.network.panos_sag:
     ip_address: "192.168.1.1"
     password: "admin"
     sag_name: "sag-1"
@@ -88,10 +91,6 @@ EXAMPLES = '''
 RETURN = '''
 # Default return values
 '''
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils._text import to_native

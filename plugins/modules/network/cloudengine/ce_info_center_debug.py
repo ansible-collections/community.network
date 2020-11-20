@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_info_center_debug
@@ -85,19 +81,19 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config debug time stamp"
-    ce_info_center_debug:
+    community.network.ce_info_center_debug:
       state: present
       debug_time_stamp: date_boot
       provider: "{{ cli }}"
 
   - name: "Undo debug time stamp"
-    ce_info_center_debug:
+    community.network.ce_info_center_debug:
       state: absent
       debug_time_stamp: date_boot
       provider: "{{ cli }}"
 
   - name: "Config debug module log level"
-    ce_info_center_debug:
+    community.network.ce_info_center_debug:
       state: present
       module_name: aaa
       channel_id: 1
@@ -106,7 +102,7 @@ EXAMPLES = '''
       provider: "{{ cli }}"
 
   - name: "Undo debug module log level"
-    ce_info_center_debug:
+    community.network.ce_info_center_debug:
       state: absent
       module_name: aaa
       channel_id: 1

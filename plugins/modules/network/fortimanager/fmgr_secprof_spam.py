@@ -19,10 +19,6 @@
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'status': ['preview'],
-                    'supported_by': 'community',
-                    'metadata_version': '1.1'}
-
 DOCUMENTATION = '''
 ---
 module: fmgr_secprof_spam
@@ -384,12 +380,12 @@ options:
 
 EXAMPLES = '''
   - name: DELETE Profile
-    fmgr_secprof_spam:
+    community.network.fmgr_secprof_spam:
       name: "Ansible_Spam_Filter_Profile"
       mode: "delete"
 
   - name: Create FMGR_SPAMFILTER_PROFILE
-    fmgr_secprof_spam:
+    community.network.fmgr_secprof_spam:
       host: "{{ inventory_hostname }}"
       username: "{{ username }}"
       password: "{{ password }}"

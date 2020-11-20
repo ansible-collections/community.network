@@ -9,9 +9,8 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 #
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
 
 DOCUMENTATION = '''
 ---
@@ -128,7 +127,7 @@ extends_documentation_fragment:
 
 EXAMPLES = """
 - name: Example to create Gslb object
-  avi_gslb:
+  community.network.avi_gslb:
     name: "test-gslb"
     avi_credentials:
       username: '{{ username }}'
@@ -161,7 +160,7 @@ EXAMPLES = """
     leader_cluster_uuid: "cluster-d4ee5fcc-3e0a-4d4f-9ae6-4182bc605829"
 
 - name: Update Gslb site's configurations (Patch Add Operation)
-  avi_gslb:
+  community.network.avi_gslb:
     avi_credentials:
       username: '{{ username }}'
       password: '{{ password }}'
@@ -188,7 +187,7 @@ EXAMPLES = """
               - "temp2.com"
 
 - name: Update Gslb site's configurations (Patch Replace Operation)
-  avi_gslb:
+  community.network.avi_gslb:
     avi_credentials:
       username: "{{ username }}"
       password: "{{ password }}"
@@ -216,7 +215,7 @@ EXAMPLES = """
               - "temp3.com"
 
 - name: Update Gslb site's configurations (Patch Delete Operation)
-  avi_gslb:
+  community.network.avi_gslb:
     avi_credentials:
       username: "{{ username }}"
       password: "{{ password }}"

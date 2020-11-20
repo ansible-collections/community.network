@@ -7,11 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: ironware_config
@@ -155,7 +150,8 @@ options:
 '''
 
 EXAMPLES = """
-- ironware_config:
+- name: Run commands that should be configured in the section
+  community.network.ironware_config:
     lines:
       - port-name test
       - enable

@@ -8,11 +8,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: dladm_etherstub
@@ -41,13 +36,13 @@ options:
 '''
 
 EXAMPLES = '''
-# Create 'stub0' etherstub
-- dladm_etherstub:
+- name: Create 'stub0' etherstub
+  community.network.dladm_etherstub:
     name: stub0
     state: present
 
-# Remove 'stub0 etherstub
-- dladm_etherstub:
+- name: Remove 'stub0 etherstub
+  community.network.dladm_etherstub:
     name: stub0
     state: absent
 '''

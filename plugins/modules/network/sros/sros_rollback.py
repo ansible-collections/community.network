@@ -7,11 +7,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'certified'}
-
-
 DOCUMENTATION = '''
 ---
 module: sros_rollback
@@ -72,13 +67,13 @@ vars:
     transport: cli
 
 ---
-- name: configure rollback location
-  sros_rollback:
+- name: Configure rollback location
+  community.network.sros_rollback:
     rollback_location: "cb3:/ansible"
     provider: "{{ cli }}"
 
-- name: remove all rollback configuration
-  sros_rollback:
+- name: Remove all rollback configuration
+  community.network.sros_rollback:
     state: absent
     provider: "{{ cli }}"
 """

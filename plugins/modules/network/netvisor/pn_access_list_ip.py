@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_access_list_ip
@@ -44,15 +39,15 @@ options:
 '''
 
 EXAMPLES = """
-- name: access list ip functionality
-  pn_access_list_ip:
+- name: Access list ip functionality
+  community.network.pn_access_list_ip:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_ip: "172.16.3.1"
     state: "present"
 
-- name: access list ip functionality
-  pn_access_list_ip:
+- name: Access list ip functionality
+  community.network.pn_access_list_ip:
     pn_cliswitch: "sw01"
     pn_name: "foo"
     pn_ip: "172.16.3.1"

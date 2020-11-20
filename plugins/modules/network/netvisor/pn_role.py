@@ -6,11 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: pn_role
@@ -72,7 +67,7 @@ options:
 
 EXAMPLES = """
 - name: Role create
-  pn_role:
+  community.network.pn_role:
     pn_cliswitch: 'sw01'
     state: 'present'
     pn_name: 'foo'
@@ -80,13 +75,13 @@ EXAMPLES = """
     pn_access: 'read-only'
 
 - name: Role delete
-  pn_role:
+  community.network.pn_role:
     pn_cliswitch: 'sw01'
     state: 'absent'
     pn_name: 'foo'
 
 - name: Role modify
-  pn_role:
+  community.network.pn_role:
     pn_cliswitch: 'sw01'
     state: 'update'
     pn_name: 'foo'

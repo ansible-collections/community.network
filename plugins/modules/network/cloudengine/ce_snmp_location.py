@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_snmp_location
@@ -63,13 +59,13 @@ EXAMPLES = '''
   tasks:
 
   - name: "Config SNMP location"
-    ce_snmp_location:
+    community.network.ce_snmp_location:
       state: present
       location: nanjing China
       provider: "{{ cli }}"
 
   - name: "Remove SNMP location"
-    ce_snmp_location:
+    community.network.ce_snmp_location:
       state: absent
       location: nanjing China
       provider: "{{ cli }}"

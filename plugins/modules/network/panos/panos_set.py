@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
 DOCUMENTATION = '''
 ---
 module: panos_set
@@ -42,7 +45,7 @@ description:
 author: "Jasper Mackenzie (@spmp)"
 deprecated:
     alternative: Use U(https://galaxy.ansible.com/PaloAltoNetworks/paloaltonetworks) instead.
-    removed_in: "2.12"
+    removed_in: 2.0.0  # was Ansible 2.12
     why: Consolidating code base.
 requirements:
   - pan-python
@@ -85,7 +88,7 @@ extends_documentation_fragment:
 EXAMPLES = '''
 
 - name: Set timezone on PA NVA
-  panos_set:
+  community.network.panos_set:
     ip_address: "192.168.1.1"
     username: "my-random-admin"
     password: "admin1234"
@@ -102,10 +105,6 @@ EXAMPLES = '''
 RETURN = '''
 # Default return values
 '''
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['deprecated'],
-                    'supported_by': 'community'}
 
 from ansible.module_utils.basic import AnsibleModule
 

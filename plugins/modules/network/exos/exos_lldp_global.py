@@ -29,12 +29,6 @@ The module file for exos_lldp_global
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
-ANSIBLE_METADATA = {
-    'metadata_version': '1.1',
-    'status': ['preview'],
-    'supported_by': 'community'
-}
-
 DOCUMENTATION = '''
 ---
 module: exos_lldp_global
@@ -117,7 +111,7 @@ EXAMPLES = """
 # }
 
 - name: Merge provided LLDP configuration with device configuration
-  exos_lldp_global:
+  community.network.exos_lldp_global:
     config:
       interval: 10000
       tlv_select:
@@ -212,7 +206,7 @@ EXAMPLES = """
 # }
 
 - name: Replace device configuration with provided LLDP configuration
-  exos_lldp_global:
+  community.network.exos_lldp_global:
     config:
       interval: 10000
       tlv_select:
@@ -310,7 +304,7 @@ EXAMPLES = """
 # }
 
 - name: Delete attributes of given LLDP service (This won't delete the LLDP service itself)
-  exos_lldp_global:
+  community.network.exos_lldp_global:
     config:
     state: deleted
 

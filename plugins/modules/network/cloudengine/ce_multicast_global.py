@@ -8,13 +8,10 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_multicast_global
+version_added: '0.2.0'
 author:  xuxiaowei0512 (@xuxiaowei0512)
 short_description: Manages multicast global configuration on HUAWEI CloudEngine switches.
 description:
@@ -45,18 +42,18 @@ options:
 
 EXAMPLES = '''
 ---
-  - name: multicast routing-enable
-    ce_multicast_global:
+  - name: Multicast routing-enable
+    community.network.ce_multicast_global:
       aftype: v4
       state: absent
       provider: "{{ cli }}"
-  - name: multicast routing-enable
-    ce_multicast_global:
+  - name: Multicast routing-enable
+    community.network.ce_multicast_global:
       aftype: v4
       state: present
       provider: "{{ cli }}"
-  - name: multicast routing-enable
-    ce_multicast_global:
+  - name: Multicast routing-enable
+    community.network.ce_multicast_global:
       aftype: v4
       vrf: vrf1
       provider: "{{ cli }}"

@@ -19,10 +19,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: ce_facts
@@ -45,7 +41,7 @@ options:
         to a given subset.  Possible values for this argument include
         all, hardware, config, and interfaces.  Can specify a
         list of values to include a larger subset.  Values can also be used
-        with an initial C(M(!)) to specify that a specific subset should
+        with an initial C(!) to specify that a specific subset should
         not be collected.
     required: false
     default: '!config'
@@ -70,17 +66,17 @@ EXAMPLES = """
   tasks:
 
   - name: "Gather_subset is all"
-    ce_facts:
+    community.network.ce_facts:
       gather_subset: all
       provider: "{{ cli }}"
 
   - name: "Collect only the config facts"
-    ce_facts:
+    community.network.ce_facts:
       gather_subset: config
       provider: "{{ cli }}"
 
   - name: "Do not collect hardware facts"
-    ce_facts:
+    community.network.ce_facts:
       gather_subset: "!hardware"
       provider: "{{ cli }}"
 """

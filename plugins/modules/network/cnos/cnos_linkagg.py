@@ -23,10 +23,6 @@ __metaclass__ = type
 # Module to work on Link Aggregation with Lenovo Switches
 # Lenovo Networking
 #
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: cnos_linkagg
@@ -122,33 +118,33 @@ options:
 '''
 
 EXAMPLES = """
-- name: create link aggregation group
-  cnos_linkagg:
+- name: Create link aggregation group
+  community.network.cnos_linkagg:
     group: 10
     state: present
 
-- name: delete link aggregation group
-  cnos_linkagg:
+- name: Delete link aggregation group
+  community.network.cnos_linkagg:
     group: 10
     state: absent
 
-- name: set link aggregation group to members
-  cnos_linkagg:
+- name: Set link aggregation group to members
+  community.network.cnos_linkagg:
     group: 200
     mode: active
     members:
       - Ethernet1/33
       - Ethernet1/44
 
-- name: remove link aggregation group from GigabitEthernet0/0
-  cnos_linkagg:
+- name: Remove link aggregation group from GigabitEthernet0/0
+  community.network.cnos_linkagg:
     group: 200
     mode: active
     members:
       - Ethernet1/33
 
 - name: Create aggregate of linkagg definitions
-  cnos_linkagg:
+  community.network.cnos_linkagg:
     aggregate:
       - { group: 3, mode: on, members: [Ethernet1/33] }
       - { group: 100, mode: passive, members: [Ethernet1/44] }

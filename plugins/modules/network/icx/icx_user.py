@@ -6,10 +6,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: icx_user
@@ -140,23 +136,23 @@ options:
 '''
 
 EXAMPLES = """
-- name: create a new user without password
-  icx_user:
+- name: Create a new user without password
+  community.network.icx_user:
     name: user1
     nopassword: true
 
-- name: create a new user with password
-  icx_user:
+- name: Create a new user with password
+  community.network.icx_user:
     name: user1
     configured_password: 'newpassword'
 
-- name: remove users
-  icx_user:
+- name: Remove users
+  community.network.icx_user:
     name: user1
     state: absent
 
-- name: set user privilege level to 5
-  icx_user:
+- name: Set user privilege level to 5
+  community.network.icx_user:
     name: user1
     privilege: 5
 """

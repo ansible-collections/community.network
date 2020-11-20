@@ -14,12 +14,6 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 
-ANSIBLE_METADATA = {
-    'metadata_version': '1.1',
-    'status': ['preview'],
-    'supported_by': 'community'
-}
-
 DOCUMENTATION = '''
 ---
 module: netact_cm_command
@@ -145,14 +139,14 @@ author:
 EXAMPLES = '''
 # Pass in a message
 - name: Upload
-  netact_cm_command:
+  community.network.netact_cm_command:
     operation: "Upload"
     opsname: 'Uploading_test'
     dn: "PLMN-PLMN/MRBTS-746"
     extra_opts: '-btsContentInUse true'
 
 - name: Provision
-  netact_cm_command:
+  community.network.netact_cm_command:
     operation: "Provision"
     opsname: 'Provision_test'
     dn: "PLMN-PLMN/MRBTS-746"
@@ -162,18 +156,18 @@ EXAMPLES = '''
     backupPlanName: 'myBackupPlanName'
 
 - name: Export and fetching data from target
-  netact_cm_command:
+  community.network.netact_cm_command:
     operation: "Export"
     opsname: 'Export_test'
     planName: 'mySiteTemplate'
     type: 'actual'
     fileName: 'exportTest.xml'
-- fetch:
+- ansible.builtin.fetch:
     src: /var/opt/nokia/oss/global/racops/export/exportTest.xml
     dest: fetched
 
 - name: Import
-  netact_cm_command:
+  community.network.netact_cm_command:
     operation: "Import"
     opsname: 'Import_test'
     fileFormat: 'CSV'
@@ -184,7 +178,7 @@ EXAMPLES = '''
 
 # fail the module
 - name: Test failure of the module
-  netact_cm_command:
+  community.network.netact_cm_command:
     name: fail me
 '''
 

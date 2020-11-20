@@ -6,10 +6,6 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 module: edgeos_command
 author:
@@ -71,11 +67,11 @@ notes:
 EXAMPLES = """
 tasks:
   - name: Reboot the device
-    edgeos_command:
+    community.network.edgeos_command:
       commands: reboot now
 
   - name: Show the configuration for eth0 and eth1
-    edgeos_command:
+    community.network.edgeos_command:
       commands: show interfaces ethernet {{ item }}
     loop:
       - eth0

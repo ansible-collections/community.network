@@ -23,10 +23,6 @@ __metaclass__ = type
 # Module to work on management of local users on Lenovo CNOS Switches
 # Lenovo Networking
 #
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 module: cnos_vrf
@@ -78,7 +74,7 @@ options:
 
 EXAMPLES = """
 - name: Create vrf
-  cnos_vrf:
+  community.network.cnos_vrf:
     name: test
     rd: 1:200
     interfaces:
@@ -86,12 +82,12 @@ EXAMPLES = """
     state: present
 
 - name: Delete VRFs
-  cnos_vrf:
+  community.network.cnos_vrf:
     name: test
     state: absent
 
 - name: Create aggregate of VRFs with purge
-  cnos_vrf:
+  community.network.cnos_vrf:
     aggregate:
       - { name: test4, rd: "1:204" }
       - { name: test5, rd: "1:205" }
@@ -99,7 +95,7 @@ EXAMPLES = """
     purge: yes
 
 - name: Delete aggregate of VRFs
-  cnos_vrf:
+  community.network.cnos_vrf:
     aggregate:
       - name: test2
       - name: test3

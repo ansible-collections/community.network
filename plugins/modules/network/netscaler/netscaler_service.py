@@ -8,11 +8,6 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-
 DOCUMENTATION = '''
 ---
 module: netscaler_service
@@ -385,7 +380,7 @@ EXAMPLES = '''
 - name: Setup http service
   gather_facts: False
   delegate_to: localhost
-  netscaler_service:
+  community.network.netscaler_service:
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot

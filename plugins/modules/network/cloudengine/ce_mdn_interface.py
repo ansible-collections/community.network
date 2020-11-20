@@ -8,14 +8,11 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = '''
 ---
 
 module: ce_mdn_interface
+version_added: '0.2.0'
 short_description: Manages MDN configuration on HUAWEI CloudEngine switches.
 description:
     - Manages MDN configuration on HUAWEI CloudEngine switches.
@@ -49,11 +46,11 @@ notes:
 
 EXAMPLES = '''
   - name: "Configure global LLDP enable state"
-    ce_mdn_interface:
+    community.network.ce_mdn_interface:
       lldpenable: enabled
 
   - name: "Configure interface MDN enable state"
-    ce_mdn_interface:
+    community.network.ce_mdn_interface:
       ifname: 10GE1/0/1
       mdnstatus: rxOnly
 '''

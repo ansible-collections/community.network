@@ -43,7 +43,8 @@ options:
             'stp',
             'vlan',
             'vrf',
-            'vxlan']
+            'vxlan',
+            'bfd']
         type: list
     before:
         description:
@@ -91,6 +92,11 @@ options:
             - Device hostname required for filesystem build
         type: str
         required: true
+    root_path:
+        description:
+            - Root path folder where test results are saved
+        type: str
+        default: '.'
 requirements:
     - jsondiff
     - jmespath
@@ -99,13 +105,14 @@ requirements:
 EXAMPLES = """
 ---
 - name: run BEFORE tests.
-  arista.eos.eos_pyateos:
+  eos_pyateos:
     before: true
     test:
       - acl
     group:
       - mgmt
       - layer2
+    root_path: /User/federicoolivieri
     hostname: "{{ inventory_hostname }}"
     register: result
 
@@ -121,7 +128,7 @@ EXAMPLES = """
       - ntp server vrf mgmt 216.239.35.4
 
 - name: run AFTER tests.
-  arista.eos.eos_pyateos:
+  eos_pyateos:
     after: true
     test:
       - acl
@@ -129,6 +136,7 @@ EXAMPLES = """
       - mgmt
       - layer2
     hostname: "{{ inventory_hostname }}"
+    root_path: /User/federicoolivieri
     register: result
 
 - name: save AFTER file IDs.
@@ -137,13 +145,14 @@ EXAMPLES = """
     before_ids: "{{ result.after_file_ids }}"
 
 - name: run DIFF result.
-  arista.eos.eos_pyateos:
+  eos_pyateos:
     compare: true
     group:
       - mgmt
       - layer2
     test: "{{ tests }}"
     hostname: "{{ inventory_hostname }}"
+    root_path: /User/federicoolivieri
     filter: true
     files:
       - "{{ before_ids }}"
@@ -200,13 +209,13 @@ import json
 import time
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.basic import missing_required_lib
-from ansible_collections.arista.eos.plugins.module_utils.network.eos.eos import (
+from ansible.module_utils.network.eos.eos import (
     run_commands,
 )
-from ansible_collections.arista.eos.plugins.module_utils.network.eos.eos import (
+from ansible.module_utils.network.eos.eos import (
     eos_argument_spec,
 )
-from ansible_collections.arista.eos.plugins.module_utils.network.eos.eos import (
+from ansible.module_utils.network.eos.eos import (
     get_connection,
 )
 
@@ -241,15 +250,20 @@ def run_test(module, test):
     after = module.params.get("after")
     host = module.params.get("hostname")
     file_name = round(time.time())
+    root_path = module.params.get("root_path")
 
     if before:
-        destination = "./tests/before/{test}/{host}/".format(
-            test=test, host=host
+        destination = "{root_path}/tests/before/{test}/{host}/".format(
+            root_path=root_path,
+            test=test, 
+            host=host,
         )
 
     if after:
-        destination = "./tests/after/{test}/{host}/".format(
-            test=test, host=host
+        destination = "{root_path}/tests/after/{test}/{host}/".format(
+            root_path=root_path,
+            test=test,
+            host=host,
         )
 
     if not os.path.exists(destination):
@@ -274,6 +288,7 @@ def run_test(module, test):
         "vlan": "show vlan",
         "vrf": "show vrf",
         "vxlan": "show interfaces vxlan 1",
+        "bfd": "show bfd peers",
     }
 
     if test:
@@ -344,21 +359,13 @@ def run_compare(module, count, test):
             return return_dict
 
         def filter_acls_counters(self, legal_json_diff):
-            return_dict = {"aclList": {}}
 
             for acls in legal_json_diff.values():
-                for acl_number, sequences in acls.items():
-                    for seq_number in sequences.values():
-                        for values in seq_number.values():
-                            if values.get("ruleFilter"):
-                                return_dict["aclList"][acl_number] = {
-                                    "sequence": {}
-                                }
-                                return_dict["aclList"][acl_number][
-                                    "sequence"
-                                ] = seq_number
+                for acl_change in acls.keys():
+                    if acl_change != 'insert' or acl_change != 'delete' or acl_change != None:
+                        del legal_json_diff['aclList'][acl_change]
 
-                                return return_dict
+                        return legal_json_diff
 
     def replace(string, test):
         substitutions = {
@@ -386,10 +393,21 @@ def run_compare(module, count, test):
         )
 
         if test not in skip_list:
-            for integer in re.findall(r"\d+:\s", sub_applied):
-                sub_applied = sub_applied.replace(
-                    integer, '"{0}": '.format(integer[:-2])
-                )
+            # ('{', '28: ') (' ', '187: ')
+            for integer in re.findall(r"(\s|{)(\d+:\s)", sub_applied):
+                int_replacement = integer[1][:-2]
+                merged_integer = integer[0] + integer[1]
+
+                if integer[0] == '{':
+                    sub_applied = sub_applied.replace(
+                        # double {{ required by format to exscape {
+                        merged_integer, '{{"{0}": '.format(int_replacement)
+                    )
+
+                else:
+                    sub_applied = sub_applied.replace(
+                        merged_integer, ' "{0}": '.format(int_replacement)
+                    )
 
         return sub_applied
 
@@ -397,13 +415,17 @@ def run_compare(module, count, test):
     after_file = module.params.get("files")[1]
     filter_flag = module.params.get("filter")
     host = module.params.get("hostname")
+    root_path = module.params.get("root_path")
 
     if len(before_file) == len(after_file):
 
         try:
             before = open(
-                "./tests/before/{test}/{host}/{before_file}.json".format(
-                    test=test, host=host, before_file=str(before_file[count])
+                "{root_path}/tests/before/{test}/{host}/{before_file}.json".format(
+                    root_path=root_path,
+                    test=test,
+                    host=host,
+                    before_file=str(before_file[count]),
                 ),
                 "r",
             )
@@ -412,16 +434,21 @@ def run_compare(module, count, test):
 
         try:
             after = open(
-                "./tests/after/{test}/{host}/{after_file}.json".format(
-                    test=test, host=host, after_file=str(after_file[count])
+                "{root_path}/tests/after/{test}/{host}/{after_file}.json".format(
+                    root_path=root_path,
+                    test=test, 
+                    host=host, 
+                    after_file=str(after_file[count]),
                 ),
                 "r",
             )
         except FileNotFoundError as error:
             module.fail_json(msg=error)
 
-        destination = "./tests/diff/{test}/{host}/".format(
-            test=test, host=host
+        destination = "{root_path}/tests/diff/{test}/{host}/".format(
+            root_path=root_path,
+            test=test, 
+            host=host,
         )
 
         if not os.path.exists(destination):
@@ -442,7 +469,7 @@ def run_compare(module, count, test):
             module.fail_json(msg="Diff file not legal:\n{}".format(legal_json_diff))
 
 
-        diff_file_id = str(
+        diff_file_id = str(round(time.time())) + '_' + str(
             (int(before_file[count]) - int(after_file[count])) * -1
         )
 
@@ -483,6 +510,7 @@ def main():
                 "vlan",
                 "vrf",
                 "vxlan",
+                "bfd",
             ],
         ),
         before=dict(type="bool", default=False),
@@ -494,6 +522,7 @@ def main():
             type="list", choices=["mgmt", "routing", "layer2", "ctrl", "all"]
         ),
         hostname=dict(required=True),
+        root_path=dict(default='.')
     )
 
     argument_spec.update(eos_argument_spec)
@@ -543,6 +572,7 @@ def main():
         "vlan",
         "vrf",
         "vxlan",
+        "bfd",
     ]
 
     if group:
@@ -550,7 +580,7 @@ def main():
             test_run.extend(("ntp", "snmp"))
 
         if "routing" in group:
-            test_run.extend(("bgp_evpn", "bgp_ipv4", "ip_route"))
+            test_run.extend(("bgp_evpn", "bgp_ipv4", "ip_route", "bfd"))
 
         if "layer2" in group:
             test_run.extend(("stp", "vlan", "vxlan", "lldp", "arp", "mac"))

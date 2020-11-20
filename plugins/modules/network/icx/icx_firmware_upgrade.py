@@ -20,7 +20,7 @@ notes:
 options:
   server_type:
     description:
-      - Data transfer protocol to be used
+      - Data transfer protocol to be used.
     type: str
     choices: ['scp', 'https', 'tftp']
     required: true

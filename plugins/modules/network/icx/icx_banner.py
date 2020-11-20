@@ -46,10 +46,10 @@ options:
   check_running_config:
     description:
       - Check running configuration. This can be set as environment variable.
-       Module will use environment variable value(default:True), unless it is overridden,
+       Module will use environment variable value(default:False), unless it is overridden,
        by specifying it as module parameter.
     type: bool
-    default: yes
+    default: no
 
 '''
 
@@ -181,7 +181,7 @@ def main():
         text=dict(),
         enterkey=dict(type='bool'),
         state=dict(default='present', choices=['present', 'absent']),
-        check_running_config=dict(default=True, type='bool', fallback=(env_fallback, ['ANSIBLE_CHECK_ICX_RUNNING_CONFIG']))
+        check_running_config=dict(default=False, type='bool', fallback=(env_fallback, ['ANSIBLE_CHECK_ICX_RUNNING_CONFIG']))
     )
 
     required_one_of = [['text', 'enterkey', 'state']]

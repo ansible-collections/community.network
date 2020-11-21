@@ -123,9 +123,6 @@ files:
   $module_utils/network/ordnance/ordnance.py:
     maintainers: alexanderturner djh00t
     labels: networking
-  $module_utils/network/panos/panos.py:
-    maintainers: ivanbojer jtschichold shinmog
-    labels: networking
   $module_utils/network/routeros/routeros.py:
     maintainers: heuels
     labels: networking
@@ -328,37 +325,6 @@ files:
   $modules/network/ordnance/:
     authors: alexanderturner
     maintainers: djh00t
-  $modules/network/panos/:
-    authors: ivanbojer jtschichold
-    maintainers: shinmog
-  $modules/network/panos/panos_commit.py:
-    authors: ivanbojer jtschichold traittinen
-  $modules/network/panos/panos_dag_tags.py:
-    authors: vinayvenkat
-    maintainers: ivanbojer jtschichold shinmog
-  $modules/network/panos/panos_match_rule.py:
-    authors: rnh556
-    maintainers: ivanbojer jtschichold shinmog
-  $modules/network/panos/panos_nat_rule.py:
-    authors: ivanbojer jtschichold rnh556
-  $modules/network/panos/panos_object.py:
-    authors: rnh556
-    maintainers: ivanbojer jtschichold shinmog
-  $modules/network/panos/panos_op.py:
-    authors: ivanbojer
-    maintainers: jtschichold shinmog
-  $modules/network/panos/panos_query_rules.py:
-    authors: rnh556
-    maintainers: ivanbojer jtschichold shinmog
-  $modules/network/panos/panos_sag.py:
-    authors: vinayvenkat
-    maintainers: ivanbojer jtschichold shinmog
-  $modules/network/panos/panos_security_rule.py:
-    authors: ivanbojer rnh556
-    maintainers: jtschichold shinmog
-  $modules/network/panos/panos_set.py:
-    authors: spmp
-    maintainers: ivanbojer jtschichold shinmog
   $modules/network/radware/:
     authors: evgenyfedoruk
   $modules/network/routeros/:

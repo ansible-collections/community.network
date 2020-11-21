@@ -2,137 +2,137 @@ requires_ansible: '>=2.9.10'
 plugin_routing:
   modules:
     pn_cluster:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     pn_ospf:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     pn_ospfarea:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     pn_show:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     pn_trunk:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     pn_vlag:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     pn_vlan:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     pn_vrouter:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     pn_vrouterbgp:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     pn_vrouterif:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     pn_vrouterlbif:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: The module has been removed without a documented replacement.
     panos_admin:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_admpwd:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_cert_gen_ssh:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_check:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_commit:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_dag:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_dag_tags:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_import:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_interface:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_lic:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_loadcfg:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_match_rule:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_mgtconfig:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_nat_rule:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_object:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_op:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_pg:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_query_rules:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_restart:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_sag:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_security_rule:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     panos_set:
-      deprecation:
+      tombstone:
         removal_version: 2.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     onyx_aaa:
       deprecation:
         removal_version: 2.0.0

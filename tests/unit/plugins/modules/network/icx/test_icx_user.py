@@ -192,6 +192,5 @@ class TestICXSCPModule(TestICXModule):
             self.execute_module(commands=commands, changed=True)
         else:
             commands = [
-               
             ]
             self.execute_module(commands=commands, changed=False)

@@ -57,16 +57,6 @@ class TestICXSystemModule(TestICXModule):
                 'ip dns domain-list ansible.com',
                 'ip dns domain-list redhat.com',
                 'ip dns server-address 11.22.22.4',
-                'ip dns server-address 172.16.10.2'
-            ]
-            self.execute_module(changed=True, commands=commands)
-
-        else:
-            commands = [
-                'hostname ruckus',
-                'ip dns domain-list ansible.com',
-                'ip dns domain-list redhat.com',
-                'ip dns server-address 11.22.22.4',
                 'ip dns server-address 172.16.10.2',
                 'no ip dns domain-list ansib.eg.com',
                 'no ip dns domain-list red.com',
@@ -76,21 +66,31 @@ class TestICXSystemModule(TestICXModule):
             ]
             self.execute_module(changed=True, commands=commands)
 
+        else:
+            commands = [
+                'hostname ruckus',
+                'ip dns domain-list ansible.com',
+                'ip dns domain-list redhat.com',
+                'ip dns server-address 11.22.22.4',
+                'ip dns server-address 172.16.10.2'
+            ]
+            self.execute_module(changed=True, commands=commands)
+
     def test_icx_system_remove_config(self):
         set_module_args(dict(name_servers=['10.22.22.64', '11.22.22.4'], domain_search=['ansib.eg.com', 'redhat.com'], state='absent'))
         if not self.ENV_ICX_USE_DIFF:
             commands = [
                 'no ip dns domain-list ansib.eg.com',
-                'no ip dns domain-list redhat.com',
                 'no ip dns server-address 10.22.22.64',
-                'no ip dns server-address 11.22.22.4'
             ]
             self.execute_module(changed=True, commands=commands)
 
         else:
             commands = [
                 'no ip dns domain-list ansib.eg.com',
+                'no ip dns domain-list redhat.com',
                 'no ip dns server-address 10.22.22.64',
+                'no ip dns server-address 11.22.22.4'
             ]
             self.execute_module(changed=True, commands=commands)
 
@@ -146,6 +146,8 @@ class TestICXSystemModule(TestICXModule):
         if not self.ENV_ICX_USE_DIFF:
             commands = [
                 'hostname ruckus',
+                'no radius-server host 172.16.20.14',
+                'no tacacs-server host 182.16.10.20',
                 'radius-server host 172.16.10.24 auth-port 2001 acct-port 5000 authentication-only key radius-server',
                 'radius-server host ipv6 2001:db8::1 auth-port 1821 acct-port 1321 accounting-only key radius mac-auth',
                 'tacacs-server host ansible.com'
@@ -155,8 +157,6 @@ class TestICXSystemModule(TestICXModule):
         else:
             commands = [
                 'hostname ruckus',
-                'no radius-server host 172.16.20.14',
-                'no tacacs-server host 182.16.10.20',
                 'radius-server host 172.16.10.24 auth-port 2001 acct-port 5000 authentication-only key radius-server',
                 'radius-server host ipv6 2001:db8::1 auth-port 1821 acct-port 1321 accounting-only key radius mac-auth',
                 'tacacs-server host ansible.com'

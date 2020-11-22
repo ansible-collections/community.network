@@ -72,10 +72,10 @@ class TestICXSCPModule(TestICXModule):
     def test_icx_user_update_password(self):
         set_module_args(dict(name='ale1', configured_password='alethea123'))
         if not self.ENV_ICX_USE_DIFF:
-            commands = ['username ale1 password alethea123']  # previous privilage will be added
+            commands = ['username ale1 privilege 5 password alethea123']  # previous privilage will be added
             self.execute_module(commands=commands, changed=True)
         else:
-            commands = ['username ale1 privilege 5 password alethea123']  # previous privilage will be added
+            commands = ['username ale1 password alethea123'] # previous privilage will be added
             self.execute_module(commands=commands, changed=True)
 
     def test_icx_user_update_password_compare(self):
@@ -135,12 +135,12 @@ class TestICXSCPModule(TestICXModule):
         ))
         if not self.ENV_ICX_USE_DIFF:
             commands = [
-                'username ale1 password alethea123',
                 'username ale6 password alethea123',
             ]
             self.execute_module(commands=commands, changed=True)
         else:
             commands = [
+                'username ale1 password alethea123',
                 'username ale6 password alethea123',
             ]
             self.execute_module(commands=commands, changed=True)
@@ -165,12 +165,12 @@ class TestICXSCPModule(TestICXModule):
         ))
         if not self.ENV_ICX_USE_DIFF:
             commands = [
-                'username ale2 privilege 5 password ale123',
                 'username ale3 privilege 4 password ale123'
             ]
             self.execute_module(commands=commands, changed=True)
         else:
             commands = [
+                'username ale2 privilege 5 password ale123',
                 'username ale3 privilege 4 password ale123'
             ]
             self.execute_module(commands=commands, changed=True)
@@ -185,13 +185,13 @@ class TestICXSCPModule(TestICXModule):
         ))
         if not self.ENV_ICX_USE_DIFF:
             commands = [
-
-            ]
-            self.execute_module(commands=commands, changed=False)
-        else:
-            commands = [
                 'no username ale2',
                 'no username ale3',
                 'no username ale4'
             ]
             self.execute_module(commands=commands, changed=True)
+        else:
+            commands = [
+                
+            ]
+            self.execute_module(commands=commands, changed=False)

@@ -75,7 +75,7 @@ class TestICXSCPModule(TestICXModule):
             commands = ['username ale1 privilege 5 password alethea123']  # previous privilage will be added
             self.execute_module(commands=commands, changed=True)
         else:
-            commands = ['username ale1 password alethea123'] # previous privilage will be added
+            commands = ['username ale1 password alethea123']  # previous privilage will be added
             self.execute_module(commands=commands, changed=True)
 
     def test_icx_user_update_password_compare(self):
@@ -192,6 +192,6 @@ class TestICXSCPModule(TestICXModule):
             self.execute_module(commands=commands, changed=True)
         else:
             commands = [
-                
+               
             ]
             self.execute_module(commands=commands, changed=False)

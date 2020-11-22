@@ -57,16 +57,16 @@ class TestICXLinkaggModule(TestICXModule):
         if not self.ENV_ICX_USE_DIFF:
             commands = [
                 'lag LAG1 dynamic id 100',
-                'ports ethernet 1/1/4 to 1/1/7',
+                'no ports ethernet 1/1/3',
+                'no ports ethernet 1/1/8',
+                'ports ethernet 1/1/4',
                 'exit'
             ]
             self.execute_module(commands=commands, changed=True)
         else:
             commands = [
                 'lag LAG1 dynamic id 100',
-                'no ports ethernet 1/1/3',
-                'no ports ethernet 1/1/8',
-                'ports ethernet 1/1/4',
+                'ports ethernet 1/1/4 to 1/1/7',
                 'exit'
             ]
             self.execute_module(commands=commands, changed=True)
@@ -98,14 +98,14 @@ class TestICXLinkaggModule(TestICXModule):
         if not self.ENV_ICX_USE_DIFF:
             commands = [
                 'lag LAG1 dynamic id 100',
-                'exit'
+                'exit',
+                'no lag LAG2 dynamic id 200'
             ]
             self.execute_module(commands=commands, changed=True)
         else:
             commands = [
                 'lag LAG1 dynamic id 100',
-                'exit',
-                'no lag LAG2 dynamic id 200'
+                'exit'
             ]
             self.execute_module(commands=commands, changed=True)
 

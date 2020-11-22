@@ -34,9 +34,9 @@ options:
   check_running_config:
     description:
       - Check running configuration. This can be set as environment variable.
-       Module will use environment variable value(default:True), unless it is overridden, by specifying it as module parameter.
+       Module will use environment variable value(default:False), unless it is overridden, by specifying it as module parameter.
     type: bool
-    default: yes
+    default: no
   state:
     description:
       - Enables the receipt and transmission of Link Layer Discovery Protocol (LLDP) globally.
@@ -124,7 +124,7 @@ def main():
         interfaces=dict(type='list', elements='dict', options=interfaces_spec),
         state=dict(choices=['present', 'absent',
                             'enabled', 'disabled']),
-        check_running_config=dict(default=True, type='bool', fallback=(env_fallback, ['ANSIBLE_CHECK_ICX_RUNNING_CONFIG']))
+        check_running_config=dict(default=False, type='bool', fallback=(env_fallback, ['ANSIBLE_CHECK_ICX_RUNNING_CONFIG']))
     )
 
     module = AnsibleModule(argument_spec=argument_spec,

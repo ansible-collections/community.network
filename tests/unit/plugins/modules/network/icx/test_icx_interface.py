@@ -55,8 +55,7 @@ class TestICXInterfaceModule(TestICXModule):
                 'interface ethernet 1/1/1',
                 'speed-duplex 1000-full',
                 'port-name welcome port',
-                'inline power',
-                'enable'
+                'inline power'
             ]
             self.assertEqual(result['commands'], expected_commands)
         else:
@@ -65,7 +64,8 @@ class TestICXInterfaceModule(TestICXModule):
                 'interface ethernet 1/1/1',
                 'speed-duplex 1000-full',
                 'port-name welcome port',
-                'inline power'
+                'inline power',
+                'enable'
             ]
             self.assertEqual(result['commands'], expected_commands)
 
@@ -94,15 +94,15 @@ class TestICXInterfaceModule(TestICXModule):
             result = self.execute_module(changed=True)
             expected_commands = [
                 'interface ethernet 1/1/2',
-                'inline power power-by-class 2',
-                'enable'
+                'inline power power-by-class 2'
             ]
             self.assertEqual(result['commands'], expected_commands)
         else:
             result = self.execute_module(changed=True)
             expected_commands = [
                 'interface ethernet 1/1/2',
-                'inline power power-by-class 2'
+                'inline power power-by-class 2',
+                'enable'
             ]
             self.assertEqual(result['commands'], expected_commands)
 
@@ -152,7 +152,6 @@ class TestICXInterfaceModule(TestICXModule):
                 'interface lag 11',
                 'speed-duplex auto',
                 'port-name lag ports of id 11',
-                'enable'
             ]
             self.assertEqual(result['commands'], expected_commands)
         else:
@@ -160,7 +159,8 @@ class TestICXInterfaceModule(TestICXModule):
             expected_commands = [
                 'interface lag 11',
                 'speed-duplex auto',
-                'port-name lag ports of id 11'
+                'port-name lag ports of id 11',
+                'enable'
             ]
             self.assertEqual(result['commands'], expected_commands)
 
@@ -186,16 +186,16 @@ class TestICXInterfaceModule(TestICXModule):
     def test_icx_interface_state_up_cndt(self):
         set_module_args(dict(name='ethernet 1/1/1', state='up', tx_rate='ge(0)'))
         if not self.ENV_ICX_USE_DIFF:
-            self.assertTrue(self.execute_module(failed=True))
-        else:
             self.assertTrue(self.execute_module(failed=False))
+        else:
+            self.assertTrue(self.execute_module(failed=True))
 
     def test_icx_interface_lldp_neighbors_cndt(self):
         set_module_args(dict(name='ethernet 1/1/48', neighbors=[dict(port='GigabitEthernet1/1/48', host='ICX7150-48 Router')]))
         if not self.ENV_ICX_USE_DIFF:
-            self.assertTrue(self.execute_module(changed=False, failed=True))
-        else:
             self.assertTrue(self.execute_module(changed=False, failed=False))
+        else:
+            self.assertTrue(self.execute_module(changed=False, failed=True))
 
     def test_icx_interface_disable_compare(self):
         set_module_args(dict(name='ethernet 1/1/1', enabled=True, check_running_config='True'))

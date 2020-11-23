@@ -19,12 +19,10 @@ class TestICXfirmwareUpgradeModule(TestICXModule):
         self.exec_command = self.mock_exec_scp.start()
         self.run_commands = self.mock_run_commands.start()
 
-
     def tearDown(self):
         super(TestICXfirmwareUpgradeModule, self).tearDown()
         self.mock_exec_scp.stop()
         self.mock_run_commands.stop()
-
 
     def load_fixtures(self, commands=None):
         if(commands is not None):
@@ -36,14 +34,15 @@ class TestICXfirmwareUpgradeModule(TestICXModule):
         set_module_args(
             dict(
                 server_type='tftp',
-                server_address='10.198.137.217', 
-                partition='secondary', 
+                server_address='10.198.137.217',
+                partition='secondary',
                 filename='SPR08095_b412ufi.bin',
                 boot_only=False,
-                save_running_config=False))
+                save_running_config=False
+            )
+        )
 
         commands = ['copy tftp flash 10.198.137.217 SPR08095_b412ufi.bin secondary', 'boot system flash secondary yes']
-        # self.execute_module(commands=commands, changed=True)
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], commands)
 
@@ -51,14 +50,15 @@ class TestICXfirmwareUpgradeModule(TestICXModule):
         set_module_args(
             dict(
                 server_type='tftp',
-                server_address='10.198.137.217', 
-                partition='secondary', 
+                server_address='10.198.137.217',
+                partition='secondary',
                 filename='SPR08095_b412ufi.bin',
                 boot_only=False,
-                save_running_config=True))
+                save_running_config=True
+            )
+        )
 
         commands = ['copy tftp flash 10.198.137.217 SPR08095_b412ufi.bin secondary', 'write memory', 'boot system flash secondary yes']
-        # self.execute_module(commands=commands, changed=True)
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], commands)
 
@@ -66,30 +66,31 @@ class TestICXfirmwareUpgradeModule(TestICXModule):
         set_module_args(
             dict(
                 server_type='tftp',
-                server_address='10.198.137.217',  
+                server_address='10.198.137.217',
                 filename='SPR08095_b412ufi.bin',
                 boot_only=False,
-                save_running_config=False))
+                save_running_config=False
+            )
+        )
 
         commands = ['copy tftp flash 10.198.137.217 SPR08095_b412ufi.bin secondary', 'boot system flash secondary yes']
         self.execute_module(changed=False, failed=True)
-        # result = self.execute_module(changed=False, failed=True)
-        # self.assertEqual(result['commands'], commands)
 
     def test_icx_firmware_upgrade_scp(self):
         set_module_args(
             dict(
                 server_type='scp',
-                server_address='10.198.137.217', 
+                server_address='10.198.137.217',
                 partition='secondary',
-                filename='/tftpboot/SPR08095_b412ufi.bin', 
+                filename='/tftpboot/SPR08095_b412ufi.bin',
                 scp_user='alethea',
                 scp_pass='alethea123',
                 boot_only=False,
-                save_running_config=True))
+                save_running_config=True
+            )
+        )
 
         commands = ['copy scp flash 10.198.137.217 /tftpboot/SPR08095_b412ufi.bin secondary', 'write memory', 'boot system flash secondary yes']
-        # self.execute_module(commands=commands, changed=True)
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], commands)
 
@@ -97,123 +98,106 @@ class TestICXfirmwareUpgradeModule(TestICXModule):
         set_module_args(
             dict(
                 server_type='scp',
-                server_address='10.198.137.217', 
+                server_address='10.198.137.217',
                 partition='fips-ufi-primary-sig',
-                filename='/tftpboot/SPR08095_b412ufi.bin', 
+                filename='/tftpboot/SPR08095_b412ufi.bin',
                 scp_user='alethea',
                 scp_pass='alethea123',
                 boot_only=False,
-                save_running_config=False))
+                save_running_config=False
+            )
+        )
 
         commands = ['copy scp flash 10.198.137.217 /tftpboot/SPR08095_b412ufi.bin fips-ufi-primary-sig', 'boot system flash primary yes']
-        # self.execute_module(commands=commands, changed=True)
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], commands)
-
 
     def test_icx_firmware_upgrade_https(self):
         set_module_args(
             dict(
-                server_type='https', 
-                server_address='172.26.66.68', 
-                server_port='443', 
-                partition='secondary', 
+                server_type='https',
+                server_address='172.26.66.68',
+                server_port='443',
+                partition='secondary',
                 filename='SPR08095_B10ufi.bin',
                 boot_only=False,
-                save_running_config=False))
+                save_running_config=False
+            )
+        )
 
         commands = ['copy https flash 172.26.66.68 SPR08095_B10ufi.bin secondary port 443', 'boot system flash secondary yes']
-        # self.execute_module(commands=commands, changed=True)
         result = self.execute_module(changed=True)
-        self.assertEqual(result['commands'], commands)
-        
+        self.assertEqual(result['commands'], commands)        
 
     def test_icx_firmware_upgrade_https_missingServer_type(self):
         set_module_args(
             dict(
-                # server_type='https', 
-                server_address='172.26.66.68', 
-                server_port='443', 
-                partition='secondary', 
+                server_address='172.26.66.68',
+                server_port='443',
+                partition='secondary',
                 filename='SPR08095_B10ufi.bin',
                 boot_only=False,
-                save_running_config=False))
+                save_running_config=False
+            )
+        )
 
         commands = ['copy https flash 172.26.66.68 SPR08095_B10ufi.bin secondary port 443', 'boot system flash secondary yes']
         self.execute_module(changed=False, failed=True)
-        # result = self.execute_module(changed=False, failed=True)
-        # self.assertEqual(result['commands'], commands)
 
     def test_icx_firmware_upgrade_https_missingServer_address(self):
         set_module_args(
             dict(
-                server_type='https', 
-                # server_address='172.26.66.68', 
-                server_port='443', 
-                partition='secondary', 
+                server_type='https',
+                server_port='443',
+                partition='secondary',
                 filename='SPR08095_B10ufi.bin',
                 boot_only=False,
-                save_running_config=False))
+                save_running_config=False
+            )
+        )
 
         commands = ['copy https flash 172.26.66.68 SPR08095_B10ufi.bin secondary port 443', 'boot system flash secondary yes']
         self.execute_module(changed=False, failed=True)
-        # result = self.execute_module(changed=False, failed=True)
-        # self.assertEqual(result['commands'], commands)
 
     def test_icx_firmware_upgrade_https_missingFilename(self):
         set_module_args(
             dict(
-                server_type='https', 
-                server_address='172.26.66.68', 
-                server_port='443', 
+                server_type='https',
+                server_address='172.26.66.68',
+                server_port='443',
                 partition='secondary',
                 boot_only=False,
                 save_running_config=False
-                # filename='SPR08095_B10ufi.bin'
-                ))
+            )
+        )
 
         commands = ['copy https flash 172.26.66.68 SPR08095_B10ufi.bin secondary port 443', 'boot system flash secondary yes']
         self.execute_module(changed=False, failed=True)
-        # result = self.execute_module(changed=False, failed=True)
-        # self.assertEqual(result['commands'], commands)
 
     def test_icx_firmware_upgrade_boot_onlyTrue_save_running_configFalse(self):
         set_module_args(
             dict(
-                boot_only= True,
-                save_running_config= False,
+                boot_only=True,
+                save_running_config=False,
                 partition='secondary',
                 server_type='https',
-                # server_address='def',
-                # filename='xyz'
-                ))
+            )
+        )
 
         commands = ['boot system flash secondary yes']
-        # self.execute_module(changed=False, failed=True)
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], commands)
 
     def test_icx_firmware_upgrade_boot_onlyTrue_save_running_configTrue(self):
         set_module_args(
             dict(
-                boot_only= True,
-                save_running_config= True,
+                boot_only=True,
+                save_running_config=True,
                 partition='secondary'
-                ))
+            )
+        )
 
         commands = ['write memory', 'boot system flash secondary yes']
-        # self.execute_module(changed=False, failed=True)
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], commands)
-
-   
-
-    
-
-    
-
-    
-
-
-
 

@@ -45,6 +45,7 @@ options:
     description:
       - Enable Layer 2 multicast Snooping in a VLAN.
     type: bool
+    default: false
   version:
     description:
       - Specifies the IGMP version that can be processed.
@@ -54,6 +55,7 @@ options:
     description:
       - Layer 2 multicast snooping proxy is enabled.
     type: bool
+    default: false
   state:
     description:
       - Specify desired state of the resource.

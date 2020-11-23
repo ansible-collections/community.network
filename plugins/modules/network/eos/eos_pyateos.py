@@ -10,21 +10,21 @@ __metaclass__ = type
 
 DOCUMENTATION = """
 module: eos_pyateos
-version_added: "2.10"
+version_added: 1.3.10
 author: "Federico Olivieri (@Federico87)"
 short_description: Operational status tests on Arista device.
 description:
     - A snapshot of the operational status of a switch is taken before a
-    config or network change and compare against a second snapshot taken after the change.
-    A diff file is generated in .json format.
+      config or network change and compare against a second snapshot taken after the change.
+      A diff file is generated in .json format.
 notes:
-    - Tested against EOS 4.18
+    - Tested against EOS 4.18.
 options:
     test:
         description:
             - One ore more test to be run. Every test correspond to a specific "show" command
-            i.e. ntp - show ntp associations.
-            For more details: https://gitlab.com/networkAutomation/pyateos/-/blob/master/README.md
+              i.e. ntp - show ntp associations.
+              For more details: https://gitlab.com/networkAutomation/pyateos/-/blob/master/README.md
         choices: [
             'acl',
             'arp',
@@ -44,41 +44,42 @@ options:
             'vlan',
             'vrf',
             'vxlan',
-            'bfd']
+            'bfd',
+            ]
         type: list
     before:
         description:
             - Run pre-check tests defined under 'test' and generate .json.
-            The fiename and directory path is the following: /tests/before/hostname/timestamp.json
+              The fiename and directory path is the following: /tests/before/hostname/timestamp.json
         default: false
         type: bool
     after:
         description:
             - Run post-check tests defined under 'test'.
-            The fiename and directory path is the following: /tests/after/hostname/timestamp.json
+              The fiename and directory path is the following: /tests/after/hostname/timestamp.json
         default: false
         type: bool
     diff:
         description:
             - Run between vs. after diffs and save the result in .json format.
-            The fiename and directory path is the following: /tests/diff/hostname/diff_timestamp_before_after.json
+              The fiename and directory path is the following: /tests/diff/hostname/diff_timestamp_before_after.json
         default: false
         type: bool
     files:
         description:
             - List of before and after file IDs to compare in order to generate diff. Each file id
-            is available under `result.before_file_ids` and `result.after_file_ids`
+              is available under `result.before_file_ids` and `result.after_file_ids`
         type: list
     filter:
         description:
             - Valid only with `compare`. Filter reduces the output returning just the
-            `insert` and `delete` in diff i.e. intrface - all interfaces counters are filtered.
+              `insert` and `delete` in diff i.e. intrface - all interfaces counters are filtered.
         type: bool
         default: false
     group:
         description:
             - Pre set group of test. `group` and `test` are allowed togehter.
-            For more details: https://gitlab.com/networkAutomation/pyateos/-/blob/master/README.md
+              For more details: https://gitlab.com/networkAutomation/pyateos/-/blob/master/README.md
         type: list
         choices: [
             'mgmt',
@@ -255,7 +256,7 @@ def run_test(module, test):
     if before:
         destination = "{root_path}/tests/before/{test}/{host}/".format(
             root_path=root_path,
-            test=test, 
+            test=test,
             host=host,
         )
 
@@ -297,7 +298,7 @@ def run_test(module, test):
     try:
         with open("{0}/{1}.json".format(destination, file_name), "w") as file:
             json.dump(result, file, ensure_ascii=False, indent=4)
-    except:
+    except IOError:
         module.fail_json(msg="Something went wrong when writing to the file")
 
     return result, file_name
@@ -362,7 +363,7 @@ def run_compare(module, count, test):
 
             for acls in legal_json_diff.values():
                 for acl_change in acls.keys():
-                    if acl_change != 'insert' or acl_change != 'delete' or acl_change != None:
+                    if acl_change != 'insert' or acl_change != 'delete' or acl_change is not None:
                         del legal_json_diff['aclList'][acl_change]
 
                         return legal_json_diff
@@ -436,8 +437,8 @@ def run_compare(module, count, test):
             after = open(
                 "{root_path}/tests/after/{test}/{host}/{after_file}.json".format(
                     root_path=root_path,
-                    test=test, 
-                    host=host, 
+                    test=test,
+                    host=host,
                     after_file=str(after_file[count]),
                 ),
                 "r",
@@ -447,7 +448,7 @@ def run_compare(module, count, test):
 
         destination = "{root_path}/tests/diff/{test}/{host}/".format(
             root_path=root_path,
-            test=test, 
+            test=test,
             host=host,
         )
 
@@ -462,12 +463,11 @@ def run_compare(module, count, test):
                 final_diff = json.loads(legal_json_diff)
 
             if filter_flag:
-                    final_diff = CustomFilter().filter_jmespath(
-                        test, json.loads(legal_json_diff)
-                    )
+                final_diff = CustomFilter().filter_jmespath(
+                    test, json.loads(legal_json_diff)
+                )
         except ValueError as error:
             module.fail_json(msg="Diff file not legal:\n{}".format(legal_json_diff))
-
 
         diff_file_id = str(round(time.time())) + '_' + str(
             (int(before_file[count]) - int(after_file[count])) * -1
@@ -476,11 +476,12 @@ def run_compare(module, count, test):
         try:
             with open(
                 "{destination}{diff_file_id}.json".format(
-                    destination=destination, 
+                    destination=destination,
                     diff_file_id=diff_file_id
-                ),"w") as file:
+                    ), "w"
+            ) as file:
                 json.dump(final_diff, file, ensure_ascii=False, indent=4)
-        except:
+        except IOError:
             module.fail_json(msg="Something went wrong when writing to the file")
 
     return final_diff

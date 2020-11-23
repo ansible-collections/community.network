@@ -29,7 +29,6 @@ class TestICXfirmwareUpgradeModule(TestICXModule):
             self.mock_exec_scp.return_value = load_fixture("icx_firmware_upgrade_config").strip()
             self.mock_run_commands.return_value = load_fixture("icx_firmware_upgrade_config").strip()
 
-
     def test_icx_firmware_upgrade_tftp(self):
         set_module_args(
             dict(
@@ -127,7 +126,7 @@ class TestICXfirmwareUpgradeModule(TestICXModule):
 
         commands = ['copy https flash 172.26.66.68 SPR08095_B10ufi.bin secondary port 443', 'boot system flash secondary yes']
         result = self.execute_module(changed=True)
-        self.assertEqual(result['commands'], commands)        
+        self.assertEqual(result['commands'], commands)
 
     def test_icx_firmware_upgrade_https_missingServer_type(self):
         set_module_args(
@@ -200,4 +199,3 @@ class TestICXfirmwareUpgradeModule(TestICXModule):
         commands = ['write memory', 'boot system flash secondary yes']
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], commands)
-

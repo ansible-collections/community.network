@@ -237,7 +237,7 @@ def main():
     response = ''
     try:
         validate_parameters(module, timeout, count)
-        results["commands"] = [build_ping(dest, count, source, timeout, ttl, size, vrf)]
+        results["commands"] = build_ping(dest, count, source, timeout, ttl, size, vrf)
         ping_results = run_commands(module, commands=results["commands"])
         ping_results_list = ping_results[0].split("\n")
 

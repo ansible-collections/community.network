@@ -67,13 +67,13 @@ class TestICXCommandModule(TestICXModule):
         set_module_args(dict(commands=['show version'], wait_for=wait_for))
         self.execute_module(failed=True)
         # run_commands call count is 1(skip) + 10(current)
-        self.assertEqual(self.run_commands.call_count, 11)
+        self.assertEqual(self.run_commands.call_count, 10)
 
     def test_icx_command_retries(self):
         wait_for = 'result[0] contains "test string"'
         set_module_args(dict(commands=['show version'], wait_for=wait_for, retries=2))
         self.execute_module(failed=True)
-        self.assertEqual(self.run_commands.call_count, 3)
+        self.assertEqual(self.run_commands.call_count, 2)
 
     def test_icx_command_match_any(self):
         wait_for = ['result[0] contains "ICX"',

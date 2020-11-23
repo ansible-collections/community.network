@@ -105,6 +105,7 @@ options:
         a password. This will allow the user to login to the system
         without being authenticated by a password.
     type: bool
+    default: false
   purge:
     description:
       - If set to true module will remove any previously

@@ -65,6 +65,7 @@ options:
       - Expect no response when storing the preliminary configuration.
         Refer to the C(store) option.
     type: bool
+    default: false
   return_rowid:
     description:
       - Get rowid(s) from a table where the columns match.

@@ -14,7 +14,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
 DOCUMENTATION = """
 ---
 module: icx_ping
-version_added: "1.3"
+version_added: "1.3.0"
 author: "Ruckus Wireless (@Commscope)"
 short_description: Tests reachability using ping from Ruckus ICX 7000 series switches
 description:

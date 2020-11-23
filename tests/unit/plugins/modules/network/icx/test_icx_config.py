@@ -66,7 +66,7 @@ class TestICXConfigModule(TestICXModule):
         self.run_commands.return_value = "Hostname foo"
         set_module_args(dict(save_when='always'))
         self.execute_module(changed=True)
-        self.assertEqual(self.run_commands.call_count, 2)
+        self.assertEqual(self.run_commands.call_count, 1)
         self.assertEqual(self.get_config.call_count, 0)
         self.assertEqual(self.conn.edit_config.call_count, 0)
         args = self.run_commands.call_args[0][1]
@@ -75,7 +75,7 @@ class TestICXConfigModule(TestICXModule):
     def test_icx_config_save_changed_false(self):
         set_module_args(dict(save_when='changed'))
         self.execute_module(changed=False)
-        self.assertEqual(self.run_commands.call_count, 1)
+        self.assertEqual(self.run_commands.call_count, 0)
         self.assertEqual(self.get_config.call_count, 0)
         self.assertEqual(self.conn.edit_config.call_count, 0)
 
@@ -212,7 +212,7 @@ class TestICXConfigModule(TestICXModule):
         commands = ['hostname foo', 'interface ethernet 1/1/4', 'disable']
         self.conn.get_diff = MagicMock(return_value=self.cliconf_obj.get_diff(src, self.running_config))
         self.execute_module(changed=True, commands=commands)
-        self.assertEqual(self.run_commands.call_count, 2)
+        self.assertEqual(self.run_commands.call_count, 1)
         self.assertEqual(self.get_config.call_count, 1)
         self.assertEqual(self.conn.edit_config.call_count, 1)
         args = self.run_commands.call_args[0][1]

@@ -28,9 +28,8 @@ class TestICXPingModule(TestICXModule):
             commands = kwargs['commands']
             output = list()
 
-            for command in commands:
-                filename = str(command).split(' | ')[0].replace(' ', '_')
-                output.append(load_fixture('icx_ping_%s' % filename))
+            filename = commands['command'].replace(' ', '_')
+            output.append(load_fixture('icx_ping_%s' % filename))
             return output
 
         self.run_commands.side_effect = load_from_file
@@ -38,9 +37,10 @@ class TestICXPingModule(TestICXModule):
     def test_icx_ping_expected_success(self):
         ''' Test for successful pings when destination should be reachable '''
         set_module_args(dict(count=2, dest="8.8.8.8"))
-        commands = ['ping 8.8.8.8 count 2']
+        expected_commands = ['ping 8.8.8.8 count 2']
         fields = {'packets_tx': 2}
-        self.execute_module(commands=commands, fields=fields)
+        result = self.execute_module(changed=False, fields=fields)
+        self.assertEqual(result['commands']['command'], *expected_commands)
 
     def test_icx_ping_expected_failure(self):
         ''' Test for unsuccessful pings when destination should not be reachable '''
@@ -61,8 +61,9 @@ class TestICXPingModule(TestICXModule):
     def test_icx_ping_expected_success_cmd(self):
         ''' Test for successful pings when destination should be reachable '''
         set_module_args(dict(count=5, dest="8.8.8.8", ttl=70))
-        commands = ['ping 8.8.8.8 count 5 ttl 70']
-        self.execute_module(commands=commands)
+        expected_commands = ['ping 8.8.8.8 count 5 ttl 70']
+        result = self.execute_module(changed=False)
+        self.assertEqual(result['commands']['command'], *expected_commands)
 
     def test_icx_ping_invalid_ttl(self):
         ''' Test for invalid range of ttl for reachable '''

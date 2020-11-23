@@ -14,91 +14,89 @@ version_added: 1.3.10
 author: "Federico Olivieri (@Federico87)"
 short_description: Operational status tests on Arista device.
 description:
-    - A snapshot of the operational status of a switch is taken before a
-      config or network change and compare against a second snapshot taken after the change.
-      A diff file is generated in .json format.
+  - Snapshot of the operational status of a switch is taken before a config or network change and 
+    compare against a second snapshot taken after the change. A diff file is generated in json format.
 notes:
-    - Tested against EOS 4.18.
+  - Tested against EOS 4.18.
 options:
-    test:
-        description:
-            - One ore more test to be run. Every test correspond to a specific "show" command
-        choices: [
-            'acl',
-            'arp',
-            'as_path',
-            'bgp_evpn',
-            'bgp_ipv4',
-            'interface',
-            'ip_route',
-            'mac',
-            'mlag',
-            'ntp',
-            'lldp',
-            'prefix_list',
-            'route_map',
-            'snmp',
-            'stp',
-            'vlan',
-            'vrf',
-            'vxlan',
-            'bfd',
-            ]
-        type: list
-    before:
-        description:
-            - Run pre-check tests defined under 'test' and generate .json.
-            The fiename and directory path is the following: /tests/before/hostname/timestamp.json
-        default: false
-        type: bool
-    after:
-        description:
-            - Run post-check tests defined under 'test'.
-            The fiename and directory path is the following: /tests/after/hostname/timestamp.json
-        default: false
-        type: bool
-    diff:
-        description:
-            - Run between vs. after diffs and save the result in .json format.
-            The fiename and directory path is the following: /tests/diff/hostname/diff_timestamp_before_after.json
-        default: false
-        type: bool
-    files:
-        description:
-            - List of before and after file IDs to compare in order to generate diff. 
-            Each file id is available under `result.before_file_ids` and `result.after_file_ids`
-        type: list
-    filter:
-        description:
-            - Valid only with `compare`. Filter reduces the output returning just the
-            `insert` and `delete` in diff i.e. intrface - all interfaces counters are filtered.
-        type: bool
-        default: false
-    group:
-        description:
-            - Pre set group of test. `group` and `test` are allowed togehter.
-            For more details: https://gitlab.com/networkAutomation/pyateos/-/blob/master/README.md
-        type: list
-        choices: [
-            'mgmt',
-            'routing',
-            'layer2',
-            'ctr',
-            'all'
+  test:
+    description:
+      - One ore more test to be run. Every test correspond to a specific "show" command
+    choices: [
+      'acl',
+      'arp',
+      'as_path',
+      'bgp_evpn',
+      'bgp_ipv4',
+      'interface',
+      'ip_route',
+      'mac',
+      'mlag',
+      'ntp',
+      'lldp',
+      'prefix_list',
+      'route_map',
+      'snmp',
+      'stp',
+      'vlan',
+      'vrf',
+      'vxlan',
+      'bfd',
         ]
-    hostname:
-        description:
-            - Device hostname required for filesystem build
-        type: str
-        required: true
-    root_path:
-        description:
-            - Root path folder where test results are saved
-        type: str
-        default: '.'
+    type: list
+before:
+  description:
+      - Run pre-check tests defined under 'test' and generate json. 
+        The fiename and directory path is tests/before/hostname/timestamp.json
+  default: false
+  type: bool
+after:
+  description:
+      - Run post-check tests defined under 'test'.
+        The fiename and directory path is tests/after/hostname/timestamp.json
+  default: false
+  type: bool
+diff:
+  description:
+      - Run between vs. after diffs and save the result in .json format.
+        The fiename and directory path is tests/diff/hostname/diff_timestamp_before_after.json
+  default: false
+  type: bool
+files:
+  description:
+      - List of before and after file IDs to compare in order to generate diff.
+        Each file id is available under `result.before_file_ids` and `result.after_file_ids`
+  type: list
+filter:
+  description:
+      - Valid only with `compare`. Filter reduces the output returning just
+        `insert` and `delete` in diff i.e. intrface - all interfaces counters are filtered.
+  type: bool
+  default: false
+group:
+  description:
+      - Pre set group of test. `group` and `test` are allowed togehter.
+  type: list
+  choices: [
+      'mgmt',
+      'routing',
+      'layer2',
+      'ctr',
+      'all'
+  ]
+hostname:
+  description:
+      - Device hostname required for filesystem build
+  type: str
+  required: true
+root_path:
+  description:
+      - Root path folder where test results are saved
+  type: str
+  default: '.'
 requirements:
-    - jsondiff
-    - jmespath
+  - jsondiff
+  - jmespath
 """
 
 EXAMPLES = """
@@ -466,13 +464,13 @@ def run_compare(module, count, test):
                 )
         except ValueError as error:
             module.fail_json(msg="Diff file not legal:\n{0}".format(legal_json_diff))
- 
+
         diff_file_id = str(round(time.time())) + '_' + str(
             (int(before_file[count]) - int(after_file[count])) * -1
         )
 
         try:
-            with open("{0}{1}.json".format(destination,diff_file_id), "w") as file:
+            with open("{0}{1}.json".format(destination, diff_file_id), "w") as file:
                 json.dump(final_diff, file, ensure_ascii=False, indent=4)
 
         except IOError:

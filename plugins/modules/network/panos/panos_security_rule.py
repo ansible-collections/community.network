@@ -109,6 +109,7 @@ options:
         description:
             - Whether to log at session start.
         type: bool
+        default: false
     log_end:
         description:
             - Whether to log at session end.

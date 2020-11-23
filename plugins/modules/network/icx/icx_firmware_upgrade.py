@@ -102,7 +102,7 @@ EXAMPLES = """
 
 RETURN = """
 changed:
-  description: true when file is copied and switch flashed with it. false otherwise.
+  description: C(true) when file is copied and switch flashed with it. C(false) otherwise.
   returned: always
   type: bool
 """

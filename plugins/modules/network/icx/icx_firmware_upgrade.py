@@ -16,19 +16,16 @@ description:
   - This module copies new firmware to switch, flashes it to primary/secondary and reboots the switch.
 notes:
   - Tested against ICX 10.1.
-  - For information on using ICX platform, see L(the ICX OS Platform Options guide,../network/user_guide/platform_icx.html).
 options:
   server_type:
     description:
       - Data transfer protocol to be used.
     type: str
     choices: ['scp', 'https', 'tftp']
-    required: true
   server_address:
     description:
       - IPV4/IPV6 address of the scp/https/tftp server.
     type: str
-    required: true
   server_port:
     description:
       - The port number of the server. Default values will be selected based on protocol type.
@@ -38,6 +35,7 @@ options:
     description:
      - Partition to be used for upgrade.
     type: str
+    required: true
     choices: ['primary','secondary','fips-ufi-primary-sig','fips-ufi-secondary-sig']
   scp_user:
     description:
@@ -62,7 +60,6 @@ options:
     description:
       - The path of the .bin/.sig file.
     type: str
-    required: true
 """
 
 EXAMPLES = """
@@ -204,7 +201,7 @@ def main():
                                             'fips-ufi-secondary-sig'], required=True),
         filename=dict(type='str', required=False),
         boot_only=dict(type='bool', required=True),
-        save_running_config=dict(type='bool', required=True),
+        save_running_config=dict(type='bool'),
         scp_user=dict(type='str', required=False),
         scp_pass=dict(type='str', required=False, no_log=True),
     )

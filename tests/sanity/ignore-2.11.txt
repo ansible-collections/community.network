@@ -1096,11 +1096,6 @@ plugins/modules/network/radware/vdirect_file.py validate-modules:doc-missing-typ
 plugins/modules/network/radware/vdirect_file.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/radware/vdirect_runnable.py validate-modules:doc-missing-type
 plugins/modules/network/radware/vdirect_runnable.py validate-modules:parameter-type-not-in-doc
-plugins/modules/network/routeros/routeros_command.py validate-modules:doc-missing-type
-plugins/modules/network/routeros/routeros_command.py validate-modules:parameter-list-no-elements
-plugins/modules/network/routeros/routeros_command.py validate-modules:parameter-type-not-in-doc
-plugins/modules/network/routeros/routeros_facts.py validate-modules:parameter-list-no-elements
-plugins/modules/network/routeros/routeros_facts.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/slxos/slxos_command.py validate-modules:doc-missing-type
 plugins/modules/network/slxos/slxos_command.py validate-modules:parameter-list-no-elements
 plugins/modules/network/slxos/slxos_command.py validate-modules:parameter-type-not-in-doc

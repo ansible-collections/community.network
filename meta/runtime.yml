@@ -1,3 +1,4 @@
+---
 requires_ansible: '>=2.9.10'
 plugin_routing:
   modules:
@@ -133,8 +134,23 @@ plugin_routing:
       tombstone:
         removal_version: 2.0.0
         warning_text: Use modules from the paloaltonetworks.panos collection instead.
+    routeros_api:
+      redirect: community.routeros.api
+    routeros_command:
+      redirect: community.routeros.command
+    routeros_facts:
+      redirect: community.routeros.facts
+  module_utils:
+    network.routeros.routeros:
+      redirect: community.routeros.routeros
+  cliconf:
+    routeros:
+      redirect: community.routeros.routeros
   netconf:
     sros:
       deprecation:
         removal_version: 3.0.0
         warning_text: see plugin documentation for details
+  terminal:
+    routeros:
+      redirect: community.routeros.routeros

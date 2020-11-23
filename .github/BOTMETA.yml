@@ -36,9 +36,6 @@ files:
   $cliconfs/nos.py:
     maintainers: $team_extreme
     labels: networking nos
-  $cliconfs/routeros.py:
-    maintainers: heuels
-    labels: networking routeros
   $cliconfs/slxos.py:
     maintainers: $team_extreme
     labels: networking slxos
@@ -122,9 +119,6 @@ files:
     labels: cisco networking
   $module_utils/network/ordnance/ordnance.py:
     maintainers: alexanderturner djh00t
-    labels: networking
-  $module_utils/network/routeros/routeros.py:
-    maintainers: heuels
     labels: networking
   $module_utils/network/slxos/slxos.py:
     maintainers: $team_extreme
@@ -327,8 +321,6 @@ files:
     maintainers: djh00t
   $modules/network/radware/:
     authors: evgenyfedoruk
-  $modules/network/routeros/:
-    authors: heuels
   $modules/network/slxos/:
     authors: bigmstone
     maintainers: LindsayHill ujwalkomarla
@@ -365,9 +357,6 @@ files:
   $terminals/nos.py:
     maintainers: $team_extreme
     labels: networking nos
-  $terminals/routeros.py:
-    maintainers: heuels
-    labels: networking routeros
   $terminals/slxos.py:
     maintainers: $team_extreme
     labels: networking slxos

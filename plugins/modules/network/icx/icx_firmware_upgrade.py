@@ -69,7 +69,7 @@ EXAMPLES = """
     server_address: 10.20.1.1
     partition: secondary
     filename: SPR08030.bin
-    boot_only: False
+    boot_only: false
     save_running_config: False
     scp_user: alethea
     scp_pass: alethea123
@@ -100,7 +100,7 @@ EXAMPLES = """
 
 RETURN = """
 changed:
-  description: true when file is copied and switch flashed with it. false otherwise.
+  description: C(true) when file is copied and switch flashed with it. C(false) otherwise.
   returned: always
   type: bool
 """

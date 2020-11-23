@@ -23,8 +23,6 @@ options:
     test:
         description:
             - One ore more test to be run. Every test correspond to a specific "show" command
-              i.e. ntp - show ntp associations.
-              For more details: https://gitlab.com/networkAutomation/pyateos/-/blob/master/README.md
         choices: [
             'acl',
             'arp',
@@ -50,36 +48,36 @@ options:
     before:
         description:
             - Run pre-check tests defined under 'test' and generate .json.
-              The fiename and directory path is the following: /tests/before/hostname/timestamp.json
+            The fiename and directory path is the following: /tests/before/hostname/timestamp.json
         default: false
         type: bool
     after:
         description:
             - Run post-check tests defined under 'test'.
-              The fiename and directory path is the following: /tests/after/hostname/timestamp.json
+            The fiename and directory path is the following: /tests/after/hostname/timestamp.json
         default: false
         type: bool
     diff:
         description:
             - Run between vs. after diffs and save the result in .json format.
-              The fiename and directory path is the following: /tests/diff/hostname/diff_timestamp_before_after.json
+            The fiename and directory path is the following: /tests/diff/hostname/diff_timestamp_before_after.json
         default: false
         type: bool
     files:
         description:
-            - List of before and after file IDs to compare in order to generate diff. Each file id
-              is available under `result.before_file_ids` and `result.after_file_ids`
+            - List of before and after file IDs to compare in order to generate diff. 
+            Each file id is available under `result.before_file_ids` and `result.after_file_ids`
         type: list
     filter:
         description:
             - Valid only with `compare`. Filter reduces the output returning just the
-              `insert` and `delete` in diff i.e. intrface - all interfaces counters are filtered.
+            `insert` and `delete` in diff i.e. intrface - all interfaces counters are filtered.
         type: bool
         default: false
     group:
         description:
             - Pre set group of test. `group` and `test` are allowed togehter.
-              For more details: https://gitlab.com/networkAutomation/pyateos/-/blob/master/README.md
+            For more details: https://gitlab.com/networkAutomation/pyateos/-/blob/master/README.md
         type: list
         choices: [
             'mgmt',
@@ -467,20 +465,16 @@ def run_compare(module, count, test):
                     test, json.loads(legal_json_diff)
                 )
         except ValueError as error:
-            module.fail_json(msg="Diff file not legal:\n{}".format(legal_json_diff))
-
+            module.fail_json(msg="Diff file not legal:\n{0}".format(legal_json_diff))
+ 
         diff_file_id = str(round(time.time())) + '_' + str(
             (int(before_file[count]) - int(after_file[count])) * -1
         )
 
         try:
-            with open(
-                "{destination}{diff_file_id}.json".format(
-                    destination=destination,
-                    diff_file_id=diff_file_id
-                    ), "w"
-            ) as file:
+            with open("{0}{1}.json".format(destination,diff_file_id), "w") as file:
                 json.dump(final_diff, file, ensure_ascii=False, indent=4)
+
         except IOError:
             module.fail_json(msg="Something went wrong when writing to the file")
 

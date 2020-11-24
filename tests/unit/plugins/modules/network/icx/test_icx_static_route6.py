@@ -8,6 +8,7 @@ from ansible_collections.community.network.tests.unit.compat.mock import patch
 from ansible_collections.community.network.plugins.modules.network.icx import icx_static_route6
 from .icx_module import TestICXModule, load_fixture
 
+
 class TestICXStaticRouteModule6(TestICXModule):
 
     module = icx_static_route6
@@ -39,8 +40,7 @@ class TestICXStaticRouteModule6(TestICXModule):
 
         self.get_config.side_effect = load_file
         self.load_config.return_value = None
-    
-    
+
     def test_icx_static_route_config(self):
         set_module_args(dict(prefix='6666:1:2::0/64', next_hop='6666:1:2::0'))
         if not self.ENV_ICX_USE_DIFF:
@@ -55,8 +55,7 @@ class TestICXStaticRouteModule6(TestICXModule):
                 'ipv6 route 6666:1:2::/64  6666:1:2::'
             ]
             self.assertEqual(result['commands'], expected_commands)
-        
-        
+
     def test_icx_static_route_config_compare(self):
         set_module_args(dict(prefix='6666:1:1::0/64', next_hop='6666:1:1::0', check_running_config=True))
         if self.get_running_config(compare=True):
@@ -89,7 +88,7 @@ class TestICXStaticRouteModule6(TestICXModule):
     def test_icx_static_route_aggregate(self):
         aggregate = [
             dict(prefix='6666:1:3::/64', next_hop='6666:1:3::', admin_distance=1),
-            dict(prefix='6666:1:2::/64',next_hop='6666:1:2::', admin_distance=40)
+            dict(prefix='6666:1:2::/64', next_hop='6666:1:2::', admin_distance=40)
         ]
         set_module_args(dict(aggregate=aggregate))
         if not self.ENV_ICX_USE_DIFF:

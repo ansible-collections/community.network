@@ -6,14 +6,10 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
 DOCUMENTATION = """
 ---
 module: icx_static_route6
-version_added: "2.10"
+version_added: "1.3.0"
 author: "Ruckus Wireless (@Commscope)"
 short_description: Manage static IPV6 routes on Ruckus ICX 7000 series switches
 description:
@@ -83,24 +79,24 @@ options:
 
 EXAMPLES = """
 - name: configure static route
-  icx_static_route6:
+  community.network.icx_static_route6:
     prefix: 6666:1:1::/64
     next_hop: 6666:1:2::0
 
 - name: remove configuration
-  icx_static_route6:
+  community.network.icx_static_route6:
     prefix: 6666:1:1::/64
     next_hop: 6666:1:2::0
     state: absent
 
 - name: Add static route aggregates
-  icx_static_route6:
+  community.network.icx_static_route6:
     aggregate:
       - { prefix: 6666:1:8::/64, next_hop: 6666:1:9::0 }
       - { prefix: 6666:1:5::/64, next_hop: 6666:1:6::0 }
 
 - name: remove static route aggregates
-  icx_static_route6:
+  community.network.icx_static_route6:
     aggregate:
       - { prefix: 6666:1:8::/64, next_hop: 6666:1:9::0 }
       - { prefix: 6666:1:5::/64, next_hop: 6666:1:6::0 }
@@ -123,8 +119,8 @@ import re
 from ansible.module_utils._text import to_text
 from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible.module_utils.connection import ConnectionError
-from ansible.module_utils.network.common.utils import remove_default_spec
-from ansible.module_utils.network.icx.icx import get_config, load_config
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
+from ansible_collections.community.network.plugins.module_utils.network.icx.icx import get_config, load_config
 try:
     from ipaddress import ip_network, ip_interface, IPv6Address
     HAS_IPADDRESS = True
@@ -133,13 +129,9 @@ except ImportError:
 
 
 def shorten_ip(want):
-    try:
-        unicode('')
-    except NameError:
-        unicode = str
     for item in want:
-        item['prefix'] = str(ip_interface(item['prefix'].decode('UTF-8')).network.compressed)
-        item['next_hop'] = str(IPv6Address(item['next_hop'].decode('UTF-8')).compressed)
+        item['prefix'] = ip_interface(item['prefix'].encode().decode('UTF-8')).network.compressed
+        item['next_hop'] = IPv6Address(item['next_hop'].encode().decode('UTF-8')).compressed
     return want
 
 

@@ -1,5 +1,5 @@
 major_changes:
-- >
+- |
   For community.network 2.0.0, the ``routeros`` modules and plugins will be moved to the `community.routeros <https://galaxy.ansible.com/community/routeros>`_ collection.
   A redirection will be inserted so that users using ansible-base 2.10 or newer do not have to change anything.
 

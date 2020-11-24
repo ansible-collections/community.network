@@ -328,21 +328,21 @@ options:
 
 EXAMPLES = """
   - name: Modifies the dynamic buffer-share 
-    icx_qos:
+    community.network.icx_qos:
       internal_trunk_queue:
         level: level5-1/5
         queue: 4
         state: present
 
   - name: update dscp-priority
-    icx_qos:
+    community.network.icx_qos:
       dscp_priority:
          dscp_value: 0 1 3 4
          priority: '2'
          state: absent
 
   - name: update cpu rate limit
-    icx_qos:
+    community.network.icx_qos:
       sflow_set_cpu_rate_limit:
         burst_size: 5000
         packet_rate: 1000
@@ -361,10 +361,10 @@ from copy import deepcopy
 import re
 
 from ansible.module_utils._text import to_text
-from ansible.module_utils.network.icx.icx import run_commands, get_config, load_config
+from ansible_collections.community.network.plugins.module_utils.network.icx.icx import run_commands, get_config, load_config
 from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible.module_utils.connection import ConnectionError, exec_command
-from ansible.module_utils.network.common.utils import remove_default_spec
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
 
 
 def map_obj_to_commands(updates, module):
@@ -606,8 +606,11 @@ def main():
     )
 
     egress_buffer_profile_7x50_spec = dict(
-        queue_share_level=dict(type='str', choices=['level1-1/64', 'level2-1/32', 'level3-1/16',
-        'level4-1/9', 'level5-1/5', 'level6-1/3', 'level7-1/2', 'level8-2/3']),
+        queue_share_level=dict(
+                               type='str',
+                               choices=['level1-1/64', 'level2-1/32', 'level3-1/16', 'level4-1/9',
+                                         'level5-1/5', 'level6-1/3', 'level7-1/2', 'level8-2/3']
+                          ),
         user_profile_name=dict(type='str'),
         queue_number=dict(type='int'),
         state=dict(default='present', choices=['present', 'absent'])

@@ -2,9 +2,9 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
-from units.compat.mock import patch
-from ansible.modules.network.icx import icx_firmware_upgrade
-from units.modules.utils import set_module_args
+from ansible_collections.community.network.tests.unit.compat.mock import patch
+from ansible_collections.community.network.plugins.modules.network.icx import icx_firmware_upgrade
+from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .icx_module import TestICXModule, load_fixture
 
 

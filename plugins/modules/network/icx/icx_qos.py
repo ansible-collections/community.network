@@ -41,8 +41,10 @@ options:
         default: present
         choices: ['present', 'absent']
   egress_buffer_profile_7X50:
-    description: Configures an egress buffer profile for the share queue level. This command is supported only on Ruckus ICX 7250, ICX 7450, and ICX 7750 devices
-      The default egress buffer profile level is level4-1/9 for 1/9 of the buffers in buffer memory.This is supported only on ICX 7150
+    description: Configures an egress buffer profile for the share queue level.
+                 This command is supported only on Ruckus ICX 7250, ICX 7450, and ICX 7750 devices.
+                 The default egress buffer profile level is level4-1/9 for 1/9 of the buffers in buffer memory.
+                 This is not supported on ICX 7150
     type: dict
     suboptions:
       user_profile_name:
@@ -75,7 +77,10 @@ options:
         choices: ['present', 'absent']
   ingress_buffer_profile:
     description: Configures an ingress buffer profile. By default an ingress buffer profile is not configured.
-      This command is supported only on Ruckus ICX 7250, ICX 7450, and ICX 7750 devices. This command is not supported on the Ruckus ICX 7150 or the Ruckus ICX 7650. For PFC disabled ports, the default PG XOFF limit is level7-1/2. For PFC enabled ports, the default PG XOFF limit is level2-1/32.
+                 This command is supported only on Ruckus ICX 7250, ICX 7450, and ICX 7750 devices.
+                 This command is not supported on the Ruckus ICX 7150 or the Ruckus ICX 7650.
+                 For PFC disabled ports, the default PG XOFF limit is level7-1/2.
+                 For PFC enabled ports, the default PG XOFF limit is level2-1/32.
     type: dict
     suboptions:
       user_profile_name:
@@ -245,7 +250,9 @@ options:
         default: present
         choices: ['present', 'absent']
   sflow_set_cpu_rate_limit:
-    description: Sets the CPU rate limit for sFlow. A CPU rate limit for sFlow is configured with the default values of 100 sFlow sampled packets per second (PPS) and a burst size of 5000 B.
+    description: Sets the CPU rate limit for sFlow.
+                 A CPU rate limit for sFlow is configured with the default values of 100 sFlow
+                 sampled packets per second (PPS) and a burst size of 5000 B.
     type: dict
     suboptions:
       packet_rate:
@@ -275,7 +282,10 @@ options:
         default: present
         choices: ['present', 'absent']
   internal_trunk_queue:
-    description: Modifies the dynamic buffer-share level of inter-packet-processor (inter-pp) HiGig links egress queues on ICX 7450 devices. This command is supported only on ICX 7450 devices or across stack units or for ports across master and slave packet-processor (pp) devices in ICX7450-48 units.
+    description: Modifies the dynamic buffer-share level of inter-packet-processor (inter-pp)
+                 HiGig links egress queues on ICX 7450 devices.
+                 This command is supported only on ICX 7450 devices or across stack units or for ports
+                 across master and slave packet-processor (pp) devices in ICX7450-48 units.
     type: dict
     suboptions:
       level:
@@ -310,7 +320,9 @@ options:
     type: dict
     suboptions:
       dscp_value:
-        description: Specifies the DSCP value ranges that you are remapping. You can map up to eight DSCP values to the same forwarding priority in the same command. Values can be from 0 to 7
+        description: Specifies the DSCP value ranges that you are remapping.
+                     You can map up to eight DSCP values to the same forwarding priority in the same command.
+                     Values can be from 0 to 7
         type: list
       priority:
         description: Specifies the internal forwarding priority.
@@ -322,7 +334,7 @@ options:
         choices: ['present', 'absent']
   check_running_config:
     description: Check running configuration. This can be set as environment variable.
-       Module will use environment variable value(default:True), unless it is overridden, by specifying it as module parameter.
+       Module will use environment variable value(default:False), unless it is overridden, by specifying it as module parameter.
     type: bool
 """
 
@@ -393,15 +405,25 @@ def map_obj_to_commands(updates, module):
 
         if egress_buffer_profile_7150:
             if egress_buffer_profile_7150['state'] == 'present':
-                commands.append('qos egress-buffer-profile %s port-share-level %s' % (egress_buffer_profile_7150['user_profile_name'], egress_buffer_profile_7150['port_share_level']))
+                commands.append('qos egress-buffer-profile %s port-share-level %s' %
+                                (egress_buffer_profile_7150['user_profile_name'],
+                                 egress_buffer_profile_7150['port_share_level']))
             elif egress_buffer_profile_7150['state'] == 'absent':
-                commands.append('no qos egress-buffer-profile %s port-share-level %s' % (egress_buffer_profile_7150['user_profile_name'], egress_buffer_profile_7150['port_share_level']))
+                commands.append('no qos egress-buffer-profile %s port-share-level %s' %
+                                (egress_buffer_profile_7150['user_profile_name'],
+                                 egress_buffer_profile_7150['port_share_level']))
 
         if egress_buffer_profile_7X50:
             if egress_buffer_profile_7X50['state'] == 'present':
-                commands.append('qos egress-buffer-profile %s queue-share-level %s %s' % (egress_buffer_profile_7X50['user_profile_name'], egress_buffer_profile_7X50['queue_share_level'], egress_buffer_profile_7X50['queue_number']))
+                commands.append('qos egress-buffer-profile %s queue-share-level %s %s' %
+                                (egress_buffer_profile_7X50['user_profile_name'],
+                                 egress_buffer_profile_7X50['queue_share_level'],
+                                 egress_buffer_profile_7X50['queue_number']))
             elif egress_buffer_profile_7X50['state'] == 'absent':
-                commands.append('no qos egress-buffer-profile %s queue-share-level %s %s' % (egress_buffer_profile_7X50['user_profile_name'], egress_buffer_profile_7X50['queue_share_level'], egress_buffer_profile_7X50['queue_number']))
+                commands.append('no qos egress-buffer-profile %s queue-share-level %s %s' %
+                                (egress_buffer_profile_7X50['user_profile_name'],
+                                 egress_buffer_profile_7X50['queue_share_level'],
+                                 egress_buffer_profile_7X50['queue_number']))
 
         if egress_shape_ifg_bytes:
             if egress_shape_ifg_bytes['state'] == 'present':
@@ -411,9 +433,15 @@ def map_obj_to_commands(updates, module):
 
         if ingress_buffer_profile:
             if ingress_buffer_profile['state'] == 'present':
-                commands.append('qos ingress-buffer-profile %s priority-group %s xoff %s' % (ingress_buffer_profile['user_profile_name'], ingress_buffer_profile['priority_group_number'], ingress_buffer_profile['shared_level']))
+                commands.append('qos ingress-buffer-profile %s priority-group %s xoff %s'
+                                % (ingress_buffer_profile['user_profile_name'],
+                                   ingress_buffer_profile['priority_group_number'],
+                                   ingress_buffer_profile['shared_level']))
             elif ingress_buffer_profile['state'] == 'absent':
-                commands.append('no qos ingress-buffer-profile %s priority-group %s xoff %s' % (ingress_buffer_profile['user_profile_name'], ingress_buffer_profile['priority_group_number'], ingress_buffer_profile['shared_level']))
+                commands.append('no qos ingress-buffer-profile %s priority-group %s xoff %s'
+                                % (ingress_buffer_profile['user_profile_name'],
+                                   ingress_buffer_profile['priority_group_number'],
+                                   ingress_buffer_profile['shared_level']))
 
         if mechanism:
             if mechanism['state'] == 'present':
@@ -432,21 +460,40 @@ def map_obj_to_commands(updates, module):
 
         if priority_to_pg:
             if priority_to_pg['state'] == 'present':
-                commands.append('qos priority-to-pg  qosp0 %s qosp1 %s qosp2 %s qosp3 %s qosp4 %s qosp5 %s qosp6 %s qosp7 %s' % (priority_to_pg['priority0'], priority_to_pg['priority1'], priority_to_pg['priority2'], priority_to_pg['priority3'], priority_to_pg['priority4'], priority_to_pg['priority5'], priority_to_pg['priority6'], priority_to_pg['priority7']))
+                commands.append('qos priority-to-pg  qosp0 %s qosp1 %s qosp2 %s qosp3 %s qosp4 %s qosp5 %s qosp6 %s qosp7 %s'
+                                % (priority_to_pg['priority0'], priority_to_pg['priority1'], priority_to_pg['priority2'],
+                                   priority_to_pg['priority3'], priority_to_pg['priority4'], priority_to_pg['priority5'],
+                                   priority_to_pg['priority6'], priority_to_pg['priority7']))
             else:
-                commands.append('no qos priority-to-pg  qosp0 %s qosp1 %s qosp2 %s qosp3 %s qosp4 %s qosp5 %s qosp6 %s qosp7 %s' % (priority_to_pg['priority0'], priority_to_pg['priority1'], priority_to_pg['priority2'], priority_to_pg['priority3'], priority_to_pg['priority4'], priority_to_pg['priority5'], priority_to_pg['priority6'], priority_to_pg['priority7']))
+                commands.append('no qos priority-to-pg  qosp0 %s qosp1 %s qosp2 %s qosp3 %s qosp4 %s qosp5 %s qosp6 %s qosp7 %s'
+                                % (priority_to_pg['priority0'], priority_to_pg['priority1'], priority_to_pg['priority2'],
+                                   priority_to_pg['priority3'], priority_to_pg['priority4'], priority_to_pg['priority5'],
+                                   priority_to_pg['priority6'], priority_to_pg['priority7']))
 
         if profile:
             if profile['state'] == 'present':
-                commands.append('qos profile %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s' % (qos_profile[0], profile['percentage7'], qos_profile[1], profile['percentage6'], qos_profile[2], profile['percentage5'], qos_profile[3], profile['percentage4'], qos_profile[4], profile['percentage3'], qos_profile[5], profile['percentage2'], qos_profile[6], profile['percentage1'], qos_profile[7], profile['percentage0']))
+                commands.append('qos profile %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s'
+                                % (qos_profile[0], profile['percentage7'], qos_profile[1], profile['percentage6'],
+                                   qos_profile[2], profile['percentage5'], qos_profile[3], profile['percentage4'],
+                                   qos_profile[4], profile['percentage3'], qos_profile[5], profile['percentage2'],
+                                   qos_profile[6], profile['percentage1'], qos_profile[7], profile['percentage0']))
             else:
-                commands.append('no qos profile %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s' % (qos_profile[0], profile['percentage7'], qos_profile[1], profile['percentage6'], qos_profile[2], profile['percentage5'], qos_profile[3], profile['percentage4'], qos_profile[4], profile['percentage3'], qos_profile[5], profile['percentage2'], qos_profile[6], profile['percentage1'], qos_profile[7], profile['percentage0']))
+                commands.append('no qos profile %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s'
+                                % (qos_profile[0], profile['percentage7'], qos_profile[1], profile['percentage6'],
+                                    qos_profile[2], profile['percentage5'], qos_profile[3], profile['percentage4'],
+                                    qos_profile[4], profile['percentage3'], qos_profile[5], profile['percentage2'],
+                                    qos_profile[6], profile['percentage1'], qos_profile[7], profile['percentage0']))
 
         if scheduler_profile:
             if scheduler_profile['state'] == 'present':
                 commands.append('qos scheduler-profile %s mechanism %s' % (scheduler_profile['user_profile_name'], scheduler_profile['scheduling_mechanism']))
 
-                commands.append('qos scheduler-profile %s profile qosp0 %s qosp1 %s qosp2 %s qosp3 %s qosp4 %s qosp5 %s qosp6 %s qosp7 %s' % (scheduler_profile['user_profile_name'], scheduler_profile['wt0'], scheduler_profile['wt1'], scheduler_profile['wt2'], scheduler_profile['wt3'], scheduler_profile['wt4'], scheduler_profile['wt5'], scheduler_profile['wt6'], scheduler_profile['wt7']))
+                commands.append('qos scheduler-profile %s profile qosp0 %s qosp1 %s qosp2 %s qosp3 %s qosp4 %s qosp5'
+                                ' %s qosp6 %s qosp7 %s'
+                                % (scheduler_profile['user_profile_name'], scheduler_profile['wt0'],
+                                   scheduler_profile['wt1'], scheduler_profile['wt2'], scheduler_profile['wt3'],
+                                   scheduler_profile['wt4'], scheduler_profile['wt5'], scheduler_profile['wt6'],
+                                   scheduler_profile['wt7']))
             else:
                 commands.append('no qos scheduler-profile %s' % scheduler_profile['user_profile_name'])
 
@@ -606,11 +653,11 @@ def main():
     )
 
     egress_buffer_profile_7x50_spec = dict(
-        queue_share_level=dict(
-                               type='str',
-                               choices=['level1-1/64', 'level2-1/32', 'level3-1/16', 'level4-1/9',
-                                         'level5-1/5', 'level6-1/3', 'level7-1/2', 'level8-2/3']
-                          ),
+        queue_share_level=dict(type='str',
+                               choices=['level1-1/64', 'level2-1/32',
+                                        'level3-1/16', 'level4-1/9',
+                                        'level5-1/5', 'level6-1/3',
+                                        'level7-1/2', 'level8-2/3']),
         user_profile_name=dict(type='str'),
         queue_number=dict(type='int'),
         state=dict(default='present', choices=['present', 'absent'])

@@ -207,3 +207,65 @@ releases:
     - 104_routeros_facts_export_verbose.yml
     - 105_edgeswitch_add-startupconfig.yml
     release_date: '2020-09-30'
+  1.3.0:
+    changes:
+      bugfixes:
+      - action pugins - add check for network_cli connection type (https://github.com/ansible-collections/community.network/issues/119,
+        https://github.com/ansible-collections/community.network/pull/120).
+      - api - fix crash when the ``ssl`` parameter is used (https://github.com/ansible-collections/community.routeros/pull/3).
+      - dladm_vnic - fixed issue where setting vlan in Python 3 caused a type error
+        (https://github.com/ansible-collections/community.network/issues/131).
+      - dladm_vnic - vlan IDs 0 and 4095 are now correctly identified as invalid (https://github.com/ansible-collections/community.network/pull/132).
+      - fortimanager httpapi plugin - fix imports to load module_utils from fortios.fortimanager,
+        where it actually exists. Please note that you must have the fortios.fortimanager
+        collection installed for the plugin to work (https://github.com/ansible-collections/community.network/pull/151).
+      - ftd httpapi plugin - make sure that plugin errors out on initialization if
+        the required library is not found, and not on load-time (https://github.com/ansible-collections/community.network/pull/150).
+      - routeros terminal plugin - allow slashes in hostnames for terminal detection.
+        Without this, slashes in hostnames will result in connection timeouts (https://github.com/ansible-collections/community.network/pull/138).
+      deprecated_features:
+      - Deprecate connection=local support for network platforms using persistent
+        framework (https://github.com/ansible-collections/community.network/pull/120).
+      major_changes:
+      - 'For community.network 2.0.0, the ``routeros`` modules and plugins will be
+        moved to the `community.routeros <https://galaxy.ansible.com/community/routeros>`_
+        collection.
+
+        A redirection will be inserted so that users using ansible-base 2.10 or newer
+        do not have to change anything.
+
+
+        If you use Ansible 2.9 and explicitly use ``routeros`` content from this collection,
+        you will need to adjust your playbooks and roles to use FQCNs starting with
+        ``community.routeros.`` instead of ``community.network.routeros_``,
+
+        for example replace ``community.network.routeros_api`` in a task by ``community.routeros.api``.
+
+
+        If you use ansible-base and installed ``community.network`` manually and rely
+        on the ``routeros`` content, you have to make sure to install the ``community.routeros``
+        collection as well.
+
+        If you are using FQCNs, i.e. ``community.network.routeros_command`` instead
+        of ``routeros_command``, it will continue working, but we still recommend
+        to adjust the FQCNs as well.
+
+        '
+      - In community.network 2.0.0, the ``fortimanager`` httpapi plugin will be removed
+        and replaced by a redirect to the corresponding plugin in the fortios.fortimanager
+        collection. For Ansible 2.10 and ansible-base 2.10 users, this means that
+        it will continue to work assuming that collection is installed. For Ansible
+        2.9 users, this means that they have to adjust the FQCN from ``community.network.fortimanager``
+        to ``fortios.fortimanager.fortimanager`` (https://github.com/ansible-collections/community.network/pull/151).
+      release_summary: This is the last minor 1.x.0 release. The next releases from
+        the stable-1 branch will be 1.3.y patch releases.
+    fragments:
+    - 1.3.0.yml
+    - 119_fix_connection_check_issue.yml
+    - 131_dladm_vnic.yml
+    - 138-routeros-allow-slash.yml
+    - fortimanager-imports.yml
+    - ftd-imports.yml
+    - routeros-3-api-ssl.yml
+    - routeros-migration.yml
+    release_date: '2020-11-25'

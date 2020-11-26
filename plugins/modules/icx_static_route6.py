@@ -1,1 +1,1 @@
-plugins/modules/network/icx/icx_static_route6.py
+./network/icx/icx_static_route6.py

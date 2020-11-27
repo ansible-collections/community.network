@@ -586,8 +586,8 @@ def map_config_to_obj_egress_prof(module):
         for i in match:
             split = i.split('\n')
             list_interface[split[0]] = split[1:]
-    for k,v in list_interface.items():
-        list_interface[k]= [i.strip() for i in v]
+    for k, v in list_interface.items():
+        list_interface[k] = [i.strip() for i in v]
     return list_interface
 
 

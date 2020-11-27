@@ -339,7 +339,7 @@ options:
 """
 
 EXAMPLES = """
-  - name: Modifies the dynamic buffer-share 
+  - name: Modifies the dynamic buffer-share
     community.network.icx_qos:
       internal_trunk_queue:
         level: level5-1/5
@@ -586,7 +586,8 @@ def map_config_to_obj_egress_prof(module):
         for i in match:
             split = i.split('\n')
             list_interface[split[0]] = split[1:]
-    list_interface = {k: [i.strip() for i in v] for k, v in list_interface.items()}
+    for k,v in list_interface.items():
+        list_interface[k]= [i.strip() for i in v]
     return list_interface
 
 

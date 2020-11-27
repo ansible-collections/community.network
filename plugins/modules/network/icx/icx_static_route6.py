@@ -23,6 +23,7 @@ options:
     description:
       - Destination IPv6 address, including prefix length.
     type: str
+    required: true
   next_hop:
     description:
       - IPv6 address of a next-hop gateway. The next-hop address may be a global IPv6 address or a link-local IPv6 address.
@@ -121,6 +122,7 @@ from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible.module_utils.connection import ConnectionError
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
 from ansible_collections.community.network.plugins.module_utils.network.icx.icx import get_config, load_config
+
 try:
     from ipaddress import ip_network, ip_interface, IPv6Address
     HAS_IPADDRESS = True
@@ -250,7 +252,7 @@ def main():
     remove_default_spec(aggregate_spec)
 
     argument_spec = dict(
-        aggregate=dict(type='list', elements='dict', options=aggregate_spec),
+        aggregate=dict(type='list', options=aggregate_spec),
         purge=dict(default=False, type='bool')
     )
 

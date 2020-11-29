@@ -324,7 +324,7 @@ options:
                      You can map up to eight DSCP values to the same forwarding priority in the same command.
                      Values can be from 0 to 7
         type: list
-        elements: int
+        elements: str
       priority:
         description: Specifies the internal forwarding priority.
         type: str
@@ -755,7 +755,7 @@ def main():
     )
 
     dscp_priority_spec = dict(
-        dscp_value=dict(type='list', elements='int'),
+        dscp_value=dict(type='list', elements='str'),
         priority=dict(type='str'),
         state=dict(default='present', choices=['present', 'absent'])
     )

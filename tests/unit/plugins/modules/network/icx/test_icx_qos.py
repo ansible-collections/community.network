@@ -17,7 +17,7 @@ class TestICXQosModule(TestICXModule):
         self.mock_exec_command = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_qos.exec_command')
         self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_qos.run_commands')
         self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_qos.get_config')
-        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.network.icx..icx_qos.load_config')
+        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_qos.load_config')
         self.load_config = self.mock_load_config.start()
         self.get_config = self.mock_get_config.start()
         self.run_commands = self.mock_run_commands.start()

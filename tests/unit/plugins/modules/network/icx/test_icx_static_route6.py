@@ -15,10 +15,10 @@ class TestICXStaticRouteModule6(TestICXModule):
 
     def setUp(self):
         super(TestICXStaticRouteModule6, self).setUp()
-        self.mock_get_config = patch('ansible.modules.network.icx.icx_static_route6.get_config')
+        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_static_route6.get_config')
         self.get_config = self.mock_get_config.start()
 
-        self.mock_load_config = patch('ansible.modules.network.icx.icx_static_route6.load_config')
+        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_static_route6.load_config')
         self.load_config = self.mock_load_config.start()
         self.set_running_config()
 

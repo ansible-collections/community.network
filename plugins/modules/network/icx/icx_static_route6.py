@@ -23,7 +23,6 @@ options:
     description:
       - Destination IPv6 address, including prefix length.
     type: str
-    required: true
   next_hop:
     description:
       - IPv6 address of a next-hop gateway. The next-hop address may be a global IPv6 address or a link-local IPv6 address.
@@ -40,6 +39,7 @@ options:
         description:
           - Destination IPv6 address, including prefix length.
         type: str
+        required: true
       next_hop:
         description:
           - IPv6 address of a next-hop gateway. The next-hop address may be a global IPv6 address or a link-local IPv6 address.
@@ -252,7 +252,7 @@ def main():
     remove_default_spec(aggregate_spec)
 
     argument_spec = dict(
-        aggregate=dict(type='list', options=aggregate_spec),
+        aggregate=dict(type='list', elements='dict', options=aggregate_spec),
         purge=dict(default=False, type='bool')
     )
 

@@ -1,0 +1,16 @@
+bandwidth scheduling mechanism: weighted priority
+Unicast Traffic
+Profile qosp7     : Priority7(Highest) bandwidth requested  75% calculated  75%
+Profile qosp6     : Priority6          bandwidth requested   7% calculated   7%
+Profile qosp5     : Priority5          bandwidth requested   3% calculated   3%
+Profile qosp4     : Priority4          bandwidth requested   3% calculated   3%
+Profile qosp3     : Priority3          bandwidth requested   3% calculated   3%
+Profile qosp2     : Priority2          bandwidth requested   3% calculated   3%
+Profile qosp1     : Priority1          bandwidth requested   3% calculated   3%
+Profile qosp0     : Priority0(Lowest)  bandwidth requested   3% calculated   3%
+Multicast Traffic
+Profile qosp7+qosp6                     : Priority7(Highest),6      bandwidth requested  82% calculated  82%
+Profile qosp5+qosp4+qosp3+qosp2         : Priority5,4,3,2           bandwidth requested  12% calculated  12%
+Profile qosp1+qosp0                     : Priority1,0(Lowest)       bandwidth requested   6% calculated   6%
+
+02266016601

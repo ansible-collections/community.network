@@ -13,7 +13,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
 DOCUMENTATION = """
 ---
 module: icx_qos
-version_added: "2.10"
+version_added: "1.3.0"
 author: "Ruckus Wireless (@Commscope)"
 short_description: Configures qos features on icx switch.
 description:
@@ -324,6 +324,7 @@ options:
                      You can map up to eight DSCP values to the same forwarding priority in the same command.
                      Values can be from 0 to 7
         type: list
+        elements: int
       priority:
         description: Specifies the internal forwarding priority.
         type: str
@@ -754,7 +755,7 @@ def main():
     )
 
     dscp_priority_spec = dict(
-        dscp_value=dict(type='list'),
+        dscp_value=dict(type='list', elements='int'),
         priority=dict(type='str'),
         state=dict(default='present', choices=['present', 'absent'])
     )

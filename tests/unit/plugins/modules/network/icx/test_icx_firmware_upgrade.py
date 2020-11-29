@@ -14,8 +14,8 @@ class TestICXfirmwareUpgradeModule(TestICXModule):
 
     def setUp(self):
         super(TestICXfirmwareUpgradeModule, self).setUp()
-        self.mock_exec_scp = patch('ansible.modules.network.icx.icx_firmware_upgrade.exec_scp')
-        self.mock_run_commands = patch('ansible.modules.network.icx.icx_firmware_upgrade.run_commands')
+        self.mock_exec_scp = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_firmware_upgrade.exec_scp')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_firmware_upgrade.run_commands')
         self.exec_command = self.mock_exec_scp.start()
         self.run_commands = self.mock_run_commands.start()
 

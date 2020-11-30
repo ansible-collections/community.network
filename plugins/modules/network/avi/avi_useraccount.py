@@ -44,6 +44,7 @@ options:
         description:
             - If specifically set to true then old password is tried first for controller and then the new password is
               tried. If not specified this flag then the new password is tried first.
+        default: false
 
 extends_documentation_fragment:
 - community.network.avi

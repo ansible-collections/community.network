@@ -107,7 +107,7 @@ options:
         enabled:
           description:
             - "enable/disable the poe of the given interface C(name)"
-          default: no
+            - "Default is false."
           type: bool
   aggregate:
     description:

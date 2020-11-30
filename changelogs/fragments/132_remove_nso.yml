@@ -1,2 +1,0 @@
-removed_features:
-- "nso - remove support for Cisco NSO modules which have been migrated to the cisco.nso namespace"

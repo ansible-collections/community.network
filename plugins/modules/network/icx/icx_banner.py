@@ -41,8 +41,8 @@ options:
     description:
       - Specifies whether or not the motd configuration should accept
         the require-enter-key
+      - Default is false.
     type: bool
-    default: no
   check_running_config:
     description:
       - Check running configuration. This can be set as environment variable.

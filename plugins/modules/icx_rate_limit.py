@@ -1,1 +1,1 @@
-./plugins/modules/network/icx/icx_rate_limit.py
+./network/icx/icx_rate_limit.py

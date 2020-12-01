@@ -14,9 +14,9 @@ class TestICXRateLimitModule(TestICXModule):
 
     def setUp(self):
         super(TestICXRateLimitModule, self).setUp()
-        self.mock_exec_command = patch('ansible.modules.network.icx.icx_rate_limit.exec_command')
-        self.mock_run_commands = patch('ansible.modules.network.icx.icx_rate_limit.run_commands')
-        self.mock_get_config = patch('ansible.modules.network.icx.icx_rate_limit.get_config')
+        self.mock_exec_command = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_rate_limit.exec_command')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_rate_limit.run_commands')
+        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_rate_limit.get_config')
         self.get_config = self.mock_get_config.start()
         self.run_commands = self.mock_run_commands.start()
         self.exec_command = self.mock_exec_command.start()

@@ -13,7 +13,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
 DOCUMENTATION = """
 ---
 module: icx_rate_limit
-version_added: "2.10"
+version_added: "1.3.0"
 author: "Ruckus Wireless (@Commscope)"
 short_description: Configures rate limit on icx switch.
 description:
@@ -246,19 +246,19 @@ EXAMPLES = """
 - name: set rate-limit input
   icx_rate_limit:
     rate_limit_input:
-      interace:1/1/2
+      interace: 1/1/2
       avergae_rate: 500
 
 - name: set rate-limit output
   icx_rate_limit:
     rate_limit_output:
-      interace:1/1/2
+      interace: 1/1/2
       value: 500
 
 - name: set rate-limit arp
   icx_rate_limit:
     rate_limit_arp:
-      number:100
+      number: 100
 
 - name: set rate-limit BUM
   icx_rate_limit:
@@ -277,10 +277,10 @@ from copy import deepcopy
 import re
 
 from ansible.module_utils._text import to_text
-from ansible.module_utils.network.icx.icx import run_commands, get_config
+from ansible_collections.community.network.plugins.module_utils.network.icx.icx import run_commands, get_config
 from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible.module_utils.connection import ConnectionError, exec_command
-from ansible.module_utils.network.common.utils import remove_default_spec
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
 
 
 def map_obj_to_commands(updates, module):

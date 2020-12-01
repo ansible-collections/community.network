@@ -168,3 +168,7 @@ plugin_routing:
   terminal:
     routeros:
       redirect: community.routeros.routeros
+doc_fragments:
+  nso:
+    redirect: cisco.nso.nso
+    

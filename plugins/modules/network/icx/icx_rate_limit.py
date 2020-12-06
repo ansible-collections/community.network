@@ -482,7 +482,7 @@ def map_config_to_obj(module):
     if match:
         list_interface[""].append(match.group(0))
 
-    for k,v in list_interface.items():
+    for k, v in list_interface.items():
         for i in v:
             list_interface[k] = [i.strip()]
     return list_interface

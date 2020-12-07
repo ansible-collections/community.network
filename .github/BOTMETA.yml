@@ -114,9 +114,6 @@ files:
   $module_utils/network/nos/nos.py:
     maintainers: $team_extreme
     labels: networking
-  $module_utils/network/nso/nso.py:
-    maintainers: $team_nso
-    labels: cisco networking
   $module_utils/network/ordnance/ordnance.py:
     maintainers: alexanderturner djh00t
     labels: networking
@@ -308,10 +305,6 @@ files:
   $modules/network/nos/:
     authors: LindsayHill
     maintainers: bigmstone ujwalkomarla
-  $modules/network/nso/:
-    authors: cnasten
-    maintainers: cmoberg tbjurman
-    labels: cisco networking
   $modules/network/nuage/nuage_vspk.py:
     authors: pdellaert
   $modules/network/opx/opx_cps.py:
@@ -393,5 +386,4 @@ macros:
   team_netscaler: chiradeep giorgos-nikolopoulos
   team_netvisor: Qalthos amitsi csharpe-pn pdam preetiparasar
   team_networking: NilashishC Qalthos danielmellado ganeshrn justjais trishnaguha
-  team_nso: cmoberg cnasten tbjurman
   team_scaleway: DenBeke QuentinBrosse abarbare jerome-quere kindermoumoute remyleo

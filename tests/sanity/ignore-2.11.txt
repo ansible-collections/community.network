@@ -1058,14 +1058,6 @@ plugins/modules/network/nos/nos_config.py validate-modules:parameter-list-no-ele
 plugins/modules/network/nos/nos_config.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/nos/nos_facts.py validate-modules:parameter-list-no-elements
 plugins/modules/network/nos/nos_facts.py validate-modules:parameter-type-not-in-doc
-plugins/modules/network/nso/nso_action.py validate-modules:doc-missing-type
-plugins/modules/network/nso/nso_action.py validate-modules:parameter-type-not-in-doc
-plugins/modules/network/nso/nso_config.py validate-modules:parameter-type-not-in-doc
-plugins/modules/network/nso/nso_config.py validate-modules:return-syntax-error
-plugins/modules/network/nso/nso_query.py validate-modules:parameter-list-no-elements
-plugins/modules/network/nso/nso_query.py validate-modules:parameter-type-not-in-doc
-plugins/modules/network/nso/nso_show.py validate-modules:parameter-type-not-in-doc
-plugins/modules/network/nso/nso_verify.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/nuage/nuage_vspk.py validate-modules:doc-required-mismatch
 plugins/modules/network/nuage/nuage_vspk.py validate-modules:missing-suboption-docs
 plugins/modules/network/nuage/nuage_vspk.py validate-modules:parameter-list-no-elements

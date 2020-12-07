@@ -2,6 +2,16 @@
 requires_ansible: '>=2.9.10'
 plugin_routing:
   modules:
+    nso_config:
+      redirect: cisco.nso.nso_config
+    nso_action:
+      redirect: cisco.nso.nso_action
+    nso_verify:
+      redirect: cisco.nso.nso_verify
+    nso_query:
+      redirect: cisco.nso.nso_query
+    nso_show:
+      redirect: cisco.nso.nso_show
     cp_publish:
       redirect: check_point.mgmt.cp_mgmt_publish
     pn_cluster:
@@ -145,6 +155,8 @@ plugin_routing:
   module_utils:
     network.routeros.routeros:
       redirect: community.routeros.routeros
+    network.nso.nso:
+      redirect: cisco.nso.nso
   cliconf:
     routeros:
       redirect: community.routeros.routeros
@@ -156,3 +168,7 @@ plugin_routing:
   terminal:
     routeros:
       redirect: community.routeros.routeros
+  doc_fragments:
+    nso:
+      redirect: cisco.nso.nso
+    

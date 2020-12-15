@@ -10,8 +10,9 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: edgeswitch_config
-author: "Matt Haught (@haught)"
-        "James Mighion (@jmighion)"
+author: 
+  - "Matt Haught (@haught)"
+  - "James Mighion (@jmighion)"
 short_description: Manage Edgeswitch configuration sections
 description:
   - Edgeswitch configurations use a flat nonindented file syntax

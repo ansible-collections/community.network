@@ -120,8 +120,8 @@ def parse_commands(module, warnings):
 
 def main():
     spec = dict(
-        commands=dict(type='list', required=True),
-        wait_for=dict(type='list'),
+        commands=dict(type='list', elements='str', required=True),
+        wait_for=dict(type='list', elements='str'),
         match=dict(default='all', choices=['all', 'any']),
         retries=dict(default=10, type='int'),
         interval=dict(default=1, type='int')

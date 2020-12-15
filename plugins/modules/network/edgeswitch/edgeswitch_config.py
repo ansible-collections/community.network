@@ -247,6 +247,7 @@ def get_running_config(module, config=None):
             contents = get_config(module)
     return NetworkConfig(contents=indent_config(contents))
 
+
 def indent_config(config):
     """ indent the config so we can modify sections natively
     """
@@ -286,7 +287,7 @@ def get_candidate(module):
 def save_config(module, result):
     result['changed'] = True
     if not module.check_mode:
-        run_commands(module, {'command':'write memory', 'prompt':'Are you sure you want to save', 'answer':'y'})
+        run_commands(module, {'command': 'write memory', 'prompt': 'Are you sure you want to save', 'answer': 'y'})
     else:
         module.warn('Skipping command `write memory` '
                     'due to check_mode.  Configuration not copied to '
@@ -303,11 +304,11 @@ def main():
     argument_spec = dict(
         src=dict(type='path'),
 
-        lines=dict(aliases=['commands'], type='list'),
-        parents=dict(type='list'),
+        lines=dict(aliases=['commands'], type='list', elements='str'),
+        parents=dict(type='list', elements='str'),
 
-        before=dict(type='list'),
-        after=dict(type='list'),
+        before=dict(type='list', elements='str'),
+        after=dict(type='list', elements='str'),
 
         match=dict(default='line', choices=['line', 'strict', 'exact', 'none']),
         replace=dict(default='line', choices=['line', 'block']),
@@ -321,7 +322,7 @@ def main():
         save_when=dict(choices=['always', 'never', 'modified', 'changed'], default='never'),
 
         diff_against=dict(choices=['running', 'startup', 'intended']),
-        diff_ignore_lines=dict(type='list'),
+        diff_ignore_lines=dict(type='list', elements='str'),
     )
 
     mutually_exclusive = [('lines', 'src'),

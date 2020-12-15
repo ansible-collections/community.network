@@ -168,4 +168,3 @@ class TestEdgeswitchConfigModule(TestEdgeswitchModule):
         set_module_args(dict(lines=lines, parents=parents, match='exact'))
         commands = parents + lines
         self.execute_module(changed=True, commands=commands, sort=False)
-

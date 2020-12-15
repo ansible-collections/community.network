@@ -32,12 +32,14 @@ options:
         If the C(wait_for) argument is provided, the module is not returned
         until the condition is met or the number of retries is exceeded.
     required: True
+    type: list
   wait_for:
     description:
       - Causes the task to wait for a specific condition to be met before
         moving forward. If the condition is not met before the specified
         number of retries is exceeded, the task will fail.
     required: False
+    type: list
   match:
     description:
       - Used in conjunction with C(wait_for) to create match policy. If set to
@@ -46,6 +48,7 @@ options:
     required: False
     default: 'all'
     choices: ['any', 'all']
+    type: str
   retries:
     description:
       - Number of times a command should be tried before it is considered failed.
@@ -53,11 +56,13 @@ options:
         C(wait_for) conditionals.
     required: False
     default: 10
+    type: int
   interval:
     description:
       - The number of seconds to wait between C(retries) of the command.
     required: False
     default: 1
+    type: int
 
 notes:
   - Tested against EdgeSwitch 1.9.2

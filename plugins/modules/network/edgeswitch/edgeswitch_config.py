@@ -10,7 +10,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: edgeswitch_config
-author: 
+author:
   - "Matt Haught (@haught)"
   - "James Mighion (@jmighion)"
 short_description: Manage Edgeswitch configuration sections
@@ -29,12 +29,14 @@ options:
         command syntax as some commands are automatically modified by the
         device config parser.
     aliases: ['commands']
+    type: list
   parents:
     description:
       - The ordered set of parents that uniquely identify the section or hierarchy
         the commands should be checked against.  If the parents argument
         is omitted, the commands are checked against the set of top
         level or global commands.
+    type: list
   src:
     description:
       - Specifies the source path to the file that contains the configuration
@@ -42,6 +44,7 @@ options:
         either be the full path on the Ansible control host or a relative
         path from the playbook or role root directory.  This argument is mutually
         exclusive with I(lines), I(parents).
+    type: path
   before:
     description:
       - The ordered set of commands to push on to the command stack if
@@ -49,12 +52,14 @@ options:
         the opportunity to perform configuration commands prior to pushing
         any changes without affecting how the set of commands are matched
         against the system.
+    type: list
   after:
     description:
       - The ordered set of commands to append to the end of the command
         stack if a change needs to be made.  Just like with I(before) this
         allows the playbook designer to append a set of commands to be
         executed after the command set.
+    type: list
   match:
     description:
       - Instructs the module on the way to perform the matching of
@@ -67,6 +72,7 @@ options:
         the running configuration on the remote device.
     default: line
     choices: ['line', 'strict', 'exact', 'none']
+    type: str
   replace:
     description:
       - Instructs the module on the way to perform the configuration
@@ -77,6 +83,7 @@ options:
         line is not correct.
     default: line
     choices: ['line', 'block']
+    type: str
   backup:
     description:
       - This argument will cause the module to create a full backup of
@@ -96,6 +103,7 @@ options:
         implementer to pass in the configuration to use as the base
         config for comparison.
     aliases: ['config']
+    type: str
   save_when:
     description:
       - When changes are made to the device running-configuration, the
@@ -111,6 +119,7 @@ options:
         will only be copied to the startup configuration if the task has made a change.
     default: never
     choices: ['always', 'never', 'modified', 'changed']
+    type: str
   diff_against:
     description:
       - When using the C(ansible-playbook --diff) command line argument
@@ -124,12 +133,14 @@ options:
         return the before and after diff of the running-config with respect
         to any changes made to the device configuration.
     choices: ['startup', 'intended', 'running']
+    type: str
   diff_ignore_lines:
     description:
       - Use this argument to specify one or more lines that should be
         ignored during the diff.  This is used for lines in the configuration
         that are automatically updated by the system.  This argument takes
         a list of regular expressions or exact line matches.
+    type: list
   intended_config:
     description:
       - The C(intended_config) provides the master configuration that
@@ -139,6 +150,7 @@ options:
         of the current device's configuration against.  When specifying this
         argument, the task should also modify the C(diff_against) value and
         set it to I(intended).
+    type: str
   backup_options:
     description:
       - This is a dict object containing configurable options related to backup file path.
@@ -150,6 +162,7 @@ options:
           - The filename to be used to store the backup configuration. If the filename
             is not given it will be generated based on the hostname, current time and date
             in format defined by <hostname>_config.<current-date>@<current-time>
+        type: str
       dir_path:
         description:
           - This option provides the path ending with directory name in which the backup
@@ -273,7 +286,7 @@ def get_candidate(module):
 def save_config(module, result):
     result['changed'] = True
     if not module.check_mode:
-        run_commands(module, { 'command':'write memory', 'prompt':'Are you sure you want to save', 'answer':'y' } )
+        run_commands(module, {'command':'write memory', 'prompt':'Are you sure you want to save', 'answer':'y'})
     else:
         module.warn('Skipping command `write memory` '
                     'due to check_mode.  Configuration not copied to '

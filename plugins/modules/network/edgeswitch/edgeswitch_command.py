@@ -33,6 +33,7 @@ options:
         until the condition is met or the number of retries is exceeded.
     required: True
     type: list
+    elements: str
   wait_for:
     description:
       - Causes the task to wait for a specific condition to be met before
@@ -40,6 +41,7 @@ options:
         number of retries is exceeded, the task will fail.
     required: False
     type: list
+    elements: str
   match:
     description:
       - Used in conjunction with C(wait_for) to create match policy. If set to

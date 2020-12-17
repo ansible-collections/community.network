@@ -14,8 +14,8 @@ else
 fi
 
 if [ "${group}" == "extra" ]; then
-    # we need git checkout until 0.2.0 has been released; then we can install from galaxy
-    git clone https://github.com/ansible-collections/community.internal_test_tools.git ../internal_test_tools
+    # ansible-galaxy -vvv collection install community.internal_test_tools
+    git clone --single-branch --depth 1 https://github.com/ansible-collections/community.internal_test_tools.git ../internal_test_tools
 
     ../internal_test_tools/tools/run.py --color
     exit

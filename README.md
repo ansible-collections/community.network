@@ -1,6 +1,6 @@
 # Community Network Collection
 
-[![Run Status](https://api.shippable.com/projects/5e7c598d1c7dc1000762800c/badge?branch=main)](https://app.shippable.com/github/ansible-collections/community.network/dashboard)
+[![Build Status](https://dev.azure.com/ansible/community.network/_apis/build/status/CI?branchName=main)](https://dev.azure.com/ansible/community.network/_build?definitionId=32)
 [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/community.network)](https://codecov.io/gh/ansible-collections/community.network)
 
 The Community Network collection includes community maintained content to help automate network appliances.

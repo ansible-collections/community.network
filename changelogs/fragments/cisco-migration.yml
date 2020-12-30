@@ -7,4 +7,4 @@ major_changes:
   for example replace ``community.network.nso_config`` in a task by ``cisco.nso.nso_config``.
 
   If you use ansible-base and installed ``community.network`` manually and rely on the Cisco NSO modules, you have to make sure to install the ``cisco.nso`` collection as well.
-  If you are using FQCNs, i.e. ``community.network.nso_config`` instead of ``nso_config``, it will continue working, but we still recommend to adjust the FQCNs as well.
+  If you are using FQCNs, for example ``community.network.nso_config`` instead of ``nso_config``, it will continue working, but we still recommend to adjust the FQCNs as well.

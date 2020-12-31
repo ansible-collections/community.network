@@ -32,9 +32,10 @@ options:
       lag:
         description: lag id, if port is part of lag.
         type: str
-      avergae_rate:
+      average_rate:
         description: Specifies the maximum number of kilobits per second (kbps).
         type: int
+        required: true
       burst_size:
         description: Specifies the burst size in kilobits.
         type: int
@@ -59,6 +60,7 @@ options:
       value:
         description: Specifies the rate-shaping limit.
         type: int
+        required: true
       state:
         description: Specifies whether to configure or remove output rate shaping.
         type: str
@@ -71,6 +73,7 @@ options:
       number:
         description: Specifies the number of ARP packets and can be from 0 through 100. If you specify 0, the device will not accept any ARP packets.
         type: int
+        required: true
       state:
         description: Specifies whether to enable or disable arp rate limiting.
         type: str
@@ -83,6 +86,7 @@ options:
       minutes:
         description: Specifies the interval, in whole minutes, between Syslog notifications. The value can be any integer from 1 to 10.
         type: int
+        required: true
       state:
         description: Specifies whether to configure or return to the default value.
         type: str
@@ -95,9 +99,11 @@ options:
       port:
         description: port( stack/slot/port) on which to set broadcast limit.
         type: str
+        required: true
       kbps:
         description: Enables byte-based limiting. The value can be 1 to Max Port Speed. Set to 0 to disable byte-based limiting.
         type: int
+        required: true
       log:
         description: True enables Syslog logging when the broadcast limit exceeds kpbs. False will disable logging.
         type: bool
@@ -108,9 +114,11 @@ options:
       port:
         description: port(stack/slot/port) on which to set broadcast limit.
         type: str
+        required: true
       kbps:
         description: Specifies the maximum number of unknown unicast packets per second. The value can be 1 to Max Port Speed. Set to 0 to disable limiting.
         type: int
+        required: true
       log:
         description: Enables Syslog logging when the unknown unicast limit exceeds kpbs. False will disable logging.
         type: bool
@@ -121,15 +129,18 @@ options:
       port:
         description: port(stack/slot/port) on which to set broadcast limit.
         type: str
+        required: true
       kbps:
         description: Specifies the maximum number of multicast packets per second. The value can be 1 to Max Port Speed. Set to 0 to disable limiting..
         type: int
+        required: true
       log:
         description: True enables Syslog logging when the multicast limit exceeds kpbs. False will disable logging.
         type: bool
   aggregate:
     description: List of Interfaces definitions.
     type: list
+    elements: dict
     suboptions:
       rate_limit_input:
         description: Configures a port-based rate-limiting policy.
@@ -141,9 +152,10 @@ options:
           lag:
             description: lag id, if port is part of lag.
             type: str
-          avergae_rate:
+          average_rate:
             description: Specifies the maximum number of kilobits per second (kbps).
             type: int
+            required: true
           burst_size:
             description: Specifies the burst size in kilobits.
             type: int
@@ -168,6 +180,7 @@ options:
           value:
             description: Specifies the rate-shaping limit.
             type: int
+            required: true
           state:
             description: Specifies whether to configure or remove output rate shaping.
             type: str
@@ -180,6 +193,7 @@ options:
           number:
             description: Specifies the number of ARP packets and can be from 0 through 100. If you specify 0, the device will not accept any ARP packets.
             type: int
+            required: true
           state:
             description: Specifies whether to enable or disable arp rate limiting.
             type: str
@@ -192,6 +206,7 @@ options:
           minutes:
             description: Specifies the interval, in whole minutes, between Syslog notifications. The value can be any integer from 1 to 10.
             type: int
+            required: true
           state:
             description: Specifies whether to configure or return to the default value.
             type: str
@@ -204,9 +219,11 @@ options:
           port:
             description: port(stack/slot/port) on which to set broadcast limit.
             type: str
+            required: true
           kbps:
             description: Enables byte-based limiting. The value can be 1 to Max Port Speed. Set to 0 to disable byte-based limiting.
             type: int
+            required: true
           log:
             description: True enables Syslog logging when the broadcast limit exceeds kpbs. False will disable logging.
             type: bool
@@ -217,9 +234,11 @@ options:
           port:
             description: port(stack/slot/port) on which to set broadcast limit.
             type: str
+            required: true
           kbps:
             description: Specifies the maximum number of unknown unicast packets per second. The value can be 1 to Max Port Speed. Set to 0 to disable limiting.
             type: int
+            required: true
           log:
             description: Enables Syslog logging when the unknown unicast limit exceeds kpbs. False will disable logging.
             type: bool
@@ -230,16 +249,19 @@ options:
           port:
             description: port(stack/slot/port) on which to set multicast limit.
             type: str
+            required: true
           kbps:
             description: Specifies the maximum number of multicast packets per second. The value can be 1 to Max Port Speed. Set to 0 to disable limiting..
             type: int
+            required: true
           log:
             description: True enables Syslog logging when the multicast limit exceeds kpbs. False will disable logging.
             type: bool
   check_running_config:
     description: Check running configuration. This can be set as environment variable.
-      Module will use environment variable value(default:False), unless it is overridden, by specifying it as module parameter.
+      Module will use environment variable value, unless it is overridden, by specifying it as module parameter.
     type: bool
+    default: no
 """
 
 EXAMPLES = """
@@ -565,9 +587,7 @@ def main():
         rate_limit_bum=dict(type='dict', options=bum_spec),
         broadcast_limit=dict(type='dict', options=broadcast_spec),
         unknown_unicast_limit=dict(type='dict', options=unknown_unicast_spec),
-        multicast_limit=dict(type='dict', options=multicast_spec),
-        check_running_config=dict(default=False, type='bool',
-                                  fallback=(env_fallback, ['ANSIBLE_CHECK_ICX_RUNNING_CONFIG']))
+        multicast_limit=dict(type='dict', options=multicast_spec)
     )
 
     aggregate_spec = deepcopy(element_spec)
@@ -575,8 +595,10 @@ def main():
     remove_default_spec(aggregate_spec)
 
     argument_spec = dict(
-        aggregate=dict(type='list', elements='dict', options=aggregate_spec),
+        aggregate=dict(type='list', elements='dict', options=aggregate_spec)
     )
+    element_spec.update(check_running_config=dict(default=False, type='bool',
+                        fallback=(env_fallback, ['ANSIBLE_CHECK_ICX_RUNNING_CONFIG'])))
     argument_spec.update(element_spec)
     required_one_of = [['rate_limit_input', 'rate_limit_output',
                         'rate_limit_arp', 'rate_limit_bum', 'broadcast_limit',

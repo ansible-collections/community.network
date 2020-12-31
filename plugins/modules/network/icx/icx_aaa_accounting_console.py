@@ -1,135 +1,153 @@
+#!/usr/bin/python
+# Copyright: Ansible Project
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
-
-
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
 
 
 DOCUMENTATION = """
 ---
 module: icx_aaa_accounting_console
-version_added: "2.10"
 author: "Ruckus Wireless (@Commscope)"
-short_description: Configures AAA accounting in Ruckus ICX 8000 series switches
+short_description: Configures AAA accounting in Ruckus ICX 7000 series switches
 description:
   - Configures AAA accounting in Ruckus ICX 7000 series switches.
 notes:
   - Tested against ICX 10.1
 options:
-    commands:
-      description: Configures the AAA accounting configuration parameters for EXEC commands.
-      suboptions:
-        privilege_level:
-          description: Configures the device to perform AAA accounting for the commands available at the specified privilege level. Valid values are 0
-(Super User level - all commands), 4 (Port Configuration level - port-config and read-only commands), and 5 (Read Only level -
-read-only commands)
-          type: int
-          choices: [0,4,5]
-        primary_method:
-          description: primary accounting method.
-          type: string
-          choices: ['radius','tacacs+','none']
-        backup_method1:
-          description: backup accounting method if primary method fails.
-          type: string
-          choices: ['radius','tacacs+','none']
-        backup_method2:
-          description: bacup accounting method if primary and backup1 metthods fail.
-          type: string
-          choices: ['none']
-        state:
-          description: Specifies whether to configure or remove rate limiting.
-          type: str
-          default: present
-          choices: ['present', 'absent']
-    dot1x:
-      description: Enables 802.1X accounting.
-      suboptions:
-        primary_method:
-          description: primary accounting method.
-          type: string
-          choices: ['radius','none']
-        backup_method1:
-          description: backup accounting method if primary method fails.
-          type: string
-          choices: ['none']
-        state:
-          description: Specifies whether to configure or remove rate limiting.
-          type: str
-          default: present
-          choices: ['present', 'absent']
-    exec:
-      description: Configures the AAA accounting configuration parameters for SSH and Telnet access.
-      suboptions:
-        primary_method:
-          description: primary accounting method.
-          type: string
-          choices: ['radius','tacacs+','none']
-        backup_method1:
-          description: backup accounting method if primary method fails.
-          type: string
-          choices: ['radius','tacacs+','none']
-        backup_method2:
-          description: bacup accounting method if primary and backup1 metthods fail.
-          type: string
-          choices: ['none']
-        state:
-          description: Specifies whether to configure or remove rate limiting.
-          type: str
-          default: present
-          choices: ['present', 'absent']
-    mac_auth:
-      description: Enables or disables RADIUS accounting for MAC authentication sessions..
-      suboptions:
-        primary_method:
-          description: primary accounting method.
-          type: string
-          choices: ['radius','none']
-        backup_method1:
-          description: backup accounting method if primary method fails.
-          type: string
-          choices: ['none']
-        state:
-          description: Specifies whether to configure or remove rate limiting.
-          type: str
-          default: present
-          choices: ['present', 'absent']
-    system:
-      description: Configures AAA accounting to record when system events occur on the device.
-      suboptions:
-        primary_method:
-          description: primary accounting method.
-          type: string
-          choices: ['radius','tacacs+','none']
-        backup_method1:
-          description: backup accounting method if primary method fails.
-          type: string
-          choices: ['radius','tacacs+','none']
-        backup_method2:
-          description: bacup accounting method if primary and backup1 metthods fail.
-          type: string
-          choices: ['none']
-        state:
-          description: Specifies whether to configure or remove rate limiting.
-          type: str
-          default: present
-          choices: ['present', 'absent']
-    enable_console:
-        description: Enables AAA support for commands entered at the console.
-        sub_options:
-          state:
-            description: Specifies whether to configure or remove rate limiting.
-            type: str
-            default: present
-            choices: ['present', 'absent']
-    check_running_config:
-      description: Check running configuration. This can be set as environment variable.
-       Module will use environment variable value(default:False), unless it is overridden, by specifying it as module parameter.
-     type: bool
-     default: no      
+  commands:
+    description: Configures the AAA accounting configuration parameters for EXEC commands.
+    type: dict
+    suboptions:
+      privilege_level:
+        description: Configures the device to perform AAA accounting for the commands available at the specified privilege level. Valid values are 0,4 and 5.
+        type: int
+        choices: [0,4,5]
+      primary_method:
+        description: primary accounting method.
+        type: str
+        choices: ['radius', 'tacacs+', 'none']
+      backup_method1:
+        description: backup accounting method if primary method fails.
+        type: str
+        choices: ['radius', 'tacacs+', 'none']
+      backup_method2:
+        description: bacup accounting method if primary and backup1 metthods fail.
+        type: str
+        choices: ['none']
+      state:
+        description: Specifies whether to configure or remove rate limiting.
+        type: str
+        default: present
+        choices: ['present', 'absent']
+  dot1x:
+    description: Enables 802.1X accounting.
+    type: dict
+    suboptions:
+      primary_method:
+        description: primary accounting method.
+        type: str
+        choices: ['radius','none']
+      backup_method1:
+        description: backup accounting method if primary method fails.
+        type: str
+        choices: ['none']
+      state:
+        description: Specifies whether to configure or remove rate limiting.
+        type: str
+        default: present
+        choices: ['present', 'absent']
+  exec_:
+    description: Configures the AAA accounting configuration parameters for SSH and Telnet access.
+    type: dict
+    suboptions:
+      primary_method:
+        description: primary accounting method.
+        type: str
+        choices: ['radius', 'tacacs+', 'none']
+      backup_method1:
+        description: backup accounting method if primary method fails.
+        type: str
+        choices: ['radius', 'tacacs+', 'none']
+      backup_method2:
+        description: bacup accounting method if primary and backup1 metthods fail.
+        type: str
+        choices: ['none']
+      state:
+        description: Specifies whether to configure or remove rate limiting.
+        type: str
+        default: present
+        choices: ['present', 'absent']
+  mac_auth:
+    description: Enables or disables RADIUS accounting for MAC authentication sessions..
+    type: dict    
+    suboptions:
+      primary_method:
+        description: primary accounting method.
+        type: str
+        choices: ['radius','none']
+      backup_method1:
+        description: backup accounting method if primary method fails.
+        type: str
+        choices: ['none']
+      state:
+        description: Specifies whether to configure or remove rate limiting.
+        type: str
+        default: present
+        choices: ['present', 'absent']
+  system:
+    description: Configures AAA accounting to record when system events occur on the device.
+    type: dict    
+    suboptions:
+      primary_method:
+        description: primary accounting method.
+        type: str
+        choices: ['radius', 'tacacs+', 'none']
+      backup_method1:
+        description: backup accounting method if primary method fails.
+        type: str
+        choices: ['radius', 'tacacs+', 'none']
+      backup_method2:
+        description: bacup accounting method if primary and backup1 metthods fail.
+        type: str
+        choices: ['none']
+      state:
+        description: Specifies whether to configure or remove rate limiting.
+        type: str
+        default: present
+        choices: ['present', 'absent']
+  enable_console:
+    description: Enables AAA support for commands entered at the console.
+    type: dict    
+    suboptions:
+      state:
+        description: Specifies whether to configure or remove rate limiting.
+        type: str
+        default: present
+        choices: ['present', 'absent'] 
 """
+EXAMPLES = """
+- name: aaa accounting commands for mac_auth and commands
+  community.network.icx_aaa_accounting_console:
+    mac_auth:
+      primary_method: none
+      state: present
+    commands:
+      privilege_level: 0
+      primary_method: radius
+      backup_method1: none
+      state: present
+
+- name: aaa accounting commands for system
+  community.network.icx_aaa_accounting_console:
+    system:
+      primary_method: tacacs+
+      backup_method1: radius
+      backup_method2: none
+      state: absent
+"""
+
 from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible.module_utils.connection import ConnectionError,exec_command
 from ansible_collections.community.network.plugins.module_utils.network.icx.icx import load_config
@@ -226,8 +244,8 @@ def main():
     """
     commands_spec = dict(
         privilege_level=dict(type='int', choices=[0,4,5]),
-        primary_method=dict(type='str', choices=['radius','tacacs+','none']),
-        backup_method1=dict(type='str', choices=['radius','tacacs+','none']),
+        primary_method=dict(type='str', choices=['radius', 'tacacs+', 'none']),
+        backup_method1=dict(type='str', choices=['radius', 'tacacs+', 'none']),
         backup_method2=dict(type='str', choices=['none']),
         state=dict(type='str', default='present', choices=['present', 'absent'])
     )
@@ -237,8 +255,8 @@ def main():
         state=dict(type='str', default='present', choices=['present', 'absent'])
     )
     exec_spec = dict(
-        primary_method=dict(type='str', choices=['radius','tacacs+','none']),
-        backup_method1=dict(type='str', choices=['radius','tacacs+','none']),
+        primary_method=dict(type='str', choices=['radius', 'tacacs+', 'none']),
+        backup_method1=dict(type='str', choices=['radius', 'tacacs+', 'none']),
         backup_method2=dict(type='str', choices=['none']),
         state=dict(type='str', default='present', choices=['present', 'absent'])
     )
@@ -248,8 +266,8 @@ def main():
         state=dict(type='str', default='present', choices=['present', 'absent'])
     )
     system_spec = dict(
-        primary_method=dict(type='str', choices=['radius','tacacs+','none']),
-        backup_method1=dict(type='str', choices=['radius','tacacs+','none']),
+        primary_method=dict(type='str', choices=['radius', 'tacacs+', 'none']),
+        backup_method1=dict(type='str', choices=['radius', 'tacacs+', 'none']),
         backup_method2=dict(type='str', choices=['none']),
         state=dict(type='str', default='present', choices=['present', 'absent'])
     )

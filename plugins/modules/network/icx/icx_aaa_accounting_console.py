@@ -23,10 +23,12 @@ options:
       privilege_level:
         description: Configures the device to perform AAA accounting for the commands available at the specified privilege level. Valid values are 0,4 and 5.
         type: int
+        required: true
         choices: [0,4,5]
       primary_method:
         description: primary accounting method.
         type: str
+        required: true
         choices: ['radius', 'tacacs+', 'none']
       backup_method1:
         description: backup accounting method if primary method fails.
@@ -48,6 +50,7 @@ options:
       primary_method:
         description: primary accounting method.
         type: str
+        required: true
         choices: ['radius','none']
       backup_method1:
         description: backup accounting method if primary method fails.
@@ -65,6 +68,7 @@ options:
       primary_method:
         description: primary accounting method.
         type: str
+        required: true
         choices: ['radius', 'tacacs+', 'none']
       backup_method1:
         description: backup accounting method if primary method fails.
@@ -86,6 +90,7 @@ options:
       primary_method:
         description: primary accounting method.
         type: str
+        required: true
         choices: ['radius','none']
       backup_method1:
         description: backup accounting method if primary method fails.
@@ -103,6 +108,7 @@ options:
       primary_method:
         description: primary accounting method.
         type: str
+        required: true
         choices: ['radius', 'tacacs+', 'none']
       backup_method1:
         description: backup accounting method if primary method fails.
@@ -157,11 +163,10 @@ def build_command(module, commands=None, dot1x=None, exec_=None, mac_auth=None, 
     Function to build the command to send to the terminal for the switch
     to execute. All args come from the module's unique params.
     """
-    command= [] 
+    cmds= [] 
     if commands is not None:
         if commands['state'] == 'absent':
             cmd = "no aaa accounting commands {} default start-stop".format(commands['privilege_level'])      
-
         else:
             cmd = "aaa accounting commands {} default start-stop".format(commands['privilege_level'])      
 
@@ -171,12 +176,11 @@ def build_command(module, commands=None, dot1x=None, exec_=None, mac_auth=None, 
                 cmd+= " {}".format(commands['backup_method1'])
                 if commands['backup_method2'] is not None:
                     cmd+= " {}".format(commands['backup_method2'])
-        command.append(cmd)
+        cmds.append(cmd)
 
     if dot1x is not None:
         if dot1x['state'] == 'absent':
             cmd = "no aaa accounting dot1x default start-stop"      
-
         else:
             cmd = "aaa accounting dot1x default start-stop"   
 
@@ -184,12 +188,11 @@ def build_command(module, commands=None, dot1x=None, exec_=None, mac_auth=None, 
             cmd+= " {}".format(dot1x['primary_method'])
             if dot1x['backup_method1'] is not None:
                 cmd+= " {}".format(dot1x['backup_method1'])
-        command.append(cmd)
+        cmds.append(cmd)
 
     if exec_ is not None:
         if exec_['state'] == 'absent':
             cmd = "no aaa accounting exec default start-stop"
-
         else:
             cmd = "aaa accounting exec default start-stop"      
 
@@ -199,12 +202,11 @@ def build_command(module, commands=None, dot1x=None, exec_=None, mac_auth=None, 
                 cmd+= " {}".format(exec_['backup_method1'])
                 if exec_['backup_method2'] is not None:
                     cmd+= " {}".format(exec_['backup_method2'])
-        command.append(cmd)
+        cmds.append(cmd)
 
     if mac_auth is not None:
         if mac_auth['state'] == 'absent':
             cmd = "no aaa accounting mac-auth default start-stop"      
-
         else:
             cmd = "aaa accounting mac-auth default start-stop"   
 
@@ -212,12 +214,11 @@ def build_command(module, commands=None, dot1x=None, exec_=None, mac_auth=None, 
             cmd+= " {}".format(mac_auth['primary_method'])
             if mac_auth['backup_method1'] is not None:
                 cmd+= " {}".format(mac_auth['backup_method1'])  
-        command.append(cmd)
+        cmds.append(cmd)
 
     if system is not None:
         if system['state'] == 'absent':
             cmd = "no aaa accounting system default start-stop"
-
         else:
             cmd = "aaa accounting system default start-stop"      
         
@@ -227,46 +228,45 @@ def build_command(module, commands=None, dot1x=None, exec_=None, mac_auth=None, 
                 cmd+= " {}".format(system['backup_method1'])
                 if system['backup_method2'] is not None:
                     cmd+= " {}".format(system['backup_method2'])  
-        command.append(cmd)
+        cmds.append(cmd)
 
     if enable_console is not None:
-        if system['state'] == 'absent':
+        if enable_console['state'] == 'absent':
             cmd = "no enable aaa console"
-
         else:
             cmd = "enable aaa console" 
-        command.append(cmd)
+        cmds.append(cmd)
 
-    return command
+    return cmds
 
 def main():
     """entry point for module execution
     """
     commands_spec = dict(
-        privilege_level=dict(type='int', choices=[0,4,5]),
-        primary_method=dict(type='str', choices=['radius', 'tacacs+', 'none']),
+        privilege_level=dict(type='int', required=True, choices=[0,4,5]),
+        primary_method=dict(type='str', required=True, choices=['radius', 'tacacs+', 'none']),
         backup_method1=dict(type='str', choices=['radius', 'tacacs+', 'none']),
         backup_method2=dict(type='str', choices=['none']),
         state=dict(type='str', default='present', choices=['present', 'absent'])
     )
     dot1x_spec = dict(
-        primary_method=dict(type='str', choices=['radius','none']),
+        primary_method=dict(type='str', required=True, choices=['radius','none']),
         backup_method1=dict(type='str', choices=['none']),
         state=dict(type='str', default='present', choices=['present', 'absent'])
     )
     exec_spec = dict(
-        primary_method=dict(type='str', choices=['radius', 'tacacs+', 'none']),
+        primary_method=dict(type='str', required=True, choices=['radius', 'tacacs+', 'none']),
         backup_method1=dict(type='str', choices=['radius', 'tacacs+', 'none']),
         backup_method2=dict(type='str', choices=['none']),
         state=dict(type='str', default='present', choices=['present', 'absent'])
     )
     mac_auth_spec = dict(
-        primary_method=dict(type='str', choices=['radius','none']),
+        primary_method=dict(type='str', required=True, choices=['radius','none']),
         backup_method1=dict(type='str', choices=['none']),
         state=dict(type='str', default='present', choices=['present', 'absent'])
     )
     system_spec = dict(
-        primary_method=dict(type='str', choices=['radius', 'tacacs+', 'none']),
+        primary_method=dict(type='str', required=True, choices=['radius', 'tacacs+', 'none']),
         backup_method1=dict(type='str', choices=['radius', 'tacacs+', 'none']),
         backup_method2=dict(type='str', choices=['none']),
         state=dict(type='str', default='present', choices=['present', 'absent'])
@@ -283,7 +283,7 @@ def main():
         enable_console = dict(type='dict', options=enable_spec),
     )
 
-    required_one_of = [['commands', 'dot1x', 'exec_', 'mac_auth', 'system']]
+    required_one_of = [['commands', 'dot1x', 'exec_', 'mac_auth', 'system', 'enable_console']]
     module = AnsibleModule(argument_spec=argument_spec,
                            required_one_of=required_one_of,
                            supports_check_mode=True)

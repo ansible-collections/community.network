@@ -393,13 +393,16 @@ def main():
     if module.params['save_when'] == 'always':
         save_config(module, result)
     elif module.params['save_when'] == 'modified':
-        output = run_commands(module, ['show running-config', 'show configuration'])
+        output = run_commands(module, ['show running-config', 'show startup-config'])
 
         running_config = NetworkConfig(contents=output[0], ignore_lines=diff_ignore_lines)
         startup_config = NetworkConfig(contents=output[1], ignore_lines=diff_ignore_lines)
 
-        if running_config.sha1 != startup_config.sha1:
-            save_config(module, result)
+        # NetworkConfig.sha1 does not ignore lines, so do a difference which does
+        diff = running_config.difference(startup_config)
+        if diff:
+          save_config(module, result)
+
     elif module.params['save_when'] == 'changed':
         if result['changed']:
             save_config(module, result)

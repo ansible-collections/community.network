@@ -25,10 +25,8 @@ class TestICXAaaAccountingModule(TestICXModule):
         self.mock_load_config.stop()
         self.mock_exec_command.stop()
 
-    def load_fixtures(self, commands=None):
-        self.load_config.return_value = None
-        if commands is not None:
-            self.exec_command.return_value = ""
+    def load_fixtures(self, commands=None): 
+	    self.load_config.return_value = None
 
     def test_icx_aaa_accounting_all_options(self):
         ''' Test for successful aaa accounting with all options'''
@@ -37,11 +35,13 @@ class TestICXAaaAccountingModule(TestICXModule):
                              exec_=dict(primary_method='radius',backup_method1='tacacs+',backup_method2='none'),
                              mac_auth=dict(primary_method='radius',backup_method1='none'),
                              system=dict(primary_method='radius',backup_method1='tacacs+',backup_method2='none')))
-        expected_commands = [['aaa accounting commands 0 default start-stop radius tacacs+ none',
-                              'aaa accounting dot1x default start-stop radius none',
-                              'aaa accounting exec default start-stop radius tacacs+ none',
-                              'aaa accounting mac-auth default start-stop radius none',
-                              'aaa accounting system default start-stop radius tacacs+ none']]
+        expected_commands = [
+            'aaa accounting commands 0 default start-stop radius tacacs+ none',
+            'aaa accounting dot1x default start-stop radius none',
+            'aaa accounting exec default start-stop radius tacacs+ none',
+            'aaa accounting mac-auth default start-stop radius none',
+            'aaa accounting system default start-stop radius tacacs+ none'
+            ]
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], expected_commands)
         
@@ -52,11 +52,13 @@ class TestICXAaaAccountingModule(TestICXModule):
                              exec_=dict(primary_method='radius',backup_method1='tacacs+'),
                              mac_auth=dict(primary_method='radius',backup_method1='none'),
                              system=dict(primary_method='radius',backup_method1='tacacs+')))
-        expected_commands = [['aaa accounting commands 0 default start-stop radius tacacs+',
-                              'aaa accounting dot1x default start-stop radius none',
-                              'aaa accounting exec default start-stop radius tacacs+',
-                              'aaa accounting mac-auth default start-stop radius none',
-                              'aaa accounting system default start-stop radius tacacs+']]
+        expected_commands = [
+            'aaa accounting commands 0 default start-stop radius tacacs+',
+            'aaa accounting dot1x default start-stop radius none',
+            'aaa accounting exec default start-stop radius tacacs+',
+            'aaa accounting mac-auth default start-stop radius none',
+            'aaa accounting system default start-stop radius tacacs+'
+            ]
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], expected_commands)
 
@@ -67,11 +69,13 @@ class TestICXAaaAccountingModule(TestICXModule):
                              exec_=dict(primary_method='radius',backup_method1='tacacs+',backup_method2='none',state='absent'),
                              mac_auth=dict(primary_method='radius',backup_method1='none',state='absent'),
                              system=dict(primary_method='radius',backup_method1='tacacs+',backup_method2='none',state='absent')))
-        expected_commands = [['no aaa accounting commands 0 default start-stop radius tacacs+ none',
-                              'no aaa accounting dot1x default start-stop radius none',
-                              'no aaa accounting exec default start-stop radius tacacs+ none',
-                              'no aaa accounting mac-auth default start-stop radius none',
-                              'no aaa accounting system default start-stop radius tacacs+ none']]
+        expected_commands = [
+            'no aaa accounting commands 0 default start-stop radius tacacs+ none',
+            'no aaa accounting dot1x default start-stop radius none',
+            'no aaa accounting exec default start-stop radius tacacs+ none',
+            'no aaa accounting mac-auth default start-stop radius none',
+            'no aaa accounting system default start-stop radius tacacs+ none'
+            ]
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], expected_commands)
 
@@ -82,39 +86,41 @@ class TestICXAaaAccountingModule(TestICXModule):
                              exec_=dict(primary_method='radius',backup_method1='tacacs+',state='absent'),
                              mac_auth=dict(primary_method='radius',backup_method1='none',state='absent'),
                              system=dict(primary_method='radius',backup_method1='tacacs+',state='absent')))
-        expected_commands = [['no aaa accounting commands 0 default start-stop radius tacacs+',
-                              'no aaa accounting dot1x default start-stop radius none',
-                              'no aaa accounting exec default start-stop radius tacacs+',
-                              'no aaa accounting mac-auth default start-stop radius none',
-                              'no aaa accounting system default start-stop radius tacacs+']]
+        expected_commands = [
+            'no aaa accounting commands 0 default start-stop radius tacacs+',
+            'no aaa accounting dot1x default start-stop radius none',
+            'no aaa accounting exec default start-stop radius tacacs+',
+            'no aaa accounting mac-auth default start-stop radius none',
+            'no aaa accounting system default start-stop radius tacacs+'
+            ]
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], expected_commands)
 
     def test_icx_aaa_accounting_commands_dot1x(self):
         ''' Test for successful aaa accounting for commands and dot1x'''
         set_module_args(dict(commands=dict(privilege_level=4,primary_method='radius',state='present'),dot1x=dict(primary_method='none',state='present')))
-        expected_commands = [['aaa accounting commands 4 default start-stop radius','aaa accounting dot1x default start-stop none']]
+        expected_commands = ['aaa accounting commands 4 default start-stop radius','aaa accounting dot1x default start-stop none']
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], expected_commands)
 
     def test_icx_aaa_accounting_exec_mac_auth_system(self):
         ''' Test for successful aaa accounting for exec,mac_auth and system'''
         set_module_args(dict(exec_=dict(primary_method='tacacs+'),mac_auth=dict(primary_method='radius'),system=dict(primary_method='tacacs+')))
-        expected_commands = [['aaa accounting exec default start-stop tacacs+','aaa accounting mac-auth default start-stop radius','aaa accounting system default start-stop tacacs+']]
+        expected_commands = ['aaa accounting exec default start-stop tacacs+','aaa accounting mac-auth default start-stop radius','aaa accounting system default start-stop tacacs+']
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], expected_commands)
 
     def test_icx_aaa_accounting_console_enable(self):
         ''' Test for successful aaa accounting for enable_console'''
         set_module_args(dict(enable_console=dict(state='present')))
-        expected_commands = [['enable aaa console']]
+        expected_commands = ['enable aaa console']
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], expected_commands)
 
     def  test_icx_aaa_accounting_console_disbale(self):
         ''' Test for successful disable console'''
         set_module_args(dict(enable_console=dict(state='absent')))
-        expected_commands = [['no enable aaa console']]
+        expected_commands = ['no enable aaa console']
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], expected_commands)
 

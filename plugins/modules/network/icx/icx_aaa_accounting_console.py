@@ -10,7 +10,7 @@ DOCUMENTATION = """
 ---
 module: icx_aaa_accounting_console
 author: "Ruckus Wireless (@Commscope)"
-short_description: Configures AAA accounting in Ruckus ICX 7000 series switches
+short_description: Configures AAA accounting in Ruckus ICX 7000 series switches.
 description:
   - Configures AAA accounting in Ruckus ICX 7000 series switches.
 notes:
@@ -35,7 +35,7 @@ options:
         type: str
         choices: ['radius', 'tacacs+', 'none']
       backup_method2:
-        description: bacup accounting method if primary and backup1 metthods fail.
+        description: backup accounting method if primary and backup1 metthods fail.
         type: str
         choices: ['none']
       state:
@@ -75,7 +75,7 @@ options:
         type: str
         choices: ['radius', 'tacacs+', 'none']
       backup_method2:
-        description: bacup accounting method if primary and backup1 metthods fail.
+        description: backup accounting method if primary and backup1 metthods fail.
         type: str
         choices: ['none']
       state:
@@ -298,15 +298,15 @@ def main():
     enable_console = module.params["enable_console"]
 
     if warnings:
-        result['warnings'] = warnings
+        results['warnings'] = warnings
 
-    commands = [build_command(module, commands, dot1x, exec_, mac_auth, system, enable_console )]
+    commands = build_command(module, commands, dot1x, exec_, mac_auth, system, enable_console)
     results['commands'] = commands
 
     if commands:
         if not module.check_mode:
-            for cmd in results['commands']:
-                response = load_config(module, cmd)
+            response = load_config(module, commands)
+
         results['changed'] = True
 
     module.exit_json(**results)

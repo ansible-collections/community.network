@@ -34,29 +34,31 @@ class TestICXAaaAccountingModule(TestICXModule):
                              dot1x=dict(primary_method='radius',backup_method1='none'),
                              exec_=dict(primary_method='radius',backup_method1='tacacs+',backup_method2='none'),
                              mac_auth=dict(primary_method='radius',backup_method1='none'),
-                             system=dict(primary_method='radius',backup_method1='tacacs+',backup_method2='none')))
+                             system=dict(primary_method='radius',backup_method1='tacacs+',backup_method2='none'),
+                             enable_console=dict(state='present')))
         expected_commands = [
             'aaa accounting commands 0 default start-stop radius tacacs+ none',
             'aaa accounting dot1x default start-stop radius none',
             'aaa accounting exec default start-stop radius tacacs+ none',
             'aaa accounting mac-auth default start-stop radius none',
-            'aaa accounting system default start-stop radius tacacs+ none'
+            'aaa accounting system default start-stop radius tacacs+ none',
+            'enable aaa console'
             ]
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], expected_commands)
         
-    def test_icx_aaa_accounting_all_option_backup(self):
-        ''' Test for successful aaa accounting with backup_method1 options'''
+    def test_icx_aaa_accounting_all_options_no_backup(self):
+        ''' Test for successful aaa accounting with no backup option'''
         set_module_args(dict(commands=dict(privilege_level=0,primary_method='radius',backup_method1='tacacs+'),
-                             dot1x=dict(primary_method='radius',backup_method1='none'),
+                             dot1x=dict(primary_method='radius'),
                              exec_=dict(primary_method='radius',backup_method1='tacacs+'),
-                             mac_auth=dict(primary_method='radius',backup_method1='none'),
+                             mac_auth=dict(primary_method='radius'),
                              system=dict(primary_method='radius',backup_method1='tacacs+')))
         expected_commands = [
             'aaa accounting commands 0 default start-stop radius tacacs+',
-            'aaa accounting dot1x default start-stop radius none',
+            'aaa accounting dot1x default start-stop radius',
             'aaa accounting exec default start-stop radius tacacs+',
-            'aaa accounting mac-auth default start-stop radius none',
+            'aaa accounting mac-auth default start-stop radius',
             'aaa accounting system default start-stop radius tacacs+'
             ]
         result = self.execute_module(changed=True)
@@ -68,29 +70,31 @@ class TestICXAaaAccountingModule(TestICXModule):
                              dot1x=dict(primary_method='radius',backup_method1='none',state='absent'),
                              exec_=dict(primary_method='radius',backup_method1='tacacs+',backup_method2='none',state='absent'),
                              mac_auth=dict(primary_method='radius',backup_method1='none',state='absent'),
-                             system=dict(primary_method='radius',backup_method1='tacacs+',backup_method2='none',state='absent')))
+                             system=dict(primary_method='radius',backup_method1='tacacs+',backup_method2='none',state='absent'),
+                             enable_console=dict(state='absent')))
         expected_commands = [
             'no aaa accounting commands 0 default start-stop radius tacacs+ none',
             'no aaa accounting dot1x default start-stop radius none',
             'no aaa accounting exec default start-stop radius tacacs+ none',
             'no aaa accounting mac-auth default start-stop radius none',
-            'no aaa accounting system default start-stop radius tacacs+ none'
+            'no aaa accounting system default start-stop radius tacacs+ none',
+            'no enable aaa console'
             ]
         result = self.execute_module(changed=True)
         self.assertEqual(result['commands'], expected_commands)
 
     def test_icx_aaa_accounting_all_options_backup_remove(self):
-        ''' Test for removing aaa accounting with backup_method1 options'''
+        ''' Test for removing aaa accounting with no backup options'''
         set_module_args(dict(commands=dict(privilege_level=0,primary_method='radius',backup_method1='tacacs+',state='absent'),
-                             dot1x=dict(primary_method='radius',backup_method1='none',state='absent'),
+                             dot1x=dict(primary_method='radius',state='absent'),
                              exec_=dict(primary_method='radius',backup_method1='tacacs+',state='absent'),
-                             mac_auth=dict(primary_method='radius',backup_method1='none',state='absent'),
+                             mac_auth=dict(primary_method='radius',state='absent'),
                              system=dict(primary_method='radius',backup_method1='tacacs+',state='absent')))
         expected_commands = [
             'no aaa accounting commands 0 default start-stop radius tacacs+',
-            'no aaa accounting dot1x default start-stop radius none',
+            'no aaa accounting dot1x default start-stop radius',
             'no aaa accounting exec default start-stop radius tacacs+',
-            'no aaa accounting mac-auth default start-stop radius none',
+            'no aaa accounting mac-auth default start-stop radius',
             'no aaa accounting system default start-stop radius tacacs+'
             ]
         result = self.execute_module(changed=True)
@@ -129,12 +133,12 @@ class TestICXAaaAccountingModule(TestICXModule):
         set_module_args(dict(commands=dict(privilege_level=2,primary_method='tacacs+',backup_method1='radius',state='present')))
         result = self.execute_module(failed=True)
 
-    def test_icx_aaa_accounting_invalid_args_dot1x(self):
+    def test_icx_aaa_accounting_invalid_args_exec(self):
         ''' Test for invalid primary_method'''
-        set_module_args(dict(dot1x=dict(primary_method='aaa',state='present')))
+        set_module_args(dict(exec_=dict(primary_method='aaa',state='present')))
         result = self.execute_module(failed=True)
 
-    def test_icx_aaa_accounting_invalid_args_exec(self):
+    def test_icx_aaa_accounting_invalid_args_dot1x(self):
         ''' Test for invalid backup_method1'''
         set_module_args(dict(dot1x=dict(primary_method='radius',backup_method1='radius',state='present')))
         result = self.execute_module(failed=True)

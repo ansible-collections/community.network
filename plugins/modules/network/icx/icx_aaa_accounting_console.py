@@ -26,20 +26,20 @@ options:
         required: true
         choices: [0,4,5]
       primary_method:
-        description: primary accounting method.
+        description: Primary accounting method.
         type: str
         required: true
         choices: ['radius', 'tacacs+', 'none']
       backup_method1:
-        description: backup accounting method if primary method fails.
+        description: Backup accounting method if primary method fails.
         type: str
         choices: ['radius', 'tacacs+', 'none']
       backup_method2:
-        description: backup accounting method if primary and backup1 metthods fail.
+        description: Backup accounting method if primary and backup1 methods fail.
         type: str
         choices: ['none']
       state:
-        description: Specifies whether to configure or remove rate limiting.
+        description: Specifies whether to configure or remove aaa accounting for commands.
         type: str
         default: present
         choices: ['present', 'absent']
@@ -48,16 +48,16 @@ options:
     type: dict
     suboptions:
       primary_method:
-        description: primary accounting method.
+        description: Primary accounting method.
         type: str
         required: true
-        choices: ['radius','none']
+        choices: ['radius', 'none']
       backup_method1:
-        description: backup accounting method if primary method fails.
+        description: Backup accounting method if primary method fails.
         type: str
         choices: ['none']
       state:
-        description: Specifies whether to configure or remove rate limiting.
+        description: Specifies whether to configure or remove aaa accounting for dot1x.
         type: str
         default: present
         choices: ['present', 'absent']
@@ -66,38 +66,38 @@ options:
     type: dict
     suboptions:
       primary_method:
-        description: primary accounting method.
+        description: Primary accounting method.
         type: str
         required: true
         choices: ['radius', 'tacacs+', 'none']
       backup_method1:
-        description: backup accounting method if primary method fails.
+        description: Backup accounting method if primary method fails.
         type: str
         choices: ['radius', 'tacacs+', 'none']
       backup_method2:
-        description: backup accounting method if primary and backup1 metthods fail.
+        description: Backup accounting method if primary and backup1 methods fail.
         type: str
         choices: ['none']
       state:
-        description: Specifies whether to configure or remove rate limiting.
+        description: Specifies whether to configure or remove aaa accounting for exec.
         type: str
         default: present
         choices: ['present', 'absent']
   mac_auth:
-    description: Enables or disables RADIUS accounting for MAC authentication sessions..
+    description: Enables or disables RADIUS accounting for MAC authentication sessions.
     type: dict    
     suboptions:
       primary_method:
-        description: primary accounting method.
+        description: Primary accounting method.
         type: str
         required: true
-        choices: ['radius','none']
+        choices: ['radius', 'none']
       backup_method1:
-        description: backup accounting method if primary method fails.
+        description: Backup accounting method if primary method fails.
         type: str
         choices: ['none']
       state:
-        description: Specifies whether to configure or remove rate limiting.
+        description: Specifies whether to configure or remove aaa accounting for mac-auth.
         type: str
         default: present
         choices: ['present', 'absent']
@@ -106,20 +106,20 @@ options:
     type: dict    
     suboptions:
       primary_method:
-        description: primary accounting method.
+        description: Primary accounting method.
         type: str
         required: true
         choices: ['radius', 'tacacs+', 'none']
       backup_method1:
-        description: backup accounting method if primary method fails.
+        description: Backup accounting method if primary method fails.
         type: str
         choices: ['radius', 'tacacs+', 'none']
       backup_method2:
-        description: bacup accounting method if primary and backup1 metthods fail.
+        description: Backup accounting method if primary and backup1 methods fail.
         type: str
         choices: ['none']
       state:
-        description: Specifies whether to configure or remove rate limiting.
+        description: Specifies whether to configure or remove aaa accounting for system.
         type: str
         default: present
         choices: ['present', 'absent']
@@ -128,13 +128,13 @@ options:
     type: dict    
     suboptions:
       state:
-        description: Specifies whether to configure or remove rate limiting.
+        description: Specifies whether to enable or disable aaa accounting.
         type: str
         default: present
         choices: ['present', 'absent'] 
 """
 EXAMPLES = """
-- name: aaa accounting commands for mac_auth and commands
+- name: configure aaa accounting mac_auth and commands
   community.network.icx_aaa_accounting_console:
     mac_auth:
       primary_method: none
@@ -145,7 +145,7 @@ EXAMPLES = """
       backup_method1: none
       state: present
 
-- name: aaa accounting commands for system
+- name: disable aaa accounting for system
   community.network.icx_aaa_accounting_console:
     system:
       primary_method: tacacs+

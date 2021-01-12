@@ -22,7 +22,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 author: Unknown (!UNKNOWN)
-cliconf: netvisor
+name: netvisor
 short_description: Use netvisor cliconf to run command on Pluribus netvisor platform
 description:
   - This netvisor plugin provides low level abstraction apis for

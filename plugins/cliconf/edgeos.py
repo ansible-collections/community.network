@@ -8,7 +8,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 author: Unknown (!UNKNOWN)
-cliconf: edgeos
+name: edgeos
 short_description: Use edgeos cliconf to run command on EdgeOS platform
 description:
   - This edgeos plugin provides low level abstraction apis for

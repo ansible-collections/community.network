@@ -7,7 +7,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 author: Ruckus Wireless (@Commscope)
-cliconf: icx
+name: icx
 short_description: Use icx cliconf to run command on Ruckus ICX platform
 description:
   - This icx plugin provides low level abstraction APIs for

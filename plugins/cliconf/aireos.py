@@ -22,7 +22,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 author: Unknown (!UNKNOWN)
-cliconf: aireos
+name: aireos
 short_description: Use aireos cliconf to run command on Cisco WLC platform
 description:
   - This aireos plugin provides low level abstraction apis for

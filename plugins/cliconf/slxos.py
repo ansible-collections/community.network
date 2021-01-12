@@ -22,7 +22,7 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 author: Unknown (!UNKNOWN)
-cliconf: slxos
+name: slxos
 short_description: Use slxos cliconf to run command on Extreme SLX-OS platform
 description:
   - This slxos plugin provides low level abstraction apis for

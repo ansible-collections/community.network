@@ -401,7 +401,7 @@ def main():
         # NetworkConfig.sha1 does not ignore lines, so do a difference which does
         diff = running_config.difference(startup_config)
         if diff:
-          save_config(module, result)
+            save_config(module, result)
 
     elif module.params['save_when'] == 'changed':
         if result['changed']:

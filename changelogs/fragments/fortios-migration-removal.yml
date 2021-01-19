@@ -1,7 +1,7 @@
 removed_features:
 - |
   The ``fortimanager`` httpapi plugin has been removed from this collection.
-  It was a duplicate of the one in the `community.fortios <https://galaxy.ansible.com/fortios/fortimanager>`_ collection.
+  It was a duplicate of the one in the `fortinet.fortimanager <https://galaxy.ansible.com/fortinet/fortimanager>`_ collection.
   If you use ansible-base 2.10 or newer, a redirection has been provided.
 
   If you use Ansible 2.9 and installed this collection, you need to adjust the FQCNs (``community.network.fortimanager`` → ``fortinet.fortimanager.fortimanager``) and make sure to install the `fortinet.fortimanager` collection.

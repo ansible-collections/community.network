@@ -14,6 +14,62 @@ plugin_routing:
       redirect: cisco.nso.nso_show
     cp_publish:
       redirect: check_point.mgmt.cp_mgmt_publish
+    faz_device:
+      redirect: community.fortios.faz_device
+    fmgr_device:
+      redirect: community.fortios.fmgr_device
+    fmgr_device_config:
+      redirect: community.fortios.fmgr_device_config
+    fmgr_device_group:
+      redirect: community.fortios.fmgr_device_group
+    fmgr_device_provision_template:
+      redirect: community.fortios.fmgr_device_provision_template
+    fmgr_fwobj_address:
+      redirect: community.fortios.fmgr_fwobj_address
+    fmgr_fwobj_ippool:
+      redirect: community.fortios.fmgr_fwobj_ippool
+    fmgr_fwobj_ippool6:
+      redirect: community.fortios.fmgr_fwobj_ippool6
+    fmgr_fwobj_service:
+      redirect: community.fortios.fmgr_fwobj_service
+    fmgr_fwobj_vip:
+      redirect: community.fortios.fmgr_fwobj_vip
+    fmgr_fwpol_ipv4:
+      redirect: community.fortios.fmgr_fwpol_ipv4
+    fmgr_fwpol_package:
+      redirect: community.fortios.fmgr_fwpol_package
+    fmgr_ha:
+      redirect: community.fortios.fmgr_ha
+    fmgr_provisioning:
+      redirect: community.fortios.fmgr_provisioning
+    fmgr_query:
+      redirect: community.fortios.fmgr_query
+    fmgr_script:
+      redirect: community.fortios.fmgr_script
+    fmgr_secprof_appctrl:
+      redirect: community.fortios.fmgr_secprof_appctrl
+    fmgr_secprof_av:
+      redirect: community.fortios.fmgr_secprof_av
+    fmgr_secprof_dns:
+      redirect: community.fortios.fmgr_secprof_dns
+    fmgr_secprof_ips:
+      redirect: community.fortios.fmgr_secprof_ips
+    fmgr_secprof_profile_group:
+      redirect: community.fortios.fmgr_secprof_profile_group
+    fmgr_secprof_proxy:
+      redirect: community.fortios.fmgr_secprof_proxy
+    fmgr_secprof_spam:
+      redirect: community.fortios.fmgr_secprof_spam
+    fmgr_secprof_ssl_ssh:
+      redirect: community.fortios.fmgr_secprof_ssl_ssh
+    fmgr_secprof_voip:
+      redirect: community.fortios.fmgr_secprof_voip
+    fmgr_secprof_waf:
+      redirect: community.fortios.fmgr_secprof_waf
+    fmgr_secprof_wanopt:
+      redirect: community.fortios.fmgr_secprof_wanopt
+    fmgr_secprof_web:
+      redirect: community.fortios.fmgr_secprof_web
     pn_cluster:
       tombstone:
         removal_version: 2.0.0
@@ -152,11 +208,20 @@ plugin_routing:
       redirect: community.routeros.command
     routeros_facts:
       redirect: community.routeros.facts
+  httpapi:
+    fortianalyzer:
+      redirect: community.fortios.fortianalyzer
+    fortimanager:
+      redirect: fortinet.fortimanager.fortimanager
   module_utils:
     network.routeros.routeros:
       redirect: community.routeros.routeros
     network.nso.nso:
       redirect: cisco.nso.nso
+    network.fortianalyzer.common:
+      redirect: community.fortios.fortianalyzer.common
+    network.fortianalyzer.fortianalyzer:
+      redirect: community.fortios.fortianalyzer.fortianalyzer
   cliconf:
     routeros:
       redirect: community.routeros.routeros

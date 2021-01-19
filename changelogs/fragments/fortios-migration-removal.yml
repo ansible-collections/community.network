@@ -7,7 +7,7 @@ removed_features:
   If you use Ansible 2.9 and installed this collection, you need to adjust the FQCNs (``community.network.fortimanager`` → ``fortinet.fortimanager.fortimanager``) and make sure to install the `fortinet.fortimanager` collection.
 - |
   All FortiOS modules and plugins have been removed from this collection.
-  They have been migrated to the `community.fortios <https://galaxy.ansible.com/community/fortios>`_ collections, respectively.
+  They have been migrated to the `community.fortios <https://galaxy.ansible.com/community/fortios>`_ collection.
   If you use ansible-base 2.10 or newer, redirections have been provided.
 
   If you use Ansible 2.9 and installed this collection, you need to adjust the FQCNs (``community.network.fmgr_device`` → ``community.fortios.fmgr_device``) and make sure to install the `community.fortios` collection.

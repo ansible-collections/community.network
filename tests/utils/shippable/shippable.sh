@@ -75,7 +75,6 @@ fi
 
 # START: HACK install dependencies
 retry ansible-galaxy -vvv collection install ansible.netcommon
-retry ansible-galaxy -vvv collection install fortinet.fortios
 
 # END: HACK
 

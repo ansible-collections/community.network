@@ -1,4 +1,0 @@
-bugfixes:
-- "fortimanager httpapi plugin - fix imports to load module_utils from fortios.fortimanager, where it actually exists. Please note that you must have the fortios.fortimanager collection installed for the plugin to work (https://github.com/ansible-collections/community.network/pull/151)."
-major_changes:
-- "In community.network 2.0.0, the ``fortimanager`` httpapi plugin will be removed and replaced by a redirect to the corresponding plugin in the fortios.fortimanager collection. For Ansible 2.10 and ansible-base 2.10 users, this means that it will continue to work assuming that collection is installed. For Ansible 2.9 users, this means that they have to adjust the FQCN from ``community.network.fortimanager`` to ``fortios.fortimanager.fortimanager`` (https://github.com/ansible-collections/community.network/pull/151)."

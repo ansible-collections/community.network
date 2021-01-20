@@ -95,8 +95,6 @@ files:
   $module_utils/network/f5/:
     maintainers: caphrim007 wojtek0806
     labels: networking
-  $module_utils/network/fortianalyzer/:
-    labels: networking
   $module_utils/network/ftd/:
     maintainers: $team_ftd
     labels: cisco networking
@@ -262,20 +260,6 @@ files:
   $modules/network/f5/bigiq_device_facts.py:
     authors: caphrim007
     maintainers: wojtek0806
-  $modules/network/fortianalyzer/faz_device.py:
-    authors: lweighall
-  $modules/network/fortimanager/:
-    authors: Ghilli3 lweighall p4r4n0y1ng
-    maintainers: Ftntcorecse
-  $modules/network/fortimanager/fmgr_provisioning.py:
-    authors: Ghilli3
-    maintainers: Ftntcorecse lweighall p4r4n0y1ng
-  $modules/network/fortimanager/fmgr_query.py:
-    authors: lweighall
-    maintainers: Ftntcorecse Ghilli3 p4r4n0y1ng
-  $modules/network/fortimanager/fmgr_script.py:
-    authors: Ghilli3
-    maintainers: Ftntcorecse lweighall p4r4n0y1ng
   $modules/network/ftd/:
     authors: annikulin
     labels: cisco networking

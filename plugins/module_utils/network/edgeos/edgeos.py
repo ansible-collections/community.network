@@ -117,8 +117,7 @@ def load_config(module, commands, commit=False, comment=None):
         out = to_text(out, errors='surrogate_or_strict')
 
         if not out.startswith('No changes'):
-            out = connection.get('show')
-            diff = to_text(out, errors='surrogate_or_strict').strip()
+            diff = out.strip()
 
     if commit:
         try:

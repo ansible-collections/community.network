@@ -255,8 +255,10 @@ def run(module, result):
     comment = module.params['comment']
 
     if commands:
-        load_config(module, commands, commit=commit, comment=comment)
+        prepared_diff = {}
+        prepared_diff['prepared'] = load_config(module, commands, commit=commit, comment=comment)
 
+        result['diff'] = prepared_diff
         result['changed'] = True
 
 

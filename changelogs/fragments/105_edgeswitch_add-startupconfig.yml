@@ -1,2 +1,0 @@
-minor_changes:
-  - edgeswitch_facts - added ``startupconfig`` to facts module - to allow the comparision between startup and running config (https://github.com/ansible-collections/community.network/pull/105).

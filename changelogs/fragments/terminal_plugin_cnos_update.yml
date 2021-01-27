@@ -1,2 +1,0 @@
-minor_changes:
-  - cnos terminal plugin - prevent timeout connection failure by adding "no logging terminal" after log in (https://github.com/ansible-collections/community.network/pull/16).

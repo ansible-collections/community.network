@@ -1,2 +1,0 @@
-bugfixes:
-- "ftd httpapi plugin - make sure that plugin errors out on initialization if the required library is not found, and not on load-time (https://github.com/ansible-collections/community.network/pull/150)."

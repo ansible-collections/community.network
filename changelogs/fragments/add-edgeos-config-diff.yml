@@ -1,2 +1,0 @@
-minor_changes:
-- "edgeos_config - added diff result when applying configuration changes (https://github.com/ansible-collections/community.network/pull/184)."

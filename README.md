@@ -1,6 +1,6 @@
 # Community Network Collection
 
-[![Build Status](https://dev.azure.com/ansible/community.network/_apis/build/status/CI?branchName=main)](https://dev.azure.com/ansible/community.network/_build?definitionId=32)
+[![Build Status](https://dev.azure.com/ansible/community.network/_apis/build/status/CI?branchName=stable-2)](https://dev.azure.com/ansible/community.network/_build?definitionId=32)
 [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/community.network)](https://codecov.io/gh/ansible-collections/community.network)
 
 The Community Network collection includes community maintained content to help automate network appliances.
@@ -82,7 +82,7 @@ See the [Ansible Community Guide](https://docs.ansible.com/ansible/latest/commun
 
 ## Changelogs
 
-See [here](https://github.com/ansible-collections/community.network/tree/main/CHANGELOG.rst).
+See [here](https://github.com/ansible-collections/community.network/tree/stable-2/CHANGELOG.rst).
 
 ## Roadmap
 

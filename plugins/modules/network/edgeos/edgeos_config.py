@@ -147,10 +147,12 @@ from ansible_collections.community.network.plugins.module_utils.network.edgeos.e
 
 
 DEFAULT_COMMENT = 'configured by edgeos_config'
+SET_CMD = 'set '
+DELETE_CMD = 'delete '
 
 
 def config_to_commands(config):
-    set_format = config.startswith('set') or config.startswith('delete')
+    set_format = config.startswith(SET_CMD) or config.startswith(DELETE_CMD)
     candidate = NetworkConfig(indent=4, contents=config)
     if not set_format:
         candidate = [c.line for c in candidate.items]
@@ -163,7 +165,7 @@ def config_to_commands(config):
                     break
             commands.append(item)
 
-        commands = ['set %s' % cmd.replace(' {', '') for cmd in commands]
+        commands = [SET_CMD + cmd.replace(' {', '') for cmd in commands]
 
     else:
         commands = to_native(candidate).split('\n')
@@ -204,15 +206,15 @@ def diff_config(module, commands, config):
 
     updates = list()
     visited = set()
-    delete_commands = [line for line in commands if line.startswith('delete')]
+    delete_commands = [line for line in commands if line.startswith(DELETE_CMD)]
 
     for line in commands:
         item = to_native(check_command(module, line))
 
-        if not item.startswith('set') and not item.startswith('delete'):
+        if not item.startswith(SET_CMD) and not item.startswith(DELETE_CMD):
             raise ValueError('line must start with either `set` or `delete`')
 
-        elif item.startswith('set'):
+        elif item.startswith(SET_CMD):
 
             if item not in config:
                 updates.append(line)
@@ -220,16 +222,16 @@ def diff_config(module, commands, config):
             # If there is a corresponding delete command in the desired config, make sure to append
             # the set command even though it already exists in the running config
             else:
-                ditem = re.sub('set', 'delete', item)
+                ditem = re.sub(SET_CMD, DELETE_CMD, item)
                 for line in delete_commands:
                     if ditem.startswith(line):
                         updates.append(item)
 
-        elif item.startswith('delete'):
+        elif item.startswith(DELETE_CMD):
             if not config:
                 updates.append(line)
             else:
-                item = re.sub(r'delete', 'set', item)
+                item = re.sub(DELETE_CMD, SET_CMD, item)
                 for entry in config:
                     if entry.startswith(item) and line not in visited:
                         updates.append(line)

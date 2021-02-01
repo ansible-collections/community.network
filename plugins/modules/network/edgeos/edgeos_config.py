@@ -209,10 +209,7 @@ def diff_config(module, commands, config):
     for line in commands:
         item = to_native(check_command(module, line))
 
-        if not item.startswith(SET_CMD) and not item.startswith(DELETE_CMD):
-            raise ValueError('line must start with either `set` or `delete`')
-
-        elif item.startswith(SET_CMD):
+        if item.startswith(SET_CMD):
 
             if item not in config:
                 updates.append(line)
@@ -234,6 +231,9 @@ def diff_config(module, commands, config):
                     if entry.startswith(item) and line not in visited:
                         updates.append(line)
                         visited.add(line)
+
+        else:
+            raise ValueError('line must start with either `set` or `delete`')
 
     return list(updates)
 

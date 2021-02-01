@@ -138,8 +138,6 @@ backup_path:
   sample: /playbooks/ansible/backup/edgeos_config.2016-07-16@22:28:34
 """
 
-import re
-
 from ansible.module_utils._text import to_native
 from ansible.module_utils.basic import AnsibleModule
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig
@@ -222,7 +220,7 @@ def diff_config(module, commands, config):
             # If there is a corresponding delete command in the desired config, make sure to append
             # the set command even though it already exists in the running config
             else:
-                ditem = re.sub(SET_CMD, DELETE_CMD, item)
+                ditem = item.replace(SET_CMD, DELETE_CMD, 1)
                 for line in delete_commands:
                     if ditem.startswith(line):
                         updates.append(item)
@@ -231,7 +229,7 @@ def diff_config(module, commands, config):
             if not config:
                 updates.append(line)
             else:
-                item = re.sub(DELETE_CMD, SET_CMD, item)
+                item = item.replace(DELETE_CMD, SET_CMD, 1)
                 for entry in config:
                     if entry.startswith(item) and line not in visited:
                         updates.append(line)

@@ -1,0 +1,3 @@
+---
+minor_changes:
+- edgeos_config - match the space after ``set`` and ``delete`` commands (https://github.com/ansible-collections/community.network/pull/199).

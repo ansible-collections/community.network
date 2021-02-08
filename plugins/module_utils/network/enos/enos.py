@@ -53,7 +53,7 @@ enos_provider_spec = {
     'auth_pass': dict(fallback=(env_fallback, ['ANSIBLE_NET_AUTH_PASS']), no_log=True),
     'timeout': dict(type='int'),
     'context': dict(),
-    'passwords': dict()
+    'passwords': dict(no_log=True)
 }
 
 enos_argument_spec = {

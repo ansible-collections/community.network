@@ -69,7 +69,7 @@ cnos_provider_spec = {
                       no_log=True),
     'timeout': dict(type='int'),
     'context': dict(),
-    'passwords': dict()
+    'passwords': dict(no_log=True)
 }
 
 cnos_argument_spec = {

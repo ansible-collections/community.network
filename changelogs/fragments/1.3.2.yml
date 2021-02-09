@@ -1,0 +1,3 @@
+---
+release_summary: |-
+  Security bugfix (potential information leaks in multiple modules, CVE-2021-20191) release.

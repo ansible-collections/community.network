@@ -200,3 +200,31 @@ releases:
     - routeros-migration-removal.yml
     - terminal_plugin_cnos_update.yml
     release_date: '2021-01-27'
+  2.0.1:
+    changes:
+      release_summary: Security bugfix (potential information leaks in multiple modules,
+        CVE-2021-20191) release.
+      security_fixes:
+      - ce_vrrp - mark the ``auth_key`` parameter as ``no_log`` to avoid leakage of
+        secrets (https://github.com/ansible-collections/community.network/pull/206).
+      - cloudengine/ce_vrrp - enabled ``no_log`` for the options ``auth_key`` to prevent
+        accidental disclosure (CVE-2021-20191, https://github.com/ansible-collections/community.network/pull/203).
+      - cnos_* modules - mark the ``passwords`` parameter as ``no_log`` to avoid leakage
+        of secrets (https://github.com/ansible-collections/community.network/pull/206).
+      - enos_* modules - mark the ``passwords`` parameter as ``no_log`` to avoid leakage
+        of secrets (https://github.com/ansible-collections/community.network/pull/206).
+      - iap_start_workflow - mark the ``token_key`` parameter as ``no_log`` to avoid
+        leakage of secrets (https://github.com/ansible-collections/community.network/pull/206).
+      - icx_system - mark the ``auth_key`` parameter as ``no_log`` to avoid leakage
+        of secrets (https://github.com/ansible-collections/community.network/pull/206).
+      - itential/iap_start_workflow - enabled ``no_log`` for the options ``token_key``
+        to prevent accidental disclosure (CVE-2021-20191, https://github.com/ansible-collections/community.network/pull/203).
+      - netscaler/netscaler_lb_monitor - enabled ``no_log`` for the options ``radkey``
+        to prevent accidental disclosure (CVE-2021-20191, https://github.com/ansible-collections/community.network/pull/203).
+      - netscaler_lb_monitor - mark the ``password`` and ``secondarypassword`` parameters
+        as ``no_log`` to avoid leakage of secrets (https://github.com/ansible-collections/community.network/pull/206).
+    fragments:
+    - 2.0.1.yml
+    - CVE-2021-20191_no_log.yml
+    - no_log-fixes.yml
+    release_date: '2021-02-09'

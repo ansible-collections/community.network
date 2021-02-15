@@ -258,7 +258,7 @@ class VdirectRunnable(object):
                 raise WrongActionNameException(self.action_name, available_actions)
 
     def _validate_required_action_params(self):
-        action_params_names = [n for n in self.action_params]
+        action_params_names = list(self.action_params)
 
         res = self.client.runnable.get_action_info(self.type, self.name, self.action_name)
         if 'parameters' in res[rest_client.RESP_DATA]:

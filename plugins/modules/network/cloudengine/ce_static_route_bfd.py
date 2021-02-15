@@ -548,8 +548,6 @@ def get_xml(xml, value):
     """operate xml"""
     if value is None:
         value = ''
-    else:
-        value = value
     tempxml = xml % value
     return tempxml
 

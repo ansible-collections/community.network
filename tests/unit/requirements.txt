@@ -4,7 +4,7 @@ unittest2 ; python_version <= '2.6'
 firepower-kickstart ; python_version >= '3.6' and python_version < '3.9'  # Python 3.6+ only; dependency does not work with 3.9 yet
 
 # requirements for FortiManager modules
-pyFMG
+pyFMG == 0.6.2 # newer versions do not pass current unit tests
 
 # requirements for Nuage modules  - CURRENTLY BROKEN!
 # vspk

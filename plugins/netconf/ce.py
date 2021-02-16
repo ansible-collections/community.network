@@ -122,8 +122,8 @@ class Netconf(NetconfBase):
                                                'execute_action', 'halt', 'reboot', 'execute_nc_cli', 'dispatch_rpc']
         result['network_api'] = 'netconf'
         result['device_info'] = self.get_device_info()
-        result['server_capabilities'] = [c for c in self.m.server_capabilities]
-        result['client_capabilities'] = [c for c in self.m.client_capabilities]
+        result['server_capabilities'] = list(self.m.server_capabilities)
+        result['client_capabilities'] = list(self.m.client_capabilities)
         result['session_id'] = self.m.session_id
         return json.dumps(result)
 

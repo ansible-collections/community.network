@@ -359,7 +359,6 @@ class BaseConfigurationResource(object):
         for i, obj in enumerate(filtered_objs):
             if i > 0:
                 raise FtdConfigurationError(MULTIPLE_DUPLICATES_FOUND_ERROR)
-            obj = obj
 
         return obj
 

@@ -218,7 +218,6 @@ class TestNclu(unittest.TestCase):
 
         self.assertEqual(module.command_history, ['/usr/bin/net pending',
                                                   '/usr/bin/net pending',
-                                                  "/usr/bin/net commit description 'ignore me'",
                                                   '/usr/bin/net abort'])
         self.assertEqual(len(module.pending), 0)
         self.assertEqual(module.fail_code, {})

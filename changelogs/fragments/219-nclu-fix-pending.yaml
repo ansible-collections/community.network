@@ -1,5 +1,5 @@
 ---
 bugfixes:
-  - nclu - fix `net pending` delimiter string (https://github.com/ansible-collections/community.network/pull/219)
+  - nclu - fix ``net pending`` delimiter string (https://github.com/ansible-collections/community.network/pull/219).
 minor_changes:
   - nclu - execute `net commit description <description>` only if changed `net pending`'s diff field (https://github.com/ansible-collections/community.network/pull/219)

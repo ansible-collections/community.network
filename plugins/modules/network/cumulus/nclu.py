@@ -150,6 +150,7 @@ msg:
     sample: "interface bond0 config updated"
 '''
 
+import re
 from ansible.module_utils.basic import AnsibleModule
 
 
@@ -165,10 +166,10 @@ def check_pending(module):
     """Check the pending diff of the nclu buffer."""
     pending = command_helper(module, "pending", "Error in pending config. You may want to view `net pending` on this target.")
 
-    delimeter1 = "net add/del commands since the last 'net commit'"
+    delimeter1 = re.compile('''net add/del commands since the last ['"]net commit['"]''')
     color1 = '\x1b[94m'
-    if delimeter1 in pending:
-        pending = pending.split(delimeter1)[0]
+    if re.search(delimeter1, pending):
+        pending = re.split(delimeter1, pending)[0]
         pending = pending.replace(color1, '')
     return pending.strip()
 
@@ -209,13 +210,15 @@ def run_nclu(module, command_list, command_string, commit, atomic, abort, descri
         _changed = True
 
     # Do the commit.
-    if do_commit:
+    if (do_commit and _changed):
         result = command_helper(module, "commit description '%s'" % description)
         if "commit ignored" in result:
             _changed = False
             command_helper(module, "abort")
         elif command_helper(module, "show commit last") == "":
             _changed = False
+    elif do_abort:
+        command_helper(module, "abort")
 
     return _changed, output
 

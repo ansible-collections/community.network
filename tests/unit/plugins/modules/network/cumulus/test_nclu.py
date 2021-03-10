@@ -217,9 +217,7 @@ class TestNclu(unittest.TestCase):
         changed, output = nclu.run_nclu(module, None, None, True, False, False, "ignore me")
 
         self.assertEqual(module.command_history, ['/usr/bin/net pending',
-                                                  '/usr/bin/net pending',
-                                                  "/usr/bin/net commit description 'ignore me'",
-                                                  '/usr/bin/net abort'])
+                                                  '/usr/bin/net pending'])
         self.assertEqual(len(module.pending), 0)
         self.assertEqual(module.fail_code, {})
         self.assertEqual(changed, False)

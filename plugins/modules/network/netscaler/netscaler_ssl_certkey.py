@@ -184,9 +184,9 @@ def diff_list(client, module, sslcertkey_proxy):
 def main():
 
     module_specific_arguments = dict(
-        certkey=dict(type='str'),
+        certkey=dict(type='str', no_log=False),
         cert=dict(type='str'),
-        key=dict(type='str'),
+        key=dict(type='str', no_log=False),
         password=dict(type='bool'),
         inform=dict(
             type='str',

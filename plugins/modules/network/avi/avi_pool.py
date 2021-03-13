@@ -474,7 +474,7 @@ def main():
         servers=dict(type='list',),
         service_metadata=dict(type='str',),
         sni_enabled=dict(type='bool',),
-        ssl_key_and_certificate_ref=dict(type='str',),
+        ssl_key_and_certificate_ref=dict(type='str', no_log=False),
         ssl_profile_ref=dict(type='str',),
         tenant_ref=dict(type='str',),
         url=dict(type='str',),

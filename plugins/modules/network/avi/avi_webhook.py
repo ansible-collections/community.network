@@ -107,7 +107,7 @@ def main():
         tenant_ref=dict(type='str',),
         url=dict(type='str',),
         uuid=dict(type='str',),
-        verification_token=dict(type='str',),
+        verification_token=dict(type='str', no_log=True),
     )
     argument_specs.update(avi_common_argument_spec())
     module = AnsibleModule(

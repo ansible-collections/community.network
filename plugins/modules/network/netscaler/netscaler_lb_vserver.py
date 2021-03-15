@@ -1611,7 +1611,7 @@ def main():
     hand_inserted_arguments = dict(
         servicebindings=dict(type='list'),
         servicegroupbindings=dict(type='list'),
-        ssl_certkey=dict(type='str'),
+        ssl_certkey=dict(type='str', no_log=False),
         disabled=dict(
             type='bool',
             default=False

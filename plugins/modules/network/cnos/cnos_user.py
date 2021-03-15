@@ -325,7 +325,7 @@ def main():
         configured_password=dict(no_log=True),
         update_password=dict(default='always', choices=['on_create', 'always']),
         roles=dict(type='list', aliases=['role']),
-        sshkey=dict(),
+        sshkey=dict(no_log=False),
         state=dict(default='present', choices=['present', 'absent'])
     )
 

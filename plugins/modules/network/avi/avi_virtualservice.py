@@ -609,7 +609,7 @@ def main():
         sideband_profile=dict(type='dict',),
         snat_ip=dict(type='list',),
         sp_pool_refs=dict(type='list',),
-        ssl_key_and_certificate_refs=dict(type='list',),
+        ssl_key_and_certificate_refs=dict(type='list', no_log=False),
         ssl_profile_ref=dict(type='str',),
         ssl_profile_selectors=dict(type='list',),
         ssl_sess_cache_avg_size=dict(type='int',),

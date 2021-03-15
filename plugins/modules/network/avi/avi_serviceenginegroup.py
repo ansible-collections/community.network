@@ -959,7 +959,7 @@ def main():
         hardwaresecuritymodulegroup_ref=dict(type='str',),
         heap_minimum_config_memory=dict(type='int',),
         hm_on_standby=dict(type='bool',),
-        host_attribute_key=dict(type='str',),
+        host_attribute_key=dict(type='str', no_log=False),
         host_attribute_value=dict(type='str',),
         host_gateway_monitor=dict(type='bool',),
         hypervisor=dict(type='str',),

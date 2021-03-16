@@ -936,7 +936,7 @@ def main():
         web_bword_table=dict(required=False, type="str"),
         web_bword_threshold=dict(required=False, type="int"),
         web_content_header_list=dict(required=False, type="str"),
-        web_keyword_match=dict(required=False, type="str"),
+        web_keyword_match=dict(required=False, type="str", no_log=False),
         web_log_search=dict(required=False, type="str", choices=["disable", "enable"]),
         web_safe_search=dict(required=False, type="str", choices=["url", "header"]),
         web_urlfilter_table=dict(required=False, type="str"),

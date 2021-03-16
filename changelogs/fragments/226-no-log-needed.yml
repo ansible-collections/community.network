@@ -1,0 +1,2 @@
+security_fixes:
+- "panos_sag - mark the ``password`` parameter as ``no_log`` to prevent potential leaking of secret values (https://github.com/ansible-collections/community.network/pull/226)."

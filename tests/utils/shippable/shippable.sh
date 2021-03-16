@@ -74,10 +74,9 @@ else
 fi
 
 # START: HACK install dependencies
-retry ansible-galaxy -vvv collection install ansible.netcommon
-retry ansible-galaxy -vvv collection install check_point.mgmt
-retry ansible-galaxy -vvv collection install fortinet.fortios
-
+retry ansible-galaxy -vvv collection install 'ansible.netcommon:>=1.0.0,<2.0.0'
+retry ansible-galaxy -vvv collection install 'check_point.mgmt:>=1.0.0'
+retry ansible-galaxy -vvv collection install 'fortinet.fortios:>=1.0.0'
 # END: HACK
 
 export PYTHONIOENCODING='utf-8'

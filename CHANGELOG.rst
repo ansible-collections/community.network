@@ -6,6 +6,32 @@ Community Network Release Notes
 
 This changelog describes changes after version 1.0.0.
 
+v2.1.0
+======
+
+Release Summary
+---------------
+
+Regular feature, security (potential information leaks in multiple modules), and bugfix release.
+
+Minor Changes
+-------------
+
+- edgeos_config - match the space after ``set`` and ``delete`` commands (https://github.com/ansible-collections/community.network/pull/199).
+- nclu - execute ``net commit description <description>`` only if changed ``net pending``'s diff field (https://github.com/ansible-collections/community.network/pull/219).
+
+Security Fixes
+--------------
+
+- avi_cloudconnectoruser - mark the ``azure_userpass``, ``gcp_credentials``, ``oci_credentials``, and ``tencent_credentials`` parameters as ``no_log`` to prevent leaking of secret values (https://github.com/ansible-collections/community.network/pull/223).
+- avi_sslkeyandcertificate - mark the ``enckey_base64`` parameter as ``no_log`` to prevent potential leaking of secret values (https://github.com/ansible-collections/community.network/pull/223).
+- avi_webhook - mark the ``verification_token`` parameter as ``no_log`` to prevent potential leaking of secret values (https://github.com/ansible-collections/community.network/pull/223).
+
+Bugfixes
+--------
+
+- nclu - fix ``net pending`` delimiter string (https://github.com/ansible-collections/community.network/pull/219).
+
 v2.0.1
 ======
 

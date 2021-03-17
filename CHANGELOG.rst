@@ -5,6 +5,22 @@ Community Network Release Notes
 .. contents:: Topics
 
 
+v1.3.3
+======
+
+Release Summary
+---------------
+
+Security bugfix (potential information leaks in multiple modules) release.
+
+Security Fixes
+--------------
+
+- avi_cloudconnectoruser - mark the ``azure_userpass``, ``gcp_credentials``, ``oci_credentials``, and ``tencent_credentials`` parameters as ``no_log`` to prevent leaking of secret values (https://github.com/ansible-collections/community.network/pull/223).
+- avi_sslkeyandcertificate - mark the ``enckey_base64`` parameter as ``no_log`` to prevent potential leaking of secret values (https://github.com/ansible-collections/community.network/pull/223).
+- avi_webhook - mark the ``verification_token`` parameter as ``no_log`` to prevent potential leaking of secret values (https://github.com/ansible-collections/community.network/pull/223).
+- panos_sag - mark the ``password`` parameter as ``no_log`` to prevent potential leaking of secret values (https://github.com/ansible-collections/community.network/pull/226).
+
 v1.3.2
 ======
 

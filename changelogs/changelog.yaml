@@ -353,3 +353,22 @@ releases:
     - CVE-2021-20191_no_log.yml
     - no_log-fixes.yml
     release_date: '2021-02-09'
+  1.3.3:
+    changes:
+      release_summary: Security bugfix (potential information leaks in multiple modules)
+        release.
+      security_fixes:
+      - avi_cloudconnectoruser - mark the ``azure_userpass``, ``gcp_credentials``,
+        ``oci_credentials``, and ``tencent_credentials`` parameters as ``no_log``
+        to prevent leaking of secret values (https://github.com/ansible-collections/community.network/pull/223).
+      - avi_sslkeyandcertificate - mark the ``enckey_base64`` parameter as ``no_log``
+        to prevent potential leaking of secret values (https://github.com/ansible-collections/community.network/pull/223).
+      - avi_webhook - mark the ``verification_token`` parameter as ``no_log`` to prevent
+        potential leaking of secret values (https://github.com/ansible-collections/community.network/pull/223).
+      - panos_sag - mark the ``password`` parameter as ``no_log`` to prevent potential
+        leaking of secret values (https://github.com/ansible-collections/community.network/pull/226).
+    fragments:
+    - 1.3.3.yml
+    - 223-no_log-missing.yml
+    - 226-no-log-needed.yml
+    release_date: '2021-03-17'

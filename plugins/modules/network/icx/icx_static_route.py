@@ -125,6 +125,7 @@ import re
 
 from ansible.module_utils._text import to_text
 from ansible.module_utils.basic import AnsibleModule, env_fallback
+from ansible.module_utils.common.validation import check_required_together
 from ansible.module_utils.connection import ConnectionError
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
 from ansible_collections.community.network.plugins.module_utils.network.icx.icx import get_config, load_config
@@ -224,14 +225,14 @@ def map_params_to_obj(module, required_together=None):
                 if route.get(key) is None:
                     route[key] = module.params.get(key)
 
-            module._check_required_together(required_together, route)
+            check_required_together(required_together, route)
 
             prefix, mask = prefix_length_parser(route['prefix'], route['mask'], module)
             route.update({'prefix': prefix, 'mask': mask})
 
             obj.append(route)
     else:
-        module._check_required_together(required_together, module.params)
+        check_required_together(required_together, module.params)
         prefix, mask = prefix_length_parser(module.params['prefix'], module.params['mask'], module)
 
         obj.append({

@@ -113,6 +113,7 @@ commands:
 from copy import deepcopy
 from re import findall
 from ansible.module_utils.basic import AnsibleModule, missing_required_lib
+from ansible.module_utils.common.validation import check_required_together
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import validate_ip_address
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
 from ansible_collections.community.network.plugins.module_utils.network.cnos.cnos import get_config, load_config
@@ -218,10 +219,10 @@ def map_params_to_obj(module, required_together=None):
                     route[key] = module.params.get(key)
 
             route = dict((k, v) for k, v in route.items() if v is not None)
-            module._check_required_together(required_together, route)
+            check_required_together(required_together, route)
             obj.append(route)
     else:
-        module._check_required_together(required_together, module.params)
+        check_required_together(required_together, module.params)
         route = dict()
         for key in keys:
             if module.params.get(key) is not None:

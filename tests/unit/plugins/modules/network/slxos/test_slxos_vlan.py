@@ -137,8 +137,12 @@ class TestSlxosVlanModule(TestSlxosModule):
         result = self.execute_module(failed=True)
         self.assertEqual(result['failed'], True)
         self.assertTrue(re.match(
-            r'Unsupported parameters for \((basic.py|basic.pyc)\) module: '
-            'shawshank Supported parameters include: aggregate, delay, '
-            'interfaces, name, purge, state, vlan_id',
+            '(?:'
+            # < ansible-core 2.11
+            r'Unsupported parameters for \(basic\.pyc?\) module: shawshank\.? Supported parameters include: .+'
+            '|'
+            # >= ansible-core 2.11
+            'one of the following is required: .+'
+            ')',
             result['msg']
         ), 'Result did not match expected output. Got: %s' % result['msg'])

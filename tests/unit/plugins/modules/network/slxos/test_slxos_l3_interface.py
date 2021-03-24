@@ -95,8 +95,7 @@ class TestSlxosL3InterfaceModule(TestSlxosModule):
         result = self.execute_module(failed=True)
         self.assertEqual(result['failed'], True)
         self.assertTrue(re.match(
-            r'Unsupported parameters for \((basic.py|basic.pyc)\) module: '
-            'shawshank Supported parameters include: aggregate, ipv4, ipv6, '
-            'name, state',
+            r'Unsupported parameters for \(basic\.pyc?\) module: shawshank\.? '
+            'Supported parameters include: .+',
             result['msg']
         ))

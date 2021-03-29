@@ -1,4 +1,0 @@
----
-minor_changes:
-  - weos terminal plugin - Add support for Westermo WeOS devices (https://github.com/ansible-collections/community.network/pull/111)
-  - weos cliconf plugin - Add support for Westermo WeOS devices (https://github.com/ansible-collections/community.network/pull/111)

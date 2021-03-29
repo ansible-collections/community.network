@@ -6,11 +6,11 @@ __metaclass__ = type
 DOCUMENTATION = """
 ---
 author: "Ernst Oudhof"
-cliconf: weos
-short_description: Use weos cliconf to run commands on Westermo platform
+cliconf: weos4
+short_description: Use weos4 cliconf to run commands on Westermo platform
 description:
-  - This weos plugin provides low level abstraction apis for
-    sending and receiving CLI commands from Westermo WeOS network devices.
+  - This weos4 plugin provides low level abstraction apis for
+    sending and receiving CLI commands from Westermo WeOS 4 network devices.
 """
 
 import re
@@ -18,11 +18,11 @@ import json
 
 from itertools import chain
 
-from ansible.module_utils._text import to_bytes, to_text
-from ansible.module_utils.network.common.utils import to_list
+from ansible.module_utils._text import to_text
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import to_list
 from ansible.module_utils.common._collections_compat import Mapping
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig
 from ansible.plugins.cliconf import CliconfBase
-from ansible.module_utils.network.common.config import NetworkConfig, dumps
 
 
 class Cliconf(CliconfBase):
@@ -30,7 +30,7 @@ class Cliconf(CliconfBase):
     def get_device_info(self):
         device_info = {}
 
-        device_info['network_os'] = 'weos'
+        device_info['network_os'] = 'weos4'
         reply = self.get('show system-information')
         data = to_text(reply, errors='surrogate_or_strict').strip()
 

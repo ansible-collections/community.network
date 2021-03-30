@@ -5,12 +5,13 @@ __metaclass__ = type
 
 DOCUMENTATION = """
 ---
-author: "Ernst Oudhof"
+author: Ernst Oudhof (@ernst-s)
 cliconf: weos4
 short_description: Use weos4 cliconf to run commands on Westermo platform
 description:
-  - This weos4 plugin provides low level abstraction apis for
+  - This weos4 plugin provides low level abstraction APIs for
     sending and receiving CLI commands from Westermo WeOS 4 network devices.
+version_added: '2.2.0'
 """
 
 import re

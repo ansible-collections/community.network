@@ -1,0 +1,50 @@
+
+System Information
+===============================================================================
+
+System Name        : weos4-router
+System Contact     : Contact
+System Location    : Rack1 
+System Timezone    : Europe/Amsterdam
+
+Product Family     : Wolverine         Model              : DDW-226
+Architecture       : mxc               Base MAC Address   : 00:07:7c:00:00:00
+Platform           : Basis             Class              : Extended
+Article number     : 3642-0240-015     Serial Number      : 1234
+Boot loader ver.   : 4.11              Active firmware    : Main
+Main firmware ver. : 4.21.2            Backup firmware ver: 4.21.2
+Manufacturing date : Feb  8, 2016
+
+Card #1  ======================================================================
+Type               : CPU
+Chipset            : MV88E6097 r2
+Article no         : 5013-0630
+Revision           : 3
+Batch id           : 160208-00000000-00007
+Channel interfaces : 1
+Bandwidth limit    : Disabled (for CPU channels)
+FPGA version       : 9104
+USB                : N/A
+
+Card #2  ======================================================================
+Type               : DSL RS TURBO
+Chipset            : MV88E6097 r2
+Article no         : 5013-0740
+Revision           : 3
+Batch id           : 160205-00000000-00015
+FPGA version       : 9104 TURBO support
+
+Card #3  ======================================================================
+Type               : BACKPLANE
+Chipset            : N/A
+Article no         : 5013-0520
+Revision           : 1
+Batch id           : 160208-01674638-00001
+
+Card #4  ======================================================================
+Type               : POWER
+Chipset            : N/A
+Article no         : 5013-0200
+Revision           : 6
+Batch id           : 160217-00000000-00020
+

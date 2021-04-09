@@ -8,12 +8,12 @@ matrix:
   exclude:
     - env: T=none
   include:
-    - env: T=devel/sanity/1
-    - env: T=devel/sanity/2
-    - env: T=devel/sanity/3
-    - env: T=devel/sanity/4
-    - env: T=devel/sanity/5
-    - env: T=devel/sanity/extra
+    - env: T=2.11/sanity/1
+    - env: T=2.11/sanity/2
+    - env: T=2.11/sanity/3
+    - env: T=2.11/sanity/4
+    - env: T=2.11/sanity/5
+    - env: T=2.11/sanity/extra
 
     - env: T=2.10/sanity/1
     - env: T=2.10/sanity/2

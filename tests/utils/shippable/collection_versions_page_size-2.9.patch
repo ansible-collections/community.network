@@ -1,0 +1,11 @@
+--- before/lib/ansible/galaxy/api.py
++++ after/lib/ansible/galaxy/api.py
+@@ -554,7 +554,7 @@
+             results_key = 'results'
+             pagination_path = ['next']
+
+-        n_url = _urljoin(self.api_server, api_path, 'collections', namespace, name, 'versions', '/')
++        n_url = _urljoin(self.api_server, api_path, 'collections', namespace, name, 'versions', '?page_size=100')
+
+         error_context_msg = 'Error when getting available collection versions for %s.%s from %s (%s)' \
+                             % (namespace, name, self.name, self.api_server)

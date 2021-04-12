@@ -1,3 +1,5 @@
+--- before/lib/ansible/galaxy/api.py
++++ after/lib/ansible/galaxy/api.py
 @@ -21,7 +21,7 @@
  from ansible.galaxy.user_agent import user_agent
  from ansible.module_utils.six import string_types

@@ -1,0 +1,37 @@
+--- before/lib/ansible/galaxy/api.py
++++ after/lib/ansible/galaxy/api.py
+@@ -21,7 +21,7 @@
+ from ansible.galaxy.user_agent import user_agent
+ from ansible.module_utils.six import string_types
+ from ansible.module_utils.six.moves.urllib.error import HTTPError
+-from ansible.module_utils.six.moves.urllib.parse import quote as urlquote, urlencode, urlparse
++from ansible.module_utils.six.moves.urllib.parse import quote as urlquote, urlencode, urlparse, parse_qs
+ from ansible.module_utils._text import to_bytes, to_native, to_text
+ from ansible.module_utils.urls import open_url, prepare_multipart
+ from ansible.utils.display import Display
+@@ -312,6 +312,7 @@
+     def _call_galaxy(self, url, args=None, headers=None, method=None, auth_required=False, error_context_msg=None,
+                      cache=False):
+         url_info = urlparse(url)
++        query = parse_qs(url_info.query)
+         cache_id = get_cache_id(url)
+         if cache and self._cache:
+             server_cache = self._cache.setdefault(cache_id, {})
+@@ -342,7 +343,7 @@
+
+                 return res
+
+-            elif not url_info.query:
++            elif 'page' not in query:
+                 # The cache entry had expired or does not exist, start a new blank entry to be filled later.
+                 expires = datetime.datetime.utcnow()
+                 expires += datetime.timedelta(days=1)
+@@ -781,7 +782,7 @@
+             api_path = self.available_api_versions['v2']
+             pagination_path = ['next']
+
+-        versions_url = _urljoin(self.api_server, api_path, 'collections', namespace, name, 'versions', '/')
++        versions_url = _urljoin(self.api_server, api_path, 'collections', namespace, name, 'versions', '?page_size=100')
+         versions_url_info = urlparse(versions_url)
+
+         # We should only rely on the cache if the collection has not changed. This may slow things down but it ensures

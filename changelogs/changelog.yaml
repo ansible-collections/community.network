@@ -372,3 +372,13 @@ releases:
     - 223-no_log-missing.yml
     - 226-no-log-needed.yml
     release_date: '2021-03-17'
+  1.3.4:
+    changes:
+      bugfixes:
+      - '{cnos,icx}_static_route modules - fix modules to work with ansible-core 2.11
+        (https://github.com/ansible-collections/community.network/pull/228).'
+      release_summary: Bugfix release for ansible-core 2.11 compatibility.
+    fragments:
+    - 1.3.4.yml
+    - 228-static_route-devel.yml
+    release_date: '2021-04-15'

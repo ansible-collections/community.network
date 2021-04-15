@@ -6,6 +6,19 @@ Community Network Release Notes
 
 This changelog describes changes after version 1.0.0.
 
+v2.1.1
+======
+
+Release Summary
+---------------
+
+Bugfix release for ansible-core 2.11 compatibility.
+
+Bugfixes
+--------
+
+- {cnos,icx}_static_route modules - fix modules to work with ansible-core 2.11 (https://github.com/ansible-collections/community.network/pull/228).
+
 v2.1.0
 ======
 

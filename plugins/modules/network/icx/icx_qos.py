@@ -540,14 +540,14 @@ def map_obj_to_commands(updates, module):
             if 'no' in cmd:
                 strg = cmd.split(' ')[1:]
                 for k, v in prof.items():
-                    if attach_egress_buffer_profile['port'] not in k:
+                    if attach_egress_buffer_profile['port'] in k  and ' '.join(strg) not in v:
                         if interface and cmd in commands:
                             commands.remove(interface)
                             commands.remove(cmd)
-                    elif attach_egress_buffer_profile['port'] in k and ' '.join(strg) not in v:
-                        if interface and cmd in commands:
-                            commands.remove(interface)
-                            commands.remove(cmd)
+                if interface not in prof.keys():
+                    if interface and cmd in commands:
+                        commands.remove(interface)
+                        commands.remove(cmd)
             else:
                 for k, v in prof.items():
                     if attach_egress_buffer_profile['port'] in k and cmd in v:
@@ -598,6 +598,7 @@ def qos_profile_names(module, have):
         return qos_profile
     command = 'show qos-profile all'
     rc, out, err = exec_command(module, command)
+    out = out.rstrip(',')
     qos_profile = []
     if 'Unicast Traffic\n' and 'Multicast Traffic\n' in out:
         profile = out.split('Unicast Traffic\n')[1].split('Multicast Traffic\n')[0]

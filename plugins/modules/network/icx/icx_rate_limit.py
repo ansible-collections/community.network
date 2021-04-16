@@ -270,18 +270,15 @@ EXAMPLES = """
     rate_limit_input:
       interace: 1/1/2
       avergae_rate: 500
-
 - name: set rate-limit output
   icx_rate_limit:
     rate_limit_output:
       interace: 1/1/2
       value: 500
-
 - name: set rate-limit arp
   icx_rate_limit:
     rate_limit_arp:
       number: 100
-
 - name: set rate-limit BUM
   icx_rate_limit:
     rate_limit_bum:
@@ -299,7 +296,7 @@ from copy import deepcopy
 import re
 
 from ansible.module_utils._text import to_text
-from ansible_collections.community.network.plugins.module_utils.network.icx.icx import run_commands, get_config
+from ansible_collections.community.network.plugins.module_utils.network.icx.icx import load_config, get_config
 from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible.module_utils.connection import ConnectionError, exec_command
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
@@ -307,7 +304,6 @@ from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.u
 
 def map_obj_to_commands(updates, module):
     commands = []
-    commands.append('conf t')
     want, have = updates
     for w in want:
         wcmds = []
@@ -441,9 +437,6 @@ def map_obj_to_commands(updates, module):
             else:
                 wcmd = 'no rate-limit-log %s' % (w['rate_limit_bum']['minutes'])
                 wcmds.append(wcmd)
-
-        if not (w.get('rate_limit_arp') or w.get('rate_limit_bum')):
-            wcmds.append('exit')
 
         if have:
             if (w.get('rate_limit_bum') or w.get('rate_limit_arp')):
@@ -621,7 +614,7 @@ def main():
 
     if commands:
         if not module.check_mode:
-            responses = run_commands(module, commands)
+            responses = load_config(module, commands)
             result['changed'] = True
             result['responses'] = responses
 

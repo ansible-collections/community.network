@@ -176,6 +176,7 @@ def check_pending(module):
 
 def run_nclu(module, command_list, command_string, commit, atomic, abort, description):
     _changed = False
+    diff = None
 
     commands = []
     if command_list:
@@ -207,6 +208,7 @@ def run_nclu(module, command_list, command_string, commit, atomic, abort, descri
     if before == after:
         _changed = False
     else:
+        diff = dict(before=before, after=after)
         _changed = True
 
     # Do the commit.
@@ -220,7 +222,7 @@ def run_nclu(module, command_list, command_string, commit, atomic, abort, descri
     elif do_abort:
         command_helper(module, "abort")
 
-    return _changed, output
+    return _changed, diff, output
 
 
 def main(testing=False):
@@ -242,9 +244,9 @@ def main(testing=False):
     abort = module.params.get('abort')
     description = module.params.get('description')
 
-    _changed, output = run_nclu(module, command_list, command_string, commit, atomic, abort, description)
+    _changed, diff, output = run_nclu(module, command_list, command_string, commit, atomic, abort, description)
     if not testing:
-        module.exit_json(changed=_changed, msg=output)
+        module.exit_json(changed=_changed, diff=diff, msg=output)
     elif testing:
         return {"changed": _changed, "msg": output}
 

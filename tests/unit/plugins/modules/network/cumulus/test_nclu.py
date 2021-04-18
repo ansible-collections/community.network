@@ -137,16 +137,17 @@ class TestNclu(unittest.TestCase):
 
     def test_empty_run(self):
         module = FakeModule()
-        changed, output = nclu.run_nclu(module, None, None, False, False, False, "")
+        changed, diff, output = nclu.run_nclu(module, None, None, False, False, False, "")
         self.assertEqual(module.command_history, ['/usr/bin/net pending',
                                                   '/usr/bin/net pending'])
         self.assertEqual(module.fail_code, {})
         self.assertEqual(changed, False)
+        self.assertEqual(diff, None)
 
     def test_command_list(self):
         module = FakeModule()
-        changed, output = nclu.run_nclu(module, ['add int swp1', 'add int swp2'],
-                                        None, False, False, False, "")
+        changed, diff, output = nclu.run_nclu(module, ['add int swp1', 'add int swp2'],
+                                              None, False, False, False, "")
 
         self.assertEqual(module.command_history, ['/usr/bin/net pending',
                                                   '/usr/bin/net add int swp1',
@@ -155,12 +156,13 @@ class TestNclu(unittest.TestCase):
         self.assertNotEqual(len(module.pending), 0)
         self.assertEqual(module.fail_code, {})
         self.assertEqual(changed, True)
+        self.assertNotEqual(diff, None)
 
     def test_command_list_commit(self):
         module = FakeModule()
-        changed, output = nclu.run_nclu(module,
-                                        ['add int swp1', 'add int swp2'],
-                                        None, True, False, False, "committed")
+        changed, diff, output = nclu.run_nclu(module,
+                                              ['add int swp1', 'add int swp2'],
+                                              None, True, False, False, "committed")
 
         self.assertEqual(module.command_history, ['/usr/bin/net pending',
                                                   '/usr/bin/net add int swp1',
@@ -171,12 +173,13 @@ class TestNclu(unittest.TestCase):
         self.assertEqual(len(module.pending), 0)
         self.assertEqual(module.fail_code, {})
         self.assertEqual(changed, True)
+        self.assertNotEqual(diff, None)
 
     def test_command_atomic(self):
         module = FakeModule()
-        changed, output = nclu.run_nclu(module,
-                                        ['add int swp1', 'add int swp2'],
-                                        None, False, True, False, "atomically")
+        changed, diff, output = nclu.run_nclu(module,
+                                              ['add int swp1', 'add int swp2'],
+                                              None, False, True, False, "atomically")
 
         self.assertEqual(module.command_history, ['/usr/bin/net abort',
                                                   '/usr/bin/net pending',
@@ -198,9 +201,9 @@ class TestNclu(unittest.TestCase):
 
     def test_command_template_commit(self):
         module = FakeModule()
-        changed, output = nclu.run_nclu(module, None,
-                                        "    add int swp1\n    add int swp2",
-                                        True, False, False, "committed")
+        changed, diff, output = nclu.run_nclu(module, None,
+                                              "    add int swp1\n    add int swp2",
+                                              True, False, False, "committed")
 
         self.assertEqual(module.command_history, ['/usr/bin/net pending',
                                                   '/usr/bin/net add int swp1',
@@ -214,7 +217,7 @@ class TestNclu(unittest.TestCase):
 
     def test_commit_ignored(self):
         module = FakeModule()
-        changed, output = nclu.run_nclu(module, None, None, True, False, False, "ignore me")
+        changed, diff, output = nclu.run_nclu(module, None, None, True, False, False, "ignore me")
 
         self.assertEqual(module.command_history, ['/usr/bin/net pending',
                                                   '/usr/bin/net pending'])

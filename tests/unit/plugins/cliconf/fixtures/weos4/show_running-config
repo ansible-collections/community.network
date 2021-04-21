@@ -1,0 +1,98 @@
+# \\/ Westermo WeOS v4.21.2, CLI Format v1.21
+# Wolverine DDW-226, art.no. 3642-0240-015 ser.no. 9992
+
+aaa
+        username admin hash $1$r6mXNVvD$JaDxe9xNk/MI7Ebdk7B0q.
+        end
+
+system
+        hostname weos4-router
+        location "Rack1"
+        contact "Contact"
+        timezone Europe/Amsterdam
+        end
+
+fdb
+        end
+
+alarm
+        trigger 1 frnt
+                ring 1
+                severity active warning inactive notice
+                condition low
+                action 2
+                end
+        action 1
+                target snmp log led digout
+                end
+        action 2
+                target snmp log
+                end
+        end
+
+port 2/1
+        speed-duplex auto
+        end
+port 2/2-2/4
+        no enable
+        speed-duplex auto
+        end
+
+port 1/1-1/2
+        no enable
+        no co
+        emf
+        end
+
+port serial 1/1
+        enable
+        speed 9600
+        parity even
+        end
+
+no spanning-tree
+
+vlan 1
+        name vlan1
+        untagged ALL
+        end
+
+iface lo inet static
+        address 172.16.255.2/32 secondary
+        end
+
+iface vlan1 inet static
+        distance 1
+        primary
+        management ssh http https ipconfig snmp
+        address 172.16.1.2/24
+        end
+
+ip
+        route default 172.16.1.1
+        no forwarding
+        end
+
+snmp-server
+        end
+
+sntp
+        server 172.16.1.1
+        end
+
+ntp
+        end
+
+logging
+        console
+        end
+
+seroip 1
+        enable
+        mode peer
+        listen vlan1:9000
+        dynamic-peer
+        port 1/1
+        frame-delay 15
+        end
+

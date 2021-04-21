@@ -1,0 +1,4 @@
+---
+removed_features:
+  - "The deprecated ``community.network.sros`` plugin has been removed. Use ``nokia.sros.md`` instead."
+  - "The deprecated ``community.network.ce_sflow`` parameters: ``rate_limit``, ``rate_limit_slot``, & ``forward_enp_slot`` have been removed."

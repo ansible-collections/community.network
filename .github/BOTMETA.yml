@@ -217,10 +217,11 @@ files:
   $modules/network/cumulus/nclu.py:
     authors: isharacomix
     maintainers: jrrivers
-  $modules/network/edgeos/edgeos_command.py:
-    authors: beardymcbeards samdoran
   $modules/network/edgeos/:
     authors: Qalthos samdoran
+    maintainers: $team_edgeos
+  $modules/network/edgeos/edgeos_command.py:
+    authors: beardymcbeards samdoran
   $modules/network/edgeswitch/:
     authors: f-bor
   $modules/network/enos/:
@@ -364,6 +365,7 @@ macros:
   team_aruba: karthikeyan-dhandapani
   team_avi: ericsysmin grastogi23 khaltore
   team_e_spirit: MatrixCrawler getjack
+  team_edgeos: Qalthos samdoran jplitza virtualguy
   team_extreme: LindsayHill ujwalkomarla
   team_ftd: annikulin
   team_huawei: QijunPan TommyLike edisonxiang freesky-edward hwDCN niuzhenguo xuxiaowei0512 yanzhangi zengchen1024 zhongjun2

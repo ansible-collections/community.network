@@ -227,13 +227,12 @@ plugin_routing:
       redirect: community.routeros.routeros
   netconf:
     sros:
-      deprecation:
+      tombstone:
         removal_version: 3.0.0
-        warning_text: see plugin documentation for details
+        warning_text: Use nokia.sros.md instead.
   terminal:
     routeros:
       redirect: community.routeros.routeros
   doc_fragments:
     nso:
       redirect: cisco.nso.nso
-    

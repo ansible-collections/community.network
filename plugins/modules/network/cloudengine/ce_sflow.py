@@ -106,30 +106,6 @@ options:
         description:
             - Configures the sFlow packets sent by the switch not to carry routing information.
         choices: ['enable', 'disable']
-    rate_limit:
-        description:
-            - Specifies the rate of sFlow packets sent from a card to the control plane.
-              The value is an integer that ranges from 100 to 1500, in pps.
-        type: str
-        version_added: '0.2.0'
-    rate_limit_slot:
-        description:
-            - Specifies the slot where the rate of output sFlow packets is limited.
-              If this parameter is not specified, the rate of sFlow packets sent from
-              all cards to the control plane is limited.
-              The value is an integer or a string of characters.
-        type: str
-        version_added: '0.2.0'
-    forward_enp_slot:
-        description:
-            - Enable the Embedded Network Processor (ENP) chip function.
-              The switch uses the ENP chip to perform sFlow sampling,
-              and the maximum sFlow sampling interval is 65535.
-              If you set the sampling interval to be larger than 65535,
-              the switch automatically restores it to 65535.
-              The value is an integer or 'all'.
-        type: str
-        version_added: '0.2.0'
     state:
         description:
             - Determines whether the config should be present or not
@@ -371,9 +347,6 @@ class Sflow(object):
         self.source_ip = self.module.params['source_ip']
         self.source_version = None
         self.export_route = self.module.params['export_route']
-        self.rate_limit = self.module.params['rate_limit']
-        self.rate_limit_slot = self.module.params['rate_limit_slot']
-        self.forward_enp_slot = self.module.params['forward_enp_slot']
         self.collector_id = self.module.params['collector_id']
         self.collector_ip = self.module.params['collector_ip']
         self.collector_version = None
@@ -985,10 +958,6 @@ class Sflow(object):
                     self.module.fail_json(
                         msg="Error: sample_length is not ranges from 10 to 4294967295.")
 
-        if self.rate_limit or self.rate_limit_slot or self.forward_enp_slot:
-            self.module.fail_json(msg="Error: The following parameters cannot be configured"
-                                      "because XML mode is not supported:rate_limit,rate_limit_slot,forward_enp_slot.")
-
     def get_proposed(self):
         """get proposed info"""
 
@@ -999,11 +968,6 @@ class Sflow(object):
             self.proposed["source_ip"] = self.source_ip
         if self.export_route:
             self.proposed["export_route"] = self.export_route
-        if self.rate_limit:
-            self.proposed["rate_limit"] = self.rate_limit
-            self.proposed["rate_limit_slot"] = self.rate_limit_slot
-        if self.forward_enp_slot:
-            self.proposed["forward_enp_slot"] = self.forward_enp_slot
         if self.collector_id:
             self.proposed["collector_id"] = self.collector_id
             if self.collector_ip:
@@ -1134,12 +1098,6 @@ def main():
         source_ip=dict(required=False, type='str'),
         export_route=dict(required=False, type='str',
                           choices=['enable', 'disable']),
-        rate_limit=dict(required=False, removed_in_version='3.0.0',  # was Ansible 2.13
-                        removed_from_collection='community.network', type='str'),
-        rate_limit_slot=dict(required=False, removed_in_version='3.0.0',  # was Ansible 2.13
-                             removed_from_collection='community.network', type='str'),
-        forward_enp_slot=dict(required=False, removed_in_version='3.0.0',  # was Ansible 2.13
-                              removed_from_collection='community.network', type='str'),
         collector_id=dict(required=False, type='str', choices=['1', '2']),
         collector_ip=dict(required=False, type='str'),
         collector_ip_vpn=dict(required=False, type='str'),

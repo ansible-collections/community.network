@@ -6,6 +6,22 @@ Community Network Release Notes
 
 This changelog describes changes after version 1.0.0.
 
+v2.2.0
+======
+
+Release Summary
+---------------
+
+Regular feature release.
+
+New Plugins
+-----------
+
+Cliconf
+~~~~~~~
+
+- weos4 - Use weos4 cliconf to run commands on Westermo platform
+
 v2.1.1
 ======
 

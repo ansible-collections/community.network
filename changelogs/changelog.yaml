@@ -262,3 +262,14 @@ releases:
     - 2.1.1.yml
     - 228-static_route-devel.yml
     release_date: '2021-04-15'
+  2.2.0:
+    changes:
+      release_summary: Regular feature release.
+    fragments:
+    - 2.2.0.yml
+    plugins:
+      cliconf:
+      - description: Use weos4 cliconf to run commands on Westermo platform
+        name: weos4
+        namespace: null
+    release_date: '2021-04-22'

@@ -1,0 +1,2 @@
+minor_changes:
+  - check_running_config -set False Module will use environment variable value(default:False), unless it is overridden, by specifying it as module parameter (https://github.com/ansible-collections/community.network/pull/101).

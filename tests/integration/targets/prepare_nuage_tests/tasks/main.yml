@@ -4,6 +4,11 @@
 ####################################################################
 
 - block:
+    - name: Upgrade setuptools
+      pip:
+        name: setuptools
+        state: latest
+
     - name: Install Nuage VSD API Simulator
       pip:
         name: nuage-vsd-sim

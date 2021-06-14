@@ -839,5 +839,3 @@ plugins/modules/network/voss/voss_command.py validate-modules:parameter-type-not
 plugins/modules/network/voss/voss_config.py validate-modules:doc-missing-type
 plugins/modules/network/voss/voss_config.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/voss/voss_facts.py validate-modules:parameter-type-not-in-doc
-tests/utils/shippable/check_matrix.py replace-urlopen
-tests/utils/shippable/timing.py shebang

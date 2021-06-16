@@ -3,7 +3,7 @@
 [![Build Status](https://dev.azure.com/ansible/community.network/_apis/build/status/CI?branchName=main)](https://dev.azure.com/ansible/community.network/_build?definitionId=32)
 [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/community.network)](https://codecov.io/gh/ansible-collections/community.network)
 
-This repository contains the `community.network` Ansible Collection. The collection is a part of the Ansible package and includes many network modules and plugins supported by Ansible community which are not part of more specialized community collections.
+This repository contains the `community.network` Ansible Collection. The collection is a part of the `ansible` package and includes many network modules and plugins supported by Ansible community which are not part of more specialized community collections.
 
 You can find [documentation for this collection on the Ansible docs site](https://docs.ansible.com/ansible/latest/collections/community/network/).
 
@@ -51,9 +51,9 @@ Click the `Content` button to see the list of content included in this collectio
 
 ## Installing this collection
 
-This collection is shipped with the Ansible package. So if you have it installed, no more action is required.
+This collection is shipped with the `ansible` package. So if you have it installed, no more action is required.
 
-If you have a minimal installation (only Ansible Core installed) or you want to use the latest version of the collection along with the whole Ansible package, you need to install the collection from [Ansible Galaxy](https://galaxy.ansible.com/community/network) manually with the `ansible-galaxy` command-line tool:
+If you have a minimal installation (only Ansible Core installed) or you want to use the latest version of the collection along with the whole `ansible` package, you need to install the collection from [Ansible Galaxy](https://galaxy.ansible.com/community/network) manually with the `ansible-galaxy` command-line tool:
 
     ansible-galaxy collection install community.network
 
@@ -67,7 +67,7 @@ collections:
     # version: ...
 ```
 
-Note that if you install the collection manually, it will not be upgraded automatically when you upgrade the Ansible package. To upgrade the collection to the latest available version, run the following command:
+Note that if you install the collection manually, it will not be upgraded automatically when you upgrade the `ansible` package. To upgrade the collection to the latest available version, run the following command:
 
 ```bash
 ansible-galaxy collection install community.network --upgrade

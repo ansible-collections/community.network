@@ -3,13 +3,44 @@
 [![Build Status](https://dev.azure.com/ansible/community.network/_apis/build/status/CI?branchName=stable-2)](https://dev.azure.com/ansible/community.network/_build?definitionId=32)
 [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/community.network)](https://codecov.io/gh/ansible-collections/community.network)
 
-The Community Network collection includes community maintained content to help automate network appliances.
+This repository contains the `community.network` Ansible Collection. The collection is a part of the `ansible` package and includes many network modules and plugins supported by Ansible community which are not part of more specialized community collections.
 
 You can find [documentation for this collection on the Ansible docs site](https://docs.ansible.com/ansible/latest/collections/community/network/).
 
+## Code of Conduct
+
+We follow [Ansible Code of Conduct](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html) in all our interactions within this project.
+
+If you encounter abusive behavior violating the [Ansible Code of Conduct](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html), please refer to the [policy violations](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html#policy-violations) section of the Code of Conduct for information on how to raise a complaint.
+
+## Contributing to this collection
+
+The content of this collection is made by good people like you, a community of individuals collaborating on making the world better through developing automation software.
+
+All types of contributions are very welcome.
+
+You don't know how to start? Refer to our [contribution guide](https://github.com/ansible-collections/community.network/blob/main/CONTRIBUTING.md)!
+
+See the [Ansible Community Guide](https://docs.ansible.com/ansible/latest/community/index.html) for details on contributing to Ansible.
+
+If you're interested in becoming a maintainer of this collection, refer to the [Maintainer guidelines](https://github.com/ansible/community-docs/blob/main/maintaining.rst) for details.
+
+## Communication
+
+We announce important development changes and releases through Ansible's [The Bullhorn newsletter](https://github.com/ansible/community/wiki/News#the-bullhorn). If you are a contributor, be sure you are [subscribed](https://eepurl.com/gZmiEP).
+
+Join us on:
+
+- IRC - the ``#ansible-network`` [irc.libera.chat](https://libera.chat/) channel
+- Slack - https://ansiblenetwork.slack.com
+
+Contributors to this collection take part in the global quarterly [Ansible Contributor Summit](https://github.com/ansible/community/wiki/Contributor-Summit) virtually or in-person. Track [The Bullhorn newsletter](https://eepurl.com/gZmiEP) and join us.
+
+For more information about communication, refer to the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
+
 ## Tested with Ansible
 
-Tested with the current Ansible 2.9 and 2.10 releases and the current development version of Ansible. Ansible versions before 2.9.10 are not supported.
+Tested with the Ansible 2.9, 2.10, 2.11 releases, and the current development version of Ansible. Ansible versions before 2.9.10 are not supported.
 
 ### Supported connections
 The community network collection supports `network_cli`  and `httpapi` connections.
@@ -20,7 +51,9 @@ Click the `Content` button to see the list of content included in this collectio
 
 ## Installing this collection
 
-You can install the community network collection with the Ansible Galaxy CLI:
+This collection is shipped with the `ansible` package. So if you have it installed, no more action is required.
+
+If you have a minimal installation (only Ansible Core installed) or you want to use the latest version of the collection along with the whole `ansible` package, you need to install the collection from [Ansible Galaxy](https://galaxy.ansible.com/community/network) manually with the `ansible-galaxy` command-line tool:
 
     ansible-galaxy collection install community.network
 
@@ -33,9 +66,23 @@ collections:
     # If you need a specific version of the collection, you can specify like this:
     # version: ...
 ```
+
+Note that if you install the collection manually, it will not be upgraded automatically when you upgrade the `ansible` package. To upgrade the collection to the latest available version, run the following command:
+
+```bash
+ansible-galaxy collection install community.network --upgrade
+```
+
+You can also install a specific version of the collection, for example, if you need to downgrade when something is broken in the latest version (please report an issue in this repository). Use the following syntax where `X.Y.Z` can be any [available version](https://galaxy.ansible.com/community/network):
+
+```bash
+ansible-galaxy collection install community.network:==X.Y.Z
+```
+See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
+
 ## Using this collection
 
-You can call modules by their Fully Qualified Collection Namespace (FQCN), such as `community.network.routeros_command`.
+You can call modules by their Fully Qualified Collection Name (FQCN), such as `community.network.routeros_command`.
 The following example task replaces configuration changes in the existing configuration on a network device, using the FQCN:
 
 ```yaml
@@ -63,22 +110,9 @@ Alternately, you can call modules by their short name if you list the `community
          gather_subset: all
 ```
 
-
 ### See Also:
 
 * [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
-
-## Contributing to this collection
-
-We welcome community contributions to this collection. If you find problems, please open an issue or create a PR against the [Community Network collection repository](https://github.com/ansible-collections/community.network).
-
-You can also join us on:
-
-- IRC - the ``#ansible-network`` [irc.libera.chat](https://libera.chat/) channel
-- Slack - https://ansiblenetwork.slack.com
-
-See the [Ansible Community Guide](https://docs.ansible.com/ansible/latest/community/index.html) for details on contributing to Ansible.
-
 
 ## Changelogs
 

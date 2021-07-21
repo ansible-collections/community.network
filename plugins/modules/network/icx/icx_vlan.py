@@ -3,16 +3,6 @@
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 from __future__ import absolute_import, division, print_function
-from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import conditional, remove_default_spec
-from ansible.module_utils.connection import Connection, ConnectionError, exec_command
-from ansible_collections.community.network.plugins.module_utils.network.icx.icx import load_config, get_config
-from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig
-from ansible.module_utils.basic import AnsibleModule, env_fallback
-from ansible.module_utils._text import to_text
-from copy import deepcopy
-import itertools
-from time import sleep
-import re
 __metaclass__ = type
 
 
@@ -295,6 +285,16 @@ commands:
     - name test-vlan
 """
 
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import conditional, remove_default_spec
+from ansible.module_utils.connection import Connection, ConnectionError, exec_command
+from ansible_collections.community.network.plugins.module_utils.network.icx.icx import load_config, get_config
+from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig
+from ansible.module_utils.basic import AnsibleModule, env_fallback
+from ansible.module_utils._text import to_text
+from copy import deepcopy
+import itertools
+from time import sleep
+import re
 
 def search_obj_in_list(vlan_id, lst):
     obj = list()
@@ -535,7 +535,7 @@ def map_obj_to_commands(updates, module):
                             while(high >= low):
                                 if 'ethernet' in interface:
                                     have_interfaces.append('ethernet ' + interface.split(" ")[1].split(
-                                        "/")[0]+'/'+interface.split(" ")[1].split("/")[1]+'/{0}'.format(low))
+                                        "/")[0] + '/' + interface.split(" ")[1].split("/")[1] + '/{0}'.format(low))
                                 if 'lag' in interface:
                                     have_interfaces.append(
                                         'lag {0}'.format(low))
@@ -562,7 +562,7 @@ def map_obj_to_commands(updates, module):
                             while(high >= low):
                                 if 'ethernet' in tag:
                                     have_tagged.append('ethernet ' + tag.split(" ")[1].split(
-                                        "/")[0]+'/'+tag.split(" ")[1].split("/")[1]+'/{0}'.format(low))
+                                        "/")[0] + '/' + tag.split(" ")[1].split("/")[1] + '/{0}'.format(low))
                                 if 'lag' in tag:
                                     have_tagged.append('lag {0}'.format(low))
                                 low = low + 1

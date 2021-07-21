@@ -296,6 +296,7 @@ import itertools
 from time import sleep
 import re
 
+
 def search_obj_in_list(vlan_id, lst):
     obj = list()
     for o in lst:

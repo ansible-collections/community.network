@@ -51,7 +51,7 @@
         - "ansible_facts.network_resources.l2_interfaces|symmetric_difference(result.after) == []"
 
   - set_fact:
-      expected_config: "{{ config }} + {{ config_all }}"
+      expected_config: "{{ config + config_all }}"
 
   - assert:
       that:

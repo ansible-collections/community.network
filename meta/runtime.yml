@@ -208,6 +208,136 @@ plugin_routing:
       redirect: community.routeros.command
     routeros_facts:
       redirect: community.routeros.facts
+    avi_actiongroupconfig:
+      redirect: vmware.alb.avi_actiongroupconfig
+    avi_alertconfig:
+      redirect: vmware.alb.avi_alertconfig
+    avi_alertemailconfig:
+      redirect: vmware.alb.avi_alertemailconfig
+    avi_alertscriptconfig:
+      redirect: vmware.alb.avi_alertscriptconfig
+    avi_alertsyslogconfig:
+      redirect: vmware.alb.avi_alertsyslogconfig
+    avi_analyticsprofile:
+      redirect: vmware.alb.avi_analyticsprofile
+    avi_api_session:
+      redirect: vmware.alb.avi_api_session
+    avi_api_version:
+      redirect: vmware.alb.avi_api_version
+    avi_applicationpersistenceprofile:
+      redirect: vmware.alb.avi_applicationpersistenceprofile
+    avi_applicationprofile:
+      redirect: vmware.alb.avi_applicationprofile
+    avi_authprofile:
+      redirect: vmware.alb.avi_authprofile
+    avi_autoscalelaunchconfig:
+      redirect: vmware.alb.avi_autoscalelaunchconfig
+    avi_backup:
+      redirect: vmware.alb.avi_backup
+    avi_backupconfiguration:
+      redirect: vmware.alb.avi_backupconfiguration
+    avi_certificatemanagementprofile:
+      redirect: vmware.alb.avi_certificatemanagementprofile
+    avi_cloud:
+      redirect: vmware.alb.avi_cloud
+    avi_cloudconnectoruser:
+      redirect: vmware.alb.avi_cloudconnectoruser
+    avi_cloudproperties:
+      redirect: vmware.alb.avi_cloudproperties
+    avi_cluster:
+      redirect: vmware.alb.avi_cluster
+    avi_clusterclouddetails:
+      redirect: vmware.alb.avi_clusterclouddetails
+    avi_controllerproperties:
+      redirect: vmware.alb.avi_controllerproperties
+    avi_customipamdnsprofile:
+      redirect: vmware.alb.avi_customipamdnsprofile
+    avi_dnspolicy:
+      redirect: vmware.alb.avi_dnspolicy
+    avi_errorpagebody:
+      redirect: vmware.alb.avi_errorpagebody
+    avi_errorpageprofile:
+      redirect: vmware.alb.avi_errorpageprofile
+    avi_gslb:
+      redirect: vmware.alb.avi_gslb
+    avi_gslbgeodbprofile:
+      redirect: vmware.alb.avi_gslbgeodbprofile
+    avi_gslbservice:
+      redirect: vmware.alb.avi_gslbservice
+    avi_gslbservice_patch_member:
+      redirect: vmware.alb.avi_gslbservice_patch_member
+    avi_hardwaresecuritymodulegroup:
+      redirect: vmware.alb.avi_hardwaresecuritymodulegroup
+    avi_healthmonitor:
+      redirect: vmware.alb.avi_healthmonitor
+    avi_httppolicyset:
+      redirect: vmware.alb.avi_httppolicyset
+    avi_ipaddrgroup:
+      redirect: vmware.alb.avi_ipaddrgroup
+    avi_ipamdnsproviderprofile:
+      redirect: vmware.alb.avi_ipamdnsproviderprofile
+    avi_l4policyset:
+      redirect: vmware.alb.avi_l4policyset
+    avi_microservicegroup:
+      redirect: vmware.alb.avi_microservicegroup
+    avi_network:
+      redirect: vmware.alb.avi_network
+    avi_networkprofile:
+      redirect: vmware.alb.avi_networkprofile
+    avi_networksecuritypolicy:
+      redirect: vmware.alb.avi_networksecuritypolicy
+    avi_pkiprofile:
+      redirect: vmware.alb.avi_pkiprofile
+    avi_pool:
+      redirect: vmware.alb.avi_pool
+    avi_poolgroup:
+      redirect: vmware.alb.avi_poolgroup
+    avi_poolgroupdeploymentpolicy:
+      redirect: vmware.alb.avi_poolgroupdeploymentpolicy
+    avi_prioritylabels:
+      redirect: vmware.alb.avi_prioritylabels
+    avi_role:
+      redirect: vmware.alb.avi_role
+    avi_scheduler:
+      redirect: vmware.alb.avi_scheduler
+    avi_seproperties:
+      redirect: vmware.alb.avi_seproperties
+    avi_serverautoscalepolicy:
+      redirect: vmware.alb.avi_serverautoscalepolicy
+    avi_serviceengine:
+      redirect: vmware.alb.avi_serviceengine
+    avi_serviceenginegroup:
+      redirect: vmware.alb.avi_serviceenginegroup
+    avi_snmptrapprofile:
+      redirect: vmware.alb.avi_snmptrapprofile
+    avi_sslkeyandcertificate:
+      redirect: vmware.alb.avi_sslkeyandcertificate
+    avi_sslprofile:
+      redirect: vmware.alb.avi_sslprofile
+    avi_stringgroup:
+      redirect: vmware.alb.avi_stringgroup
+    avi_systemconfiguration:
+      redirect: vmware.alb.avi_systemconfiguration
+    avi_tenant:
+      redirect: vmware.alb.avi_tenant
+    avi_trafficcloneprofile:
+      redirect: vmware.alb.avi_trafficcloneprofile
+    avi_user:
+      redirect: vmware.alb.avi_user
+    avi_useraccount:
+      redirect: vmware.alb.avi_useraccount
+    avi_useraccountprofile:
+      redirect: vmware.alb.avi_useraccountprofile
+    avi_virtualservice:
+      redirect: vmware.alb.avi_virtualservice
+    avi_vrfcontext:
+      redirect: vmware.alb.avi_vrfcontext
+    avi_vsdatascriptset:
+      redirect: vmware.alb.avi_vsdatascriptset
+    avi_vsvip:
+      redirect: vmware.alb.avi_vsvip
+    avi_webhook:
+      redirect: vmware.alb.avi_webhook
   httpapi:
     fortianalyzer:
       redirect: community.fortios.fortianalyzer
@@ -222,6 +352,12 @@ plugin_routing:
       redirect: community.fortios.fortianalyzer.common
     network.fortianalyzer.fortianalyzer:
       redirect: community.fortios.fortianalyzer.fortianalyzer
+    network.avi.ansible_utils:
+      redirect: vmware.alb.ansible_utils
+    network.avi.avi:
+      redirect: vmware.alb.avi
+    network.avi.avi_api:
+      redirect: vmware.alb.avi_api
   cliconf:
     routeros:
       redirect: community.routeros.routeros
@@ -236,3 +372,5 @@ plugin_routing:
   doc_fragments:
     nso:
       redirect: cisco.nso.nso
+    avi:
+      redirect: vmware.alb.avi

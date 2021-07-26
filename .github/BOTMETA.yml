@@ -65,9 +65,6 @@ files:
   $module_utils/network/aruba/aruba.py:
     maintainers: $team_aruba
     labels: networking
-  $module_utils/network/avi/:
-    maintainers: $team_avi
-    labels: networking
   $module_utils/network/bigswitch/bigswitch.py:
     maintainers: jayakody tedelhourani vuile
     labels: networking
@@ -139,24 +136,6 @@ files:
     authors: jmighion
     maintainers: $team_aruba
     ignore: jmighion
-  $modules/network/avi/:
-    authors: grastogi23
-    maintainers: ericsysmin khaltore
-  $modules/network/avi/avi_api_version.py:
-    authors: vivobg
-    maintainers: $team_avi
-  $modules/network/avi/avi_autoscalelaunchconfig.py:
-    authors: chaitanyaavi
-    maintainers: $team_avi
-  $modules/network/avi/avi_l4policyset.py:
-    authors: chaitanyaavi
-    maintainers: $team_avi
-  $modules/network/avi/avi_user.py:
-    authors: gitshrikant
-    maintainers: $team_avi
-  $modules/network/avi/avi_useraccount.py:
-    authors: chaitanyaavi
-    maintainers: $team_avi
   $modules/network/bigswitch/:
     authors: tedelhourani
     maintainers: jayakody vuile
@@ -363,7 +342,6 @@ macros:
   terminals: plugins/terminal
   team_aci: aciguru brunocalogero devarshishah3 fadallar jmcgill298 koladiya mtorelli rsmeyers schunduri smnmtzgr
   team_aruba: karthikeyan-dhandapani
-  team_avi: ericsysmin grastogi23 khaltore
   team_e_spirit: MatrixCrawler getjack
   team_edgeos: Qalthos samdoran jplitza virtualguy
   team_extreme: LindsayHill ujwalkomarla

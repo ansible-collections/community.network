@@ -1,0 +1,12 @@
+removed_features:
+- |
+  All ``avi`` modules have been removed from this collection.
+  They have been migrated to the `vmware.alb <https://galaxy.ansible.com/vmware/alb>`_ collection.
+  If you use ansible-base 2.10 or newer, redirections have been provided.
+  If you use Ansible 2.9 and installed this collection, you need to adjust the FQCNs (``community.network.avi_pool`` → ``vmware.alb.avi_pool``) and make sure to install the `vmware.alb` collection.
+breaking_changes:
+- |
+  If you use Ansible 2.9 and the ``avi`` modules from this collection, community.network 2.0.0 results in errors when trying to use the avi content by FQCN, like ``community.network.avi_pool``.
+  Since Ansible 2.9 is not able to use redirections, you will have to adjust your playbooks and roles manually to use the new FQCNs (``vmware.alb.avi_pool`` for the previous example) and to make sure that you have ``vmware.alb`` installed.
+  If you use ansible-base 2.10 or newer and did not install Ansible 3.0.0, but installed (and/or upgraded) community.network manually, you need to make sure to also install ``vmware.alb`` if you are using any of the ``avi`` modules.
+  While ansible-base 2.10 or newer can use the redirects that community.network 2.0.0 adds, the collection they point to (vmware.alb) must be installed for them to work.

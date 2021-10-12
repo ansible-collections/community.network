@@ -173,7 +173,7 @@ def parse_commands(module, warnings):
 
     commands = transform(module.params['commands'])
 
-    for _, item in enumerate(commands):
+    for dummy, item in enumerate(commands):
         if module.check_mode and not item['command'].startswith('dis'):
             warnings.append(
                 'Only display commands are supported when using check_mode, not '

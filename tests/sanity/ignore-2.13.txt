@@ -116,6 +116,7 @@ plugins/modules/network/avi/avi_gslbgeodbprofile.py validate-modules:parameter-t
 plugins/modules/network/avi/avi_gslbservice.py validate-modules:doc-missing-type
 plugins/modules/network/avi/avi_gslbservice.py validate-modules:parameter-list-no-elements
 plugins/modules/network/avi/avi_gslbservice.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/avi/avi_gslbservice_patch_member.py pylint:use-a-generator
 plugins/modules/network/avi/avi_gslbservice_patch_member.py validate-modules:doc-missing-type
 plugins/modules/network/avi/avi_gslbservice_patch_member.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/avi/avi_hardwaresecuritymodulegroup.py validate-modules:doc-missing-type
@@ -898,6 +899,7 @@ plugins/modules/network/netact/netact_cm_command.py validate-modules:doc-choices
 plugins/modules/network/netact/netact_cm_command.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/netscaler/netscaler_cs_action.py validate-modules:nonexistent-parameter-documented
 plugins/modules/network/netscaler/netscaler_cs_action.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/netscaler/netscaler_cs_action.py pylint:condition-evals-to-constant  # Should be fixed
 plugins/modules/network/netscaler/netscaler_cs_policy.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/netscaler/netscaler_cs_vserver.py validate-modules:doc-choices-do-not-match-spec
 plugins/modules/network/netscaler/netscaler_cs_vserver.py validate-modules:nonexistent-parameter-documented

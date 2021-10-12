@@ -49,7 +49,7 @@ class Cliconf(CliconfBase):
 
         return device_info
 
-    def get_config(self, source='running', format='text', flags=None):
+    def get_config(self, source='running', flags=None, format='text'):
         return self.send_command('show configuration commands|cat')
 
     def edit_config(self, candidate=None, commit=True, replace=False, comment=None):

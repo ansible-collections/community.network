@@ -1106,3 +1106,4 @@ tests/unit/plugins/modules/network/netscaler/test_netscaler_server.py pylint:inv
 tests/unit/plugins/modules/network/netscaler/test_netscaler_service.py pylint:invalid-class-object
 tests/unit/plugins/modules/network/netscaler/test_netscaler_servicegroup.py pylint:invalid-class-object
 tests/unit/plugins/modules/network/netscaler/test_netscaler_ssl_certkey.py pylint:invalid-class-object
+tests/unit/plugins/modules/network/ironware/test_ironware_config.py pylint:arguments-renamed

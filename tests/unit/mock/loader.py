@@ -48,7 +48,7 @@ class DictDataLoader(DataLoader):
     #       unicode/text it's created with to utf-8
     def _get_file_contents(self, file_name):
         file_name = to_text(file_name)
-        if path in self._file_mapping:
+        if file_name in self._file_mapping:
             return (to_bytes(self._file_mapping[file_name]), False)
         else:
             raise AnsibleParserError("file not found: %s" % file_name)

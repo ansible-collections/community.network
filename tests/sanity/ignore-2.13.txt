@@ -1107,3 +1107,10 @@ tests/unit/plugins/modules/network/netscaler/test_netscaler_service.py pylint:in
 tests/unit/plugins/modules/network/netscaler/test_netscaler_servicegroup.py pylint:invalid-class-object
 tests/unit/plugins/modules/network/netscaler/test_netscaler_ssl_certkey.py pylint:invalid-class-object
 tests/unit/plugins/modules/network/ironware/test_ironware_config.py pylint:arguments-renamed
+tests/unit/plugins/modules/network/edgeswitch/test_edgeswitch_facts.py pylint:use-maxsplit-arg
+tests/unit/plugins/modules/network/edgeswitch/test_edgeswitch_vlan.py pylint:use-maxsplit-arg
+tests/unit/plugins/modules/network/icx/test_icx_ping.py pylint:use-maxsplit-arg
+tests/unit/plugins/modules/network/ironware/test_ironware_facts.py pylint:use-maxsplit-arg
+tests/unit/plugins/modules/network/nos/test_nos_facts.py pylint:use-maxsplit-arg
+tests/unit/plugins/modules/network/slxos/test_slxos_facts.py pylint:use-maxsplit-arg
+tests/unit/plugins/modules/network/voss/test_voss_facts.py pylint:use-maxsplit-arg

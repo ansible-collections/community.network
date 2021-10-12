@@ -1099,3 +1099,10 @@ plugins/modules/network/voss/voss_config.py validate-modules:parameter-list-no-e
 plugins/modules/network/voss/voss_config.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/voss/voss_facts.py validate-modules:parameter-list-no-elements
 plugins/modules/network/voss/voss_facts.py validate-modules:parameter-type-not-in-doc
+tests/unit/plugins/modules/network/netscaler/test_netscaler_cs_action.py pylint:invalid-class-object
+tests/unit/plugins/modules/network/netscaler/test_netscaler_cs_vserver.py pylint:invalid-class-object
+tests/unit/plugins/modules/network/netscaler/test_netscaler_lb_vserver.py pylint:invalid-class-object
+tests/unit/plugins/modules/network/netscaler/test_netscaler_server.py pylint:invalid-class-object
+tests/unit/plugins/modules/network/netscaler/test_netscaler_service.py pylint:invalid-class-object
+tests/unit/plugins/modules/network/netscaler/test_netscaler_servicegroup.py pylint:invalid-class-object
+tests/unit/plugins/modules/network/netscaler/test_netscaler_ssl_certkey.py pylint:invalid-class-object

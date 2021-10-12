@@ -52,7 +52,7 @@ class TestEdgeswitchVlanModule(TestEdgeswitchModule):
                 if command.startswith('vlan ') or command == 'exit':
                     output.append('')
                 else:
-                    filename = str(command).split(' | ')[0].replace(' ', '_')
+                    filename = str(command).split(' | ', maxsplit=1)[0].replace(' ', '_')
                     output.append(load_fixture('edgeswitch_vlan_%s' % filename))
             return output
 

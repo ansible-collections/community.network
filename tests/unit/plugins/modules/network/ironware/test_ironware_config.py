@@ -53,9 +53,9 @@ class TestIronwareConfigModule(TestIronwareModule):
         self.get_config.return_value = load_fixture(config_file)
         self.load_config.return_value = None
 
-    def execute_module(self, failed=False, changed=False, commands=None, sort=True, defaults=False):
+    def execute_module(self, failed=False, changed=False, updates=None, sort=True, defaults=False):
 
-        self.load_fixtures(commands)
+        self.load_fixtures(updates)
 
         if failed:
             result = self.failed()
@@ -64,11 +64,11 @@ class TestIronwareConfigModule(TestIronwareModule):
             result = self.changed(changed)
             self.assertEqual(result['changed'], changed, result)
 
-        if commands is not None:
+        if updates is not None:
             if sort:
-                self.assertEqual(sorted(commands), sorted(result['commands']), result['commands'])
+                self.assertEqual(sorted(updates), sorted(result['updates']), result['updates'])
             else:
-                self.assertEqual(commands, result['commands'], result['commands'])
+                self.assertEqual(updates, result['updates'], result['updates'])
 
         return result
 

@@ -53,7 +53,7 @@ class TestIronwareFacts(TestIronwareModule):
                     command = obj['command']
                 except ValueError:
                     command = item
-                filename = str(command).split(' | ', maxsplit=1)[0].replace(' ', '_').replace('/', '7')
+                filename = str(command).split(' | ')[0].replace(' ', '_').replace('/', '7')
                 output.append(load_fixture(filename))
             return output
 

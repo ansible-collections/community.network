@@ -143,7 +143,7 @@ class IfProp(object):
         cmd.append(self.protocol)
         cmd.append(self.interface)
 
-        (rc, out, _) = self.module.run_command(cmd)
+        (rc, out, dummy) = self.module.run_command(cmd)
 
         out = out.rstrip()
         (value, default) = out.split(':')
@@ -166,7 +166,7 @@ class IfProp(object):
         cmd.append(self.protocol)
         cmd.append(self.interface)
 
-        (rc, out, _) = self.module.run_command(cmd)
+        (rc, out, dummy) = self.module.run_command(cmd)
 
         out = out.rstrip()
 

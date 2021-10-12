@@ -439,7 +439,7 @@ def current_config(module, config):
     match = re.search(r'!', config[line_end:], re.M)
     if not match:
         return config[block_start:]
-    _, block_end = match.regs[0]
+    dummy, block_end = match.regs[0]
 
     block_end = line_end + block_end
     return config[block_start:block_end]
@@ -519,7 +519,7 @@ def updated_configlet_content(module, existing_config, new_config):
     updated_config = existing_config[:block_start] + new_config
     match = re.search(r'!\n', existing_config[line_end:], re.M)
     if match:
-        _, block_end = match.regs[0]
+        dummy, block_end = match.regs[0]
         block_end = line_end + block_end
         updated_config += '\n%s' % existing_config[block_end:]
     return updated_config

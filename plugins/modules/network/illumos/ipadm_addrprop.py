@@ -103,7 +103,7 @@ class AddrProp(object):
         cmd.append(self.property)
         cmd.append(self.addrobj)
 
-        (rc, _, _) = self.module.run_command(cmd)
+        (rc, dummy, dummy) = self.module.run_command(cmd)
 
         if rc == 0:
             return True
@@ -124,7 +124,7 @@ class AddrProp(object):
         cmd.append(self.property)
         cmd.append(self.addrobj)
 
-        (rc, out, _) = self.module.run_command(cmd)
+        (rc, out, dummy) = self.module.run_command(cmd)
 
         out = out.rstrip()
         (value, default) = out.split(':')
@@ -145,7 +145,7 @@ class AddrProp(object):
         cmd.append(self.property)
         cmd.append(self.addrobj)
 
-        (rc, out, _) = self.module.run_command(cmd)
+        (rc, out, dummy) = self.module.run_command(cmd)
 
         out = out.rstrip()
 

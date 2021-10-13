@@ -374,7 +374,7 @@ class DldpInterface(object):
         if mac.count('-') != 2:
             return False
 
-        for _, value in enumerate(mac, start=0):
+        for dummy, value in enumerate(mac, start=0):
             if value.lower() not in valid_char:
                 return False
 

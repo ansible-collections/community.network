@@ -51,8 +51,8 @@ class FakeFtdHttpApiPlugin(HttpApi):
     def get_option(self, var):
         return self.hostvars[var]
 
-    def set_option(self, var, val):
-        self.hostvars[var] = val
+    def set_option(self, option, value):
+        self.hostvars[option] = value
 
 
 class TestFtdHttpApi(unittest.TestCase):

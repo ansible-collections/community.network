@@ -334,11 +334,6 @@ class SwitchPort(object):
         self.untagged_vlans = self.module.params['untagged_vlans']
         self.tagged_vlans = self.module.params['tagged_vlans']
 
-        # host info
-        self.host = self.module.params['host']
-        self.username = self.module.params['username']
-        self.port = self.module.params['port']
-
         # state
         self.changed = False
         self.updates_cmd = list()

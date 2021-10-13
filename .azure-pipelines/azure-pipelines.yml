@@ -72,7 +72,6 @@ stages:
             - test: 3
             - test: 4
             - test: 5
-            - test: extra
 
   - stage: Sanity_2_11
     displayName: Sanity 2.11

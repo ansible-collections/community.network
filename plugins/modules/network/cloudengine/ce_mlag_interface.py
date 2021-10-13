@@ -505,7 +505,7 @@ class MlagInterface(object):
         if mac.count('-') != 2:
             return False
 
-        for _, value in enumerate(mac, start=0):
+        for dummy, value in enumerate(mac, start=0):
             if value.lower() not in valid_char:
                 return False
         if all((int(mac_list[0], base=16) == 0, int(mac_list[1], base=16) == 0, int(mac_list[2], base=16) == 0)):

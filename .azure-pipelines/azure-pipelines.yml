@@ -87,7 +87,6 @@ stages:
             - test: 3
             - test: 4
             - test: 5
-            - test: extra
 
   - stage: Sanity_2_10
     displayName: Sanity 2.10

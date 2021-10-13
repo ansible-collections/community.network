@@ -97,7 +97,7 @@ class Cliconf(CliconfBase):
         # The flag to modify the command to collect configuration with defaults
         return 'detail'
 
-    def get_config(self, source='running', format='text', flags=None):
+    def get_config(self, source='running', flags=None, format='text'):
         options_values = self.get_option_values()
         if format not in options_values['format']:
             raise ValueError("'format' value %s is invalid. Valid values are %s" % (format, ','.join(options_values['format'])))
@@ -143,7 +143,7 @@ class Cliconf(CliconfBase):
         resp['response'] = results
         return resp
 
-    def get(self, command, prompt=None, answer=None, sendonly=False, output=None, newline=True, check_all=False):
+    def get(self, command, prompt=None, answer=None, sendonly=False, newline=True, output=None, check_all=False):
         if output:
             command = self._get_command_with_output(command, output)
         return self.send_command(command=command, prompt=prompt, answer=answer, sendonly=sendonly, newline=newline, check_all=check_all)

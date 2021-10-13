@@ -108,7 +108,7 @@ class LinkProp(object):
         cmd.append(self.property)
         cmd.append(self.link)
 
-        (rc, _, _) = self.module.run_command(cmd)
+        (rc, dummy, dummy) = self.module.run_command(cmd)
 
         if rc == 0:
             return True
@@ -129,7 +129,7 @@ class LinkProp(object):
         cmd.append(self.property)
         cmd.append(self.link)
 
-        (rc, out, _) = self.module.run_command(cmd)
+        (rc, out, dummy) = self.module.run_command(cmd)
 
         out = out.rstrip()
         (value, default) = out.split(':')
@@ -150,7 +150,7 @@ class LinkProp(object):
         cmd.append(self.property)
         cmd.append(self.link)
 
-        (rc, out, _) = self.module.run_command(cmd)
+        (rc, out, dummy) = self.module.run_command(cmd)
 
         out = out.rstrip()
 
@@ -170,7 +170,7 @@ class LinkProp(object):
         cmd.append(self.property)
         cmd.append(self.link)
 
-        (rc, out, _) = self.module.run_command(cmd)
+        (rc, out, dummy) = self.module.run_command(cmd)
 
         out = out.rstrip()
 

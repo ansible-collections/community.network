@@ -104,7 +104,7 @@ class Cliconf(CliconfBase):
         resp['response'] = results
         return resp
 
-    def get(self, command=None, prompt=None, answer=None, sendonly=False, output=None, newline=True, check_all=False):
+    def get(self, command=None, prompt=None, answer=None, sendonly=False, newline=True, output=None, check_all=False):
         if not command:
             raise ValueError('must provide value of command to execute')
         if output:

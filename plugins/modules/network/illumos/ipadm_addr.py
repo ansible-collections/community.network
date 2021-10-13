@@ -165,7 +165,7 @@ class Addr(object):
         cmd.append('show-addr')
         cmd.append(self.addrobj)
 
-        (rc, _, _) = self.module.run_command(cmd)
+        (rc, dummy, dummy) = self.module.run_command(cmd)
 
         if rc == 0:
             return True

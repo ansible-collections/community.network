@@ -137,7 +137,7 @@ class VNIC(object):
         cmd.append('show-vnic')
         cmd.append(self.name)
 
-        (rc, _, _) = self.module.run_command(cmd)
+        (rc, dummy, dummy) = self.module.run_command(cmd)
 
         if rc == 0:
             return True

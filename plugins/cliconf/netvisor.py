@@ -35,7 +35,7 @@ from ansible.plugins.cliconf import CliconfBase
 
 class Cliconf(CliconfBase):
 
-    def get_config(self, source='running', format='text', flags=None):
+    def get_config(self, source='running', flags=None, format='text'):
         if source not in ('running'):
             return self.invalid_params("fetching configuration from %s is not supported" % source)
         cmd = 'show running-config'
@@ -44,7 +44,7 @@ class Cliconf(CliconfBase):
     def edit_config(self, command):
         return
 
-    def get(self, command=None, prompt=None, answer=None, sendonly=False, output=None, newline=True, check_all=False):
+    def get(self, command=None, prompt=None, answer=None, sendonly=False, newline=True, output=None, check_all=False):
         if not command:
             raise ValueError('must provide value of command to execute')
         if output:

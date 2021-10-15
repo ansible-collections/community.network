@@ -110,7 +110,7 @@ class Prop(object):
         cmd.append(self.property)
         cmd.append(self.protocol)
 
-        (rc, _, _) = self.module.run_command(cmd)
+        (rc, dummy, dummy) = self.module.run_command(cmd)
 
         if rc == 0:
             return True
@@ -131,7 +131,7 @@ class Prop(object):
         cmd.append(self.property)
         cmd.append(self.protocol)
 
-        (rc, out, _) = self.module.run_command(cmd)
+        (rc, out, dummy) = self.module.run_command(cmd)
 
         out = out.rstrip()
         (value, default) = out.split(':')
@@ -152,7 +152,7 @@ class Prop(object):
         cmd.append(self.property)
         cmd.append(self.protocol)
 
-        (rc, out, _) = self.module.run_command(cmd)
+        (rc, out, dummy) = self.module.run_command(cmd)
 
         out = out.rstrip()
 

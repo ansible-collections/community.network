@@ -81,7 +81,7 @@ patch --forward "${ANSIBLE_DIR}/galaxy/api.py" "tests/utils/shippable/collection
 
 # START: HACK install dependencies
 retry ansible-galaxy -vvv collection install 'ansible.netcommon:>=1.0.0,<2.0.0'
-retry ansible-galaxy -vvv collection install 'check_point.mgmt:>=1.0.0'
+retry ansible-galaxy -vvv collection install 'check_point.mgmt:>=1.0.0,<2.1.0' # Last version which supports Ansible 2.10
 retry ansible-galaxy -vvv collection install 'fortinet.fortios:>=1.0.0'
 # END: HACK
 

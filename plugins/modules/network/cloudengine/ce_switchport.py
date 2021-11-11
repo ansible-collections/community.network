@@ -33,8 +33,7 @@ notes:
       in the C(port trunk allow-pass vlan) command. Use verbose mode to see commands sent.
     - When C(state=unconfigured), the interface will result with having a default Layer 2 interface, i.e. vlan 1 in access mode.
     - This module requires the netconf system service be enabled on the remote device being managed.
-    - Recommended connection is C(netconf).
-    - This module also works with C(local) connections for legacy playbooks.
+    - Recommended connection is C(ansible.netcommon.netconf).
 options:
     interface:
         description:
@@ -72,29 +71,24 @@ options:
 EXAMPLES = '''
 - name: Switchport module test
   hosts: cloudengine
-  connection: local
   gather_facts: no
   vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
+    ansible_user: root
+    ansible_password: PASSWORD
+    ansible_connection: ansible.netcommon.netconf
+    ansible_network_os: community.network.ce
 
   tasks:
   - name: Ensure 10GE1/0/22 is in its default switchport state
     community.network.ce_switchport:
       interface: 10GE1/0/22
       state: unconfigured
-      provider: '{{ cli }}'
 
   - name: Ensure 10GE1/0/22 is configured for access vlan 20
     community.network.ce_switchport:
       interface: 10GE1/0/22
       mode: access
       default_vlan: 20
-      provider: '{{ cli }}'
 
   - name: Ensure 10GE1/0/22 only has vlans 5-10 as trunk vlans
     community.network.ce_switchport:
@@ -102,7 +96,6 @@ EXAMPLES = '''
       mode: trunk
       pvid_vlan: 10
       trunk_vlans: 5-10
-      provider: '{{ cli }}'
 
   - name: Ensure 10GE1/0/22 is a trunk port and ensure 2-50 are being tagged (doesn't mean others aren't also being tagged)
     community.network.ce_switchport:
@@ -110,7 +103,6 @@ EXAMPLES = '''
       mode: trunk
       pvid_vlan: 10
       trunk_vlans: 2-50
-      provider: '{{ cli }}'
 
   - name: Ensure these VLANs are not being tagged on the trunk
     community.network.ce_switchport:
@@ -118,7 +110,6 @@ EXAMPLES = '''
       mode: trunk
       trunk_vlans: 51-4000
       state: absent
-      provider: '{{ cli }}'
 '''
 
 RETURN = '''
@@ -333,11 +324,6 @@ class SwitchPort(object):
         self.trunk_vlans = self.module.params['trunk_vlans']
         self.untagged_vlans = self.module.params['untagged_vlans']
         self.tagged_vlans = self.module.params['tagged_vlans']
-
-        # host info
-        self.host = self.module.params['host']
-        self.username = self.module.params['username']
-        self.port = self.module.params['port']
 
         # state
         self.changed = False

@@ -11,4 +11,4 @@ pyFMG
 # bambou
 
 # requirements for routeros_api module
-librouteros ; python_version >= '3.6'
+librouteros<3.2.0 ; python_version >= '3.6'

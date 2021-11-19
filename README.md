@@ -96,7 +96,7 @@ The following example task creates a new a10 server, using the FQCN:
         password: mypassword
         partition: mypartition
         server: test
-        server_ip: 1.1.1.100
+        server_ip: 192.0.2.100
         server_ports:
           - port_num: 8080
             protocol: tcp
@@ -122,7 +122,7 @@ Alternately, you can call modules by their short name if you list the `community
             password: mypassword
             partition: mypartition
             server: test
-            server_ip: 1.1.1.100
+            server_ip: 192.0.2.100
             server_ports:
               - port_num: 8080
                 protocol: tcp

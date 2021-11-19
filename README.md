@@ -85,7 +85,7 @@ See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_gui
 ## Using this collection
 
 You can call modules by their Fully Qualified Collection Name (FQCN), such as `community.network.a10_server`.
-The following example task creates a new a10 server, using the FQCN:
+The following example task creates a new server load balancer object on an A10 Networks device, using the FQCN:
 
 ```yaml
 ---

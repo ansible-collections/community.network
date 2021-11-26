@@ -84,32 +84,50 @@ See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_gui
 
 ## Using this collection
 
-You can call modules by their Fully Qualified Collection Name (FQCN), such as `community.network.routeros_command`.
-The following example task replaces configuration changes in the existing configuration on a network device, using the FQCN:
+You can call modules by their Fully Qualified Collection Name (FQCN), such as `community.network.a10_server`.
+The following example task creates a new server load balancer object on an A10 Networks device, using the FQCN:
 
 ```yaml
 ---
-  - name: run command on remote devices
-    community.network.routeros_command:
-      commands: /system routerboard print
-
+    - name: Create a new server
+      community.network.a10_server:
+        host: a10.mydomain.com
+        username: myadmin
+        password: mypassword
+        partition: mypartition
+        server: test
+        server_ip: 192.0.2.100
+        server_ports:
+          - port_num: 8080
+            protocol: tcp
+          - port_num: 8443
+            protocol: TCP
 ```
 
 Alternately, you can call modules by their short name if you list the `community.network` collection in the playbook's `collections`, as follows:
 
 ```yaml
 ---
-- hosts: routeros01
-  gather_facts: false
-  connection: network_cli
+- hosts: "{{desired_inventory_group}}"
+  connection: local
 
   collections:
     - community.network
 
   tasks:
-    - name: Gather facts from the device.
-      routeros_facts:
-         gather_subset: all
+    - name: Create a new server
+      a10_server:
+            host: a10.mydomain.com
+            username: myadmin
+            password: mypassword
+            partition: mypartition
+            server: test
+            server_ip: 192.0.2.100
+            server_ports:
+              - port_num: 8080
+                protocol: tcp
+              - port_num: 8443
+                protocol: TCP
 ```
 
 ### See Also:

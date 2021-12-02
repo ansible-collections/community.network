@@ -120,6 +120,7 @@ def main():
         first_pwd = api_creds.password
         second_pwd = old_password
     password_changed = False
+    rsp = None
     try:
         api = ApiSession.get_session(
             api_creds.controller, api_creds.username,

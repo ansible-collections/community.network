@@ -1,0 +1,2 @@
+minor_changes:
+  - nclu - add support for ``check_mode`` and ``--diff`` (https://github.com/ansible-collections/community.network/pull/103).

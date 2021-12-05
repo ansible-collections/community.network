@@ -304,6 +304,8 @@ def main():
     if module.params['save']:
         diff = run_commands(module, commands=['configure', 'compare saved'])[1]
         if diff != '[edit]':
+            if 'commands' in result:
+                result['commands'].append('save')
             if not module.check_mode:
                 run_commands(module, commands=['save'])
             result['changed'] = True

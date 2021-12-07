@@ -1,0 +1,2 @@
+bugfixes:
+- "ce - Modify the bug in the query configuration method (https://github.com/ansible-collections/community.network/pull/56)."

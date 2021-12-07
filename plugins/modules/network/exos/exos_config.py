@@ -265,7 +265,7 @@ def save_config(module, result):
     result['changed'] = True
     if not module.check_mode:
         command = {"command": "save configuration",
-                   "prompt": "Do you want to save configuration", "answer": "y"}
+                   "prompt": ["Do you want to save configuration", "Do you want to continue"], "answer": "y"}
         run_commands(module, command)
     else:
         module.warn('Skipping command `save configuration` '

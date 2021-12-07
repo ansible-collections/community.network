@@ -218,7 +218,7 @@ class RollBack(object):
         for cfg in cfg_line:
             if re.findall(r'^\d', cfg):
                 pre_rollback_info = cfg.split()
-                rollback_info["RollBackInfos"].append(dict(commitId=pre_rollback_info[1], userLabel=pre_rollback_info[2]))
+                rollback_info["RollBackInfos"].append(dict(commitId=pre_rollback_info[1].replace('*', ''), userLabel=pre_rollback_info[2]))
 
         return rollback_info
 

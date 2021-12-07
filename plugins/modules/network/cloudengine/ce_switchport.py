@@ -773,6 +773,28 @@ class SwitchPort(object):
 
         return vlan_xml
 
+    def bitmap_to_vlan_list(self, bitmap):
+        """convert VLAN bitmap to VLAN list"""
+
+        vlan_list = list()
+        if not bitmap:
+            return vlan_list
+
+        for i in range(len(bitmap)):
+            if bitmap[i] == '0':
+                continue
+            bit = int(bitmap[i], 16)
+            if bit & 0x8:
+                vlan_list.append(str(i * 4))
+            if bit & 0x4:
+                vlan_list.append(str(i * 4 + 1))
+            if bit & 0x2:
+                vlan_list.append(str(i * 4 + 2))
+            if bit & 0x1:
+                vlan_list.append(str(i * 4 + 3))
+
+        return vlan_list
+
     def vlan_bitmap_add(self, oldmap, newmap):
         """vlan add bitmap"""
 
@@ -905,11 +927,11 @@ class SwitchPort(object):
                 self.existing['access_pvid'] = self.intf_info["pvid"]
             elif self.intf_info["linkType"] == "trunk":
                 self.existing['trunk_pvid'] = self.intf_info["pvid"]
-                self.existing['trunk_vlans'] = self.intf_info["trunkVlans"]
+                self.existing['trunk_vlans'] = self.bitmap_to_vlan_list(self.intf_info["trunkVlans"])
             elif self.intf_info["linkType"] == "hybrid":
                 self.existing['hybrid_pvid'] = self.intf_info["pvid"]
                 self.existing['hybrid_untagged_vlans'] = self.intf_info["untagVlans"]
-                self.existing['hybrid_tagged_vlans'] = self.intf_info["trunkVlans"]
+                self.existing['hybrid_tagged_vlans'] = self.bitmap_to_vlan_list(self.intf_info["trunkVlans"])
             else:
                 self.existing['dot1qtunnel_pvid'] = self.intf_info["pvid"]
 
@@ -925,11 +947,11 @@ class SwitchPort(object):
                 self.end_state['access_pvid'] = end_info["pvid"]
             elif end_info["linkType"] == "trunk":
                 self.end_state['trunk_pvid'] = end_info["pvid"]
-                self.end_state['trunk_vlans'] = end_info["trunkVlans"]
+                self.end_state['trunk_vlans'] = self.bitmap_to_vlan_list(end_info["trunkVlans"])
             elif end_info["linkType"] == "hybrid":
                 self.end_state['hybrid_pvid'] = end_info["pvid"]
                 self.end_state['hybrid_untagged_vlans'] = end_info["untagVlans"]
-                self.end_state['hybrid_tagged_vlans'] = end_info["trunkVlans"]
+                self.end_state['hybrid_tagged_vlans'] = self.bitmap_to_vlan_list(end_info["trunkVlans"])
             else:
                 self.end_state['dot1qtunnel_pvid'] = end_info["pvid"]
         if self.end_state == self.existing:

@@ -272,7 +272,7 @@ def main():
     )
     spec = dict(
         src=dict(type='path'),
-        lines=dict(type='list'),
+        lines=dict(type='list', elements='str'),
 
         match=dict(default='line', choices=['line', 'none']),
 

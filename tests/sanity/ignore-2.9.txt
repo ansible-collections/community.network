@@ -652,6 +652,8 @@ plugins/modules/network/cnos/cnos_vrf.py validate-modules:undocumented-parameter
 plugins/modules/network/cumulus/nclu.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/edgeos/edgeos_command.py validate-modules:doc-missing-type
 plugins/modules/network/edgeos/edgeos_command.py validate-modules:parameter-type-not-in-doc
+plugins/modules/network/edgeos/edgeos_config.py validate-modules:doc-missing-type
+plugins/modules/network/edgeos/edgeos_config.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/edgeos/edgeos_facts.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/edgeswitch/edgeswitch_facts.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/edgeswitch/edgeswitch_vlan.py validate-modules:doc-choices-do-not-match-spec

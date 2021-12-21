@@ -34,6 +34,8 @@ options:
       - The ordered set of configuration lines to be managed and
         compared with the existing configuration on the remote
         device.
+    type: list
+    elements: str
   src:
     description:
       - The C(src) argument specifies the path to the source config
@@ -270,7 +272,7 @@ def main():
     )
     spec = dict(
         src=dict(type='path'),
-        lines=dict(type='list'),
+        lines=dict(type='list', elements='str'),
 
         match=dict(default='line', choices=['line', 'none']),
 

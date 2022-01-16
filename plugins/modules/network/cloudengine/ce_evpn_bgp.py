@@ -215,11 +215,6 @@ class EvpnBgp(object):
         self.advertise_l2vpn_evpn = self.module.params['advertise_l2vpn_evpn']
         self.state = self.module.params['state']
 
-        # host info
-        self.host = self.module.params['host']
-        self.username = self.module.params['username']
-        self.port = self.module.params['port']
-
         # state
         self.config = ""
         self.config_list = list()

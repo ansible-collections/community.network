@@ -351,11 +351,6 @@ class VxlanGateway(object):
         self.arp_direct_route = self.module.params['arp_direct_route']
         self.state = self.module.params['state']
 
-        # host info
-        self.host = self.module.params['host']
-        self.username = self.module.params['username']
-        self.port = self.module.params['port']
-
         # state
         self.config = ""  # current config
         self.changed = False

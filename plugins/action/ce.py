@@ -17,7 +17,7 @@ from ansible.utils.display import Display
 
 display = Display()
 
-CLI_SUPPORTED_MODULES = ['ce_rollback', 'ce_mlag_interface', 'ce_startup', 'ce_config',
+CLI_SUPPORTED_MODULES = ['ce_rollback', 'ce_startup', 'ce_config',
                          'ce_command', 'ce_facts', 'ce_evpn_global', 'ce_evpn_bgp_rr',
                          'ce_mtu', 'ce_evpn_bgp', 'ce_snmp_location', 'ce_snmp_contact',
                          'ce_snmp_traps', 'ce_netstream_global', 'ce_netstream_aging',

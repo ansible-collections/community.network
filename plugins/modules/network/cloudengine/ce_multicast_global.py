@@ -89,7 +89,7 @@ changed:
 
 from xml.etree import ElementTree
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import get_nc_config, set_nc_config
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import get_nc_config, set_nc_config, ce_argument_spec
 
 CE_NC_GET_MULTICAST_GLOBAL = """
 <filter type="subtree">
@@ -278,6 +278,7 @@ def main():
         vrf=dict(required=False, type='str'),
         state=dict(choices=['absent', 'present'], default='present', required=False),
     )
+    argument_spec.update(ce_argument_spec)
     interface = MulticastGlobal(argument_spec)
     interface.work()
 

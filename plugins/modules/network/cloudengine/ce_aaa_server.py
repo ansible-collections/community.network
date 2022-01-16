@@ -657,7 +657,6 @@ CE_GET_RADIUS_CLIENT = """
       <radius xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
         <rdsClient>
           <isEnable></isEnable>
-          <coaEnable></coaEnable>
           <authClientIdentifier></authClientIdentifier>
         </rdsClient>
       </radius>

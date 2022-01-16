@@ -201,7 +201,7 @@ changed:
 from xml.etree import ElementTree
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.six import string_types
-from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import get_nc_config, set_nc_config
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import get_nc_config, set_nc_config, ce_argument_spec
 
 CE_NC_GET_STATIC_ROUTE_BFD_SESSIONNAME = """
 <filter type="subtree">
@@ -1583,6 +1583,7 @@ def main():
         commands=dict(type='list', required=False),
         state=dict(choices=['absent', 'present'], default='present', required=False),
     )
+    argument_spec.update(ce_argument_spec)
     interface = StaticRouteBFD(argument_spec)
     interface.work()
 

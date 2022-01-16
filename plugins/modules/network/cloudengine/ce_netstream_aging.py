@@ -215,11 +215,6 @@ class NetStreamAging(object):
         self.timeout_type = self.module.params['timeout_type']
         self.manual_slot = self.module.params['manual_slot']
 
-        # host info
-        self.host = self.module.params['host']
-        self.username = self.module.params['username']
-        self.port = self.module.params['port']
-
         # state
         self.changed = False
         self.updates_cmd = list()

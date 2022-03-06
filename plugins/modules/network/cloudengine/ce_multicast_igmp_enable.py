@@ -141,7 +141,7 @@ changed:
 
 from xml.etree import ElementTree
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import get_nc_config, set_nc_config, ce_argument_spec
+from ansible_collections.community.network.plugins.module_utils.network.cloudengine.ce import get_nc_config, set_nc_config
 
 CE_NC_GET_IGMP_GLOBAL = """
 <filter type="subtree">
@@ -535,7 +535,6 @@ def main():
         proxy=dict(type='bool', default=False),
         state=dict(choices=['absent', 'present'], default='present'),
     )
-    argument_spec.update(ce_argument_spec)
     interface = IgmpSnoop(argument_spec)
     interface.work()
 

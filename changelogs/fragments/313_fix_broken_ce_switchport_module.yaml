@@ -1,4 +1,0 @@
----
-bugfixes:
-  - community.network.ce_switchport - fix error causing by ``KeyError:`` ``host`` due to properties aren't 
-    used anywhere (https://github.com/ansible-collections/community.network/issues/313)

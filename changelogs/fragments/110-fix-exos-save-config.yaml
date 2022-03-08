@@ -1,2 +1,0 @@
-bugfixes:
-  - exos_config - fix a hang due to an unexpected prompt during save_when (https://github.com/ansible-collections/community.network/pull/110).

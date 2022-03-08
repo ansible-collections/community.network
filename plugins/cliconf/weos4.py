@@ -6,7 +6,7 @@ __metaclass__ = type
 DOCUMENTATION = """
 ---
 author: Ernst Oudhof (@ernst-s)
-cliconf: weos4
+name: weos4
 short_description: Use weos4 cliconf to run commands on Westermo platform
 description:
   - This weos4 plugin provides low level abstraction APIs for

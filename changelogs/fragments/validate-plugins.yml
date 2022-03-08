@@ -1,0 +1,2 @@
+bugfixes:
+  - "weos4 cliconf plugin - fix linting errors in documentation data (https://github.com/ansible-collections/community.network/pull/368)."

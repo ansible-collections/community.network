@@ -41,7 +41,7 @@ __metaclass__ = type
 
 import json
 
-from distutils.version import LooseVersion
+from ansible_collections.community.network.plugins.module_utils.version import LooseVersion
 
 try:
     import yaml

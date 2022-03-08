@@ -1,0 +1,2 @@
+bugfixes:
+  - Collection core functions - use vendored version of ``distutils.version`` instead of the deprecated Python standard library ``distutils``.

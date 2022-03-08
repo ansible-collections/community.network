@@ -5,6 +5,23 @@ Community Network Release Notes
 .. contents:: Topics
 
 
+v1.3.5
+======
+
+Release Summary
+---------------
+
+This is the patch release of the ``community.network`` collection.
+This changelog contains all changes to the modules in this collection
+that have been added after the release of ``community.network`` 1.3.4.
+
+Bugfixes
+--------
+
+- ce - Modify the bug in the query configuration method (https://github.com/ansible-collections/community.network/pull/56).
+- community.network.ce_switchport - fix error causing by ``KeyError:`` ``host`` due to properties aren't used anywhere (https://github.com/ansible-collections/community.network/issues/313)
+- exos_config - fix a hang due to an unexpected prompt during save_when (https://github.com/ansible-collections/community.network/pull/110).
+
 v1.3.4
 ======
 

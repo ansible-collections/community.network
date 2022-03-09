@@ -273,3 +273,27 @@ releases:
         name: weos4
         namespace: null
     release_date: '2021-04-22'
+  2.2.1:
+    changes:
+      bugfixes:
+      - Collection core functions - use vendored version of ``distutils.version``
+        instead of the deprecated Python standard library ``distutils``.
+      - ce - Modify the bug in the query configuration method (https://github.com/ansible-collections/community.network/pull/56).
+      - community.network.ce_switchport - fix error causing by ``KeyError:`` ``host``
+        due to properties aren't used anywhere (https://github.com/ansible-collections/community.network/issues/313)
+      - exos_config - fix a hang due to an unexpected prompt during save_when (https://github.com/ansible-collections/community.network/pull/110).
+      - weos4 cliconf plugin - fix linting errors in documentation data (https://github.com/ansible-collections/community.network/pull/368).
+      release_summary: 'This is the patch release of the ``community.network`` collection.
+
+        This changelog contains all changes to the modules in this collection
+
+        that have been added after the release of ``community.network`` 2.2.0.'
+    fragments:
+    - 1-use_vendored_distutils.yml
+    - 110-fix-exos-save-config.yaml
+    - 2.2.1.yml
+    - 289-safe-eval-no-concat.yml
+    - 313_fix_broken_ce_switchport_module.yaml
+    - 56-ce_modify_query_configuration_method.yml
+    - validate-plugins.yml
+    release_date: '2022-03-09'

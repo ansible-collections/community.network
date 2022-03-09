@@ -6,6 +6,25 @@ Community Network Release Notes
 
 This changelog describes changes after version 1.0.0.
 
+v2.2.1
+======
+
+Release Summary
+---------------
+
+This is the patch release of the ``community.network`` collection.
+This changelog contains all changes to the modules in this collection
+that have been added after the release of ``community.network`` 2.2.0.
+
+Bugfixes
+--------
+
+- Collection core functions - use vendored version of ``distutils.version`` instead of the deprecated Python standard library ``distutils``.
+- ce - Modify the bug in the query configuration method (https://github.com/ansible-collections/community.network/pull/56).
+- community.network.ce_switchport - fix error causing by ``KeyError:`` ``host`` due to properties aren't used anywhere (https://github.com/ansible-collections/community.network/issues/313)
+- exos_config - fix a hang due to an unexpected prompt during save_when (https://github.com/ansible-collections/community.network/pull/110).
+- weos4 cliconf plugin - fix linting errors in documentation data (https://github.com/ansible-collections/community.network/pull/368).
+
 v2.2.0
 ======
 

@@ -44,7 +44,6 @@ try:
     HAS_LIB = True
 except Exception:
     HAS_LIB = False
-from distutils.cmd import Command
 from ansible.module_utils._text import to_text
 from ansible.module_utils.basic import env_fallback
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import to_list, EntityCollection

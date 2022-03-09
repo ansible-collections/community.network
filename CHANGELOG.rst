@@ -6,6 +6,30 @@ Community Network Release Notes
 
 This changelog describes changes after version 2.0.0.
 
+v3.1.0
+======
+
+Release Summary
+---------------
+
+This is the minor release of the ``community.network`` collection.
+This changelog contains all changes to the modules in this collection
+that have been added after the release of ``community.network`` 3.0.0.
+
+Minor Changes
+-------------
+
+- community.network.ce_switchport - add support of decode a few stdout values from bitmap to human readable format(https://github.com/ansible-collections/community.network/issues/315)
+- community.network.edgeos_config - append save command into result (https://github.com/ansible-collections/community.network/pull/189)
+
+Bugfixes
+--------
+
+- ce - Modify the bug in the query configuration method (https://github.com/ansible-collections/community.network/pull/56).
+- community.network.ce_switchport - fix error causing by ``KeyError:`` ``host`` due to properties aren't used anywhere (https://github.com/ansible-collections/community.network/issues/313)
+- exos_config - fix a hang due to an unexpected prompt during save_when (https://github.com/ansible-collections/community.network/pull/110).
+- weos4 cliconf plugin - fix linting errors in documentation data (https://github.com/ansible-collections/community.network/pull/368).
+
 v3.0.0
 ======
 

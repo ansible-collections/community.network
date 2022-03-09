@@ -58,3 +58,30 @@ releases:
         name: weos4
         namespace: null
     release_date: '2021-04-22'
+  3.1.0:
+    changes:
+      bugfixes:
+      - ce - Modify the bug in the query configuration method (https://github.com/ansible-collections/community.network/pull/56).
+      - community.network.ce_switchport - fix error causing by ``KeyError:`` ``host``
+        due to properties aren't used anywhere (https://github.com/ansible-collections/community.network/issues/313)
+      - exos_config - fix a hang due to an unexpected prompt during save_when (https://github.com/ansible-collections/community.network/pull/110).
+      - weos4 cliconf plugin - fix linting errors in documentation data (https://github.com/ansible-collections/community.network/pull/368).
+      minor_changes:
+      - community.network.ce_switchport - add support of decode a few stdout values
+        from bitmap to human readable format(https://github.com/ansible-collections/community.network/issues/315)
+      - community.network.edgeos_config - append save command into result (https://github.com/ansible-collections/community.network/pull/189)
+      release_summary: 'This is the minor release of the ``community.network`` collection.
+
+        This changelog contains all changes to the modules in this collection
+
+        that have been added after the release of ``community.network`` 3.0.0.'
+    fragments:
+    - 110-fix-exos-save-config.yaml
+    - 189-append-save-command-into-result.yaml
+    - 289-safe-eval-no-concat.yml
+    - 3.1.0.yml
+    - 313_fix_broken_ce_switchport_module.yaml
+    - 315_add_support_decode_bitmap_for_ce_switchport_module.yaml
+    - 56-ce_modify_query_configuration_method.yml
+    - validate-plugins.yml
+    release_date: '2022-03-09'

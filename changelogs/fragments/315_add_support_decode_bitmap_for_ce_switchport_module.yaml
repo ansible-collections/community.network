@@ -1,4 +1,0 @@
----
-minor_changes:
-  - community.network.ce_switchport - add support of decode a few stdout values from bitmap to
-    human readable format(https://github.com/ansible-collections/community.network/issues/315)

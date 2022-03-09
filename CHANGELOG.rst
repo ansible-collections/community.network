@@ -5,6 +5,21 @@ Community Network Release Notes
 .. contents:: Topics
 
 
+v1.3.6
+======
+
+Release Summary
+---------------
+
+This is the patch release of the ``community.network`` collection.
+This changelog contains all changes to the modules in this collection
+that have been added after the release of ``community.network`` 1.3.5.
+
+Bugfixes
+--------
+
+- Collection core functions - use vendored version of ``distutils.version`` instead of the deprecated Python standard library ``distutils``.
+
 v1.3.5
 ======
 

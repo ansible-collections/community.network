@@ -374,7 +374,7 @@ class MlagConfig(object):
 
         dfs_group_info = dict()
         for tmp in ["groupId", "priority", "ipAddress", "srcVpnName", "localNickname", "pseudoNickname", "pseudoPriority"]:
-            dfs_group_info[temp] = None
+            dfs_group_info[tmp] = None
         conf_str = CE_NC_GET_DFS_GROUP_EXC_TRILL_INFO
         xml_str = get_nc_config(self.module, conf_str)
         if "<data/>" in xml_str:

@@ -295,6 +295,12 @@ def get_interface_type(interface):
         return '40ge'
     elif interface.upper().startswith('100GE'):
         return '100ge'
+    elif interface.upper().startswith('50GE'):
+        iftype = '50ge'
+    elif interface.upper().startswith('200GE'):
+        iftype = '200ge'
+    elif interface.upper().startswith('400GE'):
+        iftype = '400ge'
     elif interface.upper().startswith('VLANIF'):
         return 'vlanif'
     elif interface.upper().startswith('LOOPBACK'):

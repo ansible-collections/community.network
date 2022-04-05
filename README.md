@@ -36,7 +36,7 @@ Join us on:
 - IRC - the ``#ansible-network`` [irc.libera.chat](https://libera.chat/) channel
 - Slack - https://ansiblenetwork.slack.com
 
-Contributors to this collection take part in the global quarterly [Ansible Contributor Summit](https://github.com/ansible/community/wiki/Contributor-Summit) virtually or in-person. Track [The Bullhorn newsletter](https://eepurl.com/gZmiEP) and join us.
+Contributors to this collection take part in the quarterly [Ansible Contributor Summit](https://github.com/ansible/community/wiki/Contributor-Summit) virtually or in-person. Track [The Bullhorn newsletter](https://eepurl.com/gZmiEP) and join us.
 
 For more information about communication, refer to the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
 

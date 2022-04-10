@@ -42,7 +42,7 @@ For more information about communication, refer to the [Ansible communication gu
 
 ## Tested with Ansible
 
-Tested with the Ansible 2.9, 2.10, 2.11 releases, and the current development version of Ansible. Ansible versions before 2.9.10 are not supported.
+Tested with the Ansible 2.9, 2.10, 2.11, 2.12, and 2.13 releases. Ansible versions before 2.9.10 are not supported.
 
 ### Supported connections
 The community network collection supports `network_cli`  and `httpapi` connections.

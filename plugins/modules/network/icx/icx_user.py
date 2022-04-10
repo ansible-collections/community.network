@@ -28,6 +28,7 @@ options:
         exclusive with the C(name) argument.
     aliases: ['users', 'collection']
     type: list
+    elements: dict
     suboptions:
       name:
         description:
@@ -96,7 +97,7 @@ options:
   privilege:
     description:
       - The privilege level to be granted to the user
-    default: 0
+    default: '0'
     choices: ['0', '4', '5']
     type: str
   nopassword:

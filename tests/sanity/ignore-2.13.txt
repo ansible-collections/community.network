@@ -828,7 +828,6 @@ plugins/modules/network/exos/exos_l2_interfaces.py validate-modules:parameter-li
 plugins/modules/network/icx/icx_command.py validate-modules:parameter-list-no-elements
 plugins/modules/network/icx/icx_config.py validate-modules:parameter-list-no-elements
 plugins/modules/network/icx/icx_facts.py validate-modules:parameter-list-no-elements
-plugins/modules/network/icx/icx_interface.py validate-modules:doc-elements-mismatch
 plugins/modules/network/icx/icx_interface.py validate-modules:doc-required-mismatch
 plugins/modules/network/icx/icx_l3_interface.py validate-modules:doc-required-mismatch
 plugins/modules/network/icx/icx_linkagg.py validate-modules:doc-elements-mismatch

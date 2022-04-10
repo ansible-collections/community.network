@@ -97,7 +97,6 @@ options:
   privilege:
     description:
       - The privilege level to be granted to the user
-    default: '0'
     choices: ['0', '4', '5']
     type: str
   nopassword:

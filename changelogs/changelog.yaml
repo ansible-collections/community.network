@@ -416,3 +416,19 @@ releases:
     - 1-use_vendored_distutils.yml
     - 1.3.6.yml
     release_date: '2022-03-09'
+  1.3.7:
+    changes:
+      major_changes:
+      - The community.network 1.x.y release stream will be **End of Life** on 2022-05-23,
+        which coincides with the latest day that community.network 4.0.0 must be released
+        (see `the Roadmap for Ansible 6 <https://github.com/ansible/ansible/blob/devel/docs/docsite/rst/roadmap/COLLECTIONS_6.rst#release-schedule>`_).
+        Thank you very much to everyone who contributed to the 1.x.y releases!
+      release_summary: 'This is the patch release of the ``community.network`` collection.
+
+        This changelog contains all changes to the modules in this collection
+
+        that have been added after the release of ``community.network`` 1.3.6.'
+    fragments:
+    - 1.3.7.yaml
+    - eol.yml
+    release_date: '2022-04-11'

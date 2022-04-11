@@ -56,6 +56,7 @@ options:
       - List of Layer-3 interfaces definitions. Each of the entry in aggregate list should
         define name of interface C(name) and a optional C(ipv4) or C(ipv6) address.
     type: list
+    elements: dict
     suboptions:
       name:
         description:

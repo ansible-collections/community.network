@@ -5,6 +5,21 @@ Community Network Release Notes
 .. contents:: Topics
 
 
+v1.3.7
+======
+
+Release Summary
+---------------
+
+This is the patch release of the ``community.network`` collection.
+This changelog contains all changes to the modules in this collection
+that have been added after the release of ``community.network`` 1.3.6.
+
+Major Changes
+-------------
+
+- The community.network 1.x.y release stream will be **End of Life** on 2022-05-23, which coincides with the latest day that community.network 4.0.0 must be released (see `the Roadmap for Ansible 6 <https://github.com/ansible/ansible/blob/devel/docs/docsite/rst/roadmap/COLLECTIONS_6.rst#release-schedule>`_). Thank you very much to everyone who contributed to the 1.x.y releases!
+
 v1.3.6
 ======
 

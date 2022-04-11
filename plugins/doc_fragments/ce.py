@@ -28,8 +28,8 @@ options:
             device.  This value applies to either I(cli) or I(netconf).  The port
             value will default to the appropriate transport common port if
             none is provided in the task.  (cli=22, netconf=22).
+          - C(0) means use common port.
         type: int
-        default: 0 (use common port)
       username:
         description:
           - Configures the username to use to authenticate the connection to
@@ -57,7 +57,6 @@ options:
             remote device.  The transport argument supports connectivity to the
             device over cli (ssh).
         type: str
-        required: true
         choices: [ cli, netconf ]
         default: cli
 '''

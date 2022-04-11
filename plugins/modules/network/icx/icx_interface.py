@@ -59,6 +59,7 @@ options:
       - Check the operational state of given interface C(name) for CDP/LLDP neighbor.
       - The following suboptions are available.
     type: list
+    elements: dict
     suboptions:
       host:
         description:
@@ -113,6 +114,7 @@ options:
     description:
       - List of Interfaces definitions.
     type: list
+    elements: dict
     suboptions:
       name:
         description:
@@ -154,6 +156,7 @@ options:
           - Check the operational state of given interface C(name) for CDP/LLDP neighbor.
           - The following suboptions are available.
         type: list
+        elements: dict
         suboptions:
           host:
             description:

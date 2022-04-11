@@ -100,7 +100,6 @@ options:
         description:
             - A list of numeric values that signify that the operation was successful.
         default: [0]
-        required: true
 
     action:
         description:

@@ -37,6 +37,7 @@ options:
   aggregate:
     description: List of static route definitions.
     type: list
+    elements: dict
     suboptions:
       prefix:
         description:

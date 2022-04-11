@@ -38,7 +38,6 @@ options:
         description:
             - Sets the VNIC's MAC address. Must be valid unicast MAC address.
         required: false
-        default: false
         aliases: [ "macaddr" ]
         type: str
     vlan:

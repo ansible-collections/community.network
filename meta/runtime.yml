@@ -2,16 +2,6 @@
 requires_ansible: '>=2.11.0'
 plugin_routing:
   modules:
-    nso_config:
-      redirect: cisco.nso.nso_config
-    nso_action:
-      redirect: cisco.nso.nso_action
-    nso_verify:
-      redirect: cisco.nso.nso_verify
-    nso_query:
-      redirect: cisco.nso.nso_query
-    nso_show:
-      redirect: cisco.nso.nso_show
     cp_publish:
       redirect: check_point.mgmt.cp_mgmt_publish
     faz_device:
@@ -70,50 +60,16 @@ plugin_routing:
       redirect: community.fortios.fmgr_secprof_wanopt
     fmgr_secprof_web:
       redirect: community.fortios.fmgr_secprof_web
-    pn_cluster:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_ospf:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_ospfarea:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_show:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_trunk:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_vlag:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_vlan:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_vrouter:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_vrouterbgp:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_vrouterif:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_vrouterlbif:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
+    nso_action:
+      redirect: cisco.nso.nso_action
+    nso_config:
+      redirect: cisco.nso.nso_config
+    nso_query:
+      redirect: cisco.nso.nso_query
+    nso_show:
+      redirect: cisco.nso.nso_show
+    nso_verify:
+      redirect: cisco.nso.nso_verify
     panos_admin:
       tombstone:
         removal_version: 2.0.0
@@ -202,6 +158,50 @@ plugin_routing:
       tombstone:
         removal_version: 2.0.0
         warning_text: Use modules from the paloaltonetworks.panos collection instead.
+    pn_cluster:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
+    pn_ospf:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
+    pn_ospfarea:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
+    pn_show:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
+    pn_trunk:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
+    pn_vlag:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
+    pn_vlan:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
+    pn_vrouter:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
+    pn_vrouterbgp:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
+    pn_vrouterif:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
+    pn_vrouterlbif:
+      tombstone:
+        removal_version: 2.0.0
+        warning_text: The module has been removed without a documented replacement.
     routeros_api:
       redirect: community.routeros.api
     routeros_command:
@@ -214,14 +214,14 @@ plugin_routing:
     fortimanager:
       redirect: fortinet.fortimanager.fortimanager
   module_utils:
-    network.routeros.routeros:
-      redirect: community.routeros.routeros
-    network.nso.nso:
-      redirect: cisco.nso.nso
     network.fortianalyzer.common:
       redirect: community.fortios.fortianalyzer.common
     network.fortianalyzer.fortianalyzer:
       redirect: community.fortios.fortianalyzer.fortianalyzer
+    network.nso.nso:
+      redirect: cisco.nso.nso
+    network.routeros.routeros:
+      redirect: community.routeros.routeros
   cliconf:
     routeros:
       redirect: community.routeros.routeros

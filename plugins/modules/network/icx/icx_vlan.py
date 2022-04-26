@@ -595,7 +595,6 @@ def map_obj_to_commands(updates, module):
                 commands = []
 
     if purge:
-        commands = []
         vlans = parse_vlan_id(module)
         for h in vlans:
             obj_in_want = search_obj_in_list(h, want)

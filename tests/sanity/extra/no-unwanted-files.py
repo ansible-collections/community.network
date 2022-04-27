@@ -27,6 +27,11 @@ def main():
     skip_directories = (
     )
 
+    yaml_directories = (
+        'plugins/test/',
+        'plugins/filter/',
+    )
+
     for path in paths:
         if path in skip_paths:
             continue
@@ -40,6 +45,9 @@ def main():
             print('%s: is not a regular file' % (path, ))
 
         ext = os.path.splitext(path)[1]
+
+        if ext in ('.yml', ) and any(path.startswith(yaml_directory) for yaml_directory in yaml_directories):
+            continue
 
         if ext not in allowed_extensions:
             print('%s: extension must be one of: %s' % (path, ', '.join(allowed_extensions)))

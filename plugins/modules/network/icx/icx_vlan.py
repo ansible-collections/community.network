@@ -371,7 +371,7 @@ def parse_vlan_brief(module, vlan_id):
 def extract_list_from_interface(interface):
     if 'ethernet' in interface:
         if 'to' in interface:
-            s = re.search(r"\d+\/\d+/(?P<low>\d+)\sto\s+\d+\/\d+/(?P<high>\d+)", interface)
+            s = re.search(r"\d+\/\d+\/(?P<low>\d+)\sto\s+\d+\/\d+\/(?P<high>\d+)", interface)
             low = int(s.group('low'))
             high = int(s.group('high'))
         else:
@@ -677,7 +677,10 @@ def check_declarative_intent_params(want, module, result):
 
             while(high >= low):
                 if 'ethernet' in interface:
-                    if not (low in ports):
+                    if 'to' in interface:
+                        if not (interface.split(" to ")[1].split("/")[0] + '/' + interface.split(" ")[1].split("/")[1] + '/{0}'.format(low) in ports):
+                            module.fail_json(msg='One or more conditional statements have not been satisfied ' + interface)
+                    elif not (interface.split(" ")[1].split("/")[0] + '/' + interface.split(" ")[1].split("/")[1] + '/{0}'.format(low) in ports):
                         module.fail_json(msg='One or more conditional statements have not been satisfied ' + interface)
                 if 'lag' in interface:
                     if not (low in lags):

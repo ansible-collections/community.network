@@ -80,9 +80,7 @@ patch --forward "${ANSIBLE_DIR}/galaxy/api.py" "tests/utils/shippable/collection
 # END: page_size patch
 
 # START: HACK install dependencies
-retry git clone --depth=1 --single-branch
-https://github.com/ansible-collections/ansible.netcommon.git
-"${ANSIBLE_COLLECTIONS_PATHS}/ansible_collections/ansible/netcommon"
+retry git clone --depth=1 --single-branch https://github.com/ansible-collections/ansible.netcommon.git "${ANSIBLE_COLLECTIONS_PATHS}/ansible_collections/ansible/netcommon"
 
 # END: HACK
 

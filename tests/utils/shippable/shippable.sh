@@ -81,6 +81,7 @@ patch --forward "${ANSIBLE_DIR}/galaxy/api.py" "tests/utils/shippable/collection
 
 # START: HACK install dependencies
 retry git clone --depth=1 --single-branch https://github.com/ansible-collections/ansible.netcommon.git "${ANSIBLE_COLLECTIONS_PATHS}/ansible_collections/ansible/netcommon"
+retry git clone --depth=1 --single-branch https://github.com/ansible-collections/ansible.utils.git "${ANSIBLE_COLLECTIONS_PATHS}/ansible_collections/ansible/utils"
 
 # END: HACK
 

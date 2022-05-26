@@ -1,3 +1,0 @@
----
-minor_changes:
-  - community.network.edgeos_config - append save command into result (https://github.com/ansible-collections/community.network/pull/189)

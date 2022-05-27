@@ -76,13 +76,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -91,7 +84,6 @@ EXAMPLES = '''
       key_id: 32
       auth_mode: md5
       auth_pwd: 11111111111111111111111
-      provider: "{{ cli }}"
 
   - name: "Configure ntp authentication key-id and trusted authentication keyid"
     community.network.ce_ntp_auth:
@@ -99,7 +91,6 @@ EXAMPLES = '''
       auth_mode: md5
       auth_pwd: 11111111111111111111111
       trusted_key: enable
-      provider: "{{ cli }}"
 
   - name: "Configure ntp authentication key-id and authentication enable"
     community.network.ce_ntp_auth:
@@ -107,20 +98,17 @@ EXAMPLES = '''
       auth_mode: md5
       auth_pwd: 11111111111111111111111
       authentication: enable
-      provider: "{{ cli }}"
 
   - name: "Unconfigure ntp authentication key-id and trusted authentication keyid"
     community.network.ce_ntp_auth:
       key_id: 32
       state: absent
-      provider: "{{ cli }}"
 
   - name: "Unconfigure ntp authentication key-id and authentication enable"
     community.network.ce_ntp_auth:
       key_id: 32
       authentication: enable
       state: absent
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

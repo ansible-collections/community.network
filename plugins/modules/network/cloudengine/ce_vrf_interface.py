@@ -55,13 +55,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -70,14 +63,12 @@ EXAMPLES = '''
       vpn_interface: 40GE1/0/2
       vrf: test
       state: present
-      provider: "{{ cli }}"
 
   - name: "Disable the association between a VPN instance and an interface"
     community.network.ce_vrf_interface:
       vpn_interface: 40GE1/0/2
       vrf: test
       state: absent
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

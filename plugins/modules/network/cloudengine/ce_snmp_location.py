@@ -48,13 +48,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -62,13 +55,11 @@ EXAMPLES = '''
     community.network.ce_snmp_location:
       state: present
       location: nanjing China
-      provider: "{{ cli }}"
 
   - name: "Remove SNMP location"
     community.network.ce_snmp_location:
       state: absent
       location: nanjing China
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

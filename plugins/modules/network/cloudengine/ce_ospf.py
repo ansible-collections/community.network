@@ -90,13 +90,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -105,7 +98,6 @@ EXAMPLES = '''
       process_id: 1
       area: 100
       state: present
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

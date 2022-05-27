@@ -333,26 +333,17 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
   tasks:
   - name: "Config BGP Address_Family"
     community.network.ce_bgp_af:
       state: present
       vrf_name: js
       af_type: ipv4uni
-      provider: "{{ cli }}"
   - name: "Undo BGP Address_Family"
     community.network.ce_bgp_af:
       state: absent
       vrf_name: js
       af_type: ipv4uni
-      provider: "{{ cli }}"
   - name: "Config import route"
     community.network.ce_bgp_af:
       state: present
@@ -360,7 +351,6 @@ EXAMPLES = '''
       af_type: ipv4uni
       import_protocol: ospf
       import_process_id: 123
-      provider: "{{ cli }}"
   - name: "Undo import route"
     community.network.ce_bgp_af:
       state: absent
@@ -368,7 +358,6 @@ EXAMPLES = '''
       af_type: ipv4uni
       import_protocol: ospf
       import_process_id: 123
-      provider: "{{ cli }}"
   - name: "Config network route"
     community.network.ce_bgp_af:
       state: present
@@ -376,7 +365,6 @@ EXAMPLES = '''
       af_type: ipv4uni
       network_address: 1.1.1.1
       mask_len: 24
-      provider: "{{ cli }}"
   - name: "Undo network route"
     community.network.ce_bgp_af:
       state: absent
@@ -384,7 +372,6 @@ EXAMPLES = '''
       af_type: ipv4uni
       network_address: 1.1.1.1
       mask_len: 24
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

@@ -69,13 +69,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -86,19 +79,16 @@ EXAMPLES = '''
       sampler_interval: 30
       sampler_direction: outbound
       state: present
-      provider: "{{ cli }}"
   - name: Configure a netstream flexible statistic at interface 10ge1/0/2, record is test1, type is ip.
     community.network.ce_netstream_global:
       type: ip
       interface: 10ge1/0/2
       statistics_record: test1
-      provider: "{{ cli }}"
   - name: Set the vxlan index-switch to 32.
     community.network.ce_netstream_global:
       type: vxlan
       interface: all
       index_switch: 32
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

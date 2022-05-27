@@ -132,13 +132,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -147,14 +140,12 @@ EXAMPLES = '''
       state: present
       local_user_name: user1
       local_password: 123456
-      provider: "{{ cli }}"
 
   - name: "Undo local user when use local scheme"
     community.network.ce_aaa_server_host:
       state: absent
       local_user_name: user1
       local_password: 123456
-      provider: "{{ cli }}"
 
   - name: "Config radius server ip"
     community.network.ce_aaa_server_host:
@@ -165,7 +156,6 @@ EXAMPLES = '''
       radius_server_port: 2000
       radius_server_mode: Primary-server
       radius_vpn_name: _public_
-      provider: "{{ cli }}"
 
   - name: "Undo radius server ip"
     community.network.ce_aaa_server_host:
@@ -176,7 +166,6 @@ EXAMPLES = '''
       radius_server_port: 2000
       radius_server_mode: Primary-server
       radius_vpn_name: _public_
-      provider: "{{ cli }}"
 
   - name: "Config hwtacacs server ip"
     community.network.ce_aaa_server_host:
@@ -185,7 +174,6 @@ EXAMPLES = '''
       hwtacacs_server_ip: 10.10.10.10
       hwtacacs_server_type: Authorization
       hwtacacs_vpn_name: _public_
-      provider: "{{ cli }}"
 
   - name: "Undo hwtacacs server ip"
     community.network.ce_aaa_server_host:
@@ -194,7 +182,6 @@ EXAMPLES = '''
       hwtacacs_server_ip: 10.10.10.10
       hwtacacs_server_type: Authorization
       hwtacacs_vpn_name: _public_
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

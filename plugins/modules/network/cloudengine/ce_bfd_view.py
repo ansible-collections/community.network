@@ -92,13 +92,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
   - name: Set the local discriminator of a BFD session to 80 and the remote discriminator to 800
@@ -107,14 +100,12 @@ EXAMPLES = '''
       local_discr: 80
       remote_discr: 800
       state: present
-      provider: '{{ cli }}'
 
   - name: Set the minimum interval for receiving BFD packets to 500 ms
     community.network.ce_bfd_view:
       session_name: atob
       min_rx_interval: 500
       state: present
-      provider: '{{ cli }}'
 '''
 
 RETURN = '''

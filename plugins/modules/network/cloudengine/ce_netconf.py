@@ -49,13 +49,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -76,7 +69,6 @@ EXAMPLES = '''
                     </vlans>
                   </vlan>
                 </filter>'
-      provider: "{{ cli }}"
 
   - name: "Netconf edit-config operation"
     community.network.ce_netconf:
@@ -92,7 +84,6 @@ EXAMPLES = '''
                       </authenticationSchemes>
                     </aaa>
                    </config>'
-      provider: "{{ cli }}"
 
   - name: "Netconf execute-action operation"
     community.network.ce_netconf:
@@ -104,7 +95,6 @@ EXAMPLES = '''
                        </l2McResetAllVlanStatis>
                      </l2mc>
                    </action>'
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

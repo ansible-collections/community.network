@@ -68,13 +68,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -85,7 +78,6 @@ EXAMPLES = '''
       source_int: vlanif4001
       is_preferred: enable
       key_id: 32
-      provider: "{{ cli }}"
 
   - name: "Set NTP Peer with parameters"
     community.network.ce_ntp:
@@ -94,7 +86,6 @@ EXAMPLES = '''
       source_int: vlanif4001
       is_preferred: enable
       key_id: 32
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

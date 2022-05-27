@@ -142,13 +142,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -158,7 +151,6 @@ EXAMPLES = '''
       route_id: 2.2.2.2
       lsaointervalflag: False
       lsaointerval: 2
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

@@ -88,13 +88,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
   - name: Configuring Single-hop BFD for Detecting Faults on a Layer 2 Link
@@ -104,7 +97,6 @@ EXAMPLES = '''
       out_if_name: 10GE1/0/1
       local_discr: 163
       remote_discr: 163
-      provider: '{{ cli }}'
 
   - name: Configuring Single-Hop BFD on a VLANIF Interface
     community.network.ce_bfd_session:
@@ -113,7 +105,6 @@ EXAMPLES = '''
       out_if_name: Vlanif100
       local_discr: 163
       remote_discr: 163
-      provider: '{{ cli }}'
 
   - name: Configuring Multi-Hop BFD
     community.network.ce_bfd_session:
@@ -121,7 +112,6 @@ EXAMPLES = '''
       dest_addr: 10.1.1.1
       local_discr: 163
       remote_discr: 163
-      provider: '{{ cli }}'
 '''
 
 RETURN = '''

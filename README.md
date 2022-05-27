@@ -1,6 +1,6 @@
 # Community Network Collection
 
-[![Build Status](https://dev.azure.com/ansible/community.network/_apis/build/status/CI?branchName=main)](https://dev.azure.com/ansible/community.network/_build?definitionId=32)
+[![Build Status](https://dev.azure.com/ansible/community.network/_apis/build/status/CI?branchName=stable-4)](https://dev.azure.com/ansible/community.network/_build?definitionId=32)
 [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/community.network)](https://codecov.io/gh/ansible-collections/community.network)
 
 This repository contains the `community.network` Ansible Collection. The collection is a part of the `ansible` package and includes many network modules and plugins supported by Ansible community which are not part of more specialized community collections.
@@ -136,7 +136,7 @@ Alternately, you can call modules by their short name if you list the `community
 
 ## Changelogs
 
-See [here](https://github.com/ansible-collections/community.network/tree/main/CHANGELOG.rst).
+See [here](https://github.com/ansible-collections/community.network/tree/stable-4/CHANGELOG.rst).
 
 ## Roadmap
 

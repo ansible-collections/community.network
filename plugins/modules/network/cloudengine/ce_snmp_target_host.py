@@ -85,13 +85,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -99,7 +92,6 @@ EXAMPLES = '''
     community.network.ce_snmp_target_host:
       state: present
       version: v2cv3
-      provider: "{{ cli }}"
 
   - name: "Config SNMP target host"
     community.network.ce_snmp_target_host:
@@ -110,7 +102,6 @@ EXAMPLES = '''
       vpn_name: js
       security_model: v2c
       security_name: wdz
-      provider: "{{ cli }}"
 '''
 
 RETURN = '''

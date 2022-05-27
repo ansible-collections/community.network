@@ -6,6 +6,14 @@ Community Network Release Notes
 
 This changelog describes changes after version 3.0.0.
 
+v4.0.1
+======
+
+Release Summary
+---------------
+
+Bugfix release to fix the changelog. No other change compared to 4.0.0.
+
 v4.0.0
 ======
 

@@ -66,3 +66,10 @@ releases:
     - remove-provider.yml
     - validate-plugins.yml
     release_date: '2022-05-27'
+  4.0.1:
+    changes:
+      release_summary: Bugfix release to fix the changelog. No other change compared
+        to 4.0.0.
+    fragments:
+    - 4.0.1.yml
+    release_date: '2022-05-27'

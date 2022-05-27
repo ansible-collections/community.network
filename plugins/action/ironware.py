@@ -45,7 +45,10 @@ class ActionModule(ActionNetworkModule):
                 display.warning('provider is unnecessary when using network_cli and will be ignored')
                 del self._task.args['provider']
         elif self._play_context.connection == 'local':
-            return {'failed': True, 'msg': "connection local support for this module has been removed use either 'network_cli' or 'ansible.netcommon.network_cli' connection"}
+            return {
+                'failed': True,
+                'msg': "connection local support for this module has been removed use either 'network_cli' or 'ansible.netcommon.network_cli' connection"
+            }
         else:
             return {'failed': True, 'msg': 'Connection type %s is not valid for this module' % self._play_context.connection}
 

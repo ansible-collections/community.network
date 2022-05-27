@@ -37,7 +37,10 @@ class ActionModule(ActionNetworkModule):
         persistent_connection = self._play_context.connection.split('.')[-1]
 
         if self._play_context.connection == 'local':
-            return {'failed': True, 'msg': "connection local support for this module has been removed use either 'network_cli' or 'ansible.netcommon.network_cli' connection"}
+            return {
+                'failed': True,
+                'msg': "connection local support for this module has been removed use either 'network_cli' or 'ansible.netcommon.network_cli' connection"
+            }
 
         elif persistent_connection in ('netconf', 'network_cli'):
             provider = self._task.args.get('provider', {})

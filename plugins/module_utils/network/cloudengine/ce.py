@@ -71,8 +71,6 @@ ce_provider_spec = {
     'transport': dict(default='cli', choices=['cli', 'netconf']),
 }
 ce_argument_spec = {
-    'provider': dict(type='dict', options=ce_provider_spec, removed_in_version='4.0.0',
-                     removed_from_collection='community.network'),
 }
 
 
@@ -86,11 +84,7 @@ def check_args(module, warnings):
 
 def load_params(module):
     """load_params"""
-    provider = module.params.get('provider') or dict()
-    for key, value in iteritems(provider):
-        if key in ce_argument_spec:
-            if module.params.get(key) is None and value is not None:
-                module.params[key] = value
+    pass
 
 
 def get_connection(module):

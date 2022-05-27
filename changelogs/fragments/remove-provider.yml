@@ -1,0 +1,7 @@
+removed_features:
+  - "aireos modules - removed deprecated ``provider`` option."
+  - "aruba modules - removed deprecated ``provider`` option."
+  - "ce modules - removed deprecated ``provider`` option."
+  - "enos modules - removed deprecated ``provider`` option."
+  - "ironware modules - removed deprecated ``provider`` option."
+  - "sros modules - removed deprecated ``provider`` option."

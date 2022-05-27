@@ -66,35 +66,22 @@ options:
 '''
 
 EXAMPLES = """
-# Note: examples below use the following provider dict to handle
-#       transport and authentication to the node.
----
-vars:
-  cli:
-    host: "{{ inventory_hostname }}"
-    username: admin
-    password: admin
-    transport: cli
-
 ---
 tasks:
   - name: Run show version on remote devices
     community.network.sros_command:
       commands: show version
-      provider: "{{ cli }}"
 
   - name: Run show version and check to see if output contains sros
     community.network.sros_command:
       commands: show version
       wait_for: result[0] contains sros
-      provider: "{{ cli }}"
 
   - name: Run multiple commands on remote nodes
     community.network.sros_command:
       commands:
         - show version
         - show port detail
-      provider: "{{ cli }}"
 
   - name: Run multiple commands and evaluate the output
     community.network.sros_command:
@@ -103,7 +90,6 @@ tasks:
         - show port detail
       wait_for:
         - result[0] contains TiMOS-B-14.0.R4
-      provider: "{{ cli }}"
 """
 
 RETURN = """

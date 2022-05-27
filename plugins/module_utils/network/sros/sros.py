@@ -50,8 +50,6 @@ sros_provider_spec = {
     'timeout': dict(type='int'),
 }
 sros_argument_spec = {
-    'provider': dict(type='dict', options=sros_provider_spec, removed_in_version='4.0.0',
-                     removed_from_collection='community.network'),
 }
 sros_top_spec = {
     'host': dict(removed_in_version='0.2.0',

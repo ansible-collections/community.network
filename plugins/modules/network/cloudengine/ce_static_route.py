@@ -65,13 +65,6 @@ EXAMPLES = '''
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
 
@@ -82,7 +75,6 @@ EXAMPLES = '''
       next_hop: 3.1.1.2
       description: 'Configured by Ansible'
       aftype: v4
-      provider: "{{ cli }}"
   - name: Config a ipv4 static route ,next hop is an interface and that it has the proper description
     community.network.ce_static_route:
       prefix: 2.1.1.2
@@ -90,7 +82,6 @@ EXAMPLES = '''
       next_hop: 10GE1/0/1
       description: 'Configured by Ansible'
       aftype: v4
-      provider: "{{ cli }}"
   - name: Config a ipv6 static route, next hop is an address and that it has the proper description
     community.network.ce_static_route:
       prefix: fc00:0:0:2001::1
@@ -98,7 +89,6 @@ EXAMPLES = '''
       next_hop: fc00:0:0:2004::1
       description: 'Configured by Ansible'
       aftype: v6
-      provider: "{{ cli }}"
   - name: Config a ipv4 static route, next hop is an interface and that it has the proper description
     community.network.ce_static_route:
       prefix: fc00:0:0:2001::1
@@ -106,7 +96,6 @@ EXAMPLES = '''
       next_hop: 10GE1/0/1
       description: 'Configured by Ansible'
       aftype: v6
-      provider: "{{ cli }}"
   - name: Config a VRF and set ipv4 static route, next hop is an address and that it has the proper description
     community.network.ce_static_route:
       vrf: vpna
@@ -115,7 +104,6 @@ EXAMPLES = '''
       next_hop: 3.1.1.2
       description: 'Configured by Ansible'
       aftype: v4
-      provider: "{{ cli }}"
 '''
 RETURN = '''
 proposed:

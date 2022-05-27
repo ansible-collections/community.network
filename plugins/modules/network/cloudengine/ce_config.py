@@ -150,27 +150,16 @@ options:
 '''
 
 EXAMPLES = """
-# Note: examples below use the following provider dict to handle
-#       transport and authentication to the node.
-
 - name: CloudEngine config test
   hosts: cloudengine
   connection: local
   gather_facts: no
-  vars:
-    cli:
-      host: "{{ inventory_hostname }}"
-      port: "{{ ansible_ssh_port }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
-      transport: cli
 
   tasks:
   - name: "Configure top level configuration and save it"
     community.network.ce_config:
       lines: sysname {{ inventory_hostname }}
       save: yes
-      provider: "{{ cli }}"
 
   - name: "Configure acl configuration and save it"
     community.network.ce_config:
@@ -183,7 +172,6 @@ EXAMPLES = """
       parents: acl 2000
       before: undo acl 2000
       match: exact
-      provider: "{{ cli }}"
 
   - name: "Configure acl configuration and save it"
     community.network.ce_config:
@@ -195,12 +183,10 @@ EXAMPLES = """
       parents: acl 2000
       before: undo acl 2000
       replace: block
-      provider: "{{ cli }}"
 
   - name: Configurable backup path
     community.network.ce_config:
       lines: sysname {{ inventory_hostname }}
-      provider: "{{ cli }}"
       backup: yes
       backup_options:
         filename: backup.cfg

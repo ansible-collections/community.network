@@ -1,7 +1,7 @@
 removed_features:
-  - "aireos modules - removed deprecated ``provider`` option."
-  - "aruba modules - removed deprecated ``provider`` option."
-  - "ce modules - removed deprecated ``provider`` option."
-  - "enos modules - removed deprecated ``provider`` option."
-  - "ironware modules - removed deprecated ``provider`` option."
-  - "sros modules - removed deprecated ``provider`` option."
+  - "aireos modules - removed deprecated ``provider`` option. Use ``connection: network_cli`` instead."
+  - "aruba modules - removed deprecated ``provider`` option. Use ``connection: network_cli`` instead."
+  - "ce modules - removed deprecated ``provider`` option. Use ``connection: network_cli`` instead."
+  - "enos modules - removed deprecated ``provider`` option. Use ``connection: network_cli`` instead."
+  - "ironware modules - removed deprecated ``provider`` option. Use ``connection: network_cli`` instead."
+  - "sros modules - removed deprecated ``provider`` option. Use ``connection: network_cli`` instead."

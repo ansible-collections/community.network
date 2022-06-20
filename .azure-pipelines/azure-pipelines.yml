@@ -14,12 +14,24 @@ pr:
 
 schedules:
   - cron: 0 8 * * *
-    displayName: Nightly
+    displayName: Nightly (branch: main)
     always: true
     branches:
       include:
         - main
-        - stable-*
+  - cron: 0 10 * * *
+    displayName: Nightly (active stable branches)
+    always: true
+    branches:
+      include:
+        - stable-4
+        - stable-3
+  - cron: 0 11 * * 0
+    displayName: Weekly (old stable branches)
+    always: true
+    branches:
+      include:
+        - stable-2
 
 variables:
   - name: checkoutPath
@@ -36,7 +48,7 @@ variables:
 resources:
   containers:
     - container: default
-      image: quay.io/ansible/azure-pipelines-test-container:1.9.0
+      image: quay.io/ansible/azure-pipelines-test-container:3.0.0
 
 pool: Standard
 

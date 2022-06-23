@@ -19,7 +19,13 @@ schedules:
     branches:
       include:
         - main
-        - stable-*
+  - cron: 0 10 * * *
+    displayName: "Nightly (active stable branches)"
+    always: true
+    branches:
+      include:
+        - stable-4
+        - stable-3
 
 variables:
   - name: checkoutPath

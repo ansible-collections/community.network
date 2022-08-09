@@ -149,10 +149,11 @@ from ansible_collections.community.network.plugins.module_utils.network.edgeos.e
 DEFAULT_COMMENT = 'configured by edgeos_config'
 SET_CMD = 'set '
 DELETE_CMD = 'delete '
+LOADKEY_CMD = 'loadkey '
 
 
 def config_to_commands(config):
-    set_format = config.startswith(SET_CMD) or config.startswith(DELETE_CMD)
+    set_format = config.startswith(SET_CMD) or config.startswith(DELETE_CMD) or config.startswith(LOADKEY_CMD)
     candidate = NetworkConfig(indent=4, contents=config)
     if not set_format:
         candidate = [c.line for c in candidate.items]

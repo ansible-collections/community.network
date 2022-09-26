@@ -31,7 +31,7 @@ display = Display()
 
 class ActionModule(ActionNetworkModule):
 
-    def run(self, task_vars=None, tmp=None):
+    def run(self, tmp=None, task_vars=None):
         del tmp  # tmp no longer has any effect
 
         module_name = self._task.action.split('.')[-1]

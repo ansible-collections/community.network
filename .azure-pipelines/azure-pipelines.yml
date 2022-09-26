@@ -140,7 +140,6 @@ stages:
           nameFormat: Python {0}
           testFormat: devel/units/{0}/1
           targets:
-            - test: 3.8
             - test: '3.10'
 
   - stage: Units_2_14
@@ -152,7 +151,6 @@ stages:
           nameFormat: Python {0}
           testFormat: 2.14/units/{0}/1
           targets:
-            - test: 3.8
             - test: '3.10'
 
   - stage: Units_2_13

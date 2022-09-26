@@ -336,11 +336,11 @@ def bgpNeighborConfig(module, cmd, prompt, answer):
     bgpNeighborArg5 = module.params['bgpArg8']
     deviceType = module.params['deviceType']
 
-    if(bgpNeighborArg1 == "address-family"):
+    if bgpNeighborArg1 == "address-family":
         command = command + bgpNeighborArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_address_family", bgpNeighborArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborArg2 + " unicast"
             # debugOutput(command)
             inner_cmd = [{'command': command, 'prompt': None, 'answer': None}]
@@ -351,70 +351,70 @@ def bgpNeighborConfig(module, cmd, prompt, answer):
             retVal = "Error-316"
             return retVal
 
-    elif(bgpNeighborArg1 == "advertisement-interval"):
+    elif bgpNeighborArg1 == "advertisement-interval":
         command = command + bgpNeighborArg1
 
-    elif(bgpNeighborArg1 == "bfd"):
+    elif bgpNeighborArg1 == "bfd":
         command = command + bgpNeighborArg1 + " "
-        if(bgpNeighborArg2 is not None and bgpNeighborArg2 == "mutihop"):
+        if bgpNeighborArg2 is not None and bgpNeighborArg2 == "mutihop":
             command = command + bgpNeighborArg2
 
-    elif(bgpNeighborArg1 == "connection-retry-time"):
+    elif bgpNeighborArg1 == "connection-retry-time":
         command = command + bgpNeighborArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_connection_retrytime", bgpNeighborArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborArg2
         else:
             retVal = "Error-315"
             return retVal
 
-    elif(bgpNeighborArg1 == "description"):
+    elif bgpNeighborArg1 == "description":
         command = command + bgpNeighborArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_description", bgpNeighborArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborArg2
         else:
             retVal = "Error-314"
             return retVal
 
-    elif(bgpNeighborArg1 == "disallow-infinite-holdtime"):
+    elif bgpNeighborArg1 == "disallow-infinite-holdtime":
         command = command + bgpNeighborArg1
 
-    elif(bgpNeighborArg1 == "dont-capability-negotiate"):
+    elif bgpNeighborArg1 == "dont-capability-negotiate":
         command = command + bgpNeighborArg1
 
-    elif(bgpNeighborArg1 == "dynamic-capability"):
+    elif bgpNeighborArg1 == "dynamic-capability":
         command = command + bgpNeighborArg1
 
-    elif(bgpNeighborArg1 == "ebgp-multihop"):
+    elif bgpNeighborArg1 == "ebgp-multihop":
         command = command + bgpNeighborArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_maxhopcount", bgpNeighborArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborArg2
         else:
             retVal = "Error-313"
             return retVal
 
-    elif(bgpNeighborArg1 == "interface"):
+    elif bgpNeighborArg1 == "interface":
         command = command + bgpNeighborArg1 + " "
         # TBD
 
-    elif(bgpNeighborArg1 == "local-as"):
+    elif bgpNeighborArg1 == "local-as":
         command = command + bgpNeighborArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_local_as", bgpNeighborArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborArg2 + " "
-            if(bgpNeighborArg3 is not None and
+            if (bgpNeighborArg3 is not None and
                     bgpNeighborArg3 == "no-prepend"):
                 command = command + bgpNeighborArg3 + " "
-                if(bgpNeighborArg4 is not None and
+                if (bgpNeighborArg4 is not None and
                         bgpNeighborArg4 == "replace-as"):
                     command = command + bgpNeighborArg4 + " "
-                    if(bgpNeighborArg5 is not None and
+                    if (bgpNeighborArg5 is not None and
                             bgpNeighborArg5 == "dual-as"):
                         command = command + bgpNeighborArg5
                     else:
@@ -427,38 +427,38 @@ def bgpNeighborConfig(module, cmd, prompt, answer):
             retVal = "Error-312"
             return retVal
 
-    elif(bgpNeighborArg1 == "maximum-peers"):
+    elif bgpNeighborArg1 == "maximum-peers":
         command = command + bgpNeighborArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_maxpeers", bgpNeighborArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborArg2
         else:
             retVal = "Error-311"
             return retVal
 
-    elif(bgpNeighborArg1 == "password"):
+    elif bgpNeighborArg1 == "password":
         command = command + bgpNeighborArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_password", bgpNeighborArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborArg2
         else:
             retVal = "Error-310"
             return retVal
 
-    elif(bgpNeighborArg1 == "remove-private-AS"):
+    elif bgpNeighborArg1 == "remove-private-AS":
         command = command + bgpNeighborArg1
 
-    elif(bgpNeighborArg1 == "timers"):
+    elif bgpNeighborArg1 == "timers":
         command = command + bgpNeighborArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_timers_Keepalive", bgpNeighborArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborArg2 + " "
             value = cnos.checkSanityofVariable(
                 deviceType, "bgp_neighbor_timers_holdtime", bgpNeighborArg3)
-            if(value == "ok"):
+            if value == "ok":
                 command = command + bgpNeighborArg3
             else:
                 retVal = "Error-309"
@@ -467,40 +467,40 @@ def bgpNeighborConfig(module, cmd, prompt, answer):
             retVal = "Error-308"
             return retVal
 
-    elif(bgpNeighborArg1 == "transport"):
+    elif bgpNeighborArg1 == "transport":
         command = command + bgpNeighborArg1 + " connection-mode passive "
 
-    elif(bgpNeighborArg1 == "ttl-security"):
+    elif bgpNeighborArg1 == "ttl-security":
         command = command + bgpNeighborArg1 + " hops "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_ttl_hops", bgpNeighborArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborArg2
         else:
             retVal = "Error-307"
             return retVal
 
-    elif(bgpNeighborArg1 == "update-source"):
+    elif bgpNeighborArg1 == "update-source":
         command = command + bgpNeighborArg1 + " "
-        if(bgpNeighborArg2 is not None):
+        if bgpNeighborArg2 is not None:
             value = cnos.checkSanityofVariable(
                 deviceType, "bgp_neighbor_update_options", bgpNeighborArg2)
-            if(value == "ok"):
+            if value == "ok":
                 command = command + bgpNeighborArg2 + " "
-                if(bgpNeighborArg2 == "ethernet"):
+                if bgpNeighborArg2 == "ethernet":
                     value = cnos.checkSanityofVariable(
                         deviceType, "bgp_neighbor_update_ethernet",
                         bgpNeighborArg3)
-                    if(value == "ok"):
+                    if value == "ok":
                         command = command + bgpNeighborArg3
                     else:
                         retVal = "Error-304"
                         return retVal
-                elif(bgpNeighborArg2 == "loopback"):
+                elif bgpNeighborArg2 == "loopback":
                     value = cnos.checkSanityofVariable(
                         deviceType, "bgp_neighbor_update_loopback",
                         bgpNeighborArg3)
-                    if(value == "ok"):
+                    if value == "ok":
                         command = command + bgpNeighborArg3
                     else:
                         retVal = "Error-305"
@@ -509,7 +509,7 @@ def bgpNeighborConfig(module, cmd, prompt, answer):
                     value = cnos.checkSanityofVariable(
                         deviceType, "bgp_neighbor_update_vlan",
                         bgpNeighborArg3)
-                    if(value == "ok"):
+                    if value == "ok":
                         command = command + bgpNeighborArg3
                     else:
                         retVal = "Error-306"
@@ -520,11 +520,11 @@ def bgpNeighborConfig(module, cmd, prompt, answer):
             retVal = "Error-303"
             return retVal
 
-    elif(bgpNeighborArg1 == "weight"):
+    elif bgpNeighborArg1 == "weight":
         command = command + bgpNeighborArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_weight", bgpNeighborArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborArg2
         else:
             retVal = "Error-302"
@@ -550,36 +550,36 @@ def bgpNeighborAFConfig(module, cmd, prompt, answer):
     bgpNeighborAFArg2 = module.params['bgpArg7']
     bgpNeighborAFArg3 = module.params['bgpArg8']
     deviceType = module.params['deviceType']
-    if(bgpNeighborAFArg1 == "allowas-in"):
+    if bgpNeighborAFArg1 == "allowas-in":
         command = command + bgpNeighborAFArg1 + " "
-        if(bgpNeighborAFArg2 is not None):
+        if bgpNeighborAFArg2 is not None:
             value = cnos.checkSanityofVariable(
                 deviceType, "bgp_neighbor_af_occurances", bgpNeighborAFArg2)
-            if(value == "ok"):
+            if value == "ok":
                 command = command + bgpNeighborAFArg2
             else:
                 retVal = "Error-325"
                 return retVal
 
-    elif(bgpNeighborAFArg1 == "default-originate"):
+    elif bgpNeighborAFArg1 == "default-originate":
         command = command + bgpNeighborAFArg1 + " "
-        if(bgpNeighborAFArg2 is not None and bgpNeighborAFArg2 == "route-map"):
+        if bgpNeighborAFArg2 is not None and bgpNeighborAFArg2 == "route-map":
             command = command + bgpNeighborAFArg2 + " "
             value = cnos.checkSanityofVariable(
                 deviceType, "bgp_neighbor_af_routemap", bgpNeighborAFArg2)
-            if(value == "ok"):
+            if value == "ok":
                 command = command + bgpNeighborAFArg3
             else:
                 retVal = "Error-324"
                 return retVal
 
-    elif(bgpNeighborAFArg1 == "filter-list"):
+    elif bgpNeighborAFArg1 == "filter-list":
         command = command + bgpNeighborAFArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_af_filtername", bgpNeighborAFArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborAFArg2 + " "
-            if(bgpNeighborAFArg3 == "in" or bgpNeighborAFArg3 == "out"):
+            if bgpNeighborAFArg3 == "in" or bgpNeighborAFArg3 == "out":
                 command = command + bgpNeighborAFArg3
             else:
                 retVal = "Error-323"
@@ -588,13 +588,13 @@ def bgpNeighborAFConfig(module, cmd, prompt, answer):
             retVal = "Error-322"
             return retVal
 
-    elif(bgpNeighborAFArg1 == "maximum-prefix"):
+    elif bgpNeighborAFArg1 == "maximum-prefix":
         command = command + bgpNeighborAFArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_af_maxprefix", bgpNeighborAFArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborAFArg2 + " "
-            if(bgpNeighborAFArg3 is not None):
+            if bgpNeighborAFArg3 is not None:
                 command = command + bgpNeighborAFArg3
             else:
                 command = command.strip()
@@ -602,16 +602,16 @@ def bgpNeighborAFConfig(module, cmd, prompt, answer):
             retVal = "Error-326"
             return retVal
 
-    elif(bgpNeighborAFArg1 == "next-hop-self"):
+    elif bgpNeighborAFArg1 == "next-hop-self":
         command = command + bgpNeighborAFArg1
 
-    elif(bgpNeighborAFArg1 == "prefix-list"):
+    elif bgpNeighborAFArg1 == "prefix-list":
         command = command + bgpNeighborAFArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_af_prefixname", bgpNeighborAFArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborAFArg2 + " "
-            if(bgpNeighborAFArg3 == "in" or bgpNeighborAFArg3 == "out"):
+            if bgpNeighborAFArg3 == "in" or bgpNeighborAFArg3 == "out":
                 command = command + bgpNeighborAFArg3
             else:
                 retVal = "Error-321"
@@ -620,31 +620,31 @@ def bgpNeighborAFConfig(module, cmd, prompt, answer):
             retVal = "Error-320"
             return retVal
 
-    elif(bgpNeighborAFArg1 == "route-map"):
+    elif bgpNeighborAFArg1 == "route-map":
         command = command + bgpNeighborAFArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_af_routemap", bgpNeighborAFArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborAFArg2
         else:
             retVal = "Error-319"
             return retVal
-    elif(bgpNeighborAFArg1 == "route-reflector-client"):
+    elif bgpNeighborAFArg1 == "route-reflector-client":
         command = command + bgpNeighborAFArg1
 
-    elif(bgpNeighborAFArg1 == "send-community"):
+    elif bgpNeighborAFArg1 == "send-community":
         command = command + bgpNeighborAFArg1 + " "
-        if(bgpNeighborAFArg2 is not None and bgpNeighborAFArg2 == "extended"):
+        if bgpNeighborAFArg2 is not None and bgpNeighborAFArg2 == "extended":
             command = command + bgpNeighborAFArg2
 
-    elif(bgpNeighborAFArg1 == "soft-reconfiguration"):
+    elif bgpNeighborAFArg1 == "soft-reconfiguration":
         command = command + bgpNeighborAFArg1 + " inbound"
 
-    elif(bgpNeighborAFArg1 == "unsuppress-map"):
+    elif bgpNeighborAFArg1 == "unsuppress-map":
         command = command + bgpNeighborAFArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_neighbor_af_routemap", bgpNeighborAFArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpNeighborAFArg2
         else:
             retVal = "Error-318"
@@ -672,16 +672,16 @@ def bgpAFConfig(module, cmd, prompt, answer):
     bgpAFArg5 = module.params['bgpArg7']
     bgpAFArg6 = module.params['bgpArg8']
     deviceType = module.params['deviceType']
-    if(bgpAFArg1 == "aggregate-address"):
+    if bgpAFArg1 == "aggregate-address":
         command = command + bgpAFArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_aggregate_prefix", bgpAFArg2)
-        if(value == "ok"):
-            if(bgpAFArg2 is None):
+        if value == "ok":
+            if bgpAFArg2 is None:
                 command = command.strip()
-            elif(bgpAFArg2 == "as-set" or bgpAFArg2 == "summary-only"):
+            elif bgpAFArg2 == "as-set" or bgpAFArg2 == "summary-only":
                 command = command + bgpAFArg2 + " "
-                if((bgpAFArg3 is not None) and (bgpAFArg2 == "as-set")):
+                if (bgpAFArg3 is not None) and (bgpAFArg2 == "as-set"):
                     command = command + "summary-only"
             else:
                 retVal = "Error-297"
@@ -690,26 +690,26 @@ def bgpAFConfig(module, cmd, prompt, answer):
             retVal = "Error-296"
             return retVal
 
-    elif(bgpAFArg1 == "client-to-client"):
+    elif bgpAFArg1 == "client-to-client":
         command = command + bgpAFArg1 + " reflection "
 
-    elif(bgpAFArg1 == "dampening"):
+    elif bgpAFArg1 == "dampening":
         command = command + bgpAFArg1 + " "
-        if(bgpAFArg2 == "route-map"):
+        if bgpAFArg2 == "route-map":
             command = command + bgpAFArg2 + " "
             value = cnos.checkSanityofVariable(
                 deviceType, "addrfamily_routemap_name", bgpAFArg3)
-            if(value == "ok"):
+            if value == "ok":
                 command = command + bgpAFArg3
             else:
                 retVal = "Error-196"
                 return retVal
-        elif(bgpAFArg2 is not None):
+        elif bgpAFArg2 is not None:
             value = cnos.checkSanityofVariable(
                 deviceType, "reachability_half_life", bgpAFArg2)
-            if(value == "ok"):
+            if value == "ok":
                 command = command + bgpAFArg2 + " "
-                if(bgpAFArg3 is not None):
+                if bgpAFArg3 is not None:
                     value1 = cnos.checkSanityofVariable(
                         deviceType, "start_reuse_route_value", bgpAFArg3)
                     value2 = cnos.checkSanityofVariable(
@@ -717,15 +717,15 @@ def bgpAFConfig(module, cmd, prompt, answer):
                     value3 = cnos.checkSanityofVariable(
                         deviceType, "max_duration_to_suppress_route",
                         bgpAFArg5)
-                    if(value1 == "ok" and value2 == "ok" and value3 == "ok"):
+                    if (value1 == "ok" and value2 == "ok" and value3 == "ok"):
                         command = command + bgpAFArg3 + " " + bgpAFArg4 + \
                             " " + bgpAFArg5 + " "
-                        if(bgpAFArg6 is not None):
+                        if (bgpAFArg6 is not None):
                             value = cnos.checkSanityofVariable(
                                 deviceType,
                                 "unreachability_halftime_for_penalty",
                                 bgpAFArg6)
-                            if(value == "ok"):
+                            if (value == "ok"):
                                 command = command + bgpAFArg6
                     else:
                         retVal = "Error-295"
@@ -736,19 +736,19 @@ def bgpAFConfig(module, cmd, prompt, answer):
                 retVal = "Error-294"
                 return retVal
 
-    elif(bgpAFArg1 == "distance"):
+    elif bgpAFArg1 == "distance":
         command = command + bgpAFArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "distance_external_AS", bgpAFArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpAFArg2 + " "
             value = cnos.checkSanityofVariable(
                 deviceType, "distance_internal_AS", bgpAFArg3)
-            if(value == "ok"):
+            if value == "ok":
                 command = command + bgpAFArg3 + " "
                 value = cnos.checkSanityofVariable(
                     deviceType, "distance_local_routes", bgpAFArg4)
-                if(value == "ok"):
+                if value == "ok":
                     command = command + bgpAFArg4
                 else:
                     retVal = "Error-291"
@@ -760,14 +760,14 @@ def bgpAFConfig(module, cmd, prompt, answer):
             retVal = "Error-293"
             return retVal
 
-    elif(bgpAFArg1 == "maximum-paths"):
+    elif bgpAFArg1 == "maximum-paths":
         command = command + bgpAFArg1 + " "
         value = cnos.checkSanityofVariable(deviceType, "maxpath_option", bgpAFArg2)
-        if(value == "ok"):
+        if value == "ok":
             command = command + bgpAFArg2 + " "
             value = cnos.checkSanityofVariable(
                 deviceType, "maxpath_numbers", bgpAFArg3)
-            if(value == "ok"):
+            if value == "ok":
                 command = command + bgpAFArg3
             else:
                 retVal = "Error-199"
@@ -776,24 +776,24 @@ def bgpAFConfig(module, cmd, prompt, answer):
             retVal = "Error-290"
             return retVal
 
-    elif(bgpAFArg1 == "network"):
+    elif bgpAFArg1 == "network":
         command = command + bgpAFArg1 + " "
-        if(bgpAFArg2 == "synchronization"):
+        if bgpAFArg2 == "synchronization":
             command = command + bgpAFArg2
         else:
             value = cnos.checkSanityofVariable(
                 deviceType, "network_ip_prefix_with_mask", bgpAFArg2)
-            if(value == "ok"):
+            if value == "ok":
                 command = command + bgpAFArg2 + " "
-                if(bgpAFArg3 is not None and bgpAFArg3 == "backdoor"):
+                if bgpAFArg3 is not None and bgpAFArg3 == "backdoor":
                     command = command + bgpAFArg3
-                elif(bgpAFArg3 is not None and bgpAFArg3 == "route-map"):
+                elif bgpAFArg3 is not None and bgpAFArg3 == "route-map":
                     command = command + bgpAFArg3
                     value = cnos.checkSanityofVariable(
                         deviceType, "addrfamily_routemap_name", bgpAFArg4)
-                    if(value == "ok"):
+                    if (value == "ok"):
                         command = command + bgpAFArg4 + " "
-                        if(bgpAFArg5 is not None and bgpAFArg5 == "backdoor"):
+                        if (bgpAFArg5 is not None and bgpAFArg5 == "backdoor"):
                             command = command + bgpAFArg5
                         else:
                             retVal = "Error-298"
@@ -806,17 +806,17 @@ def bgpAFConfig(module, cmd, prompt, answer):
             else:
                 value = cnos.checkSanityofVariable(
                     deviceType, "network_ip_prefix_value", bgpAFArg2)
-                if(value == "ok"):
+                if (value == "ok"):
                     command = command + bgpAFArg2 + " "
-                    if(bgpAFArg3 is not None and bgpAFArg3 == "backdoor"):
+                    if (bgpAFArg3 is not None and bgpAFArg3 == "backdoor"):
                         command = command + bgpAFArg3
-                    elif(bgpAFArg3 is not None and bgpAFArg3 == "route-map"):
+                    elif (bgpAFArg3 is not None and bgpAFArg3 == "route-map"):
                         command = command + bgpAFArg3
                         value = cnos.checkSanityofVariable(
                             deviceType, "addrfamily_routemap_name", bgpAFArg4)
-                        if(value == "ok"):
+                        if (value == "ok"):
                             command = command + bgpAFArg4 + " "
-                            if(bgpAFArg5 is not None and
+                            if (bgpAFArg5 is not None and
                                     bgpAFArg5 == "backdoor"):
                                 command = command + bgpAFArg5
                             else:
@@ -825,11 +825,11 @@ def bgpAFConfig(module, cmd, prompt, answer):
                         else:
                             retVal = "Error-196"
                             return retVal
-                    elif(bgpAFArg3 is not None and bgpAFArg3 == "mask"):
+                    elif (bgpAFArg3 is not None and bgpAFArg3 == "mask"):
                         command = command + bgpAFArg3
                         value = cnos.checkSanityofVariable(
                             deviceType, "network_ip_prefix_mask", bgpAFArg4)
-                        if(value == "ok"):
+                        if (value == "ok"):
                             command = command + bgpAFArg4 + " "
                         else:
                             retVal = "Error-299"
@@ -840,15 +840,15 @@ def bgpAFConfig(module, cmd, prompt, answer):
                     retVal = "Error-300"
                     return retVal
 
-    elif(bgpAFArg1 == "nexthop"):
+    elif (bgpAFArg1 == "nexthop"):
         command = command + bgpAFArg1 + " trigger-delay critical "
         value = cnos.checkSanityofVariable(
             deviceType, "nexthop_crtitical_delay", bgpAFArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + bgpAFArg2 + " "
             value = cnos.checkSanityofVariable(
                 deviceType, "nexthop_noncrtitical_delay", bgpAFArg3)
-            if(value == "ok"):
+            if (value == "ok"):
                 command = command + bgpAFArg3 + " "
             else:
                 retVal = "Error-198"
@@ -857,16 +857,16 @@ def bgpAFConfig(module, cmd, prompt, answer):
             retVal = "Error-197"
             return retVal
 
-    elif(bgpAFArg1 == "redistribute"):
+    elif (bgpAFArg1 == "redistribute"):
         command = command + bgpAFArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "addrfamily_redistribute_option", bgpAFArg2)
-        if(value == "ok"):
-            if(bgpAFArg2 is not None):
+        if (value == "ok"):
+            if (bgpAFArg2 is not None):
                 command = command + bgpAFArg2 + " " + "route-map "
                 value = cnos.checkSanityofVariable(
                     deviceType, "addrfamily_routemap_name", bgpAFArg3)
-                if(value == "ok"):
+                if (value == "ok"):
                     command = command + bgpAFArg3
                 else:
                     retVal = "Error-196"
@@ -875,7 +875,7 @@ def bgpAFConfig(module, cmd, prompt, answer):
             retVal = "Error-195"
             return retVal
 
-    elif(bgpAFArg1 == "save" or bgpAFArg1 == "synchronization"):
+    elif (bgpAFArg1 == "save" or bgpAFArg1 == "synchronization"):
         command = command + bgpAFArg1
 
     else:
@@ -904,12 +904,12 @@ def bgpConfig(module, cmd, prompt, answer):
     asNum = module.params['asNum']
     deviceType = module.params['deviceType']
     # cnos.debugOutput(bgpArg1)
-    if(bgpArg1 == "address-family"):
+    if (bgpArg1 == "address-family"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_address_family", bgpArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + bgpArg2 + " " + "unicast \n"
             # debugOutput(command)
             inner_cmd = [{'command': command, 'prompt': None, 'answer': None}]
@@ -920,36 +920,36 @@ def bgpConfig(module, cmd, prompt, answer):
             retVal = "Error-178"
             return retVal
 
-    elif(bgpArg1 == "bestpath"):
+    elif (bgpArg1 == "bestpath"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1 + " "
-        if(bgpArg2 == "always-compare-med"):
+        if (bgpArg2 == "always-compare-med"):
             # debugOutput(bgpArg2)
             command = command + bgpArg2
-        elif(bgpArg2 == "compare-confed-aspath"):
+        elif (bgpArg2 == "compare-confed-aspath"):
             # debugOutput(bgpArg2)
             command = command + bgpArg2
-        elif(bgpArg2 == "compare-routerid"):
+        elif (bgpArg2 == "compare-routerid"):
             # debugOutput(bgpArg2)
             command = command + bgpArg2
-        elif(bgpArg2 == "dont-compare-originator-id"):
+        elif (bgpArg2 == "dont-compare-originator-id"):
             # debugOutput(bgpArg2)
             command = command + bgpArg2
-        elif(bgpArg2 == "tie-break-on-age"):
+        elif (bgpArg2 == "tie-break-on-age"):
             # debugOutput(bgpArg2)
             command = command + bgpArg2
-        elif(bgpArg2 == "as-path"):
+        elif (bgpArg2 == "as-path"):
             # debugOutput(bgpArg2)
             command = command + bgpArg2 + " "
-            if(bgpArg3 == "ignore" or bgpArg3 == "multipath-relax"):
+            if (bgpArg3 == "ignore" or bgpArg3 == "multipath-relax"):
                 command = command + bgpArg3
             else:
                 retVal = "Error-179"
                 return retVal
-        elif(bgpArg2 == "med"):
+        elif (bgpArg2 == "med"):
             # debugOutput(bgpArg2)
             command = command + bgpArg2 + " "
-            if(bgpArg3 == "confed" or
+            if (bgpArg3 == "confed" or
                bgpArg3 == "missing-as-worst" or
                bgpArg3 == "non-deterministic" or
                bgpArg3 == "remove-recv-med" or
@@ -962,47 +962,47 @@ def bgpConfig(module, cmd, prompt, answer):
             retVal = "Error-181"
             return retVal
 
-    elif(bgpArg1 == "bgp"):
+    elif (bgpArg1 == "bgp"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1 + " as-local-count "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_bgp_local_count", bgpArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + bgpArg2
         else:
             retVal = "Error-182"
             return retVal
 
-    elif(bgpArg1 == "cluster-id"):
+    elif (bgpArg1 == "cluster-id"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1 + " "
         value = cnos.checkSanityofVariable(deviceType, "cluster_id_as_ip", bgpArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + bgpArg2
         else:
             value = cnos.checkSanityofVariable(
                 deviceType, "cluster_id_as_number", bgpArg2)
-            if(value == "ok"):
+            if (value == "ok"):
                 command = command + bgpArg2
             else:
                 retVal = "Error-183"
                 return retVal
 
-    elif(bgpArg1 == "confederation"):
+    elif (bgpArg1 == "confederation"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1 + " "
-        if(bgpArg2 == "identifier"):
+        if (bgpArg2 == "identifier"):
             value = cnos.checkSanityofVariable(
                 deviceType, "confederation_identifier", bgpArg3)
-            if(value == "ok"):
+            if (value == "ok"):
                 command = command + bgpArg2 + " " + bgpArg3 + "\n"
             else:
                 retVal = "Error-184"
                 return retVal
-        elif(bgpArg2 == "peers"):
+        elif (bgpArg2 == "peers"):
             value = cnos.checkSanityofVariable(
                 deviceType, "confederation_peers_as", bgpArg3)
-            if(value == "ok"):
+            if (value == "ok"):
                 command = command + bgpArg2 + " " + bgpArg3
             else:
                 retVal = "Error-185"
@@ -1011,55 +1011,55 @@ def bgpConfig(module, cmd, prompt, answer):
             retVal = "Error-186"
             return retVal
 
-    elif(bgpArg1 == "enforce-first-as"):
+    elif (bgpArg1 == "enforce-first-as"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1
 
-    elif(bgpArg1 == "fast-external-failover"):
+    elif (bgpArg1 == "fast-external-failover"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1
 
-    elif(bgpArg1 == "graceful-restart"):
+    elif (bgpArg1 == "graceful-restart"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1 + " stalepath-time "
         value = cnos.checkSanityofVariable(
             deviceType, "stalepath_delay_value", bgpArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + bgpArg2
         else:
             retVal = "Error-187"
             return retVal
 
-    elif(bgpArg1 == "graceful-restart-helper"):
+    elif (bgpArg1 == "graceful-restart-helper"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1
 
-    elif(bgpArg1 == "log-neighbor-changes"):
+    elif (bgpArg1 == "log-neighbor-changes"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1
 
-    elif(bgpArg1 == "maxas-limit"):
+    elif (bgpArg1 == "maxas-limit"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1 + " "
         value = cnos.checkSanityofVariable(deviceType, "maxas_limit_as", bgpArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + bgpArg2
         else:
             retVal = "Error-188"
             return retVal
 
-    elif(bgpArg1 == "neighbor"):
+    elif (bgpArg1 == "neighbor"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "neighbor_ipaddress", bgpArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + bgpArg2
-            if(bgpArg3 is not None):
+            if (bgpArg3 is not None):
                 command = command + " remote-as "
                 value = cnos.checkSanityofVariable(
                     deviceType, "neighbor_as", bgpArg3)
-                if(value == "ok"):
+                if (value == "ok"):
                     # debugOutput(command)
                     command = command + bgpArg3
                     inner_cmd = [{'command': command, 'prompt': None, 'answer': None}]
@@ -1070,37 +1070,37 @@ def bgpConfig(module, cmd, prompt, answer):
             retVal = "Error-189"
             return retVal
 
-    elif(bgpArg1 == "router-id"):
+    elif (bgpArg1 == "router-id"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1 + " "
         value = cnos.checkSanityofVariable(deviceType, "router_id", bgpArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + bgpArg2
         else:
             retVal = "Error-190"
             return retVal
 
-    elif(bgpArg1 == "shutdown"):
+    elif (bgpArg1 == "shutdown"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1
 
-    elif(bgpArg1 == "synchronization"):
+    elif (bgpArg1 == "synchronization"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1
 
-    elif(bgpArg1 == "timers"):
+    elif (bgpArg1 == "timers"):
         # cnos.debugOutput(bgpArg3)
         command = command + bgpArg1 + " bgp "
         value = cnos.checkSanityofVariable(
             deviceType, "bgp_keepalive_interval", bgpArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + bgpArg2
         else:
             retVal = "Error-191"
             return retVal
-        if(bgpArg3 is not None):
+        if (bgpArg3 is not None):
             value = cnos.checkSanityofVariable(deviceType, "bgp_holdtime", bgpArg3)
-            if(value == "ok"):
+            if (value == "ok"):
                 command = command + " " + bgpArg3
             else:
                 retVal = "Error-192"
@@ -1109,7 +1109,7 @@ def bgpConfig(module, cmd, prompt, answer):
             retVal = "Error-192"
             return retVal
 
-    elif(bgpArg1 == "vrf"):
+    elif (bgpArg1 == "vrf"):
         # debugOutput(bgpArg1)
         command = command + bgpArg1 + " default"
     else:
@@ -1152,7 +1152,7 @@ def main():
     output = ''
     command = 'router bgp '
     value = cnos.checkSanityofVariable(deviceType, "bgp_as_number", asNum)
-    if(value == "ok"):
+    if (value == "ok"):
         # BGP command happens here. It creates if not present
         command = command + asNum
         cmd = [{'command': command, 'prompt': None, 'answer': None}]
@@ -1166,7 +1166,7 @@ def main():
 
     # Logic to check when changes occur or not
     errorMsg = cnos.checkOutputForError(output)
-    if(errorMsg is None):
+    if (errorMsg is None):
         module.exit_json(changed=True, msg="BGP configurations accomplished")
     else:
         module.fail_json(msg=errorMsg)

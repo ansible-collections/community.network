@@ -98,7 +98,7 @@ def main():
     file.close()
 
     errorMsg = cnos.checkOutputForError(output)
-    if(errorMsg is None):
+    if (errorMsg is None):
         module.exit_json(changed=True,
                          msg="Running Configuration saved in file ")
     else:

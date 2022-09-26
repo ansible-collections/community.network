@@ -361,7 +361,7 @@ class Interfaces(FactsBase):
             innerData['speed'] = intfSplit[1].strip()
             innerData['duplex'] = intfSplit[2].strip()
             innerData['operstatus'] = intfSplit[5].strip()
-            if("up" not in intfSplit[5].strip()) and ("down" not in intfSplit[5].strip()):
+            if ("up" not in intfSplit[5].strip()) and ("down" not in intfSplit[5].strip()):
                 innerData['description'] = intfSplit[7].strip()
                 innerData['macaddress'] = intfSplit[9].strip()
                 innerData['mtu'] = intfSplit[10].strip()

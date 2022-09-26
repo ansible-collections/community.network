@@ -31,7 +31,7 @@ class TestICXSCPModule(TestICXModule):
     def load_fixtures(self, commands=None):
         self.exec_commands.return_value = (0, load_fixture('icx_copy.txt').strip(), None)
         # self.exec_command.return_value = (0, load_fixture('icx_banner_show_banner.txt').strip(), None)
-        if(commands is not None):
+        if (commands is not None):
             fixtureName = commands[0].replace(" ", "_") + ".txt"
             # print("loading fixture: ",load_fixture(fixtureName).strip())
             self.mock_exec_scp.return_value = load_fixture("icx_copy.txt").strip()

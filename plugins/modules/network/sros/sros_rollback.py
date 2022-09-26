@@ -56,25 +56,13 @@ options:
 '''
 
 EXAMPLES = """
-# Note: examples below use the following provider dict to handle
-#       transport and authentication to the node.
----
-vars:
-  cli:
-    host: "{{ inventory_hostname }}"
-    username: admin
-    password: admin
-    transport: cli
-
 - name: Configure rollback location
   community.network.sros_rollback:
     rollback_location: "cb3:/ansible"
-    provider: "{{ cli }}"
 
 - name: Remove all rollback configuration
   community.network.sros_rollback:
     state: absent
-    provider: "{{ cli }}"
 """
 
 RETURN = """

@@ -76,17 +76,7 @@ options:
 '''
 
 EXAMPLES = """
-# Note: examples below use the following provider dict to handle
-#       transport and authentication to the node.
 ---
-vars:
-  cli:
-    host: "{{ inventory_hostname }}"
-    port: 22
-    username: admin
-    password: admin
-    timeout: 30
-
 - name: Test contains operator
   community.network.enos_command:
     commands:
@@ -95,7 +85,6 @@ vars:
     wait_for:
       - "result[0] contains 'Lenovo'"
       - "result[1] contains 'MemFree'"
-    provider: "{{ cli }}"
   register: result
 
 - ansible.builtin.assert:
@@ -106,7 +95,6 @@ vars:
 - name: Get output for single command
   community.network.enos_command:
     commands: ['show version']
-    provider: "{{ cli }}"
   register: result
 
 - ansible.builtin.assert:
@@ -119,7 +107,6 @@ vars:
     commands:
       - show version
       - show interface information
-    provider: "{{ cli }}"
   register: result
 
 - ansible.builtin.assert:

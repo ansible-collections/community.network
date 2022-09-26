@@ -141,26 +141,15 @@ options:
 '''
 
 EXAMPLES = """
-# Note: examples below use the following provider dict to handle
-#       transport and authentication to the node.
 ---
-vars:
-  cli:
-    host: "{{ inventory_hostname }}"
-    username: admin
-    password: admin
-    transport: cli
-
 - name: Enable rollback location
   community.network.sros_config:
     lines: configure system rollback rollback-location "cf3:/ansible"
-    provider: "{{ cli }}"
 
 - name: Set system name to {{ inventory_hostname }} using one line
   community.network.sros_config:
     lines:
         - configure system name "{{ inventory_hostname }}"
-    provider: "{{ cli }}"
 
 - name: Set system name to {{ inventory_hostname }} using parents
   community.network.sros_config:
@@ -169,13 +158,11 @@ vars:
     parents:
         - configure
         - system
-    provider: "{{ cli }}"
     backup: yes
 
 - name: Load config from file
   community.network.sros_config:
       src: "{{ inventory_hostname }}.cfg"
-      provider: "{{ cli }}"
       save: yes
 
 - name: Invalid use of lines
@@ -184,7 +171,6 @@ vars:
       - service
       -     vpls 1000 customer foo 1 create
       -         description "invalid lines example"
-    provider: "{{ cli }}"
 
 - name: Valid use of lines
   community.network.sros_config:
@@ -193,7 +179,6 @@ vars:
     parents:
       - service
       - vpls 1000 customer foo 1 create
-    provider: "{{ cli }}"
 
 - name: Configurable backup path
   community.network.sros_config:

@@ -404,7 +404,7 @@ def parse_vlan_id(module):
             for ranges in s:
                 low = int(ranges[0]) + 1
                 high = int(ranges[1])
-                while(high > low):
+                while (high > low):
                     vlans.append(str(low))
                     low = low + 1
     return vlans
@@ -532,7 +532,7 @@ def map_obj_to_commands(updates, module):
                         for interface in interfaces['name']:
                             low, high = extract_list_from_interface(interface)
 
-                            while(high >= low):
+                            while (high >= low):
                                 if 'ethernet' in interface:
                                     have_interfaces.append('ethernet 1/1/{0}'.format(low))
                                 if 'lag' in interface:
@@ -555,7 +555,7 @@ def map_obj_to_commands(updates, module):
                         for tag in tagged['name']:
                             low, high = extract_list_from_interface(tag)
 
-                            while(high >= low):
+                            while (high >= low):
                                 if 'ethernet' in tag:
                                     have_tagged.append('ethernet 1/1/{0}'.format(low))
                                 if 'lag' in tag:
@@ -672,7 +672,7 @@ def check_declarative_intent_params(want, module, result):
         for interface in interfaces:
             low, high = extract_list_from_interface(interface)
 
-            while(high >= low):
+            while (high >= low):
                 if 'ethernet' in interface:
                     if not (low in ports):
                         module.fail_json(msg='One or more conditional statements have not been satisfied ' + interface)

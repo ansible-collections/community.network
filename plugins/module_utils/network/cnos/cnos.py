@@ -248,7 +248,7 @@ def enterEnableModeForDevice(enablePassword, timeout, obj):
     count = 5
     while not flag:
         # If wait time is execeeded.
-        if(count == 0):
+        if count == 0:
             flag = True
         else:
             count = count - 1
@@ -260,9 +260,9 @@ def enterEnableModeForDevice(enablePassword, timeout, obj):
             retVal = retVal + buff
             # debugOutput(buff)
             gotit = buff.find(pwdPrompt)
-            if(gotit != -1):
+            if gotit != -1:
                 time.sleep(1)
-                if(enablePassword is None or enablePassword == ""):
+                if enablePassword is None or enablePassword == "":
                     return "\n Error-106"
                 obj.send(enablePassword)
                 obj.send("\r")
@@ -273,16 +273,16 @@ def enterEnableModeForDevice(enablePassword, timeout, obj):
                 retVal = retVal + innerBuff
                 # debugOutput(innerBuff)
                 innerGotit = innerBuff.find("#")
-                if(innerGotit != -1):
+                if innerGotit != -1:
                     return retVal
             else:
                 gotit = buff.find("#")
-                if(gotit != -1):
+                if gotit != -1:
                     return retVal
         except Exception:
             retVal = retVal + "\n Error-101"
             flag = True
-    if(retVal == ""):
+    if retVal == "":
         retVal = "\n Error-101"
     return retVal
 # EOM
@@ -301,7 +301,7 @@ def waitForDeviceResponse(command, prompt, timeout, obj):
             retVal = retVal + buff
             # debugOutput(retVal)
             gotit = buff.find(prompt)
-            if(gotit != -1):
+            if gotit != -1:
                 flag = True
         except Exception:
             # debugOutput(prompt)
@@ -320,25 +320,25 @@ def checkOutputForError(output):
     retVal = ""
     index = output.lower().find('error')
     startIndex = index + 6
-    if(index == -1):
+    if index == -1:
         index = output.lower().find('invalid')
         startIndex = index + 8
-        if(index == -1):
+        if index == -1:
             index = output.lower().find('cannot be enabled in l2 interface')
             startIndex = index + 34
-            if(index == -1):
+            if index == -1:
                 index = output.lower().find('incorrect')
                 startIndex = index + 10
-                if(index == -1):
+                if index == -1:
                     index = output.lower().find('failure')
                     startIndex = index + 8
-                    if(index == -1):
+                    if index == -1:
                         return None
 
     endIndex = startIndex + 3
     errorCode = output[startIndex:endIndex]
     result = errorCode.isdigit()
-    if(result is not True):
+    if result is not True:
         return "Device returned an Error. Please check Results for more \
         information"
 
@@ -347,9 +347,9 @@ def checkOutputForError(output):
         # with open(errorFile, 'r') as f:
         f = open(errorFile, 'r')
         for line in f:
-            if('=' in line):
+            if '=' in line:
                 data = line.split('=')
-                if(data[0].strip() == errorCode):
+                if data[0].strip() == errorCode:
                     errorString = data[1].strip()
                     return errorString
     except Exception:
@@ -376,10 +376,10 @@ def getRuleStringForVariable(deviceType, ruleFile, variableId):
         f = open(ruleFile, 'r')
         for line in f:
             # debugOutput(line)
-            if(':' in line):
+            if ':' in line:
                 data = line.split(':')
                 # debugOutput(data[0])
-                if(data[0].strip() == variableId):
+                if data[0].strip() == variableId:
                     retVal = line
     except Exception:
         ruleString = cnos_devicerules.getRuleString(deviceType, variableId)
@@ -391,36 +391,36 @@ def getRuleStringForVariable(deviceType, ruleFile, variableId):
 def validateValueAgainstRule(ruleString, variableValue):
 
     retVal = ""
-    if(ruleString == ""):
+    if ruleString == "":
         return 1
     rules = ruleString.split(':')
     variableType = rules[1].strip()
     varRange = rules[2].strip()
-    if(variableType == "INTEGER"):
+    if variableType == "INTEGER":
         result = checkInteger(variableValue)
-        if(result is True):
+        if (result is True):
             return "ok"
         else:
             return "Error-111"
-    elif(variableType == "FLOAT"):
+    elif variableType == "FLOAT":
         result = checkFloat(variableValue)
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-112"
 
-    elif(variableType == "INTEGER_VALUE"):
+    elif variableType == "INTEGER_VALUE":
         int_range = varRange.split('-')
         r = range(int(int_range[0].strip()), int(int_range[1].strip()))
-        if(checkInteger(variableValue) is not True):
+        if checkInteger(variableValue) is not True:
             return "Error-111"
         result = int(variableValue) in r
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-113"
 
-    elif(variableType == "INTEGER_VALUE_RANGE"):
+    elif variableType == "INTEGER_VALUE_RANGE":
         int_range = varRange.split('-')
         varLower = int_range[0].strip()
         varHigher = int_range[1].strip()
@@ -431,185 +431,185 @@ def validateValueAgainstRule(ruleString, variableValue):
             valHigher = val_range[1].strip()
         except Exception:
             return "Error-113"
-        if((checkInteger(valLower) is not True) or
+        if ((checkInteger(valLower) is not True) or
                 (checkInteger(valHigher) is not True)):
             # debugOutput("Error-114")
             return "Error-114"
         result = (int(valLower) in r) and (int(valHigher) in r) \
             and (int(valLower) < int(valHigher))
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             # debugOutput("Error-113")
             return "Error-113"
 
-    elif(variableType == "INTEGER_OPTIONS"):
+    elif variableType == "INTEGER_OPTIONS":
         int_options = varRange.split(',')
-        if(checkInteger(variableValue) is not True):
+        if checkInteger(variableValue) is not True:
             return "Error-111"
         for opt in int_options:
-            if(opt.strip() is variableValue):
+            if opt.strip() is variableValue:
                 result = True
                 break
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-115"
 
-    elif(variableType == "LONG"):
+    elif variableType == "LONG":
         result = checkLong(variableValue)
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-116"
 
-    elif(variableType == "LONG_VALUE"):
+    elif variableType == "LONG_VALUE":
         long_range = varRange.split('-')
         r = range(int(long_range[0].strip()), int(long_range[1].strip()))
-        if(checkLong(variableValue) is not True):
+        if checkLong(variableValue) is not True:
             # debugOutput(variableValue)
             return "Error-116"
         result = int(variableValue) in r
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-113"
 
-    elif(variableType == "LONG_VALUE_RANGE"):
+    elif variableType == "LONG_VALUE_RANGE":
         long_range = varRange.split('-')
         r = range(int(long_range[0].strip()), int(long_range[1].strip()))
         val_range = variableValue.split('-')
-        if((checkLong(val_range[0]) is not True) or
+        if ((checkLong(val_range[0]) is not True) or
                 (checkLong(val_range[1]) is not True)):
             return "Error-117"
         result = (val_range[0] in r) and (
             val_range[1] in r) and (val_range[0] < val_range[1])
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-113"
-    elif(variableType == "LONG_OPTIONS"):
+    elif variableType == "LONG_OPTIONS":
         long_options = varRange.split(',')
-        if(checkLong(variableValue) is not True):
+        if checkLong(variableValue) is not True:
             return "Error-116"
         for opt in long_options:
-            if(opt.strip() == variableValue):
+            if opt.strip() == variableValue:
                 result = True
                 break
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-115"
 
-    elif(variableType == "TEXT"):
-        if(variableValue == ""):
+    elif variableType == "TEXT":
+        if variableValue == "":
             return "Error-118"
-        if(True is isinstance(variableValue, str)):
+        if True is isinstance(variableValue, str):
             return "ok"
         else:
             return "Error-119"
 
-    elif(variableType == "NO_VALIDATION"):
-        if(variableValue == ""):
+    elif variableType == "NO_VALIDATION":
+        if variableValue == "":
             return "Error-118"
         else:
             return "ok"
 
-    elif(variableType == "TEXT_OR_EMPTY"):
-        if(variableValue is None or variableValue == ""):
+    elif variableType == "TEXT_OR_EMPTY":
+        if variableValue is None or variableValue == "":
             return "ok"
-        if(result == isinstance(variableValue, str)):
+        if result == isinstance(variableValue, str):
             return "ok"
         else:
             return "Error-119"
 
-    elif(variableType == "MATCH_TEXT"):
-        if(variableValue == ""):
+    elif variableType == "MATCH_TEXT":
+        if variableValue == "":
             return "Error-118"
-        if(isinstance(variableValue, str)):
-            if(varRange == variableValue):
+        if isinstance(variableValue, str):
+            if varRange == variableValue:
                 return "ok"
             else:
                 return "Error-120"
         else:
             return "Error-119"
 
-    elif(variableType == "MATCH_TEXT_OR_EMPTY"):
-        if(variableValue is None or variableValue == ""):
+    elif variableType == "MATCH_TEXT_OR_EMPTY":
+        if variableValue is None or variableValue == "":
             return "ok"
-        if(isinstance(variableValue, str)):
-            if(varRange == variableValue):
+        if isinstance(variableValue, str):
+            if varRange == variableValue:
                 return "ok"
             else:
                 return "Error-120"
         else:
             return "Error-119"
 
-    elif(variableType == "TEXT_OPTIONS"):
+    elif variableType == "TEXT_OPTIONS":
         str_options = varRange.split(',')
-        if(isinstance(variableValue, str) is not True):
+        if isinstance(variableValue, str) is not True:
             return "Error-119"
         result = False
         for opt in str_options:
-            if(opt.strip() == variableValue):
+            if opt.strip() == variableValue:
                 result = True
                 break
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-115"
 
-    elif(variableType == "TEXT_OPTIONS_OR_EMPTY"):
-        if(variableValue is None or variableValue == ""):
+    elif variableType == "TEXT_OPTIONS_OR_EMPTY":
+        if variableValue is None or variableValue == "":
             return "ok"
         str_options = varRange.split(',')
-        if(isinstance(variableValue, str) is not True):
+        if isinstance(variableValue, str) is not True:
             return "Error-119"
         for opt in str_options:
-            if(opt.strip() == variableValue):
+            if opt.strip() == variableValue:
                 result = True
                 break
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-115"
 
-    elif(variableType == "IPV4Address"):
+    elif variableType == "IPV4Address":
         try:
             socket.inet_pton(socket.AF_INET, variableValue)
             result = True
         except socket.error:
             result = False
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-121"
-    elif(variableType == "IPV4AddressWithMask"):
-        if(variableValue is None or variableValue == ""):
+    elif variableType == "IPV4AddressWithMask":
+        if variableValue is None or variableValue == "":
             return "Error-119"
         str_options = variableValue.split('/')
         ipaddr = str_options[0]
         mask = str_options[1]
         try:
             socket.inet_pton(socket.AF_INET, ipaddr)
-            if(checkInteger(mask) is True):
+            if checkInteger(mask) is True:
                 result = True
             else:
                 result = False
         except socket.error:
             result = False
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-121"
 
-    elif(variableType == "IPV6Address"):
+    elif variableType == "IPV6Address":
         try:
             socket.inet_pton(socket.AF_INET6, variableValue)
             result = True
         except socket.error:
             result = False
-        if(result is True):
+        if result is True:
             return "ok"
         else:
             return "Error-122"

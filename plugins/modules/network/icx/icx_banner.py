@@ -110,7 +110,7 @@ def map_obj_to_commands(updates, module):
     if state == 'absent':
         if 'text' in have.keys() and have['text']:
             commands.append('no banner %s' % module.params['banner'])
-        if(module.params['enterkey'] is False):
+        if (module.params['enterkey'] is False):
             commands.append('no banner %s require-enter-key' % module.params['banner'])
 
     elif state == 'present':
@@ -118,7 +118,7 @@ def map_obj_to_commands(updates, module):
             module.fail_json(msg=module.params['banner'] + " one of the following is required: text, enterkey:only if motd")
 
         if module.params["banner"] == "motd" and want['enterkey'] != have['enterkey']:
-            if(module.params['enterkey']):
+            if (module.params['enterkey']):
                 commands.append('banner %s require-enter-key' % module.params['banner'])
 
         if want['text'] and (want['text'] != have.get('text')):

@@ -253,7 +253,7 @@ def parse_level(line, dest):
     if dest == 'server':
         if 'logging server' in line:
             result = line.split()
-            if(len(result) > 3):
+            if (len(result) > 3):
                 if result[3].isdigit():
                     level = result[3]
     else:

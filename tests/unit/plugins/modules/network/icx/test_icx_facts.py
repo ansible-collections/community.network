@@ -26,13 +26,13 @@ class TestICXFactsModule(TestICXModule):
         def load_from_file(*args, **kwargs):
             module = args
             commands = kwargs['commands']
-            if(commands):
+            if (commands):
                 resp = list()
                 for cmd in commands:
                     fixtureName = cmd.replace(" ", "_")
                     newFixtureName = fixtureName.replace("_|_", "_")
                     output = load_fixture(newFixtureName).strip()
-                    if(output):
+                    if (output):
                         resp.append(output)
                 return resp
         self.run_commands.side_effect = load_from_file

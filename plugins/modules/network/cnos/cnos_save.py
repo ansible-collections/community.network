@@ -100,7 +100,7 @@ def main():
     file.close()
 
     errorMsg = cnos.checkOutputForError(output)
-    if(errorMsg is None):
+    if (errorMsg is None):
         module.exit_json(changed=True,
                          msg="Switch Running Config is Saved to Startup Config ")
     else:

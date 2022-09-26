@@ -98,7 +98,7 @@ def main():
     file.close()
 
     errorMsg = cnos.checkOutputForError(output)
-    if(errorMsg in "Device Response Timed out"):
+    if (errorMsg in "Device Response Timed out"):
         module.exit_json(changed=True,
                          msg="Device is Reloading. Please wait...")
     else:

@@ -28,7 +28,7 @@ PRIVATE_KEYS_RE = re.compile('__.+__')
 
 class ActionModule(ActionNetworkModule):
 
-    def run(self, tmp=None, task_vars=None):
+    def run(self, task_vars=None, tmp=None):
         del tmp  # tmp no longer has any effect
 
         module_name = self._task.action.split('.')[-1]

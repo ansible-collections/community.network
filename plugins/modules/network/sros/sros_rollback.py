@@ -66,7 +66,6 @@ vars:
     password: admin
     transport: cli
 
----
 - name: Configure rollback location
   community.network.sros_rollback:
     rollback_location: "cb3:/ansible"

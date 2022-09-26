@@ -76,7 +76,6 @@ vars:
     password: admin
     transport: cli
 
----
 tasks:
   - name: Run show version on remote devices
     community.network.sros_command:

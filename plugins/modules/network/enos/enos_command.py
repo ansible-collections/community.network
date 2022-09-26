@@ -87,7 +87,6 @@ vars:
     password: admin
     timeout: 30
 
----
 - name: Test contains operator
   community.network.enos_command:
     commands:

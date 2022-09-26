@@ -175,11 +175,11 @@ from ansible_collections.community.network.plugins.module_utils.network.icx.icx 
 def map_params_to_obj(module):
     command = dict()
 
-    if(module.params['protocol'] == 'scp'):
-        if(module.params['upload'] is not None):
+    if (module.params['protocol'] == 'scp'):
+        if (module.params['upload'] is not None):
             module.params["upload"] = module.params["upload"].replace("flash_primary", "primary")
             module.params["upload"] = module.params["upload"].replace("flash_secondary", "secondary")
-            if(module.params["upload"] == 'running-config' or module.params["upload"] == 'startup-config'):
+            if (module.params["upload"] == 'running-config' or module.params["upload"] == 'startup-config'):
                 command["command"] = "copy %s scp %s%s %s%s" % (module.params['upload'],
                                                                 module.params["remote_server"],
                                                                 " " + module.params["remote_port"] if module.params["remote_port"] else "",
@@ -193,10 +193,10 @@ def map_params_to_obj(module):
                                                                       module.params["upload"])
             command["scp_user"] = module.params["remote_user"]
             command["scp_pass"] = module.params["remote_pass"]
-        if(module.params['download'] is not None):
+        if (module.params['download'] is not None):
             module.params["download"] = module.params["download"].replace("flash_primary", "primary")
             module.params["download"] = module.params["download"].replace("flash_secondary", "secondary")
-            if(module.params["download"] == 'running-config' or module.params["download"] == 'startup-config'):
+            if (module.params["download"] == 'running-config' or module.params["download"] == 'startup-config'):
                 command["command"] = "copy scp %s %s%s %s%s" % (module.params['download'],
                                                                 module.params["remote_server"],
                                                                 " " + module.params["remote_port"] if module.params["remote_port"] else "",
@@ -210,11 +210,11 @@ def map_params_to_obj(module):
                                                                       module.params["download"])
             command["scp_user"] = module.params["remote_user"]
             command["scp_pass"] = module.params["remote_pass"]
-    if(module.params['protocol'] == 'https'):
-        if(module.params['upload'] is not None):
+    if (module.params['protocol'] == 'https'):
+        if (module.params['upload'] is not None):
             module.params["upload"] = module.params["upload"].replace("flash_primary", "primary")
             module.params["upload"] = module.params["upload"].replace("flash_secondary", "secondary")
-            if(module.params["upload"] == 'running-config' or module.params["upload"] == 'startup-config'):
+            if (module.params["upload"] == 'running-config' or module.params["upload"] == 'startup-config'):
                 command["command"] = "copy %s https %s %s%s" % (module.params['upload'],
                                                                 module.params["remote_server"],
                                                                 module.params["remote_filename"],
@@ -224,10 +224,10 @@ def map_params_to_obj(module):
                                                                       module.params["remote_filename"],
                                                                       module.params['upload'],
                                                                       " port " + module.params["remote_port"] if module.params["remote_port"] else "")
-        if(module.params['download'] is not None):
+        if (module.params['download'] is not None):
             module.params["download"] = module.params["download"].replace("flash_primary", "primary")
             module.params["download"] = module.params["download"].replace("flash_secondary", "secondary")
-            if(module.params["download"] == 'running-config' or module.params["download"] == 'startup-config'):
+            if (module.params["download"] == 'running-config' or module.params["download"] == 'startup-config'):
                 command["command"] = "copy https %s %s %s%s" % (module.params['download'],
                                                                 module.params["remote_server"],
                                                                 module.params["remote_filename"],
@@ -269,17 +269,17 @@ def checkValidations(module):
     upload = module.params['upload']
     download = module.params['download']
 
-    if(protocol == 'scp' and module.params['remote_user'] is None):
+    if (protocol == 'scp' and module.params['remote_user'] is None):
         module.fail_json(msg="While using scp remote_user argument is required")
-    if(upload is None and download is None):
+    if (upload is None and download is None):
         module.fail_json(msg="Upload or download params are required.")
-    if(upload is not None and download is not None):
+    if (upload is not None and download is not None):
         module.fail_json(msg="Only upload or download can be used at a time.")
-    if(upload):
-        if(not (upload in validation.get(protocol).get("upload"))):
+    if (upload):
+        if (not (upload in validation.get(protocol).get("upload"))):
             module.fail_json(msg="Specified resource '" + upload + "' can't be uploaded to '" + protocol + "'")
-    if(download):
-        if(not (download in validation.get(protocol).get("download"))):
+    if (download):
+        if (not (download in validation.get(protocol).get("download"))):
             module.fail_json(msg="Specified resource '" + download + "' can't be downloaded from '" + protocol + "'")
 
 
@@ -348,15 +348,15 @@ def main():
         command = map_params_to_obj(module)
         result['commands'] = [command["command"]]
 
-        if(module.params['protocol'] == 'scp'):
+        if (module.params['protocol'] == 'scp'):
             response = exec_scp(module, command)
         else:
             response = run_commands(module, command)
-        if('Response Code: 404' in response):
+        if ('Response Code: 404' in response):
             module.fail_json(msg=response)
         else:
             result['response'] = "in progress..."
-        if(module.params["download"] is not None):
+        if (module.params["download"] is not None):
             result['changed'] = True
     except ConnectionError as exc:
         module.fail_json(msg=to_text(exc, errors='surrogate_then_replace'))

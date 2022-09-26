@@ -170,7 +170,7 @@ class Cliconf(CliconfBase):
         if not command:
             raise ValueError('must provide value of command to execute')
         prompt = ["User name:", "Password:"]
-        if(scp_pass is None):
+        if scp_pass is None:
             answer = [scp_user, self._connection._play_context.password]
         else:
             answer = [scp_user, scp_pass]

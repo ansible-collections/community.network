@@ -152,7 +152,7 @@ def range_to_members(ranges, prefix=""):
     members = list()
     for m in match:
         start, end = m
-        if(end == ''):
+        if (end == ''):
             start = start.replace("ethe ", "ethernet ")
             members.append("%s%s" % (prefix, start))
         else:
@@ -239,14 +239,14 @@ def map_obj_to_commands(updates, module):
             commands.append("%slag %s %s id %s" % ('no ' if w['state'] == 'absent' else '', w['name'], w['mode'], w['group']))
         elif have.get(w['group']) is None:
             commands.append("%slag %s %s id %s" % ('no ' if w['state'] == 'absent' else '', w['name'], w['mode'], w['group']))
-            if(w.get('members') is not None and w['state'] == 'present'):
+            if (w.get('members') is not None and w['state'] == 'present'):
                 for m in w['members']:
                     commands.append("ports %s" % (m))
             if w['state'] == 'present':
                 commands.append("exit")
         else:
             commands.append("%slag %s %s id %s" % ('no ' if w['state'] == 'absent' else '', w['name'], w['mode'], w['group']))
-            if(w.get('members') is not None and w['state'] == 'present'):
+            if (w.get('members') is not None and w['state'] == 'present'):
                 for m in have[w['group']]['members']:
                     if not is_member(m, w['members']):
                         commands.append("no ports %s" % (m))

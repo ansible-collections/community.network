@@ -144,7 +144,7 @@ def doImageDownload(module, prompt, answer):
     command = command + server + "/" + imgPath + " system-image "
     command = command + imgType + " vrf management"
     cmd = []
-    if(protocol == "scp"):
+    if (protocol == "scp"):
         prompt = ['timeout', 'Confirm download operation', 'Password',
                   'Do you want to change that to the standby image']
         answer = ['240', 'y', password, 'y']
@@ -152,7 +152,7 @@ def doImageDownload(module, prompt, answer):
                     'check_all': True}]
         cmd.extend(scp_cmd)
         retVal = retVal + str(cnos.run_cnos_commands(module, cmd))
-    elif(protocol == "sftp"):
+    elif (protocol == "sftp"):
         prompt = ['Confirm download operation', 'Password',
                   'Do you want to change that to the standby image']
         answer = ['y', password, 'y']
@@ -160,7 +160,7 @@ def doImageDownload(module, prompt, answer):
                      'check_all': True}]
         cmd.extend(sftp_cmd)
         retVal = retVal + str(cnos.run_cnos_commands(module, cmd))
-    elif(protocol == "ftp"):
+    elif (protocol == "ftp"):
         prompt = ['Confirm download operation', 'Password',
                   'Do you want to change that to the standby image']
         answer = ['y', password, 'y']
@@ -168,7 +168,7 @@ def doImageDownload(module, prompt, answer):
                     'check_all': True}]
         cmd.extend(ftp_cmd)
         retVal = retVal + str(cnos.run_cnos_commands(module, cmd))
-    elif(protocol == "tftp"):
+    elif (protocol == "tftp"):
         command = "copy " + protocol + " " + protocol + "://" + server
         command = command + "/" + imgPath + " system-image " + imgType
         command = command + " vrf management"
@@ -208,7 +208,7 @@ def main():
     output = ''
 
     # Invoke method for image transfer from server
-    if(protocol == "tftp" or protocol == "ftp" or protocol == "sftp" or
+    if (protocol == "tftp" or protocol == "ftp" or protocol == "sftp" or
        protocol == "scp"):
         transfer_status = doImageDownload(module, None, None)
     else:
@@ -226,7 +226,7 @@ def main():
 
     # Logic to check when changes occur or not
     errorMsg = cnos.checkOutputForError(output)
-    if(errorMsg is None):
+    if (errorMsg is None):
         module.exit_json(changed=True, msg="Image file transferred to device")
     else:
         module.fail_json(msg=errorMsg)

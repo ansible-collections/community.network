@@ -35,9 +35,8 @@ class TestConfigModule(TestIngateModule):
     def setUp(self):
         super(TestConfigModule, self).setUp()
 
-        self.mock_make_request = patch('ansible_collections.community.network.'
-                                       'plugins.modules.network.ingate.'
-                                       'ig_config.make_request')
+        self.mock_make_request = patch(
+            'ansible_collections.community.network.plugins.modules.network.ingate.ig_config.make_request')
         self.make_request = self.mock_make_request.start()
         # ATM the Ingate Python SDK is not needed in this unit test.
         self.module.HAS_INGATESDK = True

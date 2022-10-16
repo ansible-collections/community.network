@@ -7,14 +7,38 @@ files:
   $actions/aruba.py:
     maintainers: $team_aruba
     labels: aruba networking
+  $actions/ce.py:
+    maintainers: $team_huawei
+    labels: huawei networking
+  $actions/ce_template.py:
+    maintainers: $team_huawei
+    labels: huawei networking
+  $actions/cnos.py:
+    maintainers: $team_lenovo
+  $actions/enos.py:
+    maintainers: amuraleedhar
+  $actions/exos.py:
+    maintainers: $team_extreme
+    labels: exos networking
   $actions/ironware.py:
     maintainers: paulquack
     labels: ironware networking
+  $actions/slxos.py:
+    maintainers: $team_extreme
+    labels: networking slxos
   $actions/sros.py:
     maintainers: $team_networking
     labels: networking sros
+  $actions/voss.py:
+    maintainers: $team_extreme
+    labels: networking voss
+  $actions/network/edgeos/edgeos_config.py:
+    maintainers: $team_edgeos
+  $actions/network/nos/nos_config.py: {}
   $cliconfs/:
     labels: networking
+  $cliconfs/apconos.py:
+    maintainers: davidlee-ap
   $cliconfs/aruba.py:
     maintainers: $team_aruba
     labels: aruba networking
@@ -30,6 +54,8 @@ files:
   $cliconfs/exos.py:
     maintainers: $team_extreme rdvencioneck
     labels: exos networking
+  $cliconfs/icx.py:
+    maintainers: Commscope
   $cliconfs/ironware.py:
     maintainers: paulquack
     labels: ironware networking
@@ -42,6 +68,10 @@ files:
   $cliconfs/voss.py:
     maintainers: $team_extreme
     labels: networking voss
+  $cliconfs/weos4.py:
+    maintainers: ernst-s
+  $doc_fragments/:
+    labels: networking
   $httpapis/:
     maintainers: $team_networking
     labels: networking
@@ -120,6 +150,8 @@ files:
   $module_utils/network/voss/voss.py:
     maintainers: $team_extreme
     labels: networking
+  $module_utils/_version.py: {}
+  $module_utils/version.py: {}
 
   $modules/network/a10/a10_server_axapi3.py:
     maintainers: ericchou1 mischapeters
@@ -153,6 +185,20 @@ files:
     labels: huawei networking
   $modules/network/cloudengine/ce_command.py:
     maintainers: CloudEngine-Ansible $team_huawei
+  $modules/network/cloudengine/ce_is_is_instance.py:
+    maintainers: CloudEngine-Ansible
+  $modules/network/cloudengine/ce_is_is_interface.py:
+    maintainers: CloudEngine-Ansible
+  $modules/network/cloudengine/ce_is_is_view.py:
+    maintainers: CloudEngine-Ansible
+  $modules/network/cloudengine/ce_lacp.py:
+    maintainers: CloudEngine-Ansible
+  $modules/network/cloudengine/ce_lldp.py:
+    maintainers: CloudEngine-Ansible
+  $modules/network/cloudengine/ce_lldp_interface.py:
+    maintainers: CloudEngine-Ansible
+  $modules/network/cloudengine/ce_mdn_interface.py:
+    maintainers: CloudEngine-Ansible
   $modules/network/cloudengine/ce_multicast_global.py:
     maintainers: xuxiaowei0512 QijunPan TommyLike edisonxiang freesky-edward hwDCN niuzhenguo yanzhangi zengchen1024 zhongjun2
   $modules/network/cloudengine/ce_multicast_igmp_enable.py:
@@ -166,6 +212,8 @@ files:
   $modules/network/cnos/:
     ignore: amuraleedhar dkasberg
     maintainers: $team_lenovo
+  $modules/network/cnos/cnos_linkagg.py:
+    maintainers: auraleedhar
   $modules/network/cumulus/nclu.py:
     maintainers: isharacomix jrrivers
   $modules/network/edgeos/:
@@ -233,6 +281,11 @@ files:
     maintainers: privateip
   $modules/network/voss/:
     maintainers: LindsayHill
+  $netconfs/ce.py:
+    maintainers: $team_huawei
+    labels: ce cloudengine huawei networking
+  $lookups/avi.py:
+    maintainers: sabandi $team_avi
   $terminals/:
     labels: networking
   $terminals/aruba.py:
@@ -269,7 +322,6 @@ files:
     maintainers: $team_extreme
     labels: networking voss
 
-
 macros:
   actions: plugins/action
   becomes: plugins/become
@@ -283,6 +335,7 @@ macros:
   lookups: plugins/lookup
   module_utils: plugins/module_utils
   modules: plugins/modules
+  netconfs: plugins/netconf
   terminals: plugins/terminal
   team_aci: aciguru brunocalogero devarshishah3 fadallar jmcgill298 koladiya mtorelli rsmeyers schunduri smnmtzgr
   team_aruba: karthikeyan-dhandapani

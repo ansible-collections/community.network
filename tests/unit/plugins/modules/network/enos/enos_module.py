@@ -27,7 +27,7 @@ from ansible_collections.community.network.tests.unit.compat.mock import patch
 from ansible.module_utils import basic
 
 
-fixture_path = os.path.join(os.path.dirname(__file__), 'fixtures')
+fixture_path = os.path.join(os.path.dirname(__file__), 'enos_fixtures')
 fixture_data = {}
 
 

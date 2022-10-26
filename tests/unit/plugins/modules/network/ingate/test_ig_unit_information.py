@@ -21,14 +21,12 @@ class TestUnitInformationModule(TestIngateModule):
     def setUp(self):
         super(TestUnitInformationModule, self).setUp()
 
-        self.mock_make_request = patch('ansible_collections.community.network.'
-                                       'plugins.modules.network.ingate.'
-                                       'ig_unit_information.make_request')
+        self.mock_make_request = patch(
+            'ansible_collections.community.network.plugins.modules.network.ingate.ig_unit_information.make_request')
         self.make_request = self.mock_make_request.start()
 
-        self.mock_is_ingatesdk_installed = patch('ansible_collections.community.network.'
-                                                 'plugins.modules.network.ingate.'
-                                                 'ig_unit_information.is_ingatesdk_installed')
+        self.mock_is_ingatesdk_installed = patch(
+            'ansible_collections.community.network.plugins.modules.network.ingate.ig_unit_information.is_ingatesdk_installed')
         self.is_ingatesdk_installed = self.mock_is_ingatesdk_installed.start()
 
     def tearDown(self):

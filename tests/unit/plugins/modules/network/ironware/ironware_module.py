@@ -25,7 +25,7 @@ import json
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import AnsibleExitJson, AnsibleFailJson, ModuleTestCase
 
 
-fixture_path = os.path.join(os.path.dirname(__file__), 'fixtures')
+fixture_path = os.path.join(os.path.dirname(__file__), 'ironware_fixtures')
 fixture_data = {}
 
 

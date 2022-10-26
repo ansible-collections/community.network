@@ -52,7 +52,7 @@ class TestExosFactsModule(TestExosModule):
         def load_from_file(*args, **kwargs):
             module, commands = args
             output = list()
-            fixture_path = os.path.join(os.path.dirname(__file__), 'fixtures')
+            fixture_path = os.path.join(os.path.dirname(__file__), 'exos_fixtures')
 
             for command in commands:
                 if isinstance(command, Mapping):

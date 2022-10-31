@@ -35,7 +35,7 @@ options:
   partition:
     description:
       - set active-partition
-    default: '[]'
+    default: []
   service_group:
     description:
       - The SLB (Server Load Balancing) service-group name

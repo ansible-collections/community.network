@@ -29,7 +29,7 @@ options:
   partition:
     description:
       - set active-partition
-    default: '[]'
+    default: []
   server_name:
     description:
       - The SLB (Server Load Balancer) server name.

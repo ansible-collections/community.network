@@ -35,6 +35,7 @@ options:
   partition:
     description:
       - set active-partition
+    default: '[]'
   service_group:
     description:
       - The SLB (Server Load Balancing) service-group name
@@ -68,6 +69,7 @@ options:
       - A list of servers to add to the service group. Each list item should be a
         dictionary which specifies the C(server:) and C(port:), but can also optionally
         specify the C(status:). See the examples below for details.
+    default: []
     aliases: ['server', 'member']
   validate_certs:
     description:

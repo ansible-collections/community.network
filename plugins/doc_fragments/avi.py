@@ -17,17 +17,14 @@ options:
         description:
             - IP address or hostname of the controller. The default value is the environment variable C(AVI_CONTROLLER).
         type: str
-        default: ''
     username:
         description:
             - Username used for accessing Avi controller. The default value is the environment variable C(AVI_USERNAME).
         type: str
-        default: ''
     password:
         description:
             - Password of Avi user in Avi controller. The default value is the environment variable C(AVI_PASSWORD).
         type: str
-        default: ''
     tenant:
         description:
             - Name of tenant used for all Avi API calls and context of object.
@@ -67,12 +64,14 @@ options:
             tenant_uuid:
                 description:
                   - Avi controller tenant UUID
+                default: ''
             port:
                 description:
                   - Avi controller port
             token:
                 description:
                   - Avi controller API token
+                default: ''
             timeout:
                 description:
                   - Avi controller request timeout
@@ -80,9 +79,11 @@ options:
             session_id:
                 description:
                   - Avi controller API session id to reuse existing session with csrftoken
+                default: ''
             csrftoken:
                 description:
                   - Avi controller API csrftoken to reuse existing session with session id
+                default: ''
         type: dict
     api_context:
         description:

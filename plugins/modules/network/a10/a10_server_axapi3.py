@@ -42,6 +42,7 @@ options:
     description:
       - A list of ports to create for the server. Each list item should be a dictionary which specifies the C(port:)
         and C(protocol:).
+    default: []
     aliases: ['port']
   operation:
     description:

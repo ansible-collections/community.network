@@ -20,7 +20,7 @@ from voluptuous.humanize import humanize_error
 
 IGNORE_NO_MAINTAINERS = [
     'plugins/action/aireos.py',
-    'plugins/action/network/nos/nos_config.py',
+    'plugins/action/nos_config.py',
     'plugins/terminal/aireos.py',
     'plugins/terminal/apconos.py',
     'plugins/terminal/cnos.py',

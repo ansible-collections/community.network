@@ -106,7 +106,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client.RestClient': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_commit
+            from ansible_collections.community.network.plugins.modules import vdirect_commit
 
             try:
                 params = BASE_PARAMS.copy()
@@ -120,7 +120,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client.RestClient': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_commit
+            from ansible_collections.community.network.plugins.modules import vdirect_commit
 
             BASE_PARAMS.update(COMMIT_PARAMS)
             vdirectcommit = vdirect_commit.VdirectCommit(BASE_PARAMS)
@@ -161,7 +161,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client.RestClient': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_commit
+            from ansible_collections.community.network.plugins.modules import vdirect_commit
 
             BASE_PARAMS.update(COMMIT_PARAMS)
             vdirectcommit = vdirect_commit.VdirectCommit(BASE_PARAMS)

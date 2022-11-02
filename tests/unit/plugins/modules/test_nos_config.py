@@ -21,7 +21,7 @@ __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
-from ansible_collections.community.network.plugins.modules.network.nos import nos_config
+from ansible_collections.community.network.plugins.modules import nos_config
 from .nos_module import TestNosModule, load_fixture
 
 
@@ -32,13 +32,13 @@ class TestNosConfigModule(TestNosModule):
     def setUp(self):
         super(TestNosConfigModule, self).setUp()
 
-        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.nos.nos_config.get_config')
+        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.nos_config.get_config')
         self.get_config = self.mock_get_config.start()
 
-        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.network.nos.nos_config.load_config')
+        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.nos_config.load_config')
         self.load_config = self.mock_load_config.start()
 
-        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.nos.nos_config.run_commands')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.nos_config.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
     def tearDown(self):

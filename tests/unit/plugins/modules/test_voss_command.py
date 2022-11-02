@@ -23,7 +23,7 @@ import json
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
-from ansible_collections.community.network.plugins.modules.network.voss import voss_command
+from ansible_collections.community.network.plugins.modules import voss_command
 from .voss_module import TestVossModule, load_fixture
 
 
@@ -34,7 +34,7 @@ class TestVossCommandModule(TestVossModule):
     def setUp(self):
         super(TestVossCommandModule, self).setUp()
 
-        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.voss.voss_command.run_commands')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.voss_command.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
     def tearDown(self):

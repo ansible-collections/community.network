@@ -21,7 +21,7 @@ __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
-from ansible_collections.community.network.plugins.modules.network.ironware import ironware_command
+from ansible_collections.community.network.plugins.modules import ironware_command
 from .ironware_module import TestIronwareModule, load_fixture
 
 
@@ -31,7 +31,7 @@ class TestIronwareCommandModule(TestIronwareModule):
 
     def setUp(self):
         super(TestIronwareCommandModule, self).setUp()
-        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.ironware.ironware_command.run_commands')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.ironware_command.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
     def tearDown(self):

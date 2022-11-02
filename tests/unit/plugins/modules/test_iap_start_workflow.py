@@ -27,12 +27,12 @@ __metaclass__ = type
 
 import mock
 import unittest
-from ansible_collections.community.network.plugins.modules.network.itential import iap_start_workflow
+from ansible_collections.community.network.plugins.modules import iap_start_workflow
 
 
 class TestWorkflowModule(unittest.TestCase):
 
-    @mock.patch('ansible_collections.community.network.plugins.modules.network.itential.iap_start_workflow.start_workflow')
+    @mock.patch('ansible_collections.community.network.plugins.modules.iap_start_workflow.start_workflow')
     def test_iap_workflow(self, iap_workflow):
         params = {"description": "NewTestAnsible",
                   "https": "false",

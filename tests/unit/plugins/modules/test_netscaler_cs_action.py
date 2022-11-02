@@ -80,7 +80,7 @@ class TestNetscalerCSActionModule(TestModule):
         ))
         self.nitro_base_patcher.stop()
         self.nitro_specific_patcher.stop()
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
         self.module = netscaler_cs_action
         result = self.failed()
         self.assertEqual(result['msg'], 'Could not load nitro python sdk')
@@ -92,7 +92,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -102,8 +102,8 @@ class TestNetscalerCSActionModule(TestModule):
         client_mock = Mock()
         client_mock.login = Mock(side_effect=MockException)
         m = Mock(return_value=client_mock)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action.get_nitro_client', m):
-            with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action.nitro_exception', MockException):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_cs_action.get_nitro_client', m):
+            with patch('ansible_collections.community.network.plugins.modules.netscaler_cs_action.nitro_exception', MockException):
                 self.module = netscaler_cs_action
                 result = self.failed()
                 self.assertTrue(result['msg'].startswith('nitro exception'), msg='nitro exception during login not handled properly')
@@ -118,7 +118,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         class MockException(Exception):
             pass
@@ -127,7 +127,7 @@ class TestNetscalerCSActionModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -142,7 +142,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
@@ -154,7 +154,7 @@ class TestNetscalerCSActionModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -169,7 +169,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -178,7 +178,7 @@ class TestNetscalerCSActionModule(TestModule):
         cs_action_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             action_exists=Mock(side_effect=[False, True]),
             ensure_feature_is_enabled=Mock(return_value=True),
@@ -196,7 +196,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -205,7 +205,7 @@ class TestNetscalerCSActionModule(TestModule):
         cs_action_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             action_exists=Mock(side_effect=[True, False]),
             ensure_feature_is_enabled=Mock(return_value=True),
@@ -223,7 +223,7 @@ class TestNetscalerCSActionModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -232,7 +232,7 @@ class TestNetscalerCSActionModule(TestModule):
         cs_action_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             action_exists=Mock(side_effect=[False, True]),
             diff_list=Mock(return_value={}),
@@ -251,7 +251,7 @@ class TestNetscalerCSActionModule(TestModule):
             state='absent',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -260,7 +260,7 @@ class TestNetscalerCSActionModule(TestModule):
         cs_action_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             action_exists=Mock(side_effect=[True, False]),
             ensure_feature_is_enabled=Mock(return_value=True),
@@ -277,7 +277,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -291,7 +291,7 @@ class TestNetscalerCSActionModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_action_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             action_exists=Mock(side_effect=[False, True]),
             action_identical=Mock(side_effect=[True]),
@@ -309,7 +309,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -323,7 +323,7 @@ class TestNetscalerCSActionModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_action_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -343,7 +343,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -357,7 +357,7 @@ class TestNetscalerCSActionModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_action_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -377,7 +377,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -391,7 +391,7 @@ class TestNetscalerCSActionModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_action_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -411,7 +411,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -425,7 +425,7 @@ class TestNetscalerCSActionModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_action_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -445,7 +445,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -459,7 +459,7 @@ class TestNetscalerCSActionModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_action_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -481,7 +481,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -495,7 +495,7 @@ class TestNetscalerCSActionModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_action_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -517,7 +517,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -531,7 +531,7 @@ class TestNetscalerCSActionModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_action_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -553,7 +553,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         client_mock = Mock()
 
@@ -567,7 +567,7 @@ class TestNetscalerCSActionModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_action_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -589,7 +589,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -598,7 +598,7 @@ class TestNetscalerCSActionModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             action_exists=m,
             ensure_feature_is_enabled=Mock(return_value=True),
             nitro_exception=MockException
@@ -617,7 +617,7 @@ class TestNetscalerCSActionModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_action
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_action
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -626,7 +626,7 @@ class TestNetscalerCSActionModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_action',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_action',
             action_exists=m,
             ensure_feature_is_enabled=Mock(return_value=True),
             nitro_exception=MockException

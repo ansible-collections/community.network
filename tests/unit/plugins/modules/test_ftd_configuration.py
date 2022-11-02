@@ -26,7 +26,7 @@ from ansible.module_utils import basic
 from ansible_collections.community.network.plugins.module_utils.network.ftd.common import FtdConfigurationError, FtdServerError, FtdUnexpectedResponse
 from ansible_collections.community.network.plugins.module_utils.network.ftd.configuration import FtdInvalidOperationNameError, CheckModeException
 from ansible_collections.community.network.plugins.module_utils.network.ftd.fdm_swagger_client import ValidationError
-from ansible_collections.community.network.plugins.modules.network.ftd import ftd_configuration
+from ansible_collections.community.network.plugins.modules import ftd_configuration
 
 
 class TestFtdConfiguration(object):
@@ -38,12 +38,12 @@ class TestFtdConfiguration(object):
 
     @pytest.fixture(autouse=True)
     def connection_mock(self, mocker):
-        connection_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.network.ftd.ftd_configuration.Connection')
+        connection_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.ftd_configuration.Connection')
         return connection_class_mock.return_value
 
     @pytest.fixture
     def resource_mock(self, mocker):
-        resource_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.network.ftd.ftd_configuration.BaseConfigurationResource')
+        resource_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.ftd_configuration.BaseConfigurationResource')
         resource_instance = resource_class_mock.return_value
         return resource_instance.execute_operation
 

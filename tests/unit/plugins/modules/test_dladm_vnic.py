@@ -8,7 +8,7 @@ import json
 
 import pytest
 from ansible.module_utils.basic import AnsibleModule
-from ansible_collections.community.network.plugins.modules.network.illumos import (
+from ansible_collections.community.network.plugins.modules import (
     dladm_vnic,
 )
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import (

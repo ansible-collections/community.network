@@ -23,7 +23,7 @@ import json
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
 from .enos_module import TestEnosModule, load_fixture
-from ansible_collections.community.network.plugins.modules.network.enos import enos_facts
+from ansible_collections.community.network.plugins.modules import enos_facts
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 
 
@@ -34,7 +34,7 @@ class TestEnosFacts(TestEnosModule):
     def setUp(self):
         super(TestEnosFacts, self).setUp()
         self.mock_run_commands = patch(
-            'ansible_collections.community.network.plugins.modules.network.enos.enos_facts.run_commands')
+            'ansible_collections.community.network.plugins.modules.enos_facts.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
     def tearDown(self):

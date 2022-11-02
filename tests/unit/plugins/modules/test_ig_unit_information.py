@@ -9,7 +9,7 @@ __metaclass__ = type
 import os
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.ingate import ig_unit_information
+from ansible_collections.community.network.plugins.modules import ig_unit_information
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .ingate_module import TestIngateModule, load_fixture
 
@@ -22,11 +22,11 @@ class TestUnitInformationModule(TestIngateModule):
         super(TestUnitInformationModule, self).setUp()
 
         self.mock_make_request = patch(
-            'ansible_collections.community.network.plugins.modules.network.ingate.ig_unit_information.make_request')
+            'ansible_collections.community.network.plugins.modules.ig_unit_information.make_request')
         self.make_request = self.mock_make_request.start()
 
         self.mock_is_ingatesdk_installed = patch(
-            'ansible_collections.community.network.plugins.modules.network.ingate.ig_unit_information.is_ingatesdk_installed')
+            'ansible_collections.community.network.plugins.modules.ig_unit_information.is_ingatesdk_installed')
         self.is_ingatesdk_installed = self.mock_is_ingatesdk_installed.start()
 
     def tearDown(self):

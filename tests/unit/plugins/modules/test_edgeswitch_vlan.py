@@ -19,8 +19,8 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.edgeswitch import edgeswitch_vlan
-from ansible_collections.community.network.plugins.modules.network.edgeswitch.edgeswitch_vlan import parse_vlan_brief, parse_interfaces_switchport
+from ansible_collections.community.network.plugins.modules import edgeswitch_vlan
+from ansible_collections.community.network.plugins.modules.edgeswitch_vlan import parse_vlan_brief, parse_interfaces_switchport
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .edgeswitch_module import TestEdgeswitchModule, load_fixture
 
@@ -32,10 +32,10 @@ class TestEdgeswitchVlanModule(TestEdgeswitchModule):
     def setUp(self):
         super(TestEdgeswitchVlanModule, self).setUp()
 
-        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.edgeswitch.edgeswitch_vlan.run_commands')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.edgeswitch_vlan.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
-        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.network.edgeswitch.edgeswitch_vlan.load_config')
+        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.edgeswitch_vlan.load_config')
         self.load_config = self.mock_load_config.start()
 
     def tearDown(self):

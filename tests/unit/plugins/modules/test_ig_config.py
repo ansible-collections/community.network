@@ -23,7 +23,7 @@ __metaclass__ = type
 import os
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.ingate import ig_config
+from ansible_collections.community.network.plugins.modules import ig_config
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .ingate_module import TestIngateModule, load_fixture
 
@@ -36,7 +36,7 @@ class TestConfigModule(TestIngateModule):
         super(TestConfigModule, self).setUp()
 
         self.mock_make_request = patch(
-            'ansible_collections.community.network.plugins.modules.network.ingate.ig_config.make_request')
+            'ansible_collections.community.network.plugins.modules.ig_config.make_request')
         self.make_request = self.mock_make_request.start()
         # ATM the Ingate Python SDK is not needed in this unit test.
         self.module.HAS_INGATESDK = True

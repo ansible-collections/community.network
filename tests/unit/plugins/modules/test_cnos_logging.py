@@ -22,7 +22,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.cnos import cnos_logging
+from ansible_collections.community.network.plugins.modules import cnos_logging
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .cnos_module import TestCnosModule, load_fixture
 
@@ -34,10 +34,10 @@ class TestCnosLoggingModule(TestCnosModule):
     def setUp(self):
         super(TestCnosLoggingModule, self).setUp()
 
-        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.cnos.cnos_logging.get_config')
+        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.cnos_logging.get_config')
         self.get_config = self.mock_get_config.start()
 
-        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.network.cnos.cnos_logging.load_config')
+        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.cnos_logging.load_config')
         self.load_config = self.mock_load_config.start()
 
     def tearDown(self):

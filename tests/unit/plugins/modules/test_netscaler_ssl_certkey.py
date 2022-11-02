@@ -78,7 +78,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         ))
         self.nitro_base_patcher.stop()
         self.nitro_specific_patcher.stop()
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
         self.module = netscaler_ssl_certkey
         result = self.failed()
         self.assertEqual(result['msg'], 'Could not load nitro python sdk')
@@ -90,7 +90,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -100,8 +100,8 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         client_mock = Mock()
         client_mock.login = Mock(side_effect=MockException)
         m = Mock(return_value=client_mock)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey.get_nitro_client', m):
-            with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey.nitro_exception', MockException):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey.get_nitro_client', m):
+            with patch('ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey.nitro_exception', MockException):
                 self.module = netscaler_ssl_certkey
                 result = self.failed()
                 self.assertTrue(result['msg'].startswith('nitro exception'), msg='nitro exception during login not handled properly')
@@ -116,7 +116,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         class MockException(Exception):
             pass
@@ -125,7 +125,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -140,7 +140,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
@@ -152,7 +152,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -167,7 +167,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -176,7 +176,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         ssl_certkey_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             key_exists=Mock(side_effect=[False, True]),
             key_identical=Mock(side_effect=[True]),
@@ -194,7 +194,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -203,7 +203,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         ssl_certkey_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             key_exists=Mock(side_effect=[True, False]),
             ConfigProxy=Mock(return_value=ssl_certkey_proxy_mock),
@@ -220,7 +220,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -229,7 +229,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         ssl_certkey_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             key_exists=Mock(side_effect=[False, True]),
             key_identical=Mock(side_effect=[True]),
@@ -248,7 +248,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             state='absent',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -257,7 +257,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         ssl_certkey_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             key_exists=Mock(side_effect=[True, False]),
             ConfigProxy=Mock(return_value=ssl_certkey_proxy_mock),
@@ -273,7 +273,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -287,7 +287,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         config_proxy_mock = Mock(return_value=ssl_certkey_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             key_exists=Mock(side_effect=[False, True]),
             key_identical=Mock(side_effect=[True]),
@@ -304,7 +304,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -318,7 +318,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         config_proxy_mock = Mock(return_value=ssl_certkey_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -337,7 +337,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -351,7 +351,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         config_proxy_mock = Mock(return_value=ssl_certkey_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -370,7 +370,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -384,7 +384,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         config_proxy_mock = Mock(return_value=ssl_certkey_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -403,7 +403,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -417,7 +417,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         config_proxy_mock = Mock(return_value=ssl_certkey_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -436,7 +436,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -450,7 +450,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         config_proxy_mock = Mock(return_value=ssl_certkey_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -471,7 +471,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -485,7 +485,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         config_proxy_mock = Mock(return_value=ssl_certkey_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -506,7 +506,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -520,7 +520,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         config_proxy_mock = Mock(return_value=ssl_certkey_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -541,7 +541,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         client_mock = Mock()
 
@@ -555,7 +555,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
         config_proxy_mock = Mock(return_value=ssl_certkey_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -576,7 +576,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -585,7 +585,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             key_exists=m,
             nitro_exception=MockException
         ):
@@ -603,7 +603,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_ssl_certkey
+        from ansible_collections.community.network.plugins.modules import netscaler_ssl_certkey
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -612,7 +612,7 @@ class TestNetscalerSSLCertkeyModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_ssl_certkey',
+            'ansible_collections.community.network.plugins.modules.netscaler_ssl_certkey',
             key_exists=m,
             nitro_exception=MockException
         ):

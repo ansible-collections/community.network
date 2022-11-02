@@ -21,7 +21,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.enos import enos_config
+from ansible_collections.community.network.plugins.modules import enos_config
 from .enos_module import TestEnosModule, load_fixture
 
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
@@ -32,9 +32,9 @@ class TestEnosConfigModule(TestEnosModule):
     module = enos_config
 
     def setUp(self):
-        self.patcher_get_config = patch('ansible_collections.community.network.plugins.modules.network.enos.enos_config.get_config')
+        self.patcher_get_config = patch('ansible_collections.community.network.plugins.modules.enos_config.get_config')
         self.mock_get_config = self.patcher_get_config.start()
-        self.patcher_exec_command = patch('ansible_collections.community.network.plugins.modules.network.enos.enos_config.load_config')
+        self.patcher_exec_command = patch('ansible_collections.community.network.plugins.modules.enos_config.load_config')
         self.mock_exec_command = self.patcher_exec_command.start()
 
     def tearDown(self):

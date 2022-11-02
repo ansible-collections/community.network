@@ -89,14 +89,14 @@ class TestNetscalerServicegroupModule(TestModule):
         self.set_module_state('present')
         self.nitro_base_patcher.stop()
         self.nitro_specific_patcher.stop()
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         self.module = netscaler_servicegroup
         result = self.failed()
         self.assertEqual(result['msg'], 'Could not load nitro python sdk')
 
     def test_graceful_nitro_error_on_login(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -106,8 +106,8 @@ class TestNetscalerServicegroupModule(TestModule):
         client_mock = Mock()
         client_mock.login = Mock(side_effect=MockException)
         m = Mock(return_value=client_mock)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup.get_nitro_client', m):
-            with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup.nitro_exception', MockException):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_servicegroup.get_nitro_client', m):
+            with patch('ansible_collections.community.network.plugins.modules.netscaler_servicegroup.nitro_exception', MockException):
                 self.module = netscaler_servicegroup
                 result = self.failed()
                 self.assertTrue(result['msg'].startswith('nitro exception'), msg='nitro exception during login not handled properly')
@@ -117,14 +117,14 @@ class TestNetscalerServicegroupModule(TestModule):
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
 
         client_mock = Mock()
         attrs = {'login.side_effect': requests.exceptions.ConnectionError}
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             get_nitro_client=m,
             nitro_exception=self.MockException,
         ):
@@ -134,7 +134,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_graceful_login_error(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
 
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
@@ -144,7 +144,7 @@ class TestNetscalerServicegroupModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             get_nitro_client=m,
             nitro_exception=self.MockException,
         ):
@@ -154,7 +154,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_create_non_existing_servicegroup(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -167,7 +167,7 @@ class TestNetscalerServicegroupModule(TestModule):
         servicegroup_servicegroupmember_binding_mock = Mock(count=Mock(return_value=0))
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=servicegroup_exists_mock,
             servicemembers_identical=Mock(side_effect=[False, True]),
@@ -182,7 +182,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_update_servicegroup_when_servicegroup_differs(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -195,7 +195,7 @@ class TestNetscalerServicegroupModule(TestModule):
         monitor_bindings_identical_mock = Mock(side_effect=[True, True])
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=servicegroup_exists_mock,
             servicegroup_identical=servicegroup_identical_mock,
@@ -211,7 +211,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_update_servicegroup_when_monitor_bindings_differ(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -225,7 +225,7 @@ class TestNetscalerServicegroupModule(TestModule):
         sync_monitor_bindings_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=servicegroup_exists_mock,
             servicegroup_identical=servicegroup_identical_mock,
@@ -243,7 +243,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_update_servicegroup_when_service_members_differ(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -254,7 +254,7 @@ class TestNetscalerServicegroupModule(TestModule):
         sync_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=Mock(side_effect=[True, True]),
             servicegroup_identical=Mock(side_effect=[True, True]),
@@ -272,7 +272,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_immutables_changed(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -282,7 +282,7 @@ class TestNetscalerServicegroupModule(TestModule):
         m = MagicMock(return_value=servicegroup_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=Mock(side_effect=[True, True]),
             servicegroup_identical=Mock(side_effect=[False, True]),
@@ -296,7 +296,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_servicegroup_exists_sanity(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -307,7 +307,7 @@ class TestNetscalerServicegroupModule(TestModule):
         sync_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=Mock(side_effect=[False, False]),
             servicegroup_identical=Mock(side_effect=[False, False]),
@@ -324,7 +324,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_servicegroup_differ_sanity(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -335,7 +335,7 @@ class TestNetscalerServicegroupModule(TestModule):
         sync_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=Mock(side_effect=[True, True]),
             servicegroup_identical=Mock(side_effect=[False, False]),
@@ -352,7 +352,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_servicegroup_servicemembers_differ_sanity(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -363,7 +363,7 @@ class TestNetscalerServicegroupModule(TestModule):
         sync_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=Mock(side_effect=[True, True]),
             servicegroup_identical=Mock(side_effect=[True, True]),
@@ -380,7 +380,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_servicegroup_monitor_bindings_sanity(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -391,7 +391,7 @@ class TestNetscalerServicegroupModule(TestModule):
         sync_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=Mock(side_effect=[True, True]),
             servicegroup_identical=Mock(side_effect=[True, True]),
@@ -408,7 +408,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_no_change_to_module_when_all_identical(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -421,7 +421,7 @@ class TestNetscalerServicegroupModule(TestModule):
         monitor_bindings_identical_mock = Mock(side_effect=[True, True])
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=servicegroup_exists_mock,
             servicegroup_identical=servicegroup_identical_mock,
@@ -436,7 +436,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_absent_operation(self):
         self.set_module_state('absent')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -447,7 +447,7 @@ class TestNetscalerServicegroupModule(TestModule):
         servicegroup_exists_mock = Mock(side_effect=[True, False])
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=servicegroup_exists_mock,
 
@@ -459,7 +459,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_absent_operation_no_change(self):
         self.set_module_state('absent')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
         servicegroup_proxy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -470,7 +470,7 @@ class TestNetscalerServicegroupModule(TestModule):
         servicegroup_exists_mock = Mock(side_effect=[False, False])
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=m,
             servicegroup_exists=servicegroup_exists_mock,
 
@@ -482,10 +482,10 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_absent_operation_sanity(self):
         self.set_module_state('absent')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             ConfigProxy=MagicMock(),
             servicegroup_exists=Mock(side_effect=[True, True]),
             nitro_exception=self.MockException,
@@ -497,7 +497,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_graceful_nitro_exception_operation_present(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -506,7 +506,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             servicegroup_exists=m,
             nitro_exception=MockException
         ):
@@ -519,7 +519,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
     def test_graceful_nitro_exception_operation_absent(self):
         self.set_module_state('absent')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_servicegroup
+        from ansible_collections.community.network.plugins.modules import netscaler_servicegroup
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -528,7 +528,7 @@ class TestNetscalerServicegroupModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_servicegroup',
+            'ansible_collections.community.network.plugins.modules.netscaler_servicegroup',
             servicegroup_exists=m,
             nitro_exception=MockException
         ):

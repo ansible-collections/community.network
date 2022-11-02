@@ -18,7 +18,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.cnos import cnos_banner
+from ansible_collections.community.network.plugins.modules import cnos_banner
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .cnos_module import TestCnosModule, load_fixture
 
@@ -30,10 +30,10 @@ class TestCnosBannerModule(TestCnosModule):
     def setUp(self):
         super(TestCnosBannerModule, self).setUp()
 
-        self.mock_exec_command = patch('ansible_collections.community.network.plugins.modules.network.cnos.cnos_banner.exec_command')
+        self.mock_exec_command = patch('ansible_collections.community.network.plugins.modules.cnos_banner.exec_command')
         self.exec_command = self.mock_exec_command.start()
 
-        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.network.cnos.cnos_banner.load_config')
+        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.cnos_banner.load_config')
         self.load_config = self.mock_load_config.start()
 
     def tearDown(self):

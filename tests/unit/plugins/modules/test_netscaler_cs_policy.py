@@ -78,14 +78,14 @@ class TestNetscalerCSPolicyModule(TestModule):
         self.set_module_state('present')
         self.nitro_base_patcher.stop()
         self.nitro_specific_patcher.stop()
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
         self.module = netscaler_cs_policy
         result = self.failed()
         self.assertEqual(result['msg'], 'Could not load nitro python sdk')
 
     def test_graceful_nitro_error_on_login(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -95,8 +95,8 @@ class TestNetscalerCSPolicyModule(TestModule):
         client_mock = Mock()
         client_mock.login = Mock(side_effect=MockException)
         m = Mock(return_value=client_mock)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy.get_nitro_client', m):
-            with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy.nitro_exception', MockException):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_cs_policy.get_nitro_client', m):
+            with patch('ansible_collections.community.network.plugins.modules.netscaler_cs_policy.nitro_exception', MockException):
                 self.module = netscaler_cs_policy
                 result = self.failed()
                 self.assertTrue(result['msg'].startswith('nitro exception'), msg='nitro exception during login not handled properly')
@@ -106,14 +106,14 @@ class TestNetscalerCSPolicyModule(TestModule):
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
 
         client_mock = Mock()
         attrs = {'login.side_effect': requests.exceptions.ConnectionError}
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_policy',
             get_nitro_client=m,
             nitro_exception=self.MockException,
         ):
@@ -123,7 +123,7 @@ class TestNetscalerCSPolicyModule(TestModule):
 
     def test_graceful_login_error(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
 
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
@@ -135,7 +135,7 @@ class TestNetscalerCSPolicyModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_policy',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -145,7 +145,7 @@ class TestNetscalerCSPolicyModule(TestModule):
 
     def test_create_non_existing_cs_policy(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
         cs_policy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -156,7 +156,7 @@ class TestNetscalerCSPolicyModule(TestModule):
         policy_exists_mock = Mock(side_effect=[False, True])
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_policy',
             ConfigProxy=m,
             policy_exists=policy_exists_mock,
             nitro_exception=self.MockException,
@@ -169,7 +169,7 @@ class TestNetscalerCSPolicyModule(TestModule):
 
     def test_update_cs_policy_when_cs_policy_differs(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
         cs_policy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -181,7 +181,7 @@ class TestNetscalerCSPolicyModule(TestModule):
         policy_identical_mock = Mock(side_effect=[False, True])
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_policy',
             ConfigProxy=m,
             policy_exists=policy_exists_mock,
             policy_identical=policy_identical_mock,
@@ -195,7 +195,7 @@ class TestNetscalerCSPolicyModule(TestModule):
 
     def test_no_change_to_module_when_all_identical(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
         cs_policy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -207,7 +207,7 @@ class TestNetscalerCSPolicyModule(TestModule):
         policy_identical_mock = Mock(side_effect=[True, True])
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_policy',
             ConfigProxy=m,
             policy_exists=policy_exists_mock,
             policy_identical=policy_identical_mock,
@@ -220,7 +220,7 @@ class TestNetscalerCSPolicyModule(TestModule):
 
     def test_absent_operation(self):
         self.set_module_state('absent')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
         cs_policy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -231,7 +231,7 @@ class TestNetscalerCSPolicyModule(TestModule):
         policy_exists_mock = Mock(side_effect=[True, False])
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_policy',
             ConfigProxy=m,
             policy_exists=policy_exists_mock,
             nitro_exception=self.MockException,
@@ -245,7 +245,7 @@ class TestNetscalerCSPolicyModule(TestModule):
 
     def test_absent_operation_no_change(self):
         self.set_module_state('absent')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
         cs_policy_mock = MagicMock()
         attrs = {
             'diff_object.return_value': {},
@@ -256,7 +256,7 @@ class TestNetscalerCSPolicyModule(TestModule):
         policy_exists_mock = Mock(side_effect=[False, False])
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_policy',
             ConfigProxy=m,
             policy_exists=policy_exists_mock,
             nitro_exception=self.MockException,
@@ -270,7 +270,7 @@ class TestNetscalerCSPolicyModule(TestModule):
 
     def test_graceful_nitro_exception_operation_present(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -279,7 +279,7 @@ class TestNetscalerCSPolicyModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_policy',
             policy_exists=m,
             ensure_feature_is_enabled=Mock(),
             nitro_exception=MockException
@@ -293,7 +293,7 @@ class TestNetscalerCSPolicyModule(TestModule):
 
     def test_graceful_nitro_exception_operation_absent(self):
         self.set_module_state('absent')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -302,7 +302,7 @@ class TestNetscalerCSPolicyModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_policy',
             policy_exists=m,
             nitro_exception=MockException,
             ensure_feature_is_enabled=Mock(),
@@ -316,12 +316,12 @@ class TestNetscalerCSPolicyModule(TestModule):
 
     def test_ensure_feature_is_enabled_called(self):
         self.set_module_state('present')
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_policy
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_policy
 
         client_mock = Mock()
         ensure_feature_is_enabled_mock = Mock()
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_policy',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_policy',
             get_nitro_client=Mock(return_value=client_mock),
             policy_exists=Mock(side_effect=[True, True]),
             nitro_exception=self.MockException,

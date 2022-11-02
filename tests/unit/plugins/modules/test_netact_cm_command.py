@@ -29,7 +29,7 @@ __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat import unittest
 from ansible.module_utils import basic
-from ansible_collections.community.network.plugins.modules.network.netact import netact_cm_command
+from ansible_collections.community.network.plugins.modules import netact_cm_command
 from ansible_collections.community.network.tests.unit.compat.mock import patch
 
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args, AnsibleExitJson, AnsibleFailJson

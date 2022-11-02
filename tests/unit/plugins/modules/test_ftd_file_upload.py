@@ -5,7 +5,7 @@ import pytest
 from ansible.module_utils import basic
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args, exit_json, fail_json, AnsibleFailJson, AnsibleExitJson
 
-from ansible_collections.community.network.plugins.modules.network.ftd import ftd_file_upload
+from ansible_collections.community.network.plugins.modules import ftd_file_upload
 from ansible_collections.community.network.plugins.module_utils.network.ftd.fdm_swagger_client import OperationField
 from ansible_collections.community.network.plugins.module_utils.network.ftd.common import HTTPMethod
 
@@ -19,7 +19,7 @@ class TestFtdFileUpload(object):
 
     @pytest.fixture
     def connection_mock(self, mocker):
-        connection_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.network.ftd.ftd_file_upload.Connection')
+        connection_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.ftd_file_upload.Connection')
         return connection_class_mock.return_value
 
     @pytest.mark.parametrize("missing_arg", ['operation', 'file_to_upload'])

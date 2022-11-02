@@ -144,7 +144,7 @@ class Catalog:
     @classmethod
     def get_catalog_item(cls, type=None, name=None):
         if Catalog._404:
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
             raise vdirect_runnable.MissingRunnableException(name)
 
 
@@ -162,7 +162,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             try:
                 params = BASE_PARAMS.copy()
@@ -176,7 +176,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Catalog.set_catalog_item_200()
             BASE_PARAMS.update(CONFIGURATION_TEMPLATE_RUNNABLE_PARAMS)
@@ -191,7 +191,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Catalog.set_catalog_item_200()
             BASE_PARAMS.update(WORKFLOW_TEMPLATE_RUNNABLE_PARAMS)
@@ -206,7 +206,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Catalog.set_catalog_item_200()
             BASE_PARAMS.update(CONFIGURATION_TEMPLATE_RUNNABLE_PARAMS)
@@ -223,7 +223,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Runnable.set_runnable_objects_result(WORKFLOW_RUNNABLE_OBJECT_RESULT)
             BASE_PARAMS.update(WORKFLOW_RUNNABLE_PARAMS)
@@ -248,7 +248,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Catalog.set_catalog_item_200()
             BASE_PARAMS.update(PLUGIN_RUNNABLE_PARAMS)
@@ -270,7 +270,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Runnable.set_available_actions_result(ACTIONS_RESULT)
             BASE_PARAMS.update(CONFIGURATION_TEMPLATE_RUNNABLE_PARAMS)
@@ -283,7 +283,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Runnable.set_available_actions_result(ACTIONS_RESULT)
             BASE_PARAMS.update(WORKFLOW_TEMPLATE_RUNNABLE_PARAMS)
@@ -296,7 +296,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Runnable.set_available_actions_result(ACTIONS_RESULT)
             BASE_PARAMS.update(WORKFLOW_RUNNABLE_PARAMS)
@@ -319,7 +319,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Runnable.set_available_actions_result(ACTIONS_RESULT)
             BASE_PARAMS.update(PLUGIN_RUNNABLE_PARAMS)
@@ -342,7 +342,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Runnable.set_action_info_result(ACTIONS_PARAMS_RESULT_BASIC)
             BASE_PARAMS.update(CONFIGURATION_TEMPLATE_RUNNABLE_PARAMS)
@@ -393,7 +393,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': self.module_mock,
             'vdirect_client.rest_client': self.module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_runnable
+            from ansible_collections.community.network.plugins.modules import vdirect_runnable
 
             Catalog.set_catalog_item_200()
             BASE_PARAMS.update(CONFIGURATION_TEMPLATE_RUNNABLE_PARAMS)

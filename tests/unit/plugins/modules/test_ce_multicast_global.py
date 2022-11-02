@@ -21,8 +21,8 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.cloudengine import ce_multicast_global
-from ansible_collections.community.network.tests.unit.plugins.modules.network.cloudengine.ce_module import TestCloudEngineModule, load_fixture
+from ansible_collections.community.network.plugins.modules import ce_multicast_global
+from ansible_collections.community.network.tests.unit.plugins.modules.ce_module import TestCloudEngineModule, load_fixture
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 
 
@@ -32,10 +32,10 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
     def setUp(self):
         super(TestCloudEngineLacpModule, self).setUp()
 
-        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.cloudengine.ce_multicast_global.get_nc_config')
+        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.ce_multicast_global.get_nc_config')
         self.get_nc_config = self.mock_get_config.start()
 
-        self.mock_set_config = patch('ansible_collections.community.network.plugins.modules.network.cloudengine.ce_multicast_global.set_nc_config')
+        self.mock_set_config = patch('ansible_collections.community.network.plugins.modules.ce_multicast_global.set_nc_config')
         self.set_nc_config = self.mock_set_config.start()
         self.set_nc_config.return_value = "<ok/>"
         self.before = load_fixture('ce_multicast_global', 'before.txt')

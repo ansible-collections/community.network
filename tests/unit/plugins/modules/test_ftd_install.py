@@ -24,7 +24,7 @@ from ansible_collections.community.network.tests.unit.compat.mock import Propert
 from ansible.module_utils import basic
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args, exit_json, fail_json, AnsibleFailJson, AnsibleExitJson
 
-from ansible_collections.community.network.plugins.modules.network.ftd import ftd_install
+from ansible_collections.community.network.plugins.modules import ftd_install
 from ansible_collections.community.network.plugins.module_utils.network.ftd.device import FtdModel
 
 DEFAULT_MODULE_PARAMS = dict(
@@ -61,17 +61,17 @@ class TestFtdInstall(object):
 
     @pytest.fixture(autouse=True)
     def connection_mock(self, mocker):
-        connection_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.network.ftd.ftd_install.Connection')
+        connection_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.ftd_install.Connection')
         return connection_class_mock.return_value
 
     @pytest.fixture
     def config_resource_mock(self, mocker):
-        resource_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.network.ftd.ftd_install.BaseConfigurationResource')
+        resource_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.ftd_install.BaseConfigurationResource')
         return resource_class_mock.return_value
 
     @pytest.fixture(autouse=True)
     def ftd_factory_mock(self, mocker):
-        return mocker.patch('ansible_collections.community.network.plugins.modules.network.ftd.ftd_install.FtdPlatformFactory')
+        return mocker.patch('ansible_collections.community.network.plugins.modules.ftd_install.FtdPlatformFactory')
 
     @pytest.fixture(autouse=True)
     def has_kick_mock(self, mocker):

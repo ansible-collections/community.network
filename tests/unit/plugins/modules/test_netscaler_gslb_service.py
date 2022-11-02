@@ -88,7 +88,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         ))
         self.nitro_base_patcher.stop()
         self.nitro_specific_patcher.stop()
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
         self.module = netscaler_gslb_service
         result = self.failed()
         self.assertEqual(result['msg'], 'Could not load nitro python sdk')
@@ -100,7 +100,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -110,8 +110,8 @@ class TestNetscalerGSLBSiteModule(TestModule):
         client_mock = Mock()
         client_mock.login = Mock(side_effect=MockException)
         m = Mock(return_value=client_mock)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service.get_nitro_client', m):
-            with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service.nitro_exception', MockException):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_gslb_service.get_nitro_client', m):
+            with patch('ansible_collections.community.network.plugins.modules.netscaler_gslb_service.nitro_exception', MockException):
                 self.module = netscaler_gslb_service
                 result = self.failed()
                 self.assertTrue(result['msg'].startswith('nitro exception'), msg='nitro exception during login not handled properly')
@@ -126,7 +126,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         class MockException(Exception):
             pass
@@ -135,7 +135,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -150,7 +150,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
@@ -162,7 +162,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             monkey_patch_nitro_api=Mock(),
             nitro_exception=MockException,
@@ -178,14 +178,14 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         gslb_service_proxy_mock = Mock()
         ensure_feature_is_enabled_mock = Mock()
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=Mock(return_value=client_mock),
             gslb_service_exists=Mock(side_effect=[False, True]),
             gslb_service_identical=Mock(side_effect=[True]),
@@ -205,7 +205,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -214,7 +214,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         gslb_service_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             gslb_service_exists=Mock(side_effect=[False, True]),
             gslb_service_identical=Mock(side_effect=[True]),
@@ -234,7 +234,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -243,7 +243,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         gslb_service_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             gslb_service_exists=Mock(side_effect=[True, False]),
             nitro_exception=self.MockException,
@@ -263,7 +263,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -272,7 +272,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         gslb_service_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             gslb_service_exists=Mock(side_effect=[False, True]),
             gslb_service_identical=Mock(side_effect=[True]),
@@ -293,7 +293,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             state='absent',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -302,7 +302,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         gslb_service_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             gslb_service_exists=Mock(side_effect=[True, False]),
             nitro_exception=self.MockException,
@@ -321,7 +321,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -335,7 +335,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         config_proxy_mock = Mock(return_value=gslb_service_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             gslb_service_exists=Mock(side_effect=[False, True]),
             gslb_service_identical=Mock(side_effect=[True]),
@@ -355,7 +355,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -369,7 +369,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         config_proxy_mock = Mock(return_value=gslb_service_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -392,7 +392,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -406,7 +406,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         config_proxy_mock = Mock(return_value=gslb_service_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -427,7 +427,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -441,7 +441,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         config_proxy_mock = Mock(return_value=gslb_service_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -463,7 +463,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -477,7 +477,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         config_proxy_mock = Mock(return_value=gslb_service_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -499,7 +499,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -513,7 +513,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         config_proxy_mock = Mock(return_value=gslb_service_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -537,7 +537,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -551,7 +551,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         config_proxy_mock = Mock(return_value=gslb_service_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -575,7 +575,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -589,7 +589,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         config_proxy_mock = Mock(return_value=gslb_service_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -612,7 +612,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -626,7 +626,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         config_proxy_mock = Mock(return_value=gslb_service_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -649,7 +649,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         client_mock = Mock()
 
@@ -663,7 +663,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
         config_proxy_mock = Mock(return_value=gslb_service_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -686,7 +686,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -695,7 +695,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             gslb_service_exists=m,
             ensure_feature_is_enabled=Mock(),
             monkey_patch_nitro_api=Mock(),
@@ -715,7 +715,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_gslb_service
+        from ansible_collections.community.network.plugins.modules import netscaler_gslb_service
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -724,7 +724,7 @@ class TestNetscalerGSLBSiteModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_gslb_service',
+            'ansible_collections.community.network.plugins.modules.netscaler_gslb_service',
             gslb_service_exists=m,
             ensure_feature_is_enabled=Mock(),
             monkey_patch_nitro_api=Mock(),

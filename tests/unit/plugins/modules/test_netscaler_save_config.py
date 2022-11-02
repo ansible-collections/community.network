@@ -59,7 +59,7 @@ class TestNetscalerSaveConfigModule(TestModule):
             nitro_pass='pass',
             nsip='192.0.2.1',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_save_config
+        from ansible_collections.community.network.plugins.modules import netscaler_save_config
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -69,8 +69,8 @@ class TestNetscalerSaveConfigModule(TestModule):
         client_mock = Mock()
         client_mock.login = Mock(side_effect=MockException)
         m = Mock(return_value=client_mock)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_save_config.get_nitro_client', m):
-            with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_save_config.nitro_exception', MockException):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_save_config.get_nitro_client', m):
+            with patch('ansible_collections.community.network.plugins.modules.netscaler_save_config.nitro_exception', MockException):
                 self.module = netscaler_save_config
                 result = self.failed()
                 self.assertTrue(result['msg'].startswith('nitro exception'), msg='nitro exception during login not handled properly')
@@ -84,7 +84,7 @@ class TestNetscalerSaveConfigModule(TestModule):
             nitro_pass='pass',
             nsip='192.0.2.1',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_save_config
+        from ansible_collections.community.network.plugins.modules import netscaler_save_config
 
         class MockException(Exception):
             pass
@@ -93,7 +93,7 @@ class TestNetscalerSaveConfigModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_save_config',
+            'ansible_collections.community.network.plugins.modules.netscaler_save_config',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -107,7 +107,7 @@ class TestNetscalerSaveConfigModule(TestModule):
             nitro_pass='pass',
             nsip='192.0.2.1',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_save_config
+        from ansible_collections.community.network.plugins.modules import netscaler_save_config
 
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
@@ -119,7 +119,7 @@ class TestNetscalerSaveConfigModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_save_config',
+            'ansible_collections.community.network.plugins.modules.netscaler_save_config',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -137,11 +137,11 @@ class TestNetscalerSaveConfigModule(TestModule):
         class MockException(Exception):
             pass
 
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_save_config
+        from ansible_collections.community.network.plugins.modules import netscaler_save_config
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_save_config',
+            'ansible_collections.community.network.plugins.modules.netscaler_save_config',
             get_nitro_client=Mock(return_value=client_mock),
             nitro_exception=MockException,
         ):

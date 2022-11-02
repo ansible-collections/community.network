@@ -87,7 +87,7 @@ class TestNetscalerCSVserverModule(TestModule):
         ))
         self.nitro_base_patcher.stop()
         self.nitro_specific_patcher.stop()
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
         self.module = netscaler_cs_vserver
         result = self.failed()
         self.assertEqual(result['msg'], 'Could not load nitro python sdk')
@@ -99,7 +99,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -109,8 +109,8 @@ class TestNetscalerCSVserverModule(TestModule):
         client_mock = Mock()
         client_mock.login = Mock(side_effect=MockException)
         m = Mock(return_value=client_mock)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver.get_nitro_client', m):
-            with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver.nitro_exception', MockException):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_cs_vserver.get_nitro_client', m):
+            with patch('ansible_collections.community.network.plugins.modules.netscaler_cs_vserver.nitro_exception', MockException):
                 self.module = netscaler_cs_vserver
                 result = self.failed()
                 self.assertTrue(result['msg'].startswith('nitro exception'), msg='nitro exception during login not handled properly')
@@ -125,7 +125,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         class MockException(Exception):
             pass
@@ -134,7 +134,7 @@ class TestNetscalerCSVserverModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -149,7 +149,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
@@ -161,7 +161,7 @@ class TestNetscalerCSVserverModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -176,7 +176,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -185,7 +185,7 @@ class TestNetscalerCSVserverModule(TestModule):
         cs_vserver_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             cs_vserver_exists=Mock(side_effect=[False, True]),
             cs_vserver_identical=Mock(side_effect=[True]),
@@ -206,7 +206,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -215,7 +215,7 @@ class TestNetscalerCSVserverModule(TestModule):
         cs_vserver_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             cs_vserver_exists=Mock(side_effect=[True, False]),
             ensure_feature_is_enabled=Mock(return_value=True),
@@ -233,7 +233,7 @@ class TestNetscalerCSVserverModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -242,7 +242,7 @@ class TestNetscalerCSVserverModule(TestModule):
         cs_vserver_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             cs_vserver_exists=Mock(side_effect=[False, True]),
             cs_vserver_identical=Mock(side_effect=[True]),
@@ -264,7 +264,7 @@ class TestNetscalerCSVserverModule(TestModule):
             state='absent',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -273,7 +273,7 @@ class TestNetscalerCSVserverModule(TestModule):
         cs_vserver_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             cs_vserver_exists=Mock(side_effect=[True, False]),
             ensure_feature_is_enabled=Mock(return_value=True),
@@ -290,7 +290,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -304,7 +304,7 @@ class TestNetscalerCSVserverModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_vserver_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             cs_vserver_exists=Mock(side_effect=[False, True]),
             cs_vserver_identical=Mock(side_effect=[True]),
@@ -324,7 +324,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -338,7 +338,7 @@ class TestNetscalerCSVserverModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_vserver_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -360,7 +360,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -374,7 +374,7 @@ class TestNetscalerCSVserverModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_vserver_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -394,7 +394,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -408,7 +408,7 @@ class TestNetscalerCSVserverModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_vserver_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -429,7 +429,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -443,7 +443,7 @@ class TestNetscalerCSVserverModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_vserver_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -463,7 +463,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -477,7 +477,7 @@ class TestNetscalerCSVserverModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_vserver_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -500,7 +500,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -514,7 +514,7 @@ class TestNetscalerCSVserverModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_vserver_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -537,7 +537,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -551,7 +551,7 @@ class TestNetscalerCSVserverModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_vserver_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -573,7 +573,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -587,7 +587,7 @@ class TestNetscalerCSVserverModule(TestModule):
         config_proxy_mock = Mock(return_value=cs_vserver_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -609,7 +609,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -618,7 +618,7 @@ class TestNetscalerCSVserverModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             cs_vserver_exists=m,
             ensure_feature_is_enabled=Mock(return_value=True),
             nitro_exception=MockException
@@ -637,7 +637,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -646,7 +646,7 @@ class TestNetscalerCSVserverModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             cs_vserver_exists=m,
             ensure_feature_is_enabled=Mock(return_value=True),
             nitro_exception=MockException
@@ -666,14 +666,14 @@ class TestNetscalerCSVserverModule(TestModule):
             state='present',
         ))
 
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         cs_vserver_proxy_mock = Mock()
 
         do_state_change_mock = Mock(return_value=Mock(errorcode=0))
         client_mock = Mock()
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             ConfigProxy=Mock(return_value=cs_vserver_proxy_mock),
             ensure_feature_is_enabled=Mock(return_value=True),
@@ -694,7 +694,7 @@ class TestNetscalerCSVserverModule(TestModule):
             state='present',
             servicetype='SSL',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -709,7 +709,7 @@ class TestNetscalerCSVserverModule(TestModule):
         ssl_certkey_bindings_sync_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -734,7 +734,7 @@ class TestNetscalerCSVserverModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_cs_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_cs_vserver
 
         client_mock = Mock()
 
@@ -749,7 +749,7 @@ class TestNetscalerCSVserverModule(TestModule):
         ssl_certkey_bindings_sync_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_cs_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_cs_vserver',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),

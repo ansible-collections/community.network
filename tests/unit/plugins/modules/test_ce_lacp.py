@@ -21,7 +21,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.cloudengine import ce_lacp
+from ansible_collections.community.network.plugins.modules import ce_lacp
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .ce_module import TestCloudEngineModule, load_fixture
 
@@ -32,10 +32,10 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
     def setUp(self):
         super(TestCloudEngineLacpModule, self).setUp()
 
-        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.cloudengine.ce_lacp.get_nc_config')
+        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.ce_lacp.get_nc_config')
         self.get_nc_config = self.mock_get_config.start()
 
-        self.mock_set_config = patch('ansible_collections.community.network.plugins.modules.network.cloudengine.ce_lacp.set_nc_config')
+        self.mock_set_config = patch('ansible_collections.community.network.plugins.modules.ce_lacp.set_nc_config')
         self.set_nc_config = self.mock_set_config.start()
         self.set_nc_config.return_value = None
 

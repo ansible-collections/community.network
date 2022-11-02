@@ -27,7 +27,7 @@ import tempfile
 import json
 import codecs
 
-from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_nitro_request
+from ansible_collections.community.network.plugins.modules import netscaler_nitro_request
 
 module_arguments = dict(
     nsip=None,
@@ -79,7 +79,7 @@ class TestNetscalerNitroRequestModule(TestModule):
             )
         ]
         module_mock = Mock(return_value=mock_module_instance)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule', module_mock):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule', module_mock):
             netscaler_nitro_request.NitroAPICaller()
             mock_module_instance.assert_has_calls(expected_calls)
 
@@ -96,7 +96,7 @@ class TestNetscalerNitroRequestModule(TestModule):
             'X-NITRO-PASS': 'nsroot',
         }
         module_mock = Mock(return_value=mock_module_instance)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule', module_mock):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule', module_mock):
             instance = netscaler_nitro_request.NitroAPICaller()
             self.assertDictEqual(instance._headers, expected_headers)
 
@@ -112,7 +112,7 @@ class TestNetscalerNitroRequestModule(TestModule):
             'Content-Type': 'application/json',
         }
         module_mock = Mock(return_value=mock_module_instance)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule', module_mock):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule', module_mock):
             instance = netscaler_nitro_request.NitroAPICaller()
             self.assertDictEqual(instance._headers, expected_headers)
 
@@ -130,7 +130,7 @@ class TestNetscalerNitroRequestModule(TestModule):
             'Cookie': 'NITRO_AUTH_TOKEN=%s' % args['nitro_auth_token'],
         }
         module_mock = Mock(return_value=mock_module_instance)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule', module_mock):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule', module_mock):
             instance = netscaler_nitro_request.NitroAPICaller()
             self.assertDictEqual(instance._headers, expected_headers)
 
@@ -148,7 +148,7 @@ class TestNetscalerNitroRequestModule(TestModule):
             'Cookie': 'NITRO_AUTH_TOKEN=%s' % args['nitro_auth_token'],
         }
         module_mock = Mock(return_value=mock_module_instance)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule', module_mock):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule', module_mock):
             instance = netscaler_nitro_request.NitroAPICaller()
             self.assertDictEqual(instance._headers, expected_headers)
 
@@ -166,12 +166,12 @@ class TestNetscalerNitroRequestModule(TestModule):
             'Cookie': 'NITRO_AUTH_TOKEN=%s' % args['nitro_auth_token'],
         }
         module_mock = Mock(return_value=mock_module_instance)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule', module_mock):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule', module_mock):
             instance = netscaler_nitro_request.NitroAPICaller()
             self.assertDictEqual(instance._headers, expected_headers)
 
     def test_edit_response_data_no_body_success_status(self):
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule'):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule'):
             instance = netscaler_nitro_request.NitroAPICaller()
             r = None
             info = {
@@ -191,7 +191,7 @@ class TestNetscalerNitroRequestModule(TestModule):
             self.assertDictEqual(result, expected_result)
 
     def test_edit_response_data_no_body_fail_status(self):
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule'):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule'):
             instance = netscaler_nitro_request.NitroAPICaller()
             r = None
             info = {
@@ -218,7 +218,7 @@ class TestNetscalerNitroRequestModule(TestModule):
             nitro_auth_token='##DDASKLFDJ',
         ))
         module_mock = Mock(params=args, from_json=json.loads)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule',
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule',
                    Mock(return_value=module_mock)):
             with tempfile.TemporaryFile() as r:
                 actual_body = {
@@ -256,7 +256,7 @@ class TestNetscalerNitroRequestModule(TestModule):
             nitro_auth_token='##DDASKLFDJ',
         ))
         module_mock = Mock(params=args, from_json=json.loads)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule',
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule',
                    Mock(return_value=module_mock)):
             with tempfile.TemporaryFile() as r:
                 actual_body = {}
@@ -288,7 +288,7 @@ class TestNetscalerNitroRequestModule(TestModule):
             nitro_pass='nsroot',
         ))
         module_mock = Mock(params=args, from_json=json.loads)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule',
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule',
                    Mock(return_value=module_mock)):
             body = {
                 'errorcode': 258,
@@ -330,7 +330,7 @@ class TestNetscalerNitroRequestModule(TestModule):
             'property2': 'value2',
         }
         module_mock = Mock(params=args, from_json=json.loads)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_nitro_request.AnsibleModule',
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_nitro_request.AnsibleModule',
                    Mock(return_value=module_mock)):
             instance = netscaler_nitro_request.NitroAPICaller()
 

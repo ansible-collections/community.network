@@ -5,7 +5,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.netvisor import pn_igmp_snooping
+from ansible_collections.community.network.plugins.modules import pn_igmp_snooping
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .nvos_module import TestNvosModule
 
@@ -15,7 +15,7 @@ class TestAdminServiceModule(TestNvosModule):
     module = pn_igmp_snooping
 
     def setUp(self):
-        self.mock_run_nvos_commands = patch('ansible_collections.community.network.plugins.modules.network.netvisor.pn_igmp_snooping.run_cli')
+        self.mock_run_nvos_commands = patch('ansible_collections.community.network.plugins.modules.pn_igmp_snooping.run_cli')
         self.run_nvos_commands = self.mock_run_nvos_commands.start()
 
     def tearDown(self):

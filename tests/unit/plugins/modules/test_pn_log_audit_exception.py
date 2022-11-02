@@ -7,7 +7,7 @@ __metaclass__ = type
 import json
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.netvisor import pn_log_audit_exception
+from ansible_collections.community.network.plugins.modules import pn_log_audit_exception
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .nvos_module import TestNvosModule, load_fixture
 
@@ -17,10 +17,10 @@ class TestLogAuditExceptionModule(TestNvosModule):
     module = pn_log_audit_exception
 
     def setUp(self):
-        self.mock_run_nvos_commands = patch('ansible_collections.community.network.plugins.modules.network.netvisor.pn_log_audit_exception.run_cli')
+        self.mock_run_nvos_commands = patch('ansible_collections.community.network.plugins.modules.pn_log_audit_exception.run_cli')
         self.run_nvos_commands = self.mock_run_nvos_commands.start()
 
-        self.mock_run_check_cli = patch('ansible_collections.community.network.plugins.modules.network.netvisor.pn_log_audit_exception.check_cli')
+        self.mock_run_check_cli = patch('ansible_collections.community.network.plugins.modules.pn_log_audit_exception.check_cli')
         self.run_check_cli = self.mock_run_check_cli.start()
 
     def tearDown(self):

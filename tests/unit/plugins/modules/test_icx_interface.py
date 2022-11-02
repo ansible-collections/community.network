@@ -3,7 +3,7 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.icx import icx_interface
+from ansible_collections.community.network.plugins.modules import icx_interface
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .icx_module import TestICXModule, load_fixture
 
@@ -14,13 +14,13 @@ class TestICXInterfaceModule(TestICXModule):
 
     def setUp(self):
         super(TestICXInterfaceModule, self).setUp()
-        self.mock_exec_command = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_interface.exec_command')
+        self.mock_exec_command = patch('ansible_collections.community.network.plugins.modules.icx_interface.exec_command')
         self.exec_command = self.mock_exec_command.start()
 
-        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_interface.load_config')
+        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.icx_interface.load_config')
         self.load_config = self.mock_load_config.start()
 
-        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_interface.get_config')
+        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.icx_interface.get_config')
         self.get_config = self.mock_get_config.start()
         self.set_running_config()
 

@@ -23,7 +23,7 @@ import re
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
-from ansible_collections.community.network.plugins.modules.network.slxos import slxos_l3_interface
+from ansible_collections.community.network.plugins.modules import slxos_l3_interface
 from .slxos_module import TestSlxosModule, load_fixture
 
 
@@ -33,10 +33,10 @@ class TestSlxosL3InterfaceModule(TestSlxosModule):
     def setUp(self):
         super(TestSlxosL3InterfaceModule, self).setUp()
         self._patch_get_config = patch(
-            'ansible_collections.community.network.plugins.modules.network.slxos.slxos_l3_interface.get_config'
+            'ansible_collections.community.network.plugins.modules.slxos_l3_interface.get_config'
         )
         self._patch_load_config = patch(
-            'ansible_collections.community.network.plugins.modules.network.slxos.slxos_l3_interface.load_config'
+            'ansible_collections.community.network.plugins.modules.slxos_l3_interface.load_config'
         )
 
         self._get_config = self._patch_get_config.start()

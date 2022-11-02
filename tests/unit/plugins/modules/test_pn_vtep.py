@@ -7,7 +7,7 @@ __metaclass__ = type
 import json
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.netvisor import pn_vtep
+from ansible_collections.community.network.plugins.modules import pn_vtep
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .nvos_module import TestNvosModule, load_fixture
 
@@ -17,10 +17,10 @@ class TestVtepModule(TestNvosModule):
     module = pn_vtep
 
     def setUp(self):
-        self.mock_run_nvos_commands = patch('ansible_collections.community.network.plugins.modules.network.netvisor.pn_vtep.run_cli')
+        self.mock_run_nvos_commands = patch('ansible_collections.community.network.plugins.modules.pn_vtep.run_cli')
         self.run_nvos_commands = self.mock_run_nvos_commands.start()
 
-        self.mock_run_check_cli = patch('ansible_collections.community.network.plugins.modules.network.netvisor.pn_vtep.check_cli')
+        self.mock_run_check_cli = patch('ansible_collections.community.network.plugins.modules.pn_vtep.check_cli')
         self.run_check_cli = self.mock_run_check_cli.start()
 
     def tearDown(self):

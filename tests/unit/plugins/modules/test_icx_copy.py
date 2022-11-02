@@ -4,7 +4,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.icx import icx_copy
+from ansible_collections.community.network.plugins.modules import icx_copy
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .icx_module import TestICXModule, load_fixture
 
@@ -15,11 +15,11 @@ class TestICXSCPModule(TestICXModule):
 
     def setUp(self):
         super(TestICXSCPModule, self).setUp()
-        self.mock_exec_scp = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_copy.exec_scp')
-        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_copy.run_commands')
+        self.mock_exec_scp = patch('ansible_collections.community.network.plugins.modules.icx_copy.exec_scp')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.icx_copy.run_commands')
         self.exec_command = self.mock_exec_scp.start()
         self.run_commands = self.mock_run_commands.start()
-        self.mock_exec_command = patch('ansible_collections.community.network.plugins.modules.network.icx.icx_copy.exec_command')
+        self.mock_exec_command = patch('ansible_collections.community.network.plugins.modules.icx_copy.exec_command')
         self.exec_commands = self.mock_exec_command.start()
 
     def tearDown(self):

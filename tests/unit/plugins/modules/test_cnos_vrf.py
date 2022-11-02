@@ -20,7 +20,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.cnos import cnos_vrf
+from ansible_collections.community.network.plugins.modules import cnos_vrf
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .cnos_module import TestCnosModule, load_fixture
 
@@ -32,14 +32,14 @@ class TestCnosVrfModule(TestCnosModule):
     def setUp(self):
         super(TestCnosVrfModule, self).setUp()
 
-        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.network.cnos.cnos_vrf.load_config')
+        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.cnos_vrf.load_config')
         self.load_config = self.mock_load_config.start()
 
-        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.cnos.cnos_vrf.run_commands')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.cnos_vrf.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
         self._patch_is_switchport = patch(
-            'ansible_collections.community.network.plugins.modules.network.cnos.cnos_vrf.is_switchport'
+            'ansible_collections.community.network.plugins.modules.cnos_vrf.is_switchport'
         )
         self._is_switchport = self._patch_is_switchport.start()
 

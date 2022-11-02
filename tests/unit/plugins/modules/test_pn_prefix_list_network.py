@@ -5,7 +5,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.netvisor import pn_prefix_list_network
+from ansible_collections.community.network.plugins.modules import pn_prefix_list_network
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .nvos_module import TestNvosModule
 
@@ -15,10 +15,10 @@ class TestPrefixListNetworkModule(TestNvosModule):
     module = pn_prefix_list_network
 
     def setUp(self):
-        self.mock_run_nvos_commands = patch('ansible_collections.community.network.plugins.modules.network.netvisor.pn_prefix_list_network.run_cli')
+        self.mock_run_nvos_commands = patch('ansible_collections.community.network.plugins.modules.pn_prefix_list_network.run_cli')
         self.run_nvos_commands = self.mock_run_nvos_commands.start()
 
-        self.mock_run_check_cli = patch('ansible_collections.community.network.plugins.modules.network.netvisor.pn_prefix_list_network.check_cli')
+        self.mock_run_check_cli = patch('ansible_collections.community.network.plugins.modules.pn_prefix_list_network.check_cli')
         self.run_check_cli = self.mock_run_check_cli.start()
 
     def tearDown(self):

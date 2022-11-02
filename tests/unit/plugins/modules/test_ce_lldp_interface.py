@@ -21,8 +21,8 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.cloudengine import ce_lldp_interface
-from ansible_collections.community.network.tests.unit.plugins.modules.network.cloudengine.ce_module import TestCloudEngineModule, load_fixture
+from ansible_collections.community.network.plugins.modules import ce_lldp_interface
+from ansible_collections.community.network.tests.unit.plugins.modules.ce_module import TestCloudEngineModule, load_fixture
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 
 
@@ -33,10 +33,10 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
         super(TestCloudEngineLacpModule, self).setUp()
 
         # self.mock_get_config = patch('ansible.modules.network.cloudengine.ce_lldp.get_nc_config')
-        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.cloudengine.ce_lldp_interface.get_nc_config')
+        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.ce_lldp_interface.get_nc_config')
         self.get_nc_config = self.mock_get_config.start()
 
-        self.mock_set_nc_config = patch('ansible_collections.community.network.plugins.modules.network.cloudengine.ce_lldp_interface.set_nc_config')
+        self.mock_set_nc_config = patch('ansible_collections.community.network.plugins.modules.ce_lldp_interface.set_nc_config')
         self.set_nc_config = self.mock_set_nc_config.start()
         self.xml_absent = load_fixture('ce_lldp_interface', 'lldp_interface_existing.txt')
         self.xml_present = load_fixture('ce_lldp_interface', 'lldp_interface_changed.txt')

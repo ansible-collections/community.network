@@ -42,7 +42,7 @@ sys.modules['cps'] = Mock(QUALIFIERS=[
 sys.modules['cps_object'] = Mock()
 sys.modules['cps_utils'] = Mock()
 
-from ansible_collections.community.network.plugins.modules.network.opx import opx_cps
+from ansible_collections.community.network.plugins.modules import opx_cps
 
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .opx_module import TestOpxModule, load_fixture
@@ -55,16 +55,16 @@ class TestOpxCpsModule(TestOpxModule):
     def setUp(self):
         super(TestOpxCpsModule, self).setUp()
 
-        self.mock_cps_get = patch('ansible_collections.community.network.plugins.modules.network.opx.opx_cps.cps_get')
+        self.mock_cps_get = patch('ansible_collections.community.network.plugins.modules.opx_cps.cps_get')
         self.cps_get = self.mock_cps_get.start()
 
-        self.mock_cps_transaction = patch('ansible_collections.community.network.plugins.modules.network.opx.opx_cps.cps_transaction')
+        self.mock_cps_transaction = patch('ansible_collections.community.network.plugins.modules.opx_cps.cps_transaction')
         self.cps_transaction = self.mock_cps_transaction.start()
 
-        self.mock_parse_cps_parameters = patch('ansible_collections.community.network.plugins.modules.network.opx.opx_cps.parse_cps_parameters')
+        self.mock_parse_cps_parameters = patch('ansible_collections.community.network.plugins.modules.opx_cps.parse_cps_parameters')
         self.parse_cps_parameters = self.mock_parse_cps_parameters.start()
 
-        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.opx.opx_cps.cps_get.parse_cps_parameters')
+        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.opx_cps.cps_get.parse_cps_parameters')
         self.get_config = self.mock_get_config.start()
 
     def tearDown(self):

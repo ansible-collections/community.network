@@ -78,7 +78,7 @@ class TestNetscalerServerModule(TestModule):
         ))
         self.nitro_base_patcher.stop()
         self.nitro_specific_patcher.stop()
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
         self.module = netscaler_server
         result = self.failed()
         self.assertEqual(result['msg'], 'Could not load nitro python sdk')
@@ -90,7 +90,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -100,8 +100,8 @@ class TestNetscalerServerModule(TestModule):
         client_mock = Mock()
         client_mock.login = Mock(side_effect=MockException)
         m = Mock(return_value=client_mock)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server.get_nitro_client', m):
-            with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server.nitro_exception', MockException):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_server.get_nitro_client', m):
+            with patch('ansible_collections.community.network.plugins.modules.netscaler_server.nitro_exception', MockException):
                 self.module = netscaler_server
                 result = self.failed()
                 self.assertTrue(result['msg'].startswith('nitro exception'), msg='nitro exception during login not handled properly')
@@ -116,7 +116,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         class MockException(Exception):
             pass
@@ -125,7 +125,7 @@ class TestNetscalerServerModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -140,7 +140,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
@@ -152,7 +152,7 @@ class TestNetscalerServerModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             nitro_exception=MockException,
         ):
@@ -167,7 +167,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -176,7 +176,7 @@ class TestNetscalerServerModule(TestModule):
         server_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             server_exists=Mock(side_effect=[False, True]),
             ConfigProxy=Mock(return_value=server_proxy_mock),
@@ -194,7 +194,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -203,7 +203,7 @@ class TestNetscalerServerModule(TestModule):
         server_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             server_exists=Mock(side_effect=[True, False]),
             ConfigProxy=Mock(return_value=server_proxy_mock),
@@ -222,7 +222,7 @@ class TestNetscalerServerModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -231,7 +231,7 @@ class TestNetscalerServerModule(TestModule):
         server_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             server_exists=Mock(side_effect=[False, True]),
             ConfigProxy=Mock(return_value=server_proxy_mock),
@@ -250,7 +250,7 @@ class TestNetscalerServerModule(TestModule):
             state='absent',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -259,7 +259,7 @@ class TestNetscalerServerModule(TestModule):
         server_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             server_exists=Mock(side_effect=[True, False]),
             ConfigProxy=Mock(return_value=server_proxy_mock),
@@ -276,7 +276,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -285,7 +285,7 @@ class TestNetscalerServerModule(TestModule):
         server_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             server_exists=Mock(side_effect=[True, False]),
@@ -306,7 +306,7 @@ class TestNetscalerServerModule(TestModule):
             disabled=True,
             graceful=True
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -319,7 +319,7 @@ class TestNetscalerServerModule(TestModule):
             'delay': 20,
         }
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value=d),
@@ -339,7 +339,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -353,7 +353,7 @@ class TestNetscalerServerModule(TestModule):
         config_proxy_mock = Mock(return_value=server_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             server_exists=Mock(side_effect=[False, True]),
             server_identical=Mock(side_effect=[True]),
@@ -371,7 +371,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -385,7 +385,7 @@ class TestNetscalerServerModule(TestModule):
         config_proxy_mock = Mock(return_value=server_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -405,7 +405,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -419,7 +419,7 @@ class TestNetscalerServerModule(TestModule):
         config_proxy_mock = Mock(return_value=server_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -439,7 +439,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -453,7 +453,7 @@ class TestNetscalerServerModule(TestModule):
         config_proxy_mock = Mock(return_value=server_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -473,7 +473,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -487,7 +487,7 @@ class TestNetscalerServerModule(TestModule):
         config_proxy_mock = Mock(return_value=server_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
             get_immutables_intersection=Mock(return_value=[]),
@@ -507,7 +507,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -521,7 +521,7 @@ class TestNetscalerServerModule(TestModule):
         config_proxy_mock = Mock(return_value=server_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -543,7 +543,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -557,7 +557,7 @@ class TestNetscalerServerModule(TestModule):
         config_proxy_mock = Mock(return_value=server_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -579,7 +579,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -593,7 +593,7 @@ class TestNetscalerServerModule(TestModule):
         config_proxy_mock = Mock(return_value=server_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -615,7 +615,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         client_mock = Mock()
 
@@ -629,7 +629,7 @@ class TestNetscalerServerModule(TestModule):
         config_proxy_mock = Mock(return_value=server_proxy_mock)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             nitro_exception=self.MockException,
             get_nitro_client=m,
             diff_list=Mock(return_value={}),
@@ -651,7 +651,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -660,7 +660,7 @@ class TestNetscalerServerModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             server_exists=m,
             nitro_exception=MockException
         ):
@@ -678,7 +678,7 @@ class TestNetscalerServerModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_server
+        from ansible_collections.community.network.plugins.modules import netscaler_server
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -687,7 +687,7 @@ class TestNetscalerServerModule(TestModule):
 
         m = Mock(side_effect=MockException)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_server',
+            'ansible_collections.community.network.plugins.modules.netscaler_server',
             server_exists=m,
             nitro_exception=MockException
         ):

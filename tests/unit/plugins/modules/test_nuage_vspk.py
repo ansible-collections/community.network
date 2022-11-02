@@ -31,7 +31,7 @@ if not (sys.version_info[0] == 2 and sys.version_info[1] >= 7):
 try:
     from vspk import v5_0 as vsdk
     from bambou.exceptions import BambouHTTPError
-    from ansible_collections.community.network.plugins.modules.network.nuage import nuage_vspk
+    from ansible_collections.community.network.plugins.modules import nuage_vspk
 except ImportError:
     pytestmark.append(pytest.mark.skip('Nuage Ansible modules requires the vspk and bambou python libraries'))
 

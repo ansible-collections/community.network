@@ -20,7 +20,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.cnos import cnos_l3_interface
+from ansible_collections.community.network.plugins.modules import cnos_l3_interface
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .cnos_module import TestCnosModule, load_fixture
 
@@ -31,13 +31,13 @@ class TestCnosL3InterfaceModule(TestCnosModule):
     def setUp(self):
         super(TestCnosL3InterfaceModule, self).setUp()
         self._patch_get_config = patch(
-            'ansible_collections.community.network.plugins.modules.network.cnos.cnos_l3_interface.get_config'
+            'ansible_collections.community.network.plugins.modules.cnos_l3_interface.get_config'
         )
         self._patch_load_config = patch(
-            'ansible_collections.community.network.plugins.modules.network.cnos.cnos_l3_interface.load_config'
+            'ansible_collections.community.network.plugins.modules.cnos_l3_interface.load_config'
         )
         self._patch_is_switchport = patch(
-            'ansible_collections.community.network.plugins.modules.network.cnos.cnos_l3_interface.is_switchport'
+            'ansible_collections.community.network.plugins.modules.cnos_l3_interface.is_switchport'
         )
 
         self._get_config = self._patch_get_config.start()

@@ -86,7 +86,7 @@ class TestNetscalerLBVServerModule(TestModule):
         ))
         self.nitro_base_patcher.stop()
         self.nitro_specific_patcher.stop()
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
         self.module = netscaler_lb_vserver
         result = self.failed()
         self.assertEqual(result['msg'], 'Could not load nitro python sdk')
@@ -98,7 +98,7 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         class MockException(Exception):
             def __init__(self, *args, **kwargs):
@@ -108,8 +108,8 @@ class TestNetscalerLBVServerModule(TestModule):
         client_mock = Mock()
         client_mock.login = Mock(side_effect=MockException)
         m = Mock(return_value=client_mock)
-        with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver.get_nitro_client', m):
-            with patch('ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver.nitro_exception', MockException):
+        with patch('ansible_collections.community.network.plugins.modules.netscaler_lb_vserver.get_nitro_client', m):
+            with patch('ansible_collections.community.network.plugins.modules.netscaler_lb_vserver.nitro_exception', MockException):
                 self.module = netscaler_lb_vserver
                 result = self.failed()
                 self.assertTrue(result['msg'].startswith('nitro exception'), msg='nitro exception during login not handled properly')
@@ -124,14 +124,14 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         client_mock = Mock()
         attrs = {'login.side_effect': requests.exceptions.ConnectionError}
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=m,
             nitro_exception=self.MockException,
         ):
@@ -146,7 +146,7 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         if sys.version_info[:2] == (2, 6):
             self.skipTest('requests library not available under python2.6')
@@ -156,7 +156,7 @@ class TestNetscalerLBVServerModule(TestModule):
         client_mock.configure_mock(**attrs)
         m = Mock(return_value=client_mock)
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=m,
             nitro_exception=self.MockException,
             do_state_change=Mock(return_value=Mock(errorcode=0)),
@@ -172,7 +172,7 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         client_mock = Mock()
 
@@ -181,7 +181,7 @@ class TestNetscalerLBVServerModule(TestModule):
         lb_vserver_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=m,
             lb_vserver_exists=Mock(side_effect=[False, True]),
             ConfigProxy=Mock(return_value=lb_vserver_proxy_mock),
@@ -199,7 +199,7 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         client_mock = Mock()
 
@@ -208,7 +208,7 @@ class TestNetscalerLBVServerModule(TestModule):
         lb_vserver_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=m,
             lb_vserver_exists=Mock(side_effect=[True, False]),
             ConfigProxy=Mock(return_value=lb_vserver_proxy_mock),
@@ -227,7 +227,7 @@ class TestNetscalerLBVServerModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         client_mock = Mock()
 
@@ -236,7 +236,7 @@ class TestNetscalerLBVServerModule(TestModule):
         lb_vserver_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=m,
             lb_vserver_exists=Mock(side_effect=[False, True]),
             ConfigProxy=Mock(return_value=lb_vserver_proxy_mock),
@@ -255,7 +255,7 @@ class TestNetscalerLBVServerModule(TestModule):
             state='absent',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         client_mock = Mock()
 
@@ -264,7 +264,7 @@ class TestNetscalerLBVServerModule(TestModule):
         lb_vserver_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=m,
             lb_vserver_exists=Mock(side_effect=[True, False]),
             ConfigProxy=Mock(return_value=lb_vserver_proxy_mock),
@@ -283,7 +283,7 @@ class TestNetscalerLBVServerModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         client_mock = Mock()
 
@@ -291,7 +291,7 @@ class TestNetscalerLBVServerModule(TestModule):
         feature_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[True, True]),
@@ -314,7 +314,7 @@ class TestNetscalerLBVServerModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         client_mock = Mock()
 
@@ -330,7 +330,7 @@ class TestNetscalerLBVServerModule(TestModule):
         feature_mock = Mock(side_effect=MockException)
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[True, True]),
@@ -354,12 +354,12 @@ class TestNetscalerLBVServerModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=Mock()),
             lb_vserver_exists=Mock(side_effect=[False, True]),
             lb_vserver_identical=Mock(side_effect=[True]),
@@ -383,12 +383,12 @@ class TestNetscalerLBVServerModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=Mock()),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[False, True]),
@@ -413,7 +413,7 @@ class TestNetscalerLBVServerModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
         configured_dict = {
@@ -429,7 +429,7 @@ class TestNetscalerLBVServerModule(TestModule):
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[False, True]),
@@ -463,7 +463,7 @@ class TestNetscalerLBVServerModule(TestModule):
             state='present',
             save_config=False,
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
         configured_dict = {
@@ -479,7 +479,7 @@ class TestNetscalerLBVServerModule(TestModule):
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[False, True]),
@@ -514,7 +514,7 @@ class TestNetscalerLBVServerModule(TestModule):
             save_config=False,
             servicetype='SSL',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
         ssl_sync_mock = Mock()
@@ -522,7 +522,7 @@ class TestNetscalerLBVServerModule(TestModule):
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[False, True]),
@@ -550,7 +550,7 @@ class TestNetscalerLBVServerModule(TestModule):
             save_config=False,
             servicetype='HTTP',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
         ssl_sync_mock = Mock()
@@ -558,7 +558,7 @@ class TestNetscalerLBVServerModule(TestModule):
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[False, True]),
@@ -583,7 +583,7 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
         ssl_sync_mock = Mock()
@@ -591,7 +591,7 @@ class TestNetscalerLBVServerModule(TestModule):
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[False, False]),
             lb_vserver_identical=Mock(side_effect=[False, True]),
@@ -615,7 +615,7 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
         ssl_sync_mock = Mock()
@@ -623,7 +623,7 @@ class TestNetscalerLBVServerModule(TestModule):
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[False, False]),
@@ -648,14 +648,14 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
 
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[False, True]),
@@ -679,14 +679,14 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
 
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[False, True]),
@@ -710,14 +710,14 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='present',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
 
         client_mock = Mock()
 
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             lb_vserver_exists=Mock(side_effect=[True, True]),
             lb_vserver_identical=Mock(side_effect=[False, True]),
@@ -741,13 +741,13 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
 
         client_mock = Mock()
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             ConfigProxy=Mock(return_value=lb_vserver_proxy_mock),
             ensure_feature_is_enabled=Mock(return_value=True),
@@ -765,13 +765,13 @@ class TestNetscalerLBVServerModule(TestModule):
             nsip='192.0.2.1',
             state='absent',
         ))
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
 
         client_mock = Mock()
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             ConfigProxy=Mock(return_value=lb_vserver_proxy_mock),
             ensure_feature_is_enabled=Mock(return_value=True),
@@ -791,14 +791,14 @@ class TestNetscalerLBVServerModule(TestModule):
             state='present',
         ))
 
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
 
         do_state_change_mock = Mock(return_value=Mock(errorcode=0))
         client_mock = Mock()
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             ConfigProxy=Mock(return_value=lb_vserver_proxy_mock),
             ensure_feature_is_enabled=Mock(return_value=True),
@@ -818,14 +818,14 @@ class TestNetscalerLBVServerModule(TestModule):
             state='present',
         ))
 
-        from ansible_collections.community.network.plugins.modules.network.netscaler import netscaler_lb_vserver
+        from ansible_collections.community.network.plugins.modules import netscaler_lb_vserver
 
         lb_vserver_proxy_mock = Mock()
 
         client_mock = Mock()
         m = Mock(return_value=['some'])
         with patch.multiple(
-            'ansible_collections.community.network.plugins.modules.network.netscaler.netscaler_lb_vserver',
+            'ansible_collections.community.network.plugins.modules.netscaler_lb_vserver',
             get_nitro_client=Mock(return_value=client_mock),
             ConfigProxy=Mock(return_value=lb_vserver_proxy_mock),
             ensure_feature_is_enabled=Mock(),

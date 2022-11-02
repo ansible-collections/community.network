@@ -103,7 +103,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': module_mock,
             'vdirect_client.rest_client': module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_file
+            from ansible_collections.community.network.plugins.modules import vdirect_file
 
             try:
                 params = NONE_PARAMS.copy()
@@ -119,7 +119,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': module_mock,
             'vdirect_client.rest_client': module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_file
+            from ansible_collections.community.network.plugins.modules import vdirect_file
 
             module_mock.RESP_STATUS = 0
             file = vdirect_file.VdirectFile(NONE_PARAMS)
@@ -132,7 +132,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': module_mock,
             'vdirect_client.rest_client': module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_file
+            from ansible_collections.community.network.plugins.modules import vdirect_file
 
             file = vdirect_file.VdirectFile(NONE_PARAMS)
             try:
@@ -147,7 +147,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': module_mock,
             'vdirect_client.rest_client': module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_file
+            from ansible_collections.community.network.plugins.modules import vdirect_file
             vdirect_file.rest_client.RESP_STATUS = 0
             vdirect_file.rest_client.Template = Template
 
@@ -172,7 +172,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': module_mock,
             'vdirect_client.rest_client': module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_file
+            from ansible_collections.community.network.plugins.modules import vdirect_file
             vdirect_file.rest_client.RESP_STATUS = 0
             vdirect_file.rest_client.Template = Template
 
@@ -198,7 +198,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': module_mock,
             'vdirect_client.rest_client': module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_file
+            from ansible_collections.community.network.plugins.modules import vdirect_file
             vdirect_file.rest_client.RESP_STATUS = 0
             vdirect_file.rest_client.WorkflowTemplate = WorkflowTemplate
 
@@ -223,7 +223,7 @@ class TestManager(unittest.TestCase):
             'vdirect_client': module_mock,
             'vdirect_client.rest_client': module_mock,
         }):
-            from ansible_collections.community.network.plugins.modules.network.radware import vdirect_file
+            from ansible_collections.community.network.plugins.modules import vdirect_file
             vdirect_file.rest_client.RESP_STATUS = 0
             vdirect_file.rest_client.WorkflowTemplate = WorkflowTemplate
 

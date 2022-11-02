@@ -20,7 +20,7 @@ __metaclass__ = type
 import os.path
 import unittest
 
-from ansible_collections.community.network.plugins.modules.network.cumulus import nclu
+from ansible_collections.community.network.plugins.modules import nclu
 
 
 class FakeModule(object):

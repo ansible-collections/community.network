@@ -22,7 +22,7 @@ __metaclass__ = type
 import json
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.aruba import aruba_command
+from ansible_collections.community.network.plugins.modules import aruba_command
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .aruba_module import TestArubaModule, load_fixture
 
@@ -34,7 +34,7 @@ class TestArubaCommandModule(TestArubaModule):
     def setUp(self):
         super(TestArubaCommandModule, self).setUp()
 
-        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.aruba.aruba_command.run_commands')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.aruba_command.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
     def tearDown(self):

@@ -23,7 +23,7 @@ import sys
 sys.modules['cvprac'] = Mock()
 sys.modules['cvprac.cvp_client'] = Mock()
 sys.modules['cvprac.cvp_client_errors'] = Mock()
-from ansible_collections.community.network.plugins.modules.network.cloudvision import cv_server_provision
+from ansible_collections.community.network.plugins.modules import cv_server_provision
 
 
 class MockException(Exception):
@@ -31,13 +31,13 @@ class MockException(Exception):
 
 
 class TestCvServerProvision(unittest.TestCase):
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.CvpApiError',
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.CvpApiError',
            new_callable=lambda: MockException)
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.server_configurable_configlet')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_in_compliance')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_info')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.connect')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.AnsibleModule')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.server_configurable_configlet')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_in_compliance')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_info')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.connect')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.AnsibleModule')
     def test_main_module_args(self, mock_module, mock_connect, mock_info,
                               mock_comp, mock_server_conf, mock_exception):
         ''' Test main module args.
@@ -71,13 +71,13 @@ class TestCvServerProvision(unittest.TestCase):
         mock_server_conf.assert_not_called()
         mock_module_object.fail_json.assert_called_with(msg='Error Getting Info')
 
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.CvpApiError',
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.CvpApiError',
            new_callable=lambda: MockException)
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.server_configurable_configlet')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_in_compliance')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_info')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.connect')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.AnsibleModule')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.server_configurable_configlet')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_in_compliance')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_info')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.connect')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.AnsibleModule')
     def test_main_no_switch_configlet(self, mock_module, mock_connect,
                                       mock_info, mock_comp, mock_server_conf,
                                       mock_exception):
@@ -98,14 +98,14 @@ class TestCvServerProvision(unittest.TestCase):
         mock_module_object.fail_json.assert_called_with(
             msg='Switch eos has no configurable server ports.')
 
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.CvpApiError',
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.CvpApiError',
            new_callable=lambda: MockException)
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.port_configurable')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.server_configurable_configlet')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_in_compliance')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_info')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.connect')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.AnsibleModule')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.port_configurable')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.server_configurable_configlet')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_in_compliance')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_info')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.connect')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.AnsibleModule')
     def test_main_port_not_in_config(self, mock_module, mock_connect, mock_info,
                                      mock_comp, mock_server_conf,
                                      mock_port_conf, mock_exception):
@@ -129,13 +129,13 @@ class TestCvServerProvision(unittest.TestCase):
         mock_module_object.fail_json.assert_called_with(
             msg='Port 3 is not configurable as a server port on switch eos.')
 
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.configlet_action')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.port_configurable')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.server_configurable_configlet')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_in_compliance')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_info')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.connect')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.AnsibleModule')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.configlet_action')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.port_configurable')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.server_configurable_configlet')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_in_compliance')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_info')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.connect')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.AnsibleModule')
     def test_main_show(self, mock_module, mock_connect, mock_info, mock_comp,
                        mock_server_conf, mock_port_conf, mock_conf_action):
         ''' Test main good with show action.
@@ -163,13 +163,13 @@ class TestCvServerProvision(unittest.TestCase):
                            taskCompleted=False)
         mock_module_object.exit_json.assert_called_with(**return_dict)
 
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.configlet_action')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.port_configurable')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.server_configurable_configlet')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_in_compliance')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_info')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.connect')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.AnsibleModule')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.configlet_action')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.port_configurable')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.server_configurable_configlet')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_in_compliance')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_info')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.connect')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.AnsibleModule')
     def test_main_add_no_auto_run(self, mock_module, mock_connect, mock_info,
                                   mock_comp, mock_server_conf, mock_port_conf,
                                   mock_conf_action):
@@ -198,15 +198,15 @@ class TestCvServerProvision(unittest.TestCase):
                            taskCompleted=False)
         mock_module_object.exit_json.assert_called_with(**return_dict)
 
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.wait_for_task_completion')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.configlet_update_task')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.configlet_action')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.port_configurable')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.server_configurable_configlet')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_in_compliance')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_info')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.connect')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.AnsibleModule')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.wait_for_task_completion')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.configlet_update_task')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.configlet_action')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.port_configurable')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.server_configurable_configlet')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_in_compliance')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_info')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.connect')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.AnsibleModule')
     def test_main_add_auto_run(self, mock_module, mock_connect, mock_info,
                                mock_comp, mock_server_conf, mock_port_conf,
                                mock_conf_action, mock_conf_task, mock_wait):
@@ -240,15 +240,15 @@ class TestCvServerProvision(unittest.TestCase):
                            taskCompleted=True)
         mock_module_object.exit_json.assert_called_with(**return_dict)
 
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.wait_for_task_completion')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.configlet_update_task')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.configlet_action')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.port_configurable')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.server_configurable_configlet')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_in_compliance')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_info')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.connect')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.AnsibleModule')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.wait_for_task_completion')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.configlet_update_task')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.configlet_action')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.port_configurable')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.server_configurable_configlet')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_in_compliance')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_info')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.connect')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.AnsibleModule')
     def test_main_add_auto_run_no_task(self, mock_module, mock_connect,
                                        mock_info, mock_comp, mock_server_conf,
                                        mock_port_conf, mock_conf_action, mock_conf_task,
@@ -282,7 +282,7 @@ class TestCvServerProvision(unittest.TestCase):
                            taskCompleted=False)
         mock_module_object.exit_json.assert_called_with(**return_dict)
 
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.CvpClient')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.CvpClient')
     def test_connect_good(self, mock_client):
         ''' Test connect success.
         '''
@@ -299,9 +299,9 @@ class TestCvServerProvision(unittest.TestCase):
                                                      protocol='https')
         module.fail_json.assert_not_called()
 
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.CvpLoginError',
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.CvpLoginError',
            new_callable=lambda: MockException)
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.CvpClient')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.CvpClient')
     def test_connect_fail(self, mock_client, mock_exception):
         ''' Test connect failure with login error.
         '''
@@ -446,7 +446,7 @@ class TestCvServerProvision(unittest.TestCase):
         self.assertEqual(result['currentConfigBlock'], 'interface Ethernet3\n!')
         module.client.api.update_configlet.assert_not_called()
 
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.config_from_template')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.config_from_template')
     def test_configlet_action_add_with_task(self, mock_template):
         ''' Test configlet_action add with change updates configlet and adds
             proper info to return data. Including task spawned info.
@@ -476,7 +476,7 @@ class TestCvServerProvision(unittest.TestCase):
         self.assertTrue(result['taskCreated'])
         self.assertEqual(module.client.api.update_configlet.call_count, 1)
 
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.config_from_template')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.config_from_template')
     def test_configlet_action_add_no_task(self, mock_template):
         ''' Test configlet_action add that doesn't change configlet adds proper
             info to return data. Does not including any task info.
@@ -798,7 +798,7 @@ class TestCvServerProvision(unittest.TestCase):
                           module, existing_config, new_config_block)
 
     @patch('time.sleep')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_info')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_info')
     def test_configlet_update_task_good_one_try(self, mock_info, mock_sleep):
         ''' Test configlet_update_task gets task after one try.
         '''
@@ -814,7 +814,7 @@ class TestCvServerProvision(unittest.TestCase):
         self.assertEqual(mock_info.call_count, 1)
 
     @patch('time.sleep')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_info')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_info')
     def test_configlet_update_task_good_three_tries(self, mock_info, mock_sleep):
         ''' Test configlet_update_task gets task on third try.
         '''
@@ -833,7 +833,7 @@ class TestCvServerProvision(unittest.TestCase):
         self.assertEqual(mock_info.call_count, 3)
 
     @patch('time.sleep')
-    @patch('ansible_collections.community.network.plugins.modules.network.cloudvision.cv_server_provision.switch_info')
+    @patch('ansible_collections.community.network.plugins.modules.cv_server_provision.switch_info')
     def test_configlet_update_task_no_task(self, mock_info, mock_sleep):
         ''' Test configlet_update_task does not get task after three tries.
         '''

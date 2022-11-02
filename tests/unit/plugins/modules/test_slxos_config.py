@@ -21,7 +21,7 @@ __metaclass__ = type
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
-from ansible_collections.community.network.plugins.modules.network.slxos import slxos_config
+from ansible_collections.community.network.plugins.modules import slxos_config
 from .slxos_module import TestSlxosModule, load_fixture
 
 
@@ -32,13 +32,13 @@ class TestSlxosConfigModule(TestSlxosModule):
     def setUp(self):
         super(TestSlxosConfigModule, self).setUp()
 
-        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.network.slxos.slxos_config.get_config')
+        self.mock_get_config = patch('ansible_collections.community.network.plugins.modules.slxos_config.get_config')
         self.get_config = self.mock_get_config.start()
 
-        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.network.slxos.slxos_config.load_config')
+        self.mock_load_config = patch('ansible_collections.community.network.plugins.modules.slxos_config.load_config')
         self.load_config = self.mock_load_config.start()
 
-        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.slxos.slxos_config.run_commands')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.slxos_config.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
     def tearDown(self):

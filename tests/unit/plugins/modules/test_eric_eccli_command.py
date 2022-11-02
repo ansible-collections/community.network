@@ -22,7 +22,7 @@ __metaclass__ = type
 import json
 
 from ansible_collections.community.network.tests.unit.compat.mock import patch
-from ansible_collections.community.network.plugins.modules.network.eric_eccli import eric_eccli_command
+from ansible_collections.community.network.plugins.modules import eric_eccli_command
 from ansible_collections.community.network.tests.unit.plugins.modules.utils import set_module_args
 from .eccli_module import TestEccliModule, load_fixture
 
@@ -34,7 +34,7 @@ class TestEccliCommandModule(TestEccliModule):
     def setUp(self):
         super(TestEccliCommandModule, self).setUp()
 
-        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.network.eric_eccli.eric_eccli_command.run_commands')
+        self.mock_run_commands = patch('ansible_collections.community.network.plugins.modules.eric_eccli_command.run_commands')
         self.run_commands = self.mock_run_commands.start()
 
     def tearDown(self):

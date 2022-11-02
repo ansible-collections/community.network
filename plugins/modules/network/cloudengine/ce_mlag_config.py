@@ -171,6 +171,22 @@ CE_NC_GET_DFS_GROUP_INFO = """
 </dfs>
 </filter>
 """
+
+CE_NC_GET_DFS_GROUP_EXC_TRILL_INFO = """
+<filter type="subtree">
+<dfs xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
+  <groupInstances>
+    <groupInstance>
+      <groupId></groupId>
+      <priority></priority>
+      <ipAddress></ipAddress>
+      <srcVpnName></srcVpnName>
+    </groupInstance>
+  </groupInstances>
+</dfs>
+</filter>
+"""
+
 CE_NC_GET_PEER_LINK_INFO = """
 <filter type="subtree">
 <mlag xmlns="http://www.huawei.com/netconf/vrp" content-version="1.0" format-version="1.0">
@@ -357,7 +373,9 @@ class MlagConfig(object):
         """ get dfs group attributes info."""
 
         dfs_group_info = dict()
-        conf_str = CE_NC_GET_DFS_GROUP_INFO
+        for tmp in ["groupId", "priority", "ipAddress", "srcVpnName", "localNickname", "pseudoNickname", "pseudoPriority"]:
+            dfs_group_info[tmp] = None
+        conf_str = CE_NC_GET_DFS_GROUP_EXC_TRILL_INFO
         xml_str = get_nc_config(self.module, conf_str)
         if "<data/>" in xml_str:
             return dfs_group_info

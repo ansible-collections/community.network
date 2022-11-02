@@ -157,6 +157,12 @@ def is_interface_support_setjumboframe(interface):
         support_flag = True
     elif interface.upper().startswith('100GE'):
         support_flag = True
+    elif interface.upper().startswith('50GE'):
+        support_flag = True
+    elif interface.upper().startswith('200GE'):
+        support_flag = True
+    elif interface.upper().startswith('400GE'):
+        support_flag = True
     else:
         support_flag = False
     return support_flag
@@ -182,6 +188,12 @@ def get_interface_type(interface):
         iftype = '40ge'
     elif interface.upper().startswith('100GE'):
         iftype = '100ge'
+    elif interface.upper().startswith('50GE'):
+        iftype = '50ge'
+    elif interface.upper().startswith('200GE'):
+        iftype = '200ge'
+    elif interface.upper().startswith('400GE'):
+        iftype = '400ge'
     elif interface.upper().startswith('VLANIF'):
         iftype = 'vlanif'
     elif interface.upper().startswith('LOOPBACK'):

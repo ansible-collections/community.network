@@ -230,6 +230,12 @@ def get_interface_type(interface):
         iftype = '40ge'
     elif interface.upper().startswith('100GE'):
         iftype = '100ge'
+    elif interface.upper().startswith('50GE'):
+        iftype = '50ge'
+    elif interface.upper().startswith('200GE'):
+        iftype = '200ge'
+    elif interface.upper().startswith('400GE'):
+        iftype = '400ge'
     elif interface.upper().startswith('ETH-TRUNK'):
         iftype = 'eth-trunk'
     elif interface.upper().startswith('ALL'):

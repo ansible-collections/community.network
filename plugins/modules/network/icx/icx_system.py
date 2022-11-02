@@ -343,6 +343,8 @@ def parse_aaa_servers(config):
             match = re.search(r'(host ipv6 (\S+))|(host (\S+))', line)
             if match:
                 hostname = match.group(2) if match.group(2) is not None else match.group(4)
+            else:
+                hostname = None
             match = re.search(r'auth-port ([0-9]+)', line)
             if match:
                 auth_port_num = match.group(1)

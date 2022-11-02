@@ -1,0 +1,5 @@
+---
+bugfixes:
+  - community.network.icx_vlan - fix configuring interface with purge = true
+minor_changes:
+  - community.network.icx_vlan - add support for stack and modules

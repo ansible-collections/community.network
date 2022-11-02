@@ -329,12 +329,12 @@ def parse_vlan_brief(module, vlan_id):
             del lags[0]
             for port in ports:
                 if "to" in port:
-                    p = port.split(" to ")
+                    p = port.strip().split(" to ")
                     pr = int(p[1].split('/')[2]) - int(p[0].split('/')[2])
                     for i in range(0, pr + 1):
-                        tagged_ports.append((int(p[0].split('/')[2]) + i))
+                        tagged_ports.append(p[0][0:4] + str(int(p[0].split('/')[2]) + i))
                 else:
-                    tagged_ports.append(int(port.split('/')[2]))
+                    tagged_ports.append(port.strip())
             for lag in lags:
                 if "to" in lag:
                     l = lag.split(" to ")
@@ -350,12 +350,12 @@ def parse_vlan_brief(module, vlan_id):
             del lags[0]
             for port in ports:
                 if "to" in port:
-                    p = port.split(" to ")
+                    p = port.strip().split(" to ")
                     pr = int(p[1].split('/')[2]) - int(p[0].split('/')[2])
                     for i in range(0, pr + 1):
-                        untagged_ports.append((int(p[0].split('/')[2]) + i))
+                        untagged_ports.append(p[0][0:4] + str(int(p[0].split('/')[2]) + i))
                 else:
-                    untagged_ports.append(int(port.split('/')[2]))
+                    untagged_ports.append(port.strip())
             for lag in lags:
                 if "to" in lag:
                     l = lag.split(" to ")
@@ -371,7 +371,7 @@ def parse_vlan_brief(module, vlan_id):
 def extract_list_from_interface(interface):
     if 'ethernet' in interface:
         if 'to' in interface:
-            s = re.search(r"\d+\/\d+/(?P<low>\d+)\sto\s+\d+\/\d+/(?P<high>\d+)", interface)
+            s = re.search(r"\d+\/\d+\/(?P<low>\d+)\sto\s+\d+\/\d+\/(?P<high>\d+)", interface)
             low = int(s.group('low'))
             high = int(s.group('high'))
         else:
@@ -534,7 +534,9 @@ def map_obj_to_commands(updates, module):
 
                             while (high >= low):
                                 if 'ethernet' in interface:
-                                    have_interfaces.append('ethernet 1/1/{0}'.format(low))
+                                    have_interfaces.append(
+                                        'ethernet ' + interface.split(" ")[1].split("/")[0] + '/' + interface.split(" ")[1].split("/")[1] + '/{0}'.format(low)
+                                    )
                                 if 'lag' in interface:
                                     have_interfaces.append('lag {0}'.format(low))
                                 low = low + 1
@@ -557,7 +559,9 @@ def map_obj_to_commands(updates, module):
 
                             while (high >= low):
                                 if 'ethernet' in tag:
-                                    have_tagged.append('ethernet 1/1/{0}'.format(low))
+                                    have_tagged.append(
+                                        'ethernet ' + tag.split(" ")[1].split("/")[0] + '/' + tag.split(" ")[1].split("/")[1] + '/{0}'.format(low)
+                                    )
                                 if 'lag' in tag:
                                     have_tagged.append('lag {0}'.format(low))
                                 low = low + 1
@@ -591,7 +595,6 @@ def map_obj_to_commands(updates, module):
                 commands = []
 
     if purge:
-        commands = []
         vlans = parse_vlan_id(module)
         for h in vlans:
             obj_in_want = search_obj_in_list(h, want)
@@ -615,7 +618,7 @@ def parse_interfaces_argument(module, item, port_type):
     if port_type == "interfaces":
         if untagged_ports:
             for port in untagged_ports:
-                ports.append('ethernet 1/1/' + str(port))
+                ports.append('ethernet ' + port)
         if untagged_lags:
             for port in untagged_lags:
                 ports.append('lag ' + str(port))
@@ -623,7 +626,7 @@ def parse_interfaces_argument(module, item, port_type):
     elif port_type == "tagged":
         if tagged_ports:
             for port in tagged_ports:
-                ports.append('ethernet 1/1/' + str(port))
+                ports.append('ethernet ' + port)
         if tagged_lags:
             for port in tagged_lags:
                 ports.append('lag ' + str(port))
@@ -674,7 +677,10 @@ def check_declarative_intent_params(want, module, result):
 
             while (high >= low):
                 if 'ethernet' in interface:
-                    if not (low in ports):
+                    if 'to' in interface:
+                        if not (interface.split(" to ")[1].split("/")[0] + '/' + interface.split(" ")[1].split("/")[1] + '/{0}'.format(low) in ports):
+                            module.fail_json(msg='One or more conditional statements have not been satisfied ' + interface)
+                    elif not (interface.split(" ")[1].split("/")[0] + '/' + interface.split(" ")[1].split("/")[1] + '/{0}'.format(low) in ports):
                         module.fail_json(msg='One or more conditional statements have not been satisfied ' + interface)
                 if 'lag' in interface:
                     if not (low in lags):

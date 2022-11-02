@@ -296,7 +296,6 @@ import re
 from time import sleep
 import itertools
 from copy import deepcopy
-from time import sleep
 from ansible.module_utils._text import to_text
 from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig
@@ -329,12 +328,12 @@ def parse_vlan_brief(module, vlan_id):
             del lags[0]
             for port in ports:
                 if "to" in port:
-                    p = port.split(" to ")
+                    p = port.strip().split(" to ")
                     pr = int(p[1].split('/')[2]) - int(p[0].split('/')[2])
                     for i in range(0, pr + 1):
-                        tagged_ports.append((int(p[0].split('/')[2]) + i))
+                        tagged_ports.append(p[0][0:4] + str(int(p[0].split('/')[2]) + i))
                 else:
-                    tagged_ports.append(int(port.split('/')[2]))
+                    tagged_ports.append(port.strip())
             for lag in lags:
                 if "to" in lag:
                     l = lag.split(" to ")
@@ -350,12 +349,12 @@ def parse_vlan_brief(module, vlan_id):
             del lags[0]
             for port in ports:
                 if "to" in port:
-                    p = port.split(" to ")
+                    p = port.strip().split(" to ")
                     pr = int(p[1].split('/')[2]) - int(p[0].split('/')[2])
                     for i in range(0, pr + 1):
-                        untagged_ports.append((int(p[0].split('/')[2]) + i))
+                        untagged_ports.append(p[0][0:4] + str(int(p[0].split('/')[2]) + i))
                 else:
-                    untagged_ports.append(int(port.split('/')[2]))
+                    untagged_ports.append(port.strip())
             for lag in lags:
                 if "to" in lag:
                     l = lag.split(" to ")
@@ -534,7 +533,9 @@ def map_obj_to_commands(updates, module):
 
                             while (high >= low):
                                 if 'ethernet' in interface:
-                                    have_interfaces.append('ethernet 1/1/{0}'.format(low))
+                                    have_interfaces.append(
+                                        'ethernet ' + interface.split(" ")[1].split("/")[0] + '/' + interface.split(" ")[1].split("/")[1] + '/{0}'.format(low)
+                                    )
                                 if 'lag' in interface:
                                     have_interfaces.append('lag {0}'.format(low))
                                 low = low + 1
@@ -557,7 +558,9 @@ def map_obj_to_commands(updates, module):
 
                             while (high >= low):
                                 if 'ethernet' in tag:
-                                    have_tagged.append('ethernet 1/1/{0}'.format(low))
+                                    have_tagged.append(
+                                        'ethernet ' + tag.split(" ")[1].split("/")[0] + '/' + tag.split(" ")[1].split("/")[1] + '/{0}'.format(low)
+                                    )
                                 if 'lag' in tag:
                                     have_tagged.append('lag {0}'.format(low))
                                 low = low + 1
@@ -615,7 +618,7 @@ def parse_interfaces_argument(module, item, port_type):
     if port_type == "interfaces":
         if untagged_ports:
             for port in untagged_ports:
-                ports.append('ethernet 1/1/' + str(port))
+                ports.append(port)
         if untagged_lags:
             for port in untagged_lags:
                 ports.append('lag ' + str(port))
@@ -623,7 +626,7 @@ def parse_interfaces_argument(module, item, port_type):
     elif port_type == "tagged":
         if tagged_ports:
             for port in tagged_ports:
-                ports.append('ethernet 1/1/' + str(port))
+                ports.append(port)
         if tagged_lags:
             for port in tagged_lags:
                 ports.append('lag ' + str(port))

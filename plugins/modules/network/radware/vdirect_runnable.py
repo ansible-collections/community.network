@@ -97,6 +97,7 @@ options:
     description:
      - Action parameters dictionary. In case of C(ConfigurationTemplate) runnable type,
      - the device connection details should always be passed as a parameter.
+    default: {}
 
 requirements:
   - "vdirect-client >= 4.9.0-post4"

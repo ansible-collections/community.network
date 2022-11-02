@@ -29,6 +29,7 @@ options:
   partition:
     description:
       - set active-partition
+    default: []
   server_name:
     description:
       - The SLB (Server Load Balancer) server name.
@@ -50,6 +51,7 @@ options:
         dictionary which specifies the C(port:) and C(protocol:), but can also optionally
         specify the C(status:). See the examples below for details. This parameter is
         required when C(state) is C(present).
+    default: []
     aliases: ['port']
   state:
     description:

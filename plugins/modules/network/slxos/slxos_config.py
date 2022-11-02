@@ -290,7 +290,7 @@ def save_config(module, result):
     result['changed'] = True
     if not module.check_mode:
         command = {"command": "copy running-config startup-config",
-                   "prompt": "This operation will modify your startup configuration. Do you want to continue", "answer": "y"}
+                   "prompt": "This operation will back up the current configuration. Do you want to continue", "answer": "y"}
         run_commands(module, command)
     else:
         module.warn('Skipping command `copy running-config startup-config` '

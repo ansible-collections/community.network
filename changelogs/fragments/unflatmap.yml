@@ -5,4 +5,4 @@ major_changes:
      They were never officially supported and thus the redirects are kept as a courtsey, and this is not labelled as a breaking change.
      Note that for example the Ansible VScode plugin started recommending these internal names. If you followed its recommendation,
      you will now have to change back to the short names to avoid deprecation warnings, and potential errors in the future as
-     these redirects will be removed in community.network 6.0.0 (https://github.com/ansible-collections/community.network/pull/482)."
+     these redirects will be removed in community.network 8.0.0 (https://github.com/ansible-collections/community.network/pull/482)."

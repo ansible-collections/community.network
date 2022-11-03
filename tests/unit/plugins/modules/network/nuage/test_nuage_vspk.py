@@ -25,7 +25,7 @@ import pytest
 
 pytestmark = []
 
-if not(sys.version_info[0] == 2 and sys.version_info[1] >= 7):
+if not (sys.version_info[0] == 2 and sys.version_info[1] >= 7):
     pytestmark.append(pytest.mark.skip('Nuage Ansible modules requires Python 2.7'))
 
 try:

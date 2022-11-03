@@ -189,24 +189,24 @@ def doConfigBackUp(module, prompt, answer):
     cnos.debugOutput(command + "\n")
     # cnos.checkForFirstTimeAccess(module, command, 'yes/no', 'yes')
     cmd = []
-    if(protocol == "scp"):
+    if protocol == "scp":
         scp_cmd1 = [{'command': command, 'prompt': 'timeout:', 'answer': '0'}]
         scp_cmd2 = [{'command': '\n', 'prompt': 'Password:',
                      'answer': password}]
         cmd.extend(scp_cmd1)
         cmd.extend(scp_cmd2)
         retVal = retVal + str(cnos.run_cnos_commands(module, cmd))
-    elif(protocol == "sftp"):
+    elif protocol == "sftp":
         sftp_cmd = [{'command': command, 'prompt': 'Password:',
                      'answer': password}]
         cmd.extend(sftp_cmd)
         retVal = retVal + str(cnos.run_cnos_commands(module, cmd))
-    elif(protocol == "ftp"):
+    elif protocol == "ftp":
         ftp_cmd = [{'command': command, 'prompt': 'Password:',
                     'answer': password}]
         cmd.extend(ftp_cmd)
         retVal = retVal + str(cnos.run_cnos_commands(module, cmd))
-    elif(protocol == "tftp"):
+    elif protocol == "tftp":
         command = "copy " + configType + " " + protocol + " " + protocol
         command = command + "://" + server + "/" + confPath
         command = command + " vrf management\n"
@@ -242,8 +242,7 @@ def main():
     outputfile = module.params['outputfile']
     protocol = module.params['protocol'].lower()
     output = ''
-    if(protocol == "tftp" or protocol == "ftp" or
-       protocol == "sftp" or protocol == "scp"):
+    if protocol == "tftp" or protocol == "ftp" or protocol == "sftp" or protocol == "scp":
         transfer_status = doConfigBackUp(module, None, None)
     else:
         transfer_status = "Invalid Protocol option"
@@ -261,7 +260,7 @@ def main():
 
     # Logic to check when changes occur or not
     errorMsg = cnos.checkOutputForError(output)
-    if(errorMsg is None):
+    if errorMsg is None:
         module.exit_json(changed=True, msg="Config file transferred to server")
     else:
         module.fail_json(msg=errorMsg)

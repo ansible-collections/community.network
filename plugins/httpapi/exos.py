@@ -59,7 +59,7 @@ class HttpApi(HttpApiBase):
     def handle_httperror(self, exc):
         return False
 
-    def send_request(self, path, data=None, method='GET', **message_kwargs):
+    def send_request(self, data, path, method='GET', **message_kwargs):
         headers = {'Content-Type': 'application/json'}
         response, response_data = self.connection.send(path, data, method=method, cookies=self._auth_token, headers=headers, **message_kwargs)
         try:

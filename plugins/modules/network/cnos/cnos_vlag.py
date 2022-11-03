@@ -238,99 +238,99 @@ def vlagConfig(module, prompt, answer):
     vlagArg4 = module.params['vlagArg4']
     deviceType = module.params['deviceType']
 
-    if(vlagArg1 == "enable"):
+    if (vlagArg1 == "enable"):
         # debugOutput("enable")
         command = command + vlagArg1 + " "
 
-    elif(vlagArg1 == "auto-recovery"):
+    elif (vlagArg1 == "auto-recovery"):
         # debugOutput("auto-recovery")
         command = command + vlagArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "vlag_auto_recovery", vlagArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + vlagArg2
         else:
             retVal = "Error-160"
             return retVal
 
-    elif(vlagArg1 == "config-consistency"):
+    elif (vlagArg1 == "config-consistency"):
         # debugOutput("config-consistency")
         command = command + vlagArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "vlag_config_consistency", vlagArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + vlagArg2
         else:
             retVal = "Error-161"
             return retVal
 
-    elif(vlagArg1 == "isl"):
+    elif (vlagArg1 == "isl"):
         # debugOutput("isl")
         command = command + vlagArg1 + " port-channel "
         value = cnos.checkSanityofVariable(
             deviceType, "vlag_port_aggregation", vlagArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + vlagArg2
         else:
             retVal = "Error-162"
             return retVal
 
-    elif(vlagArg1 == "mac-address-table"):
+    elif (vlagArg1 == "mac-address-table"):
         # debugOutput("mac-address-table")
         command = command + vlagArg1 + " refresh"
 
-    elif(vlagArg1 == "peer-gateway"):
+    elif (vlagArg1 == "peer-gateway"):
         # debugOutput("peer-gateway")
         command = command + vlagArg1 + " "
 
-    elif(vlagArg1 == "priority"):
+    elif (vlagArg1 == "priority"):
         # debugOutput("priority")
         command = command + vlagArg1 + " "
         value = cnos.checkSanityofVariable(deviceType, "vlag_priority",
                                            vlagArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + vlagArg2
         else:
             retVal = "Error-163"
             return retVal
 
-    elif(vlagArg1 == "startup-delay"):
+    elif (vlagArg1 == "startup-delay"):
         # debugOutput("startup-delay")
         command = command + vlagArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "vlag_startup_delay", vlagArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + vlagArg2
         else:
             retVal = "Error-164"
             return retVal
 
-    elif(vlagArg1 == "tier-id"):
+    elif (vlagArg1 == "tier-id"):
         # debugOutput("tier-id")
         command = command + vlagArg1 + " "
         value = cnos.checkSanityofVariable(deviceType, "vlag_tier_id", vlagArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + vlagArg2
         else:
             retVal = "Error-165"
             return retVal
 
-    elif(vlagArg1 == "vrrp"):
+    elif (vlagArg1 == "vrrp"):
         # debugOutput("vrrp")
         command = command + vlagArg1 + " active"
 
-    elif(vlagArg1 == "instance"):
+    elif (vlagArg1 == "instance"):
         # debugOutput("instance")
         command = command + vlagArg1 + " "
         value = cnos.checkSanityofVariable(deviceType, "vlag_instance",
                                            vlagArg2)
-        if(value == "ok"):
+        if (value == "ok"):
             command = command + vlagArg2
-            if(vlagArg3 is not None):
+            if (vlagArg3 is not None):
                 command = command + " port-channel "
                 value = cnos.checkSanityofVariable(
                     deviceType, "vlag_port_aggregation", vlagArg3)
-                if(value == "ok"):
+                if (value == "ok"):
                     command = command + vlagArg3
                 else:
                     retVal = "Error-162"
@@ -341,46 +341,46 @@ def vlagConfig(module, prompt, answer):
             retVal = "Error-166"
             return retVal
 
-    elif(vlagArg1 == "hlthchk"):
+    elif (vlagArg1 == "hlthchk"):
         # debugOutput("hlthchk")
         command = command + vlagArg1 + " "
         value = cnos.checkSanityofVariable(
             deviceType, "vlag_hlthchk_options", vlagArg2)
-        if(value == "ok"):
-            if(vlagArg2 == "keepalive-attempts"):
+        if (value == "ok"):
+            if (vlagArg2 == "keepalive-attempts"):
                 value = cnos.checkSanityofVariable(
                     deviceType, "vlag_keepalive_attempts", vlagArg3)
-                if(value == "ok"):
+                if (value == "ok"):
                     command = command + vlagArg2 + " " + vlagArg3
                 else:
                     retVal = "Error-167"
                     return retVal
-            elif(vlagArg2 == "keepalive-interval"):
+            elif (vlagArg2 == "keepalive-interval"):
                 value = cnos.checkSanityofVariable(
                     deviceType, "vlag_keepalive_interval", vlagArg3)
-                if(value == "ok"):
+                if (value == "ok"):
                     command = command + vlagArg2 + " " + vlagArg3
                 else:
                     retVal = "Error-168"
                     return retVal
-            elif(vlagArg2 == "retry-interval"):
+            elif (vlagArg2 == "retry-interval"):
                 value = cnos.checkSanityofVariable(
                     deviceType, "vlag_retry_interval", vlagArg3)
-                if(value == "ok"):
+                if (value == "ok"):
                     command = command + vlagArg2 + " " + vlagArg3
                 else:
                     retVal = "Error-169"
                     return retVal
-            elif(vlagArg2 == "peer-ip"):
+            elif (vlagArg2 == "peer-ip"):
                 # Here I am not taking care of IPV6 option.
                 value = cnos.checkSanityofVariable(
                     deviceType, "vlag_peerip", vlagArg3)
-                if(value == "ok"):
+                if (value == "ok"):
                     command = command + vlagArg2 + " " + vlagArg3
-                    if(vlagArg4 is not None):
+                    if (vlagArg4 is not None):
                         value = cnos.checkSanityofVariable(
                             deviceType, "vlag_peerip_vrf", vlagArg4)
-                        if(value == "ok"):
+                        if (value == "ok"):
                             command = command + " vrf " + vlagArg4
                         else:
                             retVal = "Error-170"
@@ -431,7 +431,7 @@ def main():
 
     # need to add logic to check when changes occur or not
     errorMsg = cnos.checkOutputForError(output)
-    if(errorMsg is None):
+    if (errorMsg is None):
         module.exit_json(changed=True, msg="VLAG configurations accomplished")
     else:
         module.fail_json(msg=errorMsg)

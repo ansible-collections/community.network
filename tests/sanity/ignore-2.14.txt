@@ -800,7 +800,6 @@ plugins/modules/network/enos/enos_command.py validate-modules:nonexistent-parame
 plugins/modules/network/enos/enos_command.py validate-modules:parameter-list-no-elements
 plugins/modules/network/enos/enos_command.py validate-modules:parameter-type-not-in-doc
 plugins/modules/network/enos/enos_command.py validate-modules:undocumented-parameter
-plugins/modules/network/enos/enos_command.py yamllint:unparsable-with-libyaml
 plugins/modules/network/enos/enos_config.py validate-modules:doc-default-does-not-match-spec
 plugins/modules/network/enos/enos_config.py validate-modules:doc-missing-type
 plugins/modules/network/enos/enos_config.py validate-modules:doc-required-mismatch
@@ -1070,7 +1069,6 @@ plugins/modules/network/sros/sros_command.py validate-modules:doc-missing-type
 plugins/modules/network/sros/sros_command.py validate-modules:doc-required-mismatch
 plugins/modules/network/sros/sros_command.py validate-modules:parameter-list-no-elements
 plugins/modules/network/sros/sros_command.py validate-modules:parameter-type-not-in-doc
-plugins/modules/network/sros/sros_command.py yamllint:unparsable-with-libyaml
 plugins/modules/network/sros/sros_config.py validate-modules:collection-deprecated-version
 plugins/modules/network/sros/sros_config.py validate-modules:doc-default-does-not-match-spec
 plugins/modules/network/sros/sros_config.py validate-modules:doc-missing-type
@@ -1078,13 +1076,11 @@ plugins/modules/network/sros/sros_config.py validate-modules:doc-required-mismat
 plugins/modules/network/sros/sros_config.py validate-modules:nonexistent-parameter-documented
 plugins/modules/network/sros/sros_config.py validate-modules:parameter-list-no-elements
 plugins/modules/network/sros/sros_config.py validate-modules:parameter-type-not-in-doc
-plugins/modules/network/sros/sros_config.py yamllint:unparsable-with-libyaml
 plugins/modules/network/sros/sros_rollback.py validate-modules:collection-deprecated-version
 plugins/modules/network/sros/sros_rollback.py validate-modules:doc-default-does-not-match-spec
 plugins/modules/network/sros/sros_rollback.py validate-modules:doc-missing-type
 plugins/modules/network/sros/sros_rollback.py validate-modules:doc-required-mismatch
 plugins/modules/network/sros/sros_rollback.py validate-modules:parameter-type-not-in-doc
-plugins/modules/network/sros/sros_rollback.py yamllint:unparsable-with-libyaml
 plugins/modules/network/voss/voss_command.py validate-modules:doc-missing-type
 plugins/modules/network/voss/voss_command.py validate-modules:parameter-list-no-elements
 plugins/modules/network/voss/voss_command.py validate-modules:parameter-type-not-in-doc

@@ -35,7 +35,7 @@ from ansible_collections.community.network.plugins.module_utils.network.ftd.fdm_
 class TestBaseConfigurationResource(object):
     @pytest.fixture
     def connection_mock(self, mocker):
-        connection_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.network.ftd.ftd_configuration.Connection')
+        connection_class_mock = mocker.patch('ansible_collections.community.network.plugins.modules.ftd_configuration.Connection')
         connection_instance = connection_class_mock.return_value
         connection_instance.validate_data.return_value = True, None
         connection_instance.validate_query_params.return_value = True, None

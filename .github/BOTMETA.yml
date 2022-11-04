@@ -32,9 +32,9 @@ files:
   $actions/voss.py:
     maintainers: $team_extreme
     labels: networking voss
-  $actions/network/edgeos/edgeos_config.py:
+  $actions/edgeos_config.py:
     maintainers: $team_edgeos
-  $actions/network/nos/nos_config.py: {}
+  $actions/nos_config.py: {}
   $cliconfs/:
     labels: networking
   $cliconfs/apconos.py:
@@ -153,143 +153,143 @@ files:
   $module_utils/_version.py: {}
   $module_utils/version.py: {}
 
-  $modules/network/a10/a10_:
+  $modules/a10_:
     maintainers: ericchou1 mischapeters
-  $modules/network/a10/a10_server_axapi3.py:
+  $modules/a10_server_axapi3.py:
     maintainers: ericchou1 mischapeters
-  $modules/network/aireos/aireos_:
+  $modules/aireos_:
     maintainers: jmighion
     labels: cisco networking
     ignore: jmighion
-  $modules/network/apconos/apconos_command.py:
+  $modules/apconos_command.py:
     maintainers: davidlee-ap
-  $modules/network/aruba/aruba_:
+  $modules/aruba_:
     maintainers: jmighion $team_aruba
     ignore: jmighion
-  $modules/network/avi/avi_:
+  $modules/avi_:
     maintainers: grastogi23 ericsysmin khaltore
-  $modules/network/avi/avi_api_version.py:
+  $modules/avi_api_version.py:
     maintainers: vivobg $team_avi
-  $modules/network/avi/avi_autoscalelaunchconfig.py:
+  $modules/avi_autoscalelaunchconfig.py:
     maintainers: chaitanyaavi $team_avi
-  $modules/network/avi/avi_l4policyset.py:
+  $modules/avi_l4policyset.py:
     maintainers: chaitanyaavi $team_avi
-  $modules/network/avi/avi_user.py:
+  $modules/avi_user.py:
     maintainers: gitshrikant $team_avi
-  $modules/network/avi/avi_useraccount.py:
+  $modules/avi_useraccount.py:
     maintainers: chaitanyaavi $team_avi
-  $modules/network/bigswitch/bcf_switch.py:
+  $modules/bcf_switch.py:
     maintainers: tedelhourani jayakody vuile
-  $modules/network/bigswitch/bigmon_:
+  $modules/bigmon_:
     maintainers: tedelhourani jayakody vuile
-  $modules/network/cloudengine/ce_:
+  $modules/ce_:
     maintainers: QijunPan TommyLike edisonxiang freesky-edward hwDCN niuzhenguo xuxiaowei0512 yanzhangi zengchen1024 zhongjun2
     labels: huawei networking
-  $modules/network/cloudengine/ce_command.py:
+  $modules/ce_command.py:
     maintainers: CloudEngine-Ansible $team_huawei
-  $modules/network/cloudengine/ce_is_is_instance.py:
+  $modules/ce_is_is_instance.py:
     maintainers: CloudEngine-Ansible
-  $modules/network/cloudengine/ce_is_is_interface.py:
+  $modules/ce_is_is_interface.py:
     maintainers: CloudEngine-Ansible
-  $modules/network/cloudengine/ce_is_is_view.py:
+  $modules/ce_is_is_view.py:
     maintainers: CloudEngine-Ansible
-  $modules/network/cloudengine/ce_lacp.py:
+  $modules/ce_lacp.py:
     maintainers: CloudEngine-Ansible
-  $modules/network/cloudengine/ce_lldp.py:
+  $modules/ce_lldp.py:
     maintainers: CloudEngine-Ansible
-  $modules/network/cloudengine/ce_lldp_interface.py:
+  $modules/ce_lldp_interface.py:
     maintainers: CloudEngine-Ansible
-  $modules/network/cloudengine/ce_mdn_interface.py:
+  $modules/ce_mdn_interface.py:
     maintainers: CloudEngine-Ansible
-  $modules/network/cloudengine/ce_multicast_global.py:
+  $modules/ce_multicast_global.py:
     maintainers: xuxiaowei0512 QijunPan TommyLike edisonxiang freesky-edward hwDCN niuzhenguo yanzhangi zengchen1024 zhongjun2
-  $modules/network/cloudengine/ce_multicast_igmp_enable.py:
+  $modules/ce_multicast_igmp_enable.py:
     maintainers: CloudEngine-Ansible $team_huawei
-  $modules/network/cloudengine/ce_static_route_bfd.py:
+  $modules/ce_static_route_bfd.py:
     maintainers: CloudEngine-Ansible $team_huawei
-  $modules/network/cloudengine/ce_vrrp.py:
+  $modules/ce_vrrp.py:
     maintainers: numone213 $team_huawei
-  $modules/network/cloudvision/cv_server_provision.py:
+  $modules/cv_server_provision.py:
     maintainers: mharista
-  $modules/network/cnos/cnos_:
+  $modules/cnos_:
     ignore: amuraleedhar dkasberg
     maintainers: $team_lenovo
-  $modules/network/cnos/cnos_linkagg.py:
+  $modules/cnos_linkagg.py:
     maintainers: auraleedhar
-  $modules/network/cumulus/nclu.py:
+  $modules/nclu.py:
     maintainers: isharacomix jrrivers
-  $modules/network/edgeos/edgeos_:
+  $modules/edgeos_:
     maintainers: Qalthos samdoran $team_edgeos
-  $modules/network/edgeos/edgeos_command.py:
+  $modules/edgeos_command.py:
     maintainers: beardymcbeards samdoran
-  $modules/network/edgeswitch/edgeswitch_:
+  $modules/edgeswitch_:
     maintainers: f-bor
-  $modules/network/enos/enos_:
+  $modules/enos_:
     maintainers: amuraleedhar
-  $modules/network/eric_eccli/eric_eccli_command.py:
+  $modules/eric_eccli_command.py:
     maintainers: itercheng
-  $modules/network/exos/exos_command.py:
+  $modules/exos_command.py:
     maintainers: rdvencioneck $team_extreme
-  $modules/network/exos/exos_config.py:
+  $modules/exos_config.py:
     maintainers: hlrichardson $team_extreme rdvencioneck
-  $modules/network/exos/exos_facts.py:
+  $modules/exos_facts.py:
     maintainers: hlrichardson ujwalkomarla LindsayHill rdvencioneck
-  $modules/network/exos/exos_l2_interfaces.py:
+  $modules/exos_l2_interfaces.py:
     maintainers: jayalakshmiV $team_extreme rdvencioneck
-  $modules/network/exos/exos_lldp_global.py:
+  $modules/exos_lldp_global.py:
     maintainers: ujwalkomarla LindsayHill rdvencioneck
-  $modules/network/exos/exos_lldp_interfaces.py:
+  $modules/exos_lldp_interfaces.py:
     maintainers: JayalakshmiV $team_extreme rdvencioneck
-  $modules/network/exos/exos_vlans.py:
+  $modules/exos_vlans.py:
     maintainers: jayalakshmiV $team_extreme rdvencioneck
-  $modules/network/ftd/ftd_:
+  $modules/ftd_:
     maintainers: annikulin
     labels: cisco networking
     keywords: firepower ftd
-  $modules/network/icx/icx_:
+  $modules/icx_:
     maintainers: Commscope sushma-alethea
-  $modules/network/illumos/dladm_:
+  $modules/dladm_:
     maintainers: xen0l bcoca danowar2k fishman jasperla jpdasma mator scathatheworm troy2914
     labels: solaris
     keywords: beadm dladm illumos ipadm nexenta omnios openindiana pfexec smartos solaris sunos zfs zpool
-  $modules/network/illumos/flowadm.py:
+  $modules/flowadm.py:
     maintainers: xen0l bcoca danowar2k fishman jasperla jpdasma mator scathatheworm troy2914
     labels: solaris
     keywords: beadm dladm illumos ipadm nexenta omnios openindiana pfexec smartos solaris sunos zfs zpool
-  $modules/network/illumos/ipadm_:
+  $modules/ipadm_:
     maintainers: xen0l bcoca danowar2k fishman jasperla jpdasma mator scathatheworm troy2914
     labels: solaris
     keywords: beadm dladm illumos ipadm nexenta omnios openindiana pfexec smartos solaris sunos zfs zpool
-  $modules/network/ingate/ig_:
+  $modules/ig_:
     maintainers: ingatesystems
-  $modules/network/ironware/ironware_:
+  $modules/ironware_:
     maintainers: paulquack
-  $modules/network/itential/iap_:
+  $modules/iap_:
     maintainers: cma0
-  $modules/network/netact/netact_cm_command.py:
+  $modules/netact_cm_command.py:
     maintainers: hatuomin
-  $modules/network/netscaler/netscaler_:
+  $modules/netscaler_:
     maintainers: giorgos-nikolopoulos chiradeep
-  $modules/network/netvisor/pn_:
+  $modules/pn_:
     maintainers: rajaspachipulusu17 $team_netvisor
-  $modules/network/nos/nos_:
+  $modules/nos_:
     maintainers: LindsayHill ujwalkomarla
-  $modules/network/nuage/nuage_vspk.py:
+  $modules/nuage_vspk.py:
     maintainers: pdellaert
-  $modules/network/opx/opx_cps.py:
+  $modules/opx_cps.py:
     maintainers: skg-net
-  $modules/network/ordnance/ordnance_:
+  $modules/ordnance_:
     maintainers: alexanderturner djh00t
-  $modules/network/radware/vdirect_:
+  $modules/vdirect_:
     maintainers: evgenyfedoruk
-  $modules/network/slxos/slxos_:
+  $modules/slxos_:
     maintainers: bigmstone LindsayHill ujwalkomarla
     ignore: bigmstone
-  $modules/network/slxos/slxos_vlan.py:
+  $modules/slxos_vlan.py:
     maintainers: lindsayhill $team_extreme
-  $modules/network/sros/sros_:
+  $modules/sros_:
     maintainers: privateip
-  $modules/network/voss/voss_:
+  $modules/voss_:
     maintainers: LindsayHill
   $netconfs/ce.py:
     maintainers: $team_huawei

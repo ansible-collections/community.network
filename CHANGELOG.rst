@@ -6,6 +6,19 @@ Community Network Release Notes
 
 This changelog describes changes after version 3.0.0.
 
+v4.0.2
+======
+
+Release Summary
+---------------
+
+This is a patch release of the community.network collection containing changes made since version 4.0.1.
+
+Bugfixes
+--------
+
+- Include ``simplified_bsd.txt`` license file for the ``icx`` and ``netvisor`` module utils.
+
 v4.0.1
 ======
 

@@ -73,3 +73,14 @@ releases:
     fragments:
     - 4.0.1.yml
     release_date: '2022-05-27'
+  4.0.2:
+    changes:
+      bugfixes:
+      - Include ``simplified_bsd.txt`` license file for the ``icx`` and ``netvisor``
+        module utils.
+      release_summary: This is a patch release of the community.network collection
+        containing changes made since version 4.0.1.
+    fragments:
+    - 4.0.2.yml
+    - simplified-bsd-license.yml
+    release_date: '2022-11-10'

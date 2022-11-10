@@ -6,6 +6,31 @@ Community Network Release Notes
 
 This changelog describes changes after version 2.0.0.
 
+v3.3.1
+======
+
+Release Summary
+---------------
+
+Final maintenance release of community.network major version 3.
+
+Major Changes
+-------------
+
+- The community.network 3.x.y release stream is now effectively End of Life. No more releases will be made. Regular CI runs have stopped.
+
+Deprecated Features
+-------------------
+
+- Support for Ansible 2.9 and ansible-base 2.10 is deprecated, and will be removed in the next major release (community.network 4.0.0) this spring. While most content will probably still work with ansible-base 2.10, we will remove symbolic links for modules and action plugins, which will make it impossible to use them with Ansible 2.9 anymore. Please use community.network 3.x.y with Ansible 2.9 and ansible-base 2.10, as these releases will continue to support Ansible 2.9 and ansible-base 2.10 even after they are End of Life (https://github.com/ansible-community/community-topics/issues/50, https://github.com/ansible-collections/community.network/pull/382).
+
+Bugfixes
+--------
+
+- Collection core functions - use vendored version of ``distutils.version`` instead of the deprecated Python standard library ``distutils``.
+- Include ``PSF-license.txt`` file for ``plugins/module_utils/_version.py``.
+- Include ``simplified_bsd.txt`` license file for the ``icx`` and ``netvisor`` module utils.
+
 v3.3.0
 ======
 

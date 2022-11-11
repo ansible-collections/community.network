@@ -31,10 +31,16 @@ If you're interested in becoming a maintainer of this collection, refer to the [
 
 We announce important development changes and releases through Ansible's [The Bullhorn newsletter](https://github.com/ansible/community/wiki/News#the-bullhorn). If you are a contributor, be sure you are [subscribed](https://eepurl.com/gZmiEP).
 
-Join us on:
+Join us on Matrix in the following (and other) rooms:
 
-- IRC - the ``#ansible-network`` [irc.libera.chat](https://libera.chat/) channel
-- Slack - https://ansiblenetwork.slack.com
+* [#users:ansible.com](https://matrix.to/#/#users:ansible.com): general use questions and support.
+* [#network:ansible.com](https://matrix.to/#/#network:ansible.com): network-related use questions and support.
+* [#ansible-community:ansible.com](https://matrix.to/#/#community:ansible.com): community and collection development questions.
+* other Matrix rooms
+
+Note that all the rooms above have corresponding bridged IRC channels on Libera.Chat. See the [Ansible Communication Guide](https://docs.ansible.com/ansible/devel/community/communication.html) for details.
+
+Also join us on [Slack](https://ansiblenetwork.slack.com).
 
 Contributors to this collection take part in the global [Ansible Contributor Summit](https://github.com/ansible/community/wiki/Contributor-Summit) virtually or in-person. Track [The Bullhorn newsletter](https://eepurl.com/gZmiEP) and join us.
 
@@ -42,9 +48,12 @@ For more information about communication, refer to the [Ansible communication gu
 
 ## Tested with Ansible
 
-Tested with the Ansible 2.11, 2.12, and 2.13 releases, and the current development version of Ansible. Ansible-core versions before 2.11.0 are not supported. In particular, ansible-base 2.10 and Ansible 2.9 are not supported. Use community.network 3.x.y if you are using Ansible 2.9 or ansible-base 2.10.
+Tested with the Ansible 2.11, 2.12, 2.13, 2.14 releases and the current development version of Ansible.
+
+Ansible-core versions before 2.11.0 are not supported. In particular, ansible-base 2.10 and Ansible 2.9 are not supported. Use community.network 3.x.y if you are using Ansible 2.9 or ansible-base 2.10.
 
 ### Supported connections
+
 The community network collection supports `network_cli`  and `httpapi` connections.
 
 ## Included content

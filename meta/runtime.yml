@@ -69,461 +69,137 @@ plugin_routing:
         warning_text: You are using an internal name to access the community.network.aruba_config
           modules. This has never been supported or documented, and will stop working
           in community.network 8.0.0.
-    network.avi.avi_actiongroupconfig:
-      redirect: community.network.avi_actiongroupconfig
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_actiongroupconfig
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_alertconfig:
-      redirect: community.network.avi_alertconfig
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_alertconfig
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_alertemailconfig:
-      redirect: community.network.avi_alertemailconfig
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_alertemailconfig
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_alertscriptconfig:
-      redirect: community.network.avi_alertscriptconfig
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_alertscriptconfig
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_alertsyslogconfig:
-      redirect: community.network.avi_alertsyslogconfig
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_alertsyslogconfig
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_analyticsprofile:
-      redirect: community.network.avi_analyticsprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_analyticsprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_api_session:
-      redirect: community.network.avi_api_session
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_api_session
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_api_version:
-      redirect: community.network.avi_api_version
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_api_version
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_applicationpersistenceprofile:
-      redirect: community.network.avi_applicationpersistenceprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_applicationpersistenceprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_applicationprofile:
-      redirect: community.network.avi_applicationprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_applicationprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_authprofile:
-      redirect: community.network.avi_authprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_authprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_autoscalelaunchconfig:
-      redirect: community.network.avi_autoscalelaunchconfig
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_autoscalelaunchconfig
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_backup:
-      redirect: community.network.avi_backup
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_backup
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_backupconfiguration:
-      redirect: community.network.avi_backupconfiguration
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_backupconfiguration
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_certificatemanagementprofile:
-      redirect: community.network.avi_certificatemanagementprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_certificatemanagementprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_cloud:
-      redirect: community.network.avi_cloud
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_cloud
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_cloudconnectoruser:
-      redirect: community.network.avi_cloudconnectoruser
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_cloudconnectoruser
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_cloudproperties:
-      redirect: community.network.avi_cloudproperties
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_cloudproperties
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_cluster:
-      redirect: community.network.avi_cluster
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_cluster
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_clusterclouddetails:
-      redirect: community.network.avi_clusterclouddetails
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_clusterclouddetails
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_controllerproperties:
-      redirect: community.network.avi_controllerproperties
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_controllerproperties
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_customipamdnsprofile:
-      redirect: community.network.avi_customipamdnsprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_customipamdnsprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_dnspolicy:
-      redirect: community.network.avi_dnspolicy
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_dnspolicy
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_errorpagebody:
-      redirect: community.network.avi_errorpagebody
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_errorpagebody
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_errorpageprofile:
-      redirect: community.network.avi_errorpageprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_errorpageprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_gslb:
-      redirect: community.network.avi_gslb
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_gslb
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_gslbgeodbprofile:
-      redirect: community.network.avi_gslbgeodbprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_gslbgeodbprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_gslbservice:
-      redirect: community.network.avi_gslbservice
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_gslbservice
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_gslbservice_patch_member:
-      redirect: community.network.avi_gslbservice_patch_member
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_gslbservice_patch_member
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_hardwaresecuritymodulegroup:
-      redirect: community.network.avi_hardwaresecuritymodulegroup
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_hardwaresecuritymodulegroup
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_healthmonitor:
-      redirect: community.network.avi_healthmonitor
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_healthmonitor
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_httppolicyset:
-      redirect: community.network.avi_httppolicyset
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_httppolicyset
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_ipaddrgroup:
-      redirect: community.network.avi_ipaddrgroup
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_ipaddrgroup
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_ipamdnsproviderprofile:
-      redirect: community.network.avi_ipamdnsproviderprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_ipamdnsproviderprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_l4policyset:
-      redirect: community.network.avi_l4policyset
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_l4policyset
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_microservicegroup:
-      redirect: community.network.avi_microservicegroup
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_microservicegroup
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_network:
-      redirect: community.network.avi_network
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_network
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_networkprofile:
-      redirect: community.network.avi_networkprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_networkprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_networksecuritypolicy:
-      redirect: community.network.avi_networksecuritypolicy
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_networksecuritypolicy
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_pkiprofile:
-      redirect: community.network.avi_pkiprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_pkiprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_pool:
-      redirect: community.network.avi_pool
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_pool
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_poolgroup:
-      redirect: community.network.avi_poolgroup
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_poolgroup
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_poolgroupdeploymentpolicy:
-      redirect: community.network.avi_poolgroupdeploymentpolicy
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_poolgroupdeploymentpolicy
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_prioritylabels:
-      redirect: community.network.avi_prioritylabels
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_prioritylabels
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_role:
-      redirect: community.network.avi_role
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_role
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_scheduler:
-      redirect: community.network.avi_scheduler
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_scheduler
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_seproperties:
-      redirect: community.network.avi_seproperties
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_seproperties
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_serverautoscalepolicy:
-      redirect: community.network.avi_serverautoscalepolicy
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_serverautoscalepolicy
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_serviceengine:
-      redirect: community.network.avi_serviceengine
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_serviceengine
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_serviceenginegroup:
-      redirect: community.network.avi_serviceenginegroup
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_serviceenginegroup
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_snmptrapprofile:
-      redirect: community.network.avi_snmptrapprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_snmptrapprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_sslkeyandcertificate:
-      redirect: community.network.avi_sslkeyandcertificate
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_sslkeyandcertificate
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_sslprofile:
-      redirect: community.network.avi_sslprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_sslprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_stringgroup:
-      redirect: community.network.avi_stringgroup
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_stringgroup
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_systemconfiguration:
-      redirect: community.network.avi_systemconfiguration
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_systemconfiguration
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_tenant:
-      redirect: community.network.avi_tenant
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_tenant
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_trafficcloneprofile:
-      redirect: community.network.avi_trafficcloneprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_trafficcloneprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_user:
-      redirect: community.network.avi_user
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_user
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_useraccount:
-      redirect: community.network.avi_useraccount
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_useraccount
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_useraccountprofile:
-      redirect: community.network.avi_useraccountprofile
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_useraccountprofile
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_virtualservice:
-      redirect: community.network.avi_virtualservice
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_virtualservice
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_vrfcontext:
-      redirect: community.network.avi_vrfcontext
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_vrfcontext
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_vsdatascriptset:
-      redirect: community.network.avi_vsdatascriptset
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_vsdatascriptset
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_vsvip:
-      redirect: community.network.avi_vsvip
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_vsvip
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
-    network.avi.avi_webhook:
-      redirect: community.network.avi_webhook
-      deprecation:
-        removal_version: 8.0.0
-        warning_text: You are using an internal name to access the community.network.avi_webhook
-          modules. This has never been supported or documented, and will stop working
-          in community.network 8.0.0.
+    avi_actiongroupconfig:
+      redirect: vmware.alb.avi_actiongroupconfig
+    avi_alertconfig:
+      redirect: vmware.alb.avi_alertconfig
+    avi_alertemailconfig:
+      redirect: vmware.alb.avi_alertemailconfig
+    avi_alertscriptconfig:
+      redirect: vmware.alb.avi_alertscriptconfig
+    avi_alertsyslogconfig:
+      redirect: vmware.alb.avi_alertsyslogconfig
+    avi_analyticsprofile:
+      redirect: vmware.alb.avi_analyticsprofile
+    avi_api_session:
+      redirect: vmware.alb.avi_api_session
+    avi_api_version:
+      redirect: vmware.alb.avi_api_version
+    avi_applicationpersistenceprofile:
+      redirect: vmware.alb.avi_applicationpersistenceprofile
+    avi_applicationprofile:
+      redirect: vmware.alb.avi_applicationprofile
+    avi_authprofile:
+      redirect: vmware.alb.avi_authprofile
+    avi_autoscalelaunchconfig:
+      redirect: vmware.alb.avi_autoscalelaunchconfig
+    avi_backup:
+      redirect: vmware.alb.avi_backup
+    avi_backupconfiguration:
+      redirect: vmware.alb.avi_backupconfiguration
+    avi_certificatemanagementprofile:
+      redirect: vmware.alb.avi_certificatemanagementprofile
+    avi_cloud:
+      redirect: vmware.alb.avi_cloud
+    avi_cloudconnectoruser:
+      redirect: vmware.alb.avi_cloudconnectoruser
+    avi_cloudproperties:
+      redirect: vmware.alb.avi_cloudproperties
+    avi_cluster:
+      redirect: vmware.alb.avi_cluster
+    avi_clusterclouddetails:
+      redirect: vmware.alb.avi_clusterclouddetails
+    avi_controllerproperties:
+      redirect: vmware.alb.avi_controllerproperties
+    avi_customipamdnsprofile:
+      redirect: vmware.alb.avi_customipamdnsprofile
+    avi_dnspolicy:
+      redirect: vmware.alb.avi_dnspolicy
+    avi_errorpagebody:
+      redirect: vmware.alb.avi_errorpagebody
+    avi_errorpageprofile:
+      redirect: vmware.alb.avi_errorpageprofile
+    avi_gslb:
+      redirect: vmware.alb.avi_gslb
+    avi_gslbgeodbprofile:
+      redirect: vmware.alb.avi_gslbgeodbprofile
+    avi_gslbservice:
+      redirect: vmware.alb.avi_gslbservice
+    avi_gslbservice_patch_member:
+      redirect: vmware.alb.avi_gslbservice_patch_member
+    avi_hardwaresecuritymodulegroup:
+      redirect: vmware.alb.avi_hardwaresecuritymodulegroup
+    avi_healthmonitor:
+      redirect: vmware.alb.avi_healthmonitor
+    avi_httppolicyset:
+      redirect: vmware.alb.avi_httppolicyset
+    avi_ipaddrgroup:
+      redirect: vmware.alb.avi_ipaddrgroup
+    avi_ipamdnsproviderprofile:
+      redirect: vmware.alb.avi_ipamdnsproviderprofile
+    avi_l4policyset:
+      redirect: vmware.alb.avi_l4policyset
+    avi_microservicegroup:
+      redirect: vmware.alb.avi_microservicegroup
+    avi_network:
+      redirect: vmware.alb.avi_network
+    avi_networkprofile:
+      redirect: vmware.alb.avi_networkprofile
+    avi_networksecuritypolicy:
+      redirect: vmware.alb.avi_networksecuritypolicy
+    avi_pkiprofile:
+      redirect: vmware.alb.avi_pkiprofile
+    avi_pool:
+      redirect: vmware.alb.avi_pool
+    avi_poolgroup:
+      redirect: vmware.alb.avi_poolgroup
+    avi_poolgroupdeploymentpolicy:
+      redirect: vmware.alb.avi_poolgroupdeploymentpolicy
+    avi_prioritylabels:
+      redirect: vmware.alb.avi_prioritylabels
+    avi_role:
+      redirect: vmware.alb.avi_role
+    avi_scheduler:
+      redirect: vmware.alb.avi_scheduler
+    avi_seproperties:
+      redirect: vmware.alb.avi_seproperties
+    avi_serverautoscalepolicy:
+      redirect: vmware.alb.avi_serverautoscalepolicy
+    avi_serviceengine:
+      redirect: vmware.alb.avi_serviceengine
+    avi_serviceenginegroup:
+      redirect: vmware.alb.avi_serviceenginegroup
+    avi_snmptrapprofile:
+      redirect: vmware.alb.avi_snmptrapprofile
+    avi_sslkeyandcertificate:
+      redirect: vmware.alb.avi_sslkeyandcertificate
+    avi_sslprofile:
+      redirect: vmware.alb.avi_sslprofile
+    avi_stringgroup:
+      redirect: vmware.alb.avi_stringgroup
+    avi_systemconfiguration:
+      redirect: vmware.alb.avi_systemconfiguration
+    avi_tenant:
+      redirect: vmware.alb.avi_tenant
+    avi_trafficcloneprofile:
+      redirect: vmware.alb.avi_trafficcloneprofile
+    avi_user:
+      redirect: vmware.alb.avi_user
+    avi_useraccount:
+      redirect: vmware.alb.avi_useraccount
+    avi_useraccountprofile:
+      redirect: vmware.alb.avi_useraccountprofile
+    avi_virtualservice:
+      redirect: vmware.alb.avi_virtualservice
+    avi_vrfcontext:
+      redirect: vmware.alb.avi_vrfcontext
+    avi_vsdatascriptset:
+      redirect: vmware.alb.avi_vsdatascriptset
+    avi_vsvip:
+      redirect: vmware.alb.avi_vsvip
+    avi_webhook:
+      redirect: vmware.alb.avi_webhook
+
     network.bigswitch.bcf_switch:
       redirect: community.network.bcf_switch
       deprecation:
@@ -2431,6 +2107,13 @@ plugin_routing:
       redirect: cisco.nso.nso
     network.routeros.routeros:
       redirect: community.routeros.routeros
+    network.avi.ansible_utils:
+      redirect: vmware.alb.ansible_utils
+    network.avi.avi:
+      redirect: vmware.alb.avi
+    network.avi.avi_api:
+      redirect: vmware.alb.avi_api
+
   cliconf:
     routeros:
       redirect: community.routeros.routeros
@@ -2445,6 +2128,8 @@ plugin_routing:
   doc_fragments:
     nso:
       redirect: cisco.nso.nso
+    avi:
+      redirect: vmware.alb.avi
   action:
     network.edgeos.edgeos_config:
       redirect: community.network.edgeos_config

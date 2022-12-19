@@ -44,7 +44,7 @@ options:
             - AC LogicSubnet id.
 '''
 
-CREATE_LOGICPORT_EXAMPLE = '''
+CREATE_LOGICINTERFACE_EXAMPLE = '''
 - name: Create LogicInterface
   hosts: localhost
   serial: True
@@ -117,7 +117,7 @@ CREATE_LOGICPORT_EXAMPLE = '''
         msg: "{{logicinterface_result}}"
 '''
 
-QUERY_LOGICPORT_EXAMPLE = '''
+QUERY_LOGICINTERFACE_EXAMPLE = '''
 - name: Query LogicInterface
   hosts: localhost
   serial: True
@@ -168,7 +168,7 @@ QUERY_LOGICPORT_EXAMPLE = '''
         msg: "{{logicinterface_result.json.interface}}"
 '''
 
-DELETE_LOGICPORT_EXAMPLE = '''
+DELETE_LOGICINTERFACE_EXAMPLE = '''
 - name: Delete LogicInterface
   hosts: localhost
   serial: True

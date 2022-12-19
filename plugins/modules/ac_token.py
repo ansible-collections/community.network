@@ -18,12 +18,12 @@
 
 DOCUMENTATION = '''
 module: ac_token
-short_description: Get Token from HUAWEI AC.
+short_description: Get Token from HUAWEI iMaster NCE-Fabric Controller.
 description:
-    - Get Tenant from HUAWEI AC.
+    - Get Tenant from HUAWEI iMaster NCE-Fabric Controller(AC).
 author: ZhiwenZhang
 notes:
-  - This module requires installation iMaster NCE-Fabric.
+  - This module requires installation iMaster NCE-Fabric Controller.
   - This module is dependent by other modules.
   - This module also works with C(local) connections for legacy playbooks.
 options:
@@ -53,7 +53,7 @@ GET_TOKEN_EXAMPLE = '''
         token_info:
           token: "{{lookup('file','/tmp/ansible-temp')}}"
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/v2/tokens'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/v2/tokens'
         method: DELETE
         body: '{{token_info}}'
         body_format: json
@@ -68,7 +68,7 @@ GET_TOKEN_EXAMPLE = '''
           userName: '{{userName}}'
           password: '{{password}}'
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/v2/tokens'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/v2/tokens'
         method: POST
         body: '{{auth_user}}'
         body_format: json
@@ -92,7 +92,7 @@ DELETE_TOKEN_EXAMPLE = '''
         token_info:
           token: "{{lookup('file','/tmp/ansible-temp')}}"
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/v2/tokens'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/v2/tokens'
         method: DELETE
         body: '{{token_info}}'
         body_format: json

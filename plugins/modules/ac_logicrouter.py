@@ -18,12 +18,12 @@
 
 DOCUMENTATION = '''
 module: ac_logicrouter
-short_description: Manages LogicRouter on HUAWEI AC.
+short_description: Manages LogicRouter on HUAWEI iMaster NCE-Fabric Controller.
 description:
-    - Manages LogicRouter on HUAWEI AC.
+    - Manages LogicRouter on HUAWEI iMaster NCE-Fabric Controller(AC).
 author: ZhiwenZhang
 notes:
-  - This module requires installation iMaster NCE-Fabric.
+  - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
   - This module also works with C(local) connections for legacy playbooks.
 options:
@@ -97,7 +97,7 @@ CREATE_LOGICROUTER_EXAMPLE = '''
               createAt: "{{now_time}}"
               updateAt: "{{now_time}}"
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/routers'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/routers'
         method: POST
         body: '{{logicrouter_info}}'
         body_format: json
@@ -152,7 +152,7 @@ UPDATE_LOGICROUTER_EXAMPLE = '''
             additional:
               updateAt: "{{now_time}}"
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/routers/router/{{logicrouter_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/routers/router/{{logicrouter_id}}'
         method: PUT
         body: '{{logicrouter_info}}'
         body_format: json
@@ -185,7 +185,7 @@ QUERY_LOGICROUTER_EXAMPLE = '''
       tags: qeury_logicrouters
       when: logicrouter_id == ''
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/routers'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/routers'
         method: GET
         validate_certs: False
         return_content: yes
@@ -200,7 +200,7 @@ QUERY_LOGICROUTER_EXAMPLE = '''
       tags: qeury_logicrouter
       when: logicrouter_id != ''
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/routers/router/{{logicrouter_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/routers/router/{{logicrouter_id}}'
         method: GET
         validate_certs: False
         return_content: yes
@@ -239,7 +239,7 @@ DELETE_LOGICROUTER_EXAMPLE = '''
     - name: Delete logicrouter "{{logicrouter_id}}"
       tags: delete_logicrouter
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/routers/router/{{logicrouter_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/routers/router/{{logicrouter_id}}'
         method: DELETE
         validate_certs: False
         return_content: yes

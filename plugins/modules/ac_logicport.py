@@ -18,12 +18,12 @@
 
 DOCUMENTATION = '''
 module: ac_logicport
-short_description: Manages LogicPort on HUAWEI AC.
+short_description: Manages LogicPort on HUAWEI iMaster NCE-Fabric Controller.
 description:
-    - Manages LogicPort on HUAWEI AC.
+    - Manages LogicPort on HUAWEI iMaster NCE-Fabric Controller(AC).
 author: ZhiwenZhang
 notes:
-  - This module requires installation iMaster NCE-Fabric.
+  - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
   - This module also works with C(local) connections for legacy playbooks.
 options:
@@ -113,7 +113,7 @@ CREATE_LOGICPORT_EXAMPLE = '''
         logicport_infos:
           port: [ '{{logicport_info}}' ]
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/ports'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/ports'
         method: POST
         body: '{{logicport_infos}}'
         body_format: json
@@ -206,7 +206,7 @@ UPDATE_LOGICPORT_EXAMPLE = '''
         logicport_infos:
           port: [ '{{logicport_info}}' ]
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/ports/port/{{logicport_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/ports/port/{{logicport_id}}'
         method: PUT
         body: '{{logicport_infos}}'
         body_format: json
@@ -239,7 +239,7 @@ QUERY_LOGICPORT_EXAMPLE = '''
       tags: qeury_logicports
       when: logicport_id == ''
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/ports'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/ports'
         method: GET
         validate_certs: False
         return_content: yes
@@ -254,7 +254,7 @@ QUERY_LOGICPORT_EXAMPLE = '''
       tags: qeury_logicport
       when: logicport_id != ''
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/ports/port/{{logicport_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/ports/port/{{logicport_id}}'
         method: GET
         validate_certs: False
         return_content: yes
@@ -293,7 +293,7 @@ DELETE_LOGICPORT_EXAMPLE = '''
     - name: Delete logicport "{{logicport_id}}"
       tags: delete_logicport
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/ports/port/{{logicport_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/ports/port/{{logicport_id}}'
         method: DELETE
         validate_certs: False
         return_content: yes

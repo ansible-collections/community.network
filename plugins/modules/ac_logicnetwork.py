@@ -18,12 +18,12 @@
 
 DOCUMENTATION = '''
 module: ac_logicnetwork
-short_description: Manages LogicNetwork on HUAWEI AC.
+short_description: Manages LogicNetwork on HUAWEI iMaster NCE-Fabric Controller.
 description:
-    - Manages LogicNetwork on HUAWEI AC.
+    - Manages LogicNetwork on HUAWEI iMaster NCE-Fabric Controller(AC).
 author: ZhiwenZhang
 notes:
-  - This module requires installation iMaster NCE-Fabric.
+  - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
   - This module also works with C(local) connections for legacy playbooks.
 options:
@@ -93,7 +93,7 @@ CREATE_LOGICNETWORK_EXAMPLE = '''
               createAt: "{{now_time}}"
               updateAt: "{{now_time}}"
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/networks'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/networks'
         method: POST
         body: '{{logicnetwork_info}}'
         body_format: json
@@ -148,7 +148,7 @@ UPDATE_LOGICNETWORK_EXAMPLE = '''
             additional:
               updateAt: "{{now_time}}"
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/networks/network/{{logicnetwork_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/networks/network/{{logicnetwork_id}}'
         method: PUT
         body: '{{logicnetwork_info}}'
         body_format: json
@@ -181,7 +181,7 @@ QUERY_LOGICNETWORK_EXAMPLE = '''
       tags: qeury_logicnetworks
       when: logicnetwork_id == ''
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/networks'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/networks'
         method: GET
         validate_certs: False
         return_content: yes
@@ -196,7 +196,7 @@ QUERY_LOGICNETWORK_EXAMPLE = '''
       tags: qeury_logicnetwork
       when: logicnetwork_id != ''
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/networks/network/{{logicnetwork_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/networks/network/{{logicnetwork_id}}'
         method: GET
         validate_certs: False
         return_content: yes
@@ -235,7 +235,7 @@ DELETE_LOGICNETWORK_EXAMPLE = '''
     - name: Delete logicnetwork "{{logicnetwork_id}}"
       tags: delete_logicnetwork
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/networks/network/{{logicnetwork_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/networks/network/{{logicnetwork_id}}'
         method: DELETE
         validate_certs: False
         return_content: yes

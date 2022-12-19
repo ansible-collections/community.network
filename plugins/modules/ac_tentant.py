@@ -18,12 +18,12 @@
 
 DOCUMENTATION = '''
 module: ac_tenant
-short_description: Manages Tenant on HUAWEI AC.
+short_description: Manages Tenant on HUAWEI iMaster NCE-Fabric Controller.
 description:
-    - Manages Tenant on HUAWEI AC.
+    - Manages Tenant on HUAWEI iMaster NCE-Fabric Controller(AC).
 author: ZhiwenZhang
 notes:
-  - This module requires installation iMaster NCE-Fabric.
+  - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
   - This module also works with C(local) connections for legacy playbooks.
 options:
@@ -89,7 +89,7 @@ CREATE_TENANT_EXAMPLE = '''
         tenant_infos:
           tenant: ["{{tenant_info}}"]
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/tenants'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/tenants'
         method: POST
         body: '{{tenant_infos}}'
         body_format: json
@@ -144,7 +144,7 @@ UPDATE_TENANT_EXAMPLE = '''
         tenant_infos:
           tenant: ["{{tenant_info}}"]
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/tenants/tenant/{{tenant_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/tenants/tenant/{{tenant_id}}'
         method: PUT
         body: '{{tenant_infos}}'
         body_format: json
@@ -177,7 +177,7 @@ QUERY_TENANT_EXAMPLE = '''
       tags: qeury_tenants
       when: tenant_id == ''
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/tenants'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/tenants'
         method: GET
         validate_certs: False
         return_content: yes
@@ -192,7 +192,7 @@ QUERY_TENANT_EXAMPLE = '''
       tags: qeury_tenant
       when: tenant_id != ''
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/tenants/tenant/{{tenant_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/tenants/tenant/{{tenant_id}}'
         method: GET
         validate_certs: False
         return_content: yes
@@ -231,7 +231,7 @@ DELETE_TENANT_EXAMPLE = '''
     - name: Delete tenant "{{tenant_id}}"
       tags: delete_tenant
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/tenants/tenant/{{tenant_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/tenants/tenant/{{tenant_id}}'
         method: DELETE
         validate_certs: False
         return_content: yes

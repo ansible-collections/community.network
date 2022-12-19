@@ -18,12 +18,12 @@
 
 DOCUMENTATION = '''
 module: ac_logicsubnet
-short_description: Manages LogicSubnet on HUAWEI AC.
+short_description: Manages LogicSubnet on HUAWEI iMaster NCE-Fabric Controller.
 description:
-    - Manages LogicSubnet on HUAWEI AC.
+    - Manages LogicSubnet on HUAWEI iMaster NCE-Fabric Controller(AC).
 author: ZhiwenZhang
 notes:
-  - This module requires installation iMaster NCE-Fabric.
+  - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
   - This module also works with C(local) connections for legacy playbooks.
 options:
@@ -87,7 +87,7 @@ CREATE_LOGICSUBNET_EXAMPLE = '''
         logicsubnet_infos:
           subnet: [ "{{logicsubnet_info}}" ]
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/subnets'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/subnets'
         method: POST
         body: '{{logicsubnet_infos}}'
         body_format: json
@@ -147,7 +147,7 @@ UPDATE_LOGICSUBNET_EXAMPLE = '''
         logicsubnet_infos:
           subnet: [ "{{logicsubnet_info}}" ]
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/subnets/subnet/{{logicsubnet_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/subnets/subnet/{{logicsubnet_id}}'
         method: PUT
         body: '{{logicsubnet_infos}}'
         body_format: json
@@ -180,7 +180,7 @@ QUERY_LOGICSUBNET_EXAMPLE = '''
       tags: qeury_logicsubnets
       when: logicsubnet_id == ''
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/subnets'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/subnets'
         method: GET
         validate_certs: False
         return_content: yes
@@ -195,7 +195,7 @@ QUERY_LOGICSUBNET_EXAMPLE = '''
       tags: qeury_logicsubnet
       when: logicsubnet_id != ''
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/subnets/subnet/{{logicsubnet_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/subnets/subnet/{{logicsubnet_id}}'
         method: GET
         validate_certs: False
         return_content: yes
@@ -234,7 +234,7 @@ DELETE_LOGICSUBNET_EXAMPLE = '''
     - name: Delete logicsubnet "{{logicsubnet_id}}"
       tags: delete_logicsubnet
       uri:
-        url: 'https://{{http_ip}}:{{http_port}}/controller/dc/v3/logicnetwork/subnets/subnet/{{logicsubnet_id}}'
+        url: 'https://{{north_ip}}:{{north_port}}/controller/dc/v3/logicnetwork/subnets/subnet/{{logicsubnet_id}}'
         method: DELETE
         validate_certs: False
         return_content: yes

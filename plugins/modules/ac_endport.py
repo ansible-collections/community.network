@@ -21,7 +21,7 @@ module: ac_endport
 short_description: Manages EndPort on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages EndPort on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: maomao1995
+author: QijunPan
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.

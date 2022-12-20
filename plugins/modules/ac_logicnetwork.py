@@ -21,7 +21,7 @@ module: ac_logicnetwork
 short_description: Manages LogicNetwork on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages LogicNetwork on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: maomao1995
+author: QijunPan
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.

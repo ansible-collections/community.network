@@ -21,7 +21,7 @@ module: ac_token
 short_description: Get Token from HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Get Tenant from HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan (@QijunPan)
+author: maomao1995
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module is dependent by other modules.

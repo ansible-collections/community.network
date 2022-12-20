@@ -291,6 +291,8 @@ files:
     maintainers: privateip
   $modules/voss_:
     maintainers: LindsayHill
+  $modules/ac_:
+    maintainers: maomao1995
   $netconfs/ce.py:
     maintainers: $team_huawei
     labels: ce cloudengine huawei networking

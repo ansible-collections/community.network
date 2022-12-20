@@ -21,7 +21,7 @@ module: ac_logicsubnet
 short_description: Manages LogicSubnet on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages LogicSubnet on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan (@QijunPan)
+author: maomao1995
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.

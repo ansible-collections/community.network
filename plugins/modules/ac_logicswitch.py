@@ -21,7 +21,7 @@ module: ac_logicswitch
 short_description: Manages LogicSwitch on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages LogicSwitch on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: ZhiwenZhang
+author: QijunPan (@QijunPan)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.

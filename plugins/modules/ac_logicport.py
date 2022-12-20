@@ -21,7 +21,7 @@ module: ac_logicport
 short_description: Manages LogicPort on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages LogicPort on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: ZhiwenZhang
+author: QijunPan (@QijunPan)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.

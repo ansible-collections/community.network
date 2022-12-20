@@ -21,7 +21,7 @@ module: ac_logicinterface
 short_description: Manages LogicInterface on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages LogicInterface on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan
+author: ZhiwenZhang (@maomao1995)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
@@ -44,7 +44,7 @@ options:
             - AC LogicSubnet id.
 '''
 
-CREATE_LOGICINTERFACE_EXAMPLE = '''
+EXAMPLES = '''
 - name: Create LogicInterface
   hosts: localhost
   serial: True
@@ -115,9 +115,7 @@ CREATE_LOGICINTERFACE_EXAMPLE = '''
     - name: response from create logic interface
       debug:
         msg: "{{logicinterface_result}}"
-'''
 
-QUERY_LOGICINTERFACE_EXAMPLE = '''
 - name: Query LogicInterface
   hosts: localhost
   serial: True
@@ -166,9 +164,7 @@ QUERY_LOGICINTERFACE_EXAMPLE = '''
       when: logicinterface_id != ''
       debug:
         msg: "{{logicinterface_result.json.interface}}"
-'''
 
-DELETE_LOGICINTERFACE_EXAMPLE = '''
 - name: Delete LogicInterface
   hosts: localhost
   serial: True

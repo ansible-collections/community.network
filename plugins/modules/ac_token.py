@@ -21,7 +21,7 @@ module: ac_token
 short_description: Get Token from HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Get Tenant from HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan
+author: ZhiwenZhang (@maomao1995)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module is dependent by other modules.
@@ -35,7 +35,7 @@ options:
             - AC User password.
 '''
 
-GET_TOKEN_EXAMPLE = '''
+EXAMPLES = '''
 - name: Get Token
   hosts: localhost
   serial: True
@@ -79,9 +79,7 @@ GET_TOKEN_EXAMPLE = '''
         status_code: 200
       register: token_result
     - local_action: copy content='{{token_result.json.data.token_id}}' dest="/tmp/ansible-temp"
-'''
-
-DELETE_TOKEN_EXAMPLE = '''
+    
 - name: Delete Token
   hosts: localhost
   serial: True
@@ -106,8 +104,6 @@ DELETE_TOKEN_EXAMPLE = '''
       tags: always
       debug:
         msg: "{{token_result.json}}"
-'''
-
-VARS_EXAMPLE = '''
+        
 token_id: "{{lookup('file','/tmp/ansible-temp')}}"
 '''

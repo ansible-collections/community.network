@@ -21,7 +21,7 @@ module: ac_logicsubnet
 short_description: Manages LogicSubnet on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages LogicSubnet on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan
+author: ZhiwenZhang (@maomao1995)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
@@ -41,7 +41,7 @@ options:
             - AC LogicSubnet gateway ip.
 '''
 
-CREATE_LOGICSUBNET_EXAMPLE = '''
+EXAMPLES = '''
 - name: Create LogicSubnet
   hosts: localhost
   serial: True
@@ -102,9 +102,7 @@ CREATE_LOGICSUBNET_EXAMPLE = '''
     - name: response from create logic subnet
       debug:
         msg: "{{logicsubnet_result}}"
-'''
 
-UPDATE_LOGICSUBNET_EXAMPLE = '''
 - name: Update LogicSubnet
   hosts: localhost
   serial: True
@@ -163,9 +161,7 @@ UPDATE_LOGICSUBNET_EXAMPLE = '''
     - name: response from update a logic subnet
       debug:
         msg: "{{logicsubnet_result}}"
-'''
 
-QUERY_LOGICSUBNET_EXAMPLE = '''
 - name: Query LogicSubnet
   hosts: localhost
   serial: True
@@ -214,9 +210,7 @@ QUERY_LOGICSUBNET_EXAMPLE = '''
       when: logicsubnet_id != ''
       debug:
         msg: "{{logicsubnet_result.json.subnet}}"
-'''
 
-DELETE_LOGICSUBNET_EXAMPLE = '''
 - name: Delete LogicSubnet
   hosts: localhost
   serial: True
@@ -247,5 +241,5 @@ DELETE_LOGICSUBNET_EXAMPLE = '''
       ignore_errors: yes
     - name: response from delete a logicsubnet
       debug:
-        msg: "{{logicsubnet_result}}"
+        msg: "{{logicsubnet_result}}"    
 '''

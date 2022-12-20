@@ -21,7 +21,7 @@ module: ac_endport
 short_description: Manages EndPort on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages EndPort on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan
+author: ZhiwenZhang (@maomao1995)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
@@ -41,7 +41,7 @@ options:
             - AC LogicPort id.
 '''
 
-CREATE_ENDPORT_EXAMPLE = '''
+EXAMPLES = '''
 - name: Create EndPort
   hosts: localhost
   serial: True
@@ -101,9 +101,7 @@ CREATE_ENDPORT_EXAMPLE = '''
     - name: response from create end port
       debug:
         msg: "{{endport_result}}"
-'''
 
-UPDATE_ENDPORT_EXAMPLE = '''
 - name: Update EndPort
   hosts: localhost
   serial: True
@@ -157,9 +155,7 @@ UPDATE_ENDPORT_EXAMPLE = '''
     - name: response from update a end port
       debug:
         msg: "{{endport_result}}"
-'''
 
-QUERY_ENDPORT_EXAMPLE = '''
 - name: Query EndPort
   hosts: localhost
   serial: True
@@ -208,9 +204,7 @@ QUERY_ENDPORT_EXAMPLE = '''
       when: endport_id != ''
       debug:
         msg: "{{endport_result.json.endPort}}"
-'''
 
-DELETE_ENDPORT_EXAMPLE = '''
 - name: Delete EndPort
   hosts: localhost
   serial: True

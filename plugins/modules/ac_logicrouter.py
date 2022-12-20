@@ -21,7 +21,7 @@ module: ac_logicrouter
 short_description: Manages LogicRouter on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages LogicRouter on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan
+author: ZhiwenZhang (@maomao1995)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
@@ -44,7 +44,7 @@ options:
             - AC LogicNetwork id.
 '''
 
-CREATE_LOGICROUTER_EXAMPLE = '''
+EXAMPLES = '''
 - name: Create LogicRouter
   hosts: localhost
   serial: True
@@ -112,9 +112,7 @@ CREATE_LOGICROUTER_EXAMPLE = '''
     - name: response from create logic router
       debug:
         msg: "{{logicrouter_result}}"
-'''
 
-UPDATE_LOGICROUTER_EXAMPLE = '''
 - name: Update LogicRouter
   hosts: localhost
   serial: True
@@ -168,9 +166,7 @@ UPDATE_LOGICROUTER_EXAMPLE = '''
     - name: response from update a logic router
       debug:
         msg: "{{logicrouter_result}}"
-'''
 
-QUERY_LOGICROUTER_EXAMPLE = '''
 - name: Query LogicRouter
   hosts: localhost
   serial: True
@@ -219,9 +215,7 @@ QUERY_LOGICROUTER_EXAMPLE = '''
       when: logicrouter_id != ''
       debug:
         msg: "{{logicrouter_result.json.router}}"
-'''
 
-DELETE_LOGICROUTER_EXAMPLE = '''
 - name: Delete LogicRouter
   hosts: localhost
   serial: True

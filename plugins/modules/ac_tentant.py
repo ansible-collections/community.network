@@ -21,7 +21,7 @@ module: ac_tenant
 short_description: Manages Tenant on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages Tenant on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan
+author: ZhiwenZhang (@maomao1995)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
@@ -41,7 +41,7 @@ options:
             - AC Fabric id.
 '''
 
-CREATE_TENANT_EXAMPLE = '''
+EXAMPLES = '''
 - name: Create Tenant
   hosts: localhost
   serial: True
@@ -104,9 +104,7 @@ CREATE_TENANT_EXAMPLE = '''
     - name: response from create tenant
       debug:
         msg: "{{tenant_result}}"
-'''
 
-UPDATE_TENANT_EXAMPLE = '''
 - name: Update Tenant
   hosts: localhost
   serial: True
@@ -160,9 +158,7 @@ UPDATE_TENANT_EXAMPLE = '''
     - name: response from update a tenant
       debug:
         msg: "{{tenant_result}}"
-'''
-
-QUERY_TENANT_EXAMPLE = '''
+        
 - name: Query Tenant
   hosts: localhost
   serial: True
@@ -211,9 +207,7 @@ QUERY_TENANT_EXAMPLE = '''
       when: tenant_id != ''
       debug:
         msg: "{{tenant_result.json.tenant}}"
-'''
 
-DELETE_TENANT_EXAMPLE = '''
 - name: Delete Tenant
   hosts: localhost
   serial: True
@@ -244,5 +238,5 @@ DELETE_TENANT_EXAMPLE = '''
       ignore_errors: yes
     - name: response from delete a tenant
       debug:
-        msg: "{{tenant_result}}"
+        msg: "{{tenant_result}}"    
 '''

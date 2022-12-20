@@ -21,7 +21,7 @@ module: ac_logicnetwork
 short_description: Manages LogicNetwork on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages LogicNetwork on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan
+author: ZhiwenZhang (@maomao1995)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
@@ -44,7 +44,7 @@ options:
             - AC Tenant id.
 '''
 
-CREATE_LOGICNETWORK_EXAMPLE = '''
+EXAMPLES = '''
 - name: Create LogicNetwork
   hosts: localhost
   serial: True
@@ -108,9 +108,7 @@ CREATE_LOGICNETWORK_EXAMPLE = '''
     - name: response from create logic network
       debug:
         msg: "{{logicnetwork_result}}"
-'''
 
-UPDATE_LOGICNETWORK_EXAMPLE = '''
 - name: Update LogicNetwork
   hosts: localhost
   serial: True
@@ -164,9 +162,7 @@ UPDATE_LOGICNETWORK_EXAMPLE = '''
     - name: response from update a logic network
       debug:
         msg: "{{logicnetwork_result}}"
-'''
 
-QUERY_LOGICNETWORK_EXAMPLE = '''
 - name: Query LogicNetwork
   hosts: localhost
   serial: True
@@ -215,9 +211,7 @@ QUERY_LOGICNETWORK_EXAMPLE = '''
       when: logicnetwork_id != ''
       debug:
         msg: "{{logicnetwork_result.json.network}}"
-'''
 
-DELETE_LOGICNETWORK_EXAMPLE = '''
 - name: Delete LogicNetwork
   hosts: localhost
   serial: True

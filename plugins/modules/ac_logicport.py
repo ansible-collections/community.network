@@ -21,7 +21,7 @@ module: ac_logicport
 short_description: Manages LogicPort on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages LogicPort on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan
+author: ZhiwenZhang (@maomao1995)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
@@ -50,7 +50,7 @@ options:
             - AC Device port name.
 '''
 
-CREATE_LOGICPORT_EXAMPLE = '''
+EXAMPLES = '''
 - name: Create LogicPort
   hosts: localhost
   serial: True
@@ -128,9 +128,7 @@ CREATE_LOGICPORT_EXAMPLE = '''
     - name: response from create logic port
       debug:
         msg: "{{logicport_result}}"
-'''
 
-UPDATE_LOGICPORT_EXAMPLE = '''
 - name: Update LogicPort
   hosts: localhost
   serial: True
@@ -222,9 +220,7 @@ UPDATE_LOGICPORT_EXAMPLE = '''
     - name: response from update a logic port
       debug:
         msg: "{{logicport_result}}"
-'''
 
-QUERY_LOGICPORT_EXAMPLE = '''
 - name: Query LogicPort
   hosts: localhost
   serial: True
@@ -273,9 +269,7 @@ QUERY_LOGICPORT_EXAMPLE = '''
       when: logicport_id != ''
       debug:
         msg: "{{logicport_result.json.port}}"
-'''
 
-DELETE_LOGICPORT_EXAMPLE = '''
 - name: Delete LogicPort
   hosts: localhost
   serial: True

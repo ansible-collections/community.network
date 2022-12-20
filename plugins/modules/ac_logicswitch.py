@@ -21,7 +21,7 @@ module: ac_logicswitch
 short_description: Manages LogicSwitch on HUAWEI iMaster NCE-Fabric Controller.
 description:
     - Manages LogicSwitch on HUAWEI iMaster NCE-Fabric Controller(AC).
-author: QijunPan
+author: ZhiwenZhang (@maomao1995)
 notes:
   - This module requires installation iMaster NCE-Fabric Controller.
   - This module depends on module 'GET_TOKEN'.
@@ -41,7 +41,7 @@ options:
             - AC LogicNetwork id.
 '''
 
-CREATE_LOGICSWITCH_EXAMPLE = '''
+EXAMPLES = '''
 - name: Create LogicSwitch
   hosts: localhost
   serial: True
@@ -98,9 +98,7 @@ CREATE_LOGICSWITCH_EXAMPLE = '''
     - name: response from create logic switch
       debug:
         msg: "{{logicswitch_result}}"
-'''
 
-UPDATE_LOGICSWITCH_EXAMPLE = '''
 - name: Update LogicSwitch
   hosts: localhost
   serial: True
@@ -156,9 +154,7 @@ UPDATE_LOGICSWITCH_EXAMPLE = '''
     - name: response from update a logic switch
       debug:
         msg: "{{logicswitch_result}}"
-'''
 
-QUERY_LOGICSWITCH_EXAMPLE = '''
 - name: Query LogicSwitch
   hosts: localhost
   serial: True
@@ -207,9 +203,7 @@ QUERY_LOGICSWITCH_EXAMPLE = '''
       when: logicswitch_id != ''
       debug:
         msg: "{{logicswitch_result.json.switch}}"
-'''
 
-DELETE_LOGICSWITCH_EXAMPLE = '''
 - name: Delete LogicSwitch
   hosts: localhost
   serial: True

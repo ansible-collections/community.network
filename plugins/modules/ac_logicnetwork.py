@@ -48,10 +48,9 @@ EXAMPLES = '''
 - name: Create LogicNetwork
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicnetwork_name"
       prompt: "Please input logic network name "
@@ -112,10 +111,9 @@ EXAMPLES = '''
 - name: Update LogicNetwork
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicnetwork_id"
       prompt: "Please input the logic network id that you want to update "
@@ -166,8 +164,8 @@ EXAMPLES = '''
 - name: Query LogicNetwork
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicnetwork_id"
       prompt: "Please input the logicnetwork id that you want to query "
@@ -215,8 +213,8 @@ EXAMPLES = '''
 - name: Delete LogicNetwork
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicnetwork_id"
       prompt: "Please input the logicnetwork id that you want to delete "

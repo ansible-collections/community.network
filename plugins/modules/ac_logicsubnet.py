@@ -45,10 +45,9 @@ EXAMPLES = '''
 - name: Create LogicSubnet
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicrouter_id"
       prompt: "Please input logic router id "
@@ -106,10 +105,9 @@ EXAMPLES = '''
 - name: Update LogicSubnet
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicsubnet_id"
       prompt: "Please input the logic subnet id that you want to update "
@@ -165,8 +163,8 @@ EXAMPLES = '''
 - name: Query LogicSubnet
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicsubnet_id"
       prompt: "Please input the logic subnet id that you want to query "
@@ -214,8 +212,8 @@ EXAMPLES = '''
 - name: Delete LogicSubnet
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicsubnet_id"
       prompt: "Please input the logic subnet id that you want to delete "

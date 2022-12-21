@@ -48,10 +48,9 @@ EXAMPLES = '''
 - name: Create LogicInterface
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicinterface_name"
       prompt: "Please input logic interface name "
@@ -119,8 +118,8 @@ EXAMPLES = '''
 - name: Query LogicInterface
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicinterface_id"
       prompt: "Please input the logic interface id that you want to query "
@@ -168,8 +167,8 @@ EXAMPLES = '''
 - name: Delete LogicInterface
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicinterface_id"
       prompt: "Please input the logic interface id that you want to delete "

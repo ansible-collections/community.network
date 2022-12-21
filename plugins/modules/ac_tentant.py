@@ -45,10 +45,9 @@ EXAMPLES = '''
 - name: Create Tenant
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "tenant_name"
       prompt: "Please input tenant name "
@@ -108,10 +107,9 @@ EXAMPLES = '''
 - name: Update Tenant
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "tenant_id"
       prompt: "Please input the tenant id that you want to update "
@@ -162,8 +160,8 @@ EXAMPLES = '''
 - name: Query Tenant
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "tenant_id"
       prompt: "Please input the tenant id that you want to query "
@@ -211,8 +209,8 @@ EXAMPLES = '''
 - name: Delete Tenant
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "tenant_id"
       prompt: "Please input the tenant id that you want to delete "

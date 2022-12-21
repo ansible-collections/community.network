@@ -104,6 +104,4 @@ EXAMPLES = '''
       tags: always
       debug:
         msg: "{{token_result.json}}"
-
-token_id: "{{lookup('file','/tmp/ansible-temp')}}"
 '''

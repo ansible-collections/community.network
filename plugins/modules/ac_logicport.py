@@ -54,10 +54,9 @@ EXAMPLES = '''
 - name: Create LogicPort
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicport_name"
       prompt: "Please input logic port name "
@@ -132,10 +131,9 @@ EXAMPLES = '''
 - name: Update LogicPort
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicport_id"
       prompt: "Please input the logic port id that you want to update "
@@ -224,8 +222,8 @@ EXAMPLES = '''
 - name: Query LogicPort
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicport_id"
       prompt: "Please input the logic port id that you want to query "
@@ -273,8 +271,8 @@ EXAMPLES = '''
 - name: Delete LogicPort
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicport_id"
       prompt: "Please input the logic port id that you want to delete "

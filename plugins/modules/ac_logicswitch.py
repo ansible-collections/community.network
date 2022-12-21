@@ -45,10 +45,9 @@ EXAMPLES = '''
 - name: Create LogicSwitch
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicswitch_name"
       prompt: "Please input logic switch name "
@@ -102,10 +101,9 @@ EXAMPLES = '''
 - name: Update LogicSwitch
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicswitch_id"
       prompt: "Please input the logic switch id that you want to update "
@@ -158,8 +156,8 @@ EXAMPLES = '''
 - name: Query LogicSwitch
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicswitch_id"
       prompt: "Please input the logic switch id that you want to query "
@@ -207,8 +205,8 @@ EXAMPLES = '''
 - name: Delete LogicSwitch
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "logicswitch_id"
       prompt: "Please input the logic switch id that you want to delete "

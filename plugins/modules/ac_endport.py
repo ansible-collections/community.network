@@ -45,10 +45,9 @@ EXAMPLES = '''
 - name: Create EndPort
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "endport_name"
       prompt: "Please input end port name "
@@ -105,10 +104,9 @@ EXAMPLES = '''
 - name: Update EndPort
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
   vars:
     now_time: "{{ansible_date_time.date}} {{ansible_date_time.time}}"
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "endport_id"
       prompt: "Please input the end port id that you want to update "
@@ -159,8 +157,8 @@ EXAMPLES = '''
 - name: Query EndPort
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "endport_id"
       prompt: "Please input the end port id that you want to query "
@@ -208,8 +206,8 @@ EXAMPLES = '''
 - name: Delete EndPort
   hosts: localhost
   serial: True
-  vars_files:
-    - vars.yaml
+  vars:
+    token_id: "{{lookup('file','/tmp/ansible-temp')}}"
   vars_prompt:
     - name: "endport_id"
       prompt: "Please input the end port id that you want to delete "

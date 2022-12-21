@@ -158,7 +158,7 @@ EXAMPLES = '''
     - name: response from update a tenant
       debug:
         msg: "{{tenant_result}}"
-        
+
 - name: Query Tenant
   hosts: localhost
   serial: True
@@ -238,5 +238,5 @@ EXAMPLES = '''
       ignore_errors: yes
     - name: response from delete a tenant
       debug:
-        msg: "{{tenant_result}}"    
+        msg: "{{tenant_result}}"
 '''

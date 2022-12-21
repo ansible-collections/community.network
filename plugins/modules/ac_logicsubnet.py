@@ -241,5 +241,5 @@ EXAMPLES = '''
       ignore_errors: yes
     - name: response from delete a logicsubnet
       debug:
-        msg: "{{logicsubnet_result}}"    
+        msg: "{{logicsubnet_result}}"
 '''

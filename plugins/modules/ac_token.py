@@ -79,7 +79,7 @@ EXAMPLES = '''
         status_code: 200
       register: token_result
     - local_action: copy content='{{token_result.json.data.token_id}}' dest="/tmp/ansible-temp"
-    
+
 - name: Delete Token
   hosts: localhost
   serial: True
@@ -104,6 +104,6 @@ EXAMPLES = '''
       tags: always
       debug:
         msg: "{{token_result.json}}"
-        
+
 token_id: "{{lookup('file','/tmp/ansible-temp')}}"
 '''

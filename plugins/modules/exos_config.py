@@ -323,7 +323,7 @@ def main():
         result['warnings'] = warnings
 
     config = None
-    flags = ['detail'] if module.params['defaults'] else []
+    flags = [' detail'] if module.params['defaults'] else []
     diff_ignore_lines = module.params['diff_ignore_lines']
 
     if module.params['backup'] or (module._diff and module.params['diff_against'] == 'running'):

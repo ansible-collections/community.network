@@ -130,7 +130,7 @@ class Interfaces(FactsBase):
 
     COMMANDS = [
         'show switch',
-        {'command': 'show port config', 'output': 'json'},
+        {'command': 'show port config no-refresh', 'output': 'json'},
         {'command': 'show port description', 'output': 'json'},
         {'command': 'show vlan detail', 'output': 'json'},
         {'command': 'show lldp neighbors', 'output': 'json'}

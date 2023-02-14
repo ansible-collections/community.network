@@ -186,8 +186,7 @@ def server_identical(client, module, server_proxy):
 
 
 def diff_list(client, module, server_proxy):
-    ret_val = server_proxy.diff_object(server.get_filtered(client, 'name:%s' % module.params['name'])[0]),
-    return ret_val[0]
+    return server_proxy.diff_object(server.get_filtered(client, 'name:%s' % module.params['name'])[0])
 
 
 def do_state_change(client, module, server_proxy):

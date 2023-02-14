@@ -441,6 +441,8 @@ def main():
             base_config = NetworkConfig(indent=1, contents=contents, ignore_lines=diff_ignore_lines)
 
             if running_config.sha1 != base_config.sha1:
+                before = ''
+                after = ''
                 if module.params['diff_against'] == 'intended':
                     before = running_config
                     after = base_config

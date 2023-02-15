@@ -1,3 +1,2 @@
-bugfixes: >-
-  - exos_config - Missing whitespace in command with ``defaults: True``.
-    It happened because the command is ``show configurationdetail`` instead of ``show configuration detail`` (https://github.com/ansible-collections/community.network/pull/516).
+bugfixes:
+  - "exos_config - missing whitespace in command with ``defaults: True``. It happened because the command is ``show configurationdetail`` instead of ``show configuration detail`` (https://github.com/ansible-collections/community.network/pull/516)."

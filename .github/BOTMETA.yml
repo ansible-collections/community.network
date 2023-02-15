@@ -95,9 +95,6 @@ files:
   $module_utils/network/aruba/aruba.py:
     maintainers: $team_aruba
     labels: networking
-  $module_utils/network/avi/:
-    maintainers: $team_avi
-    labels: networking
   $module_utils/network/bigswitch/bigswitch.py:
     maintainers: jayakody tedelhourani vuile
     labels: networking
@@ -166,18 +163,6 @@ files:
   $modules/aruba_:
     maintainers: jmighion $team_aruba
     ignore: jmighion
-  $modules/avi_:
-    maintainers: grastogi23 ericsysmin khaltore
-  $modules/avi_api_version.py:
-    maintainers: vivobg $team_avi
-  $modules/avi_autoscalelaunchconfig.py:
-    maintainers: chaitanyaavi $team_avi
-  $modules/avi_l4policyset.py:
-    maintainers: chaitanyaavi $team_avi
-  $modules/avi_user.py:
-    maintainers: gitshrikant $team_avi
-  $modules/avi_useraccount.py:
-    maintainers: chaitanyaavi $team_avi
   $modules/bcf_switch.py:
     maintainers: tedelhourani jayakody vuile
   $modules/bigmon_:
@@ -294,8 +279,6 @@ files:
   $netconfs/ce.py:
     maintainers: $team_huawei
     labels: ce cloudengine huawei networking
-  $lookups/avi.py:
-    maintainers: sabandi $team_avi
   $terminals/:
     labels: networking
   $terminals/aruba.py:
@@ -349,7 +332,6 @@ macros:
   terminals: plugins/terminal
   team_aci: aciguru brunocalogero devarshishah3 fadallar jmcgill298 koladiya mtorelli rsmeyers schunduri smnmtzgr
   team_aruba: karthikeyan-dhandapani
-  team_avi: ericsysmin grastogi23 khaltore
   team_e_spirit: MatrixCrawler
   team_edgeos: Qalthos samdoran jplitza virtualguy
   team_extreme: LindsayHill ujwalkomarla

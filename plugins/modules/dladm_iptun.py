@@ -81,7 +81,7 @@ temporary:
     description: specifies if operation will persist across reboots
     returned: always
     type: bool
-    sample: True
+    sample: true
 local_address:
     description: local IP address
     returned: always

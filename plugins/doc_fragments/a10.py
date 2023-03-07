@@ -36,13 +36,13 @@ options:
         including those that may have been made manually or through other modules,
         so care should be taken when specifying C(yes).
     type: bool
-    default: no
+    default: false
   validate_certs:
     description:
       - If C(no), SSL certificates will not be validated.
       - This should only be used on personally controlled devices using self-signed certificates.
     type: bool
-    default: yes
+    default: true
 notes:
     - Requires A10 Networks aXAPI 2.1.
 '''

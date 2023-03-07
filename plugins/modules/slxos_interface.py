@@ -42,7 +42,7 @@ options:
   enabled:
     description:
       - Interface link status.
-    default: True
+    default: true
     type: bool
   speed:
     description:
@@ -99,12 +99,12 @@ EXAMPLES = """
 - name: Make interface up
   community.network.slxos_interface:
     name: Ethernet 0/2
-    enabled: True
+    enabled: true
 
 - name: Make interface down
   community.network.slxos_interface:
     name: Ethernet 0/2
-    enabled: False
+    enabled: false
 
 - name: Check intent arguments
   community.network.slxos_interface:
@@ -123,7 +123,7 @@ EXAMPLES = """
 - name: Config + intent
   community.network.slxos_interface:
     name: Ethernet 0/2
-    enabled: False
+    enabled: false
     state: down
 
 - name: Add interface using aggregate

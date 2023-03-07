@@ -21,7 +21,7 @@ options:
         is not specified in the task, the value of environment variable
         C(ANSIBLE_NET_AUTHORIZE) will be used instead.
     type: bool
-    default: no
+    default: false
   auth_pass:
     description:
       - Specifies the password to use if required to enter privileged mode

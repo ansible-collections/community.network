@@ -177,7 +177,7 @@ EXAMPLES = """
   community.network.voss_config:
     lines:
       - name "ServerA"
-    backup: yes
+    backup: true
     parents: interface GigabitEthernet 1/1
 
 - name: Check the running-config against master config
@@ -197,7 +197,7 @@ EXAMPLES = """
 
 - name: Configurable backup path
   community.network.voss_config:
-    backup: yes
+    backup: true
     backup_options:
       filename: backup.cfg
       dir_path: /home/user

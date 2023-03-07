@@ -71,7 +71,7 @@ options:
 EXAMPLES = '''
 - name: Switchport module test
   hosts: cloudengine
-  gather_facts: no
+  gather_facts: false
   vars:
     ansible_user: root
     ansible_password: PASSWORD

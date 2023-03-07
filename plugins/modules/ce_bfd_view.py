@@ -91,7 +91,7 @@ EXAMPLES = '''
 - name: Bfd view module test
   hosts: cloudengine
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   tasks:
   - name: Set the local discriminator of a BFD session to 80 and the remote discriminator to 800

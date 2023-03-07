@@ -113,7 +113,7 @@ options:
     healthmonitor:
         description:
             - "Monitor the health of this service"
-        default: yes
+        default: true
         type: bool
 
     maxreq:
@@ -127,7 +127,7 @@ options:
         description:
             - "Use the transparent cache redirection virtual server to forward requests to the cache server."
             - "Note: Do not specify this parameter if you set the Cache Type parameter."
-        default: no
+        default: false
         type: bool
 
     cip:
@@ -238,7 +238,7 @@ options:
             - >-
                 Use Layer 2 mode to bridge the packets sent to this service if it is marked as DOWN. If the service
                 is DOWN, and this parameter is disabled, the packets are dropped.
-        default: no
+        default: false
         type: bool
     monthreshold:
         description:
@@ -329,7 +329,7 @@ options:
             - >-
                 Shut down gracefully, not accepting any new connections, and disabling the service when all of its
                 connections are closed.
-        default: no
+        default: false
         type: bool
 
     monitor_bindings:
@@ -378,7 +378,7 @@ EXAMPLES = '''
 # Monitor monitor-1 must have been already setup
 
 - name: Setup http service
-  gather_facts: False
+  gather_facts: false
   delegate_to: localhost
   community.network.netscaler_service:
     nsip: 172.18.0.2

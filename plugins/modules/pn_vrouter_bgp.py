@@ -97,7 +97,7 @@ options:
       - BFD protocol support for fault detection.
     required: false
     type: bool
-    default: False
+    default: false
   pn_next_hop_self:
     description:
       - BGP next hop is self or not.

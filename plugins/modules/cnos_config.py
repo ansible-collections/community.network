@@ -159,12 +159,12 @@ Tasks: The following are examples of using the module cnos_config.
 - name: Load a config from disk and replace the current config
   community.network.cnos_config:
     src: config.cfg
-    backup: yes
+    backup: true
 
 - name: Configurable backup path
   community.network.cnos_config:
     src: config.cfg
-    backup: yes
+    backup: true
     backup_options:
       filename: backup.cfg
       dir_path: /home/user

@@ -17,24 +17,24 @@ options:
   pn_cliswitch:
     description:
       - Target switch to run the CLI on.
-    required: False
+    required: false
     type: str
   state:
     description:
       - State the action to perform. Use 'present' to add access-list-ip and
         'absent' to remove access-list-ip.
-    required: True
+    required: true
     choices: ["present", "absent"]
   pn_ip:
     description:
       - IP associated with the access list.
-    required: False
+    required: false
     default: '::'
     type: str
   pn_name:
     description:
       - Access List Name.
-    required: False
+    required: false
     type: str
 '''
 

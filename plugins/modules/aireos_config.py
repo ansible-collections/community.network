@@ -170,7 +170,7 @@ EXAMPLES = """
 
 - name: Configurable backup path
   community.network.aireos_config:
-    backup: yes
+    backup: true
     lines: sysname testDevice
     backup_options:
       filename: backup.cfg

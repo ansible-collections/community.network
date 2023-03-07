@@ -58,7 +58,7 @@ options:
   purge:
     description:
       - Purge VRFs not defined in the I(aggregate) parameter.
-    default: no
+    default: false
     type: bool
   delay:
     description:
@@ -92,7 +92,7 @@ EXAMPLES = """
       - { name: test4, rd: "1:204" }
       - { name: test5, rd: "1:205" }
     state: present
-    purge: yes
+    purge: true
 
 - name: Delete aggregate of VRFs
   community.network.cnos_vrf:

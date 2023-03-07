@@ -53,7 +53,7 @@ options:
     description:
       - Purge VLANs not defined in the I(aggregate) parameter.
     type: bool
-    default: no
+    default: false
   state:
     description:
       - State of the VLAN configuration.

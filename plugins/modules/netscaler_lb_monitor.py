@@ -789,7 +789,7 @@ EXAMPLES = '''
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot
-    validate_certs: no
+    validate_certs: false
 
 
     module: netscaler_lb_monitor

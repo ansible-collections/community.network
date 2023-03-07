@@ -115,7 +115,7 @@ EXAMPLES = '''
     expirymonitor: enabled
     notificationperiod: 30
     inform: PEM
-    password: False
+    password: false
     passplain: somesecret
 '''
 

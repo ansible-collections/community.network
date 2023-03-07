@@ -114,7 +114,7 @@ options:
       - Check running configuration. This can be set as environment variable.
        Module will use environment variable value(default:True), unless it is overridden, by specifying it as module parameter.
     type: bool
-    default: yes
+    default: true
 '''
 
 EXAMPLES = """
@@ -129,7 +129,7 @@ EXAMPLES = """
   community.network.icx_l3_interface:
     name: ethernet 1/1/1
     ipv4: 192.168.0.1/24
-    replace: yes
+    replace: true
     state: absent
 
 - name: Replace ethernet 1/1/1 dynamic IPv4 address
@@ -143,7 +143,7 @@ EXAMPLES = """
   community.network.icx_l3_interface:
     name: ethernet 1/1/1
     ipv4: 192.168.0.1/24
-    secondary: yes
+    secondary: true
     state: absent
 
 - name: Set ethernet 1/1/1 IPv4 address

@@ -48,7 +48,7 @@ options:
     description:
       - Interface link status.
     type: bool
-    default: True
+    default: true
   speed:
     description:
       - Interface link speed.
@@ -116,12 +116,12 @@ EXAMPLES = """
 - name: Make interface up
   community.network.cnos_interface:
     name: Ethernet1/33
-    enabled: True
+    enabled: true
 
 - name: Make interface down
   community.network.cnos_interface:
     name: Ethernet1/33
-    enabled: False
+    enabled: false
 
 - name: Check intent arguments
   community.network.cnos_interface:
@@ -140,7 +140,7 @@ EXAMPLES = """
 - name: Config + intent
   community.network.cnos_interface:
     name: Ethernet1/33
-    enabled: False
+    enabled: false
     state: down
 
 - name: Add interface using aggregate

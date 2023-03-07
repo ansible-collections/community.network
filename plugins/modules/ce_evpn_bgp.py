@@ -34,7 +34,7 @@ options:
     bgp_instance:
         description:
             - Name of a BGP instance. The value is a string of 1 to 31 case-sensitive characters, spaces not supported.
-        required: True
+        required: true
     as_number:
         description:
             - Specifies integral AS number. The value is an integer ranging from 1 to 4294967295.
@@ -72,7 +72,7 @@ EXAMPLES = '''
 - name: Evpn bgp module test
   hosts: cloudengine
   connection: local
-  gather_facts: no
+  gather_facts: false
   vars:
     cli:
       host: "{{ inventory_hostname }}"

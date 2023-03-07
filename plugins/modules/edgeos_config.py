@@ -116,12 +116,12 @@ EXAMPLES = """
 - name: Backup and load from file
   community.network.edgeos_config:
     src: edgeos.cfg
-    backup: yes
+    backup: true
 
 - name: Configurable backup path
   community.network.edgeos_config:
     src: edgeos.cfg
-    backup: yes
+    backup: true
     backup_options:
       filename: backup.cfg
       dir_path: /home/user

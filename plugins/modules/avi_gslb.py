@@ -140,7 +140,7 @@ EXAMPLES = """
         ip_addresses:
           - type: "V4"
             addr: "10.10.28.83"
-        enabled: True
+        enabled: true
         member_type: "GSLB_ACTIVE_MEMBER"
         port: 443
         cluster_uuid: "cluster-d4ee5fcc-3e0a-4d4f-9ae6-4182bc605829"
@@ -150,7 +150,7 @@ EXAMPLES = """
         ip_addresses:
           - type: "V4"
             addr: "10.10.28.86"
-        enabled: True
+        enabled: true
         member_type: "GSLB_ACTIVE_MEMBER"
         port: 443
         cluster_uuid: "cluster-0c37ae8d-ab62-410c-ad3e-06fa831950b1"

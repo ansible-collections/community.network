@@ -49,7 +49,7 @@ options:
        Module will use environment variable value(default:True), unless it is overridden,
        by specifying it as module parameter.
     type: bool
-    default: yes
+    default: true
 
 '''
 
@@ -71,12 +71,12 @@ EXAMPLES = """
 - name: Configure require-enter-key for motd
   community.network.icx_banner:
     banner: motd
-    enterkey: True
+    enterkey: true
 
 - name: Remove require-enter-key for motd
   community.network.icx_banner:
     banner: motd
-    enterkey: False
+    enterkey: false
 """
 
 RETURN = """

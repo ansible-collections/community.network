@@ -101,7 +101,7 @@ EXAMPLES = """
 
 - name: Remove all users except admin
   community.network.cnos_user:
-    purge: yes
+    purge: true
 
 - name: Set multiple users role
   aggregate:

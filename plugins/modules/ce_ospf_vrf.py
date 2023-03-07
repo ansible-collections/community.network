@@ -141,7 +141,7 @@ EXAMPLES = '''
 - name: Ospf vrf module test
   hosts: cloudengine
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   tasks:
 
@@ -149,7 +149,7 @@ EXAMPLES = '''
     community.network.ce_ospf_vrf:
       ospf: 2
       route_id: 2.2.2.2
-      lsaointervalflag: False
+      lsaointervalflag: false
       lsaointerval: 2
 '''
 
@@ -244,7 +244,7 @@ changed:
     description: check to see if a change was made on the device
     returned: always
     type: bool
-    sample: False
+    sample: false
 '''
 
 from xml.etree import ElementTree

@@ -18,7 +18,7 @@ options:
     obj_type:
         description:
             - type of object to query
-        required: True
+        required: true
     obj_name:
         description:
             - name of the object to query

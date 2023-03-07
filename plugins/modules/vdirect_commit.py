@@ -116,7 +116,7 @@ EXAMPLES = '''
       vdirect_user: vDirect
       vdirect_password: radware
       devices: ['dev1', 'dev2']
-      sync: no
+      sync: false
 '''
 
 RETURN = '''

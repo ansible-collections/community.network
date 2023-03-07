@@ -64,7 +64,7 @@ EXAMPLES = '''
 - name: Static route module test
   hosts: cloudengine
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   tasks:
 

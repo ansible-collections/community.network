@@ -17,19 +17,19 @@ options:
   pn_cliswitch:
     description:
       - Target switch to run the CLI on.
-    required: False
+    required: false
     type: str
   state:
     description:
       - State the action to perform. Use C(present) to create dhcp-filter and
         C(absent) to delete dhcp-filter C(update) to modify the dhcp-filter.
-    required: True
+    required: true
     type: str
     choices: ['present', 'absent', 'update']
   pn_trusted_ports:
     description:
       - trusted ports of dhcp config.
-    required: False
+    required: false
     type: str
   pn_name:
     description:

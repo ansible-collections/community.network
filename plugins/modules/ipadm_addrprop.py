@@ -73,7 +73,7 @@ temporary:
     description: specifies if operation will persist across reboots
     returned: always
     type: bool
-    sample: True
+    sample: true
 value:
     description: property value
     returned: when value is provided

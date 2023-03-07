@@ -158,12 +158,12 @@ EXAMPLES = """
     parents:
         - configure
         - system
-    backup: yes
+    backup: true
 
 - name: Load config from file
   community.network.sros_config:
       src: "{{ inventory_hostname }}.cfg"
-      save: yes
+      save: true
 
 - name: Invalid use of lines
   community.network.sros_config:
@@ -182,7 +182,7 @@ EXAMPLES = """
 
 - name: Configurable backup path
   community.network.sros_config:
-    backup: yes
+    backup: true
     backup_options:
       filename: backup.cfg
       dir_path: /home/user

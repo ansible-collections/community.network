@@ -73,7 +73,7 @@ EXAMPLES = '''
     server_ip: 1.1.1.100
     validate_certs: false
     server_status: enable
-    write_config: yes
+    write_config: true
     operation: create
     server_ports:
       - port-number: 8080

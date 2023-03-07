@@ -54,7 +54,7 @@ EXAMPLES = """
 - name: CloudEngine facts test
   hosts: cloudengine
   connection: local
-  gather_facts: no
+  gather_facts: false
   vars:
     cli:
       host: "{{ inventory_hostname }}"

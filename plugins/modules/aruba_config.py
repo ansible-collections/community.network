@@ -198,7 +198,7 @@ EXAMPLES = """
 
 - name: Configurable backup path
   community.network.aruba_config:
-    backup: yes
+    backup: true
     lines: hostname {{ inventory_hostname }}
     backup_options:
       filename: backup.cfg

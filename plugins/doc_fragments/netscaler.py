@@ -15,19 +15,19 @@ options:
             - The ip address of the netscaler appliance where the nitro API calls will be made.
             - "The port can be specified with the colon (:). E.g. 192.168.1.1:555."
         type: str
-        required: True
+        required: true
 
     nitro_user:
         description:
             - The username with which to authenticate to the netscaler node.
         type: str
-        required: True
+        required: true
 
     nitro_pass:
         description:
             - The password with which to authenticate to the netscaler node.
         type: str
-        required: True
+        required: true
 
     nitro_protocol:
         description:
@@ -40,7 +40,7 @@ options:
         description:
             - If C(no), SSL certificates will not be validated. This should only be used on personally controlled sites using self-signed certificates.
         type: bool
-        default: yes
+        default: true
 
     nitro_timeout:
         description:
@@ -62,7 +62,7 @@ options:
             - If C(yes) the module will save the configuration on the netscaler node if it makes any changes.
             - The module will not save the configuration on the netscaler node if it made no changes.
         type: bool
-        default: yes
+        default: true
 notes:
   - For more information on using Ansible to manage Citrix NetScaler Network devices see U(https://www.ansible.com/ansible-netscaler).
 '''

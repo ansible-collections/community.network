@@ -56,7 +56,7 @@ options:
     description:
       - Purge links not defined in the I(aggregate) parameter.
     type: bool
-    default: no
+    default: false
 '''
 
 EXAMPLES = """

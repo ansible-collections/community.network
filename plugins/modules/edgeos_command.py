@@ -30,19 +30,19 @@ options:
         remote device. The output of the command is returned to the playbook.
         If the C(wait_for) argument is provided, the module is not returned
         until the condition is met or the number of retries is exceeded.
-    required: True
+    required: true
   wait_for:
     description:
       - Causes the task to wait for a specific condition to be met before
         moving forward. If the condition is not met before the specified
         number of retries is exceeded, the task will fail.
-    required: False
+    required: false
   match:
     description:
       - Used in conjunction with C(wait_for) to create match policy. If set to
         C(all), then all conditions in C(wait_for) must be met. If set to
         C(any), then only one condition must match.
-    required: False
+    required: false
     default: 'all'
     choices: ['any', 'all']
   retries:
@@ -50,12 +50,12 @@ options:
       - Number of times a command should be tried before it is considered failed.
         The command is run on the target device and evaluated against the
         C(wait_for) conditionals.
-    required: False
+    required: false
     default: 10
   interval:
     description:
       - The number of seconds to wait between C(retries) of the command.
-    required: False
+    required: false
     default: 1
 
 notes:

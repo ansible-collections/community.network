@@ -29,7 +29,7 @@ options:
   enabled:
     description:
       - Interface link status
-    default: yes
+    default: true
     type: bool
   speed:
     description:
@@ -214,7 +214,7 @@ options:
       - Check running configuration. This can be set as environment variable.
       - Module will use environment variable value(default:True), unless it is overridden,
        by specifying it as module parameter.
-    default: yes
+    default: true
     type: bool
 '''
 

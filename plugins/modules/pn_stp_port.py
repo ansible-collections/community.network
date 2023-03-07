@@ -67,7 +67,7 @@ EXAMPLES = """
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "1"
-    pn_filter: True
+    pn_filter: true
     pn_priority: '144'
 
 - name: Modify stp port
@@ -82,7 +82,7 @@ EXAMPLES = """
     pn_cliswitch: "sw01"
     state: "update"
     pn_port: "1"
-    pn_edge: True
+    pn_edge: true
     pn_cost: "200"
 
 """

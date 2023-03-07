@@ -913,7 +913,7 @@ EXAMPLES = '''
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot
-    validate_certs: no
+    validate_certs: false
 
     state: present
 
@@ -936,7 +936,7 @@ EXAMPLES = '''
     nsip: 172.18.0.2
     nitro_user: nsroot
     nitro_pass: nsroot
-    validate_certs: no
+    validate_certs: false
     state: present
 
     name: lb_vserver_2

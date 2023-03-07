@@ -160,12 +160,12 @@ EXAMPLES = """
 - name: Load a config from disk and replace the current config
   community.network.enos_config:
     src: config.cfg
-    backup: yes
+    backup: true
 
 - name: Configurable backup path
   community.network.enos_config:
     src: config.cfg
-    backup: yes
+    backup: true
     backup_options:
       filename: backup.cfg
       dir_path: /home/user

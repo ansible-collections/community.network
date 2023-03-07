@@ -99,7 +99,7 @@ EXAMPLES = """
 - name: Configure DNS Lookup sources
   community.network.cnos_system:
     lookup_source: MgmtEth0/0/CPU0/0
-    lookup_enabled: yes
+    lookup_enabled: true
 
 - name: Configure name servers with VRF support
   nxos_system:

@@ -68,7 +68,7 @@ temporary:
     description: specifies if operation will persist across reboots
     returned: always
     type: bool
-    sample: True
+    sample: true
 link:
     description: VLAN's underlying link name
     returned: always

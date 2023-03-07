@@ -25,17 +25,17 @@ options:
         description:
             - The ip address of the netscaler appliance where the nitro API calls will be made.
             - "The port can be specified with the colon (:). E.g. C(192.168.1.1:555)."
-        required: True
+        required: true
 
     nitro_user:
         description:
             - The username with which to authenticate to the netscaler node.
-        required: True
+        required: true
 
     nitro_pass:
         description:
             - The password with which to authenticate to the netscaler node.
-        required: True
+        required: true
 
     nitro_protocol:
         choices: [ 'http', 'https' ]
@@ -76,7 +76,7 @@ EXAMPLES = '''
     nitro_user: nsroot
     nitro_pass: nsroot
 
-    save_config: no
+    save_config: false
 
     name: server-1
     ipaddress: 192.168.1.1

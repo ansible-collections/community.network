@@ -56,7 +56,7 @@ options:
       - Tells whether switch in cluster or not.
     required: false
     type: bool
-    default: True
+    default: true
 '''
 
 EXAMPLES = """

@@ -138,7 +138,7 @@ EXAMPLES = '''
     switch_port: 2
     template: template_file.j2
     action: remove
-    auto_run: True
+    auto_run: true
 
 - name: Add template configuration to interface Ethernet2. No VLAN. Run task.
   community.network.cv_server_provision:
@@ -151,7 +151,7 @@ EXAMPLES = '''
     switch_port: 2
     template: single_attached_trunk.j2
     action: add
-    auto_run: True
+    auto_run: true
 
 - name: Add template with VLAN configuration to interface Ethernet2. Run task.
   community.network.cv_server_provision:
@@ -165,7 +165,7 @@ EXAMPLES = '''
     port_vlan: 22
     template: single_attached_vlan.j2
     action: add
-    auto_run: True
+    auto_run: true
 '''
 
 RETURN = '''
@@ -373,7 +373,7 @@ def port_configurable(module, configlet):
 
     :param module: Ansible module with parameters and client connection.
     :param configlet: Dict of configlet info.
-    :return: True or False.
+    :return: true or False.
     '''
     configurable = False
     regex = r'^interface Ethernet%s' % module.params['switch_port']
@@ -450,7 +450,7 @@ def valid_template(port, template):
 
     :param port: User specified port.
     :param template: Contents of Jinja template.
-    :return: True or False
+    :return: true or False
     '''
     valid = True
     regex = r'^interface Ethernet%s' % port
@@ -552,7 +552,7 @@ def wait_for_task_completion(module, task):
 
     :param module: Ansible module with parameters and client connection.
     :param task: Task ID to poll for completion.
-    :return: True or exit with failure if task is cancelled or fails.
+    :return: true or exit with failure if task is cancelled or fails.
     '''
     task_complete = False
     while not task_complete:

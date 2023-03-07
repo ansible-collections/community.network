@@ -54,7 +54,7 @@ options:
         description:
           - ID of the VLAN. Range 1-4094
         type: int
-        required: True
+        required: true
       state:
         description:
           - Operational state of the VLAN

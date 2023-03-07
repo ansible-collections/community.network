@@ -144,7 +144,7 @@ changed:
     description: whether the interface was changed
     returned: changed
     type: bool
-    sample: True
+    sample: true
 msg:
     description: human-readable report of success or failure
     returned: always

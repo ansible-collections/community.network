@@ -17,29 +17,29 @@ options:
   pn_cliswitch:
     description:
       - Target switch to run the CLI on.
-    required: False
+    required: false
     type: str
   state:
     description:
       - State the action to perform. Use C(update) to modify
         the dscp-map-pri-map.
-    required: True
+    required: true
     type: str
     choices: ['update']
   pn_pri:
     description:
       - CoS priority.
-    required: False
+    required: false
     type: str
   pn_name:
     description:
       - Name for the DSCP map.
-    required: False
+    required: false
     type: str
   pn_dsmap:
     description:
       - DSCP value(s).
-    required: False
+    required: false
     type: str
 '''
 

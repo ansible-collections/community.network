@@ -131,7 +131,7 @@ EXAMPLES = '''
 - name: AAA server host test
   hosts: cloudengine
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   tasks:
 

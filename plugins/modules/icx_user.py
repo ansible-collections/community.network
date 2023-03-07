@@ -133,7 +133,7 @@ options:
       - Check running configuration. This can be set as environment variable.
        Module will use environment variable value(default:True), unless it is overridden, by specifying it as module parameter.
     type: bool
-    default: yes
+    default: true
 '''
 
 EXAMPLES = """

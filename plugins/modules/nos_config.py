@@ -190,7 +190,7 @@ EXAMPLES = """
 - name: Configurable backup path
   community.network.nos_config:
     lines: logging raslog console INFO
-    backup: yes
+    backup: true
     backup_options:
       filename: backup.cfg
       dir_path: /home/user

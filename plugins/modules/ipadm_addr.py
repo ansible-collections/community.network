@@ -82,7 +82,7 @@ temporary:
     description: specifies if operation will persist across reboots
     returned: always
     type: bool
-    sample: True
+    sample: true
 addrtype:
     description: address type
     returned: always

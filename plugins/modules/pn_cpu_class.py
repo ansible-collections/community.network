@@ -17,13 +17,13 @@ options:
   pn_cliswitch:
     description:
       - Target switch to run the CLI on.
-    required: False
+    required: false
     type: str
   state:
     description:
       - State the action to perform. Use C(present) to create cpu-class and
         C(absent) to delete cpu-class C(update) to modify the cpu-class.
-    required: True
+    required: true
     type: str
     choices: ['present', 'absent', 'update']
   pn_scope:
@@ -34,18 +34,18 @@ options:
   pn_hog_protect:
     description:
       - enable host-based hog protection.
-    required: False
+    required: false
     type: str
     choices: ['disable', 'enable', 'enable-and-drop']
   pn_rate_limit:
     description:
       - rate-limit for CPU class.
-    required: False
+    required: false
     type: str
   pn_name:
     description:
       - name for the CPU class.
-    required: False
+    required: false
     type: str
 '''
 

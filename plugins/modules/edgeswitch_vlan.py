@@ -65,7 +65,7 @@ options:
   purge:
     description:
       - Purge VLANs not defined in the I(aggregate) parameter.
-    default: no
+    default: false
     type: bool
   state:
     description:

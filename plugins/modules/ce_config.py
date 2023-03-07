@@ -153,13 +153,13 @@ EXAMPLES = """
 - name: CloudEngine config test
   hosts: cloudengine
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   tasks:
   - name: "Configure top level configuration and save it"
     community.network.ce_config:
       lines: sysname {{ inventory_hostname }}
-      save: yes
+      save: true
 
   - name: "Configure acl configuration and save it"
     community.network.ce_config:
@@ -187,7 +187,7 @@ EXAMPLES = """
   - name: Configurable backup path
     community.network.ce_config:
       lines: sysname {{ inventory_hostname }}
-      backup: yes
+      backup: true
       backup_options:
         filename: backup.cfg
         dir_path: /home/user

@@ -232,7 +232,7 @@ EXAMPLES = """
 
 - name: Render template onto an ICX device
   community.network.icx_config:
-    backup: yes
+    backup: true
     src: "{{ lookup('file', 'config.j2') }}"
 """
 

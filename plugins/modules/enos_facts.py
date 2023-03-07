@@ -62,7 +62,7 @@ Tasks: The following are examples of using the module enos_facts.
       password: admin
       transport: cli
       timeout: 30
-      authorize: True
+      authorize: true
       auth_pass:
 
 ---

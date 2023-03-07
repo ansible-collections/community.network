@@ -17,63 +17,63 @@ options:
   pn_cliswitch:
     description:
       - Target switch to run the CLI on.
-    required: False
+    required: false
     type: str
   state:
     description:
       - State the action to perform. Use C(update) to modify the igmp-snooping.
-    required: True
+    required: true
     type: str
     choices: ['update']
   pn_enable:
     description:
       - enable or disable IGMP snooping.
-    required: False
+    required: false
     type: bool
   pn_query_interval:
     description:
       - IGMP query interval in seconds.
-    required: False
+    required: false
     type: str
   pn_igmpv2_vlans:
     description:
       - VLANs on which to use IGMPv2 protocol.
-    required: False
+    required: false
     type: str
   pn_igmpv3_vlans:
     description:
       - VLANs on which to use IGMPv3 protocol.
-    required: False
+    required: false
     type: str
   pn_enable_vlans:
     description:
       - enable per VLAN IGMP snooping.
-    required: False
+    required: false
     type: str
   pn_vxlan:
     description:
       - enable or disable IGMP snooping on vxlans.
-    required: False
+    required: false
     type: bool
   pn_query_max_response_time:
     description:
       - maximum response time, in seconds, advertised in IGMP queries.
-    required: False
+    required: false
     type: str
   pn_scope:
     description:
       - IGMP snooping scope - fabric or local.
-    required: False
+    required: false
     choices: ['local', 'fabric']
   pn_no_snoop_linklocal_vlans:
     description:
       - Remove snooping of link-local groups(224.0.0.0/24) on these vlans.
-    required: False
+    required: false
     type: str
   pn_snoop_linklocal_vlans:
     description:
       - Allow snooping of link-local groups(224.0.0.0/24) on these vlans.
-    required: False
+    required: false
     type: str
 '''
 
@@ -82,7 +82,7 @@ EXAMPLES = """
   community.network.pn_igmp_snooping:
     pn_cliswitch: 'sw01'
     state: 'update'
-    pn_vxlan: True
+    pn_vxlan: true
     pn_enable_vlans: '1-399,401-4092'
     pn_no_snoop_linklocal_vlans: 'none'
     pn_igmpv3_vlans: '1-399,401-4092'
@@ -91,7 +91,7 @@ EXAMPLES = """
   community.network.pn_igmp_snooping:
     pn_cliswitch: 'sw01'
     state: 'update'
-    pn_vxlan: False
+    pn_vxlan: false
     pn_enable_vlans: '1-399'
     pn_no_snoop_linklocal_vlans: 'none'
     pn_igmpv3_vlans: '1-399'

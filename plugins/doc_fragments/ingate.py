@@ -53,7 +53,7 @@ options:
         description:
           - Verify the unit's HTTPS certificate.
         type: bool
-        default: yes
+        default: true
         aliases: [ verify_ssl ]
 notes:
   - This module requires that the Ingate Python SDK is installed on the

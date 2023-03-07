@@ -71,7 +71,7 @@ temporary:
     description: specifies if operation will persist across reboots
     returned: always
     type: bool
-    sample: True
+    sample: true
 link:
     description: link name
     returned: always

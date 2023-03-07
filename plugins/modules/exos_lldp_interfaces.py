@@ -46,7 +46,7 @@ options:
         description:
           - Name of the interface LLDP needs to be configured on.
         type: str
-        required: True
+        required: true
       enabled:
         description:
           - This is a boolean value to control disabling of LLDP on the interface C(name)
@@ -122,15 +122,15 @@ EXAMPLES = """
 #
 # "before":
 #    - name: '1'
-#      enabled: True
+#      enabled: true
 #    - name: '2'
-#      enabled: True
+#      enabled: true
 #    - name: '3'
-#      enabled: False
+#      enabled: false
 #    - name: '4'
-#      enabled: True
+#      enabled: true
 #    - name: '5'
-#      enabled: False
+#      enabled: false
 #
 # "requests": [
 #     {
@@ -159,15 +159,15 @@ EXAMPLES = """
 #
 # "after":
 #    - name: '1'
-#      enabled: True
+#      enabled: true
 #    - name: '2'
-#      enabled: False
+#      enabled: false
 #    - name: '3'
-#      enabled: False
+#      enabled: false
 #    - name: '4'
-#      enabled: True
+#      enabled: true
 #    - name: '5'
-#      enabled: True
+#      enabled: true
 
 # After state:
 # -------------
@@ -272,15 +272,15 @@ EXAMPLES = """
 #
 # "before":
 #    - name: '1'
-#      enabled: True
+#      enabled: true
 #    - name: '2'
-#      enabled: True
+#      enabled: true
 #    - name: '3'
-#      enabled: False
+#      enabled: false
 #    - name: '4'
-#      enabled: True
+#      enabled: true
 #    - name: '5'
-#      enabled: False
+#      enabled: false
 #
 # "requests": [
 #     {
@@ -309,15 +309,15 @@ EXAMPLES = """
 #
 # "after":
 #    - name: '1'
-#      enabled: False
+#      enabled: false
 #    - name: '2'
-#      enabled: True
+#      enabled: true
 #    - name: '3'
-#      enabled: True
+#      enabled: true
 #    - name: '4'
-#      enabled: True
+#      enabled: true
 #    - name: '5'
-#      enabled: False
+#      enabled: false
 
 # After state:
 # -------------
@@ -408,11 +408,11 @@ EXAMPLES = """
 #
 # "before":
 #    - name: '1'
-#      enabled: False
+#      enabled: false
 #    - name: '2'
-#      enabled: False
+#      enabled: false
 #    - name: '3'
-#      enabled: False
+#      enabled: false
 #
 # "requests": [
 #     {
@@ -441,11 +441,11 @@ EXAMPLES = """
 #
 # "after":
 #    - name: '1'
-#      enabled: True
+#      enabled: true
 #    - name: '2'
-#      enabled: False
+#      enabled: false
 #    - name: '3'
-#      enabled: True
+#      enabled: true
 #
 #  After state:
 # -------------
@@ -535,15 +535,15 @@ EXAMPLES = """
 #
 # "before":
 #    - name: '1'
-#      enabled: True
+#      enabled: true
 #    - name: '2'
-#      enabled: True
+#      enabled: true
 #    - name: '3'
-#      enabled: False
+#      enabled: false
 #    - name: '4'
-#      enabled: True
+#      enabled: true
 #    - name: '5'
-#      enabled: False
+#      enabled: false
 #
 # "requests": [
 #     {
@@ -572,15 +572,15 @@ EXAMPLES = """
 #
 # "after":
 #    - name: '1'
-#      enabled: True
+#      enabled: true
 #    - name: '2'
-#      enabled: True
+#      enabled: true
 #    - name: '3'
-#      enabled: True
+#      enabled: true
 #    - name: '4'
-#      enabled: True
+#      enabled: true
 #    - name: '5'
-#      enabled: True
+#      enabled: true
 
 # After state:
 # -------------

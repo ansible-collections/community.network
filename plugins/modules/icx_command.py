@@ -112,8 +112,8 @@ tasks:
           answer:
             - 'y'
             - 'qqq\\\r'
-          check_all: True
-          newline: False
+          check_all: true
+          newline: false
 """
 
 RETURN = """

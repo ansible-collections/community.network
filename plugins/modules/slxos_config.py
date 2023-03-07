@@ -224,7 +224,7 @@ EXAMPLES = """
 - name: Configurable backup path
   community.network.slxos_config:
     lines: hostname {{ inventory_hostname }}
-    backup: yes
+    backup: true
     backup_options:
       filename: backup.cfg
       dir_path: /home/user

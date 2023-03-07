@@ -49,7 +49,7 @@ options:
         description:
           - Name of the interface
         type: str
-        required: True
+        required: true
       access:
         description:
           - Switchport mode access command to configure the interface as a layer 2 access.

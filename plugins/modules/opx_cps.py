@@ -160,12 +160,12 @@ db:
   description: Denotes if CPS DB transaction was performed
   returned: when db is set to True in module options
   type: bool
-  sample: True
+  sample: true
 commit_event:
   description: Denotes if auto-commit event is set
   returned: when commit_event is set to True in module options
   type: bool
-  sample: True
+  sample: true
 """
 
 from ansible.module_utils.basic import AnsibleModule

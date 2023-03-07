@@ -87,7 +87,7 @@ EXAMPLES = '''
 - name: Bfd session module test
   hosts: cloudengine
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   tasks:
   - name: Configuring Single-hop BFD for Detecting Faults on a Layer 2 Link

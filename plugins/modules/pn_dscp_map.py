@@ -17,24 +17,24 @@ options:
   pn_cliswitch:
     description:
       - Target switch to run the CLI on.
-    required: False
+    required: false
     type: str
   state:
     description:
       - State the action to perform. Use C(present) to create dscp-map and
         C(absent) to delete.
-    required: True
+    required: true
     type: str
     choices: ["present", "absent"]
   pn_name:
     description:
       - Name for the DSCP map.
-    required: False
+    required: false
     type: str
   pn_scope:
     description:
       - Scope for dscp map.
-    required: False
+    required: false
     choices: ["local", "fabric"]
 '''
 

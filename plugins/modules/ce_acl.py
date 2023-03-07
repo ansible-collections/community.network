@@ -108,7 +108,7 @@ EXAMPLES = '''
 - name: CloudEngine acl test
   hosts: cloudengine
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   tasks:
 

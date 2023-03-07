@@ -19,48 +19,48 @@ options:
   pn_cliswitch:
     description:
       - Target switch to run the CLI on.
-    required: False
+    required: false
     type: str
   state:
     description:
       - State the action to perform. Use C(present) to create admin-syslog and
         C(absent) to delete admin-syslog C(update) to modify the admin-syslog.
-    required: True
+    required: true
     type: str
     choices: ['present', 'absent', 'update']
   pn_scope:
     description:
       - Scope of the system log.
-    required: False
+    required: false
     type: str
     choices: ['local', 'fabric']
   pn_host:
     description:
       - Hostname to log system events.
-    required: False
+    required: false
     type: str
   pn_port:
     description:
       - Host port.
-    required: False
+    required: false
     type: str
   pn_transport:
     description:
       - Transport for log events - tcp/tls or udp.
-    required: False
+    required: false
     type: str
     choices: ['tcp-tls', 'udp']
     default: 'udp'
   pn_message_format:
     description:
       - message-format for log events - structured or legacy.
-    required: False
+    required: false
     choices: ['structured', 'legacy']
     type: str
   pn_name:
     description:
       - name of the system log.
-    required: False
+    required: false
     type: str
 '''
 

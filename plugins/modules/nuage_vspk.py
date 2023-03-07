@@ -149,7 +149,7 @@ EXAMPLES = '''
     command: find
     properties:
       name: "{{ enterprise_new_name }}-basic"
-  ignore_errors: yes
+  ignore_errors: true
   register: nuage_check_enterprise
 
 # Updating an enterprise's name
@@ -192,7 +192,7 @@ EXAMPLES = '''
     command: change_password
     properties:
       password: "ansible-new-password"
-  ignore_errors: yes
+  ignore_errors: true
 
 # Finding a group in an enterprise
 - name: Find Administrators group in Enterprise

@@ -332,7 +332,7 @@ EXAMPLES = '''
 - name: CloudEngine BGP address family test
   hosts: cloudengine
   connection: local
-  gather_facts: no
+  gather_facts: false
   tasks:
   - name: "Config BGP Address_Family"
     community.network.ce_bgp_af:

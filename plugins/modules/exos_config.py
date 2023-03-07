@@ -169,7 +169,7 @@ EXAMPLES = """
   community.network.exos_config:
     lines:
       - configure ports 2 description-string "Master Uplink"
-    backup: yes
+    backup: true
 
 - name: Check the running-config against master config
   community.network.exos_config:
@@ -190,7 +190,7 @@ EXAMPLES = """
   community.network.exos_config:
     lines:
       - configure ports 2 description-string "Master Uplink"
-    backup: yes
+    backup: true
     backup_options:
       filename: backup.cfg
       dir_path: /home/user

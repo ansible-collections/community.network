@@ -15,7 +15,7 @@ options:
   authorize:
     description:
       - B(Deprecated)
-      - "Starting with Ansible 2.7 we recommend using C(connection: network_cli) and C(become: yes)."
+      - "Starting with Ansible 2.7 we recommend using C(connection: network_cli) and C(become: true)."
       - For more information please see the L(IronWare Platform Options guide, ../network/user_guide/platform_ironware.html).
       - HORIZONTALLINE
       - Instructs the module to enter privileged mode on the remote device
@@ -24,7 +24,7 @@ options:
         is not specified in the task, the value of environment variable
         C(ANSIBLE_NET_AUTHORIZE) will be used instead.
     type: bool
-    default: no
+    default: false
 notes:
   - For more information on using Ansible to manage network devices see the :ref:`Ansible Network Guide <network_guide>`
 '''

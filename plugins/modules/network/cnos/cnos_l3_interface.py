@@ -125,8 +125,10 @@ from ansible_collections.community.network.plugins.module_utils.network.cnos.cno
 from ansible_collections.community.network.plugins.module_utils.network.cnos.cnos import run_commands
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import remove_default_spec
-from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import is_netmask, is_masklen
-from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import to_netmask, to_masklen
+try:
+    from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import is_netmask, is_masklen, to_netmask, to_masklen
+except ImportError:
+    from ansible.module_utils.common.network import is_netmask, is_masklen, to_netmask, to_masklen
 
 
 def validate_ipv4(value, module):

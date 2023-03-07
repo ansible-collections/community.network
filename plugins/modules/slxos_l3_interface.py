@@ -107,7 +107,10 @@ from ansible.module_utils.six import iteritems
 from ansible_collections.community.network.plugins.module_utils.network.slxos.slxos import get_config, load_config
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.config import NetworkConfig
 from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import conditional, remove_default_spec
-from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import is_netmask, is_masklen, to_netmask, to_masklen
+try:
+    from ansible_collections.ansible.netcommon.plugins.module_utils.network.common.utils import is_netmask, is_masklen, to_netmask, to_masklen
+except ImportError:
+    from ansible.module_utils.common.network import is_netmask, is_masklen, to_netmask, to_masklen
 
 
 def validate_ipv4(value, module):

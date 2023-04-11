@@ -42,9 +42,6 @@ options: {}
 
 '''
 EXAMPLES = '''
-Tasks : The following are examples of using the module cnos_reload. These are
- written in the main.yml file of the tasks directory.
----
 - name: Test Reload
   community.network.cnos_reload:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"

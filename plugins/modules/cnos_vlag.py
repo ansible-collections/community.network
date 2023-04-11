@@ -83,10 +83,6 @@ options:
 
 '''
 EXAMPLES = '''
-
-Tasks : The following are examples of using the module cnos_vlag. These are
-        written in the main.yml file of the tasks directory.
----
 - name: Test Vlag  - enable
   community.network.cnos_vlag:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType']}}"

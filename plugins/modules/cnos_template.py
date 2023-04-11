@@ -54,8 +54,6 @@ options:
         default: Null
 '''
 EXAMPLES = '''
-Tasks : The following are examples of using the module cnos_template. These are written in the main.yml file of the tasks directory.
----
 - name: Replace Config CLI command template with values
   template:
       src: demo_template.j2

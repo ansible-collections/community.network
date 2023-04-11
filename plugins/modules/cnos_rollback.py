@@ -94,10 +94,6 @@ options:
         default: Null
 '''
 EXAMPLES = '''
-Tasks : The following are examples of using the module cnos_rollback.
- These are written in the main.yml file of the tasks directory.
----
-
 - name: Test Rollback of config - Running config
   cnos_rolback:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"

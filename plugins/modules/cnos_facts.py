@@ -60,12 +60,9 @@ options:
     default: '!config'
 '''
 EXAMPLES = '''
-Tasks: The following are examples of using the module cnos_facts.
----
 - name: Test cnos Facts
   community.network.cnos_facts:
 
----
 # Collect all facts from the device
 - community.network.cnos_facts:
     gather_subset: all

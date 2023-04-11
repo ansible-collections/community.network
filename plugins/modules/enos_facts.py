@@ -49,8 +49,6 @@ options:
     default: '!config'
 '''
 EXAMPLES = '''
-Tasks: The following are examples of using the module enos_facts.
----
 - name: Test Enos Facts
   community.network.enos_facts:
 
@@ -65,7 +63,6 @@ Tasks: The following are examples of using the module enos_facts.
       authorize: true
       auth_pass:
 
----
 # Collect all facts from the device
 - community.network.enos_facts:
     gather_subset: all

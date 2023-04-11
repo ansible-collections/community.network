@@ -94,9 +94,6 @@ options:
         default: Null
 '''
 EXAMPLES = '''
-Tasks : The following are examples of using the module cnos_backup.
- These are written in the main.yml file of the tasks directory.
----
 - name: Test Running Config Backup
   community.network.cnos_backup:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"

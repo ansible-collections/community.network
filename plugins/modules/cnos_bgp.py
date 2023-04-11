@@ -130,9 +130,6 @@ options:
                   backdoor]
 '''
 EXAMPLES = '''
-Tasks: The following are examples of using the module cnos_bgp. These are
- written in the main.yml file of the tasks directory.
----
 - name: Test BGP  - neighbor
   community.network.cnos_bgp:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"

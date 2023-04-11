@@ -32,7 +32,6 @@ options:
 '''
 
 EXAMPLES = """
----
 # Note: examples below use the following provider dict to handle
 #       transport and authentication to the node.
 vars:
@@ -42,7 +41,6 @@ vars:
     password: ordnance
     transport: cli
 
----
 - name: Collect all facts from the device
   community.network.ordnance_facts:
     gather_subset: all

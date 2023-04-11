@@ -114,9 +114,6 @@ options:
 '''
 
 EXAMPLES = """
----
-# Note: examples below use the following provider dict to handle
-#       transport and authentication to the node.
 vars:
   cli:
     host: "{{ inventory_hostname }}"
@@ -124,7 +121,6 @@ vars:
     password: password
     transport: cli
 
----
 - name: Configure top level configuration
   community.network.ordnance_config:
     lines: hostname {{ inventory_hostname }}

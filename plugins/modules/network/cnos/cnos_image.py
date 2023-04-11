@@ -82,9 +82,6 @@ options:
             - Specify the password for the server relating to the protocol used
 '''
 EXAMPLES = '''
-Tasks : The following are examples of using the module cnos_image. These are
-  written in the main.yml file of the tasks directory.
----
 - name: Test Image transfer
   community.network.cnos_image:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"

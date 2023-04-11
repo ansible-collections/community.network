@@ -143,8 +143,6 @@ options:
 '''
 
 EXAMPLES = """
-Tasks: The following are examples of using the module cnos_config.
----
 - name: Configure top level configuration
   community.network.cnos_config:
     "lines: hostname {{ inventory_hostname }}"

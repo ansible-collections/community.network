@@ -45,9 +45,6 @@ options: {}
 
 '''
 EXAMPLES = '''
-Tasks : The following are examples of using the module cnos_save. These are
- written in the main.yml file of the tasks directory.
----
 - name: Test Save
   community.network.cnos_save:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"

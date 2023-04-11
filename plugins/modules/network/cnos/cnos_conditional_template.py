@@ -80,10 +80,6 @@ options:
         default: Null
 '''
 EXAMPLES = '''
-Tasks : The following are examples of using the module
- cnos_conditional_template. These are written in the main.yml file of the
- tasks directory.
----
 - name: Applying CLI template on VLAG Tier1 Leaf Switch1
   community.network.cnos_conditional_template:
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"

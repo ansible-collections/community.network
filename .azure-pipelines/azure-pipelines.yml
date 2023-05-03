@@ -65,7 +65,7 @@ stages:
             - test: extra
 
   - stage: Sanity_2_15
-    displayName: Sanity devel
+    displayName: Sanity 2.15
     dependsOn: []
     jobs:
       - template: templates/matrix.yml
@@ -138,7 +138,7 @@ stages:
             - test: '3.10'
 
   - stage: Units_2_15
-    displayName: Units devel
+    displayName: Units 2.15
     dependsOn: []
     jobs:
       - template: templates/matrix.yml
@@ -198,7 +198,7 @@ stages:
             - test: "3.10"
 
   - stage: Cloud_2_15
-    displayName: Cloud devel
+    displayName: Cloud 2.15
     dependsOn: []
     jobs:
       - template: templates/matrix.yml

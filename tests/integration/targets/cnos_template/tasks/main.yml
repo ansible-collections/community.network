@@ -6,10 +6,10 @@
 # This contain sample template execution tasks
 ---
 - name: Creates directory
-  file: path=./commands state=directory
+  file: path=./commands state=directory mode=0755
 
 - name: Replace Config CLI command template with values
-  template: src=demo_template.j2 dest=./commands/cnos_template_{{ inventory_hostname }}_commands.txt
+  template: src=demo_template.j2 dest=./commands/cnos_template_{{ inventory_hostname }}_commands.txt mode=0644
   with_items: "{{cnos_template_data}}"
 
 - name: Applying CLI commands on Switches

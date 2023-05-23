@@ -1,0 +1,11 @@
+skip_list:
+  # Remove these temporary disable skips added during adopting of ansible-lint:
+  - deprecated-module
+  - fqcn
+  - ignore-errors
+  - jinja
+  - key-order
+  - name
+  - no-free-form
+  - sanity
+  - yaml

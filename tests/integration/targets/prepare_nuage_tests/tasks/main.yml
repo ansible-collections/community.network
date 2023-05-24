@@ -10,6 +10,7 @@
 
     - name: Start Nuage VSD API Simulator
       shell: "(cd /; nuage-vsd-sim >/dev/null 2>&1)"
+      changed_when: false
       async: 1800
       poll: 0
 

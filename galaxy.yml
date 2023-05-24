@@ -4,9 +4,10 @@ version: 4.0.2
 readme: README.md
 authors:
   - Ansible (https://github.com/ansible)
-description: null
+description: |
+  This repository contains the `community.network` Ansible Collection. The collection is a part of the `ansible` package and includes many network modules and plugins supported by Ansible community which are not part of more specialized community collections.
 license_file: COPYING
-tags: [community, network]
+tags: [community, networking]
 # NOTE: No more dependencies can be added to this list
 dependencies:
   ansible.netcommon: '>=1.0.0'

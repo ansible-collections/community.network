@@ -36,6 +36,9 @@ description:
     enable or disable collection of additional facts.
 notes:
   - Tested against EXOS 22.5.1.7
+  - `gather_network_resources` currently only works with
+    `ansible_connection: ansible.netcommon.httpapi`. For details see
+    https://github.com/ansible-collections/community.network/issues/460
 options:
   gather_subset:
     description:
@@ -56,7 +59,8 @@ options:
         Can specify a list of values to include a larger subset.
         Values can also be used with an initial C(!) to specify that
         a specific subset should not be collected.
-        Valid subsets are 'all', 'lldp_global', 'lldp_interfaces', 'vlans', 'l2_interfaces'.
+        Valid subsets are 'all', 'lldp_global', 'lldp_interfaces',
+        'vlans', 'l2_interfaces'.
     type: list
 '''
 

@@ -56,7 +56,7 @@ options:
         Can specify a list of values to include a larger subset.
         Values can also be used with an initial C(!) to specify that
         a specific subset should not be collected.
-        Valid subsets are 'all', 'lldp_global'.
+        Valid subsets are 'all', 'lldp_global', 'lldp_interfaces', 'vlans', 'l2_interfaces'.
     type: list
 '''
 
@@ -83,13 +83,13 @@ EXAMPLES = """
       gather_subset:
         - '!all'
         - '!min'
-      gather_network_resource:
+      gather_network_resources:
         - lldp_global
 
   - name: Gather lldp global resource and minimal legacy facts
     community.network.exos_facts:
       gather_subset: min
-      gather_network_resource: lldp_global
+      gather_network_resources: lldp_global
 """
 
 RETURN = """

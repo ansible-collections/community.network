@@ -36,9 +36,9 @@ description:
     enable or disable collection of additional facts.
 notes:
   - Tested against EXOS 22.5.1.7
-  - `gather_network_resources` currently only works with
-    `ansible_connection: ansible.netcommon.httpapi`. For details see
-    https://github.com/ansible-collections/community.network/issues/460
+  - "The I(gather_network_resources) option currently only works with
+    C(ansible_connection: ansible.netcommon.httpapi). For details, see
+    U(https://github.com/ansible-collections/community.network/issues/460)."
 options:
   gather_subset:
     description:

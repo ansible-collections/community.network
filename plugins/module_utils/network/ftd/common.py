@@ -169,7 +169,7 @@ def equal_values(v1, v2):
     if is_string(v1) and is_string(v2):
         return to_text(v1) == to_text(v2)
 
-    if type(v1) != type(v2):
+    if type(v1) is not type(v2):
         return False
     value_type = type(v1)
 
@@ -214,7 +214,7 @@ def delete_ref_duplicates(d):
     """
 
     def delete_ref_duplicates_from_list(refs):
-        if all(type(i) == dict and is_object_ref(i) for i in refs):
+        if all(type(i) is dict and is_object_ref(i) for i in refs):
             unique_refs = set()
             unique_list = list()
             for i in refs:
@@ -233,9 +233,9 @@ def delete_ref_duplicates(d):
 
     modified_d = {}
     for k, v in iteritems(d):
-        if type(v) == list:
+        if type(v) is list:
             modified_d[k] = delete_ref_duplicates_from_list(v)
-        elif type(v) == dict:
+        elif type(v) is dict:
             modified_d[k] = delete_ref_duplicates(v)
         else:
             modified_d[k] = v

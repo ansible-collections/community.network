@@ -134,11 +134,11 @@ def cleanup_absent_fields(obj):
     :param obj:
     :return: Purged object
     """
-    if type(obj) != dict:
+    if type(obj) is not dict:
         return obj
     cleanup_keys = []
     for k, v in obj.items():
-        if type(v) == dict:
+        if type(v) is dict:
             if (('state' in v and v['state'] == 'absent') or
                     (v == "{'state': 'absent'}")):
                 cleanup_keys.append(k)
@@ -146,7 +146,7 @@ def cleanup_absent_fields(obj):
                 cleanup_absent_fields(v)
                 if not v:
                     cleanup_keys.append(k)
-        elif type(v) == list:
+        elif type(v) is list:
             new_list = []
             for elem in v:
                 elem = cleanup_absent_fields(elem)
@@ -265,7 +265,7 @@ def avi_obj_cmp(x, y, sensitive_fields=None):
     if type(x) not in [list, dict]:
         # if it is not list or dict or string then simply compare the values
         return x == y
-    if type(x) == list:
+    if type(x) is list:
         # should compare each item in the list and that should match
         if len(x) != len(y):
             log.debug('x has %d items y has %d', len(x), len(y))
@@ -275,7 +275,7 @@ def avi_obj_cmp(x, y, sensitive_fields=None):
                 # no need to continue
                 return False
 
-    if type(x) == dict:
+    if type(x) is dict:
         x.pop('_last_modified', None)
         x.pop('tenant', None)
         y.pop('_last_modified', None)
@@ -295,7 +295,7 @@ def avi_obj_cmp(x, y, sensitive_fields=None):
                 continue
             if isinstance(v, dict):
                 if ('state' in v) and (v['state'] == 'absent'):
-                    if type(y) == dict and k not in y:
+                    if type(y) is dict and k not in y:
                         d_x_absent_ks.append(k)
                     else:
                         return False

@@ -24,8 +24,8 @@ schedules:
     always: true
     branches:
       include:
+        - stable-5
         - stable-4
-        - stable-3
 
 variables:
   - name: checkoutPath
@@ -42,7 +42,7 @@ variables:
 resources:
   containers:
     - container: default
-      image: quay.io/ansible/azure-pipelines-test-container:3.0.0
+      image: quay.io/ansible/azure-pipelines-test-container:4.0.1
 
 pool: Standard
 
@@ -110,21 +110,6 @@ stages:
             - test: 4
             - test: 5
 
-  - stage: Sanity_2_12
-    displayName: Sanity 2.12
-    dependsOn: []
-    jobs:
-      - template: templates/matrix.yml
-        parameters:
-          nameFormat: Test {0}
-          testFormat: 2.12/sanity/{0}
-          targets:
-            - test: 1
-            - test: 2
-            - test: 3
-            - test: 4
-            - test: 5
-
 ### Units
   - stage: Units_devel
     displayName: Units devel
@@ -170,18 +155,6 @@ stages:
           targets:
             - test: 3.8
             - test: '3.10'
-
-  - stage: Units_2_12
-    displayName: Units 2.12
-    dependsOn: []
-    jobs:
-      - template: templates/matrix.yml
-        parameters:
-          nameFormat: Python {0}
-          testFormat: 2.12/units/{0}/1
-          targets:
-            - test: 3.8
-            - test: 3.9
 
 ### Cloud
   - stage: Cloud_devel
@@ -235,18 +208,6 @@ stages:
             - test: 3.9
             - test: "3.10"
 
-  - stage: Cloud_2_12
-    displayName: Cloud 2.12
-    dependsOn: []
-    jobs:
-      - template: templates/matrix.yml
-        parameters:
-          nameFormat: Python {0}
-          testFormat: 2.12/cloud/{0}/1
-          targets:
-            - test: 3.8
-            - test: "3.10"
-
 ### Finally
   - stage: Summary
     condition: succeededOrFailed()
@@ -255,16 +216,13 @@ stages:
       - Sanity_2_15
       - Sanity_2_14
       - Sanity_2_13
-      - Sanity_2_12
       - Units_devel
       - Units_2_15
       - Units_2_14
       - Units_2_13
-      - Units_2_12
       - Cloud_devel
       - Cloud_2_15
       - Cloud_2_14
       - Cloud_2_13
-      - Cloud_2_12
     jobs:
       - template: templates/coverage.yml

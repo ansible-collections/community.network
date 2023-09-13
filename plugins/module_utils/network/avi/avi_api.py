@@ -48,7 +48,7 @@ def avi_timedelta(td):
     does not have total_seconds method
     :param timedelta object
     '''
-    if type(td) != timedelta:
+    if type(td) is not timedelta:
         raise TypeError()
     if sys.version_info >= (2, 7):
         ts = td.total_seconds()
@@ -146,7 +146,7 @@ class ApiResponse(Response):
 
     @staticmethod
     def to_avi_response(resp):
-        if type(resp) == Response:
+        if type(resp) is Response:
             return ApiResponse(resp)
         return resp
 
@@ -601,7 +601,7 @@ class ApiSession(Session):
         except KeyError:
             pass
         try:
-            if (data is not None) and (type(data) == dict):
+            if (data is not None) and (type(data) is dict):
                 resp = fn(fullpath, data=json.dumps(data), headers=api_hdrs,
                           timeout=timeout, cookies=cookies, **kwargs)
             else:

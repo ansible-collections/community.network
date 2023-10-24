@@ -46,11 +46,10 @@ Contributors to this collection take part in the global [Ansible Contributor Sum
 
 For more information about communication, refer to the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
 
-## Tested with Ansible
+## Tested with ansible-core
 
-Tested with the Ansible 2.11, 2.12, 2.13, 2.14 releases and the current development version of Ansible.
-
-Ansible-core versions before 2.11.0 are not supported. In particular, ansible-base 2.10 and Ansible 2.9 are not supported. Use community.network 3.x.y if you are using Ansible 2.9 or ansible-base 2.10.
+Tested with supported versions of ansible-core.
+Refer to the [AZP test matrix](.azure-pipelines/azure-pipelines.yml) for details.
 
 ### Supported connections
 

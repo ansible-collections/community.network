@@ -1,4 +1,0 @@
-bugfixes:
-- cnos_l3_interface - fix import errors (https://github.com/ansible-collections/community.network/pull/531).
-- icx_l3_interface - fix import errors (https://github.com/ansible-collections/community.network/pull/531).
-- slxos_l3_interface - fix import errors (https://github.com/ansible-collections/community.network/pull/531).

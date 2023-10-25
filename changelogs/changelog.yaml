@@ -103,3 +103,16 @@ releases:
     - 516-whitespace-exos-config-defaults.yaml
     - 517-add-ports-no-refresh-in-exos-facts.yaml
     release_date: '2023-10-24'
+  5.0.2:
+    changes:
+      release_summary: 'This is the mock patch release of the ``community.network``
+        collection
+
+        caused by Galaxy issues.
+
+        This changelog contains changes made since release 5.0.0.
+
+        See the changelog for version 5.0.1 for details.'
+    fragments:
+    - 5.0.2.yml
+    release_date: '2023-10-25'

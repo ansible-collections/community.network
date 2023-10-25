@@ -1,3 +1,0 @@
-bugfixes:
-  - exos_facts - returns timeout error when we use connection type ``network_cli``.
-    It happened because we send command without ``no-refresh`` and script ``cli2json.py`` stuck in loop while reading console output (https://github.com/ansible-collections/community.network/pull/517).

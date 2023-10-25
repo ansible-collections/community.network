@@ -6,6 +6,17 @@ Community Network Release Notes
 
 This changelog describes changes after version 4.0.0.
 
+v5.0.2
+======
+
+Release Summary
+---------------
+
+This is the mock patch release of the ``community.network`` collection
+caused by Galaxy issues.
+This changelog contains changes made since release 5.0.0.
+See the changelog for version 5.0.1 for details.
+
 v5.0.1
 ======
 

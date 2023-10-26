@@ -63,7 +63,7 @@ Click the `Content` button to see the list of content included in this collectio
 
 This collection is shipped with the `ansible` package. So if you have it installed, no more action is required.
 
-If you have a minimal installation (only Ansible Core installed) or you want to use the latest version of the collection along with the whole `ansible` package, you need to install the collection from [Ansible Galaxy](https://galaxy.ansible.com/community/network) manually with the `ansible-galaxy` command-line tool:
+If you have a minimal installation (only Ansible Core installed) or you want to use the latest version of the collection along with the whole `ansible` package, you need to install the collection from [Ansible Galaxy](https://galaxy.ansible.com/ui/repo/published/community/network/) manually with the `ansible-galaxy` command-line tool:
 
     ansible-galaxy collection install community.network
 
@@ -83,7 +83,7 @@ Note that if you install the collection manually, it will not be upgraded automa
 ansible-galaxy collection install community.network --upgrade
 ```
 
-You can also install a specific version of the collection, for example, if you need to downgrade when something is broken in the latest version (please report an issue in this repository). Use the following syntax where `X.Y.Z` can be any [available version](https://galaxy.ansible.com/community/network):
+You can also install a specific version of the collection, for example, if you need to downgrade when something is broken in the latest version (please report an issue in this repository). Use the following syntax where `X.Y.Z` can be any [available version](https://galaxy.ansible.com/ui/repo/published/community/network/):
 
 ```bash
 ansible-galaxy collection install community.network:==X.Y.Z

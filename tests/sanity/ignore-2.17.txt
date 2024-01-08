@@ -839,7 +839,9 @@ plugins/cliconf/weos4.py pylint:unused-import
 plugins/lookup/avi.py pylint:unused-import
 plugins/module_utils/network/aos/aos.py pylint:unused-import
 plugins/module_utils/network/avi/ansible_utils.py pylint:unused-import
+plugins/module_utils/network/avi/ansible_utils.py pylint:unidiomatic-typecheck
 plugins/module_utils/network/avi/avi.py pylint:unused-import
+plugins/module_utils/network/avi/avi_api.py pylint:unidiomatic-typecheck
 plugins/module_utils/network/cloudengine/ce.py pylint:unused-import
 plugins/module_utils/network/cnos/cnos.py pylint:unused-import
 plugins/module_utils/network/eric_eccli/eric_eccli.py pylint:unused-import
@@ -851,6 +853,7 @@ plugins/module_utils/network/exos/facts/legacy/base.py pylint:unused-import
 plugins/module_utils/network/exos/facts/lldp_global/lldp_global.py pylint:unused-import
 plugins/module_utils/network/exos/facts/lldp_interfaces/lldp_interfaces.py pylint:unused-import
 plugins/module_utils/network/exos/facts/vlans/vlans.py pylint:unused-import
+plugins/module_utils/network/ftd/common.py pylint:unidiomatic-typecheck
 plugins/module_utils/network/icx/icx.py pylint:unused-import
 plugins/module_utils/network/ironware/ironware.py pylint:unused-import
 plugins/module_utils/network/netscaler/netscaler.py pylint:unused-import
@@ -923,6 +926,8 @@ plugins/terminal/netvisor.py pylint:unused-import
 plugins/terminal/weos4.py pylint:unused-import
 tests/sanity/extra/botmeta.py pylint:unused-import
 tests/unit/compat/builtins.py pylint:unused-import
+tests/unit/mock/loader.py pylint:unidiomatic-typecheck
+tests/unit/plugins/httpapi/test_ftd.py pylint:unidiomatic-typecheck
 tests/unit/plugins/modules/test_apconos_command.py pylint:unused-import
 tests/unit/plugins/modules/test_icx_logging.py pylint:unused-import
 tests/unit/plugins/modules/test_icx_system.py pylint:unused-import

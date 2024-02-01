@@ -172,10 +172,7 @@ class Cli:
     def load_config(self, config):
         """Sends configuration commands to the remote device
         """
-        rc, out, err = self.exec_command('mmi-mode enable')
-        if rc != 0:
-            self._module.fail_json(msg='unable to set mmi-mode enable', output=err)
-        rc, out, err = self.exec_command('system-view immediately')
+        rc, out, err = self.exec_command('system-view')
         if rc != 0:
             self._module.fail_json(msg='unable to enter system-view', output=err)
 

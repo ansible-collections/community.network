@@ -464,7 +464,9 @@ def main():
 
     if module.params['save']:
         if not module.check_mode:
-            run_commands(module, ['return', 'system-view', 'save'])
+            command = {"command": ['return', 'system-view', 'save'],
+                       "prompt": "Are you sure to continue", "answer": "y"}
+            run_commands(module, command)
             result["changed"] = True
     run_commands(module, ['return'])
 

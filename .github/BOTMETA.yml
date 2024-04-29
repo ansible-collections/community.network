@@ -249,15 +249,15 @@ files:
   $modules/icx_:
     maintainers: Commscope sushma-alethea
   $modules/dladm_:
-    maintainers: xen0l bcoca danowar2k fishman jasperla jpdasma mator scathatheworm troy2914
+    maintainers: xen0l bcoca fishman jasperla jpdasma mator scathatheworm troy2914
     labels: solaris
     keywords: beadm dladm illumos ipadm nexenta omnios openindiana pfexec smartos solaris sunos zfs zpool
   $modules/flowadm.py:
-    maintainers: xen0l bcoca danowar2k fishman jasperla jpdasma mator scathatheworm troy2914
+    maintainers: xen0l bcoca fishman jasperla jpdasma mator scathatheworm troy2914
     labels: solaris
     keywords: beadm dladm illumos ipadm nexenta omnios openindiana pfexec smartos solaris sunos zfs zpool
   $modules/ipadm_:
-    maintainers: xen0l bcoca danowar2k fishman jasperla jpdasma mator scathatheworm troy2914
+    maintainers: xen0l bcoca fishman jasperla jpdasma mator scathatheworm troy2914
     labels: solaris
     keywords: beadm dladm illumos ipadm nexenta omnios openindiana pfexec smartos solaris sunos zfs zpool
   $modules/ig_:

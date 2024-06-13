@@ -107,3 +107,21 @@ releases:
     - 516-whitespace-exos-config-defaults.yaml
     - 517-add-ports-no-refresh-in-exos-facts.yaml
     release_date: '2023-10-25'
+  4.0.4:
+    changes:
+      bugfixes:
+      - exos - Add error handling of ``Permission denied`` errors (https://github.com/ansible-collections/community.network/pull/571).
+      major_changes:
+      - Collection version 4.0.0 is not supported anymore, please upgrade your local
+        installation to a newer version.
+      release_summary: 'This is a patch and the last release of the ``community.network``
+        collection version 4.
+
+        This changelog contains all changes to the modules and plugins in this collection
+
+        that have been made after the previous release.'
+    fragments:
+    - 0-stop-support.yml
+    - 4.0.4.yml
+    - 571-permission-denied-error-handling.yml
+    release_date: '2024-06-13'

@@ -6,6 +6,26 @@ Community Network Release Notes
 
 This changelog describes changes after version 3.0.0.
 
+v4.0.4
+======
+
+Release Summary
+---------------
+
+This is a patch and the last release of the ``community.network`` collection version 4.
+This changelog contains all changes to the modules and plugins in this collection
+that have been made after the previous release.
+
+Major Changes
+-------------
+
+- Collection version 4.0.0 is not supported anymore, please upgrade your local installation to a newer version.
+
+Bugfixes
+--------
+
+- exos - Add error handling of ``Permission denied`` errors (https://github.com/ansible-collections/community.network/pull/571).
+
 v4.0.3
 ======
 

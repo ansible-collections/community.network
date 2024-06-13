@@ -75,7 +75,6 @@ else
 fi
 
 # START: page_size patch
-sudo apt update && sudo apt -y install patch
 ANSIBLE_DIR=$(ansible --version | grep 'ansible python module location' | sed 's/^.*= //g')
 patch --forward "${ANSIBLE_DIR}/galaxy/api.py" "tests/utils/shippable/collection_versions_page_size-${ansible_version}.patch" && echo "ansible_version ${ansible_version} page_size patch applied" || echo "ansible_version ${ansible_version} page_size patch NOT applied"
 # END: page_size patch

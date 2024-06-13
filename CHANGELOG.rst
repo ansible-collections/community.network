@@ -6,6 +6,20 @@ Community Network Release Notes
 
 This changelog describes changes after version 4.0.0.
 
+v5.0.3
+======
+
+Release Summary
+---------------
+
+This is a patch release of the ``community.network`` collection.
+This changelog contains changes made since the previous release.
+
+Bugfixes
+--------
+
+- exos - Add error handling of ``Permission denied`` errors (https://github.com/ansible-collections/community.network/pull/571).
+
 v5.0.2
 ======
 

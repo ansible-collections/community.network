@@ -1,6 +1,6 @@
 namespace: community
 name: network
-version: 5.0.2
+version: 5.0.3
 readme: README.md
 authors:
   - Ansible (https://github.com/ansible)

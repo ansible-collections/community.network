@@ -116,3 +116,14 @@ releases:
     fragments:
     - 5.0.2.yml
     release_date: '2023-10-25'
+  5.0.3:
+    changes:
+      bugfixes:
+      - exos - Add error handling of ``Permission denied`` errors (https://github.com/ansible-collections/community.network/pull/571).
+      release_summary: 'This is a patch release of the ``community.network`` collection.
+
+        This changelog contains changes made since the previous release.'
+    fragments:
+    - 5.0.3.yml
+    - 571-permission-denied-error-handling.yml
+    release_date: '2024-06-13'

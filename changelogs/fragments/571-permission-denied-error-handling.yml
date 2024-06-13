@@ -1,2 +1,0 @@
-bugfixes:
-  - exos - Add error handling of ``Permission denied`` errors (https://github.com/ansible-collections/community.network/pull/571).

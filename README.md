@@ -29,22 +29,27 @@ If you're interested in becoming a maintainer of this collection, refer to the [
 
 ## Communication
 
-We announce important development changes and releases through Ansible's [The Bullhorn newsletter](https://github.com/ansible/community/wiki/News#the-bullhorn). If you are a contributor, be sure you are [subscribed](https://eepurl.com/gZmiEP).
+> `GitHub Discussions` feature is disabled in this repository. Use the `network` tag on the forum in the [Project Discussions](https://forum.ansible.com/new-topic?title=topic%20title&body=topic%20body&category=project&tags=network) or [Get Help](https://forum.ansible.com/new-topic?title=topic%20title&body=topic%20body&category=help&tags=network) category instead.
 
-Join us on Matrix in the following (and other) rooms:
+### Asynchronous channels
 
-* [#users:ansible.com](https://matrix.to/#/#users:ansible.com): general use questions and support.
-* [#network:ansible.com](https://matrix.to/#/#network:ansible.com): network-related use questions and support.
-* [#ansible-community:ansible.com](https://matrix.to/#/#community:ansible.com): community and collection development questions.
-* other Matrix rooms
+* Join the Ansible forum (our default communication platform):
+    * [Get Help](https://forum.ansible.com/c/help/6/none): get help or help others.
+    * [Posts tagged with 'network'](https://forum.ansible.com/tag/network): subscribe to participate in network-related conversations.
+    * [Social Spaces](https://forum.ansible.com/c/chat/4): gather and interact with fellow enthusiasts.
+    * [News & Announcements](https://forum.ansible.com/c/news/5/none): track project-wide announcements including social events.
 
-Note that all the rooms above have corresponding bridged IRC channels on Libera.Chat. See the [Ansible Communication Guide](https://docs.ansible.com/ansible/devel/community/communication.html) for details.
+* The Ansible [Bullhorn newsletter](https://forum.ansible.com/t/about-the-newsletter-category/166): used to announce releases and important changes.
 
-Also join us on [Slack](https://ansiblenetwork.slack.com).
+### Real-time channels
 
-Contributors to this collection take part in the global [Ansible Contributor Summit](https://github.com/ansible/community/wiki/Contributor-Summit) virtually or in-person. Track [The Bullhorn newsletter](https://eepurl.com/gZmiEP) and join us.
+* Matrix rooms:
+    * [#network:ansible.com](https://matrix.to/#/#network:ansible.com): dedicated to network automation.
+    * [#users:ansible.com](https://matrix.to/#/#users:ansible.com): general use questions and support.
+    * [#social:ansible.com](https://matrix.to/#/#social:ansible.com): say hello or share a funny joke and let's laugh together;)
+    * [#ansible-community:ansible.com](https://matrix.to/#/#community:ansible.com): community and collection development questions.
 
-For more information about communication, refer to the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
+For more information about communication, including how to join these channels, see the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
 
 ## Tested with ansible-core
 

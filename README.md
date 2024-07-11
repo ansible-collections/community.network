@@ -45,9 +45,6 @@ If you're interested in becoming a maintainer of this collection, refer to the [
 
 * Matrix rooms:
     * [#network:ansible.com](https://matrix.to/#/#network:ansible.com): dedicated to network automation.
-    * [#users:ansible.com](https://matrix.to/#/#users:ansible.com): general use questions and support.
-    * [#social:ansible.com](https://matrix.to/#/#social:ansible.com): say hello or share a funny joke and let's laugh together;)
-    * [#ansible-community:ansible.com](https://matrix.to/#/#community:ansible.com): community and collection development questions.
 
 For more information about communication, including how to join these channels, see the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
 

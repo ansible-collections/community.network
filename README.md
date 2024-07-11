@@ -29,11 +29,7 @@ If you're interested in becoming a maintainer of this collection, refer to the [
 
 ## Communication
 
-> `GitHub Discussions` feature is disabled in this repository. Use the `network` tag on the forum in the [Project Discussions](https://forum.ansible.com/new-topic?title=topic%20title&body=topic%20body&category=project&tags=network) or [Get Help](https://forum.ansible.com/new-topic?title=topic%20title&body=topic%20body&category=help&tags=network) category instead.
-
-### Asynchronous channels
-
-* Join the Ansible forum (our default communication platform):
+* Join the Ansible forum:
     * [Get Help](https://forum.ansible.com/c/help/6/none): get help or help others.
     * [Posts tagged with 'network'](https://forum.ansible.com/tag/network): subscribe to participate in network-related conversations.
     * [Social Spaces](https://forum.ansible.com/c/chat/4): gather and interact with fellow enthusiasts.
@@ -41,12 +37,7 @@ If you're interested in becoming a maintainer of this collection, refer to the [
 
 * The Ansible [Bullhorn newsletter](https://forum.ansible.com/t/about-the-newsletter-category/166): used to announce releases and important changes.
 
-### Real-time channels
-
-* Matrix rooms:
-    * [#network:ansible.com](https://matrix.to/#/#network:ansible.com): dedicated to network automation.
-
-For more information about communication, including how to join these channels, see the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
+For more information about communication, see the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
 
 ## Tested with ansible-core
 

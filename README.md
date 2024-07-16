@@ -29,22 +29,15 @@ If you're interested in becoming a maintainer of this collection, refer to the [
 
 ## Communication
 
-We announce important development changes and releases through Ansible's [The Bullhorn newsletter](https://github.com/ansible/community/wiki/News#the-bullhorn). If you are a contributor, be sure you are [subscribed](https://eepurl.com/gZmiEP).
+* Join the Ansible forum:
+    * [Get Help](https://forum.ansible.com/c/help/6/none): get help or help others.
+    * [Posts tagged with 'network'](https://forum.ansible.com/tag/network): subscribe to participate in network-related conversations.
+    * [Social Spaces](https://forum.ansible.com/c/chat/4): gather and interact with fellow enthusiasts.
+    * [News & Announcements](https://forum.ansible.com/c/news/5/none): track project-wide announcements including social events.
 
-Join us on Matrix in the following (and other) rooms:
+* The Ansible [Bullhorn newsletter](https://forum.ansible.com/t/about-the-newsletter-category/166): used to announce releases and important changes.
 
-* [#users:ansible.com](https://matrix.to/#/#users:ansible.com): general use questions and support.
-* [#network:ansible.com](https://matrix.to/#/#network:ansible.com): network-related use questions and support.
-* [#ansible-community:ansible.com](https://matrix.to/#/#community:ansible.com): community and collection development questions.
-* other Matrix rooms
-
-Note that all the rooms above have corresponding bridged IRC channels on Libera.Chat. See the [Ansible Communication Guide](https://docs.ansible.com/ansible/devel/community/communication.html) for details.
-
-Also join us on [Slack](https://ansiblenetwork.slack.com).
-
-Contributors to this collection take part in the global [Ansible Contributor Summit](https://github.com/ansible/community/wiki/Contributor-Summit) virtually or in-person. Track [The Bullhorn newsletter](https://eepurl.com/gZmiEP) and join us.
-
-For more information about communication, refer to the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
+For more information about communication, see the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
 
 ## Tested with ansible-core
 

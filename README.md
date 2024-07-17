@@ -30,12 +30,12 @@ If you're interested in becoming a maintainer of this collection, refer to the [
 ## Communication
 
 * Join the Ansible forum:
-    * [Get Help](https://forum.ansible.com/c/help/6/none): get help or help others.
+    * [Get Help](https://forum.ansible.com/c/help/6): get help or help others.
     * [Posts tagged with 'network'](https://forum.ansible.com/tag/network): subscribe to participate in network-related conversations.
     * [Social Spaces](https://forum.ansible.com/c/chat/4): gather and interact with fellow enthusiasts.
-    * [News & Announcements](https://forum.ansible.com/c/news/5/none): track project-wide announcements including social events.
+    * [News & Announcements](https://forum.ansible.com/c/news/5): track project-wide announcements including social events.
 
-* The Ansible [Bullhorn newsletter](https://forum.ansible.com/t/about-the-newsletter-category/166): used to announce releases and important changes.
+* The Ansible [Bullhorn newsletter](https://docs.ansible.com/ansible/devel/community/communication.html#the-bullhorn): used to announce releases and important changes.
 
 For more information about communication, see the [Ansible communication guide](https://docs.ansible.com/ansible/devel/community/communication.html).
 

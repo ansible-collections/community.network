@@ -40,6 +40,7 @@ options:
         in the device current-configuration.  Be sure to note the configuration
         command syntax as some commands are automatically modified by the
         device config parser.
+    aliases: ['commands']
   parents:
     description:
       - The ordered set of parents that uniquely identify the section or hierarchy

@@ -642,6 +642,7 @@ class VrfAf(object):
         else:
             route_d = self.route_distinguisher
 
+        configxmlstr = ''
         if self.state == 'present':
             if self.vrf_aftype:
                 if self.is_vrf_af_exist():

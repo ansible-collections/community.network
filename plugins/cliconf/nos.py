@@ -67,6 +67,7 @@ class Cliconf(CliconfBase):
         return device_info
 
     def get_config(self, source='running', flags=None):
+        cmd = ''
         if source not in 'running':
             raise ValueError("fetching configuration from %s is not supported" % source)
         if source == 'running':

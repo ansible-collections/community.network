@@ -25,7 +25,6 @@ schedules:
     branches:
       include:
         - stable-5
-        - stable-4
 
 variables:
   - name: checkoutPath

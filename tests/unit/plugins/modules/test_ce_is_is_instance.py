@@ -55,7 +55,7 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
             state='present')
         set_module_args(config)
         result = self.execute_module(changed=True)
-        self.assertEquals(sorted(result['updates']), sorted(update))
+        self.assertEqual(sorted(result['updates']), sorted(update))
 
     def test_isis_instance_present(self):
         xml_existing = load_fixture('ce_is_is_instance', 'after.txt')
@@ -68,4 +68,4 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
             state='absent')
         set_module_args(config)
         result = self.execute_module(changed=True)
-        self.assertEquals(sorted(result['updates']), sorted(update))
+        self.assertEqual(sorted(result['updates']), sorted(update))

@@ -55,7 +55,7 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
             ifname='10GE1/0/1')
         )
         result = self.execute_module(changed=True)
-        self.assertEquals(sorted(result['updates']), sorted(update))
+        self.assertEqual(sorted(result['updates']), sorted(update))
 
     def test_repeat_enable(self):
         self.get_nc_config.side_effect = (self.after, self.after, self.after, self.after, )

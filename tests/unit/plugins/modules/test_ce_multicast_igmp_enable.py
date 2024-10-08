@@ -60,7 +60,7 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
             proxy=True)
         )
         result = self.execute_module(changed=True)
-        self.assertEquals(sorted(result['updates']), sorted(update))
+        self.assertEqual(sorted(result['updates']), sorted(update))
 
     def test_igmp_undo_enable(self):
         update = ['undo igmp snooping enable',
@@ -77,4 +77,4 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
             state='absent')
         )
         result = self.execute_module(changed=True)
-        self.assertEquals(sorted(result['updates']), sorted(update))
+        self.assertEqual(sorted(result['updates']), sorted(update))

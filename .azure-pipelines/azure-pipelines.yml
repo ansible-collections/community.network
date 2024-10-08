@@ -64,6 +64,21 @@ stages:
             - test: 5
             - test: extra
 
+  - stage: Sanity_2_18
+    displayName: Sanity 2.18
+    dependsOn: []
+    jobs:
+      - template: templates/matrix.yml
+        parameters:
+          nameFormat: Test {0}
+          testFormat: 2.18/sanity/{0}
+          targets:
+            - test: 1
+            - test: 2
+            - test: 3
+            - test: 4
+            - test: 5
+
   - stage: Sanity_2_17
     displayName: Sanity 2.17
     dependsOn: []
@@ -78,7 +93,6 @@ stages:
             - test: 3
             - test: 4
             - test: 5
-            - test: extra
 
   - stage: Sanity_2_16
     displayName: Sanity 2.16
@@ -94,7 +108,6 @@ stages:
             - test: 3
             - test: 4
             - test: 5
-            - test: extra
 
   - stage: Sanity_2_15
     displayName: Sanity 2.15
@@ -110,7 +123,6 @@ stages:
             - test: 3
             - test: 4
             - test: 5
-            - test: extra
 
 ### Units
   - stage: Units_devel
@@ -122,7 +134,18 @@ stages:
           nameFormat: Python {0}
           testFormat: devel/units/{0}/1
           targets:
-            - test: '3.10'
+            - test: '3.13'
+
+  - stage: Units_2_18
+    displayName: Units 2.18
+    dependsOn: []
+    jobs:
+      - template: templates/matrix.yml
+        parameters:
+          nameFormat: Python {0}
+          testFormat: 2.18/units/{0}/1
+          targets:
+            - test: '3.12'
 
   - stage: Units_2_17
     displayName: Units 2.17
@@ -133,7 +156,7 @@ stages:
           nameFormat: Python {0}
           testFormat: 2.17/units/{0}/1
           targets:
-            - test: '3.10'
+            - test: '3.11'
 
   - stage: Units_2_16
     displayName: Units 2.16
@@ -155,7 +178,7 @@ stages:
           nameFormat: Python {0}
           testFormat: 2.15/units/{0}/1
           targets:
-            - test: '3.10'
+            - test: '3.9'
 
 ### Cloud
   - stage: Cloud_devel
@@ -167,7 +190,18 @@ stages:
           nameFormat: Python {0}
           testFormat: devel/cloud/{0}/1
           targets:
-            - test: "3.10"
+            - test: "3.12"
+
+  - stage: Cloud_2_18
+    displayName: Cloud 2.18
+    dependsOn: []
+    jobs:
+      - template: templates/matrix.yml
+        parameters:
+          nameFormat: Python {0}
+          testFormat: 2.18/cloud/{0}/1
+          targets:
+            - test: "3.12"
 
   - stage: Cloud_2_17
     displayName: Cloud 2.17
@@ -178,7 +212,7 @@ stages:
           nameFormat: Python {0}
           testFormat: 2.17/cloud/{0}/1
           targets:
-            - test: "3.10"
+            - test: "3.11"
 
   - stage: Cloud_2_16
     displayName: Cloud 2.16
@@ -200,22 +234,24 @@ stages:
           nameFormat: Python {0}
           testFormat: 2.15/cloud/{0}/1
           targets:
-            - test: 3.9
-            - test: "3.10"
+            - test: "3.9"
 
 ### Finally
   - stage: Summary
     condition: succeededOrFailed()
     dependsOn:
       - Sanity_devel
+      - Sanity_2_18
       - Sanity_2_17
       - Sanity_2_16
       - Sanity_2_15
       - Units_devel
+      - Units_2_18
       - Units_2_17
       - Units_2_16
       - Units_2_15
       - Cloud_devel
+      - Cloud_2_18
       - Cloud_2_17
       - Cloud_2_16
       - Cloud_2_15

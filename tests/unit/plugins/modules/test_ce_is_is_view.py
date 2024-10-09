@@ -193,7 +193,7 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
         )
         set_module_args(config)
         result = self.execute_module(changed=True)
-        self.assertEquals(sorted(result['updates']), sorted(update))
+        self.assertEqual(sorted(result['updates']), sorted(update))
 
     def test_ce_is_is_view_no_changed(self):
         self.get_nc_config.side_effect = (self.after, self.after)

@@ -72,7 +72,7 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
         set_module_args(config)
         result = self.execute_module(changed=True)
         print(result['updates'])
-        self.assertEquals(sorted(result['updates']), sorted(update))
+        self.assertEqual(sorted(result['updates']), sorted(update))
 
     def test_isis_interface_absent(self):
         update = ['interface 10GE1/0/1',
@@ -97,4 +97,4 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
         )
         set_module_args(config)
         result = self.execute_module(changed=True)
-        self.assertEquals(sorted(result['updates']), sorted(update))
+        self.assertEqual(sorted(result['updates']), sorted(update))

@@ -55,7 +55,7 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
             state='present')
         )
         result = self.execute_module(changed=True)
-        self.assertEquals(sorted(result['updates']), sorted(update))
+        self.assertEqual(sorted(result['updates']), sorted(update))
 
     def test_multicast_undo_enable(self):
         update = ['undo multicast routing-enable']
@@ -66,4 +66,4 @@ class TestCloudEngineLacpModule(TestCloudEngineModule):
             state='absent')
         )
         result = self.execute_module(changed=True)
-        self.assertEquals(sorted(result['updates']), sorted(update))
+        self.assertEqual(sorted(result['updates']), sorted(update))

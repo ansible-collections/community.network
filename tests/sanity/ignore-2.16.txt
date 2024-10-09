@@ -252,7 +252,6 @@ plugins/modules/ce_command.py validate-modules:parameter-type-not-in-doc
 plugins/modules/ce_config.py validate-modules:doc-missing-type
 plugins/modules/ce_config.py validate-modules:parameter-list-no-elements
 plugins/modules/ce_config.py validate-modules:parameter-type-not-in-doc
-plugins/modules/ce_config.py validate-modules:undocumented-parameter
 plugins/modules/ce_dldp.py validate-modules:nonexistent-parameter-documented
 plugins/modules/ce_dldp.py validate-modules:parameter-type-not-in-doc
 plugins/modules/ce_dldp.py validate-modules:undocumented-parameter

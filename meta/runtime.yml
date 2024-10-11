@@ -1873,94 +1873,6 @@ plugin_routing:
         warning_text: You are using an internal name to access the community.network.ordnance_facts
           modules. This has never been supported or documented, and will stop working
           in community.network 8.0.0.
-    panos_admin:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_admpwd:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_cert_gen_ssh:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_check:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_commit:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_dag:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_dag_tags:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_import:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_interface:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_lic:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_loadcfg:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_match_rule:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_mgtconfig:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_nat_rule:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_object:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_op:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_pg:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_query_rules:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_restart:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_sag:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_security_rule:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
-    panos_set:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: Use modules from the paloaltonetworks.panos collection instead.
     network.netvisor.pn_access_list:
       redirect: community.network.pn_access_list
       deprecation:
@@ -1996,10 +1908,6 @@ plugin_routing:
         warning_text: You are using an internal name to access the community.network.pn_admin_syslog
           modules. This has never been supported or documented, and will stop working
           in community.network 8.0.0.
-    pn_cluster:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
     network.netvisor.pn_connection_stats_settings:
       redirect: community.network.pn_connection_stats_settings
       deprecation:
@@ -2084,14 +1992,6 @@ plugin_routing:
         warning_text: You are using an internal name to access the community.network.pn_log_audit_exception
           modules. This has never been supported or documented, and will stop working
           in community.network 8.0.0.
-    pn_ospf:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_ospfarea:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
     network.netvisor.pn_port_config:
       redirect: community.network.pn_port_config
       deprecation:
@@ -2134,10 +2034,6 @@ plugin_routing:
         warning_text: You are using an internal name to access the community.network.pn_role
           modules. This has never been supported or documented, and will stop working
           in community.network 8.0.0.
-    pn_show:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
     network.netvisor.pn_snmp_community:
       redirect: community.network.pn_snmp_community
       deprecation:
@@ -2180,10 +2076,6 @@ plugin_routing:
         warning_text: You are using an internal name to access the community.network.pn_switch_setup
           modules. This has never been supported or documented, and will stop working
           in community.network 8.0.0.
-    pn_trunk:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
     network.netvisor.pn_user:
       redirect: community.network.pn_user
       deprecation:
@@ -2198,18 +2090,6 @@ plugin_routing:
         warning_text: You are using an internal name to access the community.network.pn_vflow_table_profile
           modules. This has never been supported or documented, and will stop working
           in community.network 8.0.0.
-    pn_vlag:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_vlan:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_vrouter:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
     network.netvisor.pn_vrouter_bgp:
       redirect: community.network.pn_vrouter_bgp
       deprecation:
@@ -2266,18 +2146,6 @@ plugin_routing:
         warning_text: You are using an internal name to access the community.network.pn_vrouter_pim_config
           modules. This has never been supported or documented, and will stop working
           in community.network 8.0.0.
-    pn_vrouterbgp:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_vrouterif:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
-    pn_vrouterlbif:
-      tombstone:
-        removal_version: 2.0.0
-        warning_text: The module has been removed without a documented replacement.
     network.netvisor.pn_vtep:
       redirect: community.network.pn_vtep
       deprecation:
@@ -2434,11 +2302,6 @@ plugin_routing:
   cliconf:
     routeros:
       redirect: community.routeros.routeros
-  netconf:
-    sros:
-      tombstone:
-        removal_version: 3.0.0
-        warning_text: Use nokia.sros.md instead.
   terminal:
     routeros:
       redirect: community.routeros.routeros

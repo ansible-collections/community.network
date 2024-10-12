@@ -21,6 +21,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_vrf_af
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternatives: Unknown.
 short_description: Manages VPN instance address family on HUAWEI CloudEngine switches.
 description:
     - Manages VPN instance address family of HUAWEI CloudEngine switches.

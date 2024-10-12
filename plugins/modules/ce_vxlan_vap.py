@@ -25,7 +25,7 @@ module: ce_vxlan_vap
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manages VXLAN virtual access point on HUAWEI CloudEngine Devices.
 description:
     - Manages VXLAN Virtual access point on HUAWEI CloudEngine Devices.

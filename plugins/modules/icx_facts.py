@@ -11,7 +11,7 @@ module: icx_facts
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Ruckus Wireless (@Commscope)"
 short_description: Collect facts from remote Ruckus ICX 7000 series switches
 description:

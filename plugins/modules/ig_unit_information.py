@@ -14,7 +14,7 @@ module: ig_unit_information
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Get unit information from an Ingate SBC.
 description:
   - Get unit information from an Ingate SBC.

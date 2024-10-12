@@ -25,7 +25,7 @@ module: ce_vxlan_gateway
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manages gateway for the VXLAN network on HUAWEI CloudEngine devices.
 description:
     - Configuring Centralized All-Active Gateways or Distributed Gateway for

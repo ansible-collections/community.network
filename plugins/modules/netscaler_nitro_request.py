@@ -14,7 +14,7 @@ module: netscaler_nitro_request
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Issue Nitro API requests to a Netscaler instance.
 description:
     - Issue Nitro API requests to a Netscaler instance.

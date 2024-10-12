@@ -26,7 +26,7 @@ module: vdirect_file
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: Evgeny Fedoruk @ Radware LTD (@evgenyfedoruk)
 short_description: Uploads a new or updates an existing runnable file into Radware vDirect server
 description:

@@ -25,7 +25,7 @@ module: ce_eth_trunk
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manages Eth-Trunk interfaces on HUAWEI CloudEngine switches.
 description:
     - Manages Eth-Trunk specific configuration parameters on HUAWEI CloudEngine switches.

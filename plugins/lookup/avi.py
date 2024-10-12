@@ -8,7 +8,7 @@ DOCUMENTATION = '''
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 name: avi
 author: Sandeep Bandi (@sabandi) <sandeepb@avinetworks.com>
 short_description: Look up ``Avi`` objects.

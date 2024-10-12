@@ -29,7 +29,7 @@ module: cnos_system
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Anil Kumar Muraleedharan (@amuraleedhar)"
 short_description: Manage the system attributes on Lenovo CNOS devices
 description:

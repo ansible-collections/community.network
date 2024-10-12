@@ -14,7 +14,7 @@ module: dladm_linkprop
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manage link properties on Solaris/illumos systems.
 description:
     - Set / reset link properties on Solaris/illumos systems.

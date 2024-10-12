@@ -29,7 +29,7 @@ module: opx_cps
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Senthil Kumar Ganesan (@skg-net)"
 short_description: CPS operations on networking device running Openswitch (OPX)
 description:

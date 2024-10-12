@@ -12,7 +12,7 @@ module: pn_access_list_ip
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Pluribus Networks (@rajaspachipulusu17)"
 short_description: CLI command to add/remove access-list-ip
 description:

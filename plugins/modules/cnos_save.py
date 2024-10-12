@@ -30,7 +30,7 @@ module: cnos_save
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Anil Kumar Muraleedharan (@amuraleedhar)"
 short_description: Save the running configuration as the startup configuration
  on devices running Lenovo CNOS

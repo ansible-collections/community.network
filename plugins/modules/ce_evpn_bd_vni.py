@@ -25,7 +25,7 @@ module: ce_evpn_bd_vni
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manages EVPN VXLAN Network Identifier (VNI) on HUAWEI CloudEngine switches.
 description:
     - Manages Ethernet Virtual Private Network (EVPN) VXLAN Network

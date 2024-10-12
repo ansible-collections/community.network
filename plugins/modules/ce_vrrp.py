@@ -25,7 +25,7 @@ module: ce_vrrp
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manages VRRP interfaces on HUAWEI CloudEngine devices.
 description:
     - Manages VRRP interface attributes on HUAWEI CloudEngine devices.

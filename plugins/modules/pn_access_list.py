@@ -12,7 +12,7 @@ module: pn_access_list
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Pluribus Networks (@amitsi)"
 short_description: CLI command to create/delete access-list
 description:

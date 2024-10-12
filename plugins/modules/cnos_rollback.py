@@ -31,7 +31,7 @@ module: cnos_rollback
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Anil Kumar Muraleedharan (@amuraleedhar)"
 short_description: Roll back the running or startup configuration from a remote
  server on devices running Lenovo CNOS

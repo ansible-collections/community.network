@@ -26,7 +26,7 @@ module: ce_dldp_interface
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manages interface DLDP configuration on HUAWEI CloudEngine switches.
 description:
     - Manages interface DLDP configuration on HUAWEI CloudEngine switches.

@@ -12,7 +12,7 @@ module: icx_l3_interface
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Ruckus Wireless (@Commscope)"
 short_description: Manage Layer-3 interfaces on Ruckus ICX 7000 series switches
 description:

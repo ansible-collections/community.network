@@ -28,7 +28,7 @@ module: ftd_configuration
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manages configuration on Cisco FTD devices over REST API
 description:
   - Manages configuration on Cisco FTD devices including creating, updating, removing configuration objects,

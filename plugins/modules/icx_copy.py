@@ -11,7 +11,7 @@ module: icx_copy
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Ruckus Wireless (@Commscope)"
 short_description: Transfer files from or to remote Ruckus ICX 7000 series switches
 description:

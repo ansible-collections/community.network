@@ -9,7 +9,7 @@ DOCUMENTATION = '''
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: Ruckus Wireless (@Commscope)
 name: icx
 short_description: Use icx cliconf to run command on Ruckus ICX platform

@@ -14,7 +14,7 @@ module: netscaler_ssl_certkey
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manage ssl certificate keys.
 description:
     - Manage ssl certificate keys.

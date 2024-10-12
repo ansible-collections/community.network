@@ -12,7 +12,7 @@ module: icx_ping
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Ruckus Wireless (@Commscope)"
 short_description: Tests reachability using ping from Ruckus ICX 7000 series switches
 description:

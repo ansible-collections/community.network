@@ -12,7 +12,7 @@ module: pn_admin_session_timeout
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Pluribus Networks (@rajaspachipulusu17)"
 short_description: CLI command to modify admin-session-timeout
 description:

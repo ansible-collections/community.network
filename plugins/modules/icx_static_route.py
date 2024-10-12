@@ -12,7 +12,7 @@ module: icx_static_route
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Ruckus Wireless (@Commscope)"
 short_description: Manage static IP routes on Ruckus ICX 7000 series switches
 description:

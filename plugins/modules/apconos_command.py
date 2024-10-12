@@ -23,7 +23,7 @@ module: apconos_command
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 version_added: '0.2.0'
 author: "David Lee (@davidlee-ap)"
 short_description: Run arbitrary commands on APCON devices

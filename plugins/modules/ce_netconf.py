@@ -25,7 +25,7 @@ module: ce_netconf
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Run an arbitrary netconf command on HUAWEI CloudEngine switches.
 description:
     - Sends an arbitrary netconf command on HUAWEI CloudEngine switches.

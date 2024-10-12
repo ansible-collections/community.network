@@ -26,7 +26,7 @@ module: slxos_linkagg
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Matthew Stone (@bigmstone)"
 short_description: Manage link aggregation groups on Extreme Networks SLX-OS network devices
 description:

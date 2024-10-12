@@ -24,7 +24,7 @@ module: ce_rollback
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Set a checkpoint or rollback to a checkpoint on HUAWEI CloudEngine switches.
 description:
     - This module offers the ability to set a configuration checkpoint

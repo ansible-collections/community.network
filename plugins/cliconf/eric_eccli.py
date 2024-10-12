@@ -24,7 +24,7 @@ DOCUMENTATION = '''
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: Ericsson IPOS OAM team (!UNKNOWN)
 name: eric_eccli
 short_description: Use eccli cliconf to run command on Ericsson ECCLI platform

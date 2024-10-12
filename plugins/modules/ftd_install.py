@@ -28,7 +28,7 @@ module: ftd_install
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Installs FTD pkg image on the firewall
 description:
   - Provisioning module for FTD devices that installs ROMMON image (if needed) and

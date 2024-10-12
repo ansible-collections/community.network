@@ -33,7 +33,7 @@ module: cnos_vlan
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Anil Kumar Mureleedharan(@amuraleedhar)"
 short_description: Manage VLANs on CNOS network devices
 description:

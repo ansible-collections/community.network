@@ -26,7 +26,7 @@ module: voss_facts
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 author: "Lindsay Hill (@LindsayHill)"
 short_description: Collect facts from remote devices running Extreme VOSS
 description:

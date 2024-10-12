@@ -25,7 +25,7 @@ module: ce_evpn_bgp
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manages BGP EVPN configuration on HUAWEI CloudEngine switches.
 description:
     - This module offers the ability to configure a BGP EVPN peer relationship on HUAWEI CloudEngine switches.

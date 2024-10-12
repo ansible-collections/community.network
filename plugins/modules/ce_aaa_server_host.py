@@ -25,7 +25,7 @@ module: ce_aaa_server_host
 deprecated:
   removed_in: 6.0.0
   why: This collection and all content in it is unmaintained and deprecated.
-  alternatives: Unknown.
+  alternative: Unknown.
 short_description: Manages AAA server host configuration on HUAWEI CloudEngine switches.
 description:
     - Manages AAA server host configuration on HUAWEI CloudEngine switches.

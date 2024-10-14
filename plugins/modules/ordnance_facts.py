@@ -10,6 +10,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ordnance_facts
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Alexander Turner (@alexanderturner) <alex.turner@ordnance.io>"
 short_description: Collect facts from Ordnance Virtual Routers over SSH
 description:

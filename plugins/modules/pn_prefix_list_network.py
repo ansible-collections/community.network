@@ -8,6 +8,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: pn_prefix_list_network
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Pluribus Networks (@rajaspachipulusu17)"
 short_description: CLI command to add/remove prefix-list-network
 description:

@@ -23,6 +23,10 @@ DOCUMENTATION = '''
 ---
 
 module: ce_ntp_auth
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manages NTP authentication configuration on HUAWEI CloudEngine switches.
 description:
     - Manages NTP authentication configuration on HUAWEI CloudEngine switches.

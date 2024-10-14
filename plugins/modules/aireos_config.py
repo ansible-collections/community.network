@@ -10,6 +10,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: aireos_config
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "James Mighion (@jmighion)"
 short_description: Manage Cisco WLC configurations
 description:

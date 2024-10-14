@@ -24,6 +24,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: exos_facts
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author:
     - "Lance Richardson (@hlrichardson)"
     - "Ujwal Koamrla (@ujwalkomarla)"

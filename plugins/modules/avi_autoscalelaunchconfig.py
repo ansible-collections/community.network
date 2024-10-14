@@ -14,6 +14,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: avi_autoscalelaunchconfig
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: Chaitanya Deshpande (@chaitanyaavi) <chaitanya.deshpande@avinetworks.com>
 
 short_description: Module for setup of AutoScaleLaunchConfig Avi RESTful Object

@@ -32,6 +32,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: exos_lldp_global
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Configure and manage Link Layer Discovery Protocol(LLDP) attributes on EXOS platforms.
 description: This module configures and manages the Link Layer Discovery Protocol(LLDP) attributes on Extreme Networks EXOS platforms.
 author: Ujwal Komarla (@ujwalkomarla)

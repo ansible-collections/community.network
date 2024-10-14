@@ -22,6 +22,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_vlan
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manages VLAN resources and attributes on Huawei CloudEngine switches.
 description:
     - Manages VLAN configurations on Huawei CloudEngine switches.

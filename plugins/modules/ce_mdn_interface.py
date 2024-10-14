@@ -12,6 +12,10 @@ DOCUMENTATION = '''
 ---
 
 module: ce_mdn_interface
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 version_added: '0.2.0'
 short_description: Manages MDN configuration on HUAWEI CloudEngine switches.
 description:

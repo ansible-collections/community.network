@@ -22,6 +22,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_bfd_session
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manages BFD session configuration on HUAWEI CloudEngine devices.
 description:
     - Manages BFD session configuration, creates a BFD session or deletes a specified BFD session

@@ -25,6 +25,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ftd_file_download
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Downloads files from Cisco FTD devices over HTTP(S)
 description:
   - Downloads files from Cisco FTD devices including pending changes, disk files, certificates,

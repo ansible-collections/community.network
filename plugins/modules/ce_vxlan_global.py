@@ -22,6 +22,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_vxlan_global
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manages global attributes of VXLAN and bridge domain on HUAWEI CloudEngine devices.
 description:
     - Manages global attributes of VXLAN and bridge domain on HUAWEI CloudEngine devices.

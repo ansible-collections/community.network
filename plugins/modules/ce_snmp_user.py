@@ -22,6 +22,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_snmp_user
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manages SNMP user configuration on HUAWEI CloudEngine switches.
 description:
     - Manages SNMP user configurations on CloudEngine switches.

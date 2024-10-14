@@ -8,6 +8,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: voss_config
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Lindsay Hill (@LindsayHill)"
 short_description: Manage Extreme VOSS configuration sections
 description:

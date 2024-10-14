@@ -22,6 +22,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: cv_server_provision
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "EOS+ CS (ansible-dev@arista.com) (@mharista)"
 short_description:
     Provision server port by applying or removing template configuration to an

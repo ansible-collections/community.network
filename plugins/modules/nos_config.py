@@ -7,6 +7,10 @@ from __future__ import (absolute_import, division, print_function)
 DOCUMENTATION = '''
 ---
 module: nos_config
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Lindsay Hill (@LindsayHill)"
 short_description: Manage Extreme Networks NOS configuration sections
 description:

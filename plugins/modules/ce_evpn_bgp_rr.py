@@ -22,6 +22,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_evpn_bgp_rr
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manages RR for the VXLAN Network on HUAWEI CloudEngine switches.
 description:
     - Configure an RR in BGP-EVPN address family view on HUAWEI CloudEngine switches.

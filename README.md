@@ -1,5 +1,9 @@
 # Community Network Collection
 
+:warning: **DEPRECATED: This collection is not not actively maintained anymore.**
+
+For more information why we decided to deprecate the collection, please see [this thread](https://forum.ansible.com/t/8030).
+
 [![Build Status](https://dev.azure.com/ansible/community.network/_apis/build/status/CI?branchName=main)](https://dev.azure.com/ansible/community.network/_build?definitionId=32)
 [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/community.network)](https://codecov.io/gh/ansible-collections/community.network)
 

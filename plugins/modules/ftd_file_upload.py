@@ -25,6 +25,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ftd_file_upload
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Uploads files to Cisco FTD devices over HTTP(S)
 description:
   - Uploads files to Cisco FTD devices including disk files, backups, and upgrades.

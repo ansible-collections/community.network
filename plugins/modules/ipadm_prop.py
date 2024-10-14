@@ -11,6 +11,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ipadm_prop
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manage protocol properties on Solaris/illumos systems.
 description:
     - Modify protocol properties on Solaris/illumos systems.

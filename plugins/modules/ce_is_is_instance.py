@@ -11,6 +11,10 @@ __metaclass__ = type
 DOCUMENTATION = r'''
 ---
 module: ce_is_is_instance
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 version_added: '0.2.0'
 author: xuxiaowei0512 (@CloudEngine-Ansible)
 short_description: Manages isis process id configuration on HUAWEI CloudEngine devices.

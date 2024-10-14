@@ -24,6 +24,10 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 module: vdirect_runnable
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: Evgeny Fedoruk @ Radware LTD (@evgenyfedoruk)
 short_description: Runs templates and workflow actions in Radware vDirect server
 description:

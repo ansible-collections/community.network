@@ -11,6 +11,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: iap_token
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Itential (@cma0) <opensource@itential.com>"
 short_description: Get token for the Itential Automation Platform
 description:

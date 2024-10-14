@@ -11,6 +11,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: nuage_vspk
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manage Nuage VSP environments
 description:
     - Manage or find Nuage VSP entities, this includes create, update, delete, assign, unassign and find, with all supported properties.

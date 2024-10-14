@@ -22,6 +22,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_netstream_export
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manages netstream export on HUAWEI CloudEngine switches.
 description:
     - Configure NetStream flow statistics exporting and versions for exported packets on HUAWEI CloudEngine switches.

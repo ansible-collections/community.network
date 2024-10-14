@@ -11,6 +11,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: netscaler_save_config
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Save Netscaler configuration.
 description:
     - This module unconditionally saves the configuration on the target netscaler node.

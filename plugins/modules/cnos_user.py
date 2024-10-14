@@ -26,6 +26,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: cnos_user
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Anil Kumar Muraleedharan (@amuraleedhar)"
 short_description: Manage the collection of local users on Lenovo CNOS devices
 description:

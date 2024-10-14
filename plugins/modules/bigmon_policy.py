@@ -13,6 +13,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: bigmon_policy
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Ted (@tedelhourani)"
 short_description: Create and remove a bigmon out-of-band policy.
 description:

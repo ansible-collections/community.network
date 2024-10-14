@@ -7,6 +7,10 @@ from __future__ import (absolute_import, division, print_function)
 DOCUMENTATION = '''
 ---
 module: exos_config
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Lance Richardson (@hlrichardson)"
 short_description: Manage Extreme Networks EXOS configuration sections
 description:

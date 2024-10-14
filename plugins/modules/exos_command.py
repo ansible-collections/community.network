@@ -9,6 +9,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: exos_command
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Rafael D. Vencioneck (@rdvencioneck)"
 short_description: Run commands on remote devices running Extreme EXOS
 description:

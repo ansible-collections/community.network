@@ -23,6 +23,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: cnos_config
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Anil Kumar Muraleedharan (@amuraleedhar)"
 short_description: Manage Lenovo CNOS configuration sections
 description:

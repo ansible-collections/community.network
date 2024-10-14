@@ -23,6 +23,10 @@ DOCUMENTATION = '''
 ---
 
 module: ce_link_status
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Get interface link status on HUAWEI CloudEngine switches.
 description:
     - Get interface link status on HUAWEI CloudEngine switches.

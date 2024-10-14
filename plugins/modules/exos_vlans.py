@@ -32,6 +32,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: exos_vlans
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 version_added: '0.2.0'
 short_description:  Manage VLANs on Extreme Networks EXOS devices.
 description: This module provides declarative management of VLANs on Extreme Networks EXOS network devices.

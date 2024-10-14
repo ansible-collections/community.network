@@ -22,6 +22,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: ce_interface
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manages physical attributes of interfaces on HUAWEI CloudEngine switches.
 description:
     - Manages physical attributes of interfaces on HUAWEI CloudEngine switches.

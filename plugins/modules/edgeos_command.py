@@ -8,6 +8,10 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 module: edgeos_command
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author:
   - Chad Norgan (@beardymcbeards)
   - Sam Doran (@samdoran)

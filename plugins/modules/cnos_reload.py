@@ -27,6 +27,10 @@ __metaclass__ = type
 DOCUMENTATION = '''
 ---
 module: cnos_reload
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 author: "Anil Kumar Muraleedharan (@amuraleedhar)"
 short_description: Perform switch restart on devices running Lenovo CNOS
 description:

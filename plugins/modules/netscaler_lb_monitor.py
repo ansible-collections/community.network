@@ -10,6 +10,10 @@ __metaclass__ = type
 
 DOCUMENTATION = '''
 module: netscaler_lb_monitor
+deprecated:
+  removed_in: 6.0.0
+  why: This collection and all content in it is unmaintained and deprecated.
+  alternative: Unknown.
 short_description: Manage load balancing monitors
 description:
     - Manage load balancing monitors.

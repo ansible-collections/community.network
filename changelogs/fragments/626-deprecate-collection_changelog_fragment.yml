@@ -3,5 +3,5 @@ deprecated_features:
     (https://forum.ansible.com/t/8030).
     If you are interested in maintaining parts of the collection, please copy them to your own repository,
     and tell others about in the Forum discussion.
-    See the collection creator path for details
-    https://docs.ansible.com/ansible/devel/dev_guide/developing_collections_path.html.
+    See the `collection creator path <https://docs.ansible.com/ansible/devel/dev_guide/developing_collections_path.html>`__
+    for details.

@@ -6,6 +6,19 @@ Community Network Release Notes
 
 This changelog describes changes after version 4.0.0.
 
+v5.1.0
+======
+
+Release Summary
+---------------
+
+This is release 5.1.0 of the ``community.network`` collection which aims to announce the collection deprecation and does not contain any functional changes. See the changelog for details.
+
+Deprecated Features
+-------------------
+
+- This collection and all content in it is unmaintained and deprecated (https://forum.ansible.com/t/8030). If you are interested in maintaining parts of the collection, please copy them to your own repository, and tell others about in the Forum discussion. See the `collection creator path <https://docs.ansible.com/ansible/devel/dev_guide/developing_collections_path.html>`__ for details.
+
 v5.0.3
 ======
 

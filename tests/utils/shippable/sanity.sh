@@ -13,16 +13,6 @@ else
     base_branch=""
 fi
 
-if [ "${group}" == "extra" ]; then
-    pip install junit-xml --disable-pip-version-check
-
-    # ansible-galaxy -vvv collection install community.internal_test_tools
-    git clone --single-branch --depth 1 https://github.com/ansible-collections/community.internal_test_tools.git ../internal_test_tools
-
-    ../internal_test_tools/tools/run.py --color --bot --junit
-    exit
-fi
-
 case "${group}" in
     1) options=(--skip-test pylint --skip-test ansible-doc --skip-test validate-modules) ;;
     2) options=(                   --test      ansible-doc                             ) ;;

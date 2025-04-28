@@ -15,3 +15,11 @@ repository: https://github.com/ansible-collections/community.network
 documentation: https://docs.ansible.com/ansible/latest/collections/community/network/
 homepage: https://github.com/ansible-collections/community.network
 issues: https://github.com/ansible-collections/community.network/issues
+build_ignore:
+  - .azure-pipelines
+  - .github
+  - .gitignore
+  - changelogs
+  - CONTRIBUTING.md
+  - shippable.yml
+  - tests
